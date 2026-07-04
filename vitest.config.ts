@@ -20,6 +20,6 @@ export default defineConfig({
       "packages/**/src/**/*.test.ts",
       "benchmarks/**/tests/**/*.test.ts",
     ],
-    exclude: ["**/node_modules/**", "**/dist/**"],
+    exclude: ["**/node_modules/**", "**/dist/**", "benchmarks/**/runs/**"],
   },
 })
