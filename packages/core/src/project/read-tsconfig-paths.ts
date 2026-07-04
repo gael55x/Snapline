@@ -2,10 +2,15 @@ import fs from "node:fs"
 import path from "node:path"
 import ts from "typescript"
 
-/** Read `compilerOptions.paths` from tsconfig.json, e.g. { "@/*": ["./src/*"] }. */
+/**
+ * Read `compilerOptions.paths` from tsconfig.json, falling back to
+ * jsconfig.json — JavaScript Next.js projects declare aliases there.
+ */
 export function readTsconfigPaths(root: string): Record<string, readonly string[]> {
-  const file = path.join(root, "tsconfig.json")
-  if (!fs.existsSync(file)) return {}
+  const file = [path.join(root, "tsconfig.json"), path.join(root, "jsconfig.json")].find((p) =>
+    fs.existsSync(p),
+  )
+  if (file === undefined) return {}
   const result = ts.readConfigFile(file, (p) => fs.readFileSync(p, "utf8"))
   if (result.error || typeof result.config !== "object" || result.config === null) return {}
   const options = (result.config as { compilerOptions?: { paths?: unknown } }).compilerOptions

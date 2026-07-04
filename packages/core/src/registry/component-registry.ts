@@ -7,7 +7,7 @@ import type {
 } from "@usesnapline/contracts"
 import { resolveAlias } from "../project/read-tsconfig-paths.js"
 
-const RESOLVE_EXTENSIONS = [".tsx", ".ts", "/index.tsx", "/index.ts"]
+const RESOLVE_EXTENSIONS = [".tsx", ".ts", ".jsx", ".js", "/index.tsx", "/index.ts", "/index.jsx", "/index.js"]
 
 /**
  * Build the component registry from config. A component only participates in
