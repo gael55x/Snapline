@@ -6,10 +6,10 @@
   </defs>
   <rect width="760" height="364" fill="#ffffff"/>
   <text x="16" y="28" font-size="15" font-weight="bold" fill="#111" font-family="ui-sans-serif, system-ui">UI drift score (median, lower is better)</text>
-  <text x="16" y="46" font-size="11" fill="#666" font-family="ui-sans-serif, system-ui">agent-ui-drift-bench · no runs recorded yet · config da6de300d39ed56d · run "pnpm bench:agent -- --all"</text>
+  <text x="16" y="46" font-size="11" fill="#666" font-family="ui-sans-serif, system-ui">agent-ui-drift-bench · 2 runs · generated 2026-07-04T13:59:04.676Z · config da6de300d39ed56d · median, lower is better</text>
   <text x="222" y="77" text-anchor="end" font-size="12" fill="#333" font-family="ui-monospace, monospace">claude-raw</text>
-  <rect x="230" y="60" width="428" height="26" fill="url(#tbd)" opacity="0.35" rx="3"/>
-  <text x="238" y="77" font-size="12" fill="#888" font-family="ui-monospace, monospace">TBD — no runs recorded</text>
+  <rect x="230" y="60" width="2" height="26" fill="#64748b" rx="3"/>
+  <text x="240" y="77" font-size="12" fill="#333" font-family="ui-monospace, monospace">0.0</text>
   <text x="222" y="113" text-anchor="end" font-size="12" fill="#333" font-family="ui-monospace, monospace">claude-project-instructions</text>
   <rect x="230" y="96" width="428" height="26" fill="url(#tbd)" opacity="0.35" rx="3"/>
   <text x="238" y="113" font-size="12" fill="#888" font-family="ui-monospace, monospace">TBD — no runs recorded</text>
@@ -26,8 +26,8 @@
   <rect x="230" y="240" width="428" height="26" fill="url(#tbd)" opacity="0.35" rx="3"/>
   <text x="238" y="257" font-size="12" fill="#888" font-family="ui-monospace, monospace">TBD — no runs recorded</text>
   <text x="222" y="293" text-anchor="end" font-size="12" fill="#333" font-family="ui-monospace, monospace">claude-snapline</text>
-  <rect x="230" y="276" width="428" height="26" fill="url(#tbd)" opacity="0.35" rx="3"/>
-  <text x="238" y="293" font-size="12" fill="#888" font-family="ui-monospace, monospace">TBD — no runs recorded</text>
+  <rect x="230" y="276" width="2" height="26" fill="#0f766e" rx="3"/>
+  <text x="240" y="293" font-size="12" fill="#333" font-family="ui-monospace, monospace">0.0</text>
   <text x="222" y="329" text-anchor="end" font-size="12" fill="#333" font-family="ui-monospace, monospace">claude-shadcn-mcp-snapline</text>
   <rect x="230" y="312" width="428" height="26" fill="url(#tbd)" opacity="0.35" rx="3"/>
   <text x="238" y="329" font-size="12" fill="#888" font-family="ui-monospace, monospace">TBD — no runs recorded</text>

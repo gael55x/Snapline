@@ -18,6 +18,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "bench:static": "pnpm --filter agent-ui-drift-bench bench:static",
+    "bench:agent": "pnpm --filter agent-ui-drift-bench bench:agent",
+    "bench:report": "pnpm --filter agent-ui-drift-bench bench:report",
     "bench:graph": "pnpm --filter agent-ui-drift-bench bench:graph",
     "docs:check": "node scripts/check-docs.mjs",
     "changeset": "changeset",
