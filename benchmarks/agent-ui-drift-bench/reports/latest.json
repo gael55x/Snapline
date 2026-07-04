@@ -1,0 +1,49 @@
+{
+  "benchmark": "agent-ui-drift-bench",
+  "generatedAt": "no runs recorded",
+  "configHash": "da6de300d39ed56d",
+  "scorer": "ui-drift-score-v1",
+  "modes": [
+    {
+      "mode": "claude-raw",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-project-instructions",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-shadcn-mcp",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-tailwind-eslint",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-buoy",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-drift-guard",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-snapline",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-shadcn-mcp-snapline",
+      "runs": 0,
+      "failures": 0
+    }
+  ],
+  "runs": []
+}

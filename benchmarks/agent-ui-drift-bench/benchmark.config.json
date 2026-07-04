@@ -1,0 +1,19 @@
+{
+  "benchmark": "agent-ui-drift-bench",
+  "scorer": "ui-drift-score-v1",
+  "runsPerMode": 3,
+  "model": "claude-sonnet-5",
+  "agentCommand": "claude",
+  "fixtures": ["next-shadcn-basic", "next-shadcn-custom-theme", "next-shadcn-dashboard-app"],
+  "modes": [
+    "claude-raw",
+    "claude-project-instructions",
+    "claude-shadcn-mcp",
+    "claude-tailwind-eslint",
+    "claude-buoy",
+    "claude-drift-guard",
+    "claude-snapline",
+    "claude-shadcn-mcp-snapline"
+  ],
+  "minRunsForPublicGraph": 3
+}
