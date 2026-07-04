@@ -168,4 +168,15 @@ describe("installClaudeHooks", () => {
         .hooks.PostToolUse,
     ).toHaveLength(2)
   })
+
+  it("uses npx --no-install for project-local installs (hook shells lack node_modules/.bin on PATH)", () => {
+    const binDir = path.join(tmp, "node_modules", ".bin")
+    fs.mkdirSync(binDir, { recursive: true })
+    fs.writeFileSync(path.join(binDir, "snapline"), "#!/bin/sh\n")
+    installClaudeHooks(tmp)
+    const settings = fs.readFileSync(path.join(tmp, ".claude", "settings.json"), "utf8")
+    expect(settings).toContain("npx --no-install snapline hook claude post-tool-use")
+    expect(settings).toContain("npx --no-install snapline hook claude stop")
+    expect(claudeHooksInstalled(tmp)).toBe(true)
+  })
 })

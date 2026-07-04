@@ -4,10 +4,17 @@ import { loadConfig } from "../config.js"
 import { buildScanDeps, scanFiles, isScannableFile } from "../scanner/scan-project.js"
 import { decideFromScan } from "./decide.js"
 
-/** Changed + untracked files per git, project-root-relative. Empty when not a git repo. */
+/**
+ * Changed + untracked files per git, relative to cwd. --relative keeps paths
+ * correct when the project lives in a subdirectory of the git root (monorepos).
+ * Empty when not a git repo.
+ */
 export function gitChangedFiles(cwd: string): string[] {
   try {
-    const tracked = execFileSync("git", ["diff", "--name-only", "HEAD"], { cwd, encoding: "utf8" })
+    const tracked = execFileSync("git", ["diff", "--relative", "--name-only", "HEAD"], {
+      cwd,
+      encoding: "utf8",
+    })
     const untracked = execFileSync("git", ["ls-files", "--others", "--exclude-standard"], {
       cwd,
       encoding: "utf8",

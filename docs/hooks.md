@@ -25,6 +25,11 @@ How Snapline wires into agent lifecycles and what travels across the boundary.
 }
 ```
 
+When the project has a local install (`node_modules/.bin/snapline` exists at
+install time), the commands are written as `npx --no-install snapline hook ...`
+instead — hook commands run in a plain shell where a project-local bin is not
+on PATH. A bare `snapline` is only written for global installs.
+
 The plugin variant ships the same two hooks in `hooks/hooks.json`, pointing at
 launcher scripts via `${CLAUDE_PLUGIN_ROOT}` — see [claude.md](claude.md).
 

@@ -47,15 +47,24 @@ export function captureHelp(fixtureDir: string, bin: string): void {
   )
 }
 
-/** Install the workspace Snapline CLI into the fixture and wire Claude hooks. */
+/**
+ * Install the workspace Snapline CLI into the fixture and wire Claude hooks.
+ * The fixture is a pnpm workspace member inside the fresh clone, so the CLI is
+ * added as a workspace dependency (npm cannot resolve workspace:* protocols).
+ */
 export function installSnapline(fixtureDir: string, repoRoot: string): void {
-  const cliDir = path.join(repoRoot, "packages", "cli")
-  execFileSync("npm", ["install", "--save-dev", "--no-audit", "--no-fund", cliDir], {
-    cwd: fixtureDir,
+  const pkgPath = path.join(fixtureDir, "package.json")
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf8")) as {
+    devDependencies?: Record<string, string>
+  }
+  pkg.devDependencies = { ...pkg.devDependencies, "@usesnapline/cli": "workspace:*" }
+  fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n")
+  execFileSync("pnpm", ["install", "--no-frozen-lockfile", "--prefer-offline"], {
+    cwd: repoRoot,
     stdio: "pipe",
-    timeout: 180000,
+    timeout: 300000,
   })
-  execFileSync("npx", ["--no-install", "snapline", "init", "--claude"], {
+  execFileSync(path.join(fixtureDir, "node_modules", ".bin", "snapline"), ["init", "--claude"], {
     cwd: fixtureDir,
     stdio: "pipe",
     timeout: 60000,

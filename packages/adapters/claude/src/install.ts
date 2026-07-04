@@ -5,7 +5,41 @@ import path from "node:path"
  * Hook entries written into .claude/settings.json. The commands call the
  * Snapline CLI, which reads the official hook payload from stdin.
  * Reference: https://code.claude.com/docs/en/hooks
+ *
+ * Hook commands run in a plain shell where a project-local node_modules/.bin
+ * is NOT on PATH, so when the project has a local install we go through
+ * `npx --no-install`; a bare `snapline` is only written for global installs.
  */
+function hookCommands(root: string): { postToolUse: string; stop: string } {
+  const hasLocalInstall = fs.existsSync(path.join(root, "node_modules", ".bin", "snapline"))
+  const bin = hasLocalInstall ? "npx --no-install snapline" : "snapline"
+  return {
+    postToolUse: `${bin} hook claude post-tool-use`,
+    stop: `${bin} hook claude stop`,
+  }
+}
+
+export function claudeHooksSettings(root: string): {
+  PostToolUse: unknown[]
+  Stop: unknown[]
+} {
+  const commands = hookCommands(root)
+  return {
+    PostToolUse: [
+      {
+        matcher: "Write|Edit|MultiEdit",
+        hooks: [{ type: "command", command: commands.postToolUse }],
+      },
+    ],
+    Stop: [
+      {
+        hooks: [{ type: "command", command: commands.stop }],
+      },
+    ],
+  }
+}
+
+/** Default hook entries (global-install form). Kept for reference and docs. */
 export const CLAUDE_HOOKS_SETTINGS = {
   PostToolUse: [
     {
@@ -47,7 +81,7 @@ export function installClaudeHooks(root: string): InstallResult {
   }
   const hooks = (settings.hooks ??= {})
   let changed = false
-  for (const [event, entries] of Object.entries(CLAUDE_HOOKS_SETTINGS)) {
+  for (const [event, entries] of Object.entries(claudeHooksSettings(root))) {
     const existing = (hooks[event] ??= [])
     if (!hasSnaplineHook(existing)) {
       existing.push(...entries)
