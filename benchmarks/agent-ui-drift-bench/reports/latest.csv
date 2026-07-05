@@ -1,9 +1,9 @@
 mode,runs,failures,driftScoreMedian,totalViolationsMedian,componentReuseRateMedian,buildPassRate,repairIterationsMedian,totalWallTimeSecondsMedian
-claude-raw,2,0,10,2.5,1,1,0,276
+claude-raw,13,0,0,0,1,1,0,316
 claude-project-instructions,0,0,,,,,,
 claude-shadcn-mcp,0,0,,,,,,
-claude-tailwind-eslint,0,0,,,,,,
+claude-tailwind-eslint,6,0,0,0,1,1,0,438
 claude-buoy,0,0,,,,,,
 claude-drift-guard,0,0,,,,,,
-claude-snapline,2,0,0,0,1,1,0,401.5
+claude-snapline,7,0,0,0,1,1,0,381
 claude-shadcn-mcp-snapline,0,0,,,,,,

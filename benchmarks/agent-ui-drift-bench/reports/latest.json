@@ -1,20 +1,20 @@
 {
   "benchmark": "agent-ui-drift-bench",
-  "generatedAt": "2026-07-05T00:12:01.995Z",
+  "generatedAt": "2026-07-05T01:13:46.806Z",
   "configHash": "da6de300d39ed56d",
   "scorer": "ui-drift-score-v1",
   "modes": [
     {
       "mode": "claude-raw",
-      "runs": 2,
+      "runs": 13,
       "failures": 0,
       "median": {
-        "driftScore": 10,
-        "totalViolations": 2.5,
+        "driftScore": 0,
+        "totalViolations": 0,
         "componentReuseRate": 1,
         "buildPassRate": 1,
         "repairIterations": 0,
-        "totalWallTimeSeconds": 276
+        "totalWallTimeSeconds": 316
       }
     },
     {
@@ -29,8 +29,16 @@
     },
     {
       "mode": "claude-tailwind-eslint",
-      "runs": 0,
-      "failures": 0
+      "runs": 6,
+      "failures": 0,
+      "median": {
+        "driftScore": 0,
+        "totalViolations": 0,
+        "componentReuseRate": 1,
+        "buildPassRate": 1,
+        "repairIterations": 0,
+        "totalWallTimeSeconds": 438
+      }
     },
     {
       "mode": "claude-buoy",
@@ -44,7 +52,7 @@
     },
     {
       "mode": "claude-snapline",
-      "runs": 2,
+      "runs": 7,
       "failures": 0,
       "median": {
         "driftScore": 0,
@@ -52,7 +60,7 @@
         "componentReuseRate": 1,
         "buildPassRate": 1,
         "repairIterations": 0,
-        "totalWallTimeSeconds": 401.5
+        "totalWallTimeSeconds": 381
       }
     },
     {
@@ -100,6 +108,228 @@
       "gitDiffPath": "runs/claude-raw--login-page--1/diff.patch"
     },
     {
+      "id": "claude-raw--onboarding-cleanup--1",
+      "timestamp": "2026-07-05T01:07:54.614Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 31,
+        "filesTouched": 0
+      },
+      "rawOutputPaths": [
+        "runs/claude-raw--onboarding-cleanup--1/agent-stdout.txt",
+        "runs/claude-raw--onboarding-cleanup--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-raw--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs/claude-raw--onboarding-cleanup--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--onboarding-cleanup--2",
+      "timestamp": "2026-07-05T01:08:28.095Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 316,
+        "filesTouched": 0
+      },
+      "rawOutputPaths": [
+        "runs/claude-raw--onboarding-cleanup--2/agent-stdout.txt",
+        "runs/claude-raw--onboarding-cleanup--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-raw--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs/claude-raw--onboarding-cleanup--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--onboarding-cleanup--3",
+      "timestamp": "2026-07-05T01:13:46.806Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 39,
+        "filesTouched": 0
+      },
+      "rawOutputPaths": [
+        "runs/claude-raw--onboarding-cleanup--3/agent-stdout.txt",
+        "runs/claude-raw--onboarding-cleanup--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-raw--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs/claude-raw--onboarding-cleanup--3/diff.patch"
+    },
+    {
+      "id": "claude-raw--polished-settings-page--1",
+      "timestamp": "2026-07-05T00:38:33.434Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 194,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs/claude-raw--polished-settings-page--1/agent-stdout.txt",
+        "runs/claude-raw--polished-settings-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-raw--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs/claude-raw--polished-settings-page--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--polished-settings-page--2",
+      "timestamp": "2026-07-05T00:41:49.918Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 327,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs/claude-raw--polished-settings-page--2/agent-stdout.txt",
+        "runs/claude-raw--polished-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-raw--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs/claude-raw--polished-settings-page--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--polished-settings-page--3",
+      "timestamp": "2026-07-05T00:47:19.682Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 149,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs/claude-raw--polished-settings-page--3/agent-stdout.txt",
+        "runs/claude-raw--polished-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-raw--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs/claude-raw--polished-settings-page--3/diff.patch"
+    },
+    {
       "id": "claude-raw--premium-dashboard--1",
       "timestamp": "2026-07-05T00:06:00.682Z",
       "mode": "claude-raw",
@@ -135,6 +365,191 @@
       ],
       "scannerJsonPath": "runs/claude-raw--premium-dashboard--1/scanner.json",
       "gitDiffPath": "runs/claude-raw--premium-dashboard--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--premium-dashboard--2",
+      "timestamp": "2026-07-05T00:22:09.389Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 652,
+        "filesTouched": 14
+      },
+      "rawOutputPaths": [
+        "runs/claude-raw--premium-dashboard--2/agent-stdout.txt",
+        "runs/claude-raw--premium-dashboard--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-raw--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs/claude-raw--premium-dashboard--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--premium-dashboard--3",
+      "timestamp": "2026-07-05T00:33:09.040Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 322,
+        "filesTouched": 8
+      },
+      "rawOutputPaths": [
+        "runs/claude-raw--premium-dashboard--3/agent-stdout.txt",
+        "runs/claude-raw--premium-dashboard--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-raw--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs/claude-raw--premium-dashboard--3/diff.patch"
+    },
+    {
+      "id": "claude-raw--pricing-cards-polish--1",
+      "timestamp": "2026-07-05T00:49:51.207Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 433,
+        "filesTouched": 0
+      },
+      "rawOutputPaths": [
+        "runs/claude-raw--pricing-cards-polish--1/agent-stdout.txt",
+        "runs/claude-raw--pricing-cards-polish--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-raw--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs/claude-raw--pricing-cards-polish--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--pricing-cards-polish--2",
+      "timestamp": "2026-07-05T00:57:06.628Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 87,
+        "filesTouched": 0
+      },
+      "rawOutputPaths": [
+        "runs/claude-raw--pricing-cards-polish--2/agent-stdout.txt",
+        "runs/claude-raw--pricing-cards-polish--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-raw--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs/claude-raw--pricing-cards-polish--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--pricing-cards-polish--3",
+      "timestamp": "2026-07-05T00:58:36.331Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 556,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-raw--pricing-cards-polish--3/agent-stdout.txt",
+        "runs/claude-raw--pricing-cards-polish--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-raw--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs/claude-raw--pricing-cards-polish--3/diff.patch"
     },
     {
       "id": "claude-snapline--login-page--1",
@@ -174,6 +589,117 @@
       "gitDiffPath": "runs/claude-snapline--login-page--1/diff.patch"
     },
     {
+      "id": "claude-snapline--polished-settings-page--1",
+      "timestamp": "2026-07-05T00:42:16.365Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 154,
+        "totalWallTimeSeconds": 211,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs/claude-snapline--polished-settings-page--1/agent-stdout.txt",
+        "runs/claude-snapline--polished-settings-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-snapline--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs/claude-snapline--polished-settings-page--1/diff.patch"
+    },
+    {
+      "id": "claude-snapline--polished-settings-page--2",
+      "timestamp": "2026-07-05T00:45:49.570Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 94,
+        "totalWallTimeSeconds": 209,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs/claude-snapline--polished-settings-page--2/agent-stdout.txt",
+        "runs/claude-snapline--polished-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-snapline--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs/claude-snapline--polished-settings-page--2/diff.patch"
+    },
+    {
+      "id": "claude-snapline--polished-settings-page--3",
+      "timestamp": "2026-07-05T00:49:21.086Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 1,
+        "hookRuntimeMs": 171,
+        "totalWallTimeSeconds": 639,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-snapline--polished-settings-page--3/agent-stdout.txt",
+        "runs/claude-snapline--polished-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-snapline--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs/claude-snapline--polished-settings-page--3/diff.patch"
+    },
+    {
       "id": "claude-snapline--premium-dashboard--1",
       "timestamp": "2026-07-05T00:12:01.995Z",
       "mode": "claude-snapline",
@@ -209,6 +735,302 @@
       ],
       "scannerJsonPath": "runs/claude-snapline--premium-dashboard--1/scanner.json",
       "gitDiffPath": "runs/claude-snapline--premium-dashboard--1/diff.patch"
+    },
+    {
+      "id": "claude-snapline--premium-dashboard--2",
+      "timestamp": "2026-07-05T00:22:09.389Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 3,
+        "hookRuntimeMs": 990,
+        "totalWallTimeSeconds": 821,
+        "filesTouched": 14
+      },
+      "rawOutputPaths": [
+        "runs/claude-snapline--premium-dashboard--2/agent-stdout.txt",
+        "runs/claude-snapline--premium-dashboard--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-snapline--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs/claude-snapline--premium-dashboard--2/diff.patch"
+    },
+    {
+      "id": "claude-snapline--premium-dashboard--3",
+      "timestamp": "2026-07-05T00:35:52.993Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 1,
+        "hookRuntimeMs": 235,
+        "totalWallTimeSeconds": 381,
+        "filesTouched": 6
+      },
+      "rawOutputPaths": [
+        "runs/claude-snapline--premium-dashboard--3/agent-stdout.txt",
+        "runs/claude-snapline--premium-dashboard--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-snapline--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs/claude-snapline--premium-dashboard--3/diff.patch"
+    },
+    {
+      "id": "claude-tailwind-eslint--polished-settings-page--1",
+      "timestamp": "2026-07-05T00:47:06.631Z",
+      "mode": "claude-tailwind-eslint",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 161,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs/claude-tailwind-eslint--polished-settings-page--1/agent-stdout.txt",
+        "runs/claude-tailwind-eslint--polished-settings-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-tailwind-eslint--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs/claude-tailwind-eslint--polished-settings-page--1/diff.patch"
+    },
+    {
+      "id": "claude-tailwind-eslint--polished-settings-page--2",
+      "timestamp": "2026-07-05T00:49:50.916Z",
+      "mode": "claude-tailwind-eslint",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 1043,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs/claude-tailwind-eslint--polished-settings-page--2/agent-stdout.txt",
+        "runs/claude-tailwind-eslint--polished-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-tailwind-eslint--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs/claude-tailwind-eslint--polished-settings-page--2/diff.patch"
+    },
+    {
+      "id": "claude-tailwind-eslint--polished-settings-page--3",
+      "timestamp": "2026-07-05T01:07:16.614Z",
+      "mode": "claude-tailwind-eslint",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 272,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs/claude-tailwind-eslint--polished-settings-page--3/agent-stdout.txt",
+        "runs/claude-tailwind-eslint--polished-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-tailwind-eslint--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs/claude-tailwind-eslint--polished-settings-page--3/diff.patch"
+    },
+    {
+      "id": "claude-tailwind-eslint--premium-dashboard--1",
+      "timestamp": "2026-07-05T00:22:09.400Z",
+      "mode": "claude-tailwind-eslint",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 4,
+          "totalViolations": 1,
+          "errorViolations": 0,
+          "warningViolations": 1,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 1,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 372,
+        "filesTouched": 10
+      },
+      "rawOutputPaths": [
+        "runs/claude-tailwind-eslint--premium-dashboard--1/agent-stdout.txt",
+        "runs/claude-tailwind-eslint--premium-dashboard--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-tailwind-eslint--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs/claude-tailwind-eslint--premium-dashboard--1/diff.patch"
+    },
+    {
+      "id": "claude-tailwind-eslint--premium-dashboard--2",
+      "timestamp": "2026-07-05T00:28:26.216Z",
+      "mode": "claude-tailwind-eslint",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 504,
+        "filesTouched": 14
+      },
+      "rawOutputPaths": [
+        "runs/claude-tailwind-eslint--premium-dashboard--2/agent-stdout.txt",
+        "runs/claude-tailwind-eslint--premium-dashboard--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-tailwind-eslint--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs/claude-tailwind-eslint--premium-dashboard--2/diff.patch"
+    },
+    {
+      "id": "claude-tailwind-eslint--premium-dashboard--3",
+      "timestamp": "2026-07-05T00:36:53.484Z",
+      "mode": "claude-tailwind-eslint",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 610,
+        "filesTouched": 13
+      },
+      "rawOutputPaths": [
+        "runs/claude-tailwind-eslint--premium-dashboard--3/agent-stdout.txt",
+        "runs/claude-tailwind-eslint--premium-dashboard--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-tailwind-eslint--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs/claude-tailwind-eslint--premium-dashboard--3/diff.patch"
     }
   ]
 }
