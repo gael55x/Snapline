@@ -62,12 +62,18 @@ export function buildReport(runs: readonly BenchmarkRun[]): BenchmarkReport {
   const { config, configHash } = loadBenchConfig()
   const generatedAt =
     runs.length > 0 ? [...runs.map((r) => r.timestamp)].sort().at(-1)! : "no runs recorded"
+  const configuredModes = config.modes as readonly BenchmarkMode[]
+  const observedModes = [...new Set(runs.map((r) => r.mode))].sort()
+  const modes = [
+    ...configuredModes,
+    ...observedModes.filter((mode) => !configuredModes.includes(mode)),
+  ]
   return {
     benchmark: "agent-ui-drift-bench",
     generatedAt,
     configHash,
     scorer: "ui-drift-score-v1",
-    modes: config.modes.map((m) => summarizeMode(m as BenchmarkMode, runs)),
+    modes: modes.map((m) => summarizeMode(m, runs)),
     runs,
   }
 }
@@ -78,6 +84,14 @@ function fmt(n: number | undefined, digits = 1): string {
 
 export function reportMarkdown(report: BenchmarkReport): string {
   const models = [...new Set(report.runs.map((r) => r.model))].sort()
+  const agents = [...new Set(report.runs.map((r) => r.agent))].sort()
+  const agentLabels = agents.map((agent) =>
+    agent === "codex"
+      ? 'Codex CLI, codex exec --sandbox workspace-write -c approval_policy="never"'
+      : agent === "claude"
+        ? "Claude Code CLI, permission mode acceptEdits"
+        : "Cursor",
+  )
   const lines = [
     "# agent-ui-drift-bench — latest report",
     "",
@@ -85,7 +99,7 @@ export function reportMarkdown(report: BenchmarkReport): string {
     `- config hash: ${report.configHash}`,
     `- scorer: ${report.scorer}`,
     `- model(s): ${models.length > 0 ? models.join(", ") : "none"}`,
-    `- agent: Claude Code CLI, permission mode acceptEdits`,
+    `- agent(s): ${agentLabels.length > 0 ? agentLabels.join("; ") : "none"}`,
     `- total runs: ${report.runs.length}`,
     "",
     "| mode | runs | failures | drifted runs | worst drift | drift score (median) | component reuse (median) | build pass | wall time (s) |",

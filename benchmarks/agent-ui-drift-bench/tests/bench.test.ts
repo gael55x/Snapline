@@ -62,8 +62,9 @@ describe("prompts", () => {
 })
 
 describe("modes", () => {
-  it("registers all eight config modes", () => {
-    expect(ALL_MODES).toHaveLength(8)
+  it("registers all eight Claude config modes plus Codex slice modes", () => {
+    expect(ALL_MODES.filter((mode) => mode.agent === "claude")).toHaveLength(8)
+    expect(ALL_MODES).toHaveLength(10)
     for (const id of [
       "claude-raw",
       "claude-project-instructions",
@@ -76,6 +77,8 @@ describe("modes", () => {
     ]) {
       expect(resolveMode(id).id).toBe(id)
     }
+    expect(resolveMode("codex-raw").agent).toBe("codex")
+    expect(resolveMode("codex-snapline").agent).toBe("codex")
     expect(() => resolveMode("nope")).toThrow(/Unknown mode/)
   })
 })
@@ -116,6 +119,19 @@ describe("report + graph smoke (one sample, two modes)", () => {
     expect(md).toContain("| claude-raw | 3 | 0 | 100% | 171 | 171.0 |")
     expect(md).toContain("| claude-buoy | 0 | 0 | TBD | TBD | TBD |")
     expect(md).toContain("never fabricated")
+  })
+
+  it("report includes observed non-config modes", () => {
+    const codexRun: BenchmarkRun = {
+      ...clean[0]!,
+      id: "codex-raw--smoke--1",
+      mode: "codex-raw",
+      agent: "codex",
+      model: "gpt-5.5",
+    }
+    const md = reportMarkdown(buildReport([codexRun]))
+    expect(md).toContain("| codex-raw | 1 | 0 | 0% | 0 | 0.0 |")
+    expect(md).toContain('Codex CLI, codex exec --sandbox workspace-write -c approval_policy="never"')
   })
 
   it("summaries carry the tail distribution (drift rate + worst)", () => {

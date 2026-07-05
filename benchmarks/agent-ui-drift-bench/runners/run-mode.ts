@@ -8,6 +8,8 @@ import { claudeBuoy } from "../modes/claude-buoy.js"
 import { claudeDriftGuard } from "../modes/claude-drift-guard.js"
 import { claudeSnapline } from "../modes/claude-snapline.js"
 import { claudeShadcnMcpSnapline } from "../modes/claude-shadcn-mcp-snapline.js"
+import { codexRaw } from "../modes/codex-raw.js"
+import { codexSnapline } from "../modes/codex-snapline.js"
 
 export const ALL_MODES: readonly BenchMode[] = [
   claudeRaw,
@@ -18,6 +20,8 @@ export const ALL_MODES: readonly BenchMode[] = [
   claudeDriftGuard,
   claudeSnapline,
   claudeShadcnMcpSnapline,
+  codexRaw,
+  codexSnapline,
 ]
 
 export function resolveMode(id: string): BenchMode {

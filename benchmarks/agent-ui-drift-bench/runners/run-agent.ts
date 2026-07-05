@@ -18,9 +18,11 @@
  */
 import { execFileSync, spawnSync } from "node:child_process"
 import fs from "node:fs"
+import { homedir } from "node:os"
 import path from "node:path"
 import process from "node:process"
 import type { BenchmarkMode, BenchmarkRun } from "@usesnapline/contracts"
+import type { BenchMode } from "../modes/types.js"
 import { loadBenchConfig, loadPrompt, listPromptIds, benchRoot, repoRoot } from "./config.js"
 import { resolveMode } from "./run-mode.js"
 import { scoreOutput, typecheckPass, filesTouched } from "./score-output.js"
@@ -33,9 +35,28 @@ interface RunSpec {
   readonly model?: string
 }
 
-function runsDirFor(model: string | undefined): string {
-  if (model === undefined) return "runs"
-  return `runs-${model.replace(/[^a-z0-9.-]/gi, "-")}`
+function dirSegment(value: string): string {
+  return value.replace(/[^a-z0-9.-]/gi, "-")
+}
+
+function runsDirFor(agent: BenchMode["agent"], model: string | undefined): string {
+  const parts = [agent === "claude" ? undefined : agent, model?.trim() || undefined]
+  const suffix = parts.filter((part): part is string => part !== undefined).map(dirSegment).join("-")
+  return suffix.length === 0 ? "runs" : `runs-${suffix}`
+}
+
+function codexDefaultModel(): string {
+  const codeHome = process.env.CODEX_HOME ?? path.join(homedir(), ".codex")
+  const configPath = path.join(codeHome, "config.toml")
+  const config = fs.readFileSync(configPath, "utf8")
+  const match = /^\s*model\s*=\s*["']([^"']+)["']\s*$/m.exec(config)
+  if (match === null) throw new Error(`Codex model not found in ${configPath}`)
+  return match[1]!
+}
+
+function modelFor(mode: BenchMode, override: string | undefined, configModel: string): string {
+  if (override !== undefined) return override
+  return mode.agent === "codex" ? codexDefaultModel() : configModel
 }
 
 function git(cwd: string, args: string[]): string {
@@ -44,11 +65,17 @@ function git(cwd: string, args: string[]): string {
 
 function runOne(spec: RunSpec, dryRun: boolean): void {
   const { config } = loadBenchConfig()
-  const model = spec.model ?? config.model
   const mode = resolveMode(spec.mode)
+  let model = spec.model ?? config.model
+  let preflightFailure: string | undefined
+  try {
+    model = modelFor(mode, spec.model, config.model)
+  } catch (error) {
+    preflightFailure = error instanceof Error ? error.message : String(error)
+  }
   const prompt = loadPrompt(spec.promptId)
   const runId = `${spec.mode}--${spec.promptId}--${spec.attempt}`
-  const runDir = path.join(benchRoot, runsDirFor(spec.model), runId)
+  const runDir = path.join(benchRoot, runsDirFor(mode.agent, spec.model), runId)
   if (dryRun) {
     process.stdout.write(`[dry-run] ${runId} fixture=${prompt.fixture} model=${model}\n`)
     return
@@ -65,6 +92,7 @@ function runOne(spec: RunSpec, dryRun: boolean): void {
   const hookLog = path.join(runDir, "hook-log.jsonl")
 
   try {
+    if (preflightFailure !== undefined) throw new Error(preflightFailure)
     // 1-2. fresh checkout + install. With SNAPLINE_BENCH_TEMPLATE set, a
     // byte-identical copy-on-write copy (APFS clonefile) of a pristine
     // installed+built checkout replaces the per-cell clone+install+build —
@@ -147,7 +175,7 @@ function runOne(spec: RunSpec, dryRun: boolean): void {
     promptId: prompt.id,
     attempt: spec.attempt,
     model,
-    agent: "claude",
+    agent: mode.agent,
     result: {
       score: scan?.score ?? {
         driftScore: 0,
