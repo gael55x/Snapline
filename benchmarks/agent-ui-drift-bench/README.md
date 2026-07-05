@@ -64,3 +64,8 @@ the run has not happened yet.
 - `runs-data-haiku/` + `reports/latest-haiku.*`: cross-model slice,
   `claude-haiku-4-5-20251001`, raw vs gated (60 runs); full archive on the
   release as `agent-ui-drift-bench-haiku45-full.tar.gz`.
+- `runs-data-codex/` + `reports/latest-codex.*`: cross-agent slice, Codex CLI
+  (`gpt-5.5`), instruction-level Snapline (no hook gate exists for Codex);
+  44/60 valid cells — 15 failed on account quota/timeout, recorded with
+  reasons, one-retry pass deferred to quota reset. Full archive on the release
+  as `agent-ui-drift-bench-codex-gpt55-full.tar.gz`.

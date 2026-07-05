@@ -1,0 +1,5 @@
+Implemented the invoices billing table in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--invoices-table--1/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx): default date-desc sorting, sortable headers, 10-row prev/next pagination, distinct status badges, and per-row PDF download links.
+
+Verification: `npm run typecheck` passed. npm still prints its existing `Unknown env config "recursive"` warning.
+
+Skipped table library and fake PDF generation; wire the links to real invoice PDFs when backend data exists.

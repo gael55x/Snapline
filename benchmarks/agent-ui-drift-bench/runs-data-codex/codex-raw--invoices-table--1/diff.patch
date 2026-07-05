@@ -1,0 +1,284 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee..c4bd67e 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,233 @@
++"use client"
++
++import * as React from "react"
++
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+-
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++import { Card } from "@/components/ui/card"
++
++type InvoiceStatus = "Paid" | "Pending" | "Failed"
++
++type Invoice = {
++  number: string
++  date: string
++  amount: number
++  status: InvoiceStatus
++}
++
++type SortKey = keyof Invoice
++type SortDirection = "asc" | "desc"
++
++const pageSize = 10
++
++const invoices: Invoice[] = [
++  { number: "INV-1048", date: "2026-06-28", amount: 2480, status: "Paid" },
++  { number: "INV-1047", date: "2026-06-15", amount: 980, status: "Pending" },
++  { number: "INV-1046", date: "2026-06-01", amount: 1280, status: "Paid" },
++  { number: "INV-1045", date: "2026-05-18", amount: 640, status: "Failed" },
++  { number: "INV-1044", date: "2026-05-04", amount: 2120, status: "Paid" },
++  { number: "INV-1043", date: "2026-04-20", amount: 1180, status: "Pending" },
++  { number: "INV-1042", date: "2026-04-06", amount: 890, status: "Paid" },
++  { number: "INV-1041", date: "2026-03-23", amount: 1560, status: "Paid" },
++  { number: "INV-1040", date: "2026-03-09", amount: 760, status: "Failed" },
++  { number: "INV-1039", date: "2026-02-23", amount: 1440, status: "Paid" },
++  { number: "INV-1038", date: "2026-02-09", amount: 1010, status: "Paid" },
++  { number: "INV-1037", date: "2026-01-26", amount: 1320, status: "Pending" },
+ ]
+ 
+-export default function HomePage() {
++const statusClasses: Record<InvoiceStatus, string> = {
++  Paid:
++    "!border-emerald-200 !bg-emerald-50 !text-emerald-700 dark:!border-emerald-900 dark:!bg-emerald-950 dark:!text-emerald-300",
++  Pending:
++    "!border-amber-200 !bg-amber-50 !text-amber-700 dark:!border-amber-900 dark:!bg-amber-950 dark:!text-amber-300",
++  Failed:
++    "!border-rose-200 !bg-rose-50 !text-rose-700 dark:!border-rose-900 dark:!bg-rose-950 dark:!text-rose-300",
++}
++
++const statusRank: Record<InvoiceStatus, number> = {
++  Paid: 0,
++  Pending: 1,
++  Failed: 2,
++}
++
++const sorters: Record<SortKey, (a: Invoice, b: Invoice) => number> = {
++  number: (a, b) => a.number.localeCompare(b.number),
++  date: (a, b) => a.date.localeCompare(b.date),
++  amount: (a, b) => a.amount - b.amount,
++  status: (a, b) => statusRank[a.status] - statusRank[b.status],
++}
++
++const columns = [
++  { key: "number", label: "Invoice number" },
++  { key: "date", label: "Date" },
++  { key: "amount", label: "Amount", align: "right" },
++  { key: "status", label: "Status" },
++] satisfies Array<{ key: SortKey; label: string; align?: "right" }>
++
++const currencyFormatter = new Intl.NumberFormat("en-US", {
++  style: "currency",
++  currency: "USD",
++})
++
++const dateFormatter = new Intl.DateTimeFormat("en-US", {
++  month: "short",
++  day: "numeric",
++  year: "numeric",
++})
++
++function formatDate(date: string) {
++  const [year, month, day] = date.split("-").map(Number)
++
++  return dateFormatter.format(new Date(year, month - 1, day))
++}
++
++export default function BillingPage() {
++  const [sort, setSort] = React.useState<{ key: SortKey; direction: SortDirection }>({
++    key: "date",
++    direction: "desc",
++  })
++  const [page, setPage] = React.useState(0)
++
++  const sortedInvoices = React.useMemo(() => {
++    const direction = sort.direction === "asc" ? 1 : -1
++
++    return [...invoices].sort((a, b) => sorters[sort.key](a, b) * direction)
++  }, [sort])
++
++  const pageCount = Math.ceil(sortedInvoices.length / pageSize)
++  const firstRow = page * pageSize
++  const visibleInvoices = sortedInvoices.slice(firstRow, firstRow + pageSize)
++
++  function sortBy(key: SortKey) {
++    setSort((current) => ({
++      key,
++      direction:
++        current.key === key ? (current.direction === "asc" ? "desc" : "asc") : "asc",
++    }))
++    setPage(0)
++  }
++
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
++      <section className="flex flex-col gap-3">
++        <Badge className="w-fit bg-brand text-brand-foreground">Billing</Badge>
++        <div className="space-y-2">
++          <h1 className="text-4xl font-bold tracking-tight text-foreground">Invoices</h1>
++          <p className="max-w-2xl text-muted-foreground">
++            Review recent invoices, payment status, and receipts for your workspace.
++          </p>
+         </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
+-      </section>
++      <Card>
++        <div className="flex flex-col gap-1 p-6">
++          <h2 className="text-lg font-semibold text-card-foreground">Invoice history</h2>
++          <p className="text-sm text-muted-foreground">
++            Recent billing activity for your workspace.
++          </p>
++        </div>
++
++        <div className="overflow-x-auto">
++          <table className="w-full text-sm">
++            <caption className="sr-only">Invoices</caption>
++            <thead className="border-y bg-muted/60 text-xs uppercase text-muted-foreground">
++              <tr>
++                {columns.map((column) => {
++                  const active = sort.key === column.key
++                  const ariaSort = active
++                    ? sort.direction === "asc"
++                      ? "ascending"
++                      : "descending"
++                    : "none"
++
++                  return (
++                    <th
++                      key={column.key}
++                      scope="col"
++                      aria-sort={ariaSort}
++                      className="px-4 py-3 font-medium"
++                    >
++                      <button
++                        type="button"
++                        onClick={() => sortBy(column.key)}
++                        className={[
++                          "flex w-full items-center gap-2",
++                          column.align === "right" ? "justify-end text-right" : "text-left",
++                        ].join(" ")}
++                      >
++                        <span>{column.label}</span>
++                        <span className="text-[10px] font-semibold normal-case text-muted-foreground">
++                          {active ? sort.direction : "sort"}
++                        </span>
++                      </button>
++                    </th>
++                  )
++                })}
++                <th scope="col" className="px-4 py-3 text-right font-medium">
++                  PDF
++                </th>
++              </tr>
++            </thead>
++            <tbody className="divide-y divide-border">
++              {visibleInvoices.map((invoice) => (
++                <tr key={invoice.number} className="bg-card">
++                  <td className="whitespace-nowrap px-4 py-4 font-medium text-card-foreground">
++                    {invoice.number}
++                  </td>
++                  <td className="whitespace-nowrap px-4 py-4 text-muted-foreground">
++                    {formatDate(invoice.date)}
++                  </td>
++                  <td className="whitespace-nowrap px-4 py-4 text-right text-card-foreground">
++                    {currencyFormatter.format(invoice.amount)}
++                  </td>
++                  <td className="whitespace-nowrap px-4 py-4">
++                    <Badge variant="outline" className={statusClasses[invoice.status]}>
++                      {invoice.status}
++                    </Badge>
++                  </td>
++                  <td className="whitespace-nowrap px-4 py-4 text-right">
++                    <a
++                      href={`/invoices/${invoice.number}.pdf`}
++                      download
++                      className="font-medium text-primary underline-offset-4 hover:underline"
++                      aria-label={`Download PDF for ${invoice.number}`}
++                    >
++                      Download PDF
++                    </a>
++                  </td>
++                </tr>
++              ))}
++            </tbody>
++          </table>
++        </div>
++
++        <div className="flex flex-col gap-3 border-t p-4 sm:flex-row sm:items-center sm:justify-between">
++          <p className="text-sm text-muted-foreground">
++            Showing {firstRow + 1}-{Math.min(firstRow + pageSize, sortedInvoices.length)} of{" "}
++            {sortedInvoices.length}
++          </p>
++          <div className="flex gap-2">
++            <Button
++              type="button"
++              variant="outline"
++              size="sm"
++              onClick={() => setPage((current) => Math.max(current - 1, 0))}
++              disabled={page === 0}
++            >
++              Previous
++            </Button>
++            <Button
++              type="button"
++              variant="outline"
++              size="sm"
++              onClick={() => setPage((current) => Math.min(current + 1, pageCount - 1))}
++              disabled={page === pageCount - 1}
++            >
++              Next
++            </Button>
++          </div>
++        </div>
++      </Card>
+     </main>
+   )
+ }

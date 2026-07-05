@@ -1,0 +1,11 @@
+mode,runs,failures,driftedRunRate,worstDriftScore,driftScoreMedian,totalViolationsMedian,componentReuseRateMedian,buildPassRate,repairIterationsMedian,totalWallTimeSecondsMedian
+claude-raw,0,0,,,,,,,,
+claude-project-instructions,0,0,,,,,,,,
+claude-shadcn-mcp,0,0,,,,,,,,
+claude-tailwind-eslint,0,0,,,,,,,,
+claude-buoy,0,0,,,,,,,,
+claude-drift-guard,0,0,,,,,,,,
+claude-snapline,0,0,,,,,,,,
+claude-shadcn-mcp-snapline,0,0,,,,,,,,
+codex-raw,29,3,0.6153846153846154,96,16,2,1,1,0,233.5
+codex-snapline,30,12,0,0,0,0,1,1,0,247.5

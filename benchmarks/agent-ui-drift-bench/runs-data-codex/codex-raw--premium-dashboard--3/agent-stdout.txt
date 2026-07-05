@@ -1,0 +1,5 @@
+Done. I upgraded the theme tokens, app shell, cards, badges, buttons, inputs, table spacing, nav, stat cards, and activity table while leaving all data/functionality unchanged.
+
+Verification: `npm run typecheck` passes, and `git diff --check` is clean. I didn’t start a dev server because this fixture has no `dev` script and no local `next` binary.
+
+Skipped: new dependencies, icon packs, and a custom theme system. Add those only when the product needs a real design system.

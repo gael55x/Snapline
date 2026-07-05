@@ -1,0 +1,127 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97..54c8d72 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -1,6 +1,10 @@
+ import { DashboardNav } from "@/components/dashboard/nav"
+ import { RecentActivity } from "@/components/dashboard/recent-activity"
+ import { StatCard } from "@/components/dashboard/stat-card"
++import { Badge } from "@/components/ui/badge"
++import { Button } from "@/components/ui/button"
++import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ const stats = [
+   {
+@@ -29,6 +33,36 @@ const stats = [
+   },
+ ]
+ 
++const pricingTiers = [
++  {
++    name: "Starter",
++    price: "$19",
++    description: "For teams checking UI drift on a few projects.",
++    features: ["3 projects", "Weekly Snapline scans", "Email alerts"],
++    action: "Start tracking",
++  },
++  {
++    name: "Pro",
++    price: "$49",
++    description: "For product teams keeping every release on-system.",
++    features: [
++      "Unlimited projects",
++      "CI drift gates",
++      "Design-token insights",
++      "Priority support",
++    ],
++    action: "Choose Pro",
++    featured: true,
++  },
++  {
++    name: "Enterprise",
++    price: "Custom",
++    description: "For organizations standardizing visual QA across teams.",
++    features: ["SAML SSO", "Dedicated workspaces", "Custom governance"],
++    action: "Contact sales",
++  },
++]
++
+ export default function DashboardPage() {
+   return (
+     <div className="min-h-screen bg-background">
+@@ -51,6 +85,74 @@ export default function DashboardPage() {
+             />
+           ))}
+         </section>
++        <section className="flex flex-col gap-4">
++          <div className="flex flex-col gap-1">
++            <h2 className="text-xl font-bold tracking-tight text-foreground">Pricing</h2>
++            <p className="text-sm text-muted-foreground">
++              Pick the coverage that fits your release workflow.
++            </p>
++          </div>
++          <div className="grid gap-4 lg:grid-cols-3">
++            {pricingTiers.map((tier) => (
++              <Card
++                key={tier.name}
++                className={cn(
++                  "relative flex overflow-hidden shadow-lg transition-transform",
++                  tier.featured && "border-2 shadow-2xl lg:-translate-y-2",
++                )}
++              >
++                <div
++                  className={cn(
++                    "absolute inset-x-0 top-0 h-2 bg-secondary",
++                    tier.featured && "bg-primary",
++                  )}
++                />
++                <div className="flex flex-1 flex-col">
++                  <CardHeader className="gap-4 pt-8">
++                    <div className="flex items-center justify-between gap-3">
++                      <CardTitle className="text-lg">{tier.name}</CardTitle>
++                      {tier.featured ? <Badge>Best value</Badge> : null}
++                    </div>
++                    <CardDescription>{tier.description}</CardDescription>
++                    <div
++                      className={cn(
++                        "rounded-lg bg-secondary p-4 text-secondary-foreground shadow-inner",
++                        tier.featured && "bg-primary text-primary-foreground shadow-lg",
++                      )}
++                    >
++                      <div className="text-5xl font-bold tracking-tight">{tier.price}</div>
++                      {tier.price !== "Custom" ? (
++                        <div className="mt-1 text-sm font-medium">per month</div>
++                      ) : null}
++                    </div>
++                  </CardHeader>
++                  <CardContent className="flex flex-1 flex-col gap-5">
++                    <ul className="flex flex-col gap-3 text-sm text-foreground">
++                      {tier.features.map((feature) => (
++                        <li key={feature} className="flex items-center gap-3">
++                          <span
++                            className={cn(
++                              "h-2 w-2 rounded-full bg-secondary",
++                              tier.featured && "bg-primary",
++                            )}
++                            aria-hidden="true"
++                          />
++                          <span>{feature}</span>
++                        </li>
++                      ))}
++                    </ul>
++                    <Button
++                      className="mt-auto w-full"
++                      variant={tier.featured ? "default" : "outline"}
++                    >
++                      {tier.action}
++                    </Button>
++                  </CardContent>
++                </div>
++              </Card>
++            ))}
++          </div>
++        </section>
+         <RecentActivity />
+       </main>
+     </div>

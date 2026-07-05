@@ -1,0 +1,2798 @@
+Reading additional input from stdin...
+OpenAI Codex v0.142.5
+--------
+workdir: /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019f318d-60aa-7f31-956b-bf060b3043c8
+--------
+user
+Build a billing settings page for our app. It should show the current plan (name, price, renewal date), the payment method on file with a "Update card" button, and a section listing the last few invoices with download links. Include a "Cancel subscription" option somewhere sensible and a banner if the trial is about to expire.
+hook: SessionStart
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+codex
+I’ll use the ponytail guidance here: inspect the existing app shape first, then make the smallest page-level change that fits the current design system and Snapline rules.
+exec
+/bin/zsh -lc "sed -n '1,240p' /Users/gailleamolong/.codex/plugins/cache/ponytail/ponytail/4.8.4/skills/ponytail/SKILL.md" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+---
+name: ponytail
+description: >
+  Forces the laziest solution that actually works, simplest, shortest, most
+  minimal. Channels a senior dev who has seen everything: question whether the
+  task needs to exist at all (YAGNI), reach for the standard library before
+  custom code, native platform features before dependencies, one line before
+  fifty. Supports intensity levels: lite, full (default), ultra. Use on ANY
+  coding task: writing, adding, refactoring, fixing, reviewing, or designing
+  code, and choosing libraries or dependencies. Also use whenever the user
+  says "ponytail", "be lazy", "lazy mode", "simplest solution", "minimal
+  solution", "yagni", "do less", or "shortest path", or complains about
+  over-engineering, bloat, boilerplate, or unnecessary dependencies. Do NOT
+  use for non-coding requests (general knowledge, prose, translation,
+  summaries, recipes).
+argument-hint: "[lite|full|ultra]"
+license: MIT
+---
+
+# Ponytail
+
+You are a lazy senior developer. Lazy means efficient, not careless. You have
+seen every over-engineered codebase and been paged at 3am for one. The best
+code is the code never written.
+
+## Persistence
+
+ACTIVE EVERY RESPONSE. No drift back to over-building. Still active if
+unsure. Off only: "stop ponytail" / "normal mode". Default: **full**.
+Switch: `/ponytail lite|full|ultra`.
+
+## The ladder
+
+Stop at the first rung that holds:
+
+1. **Does this need to exist at all?** Speculative need = skip it, say so in one line. (YAGNI)
+2. **Already in this codebase?** A helper, util, type, or pattern that already lives here → reuse it. Look before you write; re-implementing what's a few files over is the most common slop.
+3. **Stdlib does it?** Use it.
+4. **Native platform feature covers it?** `<input type="date">` over a picker lib, CSS over JS, DB constraint over app code.
+5. **Already-installed dependency solves it?** Use it. Never add a new one for what a few lines can do.
+6. **Can it be one line?** One line.
+7. **Only then:** the minimum code that works.
+
+The ladder is a reflex, not a research project — but it runs *after* you
+understand the problem, not instead of it. Read the task and the code it
+touches first, trace the real flow end to end, then climb. Two rungs work →
+take the higher one and move on. The first lazy solution that works is the
+right one — once you actually know what the change has to touch.
+
+**Bug fix = root cause, not symptom.** A report names a symptom. Before you
+edit, grep every caller of the function you're about to touch. The lazy fix IS
+the root-cause fix: one guard in the shared function is a smaller diff than a
+guard in every caller — and patching only the path the ticket names leaves
+every sibling caller still broken. Fix it once, where all callers route through.
+
+## Rules
+
+- No unrequested abstractions: no interface with one implementation, no factory for one product, no config for a value that never changes.
+- No boilerplate, no scaffolding "for later", later can scaffold for itself.
+- Deletion over addition. Boring over clever, clever is what someone decodes at 3am.
+- Fewest files possible. Shortest working diff wins — but only once you understand the problem. The smallest change in the wrong place isn't lazy, it's a second bug.
+- Complex request? Ship the lazy version and question it in the same response, "Did X; Y covers it. Need full X? Say so." Never stall on an answer you can default.
+- Two stdlib options, same size? Take the one that's correct on edge cases. Lazy means writing less code, not picking the flimsier algorithm.
+- Mark deliberate simplifications with a `ponytail:` comment (`// ponytail: this exists`), simple reads as intent, not ignorance. Shortcut with a known ceiling (global lock, O(n²) scan, naive heuristic)? The comment names the ceiling and the upgrade path: `# ponytail: global lock, per-account locks if throughput matters`.
+
+## Output
+
+Code first. Then at most three short lines: what was skipped, when to add it.
+No essays, no feature tours, no design notes. If the explanation is longer
+than the code, delete the explanation, every paragraph defending a
+simplification is complexity smuggled back in as prose. Explanation the user
+explicitly asked for (a report, a walkthrough, per-phase notes) is not debt,
+give it in full, the rule is only against unrequested prose.
+
+Pattern: `[code] → skipped: [X], add when [Y].`
+
+## Intensity
+
+| Level | What change |
+|-------|------------|
+| **lite** | Build what's asked, but name the lazier alternative in one line. User picks. |
+| **full** | The ladder enforced. Stdlib and native first. Shortest diff, shortest explanation. Default. |
+| **ultra** | YAGNI extremist. Deletion before addition. Ship the one-liner and challenge the rest of the requirement in the same breath. |
+
+Example: "Add a cache for these API responses."
+- lite: "Done, cache added. FYI: `functools.lru_cache` covers this in one line if you'd rather not own a cache class."
+- full: "`@lru_cache(maxsize=1000)` on the fetch function. Skipped custom cache class, add when lru_cache measurably falls short."
+- ultra: "No cache until a profiler says so. When it does: `@lru_cache`. A hand-rolled TTL cache class is a bug farm with a hit rate."
+
+## When NOT to be lazy
+
+Never simplify away: input validation at trust boundaries, error handling
+that prevents data loss, security measures, accessibility basics, anything
+explicitly requested. User insists on the full version → build it, no
+re-arguing.
+
+Never lazy about understanding the problem. The ladder shortens the
+solution, never the reading. Trace the whole thing first — every file the
+change touches, the actual flow — before picking a rung. Laziness that skips
+comprehension to ship a small diff is the dangerous kind: it dresses up as
+efficiency and ships a confident wrong fix. Read fully, then be lazy.
+
+Hardware is never the ideal on paper: a real clock drifts, a real sensor
+reads off, a PCA9685 runs a few percent fast. Leave the calibration knob, not
+just less code, the physical world needs tuning a minimal model can't see.
+
+Lazy code without its check is unfinished. Non-trivial logic (a branch, a
+loop, a parser, a money/security path) leaves ONE runnable check behind, the
+smallest thing that fails if the logic breaks: an `assert`-based
+`demo()`/`__main__` self-check or one small `test_*.py`. No frameworks, no
+fixtures, no per-function suites unless asked. Trivial one-liners need no
+test, YAGNI applies to tests too.
+
+## Boundaries
+
+Ponytail governs what you build, not how you talk (pair with Caveman for
+terse prose). "stop ponytail" / "normal mode": revert. Level persists until
+changed or session end.
+
+The shortest path to done is the right path.
+
+codex
+I’m checking the app structure and existing components now so the billing page uses the local theme instead of inventing a parallel UI.
+exec
+/bin/zsh -lc pwd in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+
+exec
+/bin/zsh -lc 'rg --files' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+src/lib/utils.ts
+components.json
+tailwind.config.ts
+package.json
+AGENTS.md
+tsconfig.json
+src/globals.d.ts
+snapline.yml
+src/app/globals.css
+src/app/page.tsx
+src/app/layout.tsx
+src/components/ui/input.tsx
+src/components/ui/textarea.tsx
+src/components/ui/button.tsx
+src/components/ui/badge.tsx
+src/components/ui/dialog.tsx
+src/components/ui/card.tsx
+
+exec
+/bin/zsh -lc 'git status --short' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+codex
+This is a very small fixture: one page plus a few shadcn-style primitives. I’m reading the current page, theme CSS, and package scripts before proposing the exact edit.
+exec
+/bin/zsh -lc "sed -n '1,260p' src/app/page.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+exec
+/bin/zsh -lc "sed -n '1,260p' src/app/globals.css" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 40% 98%;
+    --foreground: 262 45% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 262 45% 12%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 260 40% 98%;
+    --secondary: 260 32% 92%;
+    --secondary-foreground: 262 45% 16%;
+    --muted: 260 32% 94%;
+    --muted-foreground: 261 12% 44%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 28% 88%;
+    --brand: 24 95% 53%;
+    --brand-foreground: 26 100% 97%;
+  }
+
+  .dark {
+    --background: 262 45% 7%;
+    --foreground: 260 40% 96%;
+    --card: 262 40% 10%;
+    --card-foreground: 260 40% 96%;
+    --primary: 263 80% 66%;
+    --primary-foreground: 262 45% 10%;
+    --secondary: 262 30% 18%;
+    --secondary-foreground: 260 40% 96%;
+    --muted: 262 30% 16%;
+    --muted-foreground: 261 15% 68%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 262 30% 20%;
+    --brand: 24 90% 58%;
+    --brand-foreground: 24 60% 8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+ succeeded in 0ms:
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+
+const features = [
+  {
+    title: "Semantic tokens",
+    description:
+      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+  },
+  {
+    title: "Composable primitives",
+    description:
+      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+  },
+  {
+    title: "Dark mode ready",
+    description:
+      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+  },
+]
+
+export default function HomePage() {
+  return (
+    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+      <section className="flex flex-col items-center gap-6 text-center">
+        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+          Ship interfaces that never drift off-theme
+        </h1>
+        <p className="max-w-xl text-lg text-muted-foreground">
+          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+          used to exercise Snapline theme checks.
+        </p>
+        <div className="flex items-center gap-3">
+          <Button size="lg">Start free trial</Button>
+          <Button size="lg" variant="outline">
+            Book a demo
+          </Button>
+        </div>
+      </section>
+
+      <section className="grid gap-6 sm:grid-cols-3">
+        {features.map((feature) => (
+          <Card key={feature.title}>
+            <CardHeader>
+              <CardTitle>{feature.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription>{feature.description}</CardDescription>
+            </CardContent>
+          </Card>
+        ))}
+      </section>
+    </main>
+  )
+}
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/ui/card.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        "rounded-xl border border-border bg-card text-card-foreground shadow",
+        className,
+      )}
+      {...props}
+    />
+  ),
+)
+Card.displayName = "Card"
+
+const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+  ),
+)
+CardHeader.displayName = "CardHeader"
+
+const CardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn("font-semibold leading-none tracking-tight", className)}
+      {...props}
+    />
+  ),
+)
+CardTitle.displayName = "CardTitle"
+
+const CardDescription = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />
+  ),
+)
+CardDescription.displayName = "CardDescription"
+
+const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+  ),
+)
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("flex items-center p-6 pt-0", className)} {...props} />
+  ),
+)
+CardFooter.displayName = "CardFooter"
+
+export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
+
+exec
+/bin/zsh -lc 'cat package.json' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+{
+  "name": "fixture-next-shadcn-custom-theme",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.6.3"
+  }
+}
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/ui/button.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = {
+  variant: {
+    default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+    destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+    outline: "border border-border bg-background shadow-sm hover:bg-muted hover:text-foreground",
+    secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+    ghost: "hover:bg-muted hover:text-foreground",
+    link: "text-primary underline-offset-4 hover:underline",
+  },
+  size: {
+    default: "h-9 px-4 py-2",
+    sm: "h-8 rounded-md px-3 text-xs",
+    lg: "h-10 rounded-md px-8",
+    icon: "h-9 w-9",
+  },
+} as const
+
+export type ButtonVariant = keyof typeof buttonVariants.variant
+export type ButtonSize = keyof typeof buttonVariants.size
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant
+  size?: ButtonSize
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = "default", size = "default", ...props }, ref) => {
+    return (
+      <button
+        className={cn(
+          "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50",
+          buttonVariants.variant[variant],
+          buttonVariants.size[size],
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
+  },
+)
+Button.displayName = "Button"
+
+export { Button, buttonVariants }
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/ui/badge.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const badgeVariants = {
+  variant: {
+    default: "border-transparent bg-primary text-primary-foreground shadow",
+    secondary: "border-transparent bg-secondary text-secondary-foreground",
+    destructive: "border-transparent bg-destructive text-destructive-foreground shadow",
+    outline: "border-border text-foreground",
+  },
+} as const
+
+export type BadgeVariant = keyof typeof badgeVariants.variant
+
+export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: BadgeVariant
+}
+
+function Badge({ className, variant = "default", ...props }: BadgeProps) {
+  return (
+    <div
+      className={cn(
+        "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors",
+        badgeVariants.variant[variant],
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Badge, badgeVariants }
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/app/layout.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+import * as React from "react"
+
+import "./globals.css"
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+        {children}
+      </body>
+    </html>
+  )
+}
+
+exec
+/bin/zsh -lc 'cat tailwind.config.ts' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 175ms:
+const config = {
+  darkMode: ["class"],
+  content: ["./src/**/*.{ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          foreground: "hsl(var(--brand-foreground))",
+        },
+      },
+    },
+  },
+}
+
+export default config
+
+exec
+/bin/zsh -lc 'cat snapline.yml' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+version: 1
+
+stack:
+  framework: next
+  ui: shadcn
+  styling: tailwind
+
+components:
+  Button:
+    import: "@/components/ui/button"
+    preferOver:
+      - "button"
+  Input:
+    import: "@/components/ui/input"
+    preferOver:
+      - "input"
+  Dialog:
+    import: "@/components/ui/dialog"
+    preferOver:
+      - "div[role=\"dialog\"]"
+  Card:
+    import: "@/components/ui/card"
+    preferOver:
+      - "div[data-card]"
+
+tokens:
+  colors:
+    semanticOnly: true
+    allowed:
+      - bg-background
+      - text-foreground
+      - bg-primary
+      - text-primary-foreground
+      - bg-secondary
+      - text-secondary-foreground
+      - text-muted-foreground
+      - border-border
+      - bg-card
+      - text-card-foreground
+      - bg-destructive
+      - text-destructive-foreground
+
+rules:
+  noRawHex: error
+  noInlineStyle: error
+  noArbitraryTailwind: error
+  noRawPaletteColor: warn
+  requireButtonComponent: error
+  requireInputComponent: error
+  requireDialogComponent: warn
+  requireCardComponent: warn
+  noDuplicateComponents: warn
+
+fix:
+  safeAutofix: false
+  preferAgentRepair: true
+
+benchmark:
+  enabled: true
+  scorer: ui-drift-score-v1
+
+codex
+Current-state understanding: `src/app/page.tsx` is the only page and already uses local `Badge`, `Button`, and `Card` primitives. Snapline enforces semantic Tailwind tokens and shadcn components.
+
+Ambiguities or assumptions: I’ll replace the marketing fixture with a static billing settings screen using sample billing data, since there is no routing, backend, or billing API in this fixture.
+
+Concrete success criteria: page shows current plan name, price, renewal date; payment method with update button; recent invoices with download links; cancel option; trial-expiry banner; no Snapline drift; TypeScript passes.
+
+Main risks / likely failure modes: raw colors or bespoke components triggering Snapline; overbuilding fake billing state; mobile layout crowding.
+
+Multiple-perspective review: domain is presentational only; architecture should stay single-page; production risk is low because no real payment action is wired; regression risk is replacing fixture copy; testability is typecheck plus Snapline; developer experience favors plain data arrays; security/data safety is irrelevant with mock data; performance risk is none.
+
+Proposed approach: rewrite `page.tsx` with small static data objects and existing primitives, using semantic tokens only. No new components, dependencies, routes, or CSS.
+
+Files likely affected: `src/app/page.tsx`.
+
+Test plan: run `snapline scan --changed`, `npm run typecheck`, then `snapline scan --changed` again before finishing.
+
+Rollback/safety plan: single-file patch can be reverted cleanly; no config or dependency changes.
+codex
+I’m going to make the one-page replacement now. The main constraint is staying inside the existing primitives and token set so Snapline has nothing to complain about.
+  → Replace marketing fixture with billing settings page
+  • Run Snapline and typecheck
+  • Fix any drift or type errors and rerun Snapline
+apply patch
+patch: completed
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..909200fabe334641c57577b9a6683e49a890225c
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,145 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const currentPlan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "August 14, 2026",
++  seats: "12 seats included",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "04/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "July 1, 2026", amount: "$49.00", href: "/invoices/inv-1048.pdf" },
++  { id: "INV-1047", date: "June 1, 2026", amount: "$49.00", href: "/invoices/inv-1047.pdf" },
++  { id: "INV-1046", date: "May 1, 2026", amount: "$49.00", href: "/invoices/inv-1046.pdf" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
++    <main className="min-h-screen bg-background px-6 py-10 text-foreground">
++      <div className="mx-auto flex max-w-5xl flex-col gap-6">
++        <section className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
++          <div className="space-y-2">
++            <Badge variant="outline">Billing settings</Badge>
++            <h1 className="text-4xl font-bold tracking-tight">Plan and billing</h1>
++            <p className="max-w-2xl text-sm text-muted-foreground">
++              Manage your subscription, payment method, and invoice history.
++            </p>
++          </div>
++          <Badge variant="secondary">Account SL-1048</Badge>
++        </section>
++
++        <section className="rounded-lg border border-border bg-secondary p-4 text-secondary-foreground">
++          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <div className="space-y-1">
++              <Badge>Trial ends soon</Badge>
++              <p className="text-sm font-medium">
++                Your trial expires on July 12, 2026. Choose a plan to keep the workspace active.
++              </p>
++            </div>
++            <Button>Choose plan</Button>
++          </div>
++        </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
++        <section className="grid gap-6 lg:grid-cols-3">
++          <Card className="lg:col-span-2">
+             <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
++              <CardTitle>Current plan</CardTitle>
++              <CardDescription>Your subscription renews automatically.</CardDescription>
+             </CardHeader>
+             <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
++              <dl className="grid gap-4 sm:grid-cols-3">
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Plan</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.name}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Price</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.price}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Renews</dt>
++                  <dd className="mt-1 text-lg font-semibold">{currentPlan.renewalDate}</dd>
++                </div>
++              </dl>
++              <p className="mt-4 text-sm text-muted-foreground">{currentPlan.seats}</p>
+             </CardContent>
+           </Card>
+-        ))}
+-      </section>
++
++          <Card>
++            <CardHeader>
++              <CardTitle>Payment method</CardTitle>
++              <CardDescription>Card used for future renewals.</CardDescription>
++            </CardHeader>
++            <CardContent className="space-y-4">
++              <div className="rounded-lg border border-border p-4">
++                <p className="font-semibold">
++                  {paymentMethod.brand} ending in {paymentMethod.last4}
++                </p>
++                <p className="text-sm text-muted-foreground">Expires {paymentMethod.expires}</p>
++              </div>
++              <Button className="w-full">Update card</Button>
++            </CardContent>
++          </Card>
++        </section>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Invoices</CardTitle>
++            <CardDescription>Recent billing statements for this workspace.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="space-y-0">
++              {invoices.map((invoice) => (
++                <div
++                  className="flex flex-col gap-3 border-t border-border py-4 first:border-t-0 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
++                  key={invoice.id}
++                >
++                  <div>
++                    <p className="font-medium">{invoice.id}</p>
++                    <p className="text-sm text-muted-foreground">
++                      {invoice.date} · {invoice.amount}
++                    </p>
++                  </div>
++                  <a
++                    aria-label={`Download invoice ${invoice.id}`}
++                    className="inline-flex h-9 items-center justify-center rounded-md border border-border px-4 text-sm font-medium shadow-sm transition-colors hover:bg-secondary"
++                    download
++                    href={invoice.href}
++                  >
++                    Download
++                  </a>
++                </div>
++              ))}
++            </div>
++          </CardContent>
++          <CardFooter className="flex flex-col items-start gap-3 border-t border-border sm:flex-row sm:items-center sm:justify-between">
++            <div>
++              <p className="font-medium">Need to cancel?</p>
++              <p className="text-sm text-muted-foreground">
++                Your workspace stays active until the end of the current billing period.
++              </p>
++            </div>
++            <Button className="w-full sm:w-auto" variant="destructive">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++      </div>
+     </main>
+   )
+ }
+
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..909200fabe334641c57577b9a6683e49a890225c
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,145 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const currentPlan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "August 14, 2026",
++  seats: "12 seats included",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "04/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "July 1, 2026", amount: "$49.00", href: "/invoices/inv-1048.pdf" },
++  { id: "INV-1047", date: "June 1, 2026", amount: "$49.00", href: "/invoices/inv-1047.pdf" },
++  { id: "INV-1046", date: "May 1, 2026", amount: "$49.00", href: "/invoices/inv-1046.pdf" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
++    <main className="min-h-screen bg-background px-6 py-10 text-foreground">
++      <div className="mx-auto flex max-w-5xl flex-col gap-6">
++        <section className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
++          <div className="space-y-2">
++            <Badge variant="outline">Billing settings</Badge>
++            <h1 className="text-4xl font-bold tracking-tight">Plan and billing</h1>
++            <p className="max-w-2xl text-sm text-muted-foreground">
++              Manage your subscription, payment method, and invoice history.
++            </p>
++          </div>
++          <Badge variant="secondary">Account SL-1048</Badge>
++        </section>
++
++        <section className="rounded-lg border border-border bg-secondary p-4 text-secondary-foreground">
++          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <div className="space-y-1">
++              <Badge>Trial ends soon</Badge>
++              <p className="text-sm font-medium">
++                Your trial expires on July 12, 2026. Choose a plan to keep the workspace active.
++              </p>
++            </div>
++            <Button>Choose plan</Button>
++          </div>
++        </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
++        <section className="grid gap-6 lg:grid-cols-3">
++          <Card className="lg:col-span-2">
+             <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
++              <CardTitle>Current plan</CardTitle>
++              <CardDescription>Your subscription renews automatically.</CardDescription>
+             </CardHeader>
+             <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
++              <dl className="grid gap-4 sm:grid-cols-3">
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Plan</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.name}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Price</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.price}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Renews</dt>
++                  <dd className="mt-1 text-lg font-semibold">{currentPlan.renewalDate}</dd>
++                </div>
++              </dl>
++              <p className="mt-4 text-sm text-muted-foreground">{currentPlan.seats}</p>
+             </CardContent>
+           </Card>
+-        ))}
+-      </section>
++
++          <Card>
++            <CardHeader>
++              <CardTitle>Payment method</CardTitle>
++              <CardDescription>Card used for future renewals.</CardDescription>
++            </CardHeader>
++            <CardContent className="space-y-4">
++              <div className="rounded-lg border border-border p-4">
++                <p className="font-semibold">
++                  {paymentMethod.brand} ending in {paymentMethod.last4}
++                </p>
++                <p className="text-sm text-muted-foreground">Expires {paymentMethod.expires}</p>
++              </div>
++              <Button className="w-full">Update card</Button>
++            </CardContent>
++          </Card>
++        </section>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Invoices</CardTitle>
++            <CardDescription>Recent billing statements for this workspace.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="space-y-0">
++              {invoices.map((invoice) => (
++                <div
++                  className="flex flex-col gap-3 border-t border-border py-4 first:border-t-0 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
++                  key={invoice.id}
++                >
++                  <div>
++                    <p className="font-medium">{invoice.id}</p>
++                    <p className="text-sm text-muted-foreground">
++                      {invoice.date} · {invoice.amount}
++                    </p>
++                  </div>
++                  <a
++                    aria-label={`Download invoice ${invoice.id}`}
++                    className="inline-flex h-9 items-center justify-center rounded-md border border-border px-4 text-sm font-medium shadow-sm transition-colors hover:bg-secondary"
++                    download
++                    href={invoice.href}
++                  >
++                    Download
++                  </a>
++                </div>
++              ))}
++            </div>
++          </CardContent>
++          <CardFooter className="flex flex-col items-start gap-3 border-t border-border sm:flex-row sm:items-center sm:justify-between">
++            <div>
++              <p className="font-medium">Need to cancel?</p>
++              <p className="text-sm text-muted-foreground">
++                Your workspace stays active until the end of the current billing period.
++              </p>
++            </div>
++            <Button className="w-full sm:w-auto" variant="destructive">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++      </div>
+     </main>
+   )
+ }
+
+codex
+The page is now a single static billing settings view using existing data arrays and primitives. I’m running Snapline first because `.tsx` changed, then TypeScript.
+  ✓ Replace marketing fixture with billing settings page
+  → Run Snapline and typecheck
+  • Fix any drift or type errors and rerun Snapline
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..909200fabe334641c57577b9a6683e49a890225c
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,145 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const currentPlan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "August 14, 2026",
++  seats: "12 seats included",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "04/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "July 1, 2026", amount: "$49.00", href: "/invoices/inv-1048.pdf" },
++  { id: "INV-1047", date: "June 1, 2026", amount: "$49.00", href: "/invoices/inv-1047.pdf" },
++  { id: "INV-1046", date: "May 1, 2026", amount: "$49.00", href: "/invoices/inv-1046.pdf" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
++    <main className="min-h-screen bg-background px-6 py-10 text-foreground">
++      <div className="mx-auto flex max-w-5xl flex-col gap-6">
++        <section className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
++          <div className="space-y-2">
++            <Badge variant="outline">Billing settings</Badge>
++            <h1 className="text-4xl font-bold tracking-tight">Plan and billing</h1>
++            <p className="max-w-2xl text-sm text-muted-foreground">
++              Manage your subscription, payment method, and invoice history.
++            </p>
++          </div>
++          <Badge variant="secondary">Account SL-1048</Badge>
++        </section>
++
++        <section className="rounded-lg border border-border bg-secondary p-4 text-secondary-foreground">
++          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <div className="space-y-1">
++              <Badge>Trial ends soon</Badge>
++              <p className="text-sm font-medium">
++                Your trial expires on July 12, 2026. Choose a plan to keep the workspace active.
++              </p>
++            </div>
++            <Button>Choose plan</Button>
++          </div>
++        </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
++        <section className="grid gap-6 lg:grid-cols-3">
++          <Card className="lg:col-span-2">
+             <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
++              <CardTitle>Current plan</CardTitle>
++              <CardDescription>Your subscription renews automatically.</CardDescription>
+             </CardHeader>
+             <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
++              <dl className="grid gap-4 sm:grid-cols-3">
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Plan</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.name}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Price</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.price}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Renews</dt>
++                  <dd className="mt-1 text-lg font-semibold">{currentPlan.renewalDate}</dd>
++                </div>
++              </dl>
++              <p className="mt-4 text-sm text-muted-foreground">{currentPlan.seats}</p>
+             </CardContent>
+           </Card>
+-        ))}
+-      </section>
++
++          <Card>
++            <CardHeader>
++              <CardTitle>Payment method</CardTitle>
++              <CardDescription>Card used for future renewals.</CardDescription>
++            </CardHeader>
++            <CardContent className="space-y-4">
++              <div className="rounded-lg border border-border p-4">
++                <p className="font-semibold">
++                  {paymentMethod.brand} ending in {paymentMethod.last4}
++                </p>
++                <p className="text-sm text-muted-foreground">Expires {paymentMethod.expires}</p>
++              </div>
++              <Button className="w-full">Update card</Button>
++            </CardContent>
++          </Card>
++        </section>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Invoices</CardTitle>
++            <CardDescription>Recent billing statements for this workspace.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="space-y-0">
++              {invoices.map((invoice) => (
++                <div
++                  className="flex flex-col gap-3 border-t border-border py-4 first:border-t-0 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
++                  key={invoice.id}
++                >
++                  <div>
++                    <p className="font-medium">{invoice.id}</p>
++                    <p className="text-sm text-muted-foreground">
++                      {invoice.date} · {invoice.amount}
++                    </p>
++                  </div>
++                  <a
++                    aria-label={`Download invoice ${invoice.id}`}
++                    className="inline-flex h-9 items-center justify-center rounded-md border border-border px-4 text-sm font-medium shadow-sm transition-colors hover:bg-secondary"
++                    download
++                    href={invoice.href}
++                  >
++                    Download
++                  </a>
++                </div>
++              ))}
++            </div>
++          </CardContent>
++          <CardFooter className="flex flex-col items-start gap-3 border-t border-border sm:flex-row sm:items-center sm:justify-between">
++            <div>
++              <p className="font-medium">Need to cancel?</p>
++              <p className="text-sm text-muted-foreground">
++                Your workspace stays active until the end of the current billing period.
++              </p>
++            </div>
++            <Button className="w-full sm:w-auto" variant="destructive">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++      </div>
+     </main>
+   )
+ }
+
+exec
+/bin/zsh -lc 'snapline scan --changed' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ exited 127 in 0ms:
+zsh:1: command not found: snapline
+
+exec
+/bin/zsh -lc 'npm run typecheck' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..909200fabe334641c57577b9a6683e49a890225c
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,145 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const currentPlan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "August 14, 2026",
++  seats: "12 seats included",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "04/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "July 1, 2026", amount: "$49.00", href: "/invoices/inv-1048.pdf" },
++  { id: "INV-1047", date: "June 1, 2026", amount: "$49.00", href: "/invoices/inv-1047.pdf" },
++  { id: "INV-1046", date: "May 1, 2026", amount: "$49.00", href: "/invoices/inv-1046.pdf" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
++    <main className="min-h-screen bg-background px-6 py-10 text-foreground">
++      <div className="mx-auto flex max-w-5xl flex-col gap-6">
++        <section className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
++          <div className="space-y-2">
++            <Badge variant="outline">Billing settings</Badge>
++            <h1 className="text-4xl font-bold tracking-tight">Plan and billing</h1>
++            <p className="max-w-2xl text-sm text-muted-foreground">
++              Manage your subscription, payment method, and invoice history.
++            </p>
++          </div>
++          <Badge variant="secondary">Account SL-1048</Badge>
++        </section>
++
++        <section className="rounded-lg border border-border bg-secondary p-4 text-secondary-foreground">
++          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <div className="space-y-1">
++              <Badge>Trial ends soon</Badge>
++              <p className="text-sm font-medium">
++                Your trial expires on July 12, 2026. Choose a plan to keep the workspace active.
++              </p>
++            </div>
++            <Button>Choose plan</Button>
++          </div>
++        </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
++        <section className="grid gap-6 lg:grid-cols-3">
++          <Card className="lg:col-span-2">
+             <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
++              <CardTitle>Current plan</CardTitle>
++              <CardDescription>Your subscription renews automatically.</CardDescription>
+             </CardHeader>
+             <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
++              <dl className="grid gap-4 sm:grid-cols-3">
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Plan</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.name}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Price</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.price}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Renews</dt>
++                  <dd className="mt-1 text-lg font-semibold">{currentPlan.renewalDate}</dd>
++                </div>
++              </dl>
++              <p className="mt-4 text-sm text-muted-foreground">{currentPlan.seats}</p>
+             </CardContent>
+           </Card>
+-        ))}
+-      </section>
++
++          <Card>
++            <CardHeader>
++              <CardTitle>Payment method</CardTitle>
++              <CardDescription>Card used for future renewals.</CardDescription>
++            </CardHeader>
++            <CardContent className="space-y-4">
++              <div className="rounded-lg border border-border p-4">
++                <p className="font-semibold">
++                  {paymentMethod.brand} ending in {paymentMethod.last4}
++                </p>
++                <p className="text-sm text-muted-foreground">Expires {paymentMethod.expires}</p>
++              </div>
++              <Button className="w-full">Update card</Button>
++            </CardContent>
++          </Card>
++        </section>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Invoices</CardTitle>
++            <CardDescription>Recent billing statements for this workspace.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="space-y-0">
++              {invoices.map((invoice) => (
++                <div
++                  className="flex flex-col gap-3 border-t border-border py-4 first:border-t-0 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
++                  key={invoice.id}
++                >
++                  <div>
++                    <p className="font-medium">{invoice.id}</p>
++                    <p className="text-sm text-muted-foreground">
++                      {invoice.date} · {invoice.amount}
++                    </p>
++                  </div>
++                  <a
++                    aria-label={`Download invoice ${invoice.id}`}
++                    className="inline-flex h-9 items-center justify-center rounded-md border border-border px-4 text-sm font-medium shadow-sm transition-colors hover:bg-secondary"
++                    download
++                    href={invoice.href}
++                  >
++                    Download
++                  </a>
++                </div>
++              ))}
++            </div>
++          </CardContent>
++          <CardFooter className="flex flex-col items-start gap-3 border-t border-border sm:flex-row sm:items-center sm:justify-between">
++            <div>
++              <p className="font-medium">Need to cancel?</p>
++              <p className="text-sm text-muted-foreground">
++                Your workspace stays active until the end of the current billing period.
++              </p>
++            </div>
++            <Button className="w-full sm:w-auto" variant="destructive">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++      </div>
+     </main>
+   )
+ }
+
+ succeeded in 15664ms:
+npm warn Unknown env config "recursive". This will stop working in the next major version of npm.
+
+> fixture-next-shadcn-custom-theme@0.0.0 typecheck
+> tsc --noEmit
+
+
+codex
+TypeScript is clean. The required `snapline` binary is not on PATH in this environment, so I’m checking whether the fixture or parent workspace has a local Snapline executable before deciding this is an environment gap.
+exec
+/bin/zsh -lc 'command -v snapline' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ exited 1 in 0ms:
+exec
+/bin/zsh -lc "rg --files -g '*snapline*'" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+exec
+/bin/zsh -lc "find . -path '*/node_modules/.bin/snapline' -type f" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 489ms:
+snapline.yml
+
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..909200fabe334641c57577b9a6683e49a890225c
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,145 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const currentPlan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "August 14, 2026",
++  seats: "12 seats included",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "04/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "July 1, 2026", amount: "$49.00", href: "/invoices/inv-1048.pdf" },
++  { id: "INV-1047", date: "June 1, 2026", amount: "$49.00", href: "/invoices/inv-1047.pdf" },
++  { id: "INV-1046", date: "May 1, 2026", amount: "$49.00", href: "/invoices/inv-1046.pdf" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
++    <main className="min-h-screen bg-background px-6 py-10 text-foreground">
++      <div className="mx-auto flex max-w-5xl flex-col gap-6">
++        <section className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
++          <div className="space-y-2">
++            <Badge variant="outline">Billing settings</Badge>
++            <h1 className="text-4xl font-bold tracking-tight">Plan and billing</h1>
++            <p className="max-w-2xl text-sm text-muted-foreground">
++              Manage your subscription, payment method, and invoice history.
++            </p>
++          </div>
++          <Badge variant="secondary">Account SL-1048</Badge>
++        </section>
++
++        <section className="rounded-lg border border-border bg-secondary p-4 text-secondary-foreground">
++          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <div className="space-y-1">
++              <Badge>Trial ends soon</Badge>
++              <p className="text-sm font-medium">
++                Your trial expires on July 12, 2026. Choose a plan to keep the workspace active.
++              </p>
++            </div>
++            <Button>Choose plan</Button>
++          </div>
++        </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
++        <section className="grid gap-6 lg:grid-cols-3">
++          <Card className="lg:col-span-2">
+             <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
++              <CardTitle>Current plan</CardTitle>
++              <CardDescription>Your subscription renews automatically.</CardDescription>
+             </CardHeader>
+             <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
++              <dl className="grid gap-4 sm:grid-cols-3">
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Plan</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.name}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Price</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.price}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Renews</dt>
++                  <dd className="mt-1 text-lg font-semibold">{currentPlan.renewalDate}</dd>
++                </div>
++              </dl>
++              <p className="mt-4 text-sm text-muted-foreground">{currentPlan.seats}</p>
+             </CardContent>
+           </Card>
+-        ))}
+-      </section>
++
++          <Card>
++            <CardHeader>
++              <CardTitle>Payment method</CardTitle>
++              <CardDescription>Card used for future renewals.</CardDescription>
++            </CardHeader>
++            <CardContent className="space-y-4">
++              <div className="rounded-lg border border-border p-4">
++                <p className="font-semibold">
++                  {paymentMethod.brand} ending in {paymentMethod.last4}
++                </p>
++                <p className="text-sm text-muted-foreground">Expires {paymentMethod.expires}</p>
++              </div>
++              <Button className="w-full">Update card</Button>
++            </CardContent>
++          </Card>
++        </section>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Invoices</CardTitle>
++            <CardDescription>Recent billing statements for this workspace.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="space-y-0">
++              {invoices.map((invoice) => (
++                <div
++                  className="flex flex-col gap-3 border-t border-border py-4 first:border-t-0 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
++                  key={invoice.id}
++                >
++                  <div>
++                    <p className="font-medium">{invoice.id}</p>
++                    <p className="text-sm text-muted-foreground">
++                      {invoice.date} · {invoice.amount}
++                    </p>
++                  </div>
++                  <a
++                    aria-label={`Download invoice ${invoice.id}`}
++                    className="inline-flex h-9 items-center justify-center rounded-md border border-border px-4 text-sm font-medium shadow-sm transition-colors hover:bg-secondary"
++                    download
++                    href={invoice.href}
++                  >
++                    Download
++                  </a>
++                </div>
++              ))}
++            </div>
++          </CardContent>
++          <CardFooter className="flex flex-col items-start gap-3 border-t border-border sm:flex-row sm:items-center sm:justify-between">
++            <div>
++              <p className="font-medium">Need to cancel?</p>
++              <p className="text-sm text-muted-foreground">
++                Your workspace stays active until the end of the current billing period.
++              </p>
++            </div>
++            <Button className="w-full sm:w-auto" variant="destructive">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++      </div>
+     </main>
+   )
+ }
+
+ succeeded in 164ms:
+./node_modules/.bin/snapline
+
+codex
+There is a local binary at `./node_modules/.bin/snapline`; I’m using that directly and then I’ll rerun it once more after any fixes.
+exec
+/bin/zsh -lc './node_modules/.bin/snapline scan --changed' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..909200fabe334641c57577b9a6683e49a890225c
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,145 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const currentPlan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "August 14, 2026",
++  seats: "12 seats included",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "04/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "July 1, 2026", amount: "$49.00", href: "/invoices/inv-1048.pdf" },
++  { id: "INV-1047", date: "June 1, 2026", amount: "$49.00", href: "/invoices/inv-1047.pdf" },
++  { id: "INV-1046", date: "May 1, 2026", amount: "$49.00", href: "/invoices/inv-1046.pdf" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
++    <main className="min-h-screen bg-background px-6 py-10 text-foreground">
++      <div className="mx-auto flex max-w-5xl flex-col gap-6">
++        <section className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
++          <div className="space-y-2">
++            <Badge variant="outline">Billing settings</Badge>
++            <h1 className="text-4xl font-bold tracking-tight">Plan and billing</h1>
++            <p className="max-w-2xl text-sm text-muted-foreground">
++              Manage your subscription, payment method, and invoice history.
++            </p>
++          </div>
++          <Badge variant="secondary">Account SL-1048</Badge>
++        </section>
++
++        <section className="rounded-lg border border-border bg-secondary p-4 text-secondary-foreground">
++          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <div className="space-y-1">
++              <Badge>Trial ends soon</Badge>
++              <p className="text-sm font-medium">
++                Your trial expires on July 12, 2026. Choose a plan to keep the workspace active.
++              </p>
++            </div>
++            <Button>Choose plan</Button>
++          </div>
++        </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
++        <section className="grid gap-6 lg:grid-cols-3">
++          <Card className="lg:col-span-2">
+             <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
++              <CardTitle>Current plan</CardTitle>
++              <CardDescription>Your subscription renews automatically.</CardDescription>
+             </CardHeader>
+             <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
++              <dl className="grid gap-4 sm:grid-cols-3">
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Plan</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.name}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Price</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.price}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Renews</dt>
++                  <dd className="mt-1 text-lg font-semibold">{currentPlan.renewalDate}</dd>
++                </div>
++              </dl>
++              <p className="mt-4 text-sm text-muted-foreground">{currentPlan.seats}</p>
+             </CardContent>
+           </Card>
+-        ))}
+-      </section>
++
++          <Card>
++            <CardHeader>
++              <CardTitle>Payment method</CardTitle>
++              <CardDescription>Card used for future renewals.</CardDescription>
++            </CardHeader>
++            <CardContent className="space-y-4">
++              <div className="rounded-lg border border-border p-4">
++                <p className="font-semibold">
++                  {paymentMethod.brand} ending in {paymentMethod.last4}
++                </p>
++                <p className="text-sm text-muted-foreground">Expires {paymentMethod.expires}</p>
++              </div>
++              <Button className="w-full">Update card</Button>
++            </CardContent>
++          </Card>
++        </section>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Invoices</CardTitle>
++            <CardDescription>Recent billing statements for this workspace.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="space-y-0">
++              {invoices.map((invoice) => (
++                <div
++                  className="flex flex-col gap-3 border-t border-border py-4 first:border-t-0 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
++                  key={invoice.id}
++                >
++                  <div>
++                    <p className="font-medium">{invoice.id}</p>
++                    <p className="text-sm text-muted-foreground">
++                      {invoice.date} · {invoice.amount}
++                    </p>
++                  </div>
++                  <a
++                    aria-label={`Download invoice ${invoice.id}`}
++                    className="inline-flex h-9 items-center justify-center rounded-md border border-border px-4 text-sm font-medium shadow-sm transition-colors hover:bg-secondary"
++                    download
++                    href={invoice.href}
++                  >
++                    Download
++                  </a>
++                </div>
++              ))}
++            </div>
++          </CardContent>
++          <CardFooter className="flex flex-col items-start gap-3 border-t border-border sm:flex-row sm:items-center sm:justify-between">
++            <div>
++              <p className="font-medium">Need to cancel?</p>
++              <p className="text-sm text-muted-foreground">
++                Your workspace stays active until the end of the current billing period.
++              </p>
++            </div>
++            <Button className="w-full sm:w-auto" variant="destructive">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++      </div>
+     </main>
+   )
+ }
+
+ succeeded in 3666ms:
+✔ On-system. Scanned 1 file(s) in 65ms.
+
+codex
+The local Snapline check is clean. I’m doing the required final Snapline pass and reviewing the diff so the closeout is exact.
+  ✓ Replace marketing fixture with billing settings page
+  ✓ Run Snapline and typecheck
+  → Fix any drift or type errors and rerun Snapline
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..909200fabe334641c57577b9a6683e49a890225c
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,145 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const currentPlan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "August 14, 2026",
++  seats: "12 seats included",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "04/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "July 1, 2026", amount: "$49.00", href: "/invoices/inv-1048.pdf" },
++  { id: "INV-1047", date: "June 1, 2026", amount: "$49.00", href: "/invoices/inv-1047.pdf" },
++  { id: "INV-1046", date: "May 1, 2026", amount: "$49.00", href: "/invoices/inv-1046.pdf" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
++    <main className="min-h-screen bg-background px-6 py-10 text-foreground">
++      <div className="mx-auto flex max-w-5xl flex-col gap-6">
++        <section className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
++          <div className="space-y-2">
++            <Badge variant="outline">Billing settings</Badge>
++            <h1 className="text-4xl font-bold tracking-tight">Plan and billing</h1>
++            <p className="max-w-2xl text-sm text-muted-foreground">
++              Manage your subscription, payment method, and invoice history.
++            </p>
++          </div>
++          <Badge variant="secondary">Account SL-1048</Badge>
++        </section>
++
++        <section className="rounded-lg border border-border bg-secondary p-4 text-secondary-foreground">
++          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <div className="space-y-1">
++              <Badge>Trial ends soon</Badge>
++              <p className="text-sm font-medium">
++                Your trial expires on July 12, 2026. Choose a plan to keep the workspace active.
++              </p>
++            </div>
++            <Button>Choose plan</Button>
++          </div>
++        </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
++        <section className="grid gap-6 lg:grid-cols-3">
++          <Card className="lg:col-span-2">
+             <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
++              <CardTitle>Current plan</CardTitle>
++              <CardDescription>Your subscription renews automatically.</CardDescription>
+             </CardHeader>
+             <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
++              <dl className="grid gap-4 sm:grid-cols-3">
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Plan</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.name}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Price</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.price}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Renews</dt>
++                  <dd className="mt-1 text-lg font-semibold">{currentPlan.renewalDate}</dd>
++                </div>
++              </dl>
++              <p className="mt-4 text-sm text-muted-foreground">{currentPlan.seats}</p>
+             </CardContent>
+           </Card>
+-        ))}
+-      </section>
++
++          <Card>
++            <CardHeader>
++              <CardTitle>Payment method</CardTitle>
++              <CardDescription>Card used for future renewals.</CardDescription>
++            </CardHeader>
++            <CardContent className="space-y-4">
++              <div className="rounded-lg border border-border p-4">
++                <p className="font-semibold">
++                  {paymentMethod.brand} ending in {paymentMethod.last4}
++                </p>
++                <p className="text-sm text-muted-foreground">Expires {paymentMethod.expires}</p>
++              </div>
++              <Button className="w-full">Update card</Button>
++            </CardContent>
++          </Card>
++        </section>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Invoices</CardTitle>
++            <CardDescription>Recent billing statements for this workspace.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="space-y-0">
++              {invoices.map((invoice) => (
++                <div
++                  className="flex flex-col gap-3 border-t border-border py-4 first:border-t-0 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
++                  key={invoice.id}
++                >
++                  <div>
++                    <p className="font-medium">{invoice.id}</p>
++                    <p className="text-sm text-muted-foreground">
++                      {invoice.date} · {invoice.amount}
++                    </p>
++                  </div>
++                  <a
++                    aria-label={`Download invoice ${invoice.id}`}
++                    className="inline-flex h-9 items-center justify-center rounded-md border border-border px-4 text-sm font-medium shadow-sm transition-colors hover:bg-secondary"
++                    download
++                    href={invoice.href}
++                  >
++                    Download
++                  </a>
++                </div>
++              ))}
++            </div>
++          </CardContent>
++          <CardFooter className="flex flex-col items-start gap-3 border-t border-border sm:flex-row sm:items-center sm:justify-between">
++            <div>
++              <p className="font-medium">Need to cancel?</p>
++              <p className="text-sm text-muted-foreground">
++                Your workspace stays active until the end of the current billing period.
++              </p>
++            </div>
++            <Button className="w-full sm:w-auto" variant="destructive">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++      </div>
+     </main>
+   )
+ }
+
+exec
+/bin/zsh -lc './node_modules/.bin/snapline scan --changed' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+exec
+/bin/zsh -lc 'git diff -- src/app/page.tsx' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee..909200f 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,145 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+-
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
++
++const currentPlan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "August 14, 2026",
++  seats: "12 seats included",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "04/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "July 1, 2026", amount: "$49.00", href: "/invoices/inv-1048.pdf" },
++  { id: "INV-1047", date: "June 1, 2026", amount: "$49.00", href: "/invoices/inv-1047.pdf" },
++  { id: "INV-1046", date: "May 1, 2026", amount: "$49.00", href: "/invoices/inv-1046.pdf" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
+-
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
++    <main className="min-h-screen bg-background px-6 py-10 text-foreground">
++      <div className="mx-auto flex max-w-5xl flex-col gap-6">
++        <section className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
++          <div className="space-y-2">
++            <Badge variant="outline">Billing settings</Badge>
++            <h1 className="text-4xl font-bold tracking-tight">Plan and billing</h1>
++            <p className="max-w-2xl text-sm text-muted-foreground">
++              Manage your subscription, payment method, and invoice history.
++            </p>
++          </div>
++          <Badge variant="secondary">Account SL-1048</Badge>
++        </section>
++
++        <section className="rounded-lg border border-border bg-secondary p-4 text-secondary-foreground">
++          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <div className="space-y-1">
++              <Badge>Trial ends soon</Badge>
++              <p className="text-sm font-medium">
++                Your trial expires on July 12, 2026. Choose a plan to keep the workspace active.
++              </p>
++            </div>
++            <Button>Choose plan</Button>
++          </div>
++        </section>
++
++        <section className="grid gap-6 lg:grid-cols-3">
++          <Card className="lg:col-span-2">
+             <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
++              <CardTitle>Current plan</CardTitle>
++              <CardDescription>Your subscription renews automatically.</CardDescription>
+             </CardHeader>
+             <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
++              <dl className="grid gap-4 sm:grid-cols-3">
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Plan</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.name}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Price</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.price}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Renews</dt>
++                  <dd className="mt-1 text-lg font-semibold">{currentPlan.renewalDate}</dd>
++                </div>
++              </dl>
++              <p className="mt-4 text-sm text-muted-foreground">{currentPlan.seats}</p>
+             </CardContent>
+           </Card>
+-        ))}
+-      </section>
++
++          <Card>
++            <CardHeader>
++              <CardTitle>Payment method</CardTitle>
++              <CardDescription>Card used for future renewals.</CardDescription>
++            </CardHeader>
++            <CardContent className="space-y-4">
++              <div className="rounded-lg border border-border p-4">
++                <p className="font-semibold">
++                  {paymentMethod.brand} ending in {paymentMethod.last4}
++                </p>
++                <p className="text-sm text-muted-foreground">Expires {paymentMethod.expires}</p>
++              </div>
++              <Button className="w-full">Update card</Button>
++            </CardContent>
++          </Card>
++        </section>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Invoices</CardTitle>
++            <CardDescription>Recent billing statements for this workspace.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="space-y-0">
++              {invoices.map((invoice) => (
++                <div
++                  className="flex flex-col gap-3 border-t border-border py-4 first:border-t-0 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
++                  key={invoice.id}
++                >
++                  <div>
++                    <p className="font-medium">{invoice.id}</p>
++                    <p className="text-sm text-muted-foreground">
++                      {invoice.date} · {invoice.amount}
++                    </p>
++                  </div>
++                  <a
++                    aria-label={`Download invoice ${invoice.id}`}
++                    className="inline-flex h-9 items-center justify-center rounded-md border border-border px-4 text-sm font-medium shadow-sm transition-colors hover:bg-secondary"
++                    download
++                    href={invoice.href}
++                  >
++                    Download
++                  </a>
++                </div>
++              ))}
++            </div>
++          </CardContent>
++          <CardFooter className="flex flex-col items-start gap-3 border-t border-border sm:flex-row sm:items-center sm:justify-between">
++            <div>
++              <p className="font-medium">Need to cancel?</p>
++              <p className="text-sm text-muted-foreground">
++                Your workspace stays active until the end of the current billing period.
++              </p>
++            </div>
++            <Button className="w-full sm:w-auto" variant="destructive">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++      </div>
+     </main>
+   )
+ }
+
+exec
+/bin/zsh -lc 'git status --short' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 178ms:
+ M src/app/page.tsx
+
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..909200fabe334641c57577b9a6683e49a890225c
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,145 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const currentPlan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "August 14, 2026",
++  seats: "12 seats included",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "04/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "July 1, 2026", amount: "$49.00", href: "/invoices/inv-1048.pdf" },
++  { id: "INV-1047", date: "June 1, 2026", amount: "$49.00", href: "/invoices/inv-1047.pdf" },
++  { id: "INV-1046", date: "May 1, 2026", amount: "$49.00", href: "/invoices/inv-1046.pdf" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
++    <main className="min-h-screen bg-background px-6 py-10 text-foreground">
++      <div className="mx-auto flex max-w-5xl flex-col gap-6">
++        <section className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
++          <div className="space-y-2">
++            <Badge variant="outline">Billing settings</Badge>
++            <h1 className="text-4xl font-bold tracking-tight">Plan and billing</h1>
++            <p className="max-w-2xl text-sm text-muted-foreground">
++              Manage your subscription, payment method, and invoice history.
++            </p>
++          </div>
++          <Badge variant="secondary">Account SL-1048</Badge>
++        </section>
++
++        <section className="rounded-lg border border-border bg-secondary p-4 text-secondary-foreground">
++          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <div className="space-y-1">
++              <Badge>Trial ends soon</Badge>
++              <p className="text-sm font-medium">
++                Your trial expires on July 12, 2026. Choose a plan to keep the workspace active.
++              </p>
++            </div>
++            <Button>Choose plan</Button>
++          </div>
++        </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
++        <section className="grid gap-6 lg:grid-cols-3">
++          <Card className="lg:col-span-2">
+             <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
++              <CardTitle>Current plan</CardTitle>
++              <CardDescription>Your subscription renews automatically.</CardDescription>
+             </CardHeader>
+             <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
++              <dl className="grid gap-4 sm:grid-cols-3">
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Plan</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.name}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Price</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.price}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Renews</dt>
++                  <dd className="mt-1 text-lg font-semibold">{currentPlan.renewalDate}</dd>
++                </div>
++              </dl>
++              <p className="mt-4 text-sm text-muted-foreground">{currentPlan.seats}</p>
+             </CardContent>
+           </Card>
+-        ))}
+-      </section>
++
++          <Card>
++            <CardHeader>
++              <CardTitle>Payment method</CardTitle>
++              <CardDescription>Card used for future renewals.</CardDescription>
++            </CardHeader>
++            <CardContent className="space-y-4">
++              <div className="rounded-lg border border-border p-4">
++                <p className="font-semibold">
++                  {paymentMethod.brand} ending in {paymentMethod.last4}
++                </p>
++                <p className="text-sm text-muted-foreground">Expires {paymentMethod.expires}</p>
++              </div>
++              <Button className="w-full">Update card</Button>
++            </CardContent>
++          </Card>
++        </section>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Invoices</CardTitle>
++            <CardDescription>Recent billing statements for this workspace.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="space-y-0">
++              {invoices.map((invoice) => (
++                <div
++                  className="flex flex-col gap-3 border-t border-border py-4 first:border-t-0 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
++                  key={invoice.id}
++                >
++                  <div>
++                    <p className="font-medium">{invoice.id}</p>
++                    <p className="text-sm text-muted-foreground">
++                      {invoice.date} · {invoice.amount}
++                    </p>
++                  </div>
++                  <a
++                    aria-label={`Download invoice ${invoice.id}`}
++                    className="inline-flex h-9 items-center justify-center rounded-md border border-border px-4 text-sm font-medium shadow-sm transition-colors hover:bg-secondary"
++                    download
++                    href={invoice.href}
++                  >
++                    Download
++                  </a>
++                </div>
++              ))}
++            </div>
++          </CardContent>
++          <CardFooter className="flex flex-col items-start gap-3 border-t border-border sm:flex-row sm:items-center sm:justify-between">
++            <div>
++              <p className="font-medium">Need to cancel?</p>
++              <p className="text-sm text-muted-foreground">
++                Your workspace stays active until the end of the current billing period.
++              </p>
++            </div>
++            <Button className="w-full sm:w-auto" variant="destructive">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++      </div>
+     </main>
+   )
+ }
+
+ succeeded in 1747ms:
+✔ On-system. Scanned 1 file(s) in 73ms.
+
+  ✓ Replace marketing fixture with billing settings page
+  ✓ Run Snapline and typecheck
+  ✓ Fix any drift or type errors and rerun Snapline
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..909200fabe334641c57577b9a6683e49a890225c
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,145 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const currentPlan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "August 14, 2026",
++  seats: "12 seats included",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "04/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "July 1, 2026", amount: "$49.00", href: "/invoices/inv-1048.pdf" },
++  { id: "INV-1047", date: "June 1, 2026", amount: "$49.00", href: "/invoices/inv-1047.pdf" },
++  { id: "INV-1046", date: "May 1, 2026", amount: "$49.00", href: "/invoices/inv-1046.pdf" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
++    <main className="min-h-screen bg-background px-6 py-10 text-foreground">
++      <div className="mx-auto flex max-w-5xl flex-col gap-6">
++        <section className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
++          <div className="space-y-2">
++            <Badge variant="outline">Billing settings</Badge>
++            <h1 className="text-4xl font-bold tracking-tight">Plan and billing</h1>
++            <p className="max-w-2xl text-sm text-muted-foreground">
++              Manage your subscription, payment method, and invoice history.
++            </p>
++          </div>
++          <Badge variant="secondary">Account SL-1048</Badge>
++        </section>
++
++        <section className="rounded-lg border border-border bg-secondary p-4 text-secondary-foreground">
++          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <div className="space-y-1">
++              <Badge>Trial ends soon</Badge>
++              <p className="text-sm font-medium">
++                Your trial expires on July 12, 2026. Choose a plan to keep the workspace active.
++              </p>
++            </div>
++            <Button>Choose plan</Button>
++          </div>
++        </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
++        <section className="grid gap-6 lg:grid-cols-3">
++          <Card className="lg:col-span-2">
+             <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
++              <CardTitle>Current plan</CardTitle>
++              <CardDescription>Your subscription renews automatically.</CardDescription>
+             </CardHeader>
+             <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
++              <dl className="grid gap-4 sm:grid-cols-3">
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Plan</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.name}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Price</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.price}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Renews</dt>
++                  <dd className="mt-1 text-lg font-semibold">{currentPlan.renewalDate}</dd>
++                </div>
++              </dl>
++              <p className="mt-4 text-sm text-muted-foreground">{currentPlan.seats}</p>
+             </CardContent>
+           </Card>
+-        ))}
+-      </section>
++
++          <Card>
++            <CardHeader>
++              <CardTitle>Payment method</CardTitle>
++              <CardDescription>Card used for future renewals.</CardDescription>
++            </CardHeader>
++            <CardContent className="space-y-4">
++              <div className="rounded-lg border border-border p-4">
++                <p className="font-semibold">
++                  {paymentMethod.brand} ending in {paymentMethod.last4}
++                </p>
++                <p className="text-sm text-muted-foreground">Expires {paymentMethod.expires}</p>
++              </div>
++              <Button className="w-full">Update card</Button>
++            </CardContent>
++          </Card>
++        </section>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Invoices</CardTitle>
++            <CardDescription>Recent billing statements for this workspace.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="space-y-0">
++              {invoices.map((invoice) => (
++                <div
++                  className="flex flex-col gap-3 border-t border-border py-4 first:border-t-0 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
++                  key={invoice.id}
++                >
++                  <div>
++                    <p className="font-medium">{invoice.id}</p>
++                    <p className="text-sm text-muted-foreground">
++                      {invoice.date} · {invoice.amount}
++                    </p>
++                  </div>
++                  <a
++                    aria-label={`Download invoice ${invoice.id}`}
++                    className="inline-flex h-9 items-center justify-center rounded-md border border-border px-4 text-sm font-medium shadow-sm transition-colors hover:bg-secondary"
++                    download
++                    href={invoice.href}
++                  >
++                    Download
++                  </a>
++                </div>
++              ))}
++            </div>
++          </CardContent>
++          <CardFooter className="flex flex-col items-start gap-3 border-t border-border sm:flex-row sm:items-center sm:justify-between">
++            <div>
++              <p className="font-medium">Need to cancel?</p>
++              <p className="text-sm text-muted-foreground">
++                Your workspace stays active until the end of the current billing period.
++              </p>
++            </div>
++            <Button className="w-full sm:w-auto" variant="destructive">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++      </div>
+     </main>
+   )
+ }
+
+codex
+Built the billing settings page in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx): plan summary, trial banner, payment method with update button, invoices with download links, and cancel subscription action.
+
+Verified:
+- `npm run typecheck`
+- `./node_modules/.bin/snapline scan --changed` twice, both clean
+
+Skipped real billing/API wiring; add it when this fixture becomes connected to live subscription data.
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..909200fabe334641c57577b9a6683e49a890225c
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,145 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const currentPlan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "August 14, 2026",
++  seats: "12 seats included",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "04/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "July 1, 2026", amount: "$49.00", href: "/invoices/inv-1048.pdf" },
++  { id: "INV-1047", date: "June 1, 2026", amount: "$49.00", href: "/invoices/inv-1047.pdf" },
++  { id: "INV-1046", date: "May 1, 2026", amount: "$49.00", href: "/invoices/inv-1046.pdf" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
++    <main className="min-h-screen bg-background px-6 py-10 text-foreground">
++      <div className="mx-auto flex max-w-5xl flex-col gap-6">
++        <section className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
++          <div className="space-y-2">
++            <Badge variant="outline">Billing settings</Badge>
++            <h1 className="text-4xl font-bold tracking-tight">Plan and billing</h1>
++            <p className="max-w-2xl text-sm text-muted-foreground">
++              Manage your subscription, payment method, and invoice history.
++            </p>
++          </div>
++          <Badge variant="secondary">Account SL-1048</Badge>
++        </section>
++
++        <section className="rounded-lg border border-border bg-secondary p-4 text-secondary-foreground">
++          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <div className="space-y-1">
++              <Badge>Trial ends soon</Badge>
++              <p className="text-sm font-medium">
++                Your trial expires on July 12, 2026. Choose a plan to keep the workspace active.
++              </p>
++            </div>
++            <Button>Choose plan</Button>
++          </div>
++        </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
++        <section className="grid gap-6 lg:grid-cols-3">
++          <Card className="lg:col-span-2">
+             <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
++              <CardTitle>Current plan</CardTitle>
++              <CardDescription>Your subscription renews automatically.</CardDescription>
+             </CardHeader>
+             <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
++              <dl className="grid gap-4 sm:grid-cols-3">
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Plan</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.name}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Price</dt>
++                  <dd className="mt-1 text-2xl font-semibold">{currentPlan.price}</dd>
++                </div>
++                <div className="rounded-lg border border-border p-4">
++                  <dt className="text-sm text-muted-foreground">Renews</dt>
++                  <dd className="mt-1 text-lg font-semibold">{currentPlan.renewalDate}</dd>
++                </div>
++              </dl>
++              <p className="mt-4 text-sm text-muted-foreground">{currentPlan.seats}</p>
+             </CardContent>
+           </Card>
+-        ))}
+-      </section>
++
++          <Card>
++            <CardHeader>
++              <CardTitle>Payment method</CardTitle>
++              <CardDescription>Card used for future renewals.</CardDescription>
++            </CardHeader>
++            <CardContent className="space-y-4">
++              <div className="rounded-lg border border-border p-4">
++                <p className="font-semibold">
++                  {paymentMethod.brand} ending in {paymentMethod.last4}
++                </p>
++                <p className="text-sm text-muted-foreground">Expires {paymentMethod.expires}</p>
++              </div>
++              <Button className="w-full">Update card</Button>
++            </CardContent>
++          </Card>
++        </section>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Invoices</CardTitle>
++            <CardDescription>Recent billing statements for this workspace.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="space-y-0">
++              {invoices.map((invoice) => (
++                <div
++                  className="flex flex-col gap-3 border-t border-border py-4 first:border-t-0 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
++                  key={invoice.id}
++                >
++                  <div>
++                    <p className="font-medium">{invoice.id}</p>
++                    <p className="text-sm text-muted-foreground">
++                      {invoice.date} · {invoice.amount}
++                    </p>
++                  </div>
++                  <a
++                    aria-label={`Download invoice ${invoice.id}`}
++                    className="inline-flex h-9 items-center justify-center rounded-md border border-border px-4 text-sm font-medium shadow-sm transition-colors hover:bg-secondary"
++                    download
++                    href={invoice.href}
++                  >
++                    Download
++                  </a>
++                </div>
++              ))}
++            </div>
++          </CardContent>
++          <CardFooter className="flex flex-col items-start gap-3 border-t border-border sm:flex-row sm:items-center sm:justify-between">
++            <div>
++              <p className="font-medium">Need to cancel?</p>
++              <p className="text-sm text-muted-foreground">
++                Your workspace stays active until the end of the current billing period.
++              </p>
++            </div>
++            <Button className="w-full sm:w-auto" variant="destructive">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++      </div>
+     </main>
+   )
+ }
+
+tokens used
+61,131

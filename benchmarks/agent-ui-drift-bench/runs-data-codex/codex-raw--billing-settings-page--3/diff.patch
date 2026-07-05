@@ -1,0 +1,202 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee..f51b92c 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,152 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+-
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
++
++const subscription = {
++  plan: "Snapline Pro",
++  price: "$49/month",
++  renewalDate: "July 24, 2026",
++  trialEndsAt: "July 11, 2026",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "04/28",
++}
++
++const invoices = [
++  { id: "INV-1044", date: "June 24, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1031", date: "May 24, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1018", date: "April 24, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1005", date: "March 24, 2026", amount: "$49.00", status: "Paid" },
+ ]
+ 
+-export default function HomePage() {
++export default function BillingSettingsPage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
++      <section className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
++        <div className="space-y-2">
++          <Badge className="bg-brand text-brand-foreground">Billing</Badge>
++          <h1 className="text-4xl font-bold tracking-tight text-foreground">Billing settings</h1>
++          <p className="max-w-2xl text-muted-foreground">
++            Manage your subscription, payment method, and billing history.
++          </p>
+         </div>
++        <Button variant="outline">Contact support</Button>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
++      {subscription.trialEndsAt ? (
++        <section
++          aria-label="Trial ending soon"
++          className="rounded-md border border-brand/40 bg-brand/10 p-4 text-sm text-foreground"
++        >
++          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <div>
++              <p className="font-semibold">Your trial ends on {subscription.trialEndsAt}.</p>
++              <p className="text-muted-foreground">
++                Add a payment method or review your plan before access changes.
++              </p>
++            </div>
++            <Button size="sm">Review plan</Button>
++          </div>
++        </section>
++      ) : null}
++
++      <section className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
++        <Card>
++          <CardHeader>
++            <CardTitle>Current plan</CardTitle>
++            <CardDescription>Your subscription renews on {subscription.renewalDate}.</CardDescription>
++          </CardHeader>
++          <CardContent className="grid gap-6 sm:grid-cols-3">
++            <div>
++              <p className="text-sm text-muted-foreground">Plan</p>
++              <p className="mt-1 text-lg font-semibold">{subscription.plan}</p>
++            </div>
++            <div>
++              <p className="text-sm text-muted-foreground">Price</p>
++              <p className="mt-1 text-lg font-semibold">{subscription.price}</p>
++            </div>
++            <div>
++              <p className="text-sm text-muted-foreground">Renewal date</p>
++              <p className="mt-1 text-lg font-semibold">{subscription.renewalDate}</p>
++            </div>
++          </CardContent>
++          <CardFooter className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:justify-between">
++            <Button variant="outline">Change plan</Button>
++            <Button variant="destructive">Cancel subscription</Button>
++          </CardFooter>
++        </Card>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Payment method</CardTitle>
++            <CardDescription>Card used for future invoices.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="rounded-md border border-border bg-muted p-4">
++              <p className="font-semibold">
++                {paymentMethod.brand} ending in {paymentMethod.last4}
++              </p>
++              <p className="mt-1 text-sm text-muted-foreground">Expires {paymentMethod.expires}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button>Update card</Button>
++          </CardFooter>
++        </Card>
+       </section>
++
++      <Card>
++        <CardHeader>
++          <CardTitle>Invoices</CardTitle>
++          <CardDescription>Download receipts for recent billing periods.</CardDescription>
++        </CardHeader>
++        <CardContent>
++          <div className="overflow-x-auto">
++            <table className="w-full min-w-[640px] text-left text-sm">
++              <thead className="border-b border-border text-muted-foreground">
++                <tr>
++                  <th className="py-3 pr-4 font-medium">Invoice</th>
++                  <th className="py-3 pr-4 font-medium">Date</th>
++                  <th className="py-3 pr-4 font-medium">Amount</th>
++                  <th className="py-3 pr-4 font-medium">Status</th>
++                  <th className="py-3 text-right font-medium">Receipt</th>
++                </tr>
++              </thead>
++              <tbody>
++                {invoices.map((invoice) => (
++                  <tr key={invoice.id} className="border-b border-border last:border-0">
++                    <td className="py-4 pr-4 font-medium">{invoice.id}</td>
++                    <td className="py-4 pr-4 text-muted-foreground">{invoice.date}</td>
++                    <td className="py-4 pr-4">{invoice.amount}</td>
++                    <td className="py-4 pr-4">
++                      <Badge variant="secondary">{invoice.status}</Badge>
++                    </td>
++                    <td className="py-4 text-right">
++                      <a
++                        className="font-medium text-primary underline-offset-4 hover:underline"
++                        download
++                        href={`/invoices/${invoice.id}.pdf`}
++                      >
++                        Download
++                      </a>
++                    </td>
++                  </tr>
++                ))}
++              </tbody>
++            </table>
++          </div>
++        </CardContent>
++      </Card>
+     </main>
+   )
+ }

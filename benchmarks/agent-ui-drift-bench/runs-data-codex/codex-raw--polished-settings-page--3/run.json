@@ -1,0 +1,37 @@
+{
+  "id": "codex-raw--polished-settings-page--3",
+  "timestamp": "2026-07-05T06:17:31.395Z",
+  "mode": "codex-raw",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "polished-settings-page",
+  "attempt": 3,
+  "model": "gpt-5.5",
+  "agent": "codex",
+  "result": {
+    "score": {
+      "driftScore": 8,
+      "totalViolations": 1,
+      "errorViolations": 1,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 1,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 219,
+    "filesTouched": 1
+  },
+  "rawOutputPaths": [
+    "runs-codex/codex-raw--polished-settings-page--3/agent-stdout.txt",
+    "runs-codex/codex-raw--polished-settings-page--3/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs-codex/codex-raw--polished-settings-page--3/scanner.json",
+  "gitDiffPath": "runs-codex/codex-raw--polished-settings-page--3/diff.patch"
+}

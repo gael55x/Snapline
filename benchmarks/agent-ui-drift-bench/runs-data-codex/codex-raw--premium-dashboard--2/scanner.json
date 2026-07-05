@@ -1,0 +1,321 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--premium-dashboard--2/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:19:49:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"border-emerald-200\"",
+      "location": {
+        "line": 19,
+        "column": 49
+      },
+      "evidence": "border-emerald-200",
+      "repair": {
+        "instruction": "Replace border-emerald-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:19:68:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"bg-emerald-50\"",
+      "location": {
+        "line": 19,
+        "column": 68
+      },
+      "evidence": "bg-emerald-50",
+      "repair": {
+        "instruction": "Replace bg-emerald-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:19:82:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"text-emerald-700\"",
+      "location": {
+        "line": 19,
+        "column": 82
+      },
+      "evidence": "text-emerald-700",
+      "repair": {
+        "instruction": "Replace text-emerald-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-arbitrary-tailwind:src/components/dashboard/stat-card.tsx:18:56:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Arbitrary Tailwind value \"hover:shadow-[0_22px_55px_-30px_rgba(15,23,42,0.6)]\"",
+      "location": {
+        "line": 18,
+        "column": 56
+      },
+      "evidence": "hover:shadow-[0_22px_55px_-30px_rgba(15,23,42,0.6)]",
+      "repair": {
+        "instruction": "Remove hover:shadow-[0_22px_55px_-30px_rgba(15,23,42,0.6)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-arbitrary-tailwind:src/components/ui/card.tsx:10:71:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/ui/card.tsx",
+      "message": "Arbitrary Tailwind value \"shadow-[0_18px_45px_-28px_rgba(15,23,42,0.45)]\"",
+      "location": {
+        "line": 10,
+        "column": 71
+      },
+      "evidence": "shadow-[0_18px_45px_-28px_rgba(15,23,42,0.45)]",
+      "repair": {
+        "instruction": "Remove shadow-[0_18px_45px_-28px_rgba(15,23,42,0.45)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-arbitrary-tailwind:src/components/ui/dialog.tsx:79:120:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/ui/dialog.tsx",
+      "message": "Arbitrary Tailwind value \"shadow-[0_24px_70px_-28px_rgba(15,23,42,0.65)]\"",
+      "location": {
+        "line": 79,
+        "column": 120
+      },
+      "evidence": "shadow-[0_24px_70px_-28px_rgba(15,23,42,0.65)]",
+      "repair": {
+        "instruction": "Remove shadow-[0_24px_70px_-28px_rgba(15,23,42,0.65)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-arbitrary-tailwind:src/components/ui/input.tsx:13:103:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/ui/input.tsx",
+      "message": "Arbitrary Tailwind value \"shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)]\"",
+      "location": {
+        "line": 13,
+        "column": 103
+      },
+      "evidence": "shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)]",
+      "repair": {
+        "instruction": "Remove shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 44,
+    "totalViolations": 7,
+    "errorViolations": 4,
+    "warningViolations": 3,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 4,
+    "rawPaletteClasses": 3,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/dashboard/nav.tsx",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:19:49:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"border-emerald-200\"",
+          "location": {
+            "line": 19,
+            "column": 49
+          },
+          "evidence": "border-emerald-200",
+          "repair": {
+            "instruction": "Replace border-emerald-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:19:68:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"bg-emerald-50\"",
+          "location": {
+            "line": 19,
+            "column": 68
+          },
+          "evidence": "bg-emerald-50",
+          "repair": {
+            "instruction": "Replace bg-emerald-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:19:82:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"text-emerald-700\"",
+          "location": {
+            "line": 19,
+            "column": 82
+          },
+          "evidence": "text-emerald-700",
+          "repair": {
+            "instruction": "Replace text-emerald-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace border-emerald-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-emerald-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-emerald-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+      ],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/nav.tsx\n\n3 violations:\n- [warn] raw Tailwind color: border-emerald-200 (line 19)\n- [warn] raw Tailwind color: bg-emerald-50 (line 19)\n- [warn] raw Tailwind color: text-emerald-700 (line 19)\n\nRecommended:\n- Replace border-emerald-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-emerald-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-emerald-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+    },
+    {
+      "title": "Repair UI drift in src/components/dashboard/stat-card.tsx",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/dashboard/stat-card.tsx:18:56:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Arbitrary Tailwind value \"hover:shadow-[0_22px_55px_-30px_rgba(15,23,42,0.6)]\"",
+          "location": {
+            "line": 18,
+            "column": 56
+          },
+          "evidence": "hover:shadow-[0_22px_55px_-30px_rgba(15,23,42,0.6)]",
+          "repair": {
+            "instruction": "Remove hover:shadow-[0_22px_55px_-30px_rgba(15,23,42,0.6)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove hover:shadow-[0_22px_55px_-30px_rgba(15,23,42,0.6)]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/stat-card.tsx\n\n1 violation:\n- [error] arbitrary value: hover:shadow-[0_22px_55px_-30px_rgba(15,23,42,0.6)] (line 18)\n\nRepair:\n- Remove hover:shadow-[0_22px_55px_-30px_rgba(15,23,42,0.6)]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+    },
+    {
+      "title": "Repair UI drift in src/components/ui/card.tsx",
+      "filePath": "src/components/ui/card.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/ui/card.tsx:10:71:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/ui/card.tsx",
+          "message": "Arbitrary Tailwind value \"shadow-[0_18px_45px_-28px_rgba(15,23,42,0.45)]\"",
+          "location": {
+            "line": 10,
+            "column": 71
+          },
+          "evidence": "shadow-[0_18px_45px_-28px_rgba(15,23,42,0.45)]",
+          "repair": {
+            "instruction": "Remove shadow-[0_18px_45px_-28px_rgba(15,23,42,0.45)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove shadow-[0_18px_45px_-28px_rgba(15,23,42,0.45)]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/ui/card.tsx\n\n1 violation:\n- [error] arbitrary value: shadow-[0_18px_45px_-28px_rgba(15,23,42,0.45)] (line 10)\n\nRepair:\n- Remove shadow-[0_18px_45px_-28px_rgba(15,23,42,0.45)]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+    },
+    {
+      "title": "Repair UI drift in src/components/ui/dialog.tsx",
+      "filePath": "src/components/ui/dialog.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/ui/dialog.tsx:79:120:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/ui/dialog.tsx",
+          "message": "Arbitrary Tailwind value \"shadow-[0_24px_70px_-28px_rgba(15,23,42,0.65)]\"",
+          "location": {
+            "line": 79,
+            "column": 120
+          },
+          "evidence": "shadow-[0_24px_70px_-28px_rgba(15,23,42,0.65)]",
+          "repair": {
+            "instruction": "Remove shadow-[0_24px_70px_-28px_rgba(15,23,42,0.65)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove shadow-[0_24px_70px_-28px_rgba(15,23,42,0.65)]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/ui/dialog.tsx\n\n1 violation:\n- [error] arbitrary value: shadow-[0_24px_70px_-28px_rgba(15,23,42,0.65)] (line 79)\n\nRepair:\n- Remove shadow-[0_24px_70px_-28px_rgba(15,23,42,0.65)]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+    },
+    {
+      "title": "Repair UI drift in src/components/ui/input.tsx",
+      "filePath": "src/components/ui/input.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/ui/input.tsx:13:103:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/ui/input.tsx",
+          "message": "Arbitrary Tailwind value \"shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)]\"",
+          "location": {
+            "line": 13,
+            "column": 103
+          },
+          "evidence": "shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)]",
+          "repair": {
+            "instruction": "Remove shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/ui/input.tsx\n\n1 violation:\n- [error] arbitrary value: shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)] (line 13)\n\nRepair:\n- Remove shadow-[inset_0_1px_2px_rgba(15,23,42,0.04)]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+    }
+  ],
+  "durationMs": 45
+}

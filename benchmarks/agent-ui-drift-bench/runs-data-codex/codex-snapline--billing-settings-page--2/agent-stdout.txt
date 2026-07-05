@@ -1,0 +1,10 @@
+Implemented the billing settings page in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx).
+
+It now includes current plan, price, renewal date, trial-expiry banner, payment method with `Update card`, recent invoices with download links, billing contact, and `Cancel subscription`.
+
+Verification:
+- `npm run typecheck` passed
+- `./node_modules/.bin/snapline scan --changed` passed twice
+- Global `snapline` was not on PATH, so I used the repo-local binary
+
+Skipped real billing/payment wiring; add it when the app has an API or payment portal contract.

@@ -1,0 +1,2278 @@
+{
+  "benchmark": "agent-ui-drift-bench",
+  "generatedAt": "2026-07-05T09:23:08.375Z",
+  "configHash": "da6de300d39ed56d",
+  "scorer": "ui-drift-score-v1",
+  "modes": [
+    {
+      "mode": "claude-raw",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-project-instructions",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-shadcn-mcp",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-tailwind-eslint",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-buoy",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-drift-guard",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-snapline",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-shadcn-mcp-snapline",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "codex-raw",
+      "runs": 29,
+      "failures": 3,
+      "median": {
+        "driftScore": 16,
+        "totalViolations": 2,
+        "componentReuseRate": 1,
+        "buildPassRate": 1,
+        "repairIterations": 0,
+        "totalWallTimeSeconds": 233.5
+      },
+      "driftedRunRate": 0.6153846153846154,
+      "worstDriftScore": 96
+    },
+    {
+      "mode": "codex-snapline",
+      "runs": 30,
+      "failures": 12,
+      "median": {
+        "driftScore": 0,
+        "totalViolations": 0,
+        "componentReuseRate": 1,
+        "buildPassRate": 1,
+        "repairIterations": 0,
+        "totalWallTimeSeconds": 247.5
+      },
+      "driftedRunRate": 0,
+      "worstDriftScore": 0
+    }
+  ],
+  "runs": [
+    {
+      "id": "codex-raw--billing-settings-page--1",
+      "timestamp": "2026-07-05T08:34:17.945Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 24,
+          "totalViolations": 3,
+          "errorViolations": 3,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 3,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 126,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--billing-settings-page--1/agent-stdout.txt",
+        "runs-codex/codex-raw--billing-settings-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--billing-settings-page--1/diff.patch"
+    },
+    {
+      "id": "codex-raw--billing-settings-page--2",
+      "timestamp": "2026-07-05T08:36:27.473Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 16,
+          "totalViolations": 2,
+          "errorViolations": 2,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 2,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 153,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--billing-settings-page--2/agent-stdout.txt",
+        "runs-codex/codex-raw--billing-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--billing-settings-page--2/diff.patch"
+    },
+    {
+      "id": "codex-raw--billing-settings-page--3",
+      "timestamp": "2026-07-05T08:39:03.574Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 16,
+          "totalViolations": 2,
+          "errorViolations": 2,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 2,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 169,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--billing-settings-page--3/agent-stdout.txt",
+        "runs-codex/codex-raw--billing-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--billing-settings-page--3/diff.patch"
+    },
+    {
+      "id": "codex-raw--dashboard-visual-hierarchy--1",
+      "timestamp": "2026-07-05T08:20:41.276Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "dashboard-visual-hierarchy",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 282,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-codex/codex-raw--dashboard-visual-hierarchy--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--dashboard-visual-hierarchy--1/diff.patch"
+    },
+    {
+      "id": "codex-raw--dashboard-visual-hierarchy--2",
+      "timestamp": "2026-07-05T08:25:26.497Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "dashboard-visual-hierarchy",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 230,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-codex/codex-raw--dashboard-visual-hierarchy--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--dashboard-visual-hierarchy--2/diff.patch"
+    },
+    {
+      "id": "codex-raw--dashboard-visual-hierarchy--3",
+      "timestamp": "2026-07-05T08:29:20.222Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "dashboard-visual-hierarchy",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 295,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-codex/codex-raw--dashboard-visual-hierarchy--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--dashboard-visual-hierarchy--3/diff.patch"
+    },
+    {
+      "id": "codex-raw--empty-state--1",
+      "timestamp": "2026-07-05T09:13:45.212Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 229,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--empty-state--1/agent-stdout.txt",
+        "runs-codex/codex-raw--empty-state--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--empty-state--1/diff.patch"
+    },
+    {
+      "id": "codex-raw--empty-state--2",
+      "timestamp": "2026-07-05T09:17:47.451Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 28,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--empty-state--2/agent-stdout.txt",
+        "runs-codex/codex-raw--empty-state--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--empty-state--2/diff.patch"
+    },
+    {
+      "id": "codex-raw--empty-state--3",
+      "timestamp": "2026-07-05T09:18:30.910Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 44,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--empty-state--3/agent-stdout.txt",
+        "runs-codex/codex-raw--empty-state--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--empty-state--3/diff.patch"
+    },
+    {
+      "id": "codex-raw--invoices-table--1",
+      "timestamp": "2026-07-05T08:58:03.659Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 16,
+          "totalViolations": 2,
+          "errorViolations": 2,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 1,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.75
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 297,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--invoices-table--1/agent-stdout.txt",
+        "runs-codex/codex-raw--invoices-table--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--invoices-table--1/diff.patch"
+    },
+    {
+      "id": "codex-raw--invoices-table--2",
+      "timestamp": "2026-07-05T09:03:04.971Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 16,
+          "totalViolations": 2,
+          "errorViolations": 2,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 2,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 377,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--invoices-table--2/agent-stdout.txt",
+        "runs-codex/codex-raw--invoices-table--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--invoices-table--2/diff.patch"
+    },
+    {
+      "id": "codex-raw--invoices-table--3",
+      "timestamp": "2026-07-05T09:09:30.869Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 16,
+          "totalViolations": 2,
+          "errorViolations": 2,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 1,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.875
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 251,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--invoices-table--3/agent-stdout.txt",
+        "runs-codex/codex-raw--invoices-table--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--invoices-table--3/diff.patch"
+    },
+    {
+      "id": "codex-raw--login-page--1",
+      "timestamp": "2026-07-05T05:38:00.832Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.95
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 200,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--login-page--1/agent-stdout.txt",
+        "runs-codex/codex-raw--login-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--login-page--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--login-page--1/diff.patch"
+    },
+    {
+      "id": "codex-raw--login-page--2",
+      "timestamp": "2026-07-05T08:41:58.519Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.95
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 161,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--login-page--2/agent-stdout.txt",
+        "runs-codex/codex-raw--login-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--login-page--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--login-page--2/diff.patch"
+    },
+    {
+      "id": "codex-raw--login-page--3",
+      "timestamp": "2026-07-05T08:44:42.471Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9474
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 170,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--login-page--3/agent-stdout.txt",
+        "runs-codex/codex-raw--login-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--login-page--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--login-page--3/diff.patch"
+    },
+    {
+      "id": "codex-raw--onboarding-cleanup--1",
+      "timestamp": "2026-07-05T06:55:59.169Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 68,
+          "totalViolations": 14,
+          "errorViolations": 3,
+          "warningViolations": 11,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 3,
+          "rawPaletteClasses": 11,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 237,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-codex/codex-raw--onboarding-cleanup--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--onboarding-cleanup--1/diff.patch"
+    },
+    {
+      "id": "codex-raw--onboarding-cleanup--2",
+      "timestamp": "2026-07-05T06:59:59.255Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 3921,
+        "filesTouched": 0,
+        "failure": "agent spawn failed: spawnSync codex ETIMEDOUT"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-codex/codex-raw--onboarding-cleanup--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--onboarding-cleanup--2/diff.patch"
+    },
+    {
+      "id": "codex-raw--onboarding-cleanup--3",
+      "timestamp": "2026-07-05T08:05:27.474Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 910,
+        "filesTouched": 0
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-codex/codex-raw--onboarding-cleanup--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--onboarding-cleanup--3/diff.patch"
+    },
+    {
+      "id": "codex-raw--polished-settings-page--1",
+      "timestamp": "2026-07-05T06:07:45.844Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 23,
+          "totalViolations": 4,
+          "errorViolations": 1,
+          "warningViolations": 3,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 1,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 3,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 284,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--polished-settings-page--1/agent-stdout.txt",
+        "runs-codex/codex-raw--polished-settings-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--polished-settings-page--1/diff.patch"
+    },
+    {
+      "id": "codex-raw--polished-settings-page--2",
+      "timestamp": "2026-07-05T06:12:36.562Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 24,
+          "totalViolations": 3,
+          "errorViolations": 3,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 3,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 291,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--polished-settings-page--2/agent-stdout.txt",
+        "runs-codex/codex-raw--polished-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--polished-settings-page--2/diff.patch"
+    },
+    {
+      "id": "codex-raw--polished-settings-page--3",
+      "timestamp": "2026-07-05T06:17:31.395Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 1,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 219,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--polished-settings-page--3/agent-stdout.txt",
+        "runs-codex/codex-raw--polished-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--polished-settings-page--3/diff.patch"
+    },
+    {
+      "id": "codex-raw--premium-dashboard--1",
+      "timestamp": "2026-07-05T05:48:29.626Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 20,
+          "totalViolations": 4,
+          "errorViolations": 1,
+          "warningViolations": 3,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 1,
+          "rawPaletteClasses": 3,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 399,
+        "filesTouched": 9
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--premium-dashboard--1/agent-stdout.txt",
+        "runs-codex/codex-raw--premium-dashboard--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--premium-dashboard--1/diff.patch"
+    },
+    {
+      "id": "codex-raw--premium-dashboard--2",
+      "timestamp": "2026-07-05T05:55:24.140Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 44,
+          "totalViolations": 7,
+          "errorViolations": 4,
+          "warningViolations": 3,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 4,
+          "rawPaletteClasses": 3,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 398,
+        "filesTouched": 12
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--premium-dashboard--2/agent-stdout.txt",
+        "runs-codex/codex-raw--premium-dashboard--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--premium-dashboard--2/diff.patch"
+    },
+    {
+      "id": "codex-raw--premium-dashboard--3",
+      "timestamp": "2026-07-05T06:02:08.864Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 32,
+          "totalViolations": 4,
+          "errorViolations": 4,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 4,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 334,
+        "filesTouched": 11
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--premium-dashboard--3/agent-stdout.txt",
+        "runs-codex/codex-raw--premium-dashboard--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--premium-dashboard--3/diff.patch"
+    },
+    {
+      "id": "codex-raw--pricing-cards-polish--2",
+      "timestamp": "2026-07-05T06:22:38.538Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 52,
+          "totalViolations": 10,
+          "errorViolations": 3,
+          "warningViolations": 7,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 3,
+          "rawPaletteClasses": 7,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 1771,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-codex/codex-raw--pricing-cards-polish--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--pricing-cards-polish--2/diff.patch"
+    },
+    {
+      "id": "codex-raw--pricing-cards-polish--3",
+      "timestamp": "2026-07-05T06:52:12.662Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 96,
+          "totalViolations": 16,
+          "errorViolations": 8,
+          "warningViolations": 8,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 8,
+          "rawPaletteClasses": 8,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 221,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-codex/codex-raw--pricing-cards-polish--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--pricing-cards-polish--3/diff.patch"
+    },
+    {
+      "id": "codex-raw--team-invite-modal--1",
+      "timestamp": "2026-07-05T08:47:36.759Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9697
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 200,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--team-invite-modal--1/agent-stdout.txt",
+        "runs-codex/codex-raw--team-invite-modal--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--team-invite-modal--1/diff.patch"
+    },
+    {
+      "id": "codex-raw--team-invite-modal--2",
+      "timestamp": "2026-07-05T08:50:59.740Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 10,
+          "totalViolations": 2,
+          "errorViolations": 0,
+          "warningViolations": 2,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 2,
+          "componentReuseRate": 0.9714
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 196,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--team-invite-modal--2/agent-stdout.txt",
+        "runs-codex/codex-raw--team-invite-modal--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--team-invite-modal--2/diff.patch"
+    },
+    {
+      "id": "codex-raw--team-invite-modal--3",
+      "timestamp": "2026-07-05T08:54:19.720Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9697
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 220,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--team-invite-modal--3/agent-stdout.txt",
+        "runs-codex/codex-raw--team-invite-modal--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--team-invite-modal--3/diff.patch"
+    },
+    {
+      "id": "codex-snapline--billing-settings-page--1",
+      "timestamp": "2026-07-05T09:05:18.153Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 256,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--billing-settings-page--1/agent-stdout.txt",
+        "runs-codex/codex-snapline--billing-settings-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--billing-settings-page--1/diff.patch"
+    },
+    {
+      "id": "codex-snapline--billing-settings-page--2",
+      "timestamp": "2026-07-05T09:09:45.119Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 179,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--billing-settings-page--2/agent-stdout.txt",
+        "runs-codex/codex-snapline--billing-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--billing-settings-page--2/diff.patch"
+    },
+    {
+      "id": "codex-snapline--billing-settings-page--3",
+      "timestamp": "2026-07-05T09:12:49.421Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 246,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--billing-settings-page--3/agent-stdout.txt",
+        "runs-codex/codex-snapline--billing-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--billing-settings-page--3/diff.patch"
+    },
+    {
+      "id": "codex-snapline--dashboard-visual-hierarchy--1",
+      "timestamp": "2026-07-05T08:51:56.697Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "dashboard-visual-hierarchy",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 305,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-codex/codex-snapline--dashboard-visual-hierarchy--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--dashboard-visual-hierarchy--1/diff.patch"
+    },
+    {
+      "id": "codex-snapline--dashboard-visual-hierarchy--2",
+      "timestamp": "2026-07-05T08:57:06.128Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "dashboard-visual-hierarchy",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 256,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-codex/codex-snapline--dashboard-visual-hierarchy--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--dashboard-visual-hierarchy--2/diff.patch"
+    },
+    {
+      "id": "codex-snapline--dashboard-visual-hierarchy--3",
+      "timestamp": "2026-07-05T09:01:25.800Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "dashboard-visual-hierarchy",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 229,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-codex/codex-snapline--dashboard-visual-hierarchy--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--dashboard-visual-hierarchy--3/diff.patch"
+    },
+    {
+      "id": "codex-snapline--empty-state--1",
+      "timestamp": "2026-07-05T09:22:21.487Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 16,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--empty-state--1/agent-stdout.txt",
+        "runs-codex/codex-snapline--empty-state--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--empty-state--1/diff.patch"
+    },
+    {
+      "id": "codex-snapline--empty-state--2",
+      "timestamp": "2026-07-05T09:22:42.387Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 19,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--empty-state--2/agent-stdout.txt",
+        "runs-codex/codex-snapline--empty-state--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--empty-state--2/diff.patch"
+    },
+    {
+      "id": "codex-snapline--empty-state--3",
+      "timestamp": "2026-07-05T09:23:08.375Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 22,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--empty-state--3/agent-stdout.txt",
+        "runs-codex/codex-snapline--empty-state--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--empty-state--3/diff.patch"
+    },
+    {
+      "id": "codex-snapline--invoices-table--1",
+      "timestamp": "2026-07-05T09:20:34.663Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 35,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--invoices-table--1/agent-stdout.txt",
+        "runs-codex/codex-snapline--invoices-table--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--invoices-table--1/diff.patch"
+    },
+    {
+      "id": "codex-snapline--invoices-table--2",
+      "timestamp": "2026-07-05T09:21:20.721Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 27,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--invoices-table--2/agent-stdout.txt",
+        "runs-codex/codex-snapline--invoices-table--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--invoices-table--2/diff.patch"
+    },
+    {
+      "id": "codex-snapline--invoices-table--3",
+      "timestamp": "2026-07-05T09:21:55.439Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 20,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--invoices-table--3/agent-stdout.txt",
+        "runs-codex/codex-snapline--invoices-table--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--invoices-table--3/diff.patch"
+    },
+    {
+      "id": "codex-snapline--login-page--1",
+      "timestamp": "2026-07-05T05:41:56.963Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 226,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--login-page--1/agent-stdout.txt",
+        "runs-codex/codex-snapline--login-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--login-page--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--login-page--1/diff.patch"
+    },
+    {
+      "id": "codex-snapline--login-page--2",
+      "timestamp": "2026-07-05T09:17:05.517Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 30,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--login-page--2/agent-stdout.txt",
+        "runs-codex/codex-snapline--login-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--login-page--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--login-page--2/diff.patch"
+    },
+    {
+      "id": "codex-snapline--login-page--3",
+      "timestamp": "2026-07-05T09:17:45.145Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 29,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--login-page--3/agent-stdout.txt",
+        "runs-codex/codex-snapline--login-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--login-page--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--login-page--3/diff.patch"
+    },
+    {
+      "id": "codex-snapline--onboarding-cleanup--1",
+      "timestamp": "2026-07-05T08:42:03.397Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 103,
+        "filesTouched": 0
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-codex/codex-snapline--onboarding-cleanup--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--onboarding-cleanup--1/diff.patch"
+    },
+    {
+      "id": "codex-snapline--onboarding-cleanup--2",
+      "timestamp": "2026-07-05T08:43:50.161Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 249,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-codex/codex-snapline--onboarding-cleanup--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--onboarding-cleanup--2/diff.patch"
+    },
+    {
+      "id": "codex-snapline--onboarding-cleanup--3",
+      "timestamp": "2026-07-05T08:48:02.037Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 232,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-codex/codex-snapline--onboarding-cleanup--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--onboarding-cleanup--3/diff.patch"
+    },
+    {
+      "id": "codex-snapline--polished-settings-page--1",
+      "timestamp": "2026-07-05T08:06:42.631Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 264,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--polished-settings-page--1/agent-stdout.txt",
+        "runs-codex/codex-snapline--polished-settings-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--polished-settings-page--1/diff.patch"
+    },
+    {
+      "id": "codex-snapline--polished-settings-page--2",
+      "timestamp": "2026-07-05T08:11:10.540Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 899,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--polished-settings-page--2/agent-stdout.txt",
+        "runs-codex/codex-snapline--polished-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--polished-settings-page--2/diff.patch"
+    },
+    {
+      "id": "codex-snapline--polished-settings-page--3",
+      "timestamp": "2026-07-05T08:26:13.361Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 222,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--polished-settings-page--3/agent-stdout.txt",
+        "runs-codex/codex-snapline--polished-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--polished-settings-page--3/diff.patch"
+    },
+    {
+      "id": "codex-snapline--premium-dashboard--1",
+      "timestamp": "2026-07-05T06:47:01.964Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 329,
+        "filesTouched": 9
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--premium-dashboard--1/agent-stdout.txt",
+        "runs-codex/codex-snapline--premium-dashboard--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--premium-dashboard--1/diff.patch"
+    },
+    {
+      "id": "codex-snapline--premium-dashboard--2",
+      "timestamp": "2026-07-05T06:52:34.008Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 257,
+        "filesTouched": 6
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--premium-dashboard--2/agent-stdout.txt",
+        "runs-codex/codex-snapline--premium-dashboard--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--premium-dashboard--2/diff.patch"
+    },
+    {
+      "id": "codex-snapline--premium-dashboard--3",
+      "timestamp": "2026-07-05T06:56:53.552Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 4185,
+        "filesTouched": 9,
+        "failure": "agent spawn failed: spawnSync /Users/gailleamolong/.cursor/extensions/openai.chatgpt-26.623.101652-darwin-arm64/bin/macos-aarch64/codex ETIMEDOUT"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--premium-dashboard--3/agent-stdout.txt",
+        "runs-codex/codex-snapline--premium-dashboard--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--premium-dashboard--3/diff.patch"
+    },
+    {
+      "id": "codex-snapline--pricing-cards-polish--1",
+      "timestamp": "2026-07-05T08:29:57.643Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 230,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-codex/codex-snapline--pricing-cards-polish--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--pricing-cards-polish--1/diff.patch"
+    },
+    {
+      "id": "codex-snapline--pricing-cards-polish--2",
+      "timestamp": "2026-07-05T08:33:50.585Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 229,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-codex/codex-snapline--pricing-cards-polish--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--pricing-cards-polish--2/diff.patch"
+    },
+    {
+      "id": "codex-snapline--pricing-cards-polish--3",
+      "timestamp": "2026-07-05T08:37:44.459Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 254,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-codex/codex-snapline--pricing-cards-polish--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--pricing-cards-polish--3/diff.patch"
+    },
+    {
+      "id": "codex-snapline--team-invite-modal--1",
+      "timestamp": "2026-07-05T09:18:26.936Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 38,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--team-invite-modal--1/agent-stdout.txt",
+        "runs-codex/codex-snapline--team-invite-modal--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--team-invite-modal--1/diff.patch"
+    },
+    {
+      "id": "codex-snapline--team-invite-modal--2",
+      "timestamp": "2026-07-05T09:19:13.529Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 2,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 31,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--team-invite-modal--2/agent-stdout.txt",
+        "runs-codex/codex-snapline--team-invite-modal--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--team-invite-modal--2/diff.patch"
+    },
+    {
+      "id": "codex-snapline--team-invite-modal--3",
+      "timestamp": "2026-07-05T09:19:53.340Z",
+      "mode": "codex-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 3,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 31,
+        "filesTouched": 0,
+        "failure": "agent exited 1"
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-snapline--team-invite-modal--3/agent-stdout.txt",
+        "runs-codex/codex-snapline--team-invite-modal--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-snapline--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-codex/codex-snapline--team-invite-modal--3/diff.patch"
+    }
+  ]
+}

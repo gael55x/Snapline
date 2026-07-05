@@ -1,0 +1,5 @@
+Implemented in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--team-invite-modal--3/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx).
+
+Added a team page with an `Invite member` modal, comma-separated multi-email input, Admin/Member role selector with descriptions, optional message, remaining-seat count, over-limit submit disabling, and a sent success state.
+
+Verification: `npm run typecheck` passes. Skipped a fake backend/API layer; add that only when invites need to persist or send real email.

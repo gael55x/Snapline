@@ -185,8 +185,14 @@ Raw Haiku drifted in **53% of runs (16/30)** with a worst drift score of
 and here the hooks visibly earned it: 13 PostToolUse blocks across 8 runs,
 each repaired to zero in-session. Report:
 [reports/latest-haiku.md](benchmarks/agent-ui-drift-bench/reports/latest-haiku.md).
-A cross-agent slice (Codex CLI, `gpt-5.5`, instruction-level Snapline — Codex
-has no lifecycle hooks) is running; results publish the same way.
+**Cross-agent slice — Codex CLI, `gpt-5.5`** (44 valid runs; 15 cells failed
+on account quota/timeouts, recorded with reasons and pending their retry —
+never dropped): raw Codex drifted in **61% of runs (16/26)** with a nonzero
+median (16). With Snapline in **instruction-level mode** — AGENTS.md +
+scan-before-finish, *no hook gate exists for Codex yet* — it went **0/18**.
+That isolates the repair-contract format itself: exact, machine-followable
+violations converge an agent even without enforcement. Report:
+[reports/latest-codex.md](benchmarks/agent-ui-drift-bench/reports/latest-codex.md).
 
 ## Status
 

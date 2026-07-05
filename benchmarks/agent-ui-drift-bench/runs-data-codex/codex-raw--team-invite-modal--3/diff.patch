@@ -1,0 +1,287 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee..bc767f2 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,242 @@
++"use client"
++
++import type { FormEvent } from "react"
++import { useState } from "react"
++
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Dialog,
++  DialogContent,
++  DialogDescription,
++  DialogFooter,
++  DialogHeader,
++  DialogTitle,
++} from "@/components/ui/dialog"
++import { Input } from "@/components/ui/input"
++import { Textarea } from "@/components/ui/textarea"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
++const planSeats = 8
++
++const members = [
++  { name: "Maya Chen", email: "maya@snapline.test", role: "Admin" },
++  { name: "Jon Bell", email: "jon@snapline.test", role: "Member" },
++  { name: "Priya Shah", email: "priya@snapline.test", role: "Member" },
++  { name: "Diego Santos", email: "diego@snapline.test", role: "Member" },
++  { name: "Lena Ortiz", email: "lena@snapline.test", role: "Member" },
++]
++
++const roles = [
+   {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
++    value: "admin",
++    label: "Admin",
++    description: "Can manage billing, seats, and team settings.",
+   },
+   {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
++    value: "member",
++    label: "Member",
++    description: "Can collaborate in projects without admin access.",
+   },
+-]
++] as const
++
++type Role = (typeof roles)[number]["value"]
++
++export default function TeamPage() {
++  const [inviteOpen, setInviteOpen] = useState(false)
++  const [emails, setEmails] = useState("")
++  const [role, setRole] = useState<Role>("member")
++  const [message, setMessage] = useState("")
++  const [sent, setSent] = useState(false)
++
++  const remainingSeats = planSeats - members.length
++  const inviteCount = emails
++    .split(",")
++    .map((email) => email.trim())
++    .filter(Boolean).length
++  const overLimit = inviteCount > remainingSeats
++  const canSend = inviteCount > 0 && !overLimit
++  const selectedRole = roles.find((item) => item.value === role)
++
++  function openInviteModal() {
++    setEmails("")
++    setRole("member")
++    setMessage("")
++    setSent(false)
++    setInviteOpen(true)
++  }
++
++  function handleSubmit(event: FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++    if (canSend) {
++      setSent(true)
++    }
++  }
+ 
+-export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
++    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-8 px-6 py-12">
++      <section className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
++        <div className="space-y-3">
++          <Badge className="bg-brand text-brand-foreground">Team plan</Badge>
++          <div className="space-y-2">
++            <h1 className="text-4xl font-bold tracking-tight text-foreground">Team members</h1>
++            <p className="max-w-2xl text-muted-foreground">
++              Manage who can access shared workspaces and control account settings.
++            </p>
++          </div>
+         </div>
++        <Button type="button" onClick={openInviteModal}>
++          Invite member
++        </Button>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
++      <section className="grid gap-4 sm:grid-cols-3">
++        <Card>
++          <CardHeader>
++            <CardTitle>{members.length}</CardTitle>
++            <CardDescription>Active members</CardDescription>
++          </CardHeader>
++        </Card>
++        <Card>
++          <CardHeader>
++            <CardTitle>{remainingSeats}</CardTitle>
++            <CardDescription>Seats remaining</CardDescription>
++          </CardHeader>
++        </Card>
++        <Card>
++          <CardHeader>
++            <CardTitle>{planSeats}</CardTitle>
++            <CardDescription>Seats on plan</CardDescription>
++          </CardHeader>
++        </Card>
+       </section>
++
++      <Card>
++        <CardHeader>
++          <CardTitle>Workspace access</CardTitle>
++          <CardDescription>Current members and their assigned roles.</CardDescription>
++        </CardHeader>
++        <CardContent>
++          <div className="divide-y divide-border">
++            {members.map((member) => (
++              <div
++                key={member.email}
++                className="flex flex-col gap-2 py-4 first:pt-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between"
++              >
++                <div>
++                  <p className="font-medium text-foreground">{member.name}</p>
++                  <p className="text-sm text-muted-foreground">{member.email}</p>
++                </div>
++                <Badge variant={member.role === "Admin" ? "default" : "secondary"}>
++                  {member.role}
++                </Badge>
++              </div>
++            ))}
++          </div>
++        </CardContent>
++      </Card>
++
++      <Dialog open={inviteOpen} onOpenChange={setInviteOpen}>
++        <DialogContent className="max-w-xl">
++          {sent ? (
++            <>
++              <DialogHeader>
++                <DialogTitle>Invites sent</DialogTitle>
++                <DialogDescription>
++                  {inviteCount} {inviteCount === 1 ? "person has" : "people have"} been invited as{" "}
++                  {selectedRole?.label}.
++                </DialogDescription>
++              </DialogHeader>
++              <div className="rounded-md border border-border bg-secondary p-4 text-sm text-secondary-foreground">
++                They will receive an email invitation with your optional message.
++              </div>
++              <DialogFooter>
++                <Button type="button" onClick={() => setInviteOpen(false)}>
++                  Done
++                </Button>
++              </DialogFooter>
++            </>
++          ) : (
++            <form className="grid gap-5" onSubmit={handleSubmit}>
++              <DialogHeader>
++                <DialogTitle>Invite member</DialogTitle>
++                <DialogDescription>
++                  Add teammates by email. You have {remainingSeats}{" "}
++                  {remainingSeats === 1 ? "seat" : "seats"} remaining on this plan.
++                </DialogDescription>
++              </DialogHeader>
++
++              <div className="grid gap-2">
++                <label className="text-sm font-medium text-foreground" htmlFor="invite-emails">
++                  Email addresses
++                </label>
++                <Input
++                  id="invite-emails"
++                  type="email"
++                  multiple
++                  value={emails}
++                  onChange={(event) => setEmails(event.target.value)}
++                  placeholder="alex@company.com, sam@company.com"
++                />
++                <p className={overLimit ? "text-sm text-destructive" : "text-sm text-muted-foreground"}>
++                  {inviteCount || 0} selected, {remainingSeats} available.
++                </p>
++              </div>
++
++              <fieldset className="grid gap-3">
++                <legend className="text-sm font-medium text-foreground">Role</legend>
++                <div className="grid gap-3 sm:grid-cols-2">
++                  {roles.map((item) => (
++                    <label
++                      key={item.value}
++                      className={[
++                        "flex cursor-pointer gap-3 rounded-md border p-4",
++                        role === item.value
++                          ? "border-primary bg-secondary"
++                          : "border-border bg-background",
++                      ].join(" ")}
++                    >
++                      <input
++                        className="mt-1"
++                        type="radio"
++                        name="role"
++                        value={item.value}
++                        checked={role === item.value}
++                        onChange={() => setRole(item.value)}
++                      />
++                      <span className="grid gap-1">
++                        <span className="font-medium text-foreground">{item.label}</span>
++                        <span className="text-sm text-muted-foreground">{item.description}</span>
++                      </span>
++                    </label>
++                  ))}
++                </div>
++              </fieldset>
++
++              <div className="grid gap-2">
++                <label className="text-sm font-medium text-foreground" htmlFor="invite-message">
++                  Personal message <span className="text-muted-foreground">(optional)</span>
++                </label>
++                <Textarea
++                  id="invite-message"
++                  value={message}
++                  onChange={(event) => setMessage(event.target.value)}
++                  placeholder="Add context for the invitation."
++                />
++              </div>
++
++              <DialogFooter>
++                <Button type="button" variant="outline" onClick={() => setInviteOpen(false)}>
++                  Cancel
++                </Button>
++                <Button type="submit" disabled={!canSend}>
++                  Send invite
++                </Button>
++              </DialogFooter>
++            </form>
++          )}
++        </DialogContent>
++      </Dialog>
+     </main>
+   )
+ }

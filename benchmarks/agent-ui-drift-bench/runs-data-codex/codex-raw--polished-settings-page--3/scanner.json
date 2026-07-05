@@ -1,0 +1,79 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--polished-settings-page--3/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-arbitrary-tailwind:src/app/settings/page.tsx:39:40:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Arbitrary Tailwind value \"lg:grid-cols-[minmax(0,1fr)_320px]\"",
+      "location": {
+        "line": 39,
+        "column": 40
+      },
+      "evidence": "lg:grid-cols-[minmax(0,1fr)_320px]",
+      "repair": {
+        "instruction": "Remove lg:grid-cols-[minmax(0,1fr)_320px]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 8,
+    "totalViolations": 1,
+    "errorViolations": 1,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 1,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/app/settings/page.tsx",
+      "filePath": "src/app/settings/page.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/app/settings/page.tsx:39:40:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Arbitrary Tailwind value \"lg:grid-cols-[minmax(0,1fr)_320px]\"",
+          "location": {
+            "line": 39,
+            "column": 40
+          },
+          "evidence": "lg:grid-cols-[minmax(0,1fr)_320px]",
+          "repair": {
+            "instruction": "Remove lg:grid-cols-[minmax(0,1fr)_320px]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove lg:grid-cols-[minmax(0,1fr)_320px]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/app/settings/page.tsx\n\n1 violation:\n- [error] arbitrary value: lg:grid-cols-[minmax(0,1fr)_320px] (line 39)\n\nRepair:\n- Remove lg:grid-cols-[minmax(0,1fr)_320px]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+    }
+  ],
+  "durationMs": 37
+}

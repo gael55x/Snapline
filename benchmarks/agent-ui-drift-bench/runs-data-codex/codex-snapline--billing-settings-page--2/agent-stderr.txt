@@ -1,0 +1,2613 @@
+Reading additional input from stdin...
+OpenAI Codex v0.142.5
+--------
+workdir: /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019f318a-a529-72f3-a67a-b0239a1694cc
+--------
+user
+Build a billing settings page for our app. It should show the current plan (name, price, renewal date), the payment method on file with a "Update card" button, and a section listing the last few invoices with download links. Include a "Cancel subscription" option somewhere sensible and a banner if the trial is about to expire.
+hook: SessionStart
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+codex
+I’ll use the ponytail guidance here because this is a coding task: smallest page that fits the existing app, no new abstractions unless the repo already has them. I’m starting with a read-only pass over the app structure, theme, and existing components before editing.
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/gailleamolong/.codex/plugins/cache/ponytail/ponytail/4.8.4/skills/ponytail/SKILL.md" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+---
+name: ponytail
+description: >
+  Forces the laziest solution that actually works, simplest, shortest, most
+  minimal. Channels a senior dev who has seen everything: question whether the
+  task needs to exist at all (YAGNI), reach for the standard library before
+  custom code, native platform features before dependencies, one line before
+  fifty. Supports intensity levels: lite, full (default), ultra. Use on ANY
+  coding task: writing, adding, refactoring, fixing, reviewing, or designing
+  code, and choosing libraries or dependencies. Also use whenever the user
+  says "ponytail", "be lazy", "lazy mode", "simplest solution", "minimal
+  solution", "yagni", "do less", or "shortest path", or complains about
+  over-engineering, bloat, boilerplate, or unnecessary dependencies. Do NOT
+  use for non-coding requests (general knowledge, prose, translation,
+  summaries, recipes).
+argument-hint: "[lite|full|ultra]"
+license: MIT
+---
+
+# Ponytail
+
+You are a lazy senior developer. Lazy means efficient, not careless. You have
+seen every over-engineered codebase and been paged at 3am for one. The best
+code is the code never written.
+
+## Persistence
+
+ACTIVE EVERY RESPONSE. No drift back to over-building. Still active if
+unsure. Off only: "stop ponytail" / "normal mode". Default: **full**.
+Switch: `/ponytail lite|full|ultra`.
+
+## The ladder
+
+Stop at the first rung that holds:
+
+1. **Does this need to exist at all?** Speculative need = skip it, say so in one line. (YAGNI)
+2. **Already in this codebase?** A helper, util, type, or pattern that already lives here → reuse it. Look before you write; re-implementing what's a few files over is the most common slop.
+3. **Stdlib does it?** Use it.
+4. **Native platform feature covers it?** `<input type="date">` over a picker lib, CSS over JS, DB constraint over app code.
+5. **Already-installed dependency solves it?** Use it. Never add a new one for what a few lines can do.
+6. **Can it be one line?** One line.
+7. **Only then:** the minimum code that works.
+
+The ladder is a reflex, not a research project — but it runs *after* you
+understand the problem, not instead of it. Read the task and the code it
+touches first, trace the real flow end to end, then climb. Two rungs work →
+take the higher one and move on. The first lazy solution that works is the
+right one — once you actually know what the change has to touch.
+
+**Bug fix = root cause, not symptom.** A report names a symptom. Before you
+edit, grep every caller of the function you're about to touch. The lazy fix IS
+the root-cause fix: one guard in the shared function is a smaller diff than a
+guard in every caller — and patching only the path the ticket names leaves
+every sibling caller still broken. Fix it once, where all callers route through.
+
+## Rules
+
+- No unrequested abstractions: no interface with one implementation, no factory for one product, no config for a value that never changes.
+- No boilerplate, no scaffolding "for later", later can scaffold for itself.
+- Deletion over addition. Boring over clever, clever is what someone decodes at 3am.
+- Fewest files possible. Shortest working diff wins — but only once you understand the problem. The smallest change in the wrong place isn't lazy, it's a second bug.
+- Complex request? Ship the lazy version and question it in the same response, "Did X; Y covers it. Need full X? Say so." Never stall on an answer you can default.
+- Two stdlib options, same size? Take the one that's correct on edge cases. Lazy means writing less code, not picking the flimsier algorithm.
+- Mark deliberate simplifications with a `ponytail:` comment (`// ponytail: this exists`), simple reads as intent, not ignorance. Shortcut with a known ceiling (global lock, O(n²) scan, naive heuristic)? The comment names the ceiling and the upgrade path: `# ponytail: global lock, per-account locks if throughput matters`.
+
+## Output
+
+Code first. Then at most three short lines: what was skipped, when to add it.
+No essays, no feature tours, no design notes. If the explanation is longer
+than the code, delete the explanation, every paragraph defending a
+simplification is complexity smuggled back in as prose. Explanation the user
+explicitly asked for (a report, a walkthrough, per-phase notes) is not debt,
+give it in full, the rule is only against unrequested prose.
+
+Pattern: `[code] → skipped: [X], add when [Y].`
+
+## Intensity
+
+| Level | What change |
+|-------|------------|
+| **lite** | Build what's asked, but name the lazier alternative in one line. User picks. |
+| **full** | The ladder enforced. Stdlib and native first. Shortest diff, shortest explanation. Default. |
+| **ultra** | YAGNI extremist. Deletion before addition. Ship the one-liner and challenge the rest of the requirement in the same breath. |
+
+Example: "Add a cache for these API responses."
+- lite: "Done, cache added. FYI: `functools.lru_cache` covers this in one line if you'd rather not own a cache class."
+- full: "`@lru_cache(maxsize=1000)` on the fetch function. Skipped custom cache class, add when lru_cache measurably falls short."
+- ultra: "No cache until a profiler says so. When it does: `@lru_cache`. A hand-rolled TTL cache class is a bug farm with a hit rate."
+
+## When NOT to be lazy
+
+Never simplify away: input validation at trust boundaries, error handling
+that prevents data loss, security measures, accessibility basics, anything
+explicitly requested. User insists on the full version → build it, no
+re-arguing.
+
+Never lazy about understanding the problem. The ladder shortens the
+solution, never the reading. Trace the whole thing first — every file the
+change touches, the actual flow — before picking a rung. Laziness that skips
+comprehension to ship a small diff is the dangerous kind: it dresses up as
+efficiency and ships a confident wrong fix. Read fully, then be lazy.
+
+Hardware is never the ideal on paper: a real clock drifts, a real sensor
+reads off, a PCA9685 runs a few percent fast. Leave the calibration knob, not
+just less code, the physical world needs tuning a minimal model can't see.
+
+Lazy code without its check is unfinished. Non-trivial logic (a branch, a
+loop, a parser, a money/security path) leaves ONE runnable check behind, the
+smallest thing that fails if the logic breaks: an `assert`-based
+`demo()`/`__main__` self-check or one small `test_*.py`. No frameworks, no
+fixtures, no per-function suites unless asked. Trivial one-liners need no
+test, YAGNI applies to tests too.
+
+## Boundaries
+
+Ponytail governs what you build, not how you talk (pair with Caveman for
+terse prose). "stop ponytail" / "normal mode": revert. Level persists until
+changed or session end.
+
+The shortest path to done is the right path.
+
+exec
+/bin/zsh -lc pwd in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+
+exec
+/bin/zsh -lc 'rg --files' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+exec
+/bin/zsh -lc 'rg -n "Snapline|next-shadcn-custom-theme|billing settings|settings" /Users/gailleamolong/.codex/memories/MEMORY.md' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+1093:- Symptom: direct Shippo API probing failed on the first try -> cause: the API key lives in `os.environ`, not Django settings -> fix: read `GOSHIPPO_API_KEY` from environment variables for read-only probes in this app [Task 2]
+1138:- Symptom: backend tests hit redirect failures -> cause: HTTPS redirect behavior stayed on in APIClient tests -> fix: use `@override_settings(SECURE_SSL_REDIRECT=False)` for these focused API tests [Task 2]
+1247:## Task 2: Review navigation MR and remove the account settings sidebar from the shell only
+1263:- when the user clarifies "remove the account settings sidebar from the account shell, not the pages themselves" -> keep underlying pages intact and only change the shell-level navigation surface [Task 2]
+
+ succeeded in 0ms:
+src/lib/utils.ts
+AGENTS.md
+tsconfig.json
+src/globals.d.ts
+src/app/globals.css
+src/app/page.tsx
+src/app/layout.tsx
+src/components/ui/input.tsx
+src/components/ui/textarea.tsx
+src/components/ui/button.tsx
+src/components/ui/badge.tsx
+src/components/ui/dialog.tsx
+src/components/ui/card.tsx
+tailwind.config.ts
+snapline.yml
+components.json
+package.json
+
+exec
+/bin/zsh -lc 'git status --short' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 170ms:
+codex
+The memory pass did not find Snapline-specific prior context, so I’m staying with the local repo. The fixture is very small: one app page plus a shadcn-style component set, so this should be a single-page change unless Snapline flags something.
+exec
+/bin/zsh -lc "sed -n '1,240p' src/app/page.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+
+const features = [
+  {
+    title: "Semantic tokens",
+    description:
+      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+  },
+  {
+    title: "Composable primitives",
+    description:
+      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+  },
+  {
+    title: "Dark mode ready",
+    description:
+      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+  },
+]
+
+export default function HomePage() {
+  return (
+    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+      <section className="flex flex-col items-center gap-6 text-center">
+        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+          Ship interfaces that never drift off-theme
+        </h1>
+        <p className="max-w-xl text-lg text-muted-foreground">
+          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+          used to exercise Snapline theme checks.
+        </p>
+        <div className="flex items-center gap-3">
+          <Button size="lg">Start free trial</Button>
+          <Button size="lg" variant="outline">
+            Book a demo
+          </Button>
+        </div>
+      </section>
+
+      <section className="grid gap-6 sm:grid-cols-3">
+        {features.map((feature) => (
+          <Card key={feature.title}>
+            <CardHeader>
+              <CardTitle>{feature.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <CardDescription>{feature.description}</CardDescription>
+            </CardContent>
+          </Card>
+        ))}
+      </section>
+    </main>
+  )
+}
+
+exec
+/bin/zsh -lc "sed -n '1,200p' src/app/layout.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+import * as React from "react"
+
+import "./globals.css"
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+        {children}
+      </body>
+    </html>
+  )
+}
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/ui/card.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        "rounded-xl border border-border bg-card text-card-foreground shadow",
+        className,
+      )}
+      {...props}
+    />
+  ),
+)
+Card.displayName = "Card"
+
+const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+  ),
+)
+CardHeader.displayName = "CardHeader"
+
+const CardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn("font-semibold leading-none tracking-tight", className)}
+      {...props}
+    />
+  ),
+)
+CardTitle.displayName = "CardTitle"
+
+const CardDescription = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />
+  ),
+)
+CardDescription.displayName = "CardDescription"
+
+const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+  ),
+)
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("flex items-center p-6 pt-0", className)} {...props} />
+  ),
+)
+CardFooter.displayName = "CardFooter"
+
+export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/ui/button.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+exec
+/bin/zsh -lc "sed -n '1,220p' src/app/globals.css" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = {
+  variant: {
+    default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+    destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+    outline: "border border-border bg-background shadow-sm hover:bg-muted hover:text-foreground",
+    secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+    ghost: "hover:bg-muted hover:text-foreground",
+    link: "text-primary underline-offset-4 hover:underline",
+  },
+  size: {
+    default: "h-9 px-4 py-2",
+    sm: "h-8 rounded-md px-3 text-xs",
+    lg: "h-10 rounded-md px-8",
+    icon: "h-9 w-9",
+  },
+} as const
+
+export type ButtonVariant = keyof typeof buttonVariants.variant
+export type ButtonSize = keyof typeof buttonVariants.size
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant
+  size?: ButtonSize
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = "default", size = "default", ...props }, ref) => {
+    return (
+      <button
+        className={cn(
+          "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50",
+          buttonVariants.variant[variant],
+          buttonVariants.size[size],
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
+  },
+)
+Button.displayName = "Button"
+
+export { Button, buttonVariants }
+
+ succeeded in 0ms:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 40% 98%;
+    --foreground: 262 45% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 262 45% 12%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 260 40% 98%;
+    --secondary: 260 32% 92%;
+    --secondary-foreground: 262 45% 16%;
+    --muted: 260 32% 94%;
+    --muted-foreground: 261 12% 44%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 28% 88%;
+    --brand: 24 95% 53%;
+    --brand-foreground: 26 100% 97%;
+  }
+
+  .dark {
+    --background: 262 45% 7%;
+    --foreground: 260 40% 96%;
+    --card: 262 40% 10%;
+    --card-foreground: 260 40% 96%;
+    --primary: 263 80% 66%;
+    --primary-foreground: 262 45% 10%;
+    --secondary: 262 30% 18%;
+    --secondary-foreground: 260 40% 96%;
+    --muted: 262 30% 16%;
+    --muted-foreground: 261 15% 68%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 262 30% 20%;
+    --brand: 24 90% 58%;
+    --brand-foreground: 24 60% 8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+exec
+/bin/zsh -lc 'cat package.json' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+{
+  "name": "fixture-next-shadcn-custom-theme",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.6.3"
+  }
+}
+
+codex
+Current page is only a marketing fixture. I’m going to replace it with a static billing settings screen using the existing `Badge`, `Button`, and `Card` primitives so we don’t add routes, dependencies, or new component wrappers.
+exec
+/bin/zsh -lc "sed -n '1,200p' src/components/ui/dialog.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+exec
+/bin/zsh -lc "sed -n '1,200p' src/components/ui/badge.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+"use client"
+
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+interface DialogContextValue {
+  open: boolean
+  onOpenChange: (open: boolean) => void
+}
+
+const DialogContext = React.createContext<DialogContextValue>({
+  open: false,
+  onOpenChange: () => undefined,
+})
+
+export interface DialogProps {
+  open?: boolean
+  defaultOpen?: boolean
+  onOpenChange?: (open: boolean) => void
+  children?: React.ReactNode
+}
+
+function Dialog({ open, defaultOpen, onOpenChange, children }: DialogProps) {
+  const [internalOpen, setInternalOpen] = React.useState(defaultOpen ?? false)
+  const isOpen = open ?? internalOpen
+  const handleOpenChange = React.useCallback(
+    (next: boolean) => {
+      setInternalOpen(next)
+      onOpenChange?.(next)
+    },
+    [onOpenChange],
+  )
+
+  return (
+    <DialogContext.Provider value={{ open: isOpen, onOpenChange: handleOpenChange }}>
+      {children}
+    </DialogContext.Provider>
+  )
+}
+
+const DialogTrigger = React.forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>(({ className, onClick, ...props }, ref) => {
+  const { onOpenChange } = React.useContext(DialogContext)
+  return (
+    <button
+      ref={ref}
+      className={className}
+      onClick={(event) => {
+        onClick?.(event)
+        onOpenChange(true)
+      }}
+      {...props}
+    />
+  )
+})
+DialogTrigger.displayName = "DialogTrigger"
+
+const DialogContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, children, ...props }, ref) => {
+    const { open, onOpenChange } = React.useContext(DialogContext)
+    if (!open) {
+      return null
+    }
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <div
+          className="fixed inset-0 bg-background/80"
+          onClick={() => onOpenChange(false)}
+          aria-hidden="true"
+        />
+        <div
+          ref={ref}
+          role="dialog"
+          aria-modal="true"
+          className={cn(
+            "relative z-50 grid w-full max-w-lg gap-4 rounded-lg border border-border bg-card p-6 text-card-foreground shadow-lg",
+            className,
+          )}
+          {...props}
+        >
+          {children}
+        </div>
+      </div>
+    )
+  },
+)
+DialogContent.displayName = "DialogContent"
+
+const DialogHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className={cn("flex flex-col space-y-1.5 text-center sm:text-left", className)} {...props} />
+)
+DialogHeader.displayName = "DialogHeader"
+
+const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn("flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2", className)}
+    {...props}
+  />
+)
+DialogFooter.displayName = "DialogFooter"
+
+const DialogTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>(
+  ({ className, ...props }, ref) => (
+    <h2
+      ref={ref}
+      className={cn("text-lg font-semibold leading-none tracking-tight", className)}
+      {...props}
+    />
+  ),
+)
+DialogTitle.displayName = "DialogTitle"
+
+const DialogDescription = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <p ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />
+))
+DialogDescription.displayName = "DialogDescription"
+
+export {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogFooter,
+  DialogTitle,
+  DialogDescription,
+}
+
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const badgeVariants = {
+  variant: {
+    default: "border-transparent bg-primary text-primary-foreground shadow",
+    secondary: "border-transparent bg-secondary text-secondary-foreground",
+    destructive: "border-transparent bg-destructive text-destructive-foreground shadow",
+    outline: "border-border text-foreground",
+  },
+} as const
+
+export type BadgeVariant = keyof typeof badgeVariants.variant
+
+export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: BadgeVariant
+}
+
+function Badge({ className, variant = "default", ...props }: BadgeProps) {
+  return (
+    <div
+      className={cn(
+        "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors",
+        badgeVariants.variant[variant],
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Badge, badgeVariants }
+
+exec
+/bin/zsh -lc 'cat tailwind.config.ts' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+const config = {
+  darkMode: ["class"],
+  content: ["./src/**/*.{ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        brand: {
+          DEFAULT: "hsl(var(--brand))",
+          foreground: "hsl(var(--brand-foreground))",
+        },
+      },
+    },
+  },
+}
+
+export default config
+
+exec
+/bin/zsh -lc "sed -n '1,160p' src/lib/utils.ts" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+export function cn(...inputs: Array<string | false | null | undefined>): string {
+  return inputs.filter(Boolean).join(" ")
+}
+
+exec
+/bin/zsh -lc 'cat snapline.yml' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+version: 1
+
+stack:
+  framework: next
+  ui: shadcn
+  styling: tailwind
+
+components:
+  Button:
+    import: "@/components/ui/button"
+    preferOver:
+      - "button"
+  Input:
+    import: "@/components/ui/input"
+    preferOver:
+      - "input"
+  Dialog:
+    import: "@/components/ui/dialog"
+    preferOver:
+      - "div[role=\"dialog\"]"
+  Card:
+    import: "@/components/ui/card"
+    preferOver:
+      - "div[data-card]"
+
+tokens:
+  colors:
+    semanticOnly: true
+    allowed:
+      - bg-background
+      - text-foreground
+      - bg-primary
+      - text-primary-foreground
+      - bg-secondary
+      - text-secondary-foreground
+      - text-muted-foreground
+      - border-border
+      - bg-card
+      - text-card-foreground
+      - bg-destructive
+      - text-destructive-foreground
+
+rules:
+  noRawHex: error
+  noInlineStyle: error
+  noArbitraryTailwind: error
+  noRawPaletteColor: warn
+  requireButtonComponent: error
+  requireInputComponent: error
+  requireDialogComponent: warn
+  requireCardComponent: warn
+  noDuplicateComponents: warn
+
+fix:
+  safeAutofix: false
+  preferAgentRepair: true
+
+benchmark:
+  enabled: true
+  scorer: ui-drift-score-v1
+
+codex
+**Pre-Implementation Check**
+Current state: `src/app/page.tsx` is a static marketing page using shadcn-like primitives and Tailwind semantic tokens.
+Ambiguities/assumptions: I’ll build a static billing settings page with mock billing data; no payment portal or invoice API wiring was requested.
+Success criteria: current plan name/price/renewal date visible; payment method and `Update card` visible; invoices list with download links; sensible `Cancel subscription`; trial expiry banner.
+Main risks: Snapline rejects non-semantic colors or native buttons; cramped mobile layout; overbuilding fake interactivity.
+Perspective review: domain is display-only billing; architecture should stay one file; production risk is low because no real billing actions; regression risk is visual/theme drift; testability is typecheck plus Snapline; DX favors simple arrays; security is neutral because links are placeholders; performance is static render.
+Approach: replace the page data and JSX only, reuse existing primitives, use semantic token classes only.
+Likely file: `src/app/page.tsx`.
+Test plan: run `snapline scan --changed`, `npm run typecheck`, then `snapline scan --changed` again.
+Rollback: revert the single page file if the fixture needs to return to marketing content.
+codex
+I’m editing only the page now. The shape will be static data plus mapped invoice rows; that keeps the billing UI realistic without inventing API contracts or client state.
+apply patch
+patch: completed
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+deleted file mode 100644
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..0000000000000000000000000000000000000000
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ /dev/null
+@@ -1,57 +0,0 @@
+-import { Badge } from "@/components/ui/badge"
+-import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+-
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
+-]
+-
+-export default function HomePage() {
+-  return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
+-
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
+-      </section>
+-    </main>
+-  )
+-}
+
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+deleted file mode 100644
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..0000000000000000000000000000000000000000
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ /dev/null
+@@ -1,57 +0,0 @@
+-import { Badge } from "@/components/ui/badge"
+-import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+-
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
+-]
+-
+-export default function HomePage() {
+-  return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+-      </section>
+-
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
+-      </section>
+-    </main>
+-  )
+-}
+
+apply patch
+patch: completed
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..e89752a8fc4594decb43324b3ed9e84104764534
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,133 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const plan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "Renews July 12, 2026",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "Expires 09/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "June 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1031", date: "May 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1014", date: "April 12, 2026", amount: "$49.00", status: "Paid" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
++      <section className="flex flex-col gap-2">
++        <Badge className="w-fit bg-secondary text-secondary-foreground">
++          Trial expires in 3 days
++        </Badge>
++        <h1 className="text-3xl font-bold text-foreground">Billing settings</h1>
++        <p className="max-w-2xl text-sm text-muted-foreground">
++          Manage your subscription, payment method, and billing history.
+         </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
++      <section className="rounded-xl border border-border bg-secondary p-4 text-secondary-foreground">
++        Your trial ends on July 8, 2026. Add a payment method or confirm your current card to keep
++        the workspace active.
++      </section>
++
++      <section className="grid gap-6 lg:grid-cols-3">
++        <Card>
++          <CardHeader>
++            <CardTitle>Current plan</CardTitle>
++            <CardDescription>{plan.renewalDate}</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div>
++              <p className="text-sm text-muted-foreground">Plan</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.name}</p>
++            </div>
++            <div>
++              <p className="text-sm text-muted-foreground">Price</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.price}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button variant="destructive" className="w-full">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Payment method</CardTitle>
++            <CardDescription>Card used for future renewals.</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div className="rounded-lg border border-border bg-background p-4">
++              <p className="font-medium text-foreground">
++                {paymentMethod.brand} ending in {paymentMethod.last4}
++              </p>
++              <p className="text-sm text-muted-foreground">{paymentMethod.expires}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button className="w-full">Update card</Button>
++          </CardFooter>
++        </Card>
++
++        <Card className="lg:col-span-1">
++          <CardHeader>
++            <CardTitle>Billing contact</CardTitle>
++            <CardDescription>Receipts are sent to this address.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <p className="font-medium text-card-foreground">billing@snapline.test</p>
++            <p className="text-sm text-muted-foreground">Workspace owner</p>
++          </CardContent>
++        </Card>
+       </section>
++
++      <Card>
++        <CardHeader>
++          <CardTitle>Invoices</CardTitle>
++          <CardDescription>Recent charges and downloadable receipts.</CardDescription>
++        </CardHeader>
++        <CardContent>
++          <div className="overflow-hidden rounded-lg border border-border">
++            {invoices.map((invoice) => (
++              <div
++                key={invoice.id}
++                className="grid gap-3 border-b border-border bg-card p-4 last:border-b-0 sm:grid-cols-4 sm:items-center"
++              >
++                <div>
++                  <p className="font-medium text-card-foreground">{invoice.id}</p>
++                  <p className="text-sm text-muted-foreground">{invoice.date}</p>
++                </div>
++                <p className="text-sm text-muted-foreground sm:text-center">{invoice.status}</p>
++                <p className="font-medium text-card-foreground sm:text-center">{invoice.amount}</p>
++                <a
++                  href={`/invoices/${invoice.id}.pdf`}
++                  download
++                  className="text-sm font-medium text-foreground underline-offset-4 hover:underline sm:text-right"
++                >
++                  Download
++                </a>
++              </div>
++            ))}
++          </div>
++        </CardContent>
++      </Card>
+     </main>
+   )
+ }
+
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..e89752a8fc4594decb43324b3ed9e84104764534
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,133 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const plan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "Renews July 12, 2026",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "Expires 09/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "June 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1031", date: "May 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1014", date: "April 12, 2026", amount: "$49.00", status: "Paid" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
++      <section className="flex flex-col gap-2">
++        <Badge className="w-fit bg-secondary text-secondary-foreground">
++          Trial expires in 3 days
++        </Badge>
++        <h1 className="text-3xl font-bold text-foreground">Billing settings</h1>
++        <p className="max-w-2xl text-sm text-muted-foreground">
++          Manage your subscription, payment method, and billing history.
+         </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
++      <section className="rounded-xl border border-border bg-secondary p-4 text-secondary-foreground">
++        Your trial ends on July 8, 2026. Add a payment method or confirm your current card to keep
++        the workspace active.
++      </section>
++
++      <section className="grid gap-6 lg:grid-cols-3">
++        <Card>
++          <CardHeader>
++            <CardTitle>Current plan</CardTitle>
++            <CardDescription>{plan.renewalDate}</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div>
++              <p className="text-sm text-muted-foreground">Plan</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.name}</p>
++            </div>
++            <div>
++              <p className="text-sm text-muted-foreground">Price</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.price}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button variant="destructive" className="w-full">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Payment method</CardTitle>
++            <CardDescription>Card used for future renewals.</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div className="rounded-lg border border-border bg-background p-4">
++              <p className="font-medium text-foreground">
++                {paymentMethod.brand} ending in {paymentMethod.last4}
++              </p>
++              <p className="text-sm text-muted-foreground">{paymentMethod.expires}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button className="w-full">Update card</Button>
++          </CardFooter>
++        </Card>
++
++        <Card className="lg:col-span-1">
++          <CardHeader>
++            <CardTitle>Billing contact</CardTitle>
++            <CardDescription>Receipts are sent to this address.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <p className="font-medium text-card-foreground">billing@snapline.test</p>
++            <p className="text-sm text-muted-foreground">Workspace owner</p>
++          </CardContent>
++        </Card>
+       </section>
++
++      <Card>
++        <CardHeader>
++          <CardTitle>Invoices</CardTitle>
++          <CardDescription>Recent charges and downloadable receipts.</CardDescription>
++        </CardHeader>
++        <CardContent>
++          <div className="overflow-hidden rounded-lg border border-border">
++            {invoices.map((invoice) => (
++              <div
++                key={invoice.id}
++                className="grid gap-3 border-b border-border bg-card p-4 last:border-b-0 sm:grid-cols-4 sm:items-center"
++              >
++                <div>
++                  <p className="font-medium text-card-foreground">{invoice.id}</p>
++                  <p className="text-sm text-muted-foreground">{invoice.date}</p>
++                </div>
++                <p className="text-sm text-muted-foreground sm:text-center">{invoice.status}</p>
++                <p className="font-medium text-card-foreground sm:text-center">{invoice.amount}</p>
++                <a
++                  href={`/invoices/${invoice.id}.pdf`}
++                  download
++                  className="text-sm font-medium text-foreground underline-offset-4 hover:underline sm:text-right"
++                >
++                  Download
++                </a>
++              </div>
++            ))}
++          </div>
++        </CardContent>
++      </Card>
+     </main>
+   )
+ }
+
+codex
+The single-file change is in place. I’m running Snapline now because the page uses Tailwind classes heavily, and typecheck alongside it to catch JSX or data-shape mistakes.
+exec
+/bin/zsh -lc 'snapline scan --changed' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ exited 127 in 0ms:
+zsh:1: command not found: snapline
+
+exec
+/bin/zsh -lc 'npm run typecheck' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..e89752a8fc4594decb43324b3ed9e84104764534
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,133 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const plan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "Renews July 12, 2026",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "Expires 09/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "June 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1031", date: "May 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1014", date: "April 12, 2026", amount: "$49.00", status: "Paid" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
++      <section className="flex flex-col gap-2">
++        <Badge className="w-fit bg-secondary text-secondary-foreground">
++          Trial expires in 3 days
++        </Badge>
++        <h1 className="text-3xl font-bold text-foreground">Billing settings</h1>
++        <p className="max-w-2xl text-sm text-muted-foreground">
++          Manage your subscription, payment method, and billing history.
+         </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
++      <section className="rounded-xl border border-border bg-secondary p-4 text-secondary-foreground">
++        Your trial ends on July 8, 2026. Add a payment method or confirm your current card to keep
++        the workspace active.
++      </section>
++
++      <section className="grid gap-6 lg:grid-cols-3">
++        <Card>
++          <CardHeader>
++            <CardTitle>Current plan</CardTitle>
++            <CardDescription>{plan.renewalDate}</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div>
++              <p className="text-sm text-muted-foreground">Plan</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.name}</p>
++            </div>
++            <div>
++              <p className="text-sm text-muted-foreground">Price</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.price}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button variant="destructive" className="w-full">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Payment method</CardTitle>
++            <CardDescription>Card used for future renewals.</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div className="rounded-lg border border-border bg-background p-4">
++              <p className="font-medium text-foreground">
++                {paymentMethod.brand} ending in {paymentMethod.last4}
++              </p>
++              <p className="text-sm text-muted-foreground">{paymentMethod.expires}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button className="w-full">Update card</Button>
++          </CardFooter>
++        </Card>
++
++        <Card className="lg:col-span-1">
++          <CardHeader>
++            <CardTitle>Billing contact</CardTitle>
++            <CardDescription>Receipts are sent to this address.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <p className="font-medium text-card-foreground">billing@snapline.test</p>
++            <p className="text-sm text-muted-foreground">Workspace owner</p>
++          </CardContent>
++        </Card>
+       </section>
++
++      <Card>
++        <CardHeader>
++          <CardTitle>Invoices</CardTitle>
++          <CardDescription>Recent charges and downloadable receipts.</CardDescription>
++        </CardHeader>
++        <CardContent>
++          <div className="overflow-hidden rounded-lg border border-border">
++            {invoices.map((invoice) => (
++              <div
++                key={invoice.id}
++                className="grid gap-3 border-b border-border bg-card p-4 last:border-b-0 sm:grid-cols-4 sm:items-center"
++              >
++                <div>
++                  <p className="font-medium text-card-foreground">{invoice.id}</p>
++                  <p className="text-sm text-muted-foreground">{invoice.date}</p>
++                </div>
++                <p className="text-sm text-muted-foreground sm:text-center">{invoice.status}</p>
++                <p className="font-medium text-card-foreground sm:text-center">{invoice.amount}</p>
++                <a
++                  href={`/invoices/${invoice.id}.pdf`}
++                  download
++                  className="text-sm font-medium text-foreground underline-offset-4 hover:underline sm:text-right"
++                >
++                  Download
++                </a>
++              </div>
++            ))}
++          </div>
++        </CardContent>
++      </Card>
+     </main>
+   )
+ }
+
+ succeeded in 5032ms:
+npm warn Unknown env config "recursive". This will stop working in the next major version of npm.
+
+> fixture-next-shadcn-custom-theme@0.0.0 typecheck
+> tsc --noEmit
+
+
+codex
+TypeScript passes. `snapline` is not on PATH in this sandbox, so I’m checking whether the repo carries a local Snapline binary or package script before I call that blocked.
+exec
+/bin/zsh -lc 'which snapline' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ exited 1 in 0ms:
+snapline not found
+
+exec
+/bin/zsh -lc "find . -name '*snapline*' -o -name 'package-lock.json' -o -name 'pnpm-lock.yaml' -o -name 'yarn.lock'" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+./snapline.yml
+./node_modules/.bin/snapline
+./.snapline
+
+exec
+/bin/zsh -lc 'ls -la' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+total 48
+drwxr-xr-x@ 12 gailleamolong  staff   384 Jul  5 17:09 .
+drwxr-xr-x@  5 gailleamolong  staff   160 Jul  5 17:09 ..
+drwxr-xr-x@  3 gailleamolong  staff    96 Jul  5 17:09 .claude
+drwxr-xr-x@  3 gailleamolong  staff    96 Jul  5 17:09 .snapline
+-rw-r--r--@  1 gailleamolong  staff   309 Jul  5 17:09 AGENTS.md
+-rw-r--r--@  1 gailleamolong  staff   327 Jul  5 13:48 components.json
+drwxr-xr-x@  7 gailleamolong  staff   224 Jul  5 17:09 node_modules
+-rw-r--r--@  1 gailleamolong  staff   316 Jul  5 13:48 package.json
+-rw-r--r--@  1 gailleamolong  staff  1147 Jul  5 17:09 snapline.yml
+drwxr-xr-x@  6 gailleamolong  staff   192 Jul  5 17:09 src
+-rw-r--r--@  1 gailleamolong  staff  1058 Jul  5 13:48 tailwind.config.ts
+-rw-r--r--@  1 gailleamolong  staff   296 Jul  5 13:48 tsconfig.json
+
+exec
+/bin/zsh -lc 'git diff -- src/app/page.tsx' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee..e89752a 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,133 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+-
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
++
++const plan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "Renews July 12, 2026",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "Expires 09/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "June 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1031", date: "May 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1014", date: "April 12, 2026", amount: "$49.00", status: "Paid" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
++      <section className="flex flex-col gap-2">
++        <Badge className="w-fit bg-secondary text-secondary-foreground">
++          Trial expires in 3 days
++        </Badge>
++        <h1 className="text-3xl font-bold text-foreground">Billing settings</h1>
++        <p className="max-w-2xl text-sm text-muted-foreground">
++          Manage your subscription, payment method, and billing history.
+         </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
++      <section className="rounded-xl border border-border bg-secondary p-4 text-secondary-foreground">
++        Your trial ends on July 8, 2026. Add a payment method or confirm your current card to keep
++        the workspace active.
+       </section>
++
++      <section className="grid gap-6 lg:grid-cols-3">
++        <Card>
++          <CardHeader>
++            <CardTitle>Current plan</CardTitle>
++            <CardDescription>{plan.renewalDate}</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div>
++              <p className="text-sm text-muted-foreground">Plan</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.name}</p>
++            </div>
++            <div>
++              <p className="text-sm text-muted-foreground">Price</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.price}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button variant="destructive" className="w-full">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Payment method</CardTitle>
++            <CardDescription>Card used for future renewals.</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div className="rounded-lg border border-border bg-background p-4">
++              <p className="font-medium text-foreground">
++                {paymentMethod.brand} ending in {paymentMethod.last4}
++              </p>
++              <p className="text-sm text-muted-foreground">{paymentMethod.expires}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button className="w-full">Update card</Button>
++          </CardFooter>
++        </Card>
++
++        <Card className="lg:col-span-1">
++          <CardHeader>
++            <CardTitle>Billing contact</CardTitle>
++            <CardDescription>Receipts are sent to this address.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <p className="font-medium text-card-foreground">billing@snapline.test</p>
++            <p className="text-sm text-muted-foreground">Workspace owner</p>
++          </CardContent>
++        </Card>
++      </section>
++
++      <Card>
++        <CardHeader>
++          <CardTitle>Invoices</CardTitle>
++          <CardDescription>Recent charges and downloadable receipts.</CardDescription>
++        </CardHeader>
++        <CardContent>
++          <div className="overflow-hidden rounded-lg border border-border">
++            {invoices.map((invoice) => (
++              <div
++                key={invoice.id}
++                className="grid gap-3 border-b border-border bg-card p-4 last:border-b-0 sm:grid-cols-4 sm:items-center"
++              >
++                <div>
++                  <p className="font-medium text-card-foreground">{invoice.id}</p>
++                  <p className="text-sm text-muted-foreground">{invoice.date}</p>
++                </div>
++                <p className="text-sm text-muted-foreground sm:text-center">{invoice.status}</p>
++                <p className="font-medium text-card-foreground sm:text-center">{invoice.amount}</p>
++                <a
++                  href={`/invoices/${invoice.id}.pdf`}
++                  download
++                  className="text-sm font-medium text-foreground underline-offset-4 hover:underline sm:text-right"
++                >
++                  Download
++                </a>
++              </div>
++            ))}
++          </div>
++        </CardContent>
++      </Card>
+     </main>
+   )
+ }
+
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..e89752a8fc4594decb43324b3ed9e84104764534
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,133 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const plan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "Renews July 12, 2026",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "Expires 09/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "June 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1031", date: "May 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1014", date: "April 12, 2026", amount: "$49.00", status: "Paid" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
++      <section className="flex flex-col gap-2">
++        <Badge className="w-fit bg-secondary text-secondary-foreground">
++          Trial expires in 3 days
++        </Badge>
++        <h1 className="text-3xl font-bold text-foreground">Billing settings</h1>
++        <p className="max-w-2xl text-sm text-muted-foreground">
++          Manage your subscription, payment method, and billing history.
+         </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
++      <section className="rounded-xl border border-border bg-secondary p-4 text-secondary-foreground">
++        Your trial ends on July 8, 2026. Add a payment method or confirm your current card to keep
++        the workspace active.
++      </section>
++
++      <section className="grid gap-6 lg:grid-cols-3">
++        <Card>
++          <CardHeader>
++            <CardTitle>Current plan</CardTitle>
++            <CardDescription>{plan.renewalDate}</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div>
++              <p className="text-sm text-muted-foreground">Plan</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.name}</p>
++            </div>
++            <div>
++              <p className="text-sm text-muted-foreground">Price</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.price}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button variant="destructive" className="w-full">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Payment method</CardTitle>
++            <CardDescription>Card used for future renewals.</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div className="rounded-lg border border-border bg-background p-4">
++              <p className="font-medium text-foreground">
++                {paymentMethod.brand} ending in {paymentMethod.last4}
++              </p>
++              <p className="text-sm text-muted-foreground">{paymentMethod.expires}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button className="w-full">Update card</Button>
++          </CardFooter>
++        </Card>
++
++        <Card className="lg:col-span-1">
++          <CardHeader>
++            <CardTitle>Billing contact</CardTitle>
++            <CardDescription>Receipts are sent to this address.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <p className="font-medium text-card-foreground">billing@snapline.test</p>
++            <p className="text-sm text-muted-foreground">Workspace owner</p>
++          </CardContent>
++        </Card>
+       </section>
++
++      <Card>
++        <CardHeader>
++          <CardTitle>Invoices</CardTitle>
++          <CardDescription>Recent charges and downloadable receipts.</CardDescription>
++        </CardHeader>
++        <CardContent>
++          <div className="overflow-hidden rounded-lg border border-border">
++            {invoices.map((invoice) => (
++              <div
++                key={invoice.id}
++                className="grid gap-3 border-b border-border bg-card p-4 last:border-b-0 sm:grid-cols-4 sm:items-center"
++              >
++                <div>
++                  <p className="font-medium text-card-foreground">{invoice.id}</p>
++                  <p className="text-sm text-muted-foreground">{invoice.date}</p>
++                </div>
++                <p className="text-sm text-muted-foreground sm:text-center">{invoice.status}</p>
++                <p className="font-medium text-card-foreground sm:text-center">{invoice.amount}</p>
++                <a
++                  href={`/invoices/${invoice.id}.pdf`}
++                  download
++                  className="text-sm font-medium text-foreground underline-offset-4 hover:underline sm:text-right"
++                >
++                  Download
++                </a>
++              </div>
++            ))}
++          </div>
++        </CardContent>
++      </Card>
+     </main>
+   )
+ }
+
+codex
+There is a local binary at `node_modules/.bin/snapline`; the global command was the only missing piece. I’m running the required scan through that binary now.
+exec
+/bin/zsh -lc './node_modules/.bin/snapline scan --changed' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..e89752a8fc4594decb43324b3ed9e84104764534
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,133 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const plan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "Renews July 12, 2026",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "Expires 09/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "June 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1031", date: "May 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1014", date: "April 12, 2026", amount: "$49.00", status: "Paid" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
++      <section className="flex flex-col gap-2">
++        <Badge className="w-fit bg-secondary text-secondary-foreground">
++          Trial expires in 3 days
++        </Badge>
++        <h1 className="text-3xl font-bold text-foreground">Billing settings</h1>
++        <p className="max-w-2xl text-sm text-muted-foreground">
++          Manage your subscription, payment method, and billing history.
+         </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
++      <section className="rounded-xl border border-border bg-secondary p-4 text-secondary-foreground">
++        Your trial ends on July 8, 2026. Add a payment method or confirm your current card to keep
++        the workspace active.
++      </section>
++
++      <section className="grid gap-6 lg:grid-cols-3">
++        <Card>
++          <CardHeader>
++            <CardTitle>Current plan</CardTitle>
++            <CardDescription>{plan.renewalDate}</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div>
++              <p className="text-sm text-muted-foreground">Plan</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.name}</p>
++            </div>
++            <div>
++              <p className="text-sm text-muted-foreground">Price</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.price}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button variant="destructive" className="w-full">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Payment method</CardTitle>
++            <CardDescription>Card used for future renewals.</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div className="rounded-lg border border-border bg-background p-4">
++              <p className="font-medium text-foreground">
++                {paymentMethod.brand} ending in {paymentMethod.last4}
++              </p>
++              <p className="text-sm text-muted-foreground">{paymentMethod.expires}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button className="w-full">Update card</Button>
++          </CardFooter>
++        </Card>
++
++        <Card className="lg:col-span-1">
++          <CardHeader>
++            <CardTitle>Billing contact</CardTitle>
++            <CardDescription>Receipts are sent to this address.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <p className="font-medium text-card-foreground">billing@snapline.test</p>
++            <p className="text-sm text-muted-foreground">Workspace owner</p>
++          </CardContent>
++        </Card>
+       </section>
++
++      <Card>
++        <CardHeader>
++          <CardTitle>Invoices</CardTitle>
++          <CardDescription>Recent charges and downloadable receipts.</CardDescription>
++        </CardHeader>
++        <CardContent>
++          <div className="overflow-hidden rounded-lg border border-border">
++            {invoices.map((invoice) => (
++              <div
++                key={invoice.id}
++                className="grid gap-3 border-b border-border bg-card p-4 last:border-b-0 sm:grid-cols-4 sm:items-center"
++              >
++                <div>
++                  <p className="font-medium text-card-foreground">{invoice.id}</p>
++                  <p className="text-sm text-muted-foreground">{invoice.date}</p>
++                </div>
++                <p className="text-sm text-muted-foreground sm:text-center">{invoice.status}</p>
++                <p className="font-medium text-card-foreground sm:text-center">{invoice.amount}</p>
++                <a
++                  href={`/invoices/${invoice.id}.pdf`}
++                  download
++                  className="text-sm font-medium text-foreground underline-offset-4 hover:underline sm:text-right"
++                >
++                  Download
++                </a>
++              </div>
++            ))}
++          </div>
++        </CardContent>
++      </Card>
+     </main>
+   )
+ }
+
+ succeeded in 524ms:
+✔ On-system. Scanned 1 file(s) in 18ms.
+
+codex
+Snapline passed cleanly on the changed file. I’m doing the final required Snapline pass now; if it stays clean, this is done.
+exec
+/bin/zsh -lc './node_modules/.bin/snapline scan --changed' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..e89752a8fc4594decb43324b3ed9e84104764534
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,133 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const plan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "Renews July 12, 2026",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "Expires 09/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "June 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1031", date: "May 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1014", date: "April 12, 2026", amount: "$49.00", status: "Paid" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
++      <section className="flex flex-col gap-2">
++        <Badge className="w-fit bg-secondary text-secondary-foreground">
++          Trial expires in 3 days
++        </Badge>
++        <h1 className="text-3xl font-bold text-foreground">Billing settings</h1>
++        <p className="max-w-2xl text-sm text-muted-foreground">
++          Manage your subscription, payment method, and billing history.
+         </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
++      <section className="rounded-xl border border-border bg-secondary p-4 text-secondary-foreground">
++        Your trial ends on July 8, 2026. Add a payment method or confirm your current card to keep
++        the workspace active.
++      </section>
++
++      <section className="grid gap-6 lg:grid-cols-3">
++        <Card>
++          <CardHeader>
++            <CardTitle>Current plan</CardTitle>
++            <CardDescription>{plan.renewalDate}</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div>
++              <p className="text-sm text-muted-foreground">Plan</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.name}</p>
++            </div>
++            <div>
++              <p className="text-sm text-muted-foreground">Price</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.price}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button variant="destructive" className="w-full">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Payment method</CardTitle>
++            <CardDescription>Card used for future renewals.</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div className="rounded-lg border border-border bg-background p-4">
++              <p className="font-medium text-foreground">
++                {paymentMethod.brand} ending in {paymentMethod.last4}
++              </p>
++              <p className="text-sm text-muted-foreground">{paymentMethod.expires}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button className="w-full">Update card</Button>
++          </CardFooter>
++        </Card>
++
++        <Card className="lg:col-span-1">
++          <CardHeader>
++            <CardTitle>Billing contact</CardTitle>
++            <CardDescription>Receipts are sent to this address.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <p className="font-medium text-card-foreground">billing@snapline.test</p>
++            <p className="text-sm text-muted-foreground">Workspace owner</p>
++          </CardContent>
++        </Card>
+       </section>
++
++      <Card>
++        <CardHeader>
++          <CardTitle>Invoices</CardTitle>
++          <CardDescription>Recent charges and downloadable receipts.</CardDescription>
++        </CardHeader>
++        <CardContent>
++          <div className="overflow-hidden rounded-lg border border-border">
++            {invoices.map((invoice) => (
++              <div
++                key={invoice.id}
++                className="grid gap-3 border-b border-border bg-card p-4 last:border-b-0 sm:grid-cols-4 sm:items-center"
++              >
++                <div>
++                  <p className="font-medium text-card-foreground">{invoice.id}</p>
++                  <p className="text-sm text-muted-foreground">{invoice.date}</p>
++                </div>
++                <p className="text-sm text-muted-foreground sm:text-center">{invoice.status}</p>
++                <p className="font-medium text-card-foreground sm:text-center">{invoice.amount}</p>
++                <a
++                  href={`/invoices/${invoice.id}.pdf`}
++                  download
++                  className="text-sm font-medium text-foreground underline-offset-4 hover:underline sm:text-right"
++                >
++                  Download
++                </a>
++              </div>
++            ))}
++          </div>
++        </CardContent>
++      </Card>
+     </main>
+   )
+ }
+
+ succeeded in 500ms:
+✔ On-system. Scanned 1 file(s) in 15ms.
+
+codex
+Final Snapline pass is clean. I’m checking the final diff/status once so I can give you the exact changed surface and verification.
+exec
+/bin/zsh -lc 'git diff --stat' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+ fixtures/next-shadcn-custom-theme/src/app/page.tsx | 164 +++++++++++++++------
+ 1 file changed, 120 insertions(+), 44 deletions(-)
+
+exec
+/bin/zsh -lc 'git status --short' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme
+ succeeded in 0ms:
+ M src/app/page.tsx
+
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..e89752a8fc4594decb43324b3ed9e84104764534
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,133 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const plan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "Renews July 12, 2026",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "Expires 09/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "June 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1031", date: "May 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1014", date: "April 12, 2026", amount: "$49.00", status: "Paid" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
++      <section className="flex flex-col gap-2">
++        <Badge className="w-fit bg-secondary text-secondary-foreground">
++          Trial expires in 3 days
++        </Badge>
++        <h1 className="text-3xl font-bold text-foreground">Billing settings</h1>
++        <p className="max-w-2xl text-sm text-muted-foreground">
++          Manage your subscription, payment method, and billing history.
+         </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
++      <section className="rounded-xl border border-border bg-secondary p-4 text-secondary-foreground">
++        Your trial ends on July 8, 2026. Add a payment method or confirm your current card to keep
++        the workspace active.
++      </section>
++
++      <section className="grid gap-6 lg:grid-cols-3">
++        <Card>
++          <CardHeader>
++            <CardTitle>Current plan</CardTitle>
++            <CardDescription>{plan.renewalDate}</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div>
++              <p className="text-sm text-muted-foreground">Plan</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.name}</p>
++            </div>
++            <div>
++              <p className="text-sm text-muted-foreground">Price</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.price}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button variant="destructive" className="w-full">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Payment method</CardTitle>
++            <CardDescription>Card used for future renewals.</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div className="rounded-lg border border-border bg-background p-4">
++              <p className="font-medium text-foreground">
++                {paymentMethod.brand} ending in {paymentMethod.last4}
++              </p>
++              <p className="text-sm text-muted-foreground">{paymentMethod.expires}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button className="w-full">Update card</Button>
++          </CardFooter>
++        </Card>
++
++        <Card className="lg:col-span-1">
++          <CardHeader>
++            <CardTitle>Billing contact</CardTitle>
++            <CardDescription>Receipts are sent to this address.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <p className="font-medium text-card-foreground">billing@snapline.test</p>
++            <p className="text-sm text-muted-foreground">Workspace owner</p>
++          </CardContent>
++        </Card>
+       </section>
++
++      <Card>
++        <CardHeader>
++          <CardTitle>Invoices</CardTitle>
++          <CardDescription>Recent charges and downloadable receipts.</CardDescription>
++        </CardHeader>
++        <CardContent>
++          <div className="overflow-hidden rounded-lg border border-border">
++            {invoices.map((invoice) => (
++              <div
++                key={invoice.id}
++                className="grid gap-3 border-b border-border bg-card p-4 last:border-b-0 sm:grid-cols-4 sm:items-center"
++              >
++                <div>
++                  <p className="font-medium text-card-foreground">{invoice.id}</p>
++                  <p className="text-sm text-muted-foreground">{invoice.date}</p>
++                </div>
++                <p className="text-sm text-muted-foreground sm:text-center">{invoice.status}</p>
++                <p className="font-medium text-card-foreground sm:text-center">{invoice.amount}</p>
++                <a
++                  href={`/invoices/${invoice.id}.pdf`}
++                  download
++                  className="text-sm font-medium text-foreground underline-offset-4 hover:underline sm:text-right"
++                >
++                  Download
++                </a>
++              </div>
++            ))}
++          </div>
++        </CardContent>
++      </Card>
+     </main>
+   )
+ }
+
+codex
+Implemented the billing settings page in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx).
+
+It now includes current plan, price, renewal date, trial-expiry banner, payment method with `Update card`, recent invoices with download links, billing contact, and `Cancel subscription`.
+
+Verification:
+- `npm run typecheck` passed
+- `./node_modules/.bin/snapline scan --changed` passed twice
+- Global `snapline` was not on PATH, so I used the repo-local binary
+
+Skipped real billing/payment wiring; add it when the app has an API or payment portal contract.
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee864eb0ed23abd2346d23684c01f16d51e..e89752a8fc4594decb43324b3ed9e84104764534
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,133 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
+ 
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++const plan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "Renews July 12, 2026",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "Expires 09/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "June 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1031", date: "May 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1014", date: "April 12, 2026", amount: "$49.00", status: "Paid" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
++      <section className="flex flex-col gap-2">
++        <Badge className="w-fit bg-secondary text-secondary-foreground">
++          Trial expires in 3 days
++        </Badge>
++        <h1 className="text-3xl font-bold text-foreground">Billing settings</h1>
++        <p className="max-w-2xl text-sm text-muted-foreground">
++          Manage your subscription, payment method, and billing history.
+         </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
++      <section className="rounded-xl border border-border bg-secondary p-4 text-secondary-foreground">
++        Your trial ends on July 8, 2026. Add a payment method or confirm your current card to keep
++        the workspace active.
++      </section>
++
++      <section className="grid gap-6 lg:grid-cols-3">
++        <Card>
++          <CardHeader>
++            <CardTitle>Current plan</CardTitle>
++            <CardDescription>{plan.renewalDate}</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div>
++              <p className="text-sm text-muted-foreground">Plan</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.name}</p>
++            </div>
++            <div>
++              <p className="text-sm text-muted-foreground">Price</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.price}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button variant="destructive" className="w-full">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Payment method</CardTitle>
++            <CardDescription>Card used for future renewals.</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div className="rounded-lg border border-border bg-background p-4">
++              <p className="font-medium text-foreground">
++                {paymentMethod.brand} ending in {paymentMethod.last4}
++              </p>
++              <p className="text-sm text-muted-foreground">{paymentMethod.expires}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button className="w-full">Update card</Button>
++          </CardFooter>
++        </Card>
++
++        <Card className="lg:col-span-1">
++          <CardHeader>
++            <CardTitle>Billing contact</CardTitle>
++            <CardDescription>Receipts are sent to this address.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <p className="font-medium text-card-foreground">billing@snapline.test</p>
++            <p className="text-sm text-muted-foreground">Workspace owner</p>
++          </CardContent>
++        </Card>
+       </section>
++
++      <Card>
++        <CardHeader>
++          <CardTitle>Invoices</CardTitle>
++          <CardDescription>Recent charges and downloadable receipts.</CardDescription>
++        </CardHeader>
++        <CardContent>
++          <div className="overflow-hidden rounded-lg border border-border">
++            {invoices.map((invoice) => (
++              <div
++                key={invoice.id}
++                className="grid gap-3 border-b border-border bg-card p-4 last:border-b-0 sm:grid-cols-4 sm:items-center"
++              >
++                <div>
++                  <p className="font-medium text-card-foreground">{invoice.id}</p>
++                  <p className="text-sm text-muted-foreground">{invoice.date}</p>
++                </div>
++                <p className="text-sm text-muted-foreground sm:text-center">{invoice.status}</p>
++                <p className="font-medium text-card-foreground sm:text-center">{invoice.amount}</p>
++                <a
++                  href={`/invoices/${invoice.id}.pdf`}
++                  download
++                  className="text-sm font-medium text-foreground underline-offset-4 hover:underline sm:text-right"
++                >
++                  Download
++                </a>
++              </div>
++            ))}
++          </div>
++        </CardContent>
++      </Card>
+     </main>
+   )
+ }
+
+tokens used
+67,187

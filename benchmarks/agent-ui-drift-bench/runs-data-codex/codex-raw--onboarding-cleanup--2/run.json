@@ -1,0 +1,38 @@
+{
+  "id": "codex-raw--onboarding-cleanup--2",
+  "timestamp": "2026-07-05T06:59:59.255Z",
+  "mode": "codex-raw",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "onboarding-cleanup",
+  "attempt": 2,
+  "model": "gpt-5.5",
+  "agent": "codex",
+  "result": {
+    "score": {
+      "driftScore": 0,
+      "totalViolations": 0,
+      "errorViolations": 0,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": false,
+    "typecheckPass": false,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 3921,
+    "filesTouched": 0,
+    "failure": "agent spawn failed: spawnSync codex ETIMEDOUT"
+  },
+  "rawOutputPaths": [
+    "runs-codex/codex-raw--onboarding-cleanup--2/agent-stdout.txt",
+    "runs-codex/codex-raw--onboarding-cleanup--2/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs-codex/codex-raw--onboarding-cleanup--2/scanner.json",
+  "gitDiffPath": "runs-codex/codex-raw--onboarding-cleanup--2/diff.patch"
+}

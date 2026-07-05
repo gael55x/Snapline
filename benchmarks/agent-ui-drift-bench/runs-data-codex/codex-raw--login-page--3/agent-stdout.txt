@@ -1,0 +1,5 @@
+Implemented the login page in [src/app/login/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic/src/app/login/page.tsx).
+
+It now includes Google/GitHub sign-in buttons, the divider, email/password fields, remember-me checkbox, forgot-password link, inline validation errors, submit loading state, and the sign-up link.
+
+Verification: `npm run typecheck` passes. I did not start a dev server because this fixture’s `package.json` has no `dev` script. Skipped real auth wiring; add it when provider endpoints exist.

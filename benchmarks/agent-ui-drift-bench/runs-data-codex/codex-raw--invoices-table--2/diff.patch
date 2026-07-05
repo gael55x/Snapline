@@ -1,0 +1,292 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee..f3e1d86 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,242 @@
++"use client"
++
++import { useMemo, useState } from "react"
++
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+-
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
++
++type InvoiceStatus = "Paid" | "Pending" | "Failed"
++
++type Invoice = {
++  number: string
++  date: string
++  amount: number
++  status: InvoiceStatus
++}
++
++type SortKey = keyof Invoice
++type SortDirection = "asc" | "desc"
++
++const pageSize = 10
++
++const invoices: Invoice[] = [
++  { number: "INV-1042", date: "2026-07-01", amount: 349, status: "Paid" },
++  { number: "INV-1041", date: "2026-06-24", amount: 129, status: "Pending" },
++  { number: "INV-1040", date: "2026-06-17", amount: 429, status: "Paid" },
++  { number: "INV-1039", date: "2026-06-10", amount: 89, status: "Failed" },
++  { number: "INV-1038", date: "2026-06-03", amount: 249, status: "Paid" },
++  { number: "INV-1037", date: "2026-05-27", amount: 189, status: "Pending" },
++  { number: "INV-1036", date: "2026-05-20", amount: 349, status: "Paid" },
++  { number: "INV-1035", date: "2026-05-13", amount: 129, status: "Paid" },
++  { number: "INV-1034", date: "2026-05-06", amount: 429, status: "Failed" },
++  { number: "INV-1033", date: "2026-04-29", amount: 89, status: "Paid" },
++  { number: "INV-1032", date: "2026-04-22", amount: 249, status: "Pending" },
++  { number: "INV-1031", date: "2026-04-15", amount: 189, status: "Paid" },
++]
++
++const columns: Array<{ key: SortKey; label: string }> = [
++  { key: "number", label: "Invoice number" },
++  { key: "date", label: "Date" },
++  { key: "amount", label: "Amount" },
++  { key: "status", label: "Status" },
+ ]
+ 
++const statusClasses: Record<InvoiceStatus, string> = {
++  Paid: "!border-emerald-200 !bg-emerald-50 !text-emerald-700",
++  Pending: "!border-amber-200 !bg-amber-50 !text-amber-700",
++  Failed: "!border-red-200 !bg-red-50 !text-red-700",
++}
++
++const statusOrder: Record<InvoiceStatus, number> = {
++  Paid: 0,
++  Pending: 1,
++  Failed: 2,
++}
++
++const sortAccessors: Record<SortKey, (invoice: Invoice) => string | number> = {
++  number: (invoice) => invoice.number,
++  date: (invoice) => invoice.date,
++  amount: (invoice) => invoice.amount,
++  status: (invoice) => statusOrder[invoice.status],
++}
++
++const currencyFormatter = new Intl.NumberFormat("en-US", {
++  style: "currency",
++  currency: "USD",
++})
++
++const dateFormatter = new Intl.DateTimeFormat("en-US", {
++  month: "short",
++  day: "numeric",
++  year: "numeric",
++})
++
++function formatDate(date: string) {
++  return dateFormatter.format(new Date(`${date}T00:00:00`))
++}
++
+ export default function HomePage() {
++  const [sort, setSort] = useState<{ key: SortKey; direction: SortDirection }>({
++    key: "date",
++    direction: "desc",
++  })
++  const [page, setPage] = useState(0)
++
++  const sortedInvoices = useMemo(() => {
++    const getValue = sortAccessors[sort.key]
++    const direction = sort.direction === "asc" ? 1 : -1
++
++    return [...invoices].sort((left, right) => {
++      const leftValue = getValue(left)
++      const rightValue = getValue(right)
++
++      if (leftValue === rightValue) {
++        return 0
++      }
++
++      return leftValue > rightValue ? direction : -direction
++    })
++  }, [sort])
++
++  const pageCount = Math.ceil(sortedInvoices.length / pageSize)
++  const pageStart = page * pageSize
++  const pageInvoices = sortedInvoices.slice(pageStart, pageStart + pageSize)
++  const firstRow = pageStart + 1
++  const lastRow = Math.min(pageStart + pageSize, sortedInvoices.length)
++
++  function changeSort(key: SortKey) {
++    setSort((current) => ({
++      key,
++      direction: current.key === key && current.direction === "asc" ? "desc" : "asc",
++    }))
++    setPage(0)
++  }
++
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-12">
++      <section className="flex flex-col gap-3">
++        <Badge className="w-fit bg-brand text-brand-foreground">Billing</Badge>
++        <div className="space-y-2">
++          <h1 className="text-4xl font-bold tracking-tight text-foreground">Invoices</h1>
++          <p className="max-w-2xl text-sm text-muted-foreground">
++            Billing history for recent subscription invoices.
++          </p>
+         </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
+-      </section>
++      <Card className="overflow-hidden">
++        <CardHeader>
++          <CardTitle>Invoice history</CardTitle>
++          <CardDescription>{sortedInvoices.length} invoices</CardDescription>
++        </CardHeader>
++        <CardContent className="p-0">
++          <div className="overflow-x-auto">
++            <table className="w-full min-w-[720px] border-t border-border text-sm">
++              <thead className="bg-muted/60 text-muted-foreground">
++                <tr>
++                  {columns.map((column) => (
++                    <th
++                      key={column.key}
++                      aria-sort={
++                        sort.key === column.key
++                          ? sort.direction === "asc"
++                            ? "ascending"
++                            : "descending"
++                          : "none"
++                      }
++                      className={
++                        column.key === "amount"
++                          ? "px-4 py-3 text-right font-medium"
++                          : "px-4 py-3 text-left font-medium"
++                      }
++                      scope="col"
++                    >
++                      <Button
++                        className={
++                          column.key === "amount"
++                            ? "ml-auto text-muted-foreground hover:text-foreground"
++                            : "-ml-3 text-muted-foreground hover:text-foreground"
++                        }
++                        onClick={() => changeSort(column.key)}
++                        size="sm"
++                        type="button"
++                        variant="ghost"
++                      >
++                        {column.label}
++                        {sort.key === column.key ? (
++                          <span className="rounded bg-background px-1.5 py-0.5 text-[10px] uppercase text-muted-foreground">
++                            {sort.direction}
++                          </span>
++                        ) : null}
++                      </Button>
++                    </th>
++                  ))}
++                  <th className="px-4 py-3 text-right font-medium" scope="col">
++                    PDF
++                  </th>
++                </tr>
++              </thead>
++              <tbody>
++                {pageInvoices.map((invoice) => (
++                  <tr key={invoice.number} className="border-t border-border">
++                    <td className="px-4 py-4 font-medium text-foreground">{invoice.number}</td>
++                    <td className="px-4 py-4 text-muted-foreground">{formatDate(invoice.date)}</td>
++                    <td className="px-4 py-4 text-right text-muted-foreground">
++                      {currencyFormatter.format(invoice.amount)}
++                    </td>
++                    <td className="px-4 py-4">
++                      <Badge className={statusClasses[invoice.status]} variant="outline">
++                        {invoice.status}
++                      </Badge>
++                    </td>
++                    <td className="px-4 py-4 text-right">
++                      <Button
++                        aria-label={`Download PDF for ${invoice.number}`}
++                        size="sm"
++                        type="button"
++                        variant="outline"
++                      >
++                        Download PDF
++                      </Button>
++                    </td>
++                  </tr>
++                ))}
++              </tbody>
++            </table>
++          </div>
++        </CardContent>
++        <CardFooter className="flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:justify-between">
++          <p className="text-sm text-muted-foreground">
++            Showing {firstRow}-{lastRow} of {sortedInvoices.length}
++          </p>
++          <div className="flex gap-2">
++            <Button
++              disabled={page === 0}
++              onClick={() => setPage((current) => Math.max(current - 1, 0))}
++              type="button"
++              variant="outline"
++            >
++              Previous
++            </Button>
++            <Button
++              disabled={page >= pageCount - 1}
++              onClick={() => setPage((current) => Math.min(current + 1, pageCount - 1))}
++              type="button"
++              variant="outline"
++            >
++              Next
++            </Button>
++          </div>
++        </CardFooter>
++      </Card>
+     </main>
+   )
+ }

@@ -1,0 +1,108 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--invoices-table--3/repo/fixtures/next-shadcn-custom-theme",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/textarea.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-arbitrary-tailwind:src/app/page.tsx:135:31:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/app/page.tsx",
+      "message": "Arbitrary Tailwind value \"min-w-[760px]\"",
+      "location": {
+        "line": 135,
+        "column": 31
+      },
+      "evidence": "min-w-[760px]",
+      "repair": {
+        "instruction": "Replace min-w-[760px] with min-w-96 (384px) if the value is still needed — arbitrary values bypass the design scale.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "require-button-component:src/app/page.tsx:153:25:1",
+      "ruleId": "require-button-component",
+      "severity": "error",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw <button> used while <Button> exists",
+      "location": {
+        "line": 153,
+        "column": 25
+      },
+      "evidence": "<button>",
+      "repair": {
+        "instruction": "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes.",
+        "safeFix": true
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 16,
+    "totalViolations": 2,
+    "errorViolations": 2,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 1,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 1,
+    "componentReuseRate": 0.875
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/app/page.tsx",
+      "filePath": "src/app/page.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/app/page.tsx:135:31:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/app/page.tsx",
+          "message": "Arbitrary Tailwind value \"min-w-[760px]\"",
+          "location": {
+            "line": 135,
+            "column": 31
+          },
+          "evidence": "min-w-[760px]",
+          "repair": {
+            "instruction": "Replace min-w-[760px] with min-w-96 (384px) if the value is still needed — arbitrary values bypass the design scale.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "require-button-component:src/app/page.tsx:153:25:1",
+          "ruleId": "require-button-component",
+          "severity": "error",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw <button> used while <Button> exists",
+          "location": {
+            "line": 153,
+            "column": 25
+          },
+          "evidence": "<button>",
+          "repair": {
+            "instruction": "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes.",
+            "safeFix": true
+          }
+        }
+      ],
+      "requiredActions": [
+        "Replace min-w-[760px] with min-w-96 (384px) if the value is still needed — arbitrary values bypass the design scale.",
+        "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/app/page.tsx\n\n2 violations:\n- [error] arbitrary value: min-w-[760px] (line 135)\n- [error] raw <button> used while <Button> exists (line 153)\n\nRepair:\n- Replace min-w-[760px] with min-w-96 (384px) if the value is still needed — arbitrary values bypass the design scale.\n- Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes."
+    }
+  ],
+  "durationMs": 44
+}

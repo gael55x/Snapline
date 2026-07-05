@@ -1,0 +1,3 @@
+Implemented in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--team-invite-modal--1/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx:1).
+
+`npm run typecheck` passes. Skipped new dependencies/API scaffolding; this fixture only has local UI state and no dev server script.

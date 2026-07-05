@@ -1,0 +1,154 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97..72b8f7b 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -1,31 +1,39 @@
+ import { DashboardNav } from "@/components/dashboard/nav"
+-import { RecentActivity } from "@/components/dashboard/recent-activity"
+-import { StatCard } from "@/components/dashboard/stat-card"
++import { Badge } from "@/components/ui/badge"
++import { Button } from "@/components/ui/button"
++import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+-const stats = [
++const pricingTiers = [
+   {
+-    title: "Total revenue",
+-    value: "$45,231.89",
+-    change: "+20.1%",
+-    changeType: "positive" as const,
++    name: "Basic",
++    price: "$19",
++    period: "/mo",
++    description: "For small teams keeping a few core screens on-system.",
++    features: ["3 projects", "Weekly UI drift scans", "Shared activity history"],
++    cta: "Start with Basic",
+   },
+   {
+-    title: "Active repairs",
+-    value: "312",
+-    change: "+12.4%",
+-    changeType: "positive" as const,
++    name: "Pro",
++    price: "$49",
++    period: "/mo",
++    description: "For product teams that want every release to stay polished.",
++    features: [
++      "Unlimited projects",
++      "Daily UI drift scans",
++      "Priority repair workflows",
++      "Advanced release reports",
++    ],
++    cta: "Choose Pro",
++    featured: true,
+   },
+   {
+-    title: "Violations found",
+-    value: "1,024",
+-    change: "-4.3%",
+-    changeType: "negative" as const,
+-  },
+-  {
+-    title: "Projects connected",
+-    value: "24",
+-    change: "+3",
+-    changeType: "positive" as const,
++    name: "Enterprise",
++    price: "Custom",
++    period: "",
++    description: "For organizations with governance, rollout, and support needs.",
++    features: ["SAML and audit controls", "Custom design rules", "Dedicated support"],
++    cta: "Contact sales",
+   },
+ ]
+ 
+@@ -33,25 +41,74 @@ export default function DashboardPage() {
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="flex max-w-2xl flex-col gap-2">
++          <h1 className="text-3xl font-bold text-foreground">Pricing</h1>
+           <p className="text-sm text-muted-foreground">
+-            A summary of repair activity across your projects.
++            Pick the plan that matches how much UI drift you need Snapline to catch.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
+-            <StatCard
+-              key={stat.title}
+-              title={stat.title}
+-              value={stat.value}
+-              change={stat.change}
+-              changeType={stat.changeType}
+-            />
++
++        <section className="grid items-stretch gap-5 lg:grid-cols-3">
++          {pricingTiers.map((tier) => (
++            <Card
++              key={tier.name}
++              className={cn(
++                "relative flex h-full flex-col overflow-hidden shadow-lg transition-transform hover:-translate-y-1 hover:shadow-2xl",
++                tier.featured && "border-2 border-border shadow-2xl lg:-translate-y-3",
++              )}
++            >
++              <div className={cn("h-1 bg-secondary", tier.featured && "bg-primary")} />
++              <CardHeader className="gap-4">
++                <div className="flex items-center justify-between gap-3">
++                  <CardTitle className="text-lg font-semibold text-foreground">
++                    {tier.name}
++                  </CardTitle>
++                  {tier.featured ? <Badge>Best value</Badge> : null}
++                </div>
++                <p className="text-sm leading-6 text-muted-foreground">{tier.description}</p>
++              </CardHeader>
++              <CardContent className="flex flex-1 flex-col gap-6">
++                <div className="rounded-lg border border-border bg-card p-5 shadow-sm">
++                  <div className="flex items-end gap-1">
++                    <span className="text-5xl font-bold leading-none text-foreground">
++                      {tier.price}
++                    </span>
++                    {tier.period ? (
++                      <span className="pb-1 text-sm font-medium text-muted-foreground">
++                        {tier.period}
++                      </span>
++                    ) : null}
++                  </div>
++                </div>
++
++                <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
++                  {tier.features.map((feature) => (
++                    <li key={feature} className="flex gap-3">
++                      <span
++                        aria-hidden="true"
++                        className={cn(
++                          "mt-2 h-2 w-2 shrink-0 rounded-full bg-secondary shadow-sm",
++                          tier.featured && "bg-primary",
++                        )}
++                      />
++                      <span>{feature}</span>
++                    </li>
++                  ))}
++                </ul>
++              </CardContent>
++              <CardFooter>
++                <Button
++                  className="w-full"
++                  variant={tier.featured ? "default" : "outline"}
++                  size="lg"
++                >
++                  {tier.cta}
++                </Button>
++              </CardFooter>
++            </Card>
+           ))}
+         </section>
+-        <RecentActivity />
+       </main>
+     </div>
+   )

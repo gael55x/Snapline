@@ -1,0 +1,14 @@
+Implemented the dashboard hierarchy pass without adding/removing content.
+
+Changed:
+- [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/app/page.tsx): revenue stat now leads the metrics zone; secondary stats are grouped smaller; lower activity section is separated.
+- [src/components/dashboard/stat-card.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx): added a minimal `featured` visual branch.
+- [src/components/dashboard/recent-activity.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx): strengthened the lower centerpiece card/header.
+- [src/components/dashboard/nav.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx): quieted header widgets.
+
+Verified:
+- `./node_modules/.bin/snapline scan --changed` passed
+- `npm run typecheck` passed
+- `git diff --check` passed
+
+Skipped: fake chart/sidebar implementation. This fixture has no chart or sidebar component/data, and adding one would violate the “don’t add content” constraint. Live browser verification is also blocked because the fixture has no dev script and no local Next/Vite dependency.

@@ -1,0 +1,283 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee..4b52157 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,232 @@
++"use client"
++
++import * as React from "react"
++
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+-
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
++
++type InvoiceStatus = "Paid" | "Pending" | "Failed"
++
++type Invoice = {
++  number: string
++  date: string
++  amount: number
++  status: InvoiceStatus
++}
++
++type SortKey = "number" | "date" | "amount" | "status"
++type SortDirection = "asc" | "desc"
++
++const pageSize = 10
++
++const invoices: Invoice[] = [
++  { number: "INV-1042", date: "2026-07-01", amount: 1299, status: "Paid" },
++  { number: "INV-1041", date: "2026-06-24", amount: 849, status: "Pending" },
++  { number: "INV-1040", date: "2026-06-17", amount: 2199, status: "Failed" },
++  { number: "INV-1039", date: "2026-06-10", amount: 1299, status: "Paid" },
++  { number: "INV-1038", date: "2026-06-03", amount: 499, status: "Paid" },
++  { number: "INV-1037", date: "2026-05-27", amount: 849, status: "Pending" },
++  { number: "INV-1036", date: "2026-05-20", amount: 1299, status: "Paid" },
++  { number: "INV-1035", date: "2026-05-13", amount: 2199, status: "Paid" },
++  { number: "INV-1034", date: "2026-05-06", amount: 499, status: "Failed" },
++  { number: "INV-1033", date: "2026-04-29", amount: 1299, status: "Paid" },
++  { number: "INV-1032", date: "2026-04-22", amount: 849, status: "Paid" },
++  { number: "INV-1031", date: "2026-04-15", amount: 499, status: "Pending" },
++  { number: "INV-1030", date: "2026-04-08", amount: 2199, status: "Paid" },
++  { number: "INV-1029", date: "2026-04-01", amount: 1299, status: "Paid" },
++  { number: "INV-1028", date: "2026-03-25", amount: 849, status: "Failed" },
++  { number: "INV-1027", date: "2026-03-18", amount: 499, status: "Paid" },
++  { number: "INV-1026", date: "2026-03-11", amount: 1299, status: "Paid" },
++  { number: "INV-1025", date: "2026-03-04", amount: 849, status: "Pending" },
++  { number: "INV-1024", date: "2026-02-25", amount: 2199, status: "Paid" },
++  { number: "INV-1023", date: "2026-02-18", amount: 499, status: "Paid" },
++  { number: "INV-1022", date: "2026-02-11", amount: 1299, status: "Failed" },
++  { number: "INV-1021", date: "2026-02-04", amount: 849, status: "Paid" },
++  { number: "INV-1020", date: "2026-01-28", amount: 499, status: "Paid" },
+ ]
+ 
+-export default function HomePage() {
++const statusStyles: Record<InvoiceStatus, string> = {
++  Paid: "border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-700/40 dark:bg-emerald-950 dark:text-emerald-300",
++  Pending: "border-amber-200 bg-amber-50 text-amber-700 dark:border-amber-700/40 dark:bg-amber-950 dark:text-amber-300",
++  Failed: "border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-700/40 dark:bg-rose-950 dark:text-rose-300",
++}
++
++const statusRank: Record<InvoiceStatus, number> = {
++  Paid: 0,
++  Pending: 1,
++  Failed: 2,
++}
++
++const sortComparators: Record<SortKey, (a: Invoice, b: Invoice) => number> = {
++  number: (a, b) => a.number.localeCompare(b.number),
++  date: (a, b) => a.date.localeCompare(b.date),
++  amount: (a, b) => a.amount - b.amount,
++  status: (a, b) => statusRank[a.status] - statusRank[b.status],
++}
++
++const columns: Array<{ key: SortKey; label: string; className?: string }> = [
++  { key: "number", label: "Invoice number" },
++  { key: "date", label: "Date" },
++  { key: "amount", label: "Amount", className: "justify-end text-right" },
++  { key: "status", label: "Status" },
++]
++
++const dateFormatter = new Intl.DateTimeFormat("en-US", {
++  month: "short",
++  day: "numeric",
++  year: "numeric",
++  timeZone: "UTC",
++})
++
++const currencyFormatter = new Intl.NumberFormat("en-US", {
++  style: "currency",
++  currency: "USD",
++  maximumFractionDigits: 0,
++})
++
++export default function BillingPage() {
++  const [sort, setSort] = React.useState<{ key: SortKey; direction: SortDirection }>({
++    key: "date",
++    direction: "desc",
++  })
++  const [page, setPage] = React.useState(1)
++
++  const sortedInvoices = React.useMemo(() => {
++    const direction = sort.direction === "asc" ? 1 : -1
++
++    return [...invoices].sort((a, b) => sortComparators[sort.key](a, b) * direction)
++  }, [sort])
++
++  const pageCount = Math.ceil(sortedInvoices.length / pageSize)
++  const pageStart = (page - 1) * pageSize
++  const visibleInvoices = sortedInvoices.slice(pageStart, pageStart + pageSize)
++
++  function toggleSort(key: SortKey) {
++    setSort((current) => ({
++      key,
++      direction: current.key === key && current.direction === "asc" ? "desc" : "asc",
++    }))
++    setPage(1)
++  }
++
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
+-        </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-12">
++      <section className="flex flex-col gap-3">
++        <Badge className="w-fit bg-brand text-brand-foreground">Billing</Badge>
++        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
++          <div>
++            <h1 className="text-3xl font-bold text-foreground">Invoices</h1>
++            <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
++              Review billing history, payment status, and PDF downloads for recent invoices.
++            </p>
++          </div>
++          <p className="text-sm text-muted-foreground">{invoices.length} invoices</p>
+         </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
+-      </section>
++      <Card>
++        <CardHeader>
++          <CardTitle>Billing history</CardTitle>
++        </CardHeader>
++        <CardContent>
++          <div className="overflow-x-auto rounded-lg border border-border">
++            <table className="min-w-[760px] w-full border-collapse text-sm">
++              <thead className="bg-muted/60 text-muted-foreground">
++                <tr>
++                  {columns.map((column) => {
++                    const isSorted = sort.key === column.key
++
++                    return (
++                      <th
++                        key={column.key}
++                        className="px-4 py-3 text-left font-medium"
++                        aria-sort={
++                          isSorted
++                            ? sort.direction === "asc"
++                              ? "ascending"
++                              : "descending"
++                            : "none"
++                        }
++                      >
++                        <button
++                          type="button"
++                          className={cn(
++                            "inline-flex w-full items-center gap-2 text-left text-sm font-medium hover:text-foreground",
++                            column.className,
++                          )}
++                          onClick={() => toggleSort(column.key)}
++                        >
++                          <span>{column.label}</span>
++                          {isSorted ? (
++                            <span className="text-xs uppercase">{sort.direction}</span>
++                          ) : null}
++                        </button>
++                      </th>
++                    )
++                  })}
++                  <th className="px-4 py-3 text-right font-medium">PDF</th>
++                </tr>
++              </thead>
++              <tbody>
++                {visibleInvoices.map((invoice) => (
++                  <tr key={invoice.number} className="border-t border-border">
++                    <td className="px-4 py-4 font-medium text-foreground">{invoice.number}</td>
++                    <td className="px-4 py-4 text-muted-foreground">
++                      {dateFormatter.format(new Date(invoice.date))}
++                    </td>
++                    <td className="px-4 py-4 text-right font-medium">
++                      {currencyFormatter.format(invoice.amount)}
++                    </td>
++                    <td className="px-4 py-4">
++                      <Badge className={statusStyles[invoice.status]} variant="outline">
++                        {invoice.status}
++                      </Badge>
++                    </td>
++                    <td className="px-4 py-4 text-right">
++                      <a
++                        href={`/invoices/${invoice.number}.pdf`}
++                        download
++                        className="inline-flex h-8 items-center justify-center rounded-md border border-border bg-background px-3 text-xs font-medium shadow-sm transition-colors hover:bg-muted hover:text-foreground"
++                      >
++                        Download PDF
++                      </a>
++                    </td>
++                  </tr>
++                ))}
++              </tbody>
++            </table>
++          </div>
++        </CardContent>
++        <CardFooter className="flex flex-col gap-3 sm:flex-row sm:justify-between">
++          <p className="text-sm text-muted-foreground">
++            Showing {pageStart + 1}-{Math.min(pageStart + pageSize, sortedInvoices.length)} of{" "}
++            {sortedInvoices.length}
++          </p>
++          <div className="flex items-center gap-3">
++            <Button
++              disabled={page === 1}
++              onClick={() => setPage((current) => Math.max(1, current - 1))}
++              size="sm"
++              variant="outline"
++            >
++              Previous
++            </Button>
++            <span className="text-sm text-muted-foreground">
++              Page {page} of {pageCount}
++            </span>
++            <Button
++              disabled={page === pageCount}
++              onClick={() => setPage((current) => Math.min(pageCount, current + 1))}
++              size="sm"
++              variant="outline"
++            >
++              Next
++            </Button>
++          </div>
++        </CardFooter>
++      </Card>
+     </main>
+   )
+ }

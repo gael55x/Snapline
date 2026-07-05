@@ -1,0 +1,105 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+index c106fe3..3991329 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+@@ -26,30 +26,37 @@ export default function SettingsPage() {
+   const [confirmOpen, setConfirmOpen] = React.useState(false)
+ 
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/settings" />
+-      <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
+-          <p className="text-sm text-muted-foreground">
+-            Manage your workspace profile and danger zone actions.
+-          </p>
++      <main className="mx-auto flex max-w-5xl flex-col gap-8 px-6 py-10">
++        <div className="rounded-xl border border-border bg-card px-6 py-7 shadow-sm">
++          <div className="flex flex-col gap-1.5">
++            <h1 className="text-3xl font-bold tracking-tight text-foreground">Settings</h1>
++            <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
++              Manage your workspace profile and danger zone actions.
++            </p>
++          </div>
+         </div>
+ 
+-        <Card>
+-          <CardHeader>
+-            <CardTitle>Workspace profile</CardTitle>
++        <Card className="overflow-hidden shadow-sm">
++          <CardHeader className="border-b border-border bg-background/80">
++            <CardTitle className="text-xl">Workspace profile</CardTitle>
+             <CardDescription>This information is shown on shared reports.</CardDescription>
+           </CardHeader>
+-          <CardContent>
+-            <form className="flex flex-col gap-4">
+-              <div className="flex flex-col gap-2">
++          <CardContent className="p-0">
++            <form className="divide-y divide-border">
++              <div className="grid gap-3 px-6 py-5 sm:grid-cols-[180px_1fr] sm:items-center">
+                 <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
+                   Workspace name
+                 </label>
+-                <Input id="workspace-name" name="workspaceName" defaultValue="Snapline Ops" />
++                <Input
++                  id="workspace-name"
++                  name="workspaceName"
++                  defaultValue="Snapline Ops"
++                  className="h-11 bg-muted/30 shadow-inner focus-visible:ring-2 focus-visible:ring-primary/20"
++                />
+               </div>
+-              <div className="flex flex-col gap-2">
++              <div className="grid gap-3 px-6 py-5 sm:grid-cols-[180px_1fr] sm:items-center">
+                 <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
+                   Contact email
+                 </label>
+@@ -58,9 +65,10 @@ export default function SettingsPage() {
+                   name="contactEmail"
+                   type="email"
+                   defaultValue="ops@example.com"
++                  className="h-11 bg-muted/30 shadow-inner focus-visible:ring-2 focus-visible:ring-primary/20"
+                 />
+               </div>
+-              <div className="flex flex-col gap-2">
++              <div className="grid gap-3 px-6 py-5 sm:grid-cols-[180px_1fr] sm:items-center">
+                 <label htmlFor="repo-url" className="text-sm font-medium text-foreground">
+                   Repository URL
+                 </label>
+@@ -69,23 +77,28 @@ export default function SettingsPage() {
+                   name="repoUrl"
+                   type="url"
+                   placeholder="https://github.com/acme/app"
++                  className="h-11 bg-muted/30 shadow-inner focus-visible:ring-2 focus-visible:ring-primary/20"
+                 />
+               </div>
+             </form>
+           </CardContent>
+-          <CardFooter className="gap-2">
+-            <Button>Save changes</Button>
++          <CardFooter className="justify-end gap-3 border-t border-border bg-background/80 px-6 py-4">
++            <Button className="px-5">Save changes</Button>
+             <Button variant="ghost">Cancel</Button>
+           </CardFooter>
+         </Card>
+ 
+-        <Card>
+-          <CardHeader>
+-            <CardTitle>Danger zone</CardTitle>
++        <Card className="overflow-hidden border-destructive/30 bg-destructive/5 shadow-sm">
++          <CardHeader className="border-b border-destructive/20">
++            <CardTitle className="text-xl text-foreground">Danger zone</CardTitle>
+             <CardDescription>Destructive actions that cannot be undone.</CardDescription>
+           </CardHeader>
+-          <CardFooter>
+-            <Button variant="destructive" onClick={() => setConfirmOpen(true)}>
++          <CardFooter className="justify-end border-t border-destructive/20 bg-background/70 px-6 py-4">
++            <Button
++              variant="destructive"
++              className="w-full sm:w-auto"
++              onClick={() => setConfirmOpen(true)}
++            >
+               Delete workspace
+             </Button>
+           </CardFooter>
