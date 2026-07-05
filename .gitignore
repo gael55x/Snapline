@@ -9,3 +9,4 @@ coverage/
 benchmarks/agent-ui-drift-bench/runs/
 !benchmarks/agent-ui-drift-bench/reports/.gitkeep
 !benchmarks/agent-ui-drift-bench/graphs/.gitkeep
+.claude/launch.json

@@ -75,4 +75,8 @@ async function main(): Promise<number> {
   }
 }
 
-main().then((code) => process.exit(code))
+// Set exitCode instead of calling process.exit(): exit() truncates stdout that
+// hasn't flushed yet, which corrupts large --json output on piped stdio.
+main().then((code) => {
+  process.exitCode = code
+})
