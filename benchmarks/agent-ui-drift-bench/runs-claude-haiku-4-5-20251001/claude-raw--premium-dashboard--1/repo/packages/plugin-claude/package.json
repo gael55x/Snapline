@@ -1,0 +1,32 @@
+{
+  "name": "@usesnapline/plugin-claude",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Claude Code plugin for Snapline — PostToolUse and Stop hooks that keep AI-generated UI on-system (distributed via git/marketplace, not npm)",
+  "license": "MIT",
+  "scripts": {
+    "typecheck": "node --check scripts/run-snapline.js && node --check scripts/post-tool-use.js && node --check scripts/stop.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gael55x/Snapline.git",
+    "directory": "packages/plugin-claude"
+  },
+  "homepage": "https://github.com/gael55x/Snapline",
+  "keywords": [
+    "ai-coding-agent",
+    "agent-hooks",
+    "claude-code",
+    "codex",
+    "cursor",
+    "tailwindcss",
+    "shadcn-ui",
+    "react",
+    "nextjs",
+    "design-system",
+    "ui-drift",
+    "repair-contracts",
+    "developer-tools",
+    "open-source"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "note": "Scanner pipeline validation on committed synthetic samples. NOT an agent mode comparison.",
+  "sample": "samples/drifted-app",
+  "score": {
+    "driftScore": 171,
+    "totalViolations": 29,
+    "errorViolations": 11,
+    "warningViolations": 18,
+    "rawHexValues": 2,
+    "inlineStyleObjects": 2,
+    "arbitraryTailwindValues": 5,
+    "rawPaletteClasses": 13,
+    "duplicateComponentCount": 1,
+    "rawPrimitiveCount": 6,
+    "componentReuseRate": 0
+  },
+  "deterministic": true
+}

@@ -148,10 +148,13 @@ and false-positive policy: [Rules](docs/rules.md).
 
 ## Benchmark
 
-agent-ui-drift-bench: 240 live Claude Code sessions (`claude-sonnet-5`) —
-8 modes × 10 prompts × 3 attempts, pristine checkout per run, hint-free
-prompts, deterministic scoring, every raw artifact kept. Full methodology:
-[Benchmark](docs/benchmark.md).
+agent-ui-drift-bench: 240 live Claude Code sessions — 8 modes × 10 prompts ×
+3 attempts, pristine checkout per run, hint-free prompts, deterministic
+scoring, every raw artifact kept. **Model: `claude-sonnet-5`** (agent: Claude
+Code CLI, `acceptEdits`). A cross-model slice on `claude-haiku-4-5-20251001`
+is in progress — early cells show weaker models drift far harder (raw drift
+180 vs Sonnet's worst 20 on the same prompt) while the gate still converges
+them to 0. Full methodology: [Benchmark](docs/benchmark.md).
 
 ![Share of runs with any UI drift, by mode](benchmarks/agent-ui-drift-bench/graphs/drift-rate.svg)
 

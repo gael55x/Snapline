@@ -1,0 +1,3833 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--2/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:12:31:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"text-blue-600\"",
+      "location": {
+        "line": 12,
+        "column": 31
+      },
+      "evidence": "text-blue-600",
+      "repair": {
+        "instruction": "Replace text-blue-600 with text-primary.",
+        "safeFix": true,
+        "replacement": "text-primary"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:12:45:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-blue-400\"",
+      "location": {
+        "line": 12,
+        "column": 45
+      },
+      "evidence": "dark:text-blue-400",
+      "repair": {
+        "instruction": "Replace dark:text-blue-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:23:31:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"text-emerald-600\"",
+      "location": {
+        "line": 23,
+        "column": 31
+      },
+      "evidence": "text-emerald-600",
+      "repair": {
+        "instruction": "Replace text-emerald-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:23:48:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-emerald-400\"",
+      "location": {
+        "line": 23,
+        "column": 48
+      },
+      "evidence": "dark:text-emerald-400",
+      "repair": {
+        "instruction": "Replace dark:text-emerald-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:34:31:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"text-orange-600\"",
+      "location": {
+        "line": 34,
+        "column": 31
+      },
+      "evidence": "text-orange-600",
+      "repair": {
+        "instruction": "Replace text-orange-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:34:47:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-orange-400\"",
+      "location": {
+        "line": 34,
+        "column": 47
+      },
+      "evidence": "dark:text-orange-400",
+      "repair": {
+        "instruction": "Replace dark:text-orange-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:45:31:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"text-purple-600\"",
+      "location": {
+        "line": 45,
+        "column": 31
+      },
+      "evidence": "text-purple-600",
+      "repair": {
+        "instruction": "Replace text-purple-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:45:47:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-purple-400\"",
+      "location": {
+        "line": 45,
+        "column": 47
+      },
+      "evidence": "dark:text-purple-400",
+      "repair": {
+        "instruction": "Replace dark:text-purple-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:54:51:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"from-white\"",
+      "location": {
+        "line": 54,
+        "column": 51
+      },
+      "evidence": "from-white",
+      "repair": {
+        "instruction": "Replace from-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:54:62:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"to-slate-50\"",
+      "location": {
+        "line": 54,
+        "column": 62
+      },
+      "evidence": "to-slate-50",
+      "repair": {
+        "instruction": "Replace to-slate-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:54:74:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:from-slate-950\"",
+      "location": {
+        "line": 54,
+        "column": 74
+      },
+      "evidence": "dark:from-slate-950",
+      "repair": {
+        "instruction": "Replace dark:from-slate-950 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:54:94:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:to-slate-900\"",
+      "location": {
+        "line": 54,
+        "column": 94
+      },
+      "evidence": "dark:to-slate-900",
+      "repair": {
+        "instruction": "Replace dark:to-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:58:60:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-900\"",
+      "location": {
+        "line": 58,
+        "column": 60
+      },
+      "evidence": "text-slate-900",
+      "repair": {
+        "instruction": "Replace text-slate-900 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:58:75:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-white\"",
+      "location": {
+        "line": 58,
+        "column": 75
+      },
+      "evidence": "dark:text-white",
+      "repair": {
+        "instruction": "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:59:33:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-600\"",
+      "location": {
+        "line": 59,
+        "column": 33
+      },
+      "evidence": "text-slate-600",
+      "repair": {
+        "instruction": "Replace text-slate-600 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:59:48:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+      "location": {
+        "line": 59,
+        "column": 48
+      },
+      "evidence": "dark:text-slate-400",
+      "repair": {
+        "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:11:33:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"border-slate-200\"",
+      "location": {
+        "line": 11,
+        "column": 33
+      },
+      "evidence": "border-slate-200",
+      "repair": {
+        "instruction": "Replace border-slate-200 with border-border.",
+        "safeFix": true,
+        "replacement": "border-border"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:11:50:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"dark:border-slate-700\"",
+      "location": {
+        "line": 11,
+        "column": 50
+      },
+      "evidence": "dark:border-slate-700",
+      "repair": {
+        "instruction": "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:11:72:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"bg-white\"",
+      "location": {
+        "line": 11,
+        "column": 72
+      },
+      "evidence": "bg-white",
+      "repair": {
+        "instruction": "Replace bg-white with bg-background or bg-card, depending on the surface.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:11:81:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"dark:bg-slate-900\"",
+      "location": {
+        "line": 11,
+        "column": 81
+      },
+      "evidence": "dark:bg-slate-900",
+      "repair": {
+        "instruction": "Replace dark:bg-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:15:48:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-900\"",
+      "location": {
+        "line": 15,
+        "column": 48
+      },
+      "evidence": "text-slate-900",
+      "repair": {
+        "instruction": "Replace text-slate-900 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:15:63:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-white\"",
+      "location": {
+        "line": 15,
+        "column": 63
+      },
+      "evidence": "dark:text-white",
+      "repair": {
+        "instruction": "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:16:51:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"bg-blue-100\"",
+      "location": {
+        "line": 16,
+        "column": 51
+      },
+      "evidence": "bg-blue-100",
+      "repair": {
+        "instruction": "Replace bg-blue-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:16:63:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"dark:bg-blue-900\"",
+      "location": {
+        "line": 16,
+        "column": 63
+      },
+      "evidence": "dark:bg-blue-900",
+      "repair": {
+        "instruction": "Replace dark:bg-blue-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:16:80:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"text-blue-800\"",
+      "location": {
+        "line": 16,
+        "column": 80
+      },
+      "evidence": "text-blue-800",
+      "repair": {
+        "instruction": "Replace text-blue-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:16:94:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-blue-100\"",
+      "location": {
+        "line": 16,
+        "column": 94
+      },
+      "evidence": "dark:text-blue-100",
+      "repair": {
+        "instruction": "Replace dark:text-blue-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:25:67:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"bg-slate-100\"",
+      "location": {
+        "line": 25,
+        "column": 67
+      },
+      "evidence": "bg-slate-100",
+      "repair": {
+        "instruction": "Replace bg-slate-100 with bg-muted.",
+        "safeFix": true,
+        "replacement": "bg-muted"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:25:80:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"dark:bg-slate-800\"",
+      "location": {
+        "line": 25,
+        "column": 80
+      },
+      "evidence": "dark:bg-slate-800",
+      "repair": {
+        "instruction": "Replace dark:bg-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:25:98:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-900\"",
+      "location": {
+        "line": 25,
+        "column": 98
+      },
+      "evidence": "text-slate-900",
+      "repair": {
+        "instruction": "Replace text-slate-900 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:25:113:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-white\"",
+      "location": {
+        "line": 25,
+        "column": 113
+      },
+      "evidence": "dark:text-white",
+      "repair": {
+        "instruction": "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:26:65:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-600\"",
+      "location": {
+        "line": 26,
+        "column": 65
+      },
+      "evidence": "text-slate-600",
+      "repair": {
+        "instruction": "Replace text-slate-600 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:26:80:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+      "location": {
+        "line": 26,
+        "column": 80
+      },
+      "evidence": "dark:text-slate-400",
+      "repair": {
+        "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:26:100:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"hover:text-slate-900\"",
+      "location": {
+        "line": 26,
+        "column": 100
+      },
+      "evidence": "hover:text-slate-900",
+      "repair": {
+        "instruction": "Replace hover:text-slate-900 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:26:121:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"dark:hover:text-white\"",
+      "location": {
+        "line": 26,
+        "column": 121
+      },
+      "evidence": "dark:hover:text-white",
+      "repair": {
+        "instruction": "Replace dark:hover:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:26:143:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"hover:bg-slate-50\"",
+      "location": {
+        "line": 26,
+        "column": 143
+      },
+      "evidence": "hover:bg-slate-50",
+      "repair": {
+        "instruction": "Replace hover:bg-slate-50 with bg-muted.",
+        "safeFix": true,
+        "replacement": "bg-muted"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:26:161:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"dark:hover:bg-slate-800\"",
+      "location": {
+        "line": 26,
+        "column": 161
+      },
+      "evidence": "dark:hover:bg-slate-800",
+      "repair": {
+        "instruction": "Replace dark:hover:bg-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:35:56:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-700\"",
+      "location": {
+        "line": 35,
+        "column": 56
+      },
+      "evidence": "text-slate-700",
+      "repair": {
+        "instruction": "Replace text-slate-700 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:35:71:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+      "location": {
+        "line": 35,
+        "column": 71
+      },
+      "evidence": "dark:text-slate-300",
+      "repair": {
+        "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:35:91:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"hover:text-slate-900\"",
+      "location": {
+        "line": 35,
+        "column": 91
+      },
+      "evidence": "hover:text-slate-900",
+      "repair": {
+        "instruction": "Replace hover:text-slate-900 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:35:112:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"dark:hover:text-white\"",
+      "location": {
+        "line": 35,
+        "column": 112
+      },
+      "evidence": "dark:hover:text-white",
+      "repair": {
+        "instruction": "Replace dark:hover:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:38:40:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"bg-blue-600\"",
+      "location": {
+        "line": 38,
+        "column": 40
+      },
+      "evidence": "bg-blue-600",
+      "repair": {
+        "instruction": "Replace bg-blue-600 with bg-primary.",
+        "safeFix": true,
+        "replacement": "bg-primary"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:38:52:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"hover:bg-blue-700\"",
+      "location": {
+        "line": 38,
+        "column": 52
+      },
+      "evidence": "hover:bg-blue-700",
+      "repair": {
+        "instruction": "Replace hover:bg-blue-700 with bg-primary.",
+        "safeFix": true,
+        "replacement": "bg-primary"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:38:70:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"text-white\"",
+      "location": {
+        "line": 38,
+        "column": 70
+      },
+      "evidence": "text-white",
+      "repair": {
+        "instruction": "Replace text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:68:49:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"from-white\"",
+      "location": {
+        "line": 68,
+        "column": 49
+      },
+      "evidence": "from-white",
+      "repair": {
+        "instruction": "Replace from-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:68:60:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"to-slate-50\"",
+      "location": {
+        "line": 68,
+        "column": 60
+      },
+      "evidence": "to-slate-50",
+      "repair": {
+        "instruction": "Replace to-slate-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:68:72:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:from-slate-900\"",
+      "location": {
+        "line": 68,
+        "column": 72
+      },
+      "evidence": "dark:from-slate-900",
+      "repair": {
+        "instruction": "Replace dark:from-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:68:92:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:to-slate-800\"",
+      "location": {
+        "line": 68,
+        "column": 92
+      },
+      "evidence": "dark:to-slate-800",
+      "repair": {
+        "instruction": "Replace dark:to-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:69:57:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"from-blue-500/5\"",
+      "location": {
+        "line": 69,
+        "column": 57
+      },
+      "evidence": "from-blue-500/5",
+      "repair": {
+        "instruction": "Replace from-blue-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:69:73:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"to-purple-500/5\"",
+      "location": {
+        "line": 69,
+        "column": 73
+      },
+      "evidence": "to-purple-500/5",
+      "repair": {
+        "instruction": "Replace to-purple-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:69:89:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:from-blue-500/10\"",
+      "location": {
+        "line": 69,
+        "column": 89
+      },
+      "evidence": "dark:from-blue-500/10",
+      "repair": {
+        "instruction": "Replace dark:from-blue-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:69:111:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:to-purple-500/10\"",
+      "location": {
+        "line": 69,
+        "column": 111
+      },
+      "evidence": "dark:to-purple-500/10",
+      "repair": {
+        "instruction": "Replace dark:to-purple-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:77:34:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"border-slate-200\"",
+      "location": {
+        "line": 77,
+        "column": 34
+      },
+      "evidence": "border-slate-200",
+      "repair": {
+        "instruction": "Replace border-slate-200 with border-border.",
+        "safeFix": true,
+        "replacement": "border-border"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:77:51:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:border-slate-700\"",
+      "location": {
+        "line": 77,
+        "column": 51
+      },
+      "evidence": "dark:border-slate-700",
+      "repair": {
+        "instruction": "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:78:51:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-700\"",
+      "location": {
+        "line": 78,
+        "column": 51
+      },
+      "evidence": "text-slate-700",
+      "repair": {
+        "instruction": "Replace text-slate-700 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:78:66:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+      "location": {
+        "line": 78,
+        "column": 66
+      },
+      "evidence": "dark:text-slate-300",
+      "repair": {
+        "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:79:51:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-700\"",
+      "location": {
+        "line": 79,
+        "column": 51
+      },
+      "evidence": "text-slate-700",
+      "repair": {
+        "instruction": "Replace text-slate-700 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:79:66:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+      "location": {
+        "line": 79,
+        "column": 66
+      },
+      "evidence": "dark:text-slate-300",
+      "repair": {
+        "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:80:51:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-700\"",
+      "location": {
+        "line": 80,
+        "column": 51
+      },
+      "evidence": "text-slate-700",
+      "repair": {
+        "instruction": "Replace text-slate-700 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:80:66:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+      "location": {
+        "line": 80,
+        "column": 66
+      },
+      "evidence": "dark:text-slate-300",
+      "repair": {
+        "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:81:51:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-700\"",
+      "location": {
+        "line": 81,
+        "column": 51
+      },
+      "evidence": "text-slate-700",
+      "repair": {
+        "instruction": "Replace text-slate-700 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:81:66:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+      "location": {
+        "line": 81,
+        "column": 66
+      },
+      "evidence": "dark:text-slate-300",
+      "repair": {
+        "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:82:62:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-700\"",
+      "location": {
+        "line": 82,
+        "column": 62
+      },
+      "evidence": "text-slate-700",
+      "repair": {
+        "instruction": "Replace text-slate-700 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:82:77:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+      "location": {
+        "line": 82,
+        "column": 77
+      },
+      "evidence": "dark:text-slate-300",
+      "repair": {
+        "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:87:49:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"border-slate-100\"",
+      "location": {
+        "line": 87,
+        "column": 49
+      },
+      "evidence": "border-slate-100",
+      "repair": {
+        "instruction": "Replace border-slate-100 with border-border.",
+        "safeFix": true,
+        "replacement": "border-border"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:87:66:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:border-slate-700\"",
+      "location": {
+        "line": 87,
+        "column": 66
+      },
+      "evidence": "dark:border-slate-700",
+      "repair": {
+        "instruction": "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:87:88:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"hover:bg-slate-50\"",
+      "location": {
+        "line": 87,
+        "column": 88
+      },
+      "evidence": "hover:bg-slate-50",
+      "repair": {
+        "instruction": "Replace hover:bg-slate-50 with bg-muted.",
+        "safeFix": true,
+        "replacement": "bg-muted"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:87:106:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:hover:bg-slate-800/50\"",
+      "location": {
+        "line": 87,
+        "column": 106
+      },
+      "evidence": "dark:hover:bg-slate-800/50",
+      "repair": {
+        "instruction": "Replace dark:hover:bg-slate-800/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:88:53:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-900\"",
+      "location": {
+        "line": 88,
+        "column": 53
+      },
+      "evidence": "text-slate-900",
+      "repair": {
+        "instruction": "Replace text-slate-900 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:88:68:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-white\"",
+      "location": {
+        "line": 88,
+        "column": 68
+      },
+      "evidence": "dark:text-white",
+      "repair": {
+        "instruction": "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:89:39:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-700\"",
+      "location": {
+        "line": 89,
+        "column": 39
+      },
+      "evidence": "text-slate-700",
+      "repair": {
+        "instruction": "Replace text-slate-700 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:89:54:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+      "location": {
+        "line": 89,
+        "column": 54
+      },
+      "evidence": "dark:text-slate-300",
+      "repair": {
+        "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:90:39:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-600\"",
+      "location": {
+        "line": 90,
+        "column": 39
+      },
+      "evidence": "text-slate-600",
+      "repair": {
+        "instruction": "Replace text-slate-600 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:90:54:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+      "location": {
+        "line": 90,
+        "column": 54
+      },
+      "evidence": "dark:text-slate-400",
+      "repair": {
+        "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:96:50:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-600\"",
+      "location": {
+        "line": 96,
+        "column": 50
+      },
+      "evidence": "text-slate-600",
+      "repair": {
+        "instruction": "Replace text-slate-600 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:96:65:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+      "location": {
+        "line": 96,
+        "column": 65
+      },
+      "evidence": "dark:text-slate-400",
+      "repair": {
+        "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:14:74:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"from-slate-50\"",
+      "location": {
+        "line": 14,
+        "column": 74
+      },
+      "evidence": "from-slate-50",
+      "repair": {
+        "instruction": "Replace from-slate-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:14:88:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"to-white\"",
+      "location": {
+        "line": 14,
+        "column": 88
+      },
+      "evidence": "to-white",
+      "repair": {
+        "instruction": "Replace to-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:14:97:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"dark:from-slate-900\"",
+      "location": {
+        "line": 14,
+        "column": 97
+      },
+      "evidence": "dark:from-slate-900",
+      "repair": {
+        "instruction": "Replace dark:from-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:14:117:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"dark:to-slate-800\"",
+      "location": {
+        "line": 14,
+        "column": 117
+      },
+      "evidence": "dark:to-slate-800",
+      "repair": {
+        "instruction": "Replace dark:to-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:15:57:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"from-blue-500/5\"",
+      "location": {
+        "line": 15,
+        "column": 57
+      },
+      "evidence": "from-blue-500/5",
+      "repair": {
+        "instruction": "Replace from-blue-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:15:73:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"to-purple-500/5\"",
+      "location": {
+        "line": 15,
+        "column": 73
+      },
+      "evidence": "to-purple-500/5",
+      "repair": {
+        "instruction": "Replace to-purple-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:15:89:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"dark:from-blue-500/10\"",
+      "location": {
+        "line": 15,
+        "column": 89
+      },
+      "evidence": "dark:from-blue-500/10",
+      "repair": {
+        "instruction": "Replace dark:from-blue-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:15:111:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"dark:to-purple-500/10\"",
+      "location": {
+        "line": 15,
+        "column": 111
+      },
+      "evidence": "dark:to-purple-500/10",
+      "repair": {
+        "instruction": "Replace dark:to-purple-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:18:80:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-600\"",
+      "location": {
+        "line": 18,
+        "column": 80
+      },
+      "evidence": "text-slate-600",
+      "repair": {
+        "instruction": "Replace text-slate-600 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:18:95:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+      "location": {
+        "line": 18,
+        "column": 95
+      },
+      "evidence": "dark:text-slate-400",
+      "repair": {
+        "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:21:38:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"bg-white\"",
+      "location": {
+        "line": 21,
+        "column": 38
+      },
+      "evidence": "bg-white",
+      "repair": {
+        "instruction": "Replace bg-white with bg-background or bg-card, depending on the surface.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:21:47:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"dark:bg-slate-700\"",
+      "location": {
+        "line": 21,
+        "column": 47
+      },
+      "evidence": "dark:bg-slate-700",
+      "repair": {
+        "instruction": "Replace dark:bg-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:28:63:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"from-slate-900\"",
+      "location": {
+        "line": 28,
+        "column": 63
+      },
+      "evidence": "from-slate-900",
+      "repair": {
+        "instruction": "Replace from-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:28:78:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"to-slate-700\"",
+      "location": {
+        "line": 28,
+        "column": 78
+      },
+      "evidence": "to-slate-700",
+      "repair": {
+        "instruction": "Replace to-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:28:91:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"dark:from-white\"",
+      "location": {
+        "line": 28,
+        "column": 91
+      },
+      "evidence": "dark:from-white",
+      "repair": {
+        "instruction": "Replace dark:from-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:28:107:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"dark:to-slate-200\"",
+      "location": {
+        "line": 28,
+        "column": 107
+      },
+      "evidence": "dark:to-slate-200",
+      "repair": {
+        "instruction": "Replace dark:to-slate-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:31:33:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-500\"",
+      "location": {
+        "line": 31,
+        "column": 33
+      },
+      "evidence": "text-slate-500",
+      "repair": {
+        "instruction": "Replace text-slate-500 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:31:48:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+      "location": {
+        "line": 31,
+        "column": 48
+      },
+      "evidence": "dark:text-slate-400",
+      "repair": {
+        "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/card.tsx:10:29:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/card.tsx",
+      "message": "Raw Tailwind palette color \"border-slate-200\"",
+      "location": {
+        "line": 10,
+        "column": 29
+      },
+      "evidence": "border-slate-200",
+      "repair": {
+        "instruction": "Replace border-slate-200 with border-border.",
+        "safeFix": true,
+        "replacement": "border-border"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/card.tsx:10:46:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/card.tsx",
+      "message": "Raw Tailwind palette color \"dark:border-slate-700\"",
+      "location": {
+        "line": 10,
+        "column": 46
+      },
+      "evidence": "dark:border-slate-700",
+      "repair": {
+        "instruction": "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/card.tsx:30:60:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/card.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-900\"",
+      "location": {
+        "line": 30,
+        "column": 60
+      },
+      "evidence": "text-slate-900",
+      "repair": {
+        "instruction": "Replace text-slate-900 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/card.tsx:30:75:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/card.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-white\"",
+      "location": {
+        "line": 30,
+        "column": 75
+      },
+      "evidence": "dark:text-white",
+      "repair": {
+        "instruction": "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/card.tsx:39:35:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/card.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-600\"",
+      "location": {
+        "line": 39,
+        "column": 35
+      },
+      "evidence": "text-slate-600",
+      "repair": {
+        "instruction": "Replace text-slate-600 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/card.tsx:39:50:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/card.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+      "location": {
+        "line": 39,
+        "column": 50
+      },
+      "evidence": "dark:text-slate-400",
+      "repair": {
+        "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+        "safeFix": true,
+        "replacement": "text-muted-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/table.tsx:18:44:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/table.tsx",
+      "message": "Raw Tailwind palette color \"border-slate-200\"",
+      "location": {
+        "line": 18,
+        "column": 44
+      },
+      "evidence": "border-slate-200",
+      "repair": {
+        "instruction": "Replace border-slate-200 with border-border.",
+        "safeFix": true,
+        "replacement": "border-border"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/table.tsx:18:61:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/table.tsx",
+      "message": "Raw Tailwind palette color \"dark:border-slate-700\"",
+      "location": {
+        "line": 18,
+        "column": 61
+      },
+      "evidence": "dark:border-slate-700",
+      "repair": {
+        "instruction": "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/table.tsx:18:83:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/table.tsx",
+      "message": "Raw Tailwind palette color \"bg-slate-50\"",
+      "location": {
+        "line": 18,
+        "column": 83
+      },
+      "evidence": "bg-slate-50",
+      "repair": {
+        "instruction": "Replace bg-slate-50 with bg-muted.",
+        "safeFix": true,
+        "replacement": "bg-muted"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/table.tsx:18:95:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/table.tsx",
+      "message": "Raw Tailwind palette color \"dark:bg-slate-800/50\"",
+      "location": {
+        "line": 18,
+        "column": 95
+      },
+      "evidence": "dark:bg-slate-800/50",
+      "repair": {
+        "instruction": "Replace dark:bg-slate-800/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/table.tsx:32:31:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/table.tsx",
+      "message": "Raw Tailwind palette color \"border-slate-100\"",
+      "location": {
+        "line": 32,
+        "column": 31
+      },
+      "evidence": "border-slate-100",
+      "repair": {
+        "instruction": "Replace border-slate-100 with border-border.",
+        "safeFix": true,
+        "replacement": "border-border"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/table.tsx:32:48:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/table.tsx",
+      "message": "Raw Tailwind palette color \"dark:border-slate-700\"",
+      "location": {
+        "line": 32,
+        "column": 48
+      },
+      "evidence": "dark:border-slate-700",
+      "repair": {
+        "instruction": "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/table.tsx:32:88:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/table.tsx",
+      "message": "Raw Tailwind palette color \"hover:bg-slate-50\"",
+      "location": {
+        "line": 32,
+        "column": 88
+      },
+      "evidence": "hover:bg-slate-50",
+      "repair": {
+        "instruction": "Replace hover:bg-slate-50 with bg-muted.",
+        "safeFix": true,
+        "replacement": "bg-muted"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/table.tsx:32:106:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/table.tsx",
+      "message": "Raw Tailwind palette color \"dark:hover:bg-slate-800/30\"",
+      "location": {
+        "line": 32,
+        "column": 106
+      },
+      "evidence": "dark:hover:bg-slate-800/30",
+      "repair": {
+        "instruction": "Replace dark:hover:bg-slate-800/30 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/table.tsx:45:67:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/table.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-700\"",
+      "location": {
+        "line": 45,
+        "column": 67
+      },
+      "evidence": "text-slate-700",
+      "repair": {
+        "instruction": "Replace text-slate-700 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/table.tsx:45:82:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/table.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+      "location": {
+        "line": 45,
+        "column": 82
+      },
+      "evidence": "dark:text-slate-300",
+      "repair": {
+        "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/table.tsx:55:49:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/table.tsx",
+      "message": "Raw Tailwind palette color \"text-slate-900\"",
+      "location": {
+        "line": 55,
+        "column": 49
+      },
+      "evidence": "text-slate-900",
+      "repair": {
+        "instruction": "Replace text-slate-900 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/ui/table.tsx:55:64:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/table.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-slate-100\"",
+      "location": {
+        "line": 55,
+        "column": 64
+      },
+      "evidence": "dark:text-slate-100",
+      "repair": {
+        "instruction": "Replace dark:text-slate-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 444,
+    "totalViolations": 111,
+    "errorViolations": 0,
+    "warningViolations": 111,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 111,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/app/page.tsx",
+      "filePath": "src/app/page.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:12:31:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"text-blue-600\"",
+          "location": {
+            "line": 12,
+            "column": 31
+          },
+          "evidence": "text-blue-600",
+          "repair": {
+            "instruction": "Replace text-blue-600 with text-primary.",
+            "safeFix": true,
+            "replacement": "text-primary"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:12:45:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-blue-400\"",
+          "location": {
+            "line": 12,
+            "column": 45
+          },
+          "evidence": "dark:text-blue-400",
+          "repair": {
+            "instruction": "Replace dark:text-blue-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:23:31:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"text-emerald-600\"",
+          "location": {
+            "line": 23,
+            "column": 31
+          },
+          "evidence": "text-emerald-600",
+          "repair": {
+            "instruction": "Replace text-emerald-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:23:48:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-emerald-400\"",
+          "location": {
+            "line": 23,
+            "column": 48
+          },
+          "evidence": "dark:text-emerald-400",
+          "repair": {
+            "instruction": "Replace dark:text-emerald-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:34:31:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"text-orange-600\"",
+          "location": {
+            "line": 34,
+            "column": 31
+          },
+          "evidence": "text-orange-600",
+          "repair": {
+            "instruction": "Replace text-orange-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:34:47:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-orange-400\"",
+          "location": {
+            "line": 34,
+            "column": 47
+          },
+          "evidence": "dark:text-orange-400",
+          "repair": {
+            "instruction": "Replace dark:text-orange-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:45:31:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"text-purple-600\"",
+          "location": {
+            "line": 45,
+            "column": 31
+          },
+          "evidence": "text-purple-600",
+          "repair": {
+            "instruction": "Replace text-purple-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:45:47:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-purple-400\"",
+          "location": {
+            "line": 45,
+            "column": 47
+          },
+          "evidence": "dark:text-purple-400",
+          "repair": {
+            "instruction": "Replace dark:text-purple-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:54:51:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"from-white\"",
+          "location": {
+            "line": 54,
+            "column": 51
+          },
+          "evidence": "from-white",
+          "repair": {
+            "instruction": "Replace from-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:54:62:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"to-slate-50\"",
+          "location": {
+            "line": 54,
+            "column": 62
+          },
+          "evidence": "to-slate-50",
+          "repair": {
+            "instruction": "Replace to-slate-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:54:74:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:from-slate-950\"",
+          "location": {
+            "line": 54,
+            "column": 74
+          },
+          "evidence": "dark:from-slate-950",
+          "repair": {
+            "instruction": "Replace dark:from-slate-950 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:54:94:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:to-slate-900\"",
+          "location": {
+            "line": 54,
+            "column": 94
+          },
+          "evidence": "dark:to-slate-900",
+          "repair": {
+            "instruction": "Replace dark:to-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:58:60:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-900\"",
+          "location": {
+            "line": 58,
+            "column": 60
+          },
+          "evidence": "text-slate-900",
+          "repair": {
+            "instruction": "Replace text-slate-900 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:58:75:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-white\"",
+          "location": {
+            "line": 58,
+            "column": 75
+          },
+          "evidence": "dark:text-white",
+          "repair": {
+            "instruction": "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:59:33:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-600\"",
+          "location": {
+            "line": 59,
+            "column": 33
+          },
+          "evidence": "text-slate-600",
+          "repair": {
+            "instruction": "Replace text-slate-600 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:59:48:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+          "location": {
+            "line": 59,
+            "column": 48
+          },
+          "evidence": "dark:text-slate-400",
+          "repair": {
+            "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace text-blue-600 with text-primary.",
+        "Replace dark:text-blue-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-emerald-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:text-emerald-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-orange-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:text-orange-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-purple-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:text-purple-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace from-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace to-slate-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:from-slate-950 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:to-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-slate-900 with text-foreground.",
+        "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "Replace text-slate-600 with text-muted-foreground.",
+        "Replace dark:text-slate-400 with text-muted-foreground."
+      ],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/app/page.tsx\n\n16 violations:\n- [warn] raw Tailwind color: text-blue-600 (line 12)\n- [warn] raw Tailwind color: dark:text-blue-400 (line 12)\n- [warn] raw Tailwind color: text-emerald-600 (line 23)\n- [warn] raw Tailwind color: dark:text-emerald-400 (line 23)\n- [warn] raw Tailwind color: text-orange-600 (line 34)\n- [warn] raw Tailwind color: dark:text-orange-400 (line 34)\n- [warn] raw Tailwind color: text-purple-600 (line 45)\n- [warn] raw Tailwind color: dark:text-purple-400 (line 45)\n- [warn] raw Tailwind color: from-white (line 54)\n- [warn] raw Tailwind color: to-slate-50 (line 54)\n- [warn] raw Tailwind color: dark:from-slate-950 (line 54)\n- [warn] raw Tailwind color: dark:to-slate-900 (line 54)\n- [warn] raw Tailwind color: text-slate-900 (line 58)\n- [warn] raw Tailwind color: dark:text-white (line 58)\n- [warn] raw Tailwind color: text-slate-600 (line 59)\n- [warn] raw Tailwind color: dark:text-slate-400 (line 59)\n\nRecommended:\n- Replace text-blue-600 with text-primary.\n- Replace dark:text-blue-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-emerald-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:text-emerald-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-orange-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:text-orange-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-purple-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:text-purple-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace from-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace to-slate-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:from-slate-950 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:to-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-slate-900 with text-foreground.\n- Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.\n- Replace text-slate-600 with text-muted-foreground.\n- Replace dark:text-slate-400 with text-muted-foreground."
+    },
+    {
+      "title": "Repair UI drift in src/components/dashboard/nav.tsx",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:11:33:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"border-slate-200\"",
+          "location": {
+            "line": 11,
+            "column": 33
+          },
+          "evidence": "border-slate-200",
+          "repair": {
+            "instruction": "Replace border-slate-200 with border-border.",
+            "safeFix": true,
+            "replacement": "border-border"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:11:50:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"dark:border-slate-700\"",
+          "location": {
+            "line": 11,
+            "column": 50
+          },
+          "evidence": "dark:border-slate-700",
+          "repair": {
+            "instruction": "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:11:72:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"bg-white\"",
+          "location": {
+            "line": 11,
+            "column": 72
+          },
+          "evidence": "bg-white",
+          "repair": {
+            "instruction": "Replace bg-white with bg-background or bg-card, depending on the surface.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:11:81:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"dark:bg-slate-900\"",
+          "location": {
+            "line": 11,
+            "column": 81
+          },
+          "evidence": "dark:bg-slate-900",
+          "repair": {
+            "instruction": "Replace dark:bg-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:15:48:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-900\"",
+          "location": {
+            "line": 15,
+            "column": 48
+          },
+          "evidence": "text-slate-900",
+          "repair": {
+            "instruction": "Replace text-slate-900 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:15:63:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-white\"",
+          "location": {
+            "line": 15,
+            "column": 63
+          },
+          "evidence": "dark:text-white",
+          "repair": {
+            "instruction": "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:16:51:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"bg-blue-100\"",
+          "location": {
+            "line": 16,
+            "column": 51
+          },
+          "evidence": "bg-blue-100",
+          "repair": {
+            "instruction": "Replace bg-blue-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:16:63:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"dark:bg-blue-900\"",
+          "location": {
+            "line": 16,
+            "column": 63
+          },
+          "evidence": "dark:bg-blue-900",
+          "repair": {
+            "instruction": "Replace dark:bg-blue-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:16:80:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"text-blue-800\"",
+          "location": {
+            "line": 16,
+            "column": 80
+          },
+          "evidence": "text-blue-800",
+          "repair": {
+            "instruction": "Replace text-blue-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:16:94:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-blue-100\"",
+          "location": {
+            "line": 16,
+            "column": 94
+          },
+          "evidence": "dark:text-blue-100",
+          "repair": {
+            "instruction": "Replace dark:text-blue-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:25:67:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"bg-slate-100\"",
+          "location": {
+            "line": 25,
+            "column": 67
+          },
+          "evidence": "bg-slate-100",
+          "repair": {
+            "instruction": "Replace bg-slate-100 with bg-muted.",
+            "safeFix": true,
+            "replacement": "bg-muted"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:25:80:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"dark:bg-slate-800\"",
+          "location": {
+            "line": 25,
+            "column": 80
+          },
+          "evidence": "dark:bg-slate-800",
+          "repair": {
+            "instruction": "Replace dark:bg-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:25:98:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-900\"",
+          "location": {
+            "line": 25,
+            "column": 98
+          },
+          "evidence": "text-slate-900",
+          "repair": {
+            "instruction": "Replace text-slate-900 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:25:113:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-white\"",
+          "location": {
+            "line": 25,
+            "column": 113
+          },
+          "evidence": "dark:text-white",
+          "repair": {
+            "instruction": "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:26:65:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-600\"",
+          "location": {
+            "line": 26,
+            "column": 65
+          },
+          "evidence": "text-slate-600",
+          "repair": {
+            "instruction": "Replace text-slate-600 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:26:80:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+          "location": {
+            "line": 26,
+            "column": 80
+          },
+          "evidence": "dark:text-slate-400",
+          "repair": {
+            "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:26:100:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"hover:text-slate-900\"",
+          "location": {
+            "line": 26,
+            "column": 100
+          },
+          "evidence": "hover:text-slate-900",
+          "repair": {
+            "instruction": "Replace hover:text-slate-900 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:26:121:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"dark:hover:text-white\"",
+          "location": {
+            "line": 26,
+            "column": 121
+          },
+          "evidence": "dark:hover:text-white",
+          "repair": {
+            "instruction": "Replace dark:hover:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:26:143:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"hover:bg-slate-50\"",
+          "location": {
+            "line": 26,
+            "column": 143
+          },
+          "evidence": "hover:bg-slate-50",
+          "repair": {
+            "instruction": "Replace hover:bg-slate-50 with bg-muted.",
+            "safeFix": true,
+            "replacement": "bg-muted"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:26:161:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"dark:hover:bg-slate-800\"",
+          "location": {
+            "line": 26,
+            "column": 161
+          },
+          "evidence": "dark:hover:bg-slate-800",
+          "repair": {
+            "instruction": "Replace dark:hover:bg-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:35:56:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-700\"",
+          "location": {
+            "line": 35,
+            "column": 56
+          },
+          "evidence": "text-slate-700",
+          "repair": {
+            "instruction": "Replace text-slate-700 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:35:71:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+          "location": {
+            "line": 35,
+            "column": 71
+          },
+          "evidence": "dark:text-slate-300",
+          "repair": {
+            "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:35:91:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"hover:text-slate-900\"",
+          "location": {
+            "line": 35,
+            "column": 91
+          },
+          "evidence": "hover:text-slate-900",
+          "repair": {
+            "instruction": "Replace hover:text-slate-900 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:35:112:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"dark:hover:text-white\"",
+          "location": {
+            "line": 35,
+            "column": 112
+          },
+          "evidence": "dark:hover:text-white",
+          "repair": {
+            "instruction": "Replace dark:hover:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:38:40:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"bg-blue-600\"",
+          "location": {
+            "line": 38,
+            "column": 40
+          },
+          "evidence": "bg-blue-600",
+          "repair": {
+            "instruction": "Replace bg-blue-600 with bg-primary.",
+            "safeFix": true,
+            "replacement": "bg-primary"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:38:52:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"hover:bg-blue-700\"",
+          "location": {
+            "line": 38,
+            "column": 52
+          },
+          "evidence": "hover:bg-blue-700",
+          "repair": {
+            "instruction": "Replace hover:bg-blue-700 with bg-primary.",
+            "safeFix": true,
+            "replacement": "bg-primary"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:38:70:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"text-white\"",
+          "location": {
+            "line": 38,
+            "column": 70
+          },
+          "evidence": "text-white",
+          "repair": {
+            "instruction": "Replace text-white with text-primary-foreground or text-foreground, depending on the surface.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace border-slate-200 with border-border.",
+        "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-white with bg-background or bg-card, depending on the surface.",
+        "Replace dark:bg-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-slate-900 with text-foreground.",
+        "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "Replace bg-blue-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:bg-blue-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-blue-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:text-blue-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-slate-100 with bg-muted.",
+        "Replace dark:bg-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-slate-600 with text-muted-foreground.",
+        "Replace dark:text-slate-400 with text-muted-foreground.",
+        "Replace hover:text-slate-900 with text-foreground.",
+        "Replace dark:hover:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "Replace hover:bg-slate-50 with bg-muted.",
+        "Replace dark:hover:bg-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-slate-700 with text-foreground.",
+        "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-blue-600 with bg-primary.",
+        "Replace hover:bg-blue-700 with bg-primary.",
+        "Replace text-white with text-primary-foreground or text-foreground, depending on the surface."
+      ],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/nav.tsx\n\n27 violations:\n- [warn] raw Tailwind color: border-slate-200 (line 11)\n- [warn] raw Tailwind color: dark:border-slate-700 (line 11)\n- [warn] raw Tailwind color: bg-white (line 11)\n- [warn] raw Tailwind color: dark:bg-slate-900 (line 11)\n- [warn] raw Tailwind color: text-slate-900 (line 15)\n- [warn] raw Tailwind color: dark:text-white (line 15)\n- [warn] raw Tailwind color: bg-blue-100 (line 16)\n- [warn] raw Tailwind color: dark:bg-blue-900 (line 16)\n- [warn] raw Tailwind color: text-blue-800 (line 16)\n- [warn] raw Tailwind color: dark:text-blue-100 (line 16)\n- [warn] raw Tailwind color: bg-slate-100 (line 25)\n- [warn] raw Tailwind color: dark:bg-slate-800 (line 25)\n- [warn] raw Tailwind color: text-slate-900 (line 25)\n- [warn] raw Tailwind color: dark:text-white (line 25)\n- [warn] raw Tailwind color: text-slate-600 (line 26)\n- [warn] raw Tailwind color: dark:text-slate-400 (line 26)\n- [warn] raw Tailwind color: hover:text-slate-900 (line 26)\n- [warn] raw Tailwind color: dark:hover:text-white (line 26)\n- [warn] raw Tailwind color: hover:bg-slate-50 (line 26)\n- [warn] raw Tailwind color: dark:hover:bg-slate-800 (line 26)\n- [warn] raw Tailwind color: text-slate-700 (line 35)\n- [warn] raw Tailwind color: dark:text-slate-300 (line 35)\n- [warn] raw Tailwind color: hover:text-slate-900 (line 35)\n- [warn] raw Tailwind color: dark:hover:text-white (line 35)\n- [warn] raw Tailwind color: bg-blue-600 (line 38)\n- [warn] raw Tailwind color: hover:bg-blue-700 (line 38)\n- [warn] raw Tailwind color: text-white (line 38)\n\nRecommended:\n- Replace border-slate-200 with border-border.\n- Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-white with bg-background or bg-card, depending on the surface.\n- Replace dark:bg-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-slate-900 with text-foreground.\n- Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.\n- Replace bg-blue-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:bg-blue-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-blue-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:text-blue-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-slate-100 with bg-muted.\n- Replace dark:bg-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-slate-600 with text-muted-foreground.\n- Replace dark:text-slate-400 with text-muted-foreground.\n- Replace hover:text-slate-900 with text-foreground.\n- Replace dark:hover:text-white with text-primary-foreground or text-foreground, depending on the surface.\n- Replace hover:bg-slate-50 with bg-muted.\n- Replace dark:hover:bg-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-slate-700 with text-foreground.\n- Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-blue-600 with bg-primary.\n- Replace hover:bg-blue-700 with bg-primary.\n- Replace text-white with text-primary-foreground or text-foreground, depending on the surface."
+    },
+    {
+      "title": "Repair UI drift in src/components/dashboard/recent-activity.tsx",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:68:49:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"from-white\"",
+          "location": {
+            "line": 68,
+            "column": 49
+          },
+          "evidence": "from-white",
+          "repair": {
+            "instruction": "Replace from-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:68:60:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"to-slate-50\"",
+          "location": {
+            "line": 68,
+            "column": 60
+          },
+          "evidence": "to-slate-50",
+          "repair": {
+            "instruction": "Replace to-slate-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:68:72:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:from-slate-900\"",
+          "location": {
+            "line": 68,
+            "column": 72
+          },
+          "evidence": "dark:from-slate-900",
+          "repair": {
+            "instruction": "Replace dark:from-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:68:92:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:to-slate-800\"",
+          "location": {
+            "line": 68,
+            "column": 92
+          },
+          "evidence": "dark:to-slate-800",
+          "repair": {
+            "instruction": "Replace dark:to-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:69:57:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"from-blue-500/5\"",
+          "location": {
+            "line": 69,
+            "column": 57
+          },
+          "evidence": "from-blue-500/5",
+          "repair": {
+            "instruction": "Replace from-blue-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:69:73:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"to-purple-500/5\"",
+          "location": {
+            "line": 69,
+            "column": 73
+          },
+          "evidence": "to-purple-500/5",
+          "repair": {
+            "instruction": "Replace to-purple-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:69:89:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:from-blue-500/10\"",
+          "location": {
+            "line": 69,
+            "column": 89
+          },
+          "evidence": "dark:from-blue-500/10",
+          "repair": {
+            "instruction": "Replace dark:from-blue-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:69:111:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:to-purple-500/10\"",
+          "location": {
+            "line": 69,
+            "column": 111
+          },
+          "evidence": "dark:to-purple-500/10",
+          "repair": {
+            "instruction": "Replace dark:to-purple-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:77:34:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"border-slate-200\"",
+          "location": {
+            "line": 77,
+            "column": 34
+          },
+          "evidence": "border-slate-200",
+          "repair": {
+            "instruction": "Replace border-slate-200 with border-border.",
+            "safeFix": true,
+            "replacement": "border-border"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:77:51:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:border-slate-700\"",
+          "location": {
+            "line": 77,
+            "column": 51
+          },
+          "evidence": "dark:border-slate-700",
+          "repair": {
+            "instruction": "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:78:51:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-700\"",
+          "location": {
+            "line": 78,
+            "column": 51
+          },
+          "evidence": "text-slate-700",
+          "repair": {
+            "instruction": "Replace text-slate-700 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:78:66:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+          "location": {
+            "line": 78,
+            "column": 66
+          },
+          "evidence": "dark:text-slate-300",
+          "repair": {
+            "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:79:51:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-700\"",
+          "location": {
+            "line": 79,
+            "column": 51
+          },
+          "evidence": "text-slate-700",
+          "repair": {
+            "instruction": "Replace text-slate-700 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:79:66:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+          "location": {
+            "line": 79,
+            "column": 66
+          },
+          "evidence": "dark:text-slate-300",
+          "repair": {
+            "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:80:51:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-700\"",
+          "location": {
+            "line": 80,
+            "column": 51
+          },
+          "evidence": "text-slate-700",
+          "repair": {
+            "instruction": "Replace text-slate-700 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:80:66:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+          "location": {
+            "line": 80,
+            "column": 66
+          },
+          "evidence": "dark:text-slate-300",
+          "repair": {
+            "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:81:51:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-700\"",
+          "location": {
+            "line": 81,
+            "column": 51
+          },
+          "evidence": "text-slate-700",
+          "repair": {
+            "instruction": "Replace text-slate-700 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:81:66:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+          "location": {
+            "line": 81,
+            "column": 66
+          },
+          "evidence": "dark:text-slate-300",
+          "repair": {
+            "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:82:62:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-700\"",
+          "location": {
+            "line": 82,
+            "column": 62
+          },
+          "evidence": "text-slate-700",
+          "repair": {
+            "instruction": "Replace text-slate-700 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:82:77:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+          "location": {
+            "line": 82,
+            "column": 77
+          },
+          "evidence": "dark:text-slate-300",
+          "repair": {
+            "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:87:49:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"border-slate-100\"",
+          "location": {
+            "line": 87,
+            "column": 49
+          },
+          "evidence": "border-slate-100",
+          "repair": {
+            "instruction": "Replace border-slate-100 with border-border.",
+            "safeFix": true,
+            "replacement": "border-border"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:87:66:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:border-slate-700\"",
+          "location": {
+            "line": 87,
+            "column": 66
+          },
+          "evidence": "dark:border-slate-700",
+          "repair": {
+            "instruction": "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:87:88:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"hover:bg-slate-50\"",
+          "location": {
+            "line": 87,
+            "column": 88
+          },
+          "evidence": "hover:bg-slate-50",
+          "repair": {
+            "instruction": "Replace hover:bg-slate-50 with bg-muted.",
+            "safeFix": true,
+            "replacement": "bg-muted"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:87:106:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:hover:bg-slate-800/50\"",
+          "location": {
+            "line": 87,
+            "column": 106
+          },
+          "evidence": "dark:hover:bg-slate-800/50",
+          "repair": {
+            "instruction": "Replace dark:hover:bg-slate-800/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:88:53:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-900\"",
+          "location": {
+            "line": 88,
+            "column": 53
+          },
+          "evidence": "text-slate-900",
+          "repair": {
+            "instruction": "Replace text-slate-900 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:88:68:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-white\"",
+          "location": {
+            "line": 88,
+            "column": 68
+          },
+          "evidence": "dark:text-white",
+          "repair": {
+            "instruction": "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:89:39:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-700\"",
+          "location": {
+            "line": 89,
+            "column": 39
+          },
+          "evidence": "text-slate-700",
+          "repair": {
+            "instruction": "Replace text-slate-700 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:89:54:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+          "location": {
+            "line": 89,
+            "column": 54
+          },
+          "evidence": "dark:text-slate-300",
+          "repair": {
+            "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:90:39:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-600\"",
+          "location": {
+            "line": 90,
+            "column": 39
+          },
+          "evidence": "text-slate-600",
+          "repair": {
+            "instruction": "Replace text-slate-600 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:90:54:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+          "location": {
+            "line": 90,
+            "column": 54
+          },
+          "evidence": "dark:text-slate-400",
+          "repair": {
+            "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:96:50:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-600\"",
+          "location": {
+            "line": 96,
+            "column": 50
+          },
+          "evidence": "text-slate-600",
+          "repair": {
+            "instruction": "Replace text-slate-600 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/recent-activity.tsx:96:65:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+          "location": {
+            "line": 96,
+            "column": 65
+          },
+          "evidence": "dark:text-slate-400",
+          "repair": {
+            "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace from-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace to-slate-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:from-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:to-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace from-blue-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace to-purple-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:from-blue-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:to-purple-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace border-slate-200 with border-border.",
+        "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-slate-700 with text-foreground.",
+        "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace border-slate-100 with border-border.",
+        "Replace hover:bg-slate-50 with bg-muted.",
+        "Replace dark:hover:bg-slate-800/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-slate-900 with text-foreground.",
+        "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "Replace text-slate-600 with text-muted-foreground.",
+        "Replace dark:text-slate-400 with text-muted-foreground."
+      ],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/recent-activity.tsx\n\n32 violations:\n- [warn] raw Tailwind color: from-white (line 68)\n- [warn] raw Tailwind color: to-slate-50 (line 68)\n- [warn] raw Tailwind color: dark:from-slate-900 (line 68)\n- [warn] raw Tailwind color: dark:to-slate-800 (line 68)\n- [warn] raw Tailwind color: from-blue-500/5 (line 69)\n- [warn] raw Tailwind color: to-purple-500/5 (line 69)\n- [warn] raw Tailwind color: dark:from-blue-500/10 (line 69)\n- [warn] raw Tailwind color: dark:to-purple-500/10 (line 69)\n- [warn] raw Tailwind color: border-slate-200 (line 77)\n- [warn] raw Tailwind color: dark:border-slate-700 (line 77)\n- [warn] raw Tailwind color: text-slate-700 (line 78)\n- [warn] raw Tailwind color: dark:text-slate-300 (line 78)\n- [warn] raw Tailwind color: text-slate-700 (line 79)\n- [warn] raw Tailwind color: dark:text-slate-300 (line 79)\n- [warn] raw Tailwind color: text-slate-700 (line 80)\n- [warn] raw Tailwind color: dark:text-slate-300 (line 80)\n- [warn] raw Tailwind color: text-slate-700 (line 81)\n- [warn] raw Tailwind color: dark:text-slate-300 (line 81)\n- [warn] raw Tailwind color: text-slate-700 (line 82)\n- [warn] raw Tailwind color: dark:text-slate-300 (line 82)\n- [warn] raw Tailwind color: border-slate-100 (line 87)\n- [warn] raw Tailwind color: dark:border-slate-700 (line 87)\n- [warn] raw Tailwind color: hover:bg-slate-50 (line 87)\n- [warn] raw Tailwind color: dark:hover:bg-slate-800/50 (line 87)\n- [warn] raw Tailwind color: text-slate-900 (line 88)\n- [warn] raw Tailwind color: dark:text-white (line 88)\n- [warn] raw Tailwind color: text-slate-700 (line 89)\n- [warn] raw Tailwind color: dark:text-slate-300 (line 89)\n- [warn] raw Tailwind color: text-slate-600 (line 90)\n- [warn] raw Tailwind color: dark:text-slate-400 (line 90)\n- [warn] raw Tailwind color: text-slate-600 (line 96)\n- [warn] raw Tailwind color: dark:text-slate-400 (line 96)\n\nRecommended:\n- Replace from-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace to-slate-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:from-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:to-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace from-blue-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace to-purple-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:from-blue-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:to-purple-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace border-slate-200 with border-border.\n- Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-slate-700 with text-foreground.\n- Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace border-slate-100 with border-border.\n- Replace hover:bg-slate-50 with bg-muted.\n- Replace dark:hover:bg-slate-800/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-slate-900 with text-foreground.\n- Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.\n- Replace text-slate-600 with text-muted-foreground.\n- Replace dark:text-slate-400 with text-muted-foreground."
+    },
+    {
+      "title": "Repair UI drift in src/components/dashboard/stat-card.tsx",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:14:74:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"from-slate-50\"",
+          "location": {
+            "line": 14,
+            "column": 74
+          },
+          "evidence": "from-slate-50",
+          "repair": {
+            "instruction": "Replace from-slate-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:14:88:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"to-white\"",
+          "location": {
+            "line": 14,
+            "column": 88
+          },
+          "evidence": "to-white",
+          "repair": {
+            "instruction": "Replace to-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:14:97:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"dark:from-slate-900\"",
+          "location": {
+            "line": 14,
+            "column": 97
+          },
+          "evidence": "dark:from-slate-900",
+          "repair": {
+            "instruction": "Replace dark:from-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:14:117:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"dark:to-slate-800\"",
+          "location": {
+            "line": 14,
+            "column": 117
+          },
+          "evidence": "dark:to-slate-800",
+          "repair": {
+            "instruction": "Replace dark:to-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:15:57:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"from-blue-500/5\"",
+          "location": {
+            "line": 15,
+            "column": 57
+          },
+          "evidence": "from-blue-500/5",
+          "repair": {
+            "instruction": "Replace from-blue-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:15:73:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"to-purple-500/5\"",
+          "location": {
+            "line": 15,
+            "column": 73
+          },
+          "evidence": "to-purple-500/5",
+          "repair": {
+            "instruction": "Replace to-purple-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:15:89:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"dark:from-blue-500/10\"",
+          "location": {
+            "line": 15,
+            "column": 89
+          },
+          "evidence": "dark:from-blue-500/10",
+          "repair": {
+            "instruction": "Replace dark:from-blue-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:15:111:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"dark:to-purple-500/10\"",
+          "location": {
+            "line": 15,
+            "column": 111
+          },
+          "evidence": "dark:to-purple-500/10",
+          "repair": {
+            "instruction": "Replace dark:to-purple-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:18:80:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-600\"",
+          "location": {
+            "line": 18,
+            "column": 80
+          },
+          "evidence": "text-slate-600",
+          "repair": {
+            "instruction": "Replace text-slate-600 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:18:95:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+          "location": {
+            "line": 18,
+            "column": 95
+          },
+          "evidence": "dark:text-slate-400",
+          "repair": {
+            "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:21:38:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"bg-white\"",
+          "location": {
+            "line": 21,
+            "column": 38
+          },
+          "evidence": "bg-white",
+          "repair": {
+            "instruction": "Replace bg-white with bg-background or bg-card, depending on the surface.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:21:47:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"dark:bg-slate-700\"",
+          "location": {
+            "line": 21,
+            "column": 47
+          },
+          "evidence": "dark:bg-slate-700",
+          "repair": {
+            "instruction": "Replace dark:bg-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:28:63:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"from-slate-900\"",
+          "location": {
+            "line": 28,
+            "column": 63
+          },
+          "evidence": "from-slate-900",
+          "repair": {
+            "instruction": "Replace from-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:28:78:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"to-slate-700\"",
+          "location": {
+            "line": 28,
+            "column": 78
+          },
+          "evidence": "to-slate-700",
+          "repair": {
+            "instruction": "Replace to-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:28:91:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"dark:from-white\"",
+          "location": {
+            "line": 28,
+            "column": 91
+          },
+          "evidence": "dark:from-white",
+          "repair": {
+            "instruction": "Replace dark:from-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:28:107:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"dark:to-slate-200\"",
+          "location": {
+            "line": 28,
+            "column": 107
+          },
+          "evidence": "dark:to-slate-200",
+          "repair": {
+            "instruction": "Replace dark:to-slate-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:31:33:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-500\"",
+          "location": {
+            "line": 31,
+            "column": 33
+          },
+          "evidence": "text-slate-500",
+          "repair": {
+            "instruction": "Replace text-slate-500 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/stat-card.tsx:31:48:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+          "location": {
+            "line": 31,
+            "column": 48
+          },
+          "evidence": "dark:text-slate-400",
+          "repair": {
+            "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace from-slate-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace to-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:from-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:to-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace from-blue-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace to-purple-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:from-blue-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:to-purple-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-slate-600 with text-muted-foreground.",
+        "Replace dark:text-slate-400 with text-muted-foreground.",
+        "Replace bg-white with bg-background or bg-card, depending on the surface.",
+        "Replace dark:bg-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace from-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace to-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:from-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:to-slate-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-slate-500 with text-muted-foreground."
+      ],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/stat-card.tsx\n\n18 violations:\n- [warn] raw Tailwind color: from-slate-50 (line 14)\n- [warn] raw Tailwind color: to-white (line 14)\n- [warn] raw Tailwind color: dark:from-slate-900 (line 14)\n- [warn] raw Tailwind color: dark:to-slate-800 (line 14)\n- [warn] raw Tailwind color: from-blue-500/5 (line 15)\n- [warn] raw Tailwind color: to-purple-500/5 (line 15)\n- [warn] raw Tailwind color: dark:from-blue-500/10 (line 15)\n- [warn] raw Tailwind color: dark:to-purple-500/10 (line 15)\n- [warn] raw Tailwind color: text-slate-600 (line 18)\n- [warn] raw Tailwind color: dark:text-slate-400 (line 18)\n- [warn] raw Tailwind color: bg-white (line 21)\n- [warn] raw Tailwind color: dark:bg-slate-700 (line 21)\n- [warn] raw Tailwind color: from-slate-900 (line 28)\n- [warn] raw Tailwind color: to-slate-700 (line 28)\n- [warn] raw Tailwind color: dark:from-white (line 28)\n- [warn] raw Tailwind color: dark:to-slate-200 (line 28)\n- [warn] raw Tailwind color: text-slate-500 (line 31)\n- [warn] raw Tailwind color: dark:text-slate-400 (line 31)\n\nRecommended:\n- Replace from-slate-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace to-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:from-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:to-slate-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace from-blue-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace to-purple-500/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:from-blue-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:to-purple-500/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-slate-600 with text-muted-foreground.\n- Replace dark:text-slate-400 with text-muted-foreground.\n- Replace bg-white with bg-background or bg-card, depending on the surface.\n- Replace dark:bg-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace from-slate-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace to-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:from-white with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:to-slate-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-slate-500 with text-muted-foreground."
+    },
+    {
+      "title": "Repair UI drift in src/components/ui/card.tsx",
+      "filePath": "src/components/ui/card.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/components/ui/card.tsx:10:29:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/card.tsx",
+          "message": "Raw Tailwind palette color \"border-slate-200\"",
+          "location": {
+            "line": 10,
+            "column": 29
+          },
+          "evidence": "border-slate-200",
+          "repair": {
+            "instruction": "Replace border-slate-200 with border-border.",
+            "safeFix": true,
+            "replacement": "border-border"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/card.tsx:10:46:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/card.tsx",
+          "message": "Raw Tailwind palette color \"dark:border-slate-700\"",
+          "location": {
+            "line": 10,
+            "column": 46
+          },
+          "evidence": "dark:border-slate-700",
+          "repair": {
+            "instruction": "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/card.tsx:30:60:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/card.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-900\"",
+          "location": {
+            "line": 30,
+            "column": 60
+          },
+          "evidence": "text-slate-900",
+          "repair": {
+            "instruction": "Replace text-slate-900 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/card.tsx:30:75:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/card.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-white\"",
+          "location": {
+            "line": 30,
+            "column": 75
+          },
+          "evidence": "dark:text-white",
+          "repair": {
+            "instruction": "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/card.tsx:39:35:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/card.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-600\"",
+          "location": {
+            "line": 39,
+            "column": 35
+          },
+          "evidence": "text-slate-600",
+          "repair": {
+            "instruction": "Replace text-slate-600 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/card.tsx:39:50:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/card.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-400\"",
+          "location": {
+            "line": 39,
+            "column": 50
+          },
+          "evidence": "dark:text-slate-400",
+          "repair": {
+            "instruction": "Replace dark:text-slate-400 with text-muted-foreground.",
+            "safeFix": true,
+            "replacement": "text-muted-foreground"
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace border-slate-200 with border-border.",
+        "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-slate-900 with text-foreground.",
+        "Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "Replace text-slate-600 with text-muted-foreground.",
+        "Replace dark:text-slate-400 with text-muted-foreground."
+      ],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/ui/card.tsx\n\n6 violations:\n- [warn] raw Tailwind color: border-slate-200 (line 10)\n- [warn] raw Tailwind color: dark:border-slate-700 (line 10)\n- [warn] raw Tailwind color: text-slate-900 (line 30)\n- [warn] raw Tailwind color: dark:text-white (line 30)\n- [warn] raw Tailwind color: text-slate-600 (line 39)\n- [warn] raw Tailwind color: dark:text-slate-400 (line 39)\n\nRecommended:\n- Replace border-slate-200 with border-border.\n- Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-slate-900 with text-foreground.\n- Replace dark:text-white with text-primary-foreground or text-foreground, depending on the surface.\n- Replace text-slate-600 with text-muted-foreground.\n- Replace dark:text-slate-400 with text-muted-foreground."
+    },
+    {
+      "title": "Repair UI drift in src/components/ui/table.tsx",
+      "filePath": "src/components/ui/table.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/components/ui/table.tsx:18:44:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/table.tsx",
+          "message": "Raw Tailwind palette color \"border-slate-200\"",
+          "location": {
+            "line": 18,
+            "column": 44
+          },
+          "evidence": "border-slate-200",
+          "repair": {
+            "instruction": "Replace border-slate-200 with border-border.",
+            "safeFix": true,
+            "replacement": "border-border"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/table.tsx:18:61:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/table.tsx",
+          "message": "Raw Tailwind palette color \"dark:border-slate-700\"",
+          "location": {
+            "line": 18,
+            "column": 61
+          },
+          "evidence": "dark:border-slate-700",
+          "repair": {
+            "instruction": "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/table.tsx:18:83:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/table.tsx",
+          "message": "Raw Tailwind palette color \"bg-slate-50\"",
+          "location": {
+            "line": 18,
+            "column": 83
+          },
+          "evidence": "bg-slate-50",
+          "repair": {
+            "instruction": "Replace bg-slate-50 with bg-muted.",
+            "safeFix": true,
+            "replacement": "bg-muted"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/table.tsx:18:95:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/table.tsx",
+          "message": "Raw Tailwind palette color \"dark:bg-slate-800/50\"",
+          "location": {
+            "line": 18,
+            "column": 95
+          },
+          "evidence": "dark:bg-slate-800/50",
+          "repair": {
+            "instruction": "Replace dark:bg-slate-800/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/table.tsx:32:31:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/table.tsx",
+          "message": "Raw Tailwind palette color \"border-slate-100\"",
+          "location": {
+            "line": 32,
+            "column": 31
+          },
+          "evidence": "border-slate-100",
+          "repair": {
+            "instruction": "Replace border-slate-100 with border-border.",
+            "safeFix": true,
+            "replacement": "border-border"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/table.tsx:32:48:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/table.tsx",
+          "message": "Raw Tailwind palette color \"dark:border-slate-700\"",
+          "location": {
+            "line": 32,
+            "column": 48
+          },
+          "evidence": "dark:border-slate-700",
+          "repair": {
+            "instruction": "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/table.tsx:32:88:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/table.tsx",
+          "message": "Raw Tailwind palette color \"hover:bg-slate-50\"",
+          "location": {
+            "line": 32,
+            "column": 88
+          },
+          "evidence": "hover:bg-slate-50",
+          "repair": {
+            "instruction": "Replace hover:bg-slate-50 with bg-muted.",
+            "safeFix": true,
+            "replacement": "bg-muted"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/table.tsx:32:106:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/table.tsx",
+          "message": "Raw Tailwind palette color \"dark:hover:bg-slate-800/30\"",
+          "location": {
+            "line": 32,
+            "column": 106
+          },
+          "evidence": "dark:hover:bg-slate-800/30",
+          "repair": {
+            "instruction": "Replace dark:hover:bg-slate-800/30 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/table.tsx:45:67:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/table.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-700\"",
+          "location": {
+            "line": 45,
+            "column": 67
+          },
+          "evidence": "text-slate-700",
+          "repair": {
+            "instruction": "Replace text-slate-700 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/table.tsx:45:82:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/table.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-300\"",
+          "location": {
+            "line": 45,
+            "column": 82
+          },
+          "evidence": "dark:text-slate-300",
+          "repair": {
+            "instruction": "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/table.tsx:55:49:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/table.tsx",
+          "message": "Raw Tailwind palette color \"text-slate-900\"",
+          "location": {
+            "line": 55,
+            "column": 49
+          },
+          "evidence": "text-slate-900",
+          "repair": {
+            "instruction": "Replace text-slate-900 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/ui/table.tsx:55:64:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/table.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-slate-100\"",
+          "location": {
+            "line": 55,
+            "column": 64
+          },
+          "evidence": "dark:text-slate-100",
+          "repair": {
+            "instruction": "Replace dark:text-slate-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace border-slate-200 with border-border.",
+        "Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-slate-50 with bg-muted.",
+        "Replace dark:bg-slate-800/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace border-slate-100 with border-border.",
+        "Replace hover:bg-slate-50 with bg-muted.",
+        "Replace dark:hover:bg-slate-800/30 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-slate-700 with text-foreground.",
+        "Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-slate-900 with text-foreground.",
+        "Replace dark:text-slate-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+      ],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/ui/table.tsx\n\n12 violations:\n- [warn] raw Tailwind color: border-slate-200 (line 18)\n- [warn] raw Tailwind color: dark:border-slate-700 (line 18)\n- [warn] raw Tailwind color: bg-slate-50 (line 18)\n- [warn] raw Tailwind color: dark:bg-slate-800/50 (line 18)\n- [warn] raw Tailwind color: border-slate-100 (line 32)\n- [warn] raw Tailwind color: dark:border-slate-700 (line 32)\n- [warn] raw Tailwind color: hover:bg-slate-50 (line 32)\n- [warn] raw Tailwind color: dark:hover:bg-slate-800/30 (line 32)\n- [warn] raw Tailwind color: text-slate-700 (line 45)\n- [warn] raw Tailwind color: dark:text-slate-300 (line 45)\n- [warn] raw Tailwind color: text-slate-900 (line 55)\n- [warn] raw Tailwind color: dark:text-slate-100 (line 55)\n\nRecommended:\n- Replace border-slate-200 with border-border.\n- Replace dark:border-slate-700 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-slate-50 with bg-muted.\n- Replace dark:bg-slate-800/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace border-slate-100 with border-border.\n- Replace hover:bg-slate-50 with bg-muted.\n- Replace dark:hover:bg-slate-800/30 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-slate-700 with text-foreground.\n- Replace dark:text-slate-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-slate-900 with text-foreground.\n- Replace dark:text-slate-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+    }
+  ],
+  "durationMs": 42
+}

@@ -1,0 +1,7 @@
+pnpm-lock.yaml
+dist/
+coverage/
+benchmarks/agent-ui-drift-bench/reports/
+benchmarks/agent-ui-drift-bench/graphs/
+packages/core/tests/samples/
+CHANGELOG.md

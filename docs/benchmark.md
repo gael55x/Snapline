@@ -34,6 +34,14 @@ The published results come from the **reduced matrix**:
   everywhere. Runs execute in parallel workers (one mode per worker); each
   run's checkout commit SHA is recorded.
 
+**Cross-model slices.** The same harness runs against other models via
+`--model` (cells land in a segregated `runs-<model>/` directory with their own
+report, never mixed into the primary matrix). Published slices name the exact
+model ID — e.g. `claude-haiku-4-5-20251001` for the older/cheaper-tier
+comparison (`MODEL=<id> ./run-matrix.sh "<mode>"` to reproduce). Every
+`run.json` records its model; reports and graph subtitles list the model(s)
+they aggregate.
+
 ## What one run looks like
 
 For cell `claude-buoy--premium-dashboard--2`:

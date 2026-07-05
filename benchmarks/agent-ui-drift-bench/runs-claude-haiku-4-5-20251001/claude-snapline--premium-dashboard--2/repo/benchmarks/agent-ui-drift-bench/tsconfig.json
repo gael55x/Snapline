@@ -1,0 +1,11 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@usesnapline/contracts": ["../../packages/contracts/src/index.ts"],
+      "@usesnapline/core": ["../../packages/core/src/index.ts"]
+    }
+  },
+  "include": ["runners", "modes", "tests"]
+}

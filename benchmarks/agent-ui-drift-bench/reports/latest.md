@@ -3,6 +3,8 @@
 - generated: 2026-07-05T05:08:20.180Z
 - config hash: da6de300d39ed56d
 - scorer: ui-drift-score-v1
+- model(s): claude-sonnet-5
+- agent: Claude Code CLI, permission mode acceptEdits
 - total runs: 240
 
 | mode | runs | failures | drifted runs | worst drift | drift score (median) | component reuse (median) | build pass | wall time (s) |

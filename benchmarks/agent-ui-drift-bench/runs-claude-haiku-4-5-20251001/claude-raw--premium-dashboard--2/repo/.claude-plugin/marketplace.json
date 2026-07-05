@@ -1,0 +1,14 @@
+{
+  "name": "snapline",
+  "owner": {
+    "name": "Snapline contributors",
+    "url": "https://github.com/usesnapline"
+  },
+  "plugins": [
+    {
+      "name": "snapline",
+      "source": "./packages/plugin-claude",
+      "description": "Keep AI-generated UI on-system. Scans edited TSX for design-system drift and returns repair contracts before the agent can finish."
+    }
+  ]
+}

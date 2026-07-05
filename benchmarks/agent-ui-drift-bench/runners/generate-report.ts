@@ -77,12 +77,15 @@ function fmt(n: number | undefined, digits = 1): string {
 }
 
 export function reportMarkdown(report: BenchmarkReport): string {
+  const models = [...new Set(report.runs.map((r) => r.model))].sort()
   const lines = [
     "# agent-ui-drift-bench — latest report",
     "",
     `- generated: ${report.generatedAt}`,
     `- config hash: ${report.configHash}`,
     `- scorer: ${report.scorer}`,
+    `- model(s): ${models.length > 0 ? models.join(", ") : "none"}`,
+    `- agent: Claude Code CLI, permission mode acceptEdits`,
     `- total runs: ${report.runs.length}`,
     "",
     "| mode | runs | failures | drifted runs | worst drift | drift score (median) | component reuse (median) | build pass | wall time (s) |",

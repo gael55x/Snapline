@@ -1,0 +1,50 @@
+{
+  "name": "@usesnapline/cli",
+  "version": "0.1.0",
+  "description": "Snapline CLI — keep AI-generated UI on-system. Agent UI repair hook for React/Tailwind/shadcn.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "snapline": "./dist/main.js"
+  },
+  "main": "./dist/main.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/main.ts --format esm --clean",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@usesnapline/claude": "workspace:*",
+    "@usesnapline/codex": "workspace:*",
+    "@usesnapline/contracts": "workspace:*",
+    "@usesnapline/core": "workspace:*",
+    "@usesnapline/cursor": "workspace:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gael55x/Snapline.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/gael55x/Snapline",
+  "keywords": [
+    "ai-coding-agent",
+    "agent-hooks",
+    "claude-code",
+    "codex",
+    "cursor",
+    "tailwindcss",
+    "shadcn-ui",
+    "react",
+    "nextjs",
+    "design-system",
+    "ui-drift",
+    "repair-contracts",
+    "developer-tools",
+    "open-source"
+  ]
+}

@@ -72,9 +72,11 @@ function loadReport(): BenchmarkReport | undefined {
 export function generateGraphs(): string[] {
   const { config, configHash } = loadBenchConfig()
   const report = loadReport()
+  const models =
+    report !== undefined ? [...new Set(report.runs.map((r) => r.model))].sort().join(", ") : ""
   const subtitle =
     report !== undefined && report.runs.length > 0
-      ? `agent-ui-drift-bench · ${report.runs.length} runs · generated ${report.generatedAt} · config ${report.configHash} · median, lower is better`
+      ? `agent-ui-drift-bench · ${report.runs.length} runs · ${models} · generated ${report.generatedAt} · config ${report.configHash}`
       : `agent-ui-drift-bench · no runs recorded yet · config ${configHash} · run "pnpm bench:agent -- --all"`
 
   const summaries = config.modes.map((mode) => ({

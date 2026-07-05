@@ -1,0 +1,37 @@
+{
+  "id": "claude-snapline--premium-dashboard--2",
+  "timestamp": "2026-07-05T05:18:44.744Z",
+  "mode": "claude-snapline",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "premium-dashboard",
+  "attempt": 2,
+  "model": "claude-haiku-4-5-20251001",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 0,
+      "totalViolations": 0,
+      "errorViolations": 0,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 399,
+    "totalWallTimeSeconds": 141,
+    "filesTouched": 9
+  },
+  "rawOutputPaths": [
+    "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--2/agent-stdout.txt",
+    "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--2/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--2/scanner.json",
+  "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--2/diff.patch"
+}

@@ -1,0 +1,26 @@
+{
+  "description": "Snapline UI drift gate: scans edited TSX after Write/Edit/MultiEdit and verifies the changed set on Stop. Blocks with an exact repair contract while severe drift remains.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/post-tool-use.js\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/scripts/stop.js\""
+          }
+        ]
+      }
+    ]
+  }
+}
