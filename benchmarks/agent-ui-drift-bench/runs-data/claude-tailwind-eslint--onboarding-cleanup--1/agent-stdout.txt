@@ -1,0 +1,6 @@
+This codebase has no onboarding flow at all — it's a small dashboard fixture with only a home page, settings page, and dashboard components (nav, recent-activity, stat-card). There are no steps, wizard, or progress bar components anywhere in the repo.
+
+Could you clarify what you'd like? A few possibilities:
+1. You meant a different repo/branch that actually has onboarding.
+2. You'd like me to build a new onboarding flow from scratch (steps + progress bar), since none currently exists.
+3. "Onboarding" refers to something else in this app (e.g., the settings page) that I should re-examine.

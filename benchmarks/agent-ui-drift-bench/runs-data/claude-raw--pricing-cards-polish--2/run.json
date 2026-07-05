@@ -1,0 +1,37 @@
+{
+  "id": "claude-raw--pricing-cards-polish--2",
+  "timestamp": "2026-07-05T00:57:06.628Z",
+  "mode": "claude-raw",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "pricing-cards-polish",
+  "attempt": 2,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 0,
+      "totalViolations": 0,
+      "errorViolations": 0,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 87,
+    "filesTouched": 0
+  },
+  "rawOutputPaths": [
+    "runs/claude-raw--pricing-cards-polish--2/agent-stdout.txt",
+    "runs/claude-raw--pricing-cards-polish--2/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-raw--pricing-cards-polish--2/scanner.json",
+  "gitDiffPath": "runs/claude-raw--pricing-cards-polish--2/diff.patch"
+}

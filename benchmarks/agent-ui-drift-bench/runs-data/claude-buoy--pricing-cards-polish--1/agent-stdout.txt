@@ -1,0 +1,9 @@
+I've built the pricing cards from scratch since none existed in this fixture yet. Summary of changes:
+
+- **`src/components/pricing/pricing-cards.tsx`** (new) — three-tier card grid (Starter/Pro/Enterprise) using the existing `Card`/`Badge`/`Button` primitives (no new dependencies — no `lucide-react` in this fixture, so the check-mark uses a small inline SVG). Pro card gets the "pop": raised via `sm:-translate-y-4`, a `Most popular` badge, a soft blurred glow behind it (`bg-primary/25 blur-2xl`), a primary-tinted ring/border and `shadow-xl`, plus filled (vs. outline) check bullets. Price is the visual anchor in each card — large `text-4xl font-bold` next to a muted `/mo`.
+- **`src/app/pricing/page.tsx`** (new) — page shell matching the `settings` page pattern, hosts `PricingCards`.
+- **`src/components/dashboard/nav.tsx`** — added a `Pricing` nav link so the page is reachable.
+
+One thing I couldn't complete: per `CLAUDE.md`, I should have run `npx buoy --help` and the drift check on these new/edited files, but every command invoking `npx`/`npm run`/local binaries (even `node ./node_modules/typescript/bin/tsc`) was denied in this session as requiring approval that never came through — plain read-only commands (`ls`, `git`, `node -v`) worked fine. I wasn't able to run the drift check or typecheck as a result.
+
+Please run `npx buoy --help` and the drift check yourself and let me know what it flags — I'll fix anything it reports.

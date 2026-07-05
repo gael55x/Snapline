@@ -1,0 +1,195 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+index c106fe3..b32bb45 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+@@ -22,34 +22,96 @@ import {
+ } from "@/components/ui/dialog"
+ import { Input } from "@/components/ui/input"
+ 
++function SectionIcon({
++  tone = "default",
++  children,
++}: {
++  tone?: "default" | "destructive"
++  children: React.ReactNode
++}) {
++  return (
++    <div
++      className={
++        tone === "destructive"
++          ? "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-destructive/30 bg-destructive/10 text-destructive"
++          : "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border bg-muted text-foreground"
++      }
++    >
++      {children}
++    </div>
++  )
++}
++
++function BuildingIcon() {
++  return (
++    <svg
++      xmlns="http://www.w3.org/2000/svg"
++      viewBox="0 0 24 24"
++      fill="none"
++      stroke="currentColor"
++      strokeWidth={1.75}
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      className="h-5 w-5"
++    >
++      <rect x="4" y="3" width="16" height="18" rx="1" />
++      <path d="M9 21v-4h6v4M9 7h.01M9 11h.01M9 15h.01M15 7h.01M15 11h.01M15 15h.01" />
++    </svg>
++  )
++}
++
++function AlertTriangleIcon() {
++  return (
++    <svg
++      xmlns="http://www.w3.org/2000/svg"
++      viewBox="0 0 24 24"
++      fill="none"
++      stroke="currentColor"
++      strokeWidth={1.75}
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      className="h-5 w-5"
++    >
++      <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" />
++      <path d="M12 9v4M12 17h.01" />
++    </svg>
++  )
++}
++
+ export default function SettingsPage() {
+   const [confirmOpen, setConfirmOpen] = React.useState(false)
+ 
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/settings" />
+-      <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
++      <main className="mx-auto flex max-w-3xl flex-col gap-8 px-6 py-10">
++        <div className="flex flex-col gap-1.5 border-b border-border pb-6">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Settings</h1>
+           <p className="text-sm text-muted-foreground">
+             Manage your workspace profile and danger zone actions.
+           </p>
+         </div>
+ 
+         <Card>
+-          <CardHeader>
+-            <CardTitle>Workspace profile</CardTitle>
+-            <CardDescription>This information is shown on shared reports.</CardDescription>
++          <CardHeader className="flex flex-row items-start gap-3 space-y-0">
++            <SectionIcon>
++              <BuildingIcon />
++            </SectionIcon>
++            <div className="flex flex-col gap-1">
++              <CardTitle>Workspace profile</CardTitle>
++              <CardDescription>This information is shown on shared reports.</CardDescription>
++            </div>
+           </CardHeader>
+           <CardContent>
+-            <form className="flex flex-col gap-4">
+-              <div className="flex flex-col gap-2">
++            <form className="grid gap-5 sm:grid-cols-2">
++              <div className="flex flex-col gap-1.5">
+                 <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
+                   Workspace name
+                 </label>
+                 <Input id="workspace-name" name="workspaceName" defaultValue="Snapline Ops" />
++                <p className="text-xs text-muted-foreground">Displayed in the workspace header.</p>
+               </div>
+-              <div className="flex flex-col gap-2">
++              <div className="flex flex-col gap-1.5">
+                 <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
+                   Contact email
+                 </label>
+@@ -59,10 +121,12 @@ export default function SettingsPage() {
+                   type="email"
+                   defaultValue="ops@example.com"
+                 />
++                <p className="text-xs text-muted-foreground">Used for billing and alert notices.</p>
+               </div>
+-              <div className="flex flex-col gap-2">
++              <div className="flex flex-col gap-1.5 sm:col-span-2">
+                 <label htmlFor="repo-url" className="text-sm font-medium text-foreground">
+-                  Repository URL
++                  Repository URL{" "}
++                  <span className="font-normal text-muted-foreground">(optional)</span>
+                 </label>
+                 <Input
+                   id="repo-url"
+@@ -70,22 +134,47 @@ export default function SettingsPage() {
+                   type="url"
+                   placeholder="https://github.com/acme/app"
+                 />
++                <p className="text-xs text-muted-foreground">
++                  Links reports back to the source repository.
++                </p>
+               </div>
+             </form>
+           </CardContent>
+-          <CardFooter className="gap-2">
+-            <Button>Save changes</Button>
++          <CardFooter className="justify-end gap-3 border-t border-border bg-muted/30">
+             <Button variant="ghost">Cancel</Button>
++            <Button className="font-semibold shadow-md">Save changes</Button>
+           </CardFooter>
+         </Card>
+ 
+-        <Card>
+-          <CardHeader>
+-            <CardTitle>Danger zone</CardTitle>
+-            <CardDescription>Destructive actions that cannot be undone.</CardDescription>
++        <Card className="border-destructive/30 bg-destructive/[0.03]">
++          <CardHeader className="flex flex-row items-start gap-3 space-y-0">
++            <SectionIcon tone="destructive">
++              <AlertTriangleIcon />
++            </SectionIcon>
++            <div className="flex flex-col gap-1">
++              <CardTitle className="text-destructive">Danger zone</CardTitle>
++              <CardDescription>Destructive actions that cannot be undone.</CardDescription>
++            </div>
+           </CardHeader>
+-          <CardFooter>
+-            <Button variant="destructive" onClick={() => setConfirmOpen(true)}>
++          <CardContent>
++            <ul className="flex flex-col gap-2 text-sm text-muted-foreground">
++              <li className="flex items-center gap-2">
++                <span className="h-1 w-1 shrink-0 rounded-full bg-destructive" />
++                All connected projects
++              </li>
++              <li className="flex items-center gap-2">
++                <span className="h-1 w-1 shrink-0 rounded-full bg-destructive" />
++                Full repair history
++              </li>
++            </ul>
++          </CardContent>
++          <CardFooter className="justify-between border-t border-destructive/20 bg-destructive/5">
++            <p className="text-xs text-muted-foreground">This action is irreversible.</p>
++            <Button
++              variant="destructive"
++              className="font-semibold shadow-md"
++              onClick={() => setConfirmOpen(true)}
++            >
+               Delete workspace
+             </Button>
+           </CardFooter>
+@@ -94,7 +183,12 @@ export default function SettingsPage() {
+         <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+           <DialogContent>
+             <DialogHeader>
+-              <DialogTitle>Delete workspace?</DialogTitle>
++              <div className="mb-1 flex items-center gap-3">
++                <SectionIcon tone="destructive">
++                  <AlertTriangleIcon />
++                </SectionIcon>
++                <DialogTitle>Delete workspace?</DialogTitle>
++              </div>
+               <DialogDescription>
+                 This permanently removes the workspace, its projects, and all repair history.
+               </DialogDescription>

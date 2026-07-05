@@ -1,0 +1,224 @@
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff..6bdbd68 100644
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,3 +1,7 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+@@ -7,9 +11,96 @@ import {
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
++import { Checkbox } from "@/components/ui/checkbox"
+ import { Input } from "@/components/ui/input"
++import { Label } from "@/components/ui/label"
++
++interface FormErrors {
++  email?: string
++  password?: string
++}
++
++function GoogleIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg viewBox="0 0 24 24" className="h-4 w-4" {...props}>
++      <path
++        fill="#4285F4"
++        d="M23.52 12.27c0-.79-.07-1.54-.2-2.27H12v4.3h6.47c-.28 1.5-1.13 2.77-2.4 3.62v3h3.87c2.27-2.09 3.58-5.17 3.58-8.65Z"
++      />
++      <path
++        fill="#34A853"
++        d="M12 24c3.24 0 5.95-1.07 7.94-2.9l-3.87-3c-1.08.72-2.45 1.15-4.07 1.15-3.13 0-5.78-2.11-6.73-4.96H1.24v3.1C3.22 21.3 7.28 24 12 24Z"
++      />
++      <path
++        fill="#FBBC05"
++        d="M5.27 14.29A7.13 7.13 0 0 1 4.9 12c0-.8.14-1.57.37-2.29V6.61H1.24A11.98 11.98 0 0 0 0 12c0 1.93.46 3.76 1.24 5.39l4.03-3.1Z"
++      />
++      <path
++        fill="#EA4335"
++        d="M12 4.77c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.94 1.18 15.24 0 12 0 7.28 0 3.22 2.7 1.24 6.61l4.03 3.1c.95-2.85 3.6-4.94 6.73-4.94Z"
++      />
++    </svg>
++  )
++}
++
++function GitHubIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" {...props}>
++      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.04-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.83 1.23 1.83 1.23 1.07 1.83 2.81 1.3 3.49.99.11-.77.41-1.3.75-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.81 1.1.81 2.22 0 1.6-.02 2.89-.02 3.28 0 .32.22.7.83.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12Z" />
++    </svg>
++  )
++}
++
++function SpinnerIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4 animate-spin" {...props}>
++      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
++      <path
++        className="opacity-75"
++        fill="currentColor"
++        d="M4 12a8 8 0 0 1 8-8V0C5.37 0 0 5.37 0 12h4Z"
++      />
++    </svg>
++  )
++}
+ 
+ export default function LoginPage() {
++  const [email, setEmail] = React.useState("")
++  const [password, setPassword] = React.useState("")
++  const [rememberMe, setRememberMe] = React.useState(false)
++  const [errors, setErrors] = React.useState<FormErrors>({})
++  const [isSubmitting, setIsSubmitting] = React.useState(false)
++
++  function validate(): FormErrors {
++    const nextErrors: FormErrors = {}
++    if (!email) {
++      nextErrors.email = "Email is required."
++    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
++      nextErrors.email = "Enter a valid email address."
++    }
++    if (!password) {
++      nextErrors.password = "Password is required."
++    } else if (password.length < 8) {
++      nextErrors.password = "Password must be at least 8 characters."
++    }
++    return nextErrors
++  }
++
++  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++    const nextErrors = validate()
++    setErrors(nextErrors)
++    if (Object.keys(nextErrors).length > 0) {
++      return
++    }
++    setIsSubmitting(true)
++    try {
++      await new Promise((resolve) => setTimeout(resolve, 1500))
++    } finally {
++      setIsSubmitting(false)
++    }
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+@@ -17,40 +108,99 @@ export default function LoginPage() {
+           <CardTitle>Sign in</CardTitle>
+           <CardDescription>Enter your email below to sign in to your account.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="flex flex-col gap-4">
++          <div className="flex flex-col gap-2">
++            <Button variant="outline" className="w-full" type="button">
++              <GoogleIcon />
++              Continue with Google
++            </Button>
++            <Button variant="outline" className="w-full" type="button">
++              <GitHubIcon />
++              Continue with GitHub
++            </Button>
++          </div>
++
++          <div className="flex items-center gap-2">
++            <div className="h-px flex-1 bg-border" />
++            <span className="text-xs text-muted-foreground">or continue with email</span>
++            <div className="h-px flex-1 bg-border" />
++          </div>
++
++          <form className="flex flex-col gap-4" onSubmit={handleSubmit} noValidate>
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="email" className="text-sm font-medium text-foreground">
+-                Email
+-              </label>
++              <Label htmlFor="email">Email</Label>
+               <Input
+                 id="email"
+                 name="email"
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                value={email}
++                onChange={(event) => setEmail(event.target.value)}
++                aria-invalid={Boolean(errors.email)}
++                aria-describedby={errors.email ? "email-error" : undefined}
+               />
++              {errors.email ? (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <div className="flex items-center justify-between">
++                <Label htmlFor="password">Password</Label>
++                <a
++                  href="/forgot-password"
++                  className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
++                >
++                  Forgot password?
++                </a>
++              </div>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                value={password}
++                onChange={(event) => setPassword(event.target.value)}
++                aria-invalid={Boolean(errors.password)}
++                aria-describedby={errors.password ? "password-error" : undefined}
++              />
++              {errors.password ? (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
++            </div>
++            <div className="flex items-center gap-2">
++              <Checkbox
++                id="remember-me"
++                checked={rememberMe}
++                onChange={(event) => setRememberMe(event.target.checked)}
+               />
++              <Label htmlFor="remember-me" className="font-normal">
++                Remember me
++              </Label>
+             </div>
++            <Button type="submit" className="w-full" disabled={isSubmitting}>
++              {isSubmitting ? (
++                <>
++                  <SpinnerIcon />
++                  Signing in...
++                </>
++              ) : (
++                "Sign in"
++              )}
++            </Button>
+           </form>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
++        <CardFooter>
++          <p className="w-full text-center text-sm text-muted-foreground">
++            Don&apos;t have an account?{" "}
++            <a href="/signup" className="text-foreground underline-offset-4 hover:underline">
++              Sign up
++            </a>
++          </p>
+         </CardFooter>
+       </Card>
+     </main>

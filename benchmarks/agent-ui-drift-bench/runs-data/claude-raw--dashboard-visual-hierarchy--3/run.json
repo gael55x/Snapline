@@ -1,0 +1,37 @@
+{
+  "id": "claude-raw--dashboard-visual-hierarchy--3",
+  "timestamp": "2026-07-05T01:24:39.142Z",
+  "mode": "claude-raw",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "dashboard-visual-hierarchy",
+  "attempt": 3,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 16,
+      "totalViolations": 2,
+      "errorViolations": 2,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 2,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 281,
+    "filesTouched": 3
+  },
+  "rawOutputPaths": [
+    "runs/claude-raw--dashboard-visual-hierarchy--3/agent-stdout.txt",
+    "runs/claude-raw--dashboard-visual-hierarchy--3/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-raw--dashboard-visual-hierarchy--3/scanner.json",
+  "gitDiffPath": "runs/claude-raw--dashboard-visual-hierarchy--3/diff.patch"
+}

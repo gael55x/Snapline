@@ -1,0 +1,15 @@
+I've refreshed the settings page (`src/app/settings/page.tsx`) while keeping every field, id, name, default value, and click handler unchanged:
+
+**What changed:**
+- Added an "Workspace" eyebrow label above the page title and a divider under the header for clearer page-level separation.
+- Widened spacing (`gap-8`/`gap-10`) so sections don't feel cramped.
+- Profile card: increased field spacing, added an "Optional" hint next to Repository URL, and moved the footer actions to a bordered, right-aligned bar with **Save changes** last (primary emphasis) and Cancel demoted to ghost.
+- Danger zone card: gets a `border-destructive/30` outline, an "Irreversible" destructive badge next to the title, explanatory copy about what deletion removes, and its own bordered footer — visually setting it apart as the risky section.
+- All markup still uses the existing `Card`, `Button`, `Input`, `Badge`, and `Dialog` primitives — no raw `<button>`/`<input>` tags, no inline styles.
+
+**On the driftguard check (per CLAUDE.md):** I read the driftguard source directly (`node_modules/driftguard/dist/*.js`) since I couldn't get `npx driftguard --help`, `node .../cli.js`, or `npm run typecheck` to execute — the sandbox required approval for all of them and none was granted, so I couldn't actually run the tool. Two things worth flagging:
+
+1. There's no `driftguard.config.ts` anywhere in this project, so `driftguard validate` would fail immediately with "Could not find driftguard.config.ts" — it needs `driftguard init` first before it can check anything.
+2. From reading the rule implementations, driftguard only flags (a) hardcoded colors in inline `style`/color-prop JSX attributes, (b) non-scale spacing in inline style objects, and (c) raw HTML tags that should be design-system primitives. My changes use only Tailwind classes and existing shadcn primitives, so nothing here should trip those rules — but I couldn't confirm this by actually running the tool.
+
+If you can approve one of those commands (or run `driftguard init` then `driftguard validate src/app/settings/page.tsx` yourself), I can pick up from there and fix anything it reports.

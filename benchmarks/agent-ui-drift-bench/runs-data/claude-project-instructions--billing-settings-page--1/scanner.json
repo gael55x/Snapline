@@ -1,0 +1,108 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-project-instructions--billing-settings-page--1/repo/fixtures/next-shadcn-custom-theme",
+  "scannedFiles": [
+    "src/app/billing/page.tsx",
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/textarea.tsx"
+  ],
+  "violations": [
+    {
+      "id": "require-card-component:src/app/billing/page.tsx:64:9:1",
+      "ruleId": "require-card-component",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Repeated custom card container while <Card> exists",
+      "location": {
+        "line": 64,
+        "column": 9
+      },
+      "evidence": "<div className=\"flex items-center justify-between gap-4 rounded-md border border-brand bg-brand/10 px-4 py-3\">",
+      "repair": {
+        "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "require-card-component:src/app/billing/page.tsx:146:13:1",
+      "ruleId": "require-card-component",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Repeated custom card container while <Card> exists",
+      "location": {
+        "line": 146,
+        "column": 13
+      },
+      "evidence": "<div className=\"flex items-center justify-between rounded-md border border-border bg-background px-4 py-3\">",
+      "repair": {
+        "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 10,
+    "totalViolations": 2,
+    "errorViolations": 0,
+    "warningViolations": 2,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 2,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/app/billing/page.tsx",
+      "filePath": "src/app/billing/page.tsx",
+      "violations": [
+        {
+          "id": "require-card-component:src/app/billing/page.tsx:64:9:1",
+          "ruleId": "require-card-component",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Repeated custom card container while <Card> exists",
+          "location": {
+            "line": 64,
+            "column": 9
+          },
+          "evidence": "<div className=\"flex items-center justify-between gap-4 rounded-md border border-brand bg-brand/10 px-4 py-3\">",
+          "repair": {
+            "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "require-card-component:src/app/billing/page.tsx:146:13:1",
+          "ruleId": "require-card-component",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Repeated custom card container while <Card> exists",
+          "location": {
+            "line": 146,
+            "column": 13
+          },
+          "evidence": "<div className=\"flex items-center justify-between rounded-md border border-border bg-background px-4 py-3\">",
+          "repair": {
+            "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region)."
+      ],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/app/billing/page.tsx\n\n2 violations:\n- [warn] custom card container while <Card> exists (line 64)\n- [warn] custom card container while <Card> exists (line 146)\n\nRecommended:\n- Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region)."
+    }
+  ],
+  "durationMs": 78
+}

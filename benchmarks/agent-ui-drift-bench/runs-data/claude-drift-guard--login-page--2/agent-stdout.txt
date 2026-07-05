@@ -1,0 +1,13 @@
+I've built out the login page and a new `Checkbox` primitive to match. A couple of notes on where I landed:
+
+**Implemented** (`src/app/login/page.tsx`, new `src/components/ui/checkbox.tsx`):
+- Google/GitHub sign-in buttons (outline variant, full width) above an "or continue with email" divider
+- Email + password fields with inline validation errors (required, email format, min-length password), `aria-invalid`/`aria-describedby` wired up, native validation suppressed via `noValidate` so our messages are what shows
+- "Remember me" checkbox + "Forgot password?" link on one row
+- Submit button that disables and swaps to "Signing in..." while `isLoading` is true
+- "Don't have an account? Sign up" link in the card footer
+- Everything built from existing primitives (`Button`, `Card`, `Input`, new `Checkbox`) and the project's semantic Tailwind tokens (`text-foreground`, `text-muted-foreground`, `text-destructive`, `border-border`, etc.) — no raw hex colors or inline styles, consistent with how the rest of the fixture is written.
+
+**Couldn't complete per CLAUDE.md**: it directs me to run `npx driftguard --help` and the validate command, then fix anything reported. In this sandbox, all process-execution commands (`npm`, `npx`, `node <script>`, even the local `tsc` binary) are blocked with "requires approval" and there's no prompt I can push through — only inert commands like `ls`/`git status`/file reads go through. So I couldn't actually run the checker.
+
+For what it's worth, I read driftguard's rule source directly (`node_modules/driftguard/dist/rules/*.js`): `no-hardcoded-colors` and `spacing-scale` only inspect inline `style={{...}}` objects/props (I used none), and `use-primitives` only flags tags listed in a `driftguard.config.ts` that doesn't exist yet in this repo — so `driftguard validate` would currently fail immediately with "Could not find driftguard.config.ts. Run driftguard init." rather than checking anything. You'll need to run `npx driftguard init` yourself (it also patches `.claude/settings.json` to add a hook) before the check is even meaningful, then `npx driftguard validate src/app/login/page.tsx`.

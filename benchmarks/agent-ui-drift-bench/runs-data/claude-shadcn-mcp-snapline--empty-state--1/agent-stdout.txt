@@ -1,0 +1,6 @@
+Created two files:
+
+- **`src/components/empty-state.tsx`** — a reusable `EmptyState` component taking `icon` (any `ReactNode`), `title`, optional `description`, and optional `action`. It centers content in the available space (`flex-1 flex-col items-center justify-center`) with the icon inside a soft `bg-muted` circle above the title/description, using the existing shadcn tokens and `cn` helper for consistency with the rest of `components/ui`.
+- **`src/app/projects/page.tsx`** — new Projects page using `EmptyState` with "No projects yet", a description, and a `Button` ("Create project") as the action. Used an inline SVG folder icon since no icon library (e.g. lucide-react) is installed in this fixture's `package.json`/`node_modules`.
+
+I wasn't able to run `npx tsc --noEmit` to verify the typecheck — the command required approval each time and wasn't granted. I manually reviewed imports/paths against `tsconfig.json`'s `@/*` alias and existing component patterns, and they line up, but you may want to run `npm run typecheck` yourself to confirm.

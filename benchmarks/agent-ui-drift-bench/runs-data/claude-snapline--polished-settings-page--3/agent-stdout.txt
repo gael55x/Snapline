@@ -1,0 +1,1 @@
+The typecheck command needs your approval to run. Should I proceed, or would you like to run it yourself?

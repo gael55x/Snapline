@@ -1,0 +1,11 @@
+I built the login page (`src/app/login/page.tsx`) as a client component, matching this project's hand-rolled shadcn-style primitives (no Radix/lucide deps, consistent with `button.tsx`/`input.tsx`/`card.tsx`):
+
+- **New primitives**: `ui/label.tsx`, `ui/checkbox.tsx` (custom-styled with an SVG check mark, `checked`/`onCheckedChange` API), `ui/separator.tsx` — all following the existing `forwardRef` + `cn()` pattern.
+- **Social sign-in**: Google and GitHub outline buttons (inline SVG logos, no icon library needed) above the form.
+- **Divider**: "or continue with email" between two `Separator` lines.
+- **Form**: controlled email/password inputs with regex/length validation, inline error text (`text-destructive`) tied via `aria-invalid`/`aria-describedby`.
+- **Remember me + Forgot password**: checkbox row alongside a link, matching the original row layout.
+- **Submit button**: disables and shows "Signing in..." during a simulated async submit.
+- **Footer**: "Don't have an account? Sign up" link.
+
+Note: I couldn't run `tsc`/`npm` in this sandbox (commands required approval that wasn't available), so I verified types by manual inspection rather than an actual compiler run — worth running `npm run typecheck` yourself to confirm.

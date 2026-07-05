@@ -1,0 +1,8 @@
+I've refreshed `src/app/settings/page.tsx`. Summary of changes (all fields, ids, names, values, and click handlers are untouched):
+
+- **Section separation**: added a bottom border under the page header, and inset borders between form fields within the profile card, plus a bordered/tinted footer separating actions from content.
+- **Form styling**: each field (workspace name, contact email, repo URL) now uses a label+description/input two-column layout (a standard settings-page pattern) with helper text, instead of stacked bare label/input pairs.
+- **Emphasis on important actions**: Save changes is now right-aligned and visually primary against a subtly tinted footer; the Danger Zone card gets a `border-destructive/40` outline, a destructive-tinted title, an "Irreversible" badge, and a tinted destructive footer around the delete button — all using existing semantic tokens (`bg-destructive/5`, `border-destructive/20`, etc., matching the opacity-modifier pattern already used in `button.tsx`).
+- Reused only existing `@/components/ui` components (Badge, Card, Dialog, Input, Button) — no new component files, no palette/hex/arbitrary values.
+
+I couldn't run the dev server to visually verify — this fixture has no `next` dependency or dev script (only `typecheck`), and the `npm run typecheck`/`npx tsc` commands were blocked pending your approval. If you'd like, approve one of those and I'll confirm it compiles cleanly.

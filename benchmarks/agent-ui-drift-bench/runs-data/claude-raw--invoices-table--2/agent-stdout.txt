@@ -1,0 +1,14 @@
+I'll stop retrying since this is a permission-mode restriction, not a transient failure — repeating the same command won't change the outcome.
+
+## Summary
+
+Added an invoices table to a new `/billing` page in the theme-drift fixture:
+
+- **`src/components/ui/table.tsx`** (new) — shadcn-style `Table`/`TableHeader`/`TableBody`/`TableRow`/`TableHead`/`TableCell` primitives, styled only with existing tokens (`border-border`, `text-muted-foreground`, `bg-muted/50`) — no new colors introduced.
+- **`src/app/billing/page.tsx`** (new) — client component with:
+  - Columns: Invoice #, Date, Amount, Status, and a "Download PDF" action (generates a client-side Blob and triggers a real download).
+  - Status badges reuse the existing `Badge` variants — `default` (Paid), `secondary` (Pending), `destructive` (Failed) — so each state is visually distinct without inventing off-theme colors.
+  - Sortable column headers (click to toggle asc/desc, chevron indicates direction) defaulting to date descending.
+  - Pagination at 10 rows/page with a Previous/Next footer that disables at the bounds and resets to page 1 on re-sort.
+
+I manually checked the new code against the existing `Badge`/`Button`/`Card` prop types and it lines up, but this sandbox's permission mode blocked me from actually running `npm run typecheck` (repeated identical denials, not a fluke) — please run it locally to confirm before merging.

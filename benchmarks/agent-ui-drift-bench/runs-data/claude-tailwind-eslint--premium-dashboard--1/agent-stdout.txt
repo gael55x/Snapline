@@ -1,0 +1,1 @@
+I've tried running `npx eslint src` (required by this project's CLAUDE.md before finishing UI edits) but it's being blocked pending approval, and retrying isn't getting through. Could you approve running `npx eslint src` in this directory, or let me know if you'd prefer to run it yourself?

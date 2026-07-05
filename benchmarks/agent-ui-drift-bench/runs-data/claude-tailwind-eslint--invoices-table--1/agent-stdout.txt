@@ -1,0 +1,15 @@
+I've built the invoices table and billing page, but hit a wall verifying it: every attempt to run project tooling (`npx eslint`, `./node_modules/.bin/eslint`, `node -e`, `tsc --noEmit`, `npm run typecheck`) is being blocked with "This command requires approval" in this sandbox, even though CLAUDE.md requires running ESLint after UI edits. Plain shell commands (`echo`, `ls`, `node -v`) go through fine, so something in this session's permission settings is specifically blocking execution of project binaries.
+
+Could you grant approval for `npx eslint src` (and ideally `npx tsc --noEmit`) so I can verify and fix any reported issues? Here's what I did in the meantime:
+
+**Created:**
+- `src/app/billing/page.tsx` — billing page with an "Invoices" card
+- `src/components/invoices-table.tsx` — client component: 23 mock invoices, sortable headers (Invoice #, Date, Amount, Status) defaulting to Date descending, 10-row pagination with Prev/Next footer, status badges, "Download PDF" action button
+- `src/components/ui/table.tsx` — Table primitives (Table, TableHeader, TableBody, TableRow, TableHead, TableCell) matching the existing shadcn-style component conventions
+
+**Extended (rather than hardcoding colors) to keep status badges on-theme:**
+- `src/app/globals.css` — added `--success`/`--warning` CSS variables (light + dark)
+- `tailwind.config.ts` — mapped them to `success`/`warning` Tailwind colors
+- `src/components/ui/badge.tsx` — added `success`/`warning` badge variants (Paid=success, Pending=warning, Failed=destructive)
+
+I manually traced through `eslint-plugin-tailwindcss`'s rule source to check for arbitrary values and custom classnames (none found — all new colors are registered in the Tailwind config, and I followed the existing files' class-ordering conventions), but I can't guarantee it's 100% clean without actually running the linter as instructed.

@@ -1,0 +1,6 @@
+I've built the reusable `EmptyState` component and wired it into a new projects page:
+
+- **`src/components/empty-state.tsx`** — a `forwardRef` component (matching the pattern of `card.tsx`/`button.tsx`) with `icon`, `title`, `description`, and optional `action` props. It centers content in a flex column, with the icon rendered inside a `rounded-full bg-muted` circle above the title/description text, and the action button below.
+- **`src/app/projects/page.tsx`** — a new projects page using `EmptyState` with a simple inline folder SVG icon (no icon library is installed in this fixture), "No projects yet" as the title, and a `Create project` `Button` as the action.
+
+Note: `npm run typecheck` was blocked by sandbox approval in this session, so I wasn't able to run it — the code follows existing conventions closely (same `cn`/`forwardRef`/token-based Tailwind classes as `card.tsx` and `button.tsx`), but you may want to run typecheck yourself to confirm.

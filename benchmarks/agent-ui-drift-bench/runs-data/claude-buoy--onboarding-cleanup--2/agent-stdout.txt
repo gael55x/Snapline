@@ -1,0 +1,9 @@
+I searched the whole repo (dashboard page, settings page, nav, all `src/components/ui` primitives, plus full git history for any file ever named `*onboard*`/`*wizard*`/`*step*`) and confirmed there is **no onboarding flow in this codebase at all** — no wizard, no step components, no progress bar. The only pages are the dashboard overview (`src/app/page.tsx`) and settings (`src/app/settings/page.tsx`).
+
+So there's nothing to "clean up" here yet — this would mean building a multi-step onboarding flow from scratch, which is a different (and much larger) task than a styling cleanup, and I can't preserve "the same steps and form fields" since none exist.
+
+A couple of options:
+1. **You point me to the right place** — maybe it's in another branch, another fixture, or a file I'm missing.
+2. **I build a new onboarding wizard from scratch** — in which case I'd need you to tell me what the steps/fields actually are (e.g. workspace name, repo connection, invite teammates, etc.), since I can't invent business content and call it "the same."
+
+Which would you like?

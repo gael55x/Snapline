@@ -1,0 +1,18 @@
+I've built the feature but hit an environment limit I should flag: this sandbox allows read-only commands (`ls`, `cat`, `git status`) but blocks execution of any binary — `npm`, `npx`, `node`, and even calling `./node_modules/.bin/buoy` directly all get auto-denied with "requires approval," even after retrying and disabling the sandbox flag. I can't run `npx tsc --noEmit` or the Buoy drift check myself in this session.
+
+What I built:
+- `src/app/team/page.tsx` — a new Team page (this fixture had none) listing members and a seats-used summary ("4 of 5 seats used"), with the "Invite member" trigger in the header.
+- `src/components/invite-member-dialog.tsx` — the modal, built entirely from the existing `Dialog`/`Button`/`Input`/`Textarea` primitives (no new dependencies):
+  - Email field accepting comma-separated addresses, deduped/trimmed, with inline formatting errors for anything that doesn't look like an email.
+  - Role selector (Admin/Member) as two selectable cards, each with its description, built with native radio inputs (visually hidden) for accessibility rather than a new Select primitive that doesn't exist in this fixture.
+  - Optional personal-message textarea.
+  - "Seats remaining on your plan" readout (`remaining of total`), turns destructive-colored and shows a warning once the email count exceeds it; Send button is disabled in that state (and while invalid/empty).
+  - Simulated send → success state with a checkmark and the list of sent addresses; "Done" closes and resets the form.
+
+I manually checked the new code against this project's design-token conventions (only `bg-primary`, `text-muted-foreground`, `border-border`, etc. — no hex/arbitrary values, and the one opacity modifier I used, `bg-muted/40`, mirrors the existing `bg-background/80` pattern already in `dialog.tsx`), but that's not a substitute for actually running the checker CLAUDE.md requires.
+
+Could you either approve running these two commands, or run them yourself and share the output so I can fix anything flagged?
+```
+./node_modules/.bin/tsc --noEmit
+./node_modules/.bin/buoy drift check
+```

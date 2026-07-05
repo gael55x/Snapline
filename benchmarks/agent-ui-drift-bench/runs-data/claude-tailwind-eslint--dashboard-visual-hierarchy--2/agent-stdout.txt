@@ -1,0 +1,1 @@
+I need approval to run `npx eslint src` (required by this project's CLAUDE.md after editing UI files) — could you approve it so I can verify the changes pass lint?

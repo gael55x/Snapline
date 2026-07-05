@@ -1,0 +1,13 @@
+I've made the visual hierarchy changes. Per this project's CLAUDE.md, I need to run `driftguard`'s check command after editing UI files, but every attempt to execute a binary (npx, node_modules/.bin scripts, even `npm run typecheck`) is being blocked with "requires approval" — plain shell commands like `echo`/`node --version` work fine, so this looks like a sandbox restriction on running project executables rather than something I can route around.
+
+Could you approve running one of these, or run it yourself and share the output?
+```
+./node_modules/.bin/driftguard --help
+```
+Once I see the check command it exposes, I'll run the actual check and fix anything it flags in `src/app/page.tsx` / `src/components/dashboard/stat-card.tsx`.
+
+**Changes made so far** (in `fixtures/next-shadcn-dashboard-app`):
+- `stat-card.tsx`: added an `emphasis` prop. `primary` renders the value at `text-4xl sm:text-5xl` with a subtly highlighted card (`border-primary/20 bg-primary/[0.03] shadow-md`) and a solid badge; the default `secondary` shrinks the value to `text-xl` and mutes the label/badge/caption further.
+- `page.tsx`: split the flat 4-card grid into "Total revenue" (rendered with `emphasis="primary"`, taking 1 of 3 grid columns but visually dominant) alongside the three secondary stats compressed into the remaining space. Added uppercase "Key metrics" / "Activity" section labels and a border-top divider before Recent Activity, so it reads as a distinct, weightier zone below the stats.
+
+One caveat worth flagging: this fixture has **no chart component and no sidebar** anywhere in the codebase — only stat cards and the "Recent activity" table exist. Since you said not to add or remove content, I mapped "chart as centerpiece" onto Recent Activity (the only content below the stats, now given a clear section heading and separation) and skipped the sidebar de-emphasis since there's nothing there to de-emphasize. Let me know if that mapping isn't what you intended.

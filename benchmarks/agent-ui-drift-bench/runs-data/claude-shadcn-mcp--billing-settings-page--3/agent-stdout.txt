@@ -1,0 +1,16 @@
+Running the TypeScript compiler isn't permitted in this session, so I did a manual type-check by reading through the new files instead — no issues found. I won't keep retrying a denied command.
+
+Here's what I built:
+
+**`src/components/ui/alert.tsx`** — new primitive (`Alert`, `AlertTitle`, `AlertDescription`), hand-rolled to match the existing `Card`/`Badge` style (same `forwardRef` + `cn` pattern, no new dependencies). It reuses the existing `brand` token for the warning variant rather than inventing a new color.
+
+**`src/app/billing/page.tsx`** — the billing settings page, built entirely from existing + the one new primitive:
+- Trial-expiring **banner** (`Alert variant="brand"`) that only renders when `trialDaysLeft <= 7`, with a quick "Add payment method" action.
+- **Current plan** card: name, price, renewal date, status badge, "Change plan," and a subtle destructive-text "Cancel subscription" link in the footer.
+- **Payment method** card: masked card number, expiry, "Update card" button.
+- **Invoices** card: last 4 invoices with date, amount, status badge, and a "Download" link each.
+- Two `Dialog`s (update card / confirm cancellation), controlled via local `useState`, using only existing `Input`/`Button`/`Dialog` components.
+
+Everything uses the existing semantic tokens (`bg-card`, `text-muted-foreground`, `border-border`, `bg-brand`, etc.) — no raw Tailwind color literals or new dependencies, consistent with how the rest of this fixture is built.
+
+One thing worth doing before you ship this: run `npm run typecheck` yourself to confirm, since I couldn't execute it in this session.

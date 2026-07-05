@@ -1,0 +1,1 @@
+I need your approval to run the typecheck command. Could you approve running `npx tsc --noEmit` (or `npm run typecheck`) so I can verify the new page compiles?

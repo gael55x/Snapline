@@ -1,0 +1,3 @@
+This is a repair-management dashboard app with only a home page and settings page — there's no onboarding flow anywhere in the fixture (I checked git history and the full file tree, no matches for "onboard"). Since the steps and form fields must "stay exactly the same," I need an existing flow to work from rather than inventing one.
+
+Could you point me to where the onboarding flow lives — a different repo/branch, or is it perhaps under a different name in this app (e.g. a setup wizard on the settings page)? I don't want to guess and build a new onboarding flow from scratch when the task implies one already exists.

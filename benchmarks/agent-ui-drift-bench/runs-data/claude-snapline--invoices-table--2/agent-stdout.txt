@@ -1,0 +1,14 @@
+I've implemented the invoices table. A quick note on verification: this fixture has no `next`/dev-server dependency (it's a static Snapline drift-benchmark fixture, not a runnable app), and running `tsc`/`npm run typecheck` in this session requires an approval I didn't receive after a few attempts, so I did a careful manual type-check instead of an automated one — happy to run it if you approve the prompt.
+
+Summary of what I added:
+
+- **`src/components/ui/table.tsx`** — new `Table`/`TableHeader`/`TableBody`/`TableRow`/`TableHead`/`TableCell` primitives, styled only with tokens already in the project's semantic allow-list (`border-border`, `bg-secondary`, `text-muted-foreground`) — no raw palette colors, matching this fixture's `snapline.yml` drift rules.
+- **`src/components/invoices-table.tsx`** — client component with:
+  - Mock invoice data (23 rows, Sep 2024 → Jul 2026) with number, date, amount, status.
+  - Status badges reusing the existing `Badge` component's variants for a distinct look per state: **Paid** → `default` (filled primary), **Pending** → `outline` (bordered/neutral), **Failed** → `destructive` (filled red) — no new colors introduced.
+  - Sortable headers (Invoice, Date, Amount, Status) built from the existing `Button` component, with an arrow indicator (↑/↓/↕) and `aria-sort` for accessibility; defaults to Date descending.
+  - Pagination at 10 rows/page with a Previous/Next footer (also `Button`) showing "Page X of Y", disabling ends appropriately, and resetting to page 1 on sort change.
+  - A "Download PDF" `Button` per row wired to a stub handler (`handleDownload`), since there's no backend to generate real PDFs in this fixture.
+- **`src/app/billing/page.tsx`** — new billing page (didn't exist before) wrapping the table in the existing `Card` component, consistent with the homepage's layout conventions.
+
+All new color usage stays within `snapline.yml`'s allowed token list, and all interactive elements reuse `Button`/`Card`/`Badge` rather than raw HTML, per the fixture's `require*Component` rules.

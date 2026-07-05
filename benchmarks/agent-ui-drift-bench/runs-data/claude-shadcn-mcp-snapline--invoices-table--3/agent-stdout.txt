@@ -1,0 +1,10 @@
+Added an invoices table to a new billing page, plus a shadcn-style `Table` primitive to match the project's other hand-rolled `ui/` components:
+
+- **`src/components/ui/table.tsx`** — new `Table`/`TableHeader`/`TableBody`/`TableRow`/`TableHead`/`TableCell` primitives, styled with the existing semantic tokens (`border-border`, `text-muted-foreground`, `bg-card`, etc.), no Radix/cva since those aren't installed in this fixture.
+- **`src/app/billing/page.tsx`** — client component with:
+  - Invoice #, Date, Amount, Status, Actions columns, all headers except Actions clickable to sort (toggling asc/desc), default sort = Date descending.
+  - Status shown as a `Badge` per state — `default` (Paid), `secondary` (Pending), `destructive` (Failed) — reusing existing badge variants rather than introducing new palette colors, per `snapline.yml`'s semantic-token-only rule.
+  - Download PDF as a `Button` that generates a small client-side blob download.
+  - Paginated at 10 rows with a Previous/Next footer and a "Showing X–Y of Z" counter, using the `Button` component throughout (the drift-check hook initially flagged a raw `<button>` in the sortable header, which I fixed by swapping it for `Button`).
+
+I wasn't able to run `tsc`/build in this sandbox (Bash commands weren't approved), so I reviewed the file by hand instead — types, imports, and the Snapline drift hook (which fires automatically on Write/Edit) all came back clean. Worth running `npx tsc --noEmit` yourself before treating this as fully verified.

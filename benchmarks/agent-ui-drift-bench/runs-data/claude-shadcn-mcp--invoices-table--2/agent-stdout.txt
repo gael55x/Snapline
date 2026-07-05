@@ -1,0 +1,10 @@
+I've built out the invoices table. Since typecheck execution requires a permission I don't have in this session (and there's no runtime harness available to render the page live), here's where things stand:
+
+**What I added** (in `fixtures/next-shadcn-custom-theme/src/`):
+- `components/ui/table.tsx` — a `Table`/`TableHeader`/`TableBody`/`TableRow`/`TableHead`/`TableCell` primitive set, hand-rolled to match this codebase's existing `forwardRef` + `cn()` pattern (same style as `card.tsx`/`button.tsx`).
+- `app/billing/data.ts` — mock `Invoice[]` data (23 rows spanning several months) plus the `Invoice`/`InvoiceStatus` types.
+- `app/billing/invoice-status-badge.tsx` — maps `Paid → default`, `Pending → secondary`, `Failed → destructive` onto the existing `Badge` variants, so each status gets a visually distinct look without introducing any new colors outside the theme's token system.
+- `app/billing/invoices-table.tsx` — client component with sortable headers (click to toggle asc/desc, defaults to date descending), 10-row pagination with prev/next footer, and a "Download PDF" button per row that generates and downloads a placeholder PDF blob.
+- `app/billing/page.tsx` — the billing page itself, wrapping the table in the existing `Card` component.
+
+**Verification gap:** this fixture package has no `next`/bundler installed and no dev script (only `tsc --noEmit`), and my sandbox is scoped to just this fixture directory, so I couldn't render it live or run a monorepo-level harness. Running `tsc` directly also hit a permission gate in this session. I reviewed the types by hand and they line up (sort-key narrowing, `BadgeVariant` import, etc.), but I'd recommend you run `npx tsc --noEmit` in `fixtures/next-shadcn-custom-theme` yourself, or approve that command, to get a real compiler signal before treating this as done.

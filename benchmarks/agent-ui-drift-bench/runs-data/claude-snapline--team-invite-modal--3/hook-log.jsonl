@@ -1,0 +1,5 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":60,"files":["src/components/ui/label.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":35,"files":["src/components/ui/input.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":91,"files":["src/components/invite-member-modal.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":71,"files":["src/app/team/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":211,"files":[]}

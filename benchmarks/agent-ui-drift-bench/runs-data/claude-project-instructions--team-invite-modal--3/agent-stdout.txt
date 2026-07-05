@@ -1,0 +1,13 @@
+Built the invite flow across four files:
+
+**New primitives** (following this repo's dependency-free, semantic-token pattern — no Radix in `package.json`, so `Label`/`RadioGroup` are hand-rolled like the existing `Dialog`):
+- `src/components/ui/label.tsx`
+- `src/components/ui/radio-group.tsx`
+
+**Feature files:**
+- `src/components/team/invite-member-modal.tsx` — the modal: comma-separated email input with per-address validation, Admin/Member radio cards with descriptions, optional message textarea, live "N seats remaining" text that switches to destructive color and disables Send when the parsed email count exceeds remaining seats, and a success screen listing the sent addresses.
+- `src/app/team/page.tsx` — a team page (didn't exist before) with a member list and an "Invite member" button that opens the modal, seeded with 12 total seats / 3 used so the over-limit case is reachable by typing 4+ addresses.
+
+Everything uses only semantic classes (`bg-primary`, `border-border`, `text-muted-foreground`, `text-destructive`, etc.), the Tailwind spacing scale, and existing/newly-added `@/components/ui` primitives — no raw inputs/buttons, no hex or palette colors, no arbitrary values.
+
+One caveat: shell command approval was denied in this session, so I couldn't run `npm run typecheck` to confirm cleanly against `strict` mode — I did a manual pass instead and didn't find type issues, but you should run it yourself to be sure before merging.

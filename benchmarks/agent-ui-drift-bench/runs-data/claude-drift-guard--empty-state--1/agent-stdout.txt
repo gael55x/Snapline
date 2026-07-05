@@ -1,0 +1,16 @@
+I've built the component and wired it up, but hit a wall on the verification step required by this repo's CLAUDE.md.
+
+**What I built:**
+- `src/components/ui/empty-state.tsx` — a reusable `EmptyState` component (`icon`, `title`, `description`, optional `action` props), following the same `forwardRef` + `cn()` pattern as the existing `Card`/`Button` primitives. It centers content vertically/horizontally, with the icon in a `bg-muted` circle above the title/description text.
+- `src/app/projects/page.tsx` — a new projects page using `EmptyState` with a folder icon, "No projects yet" title, description, and a `Button` "Create project" action.
+
+**Verification blocked:** Per CLAUDE.md I need to run `npx driftguard --help`, find its check command, and run it. Every command that executes JS in this session (`npx`, `node`, `npm run`) is being denied by the sandbox with "This command requires approval" — even harmless ones like `node -e "console.log(1)"` or `npm run typecheck`. Plain shell commands (`ls`, `cat`, `find`) work fine, so it's specifically code execution that's gated and not getting approved automatically.
+
+Since I couldn't execute it, I read driftguard's source directly instead:
+- Its real check command is `driftguard validate <file>` (not `check`).
+- It requires a `driftguard.config.ts` at the project root — **none exists in this fixture**, so `validate` would currently fail with "Could not find driftguard.config.ts. Run `driftguard init`" regardless.
+- Its rules only flag: hardcoded colors in inline `style={{...}}` objects/color-named JSX attrs, non-scale pixel spacing in inline styles, and raw HTML tags that should be swapped for design-system primitives (per config).
+
+My new files use only Tailwind `className` strings (no inline styles) with the same semantic tokens already used elsewhere (`bg-muted`, `text-muted-foreground`, `rounded-full`), and use the existing `<Button>` primitive rather than a raw `<button>` — so nothing in the two files matches a violation pattern.
+
+Could you approve running `npx driftguard init` and `npx driftguard validate src/components/ui/empty-state.tsx src/app/projects/page.tsx` (and `npm run typecheck`) so I can confirm this for real, since I can't execute those myself right now?

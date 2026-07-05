@@ -1,0 +1,13 @@
+Path alias `@/*` → `./src/*` confirms all imports resolve correctly. The page is a self-contained fixture (no `next.config`, just a scanner test fixture), so this should be fine.
+
+Created `src/app/billing/page.tsx` — a billing settings page built entirely from existing `@/components/ui` primitives (Card, Button, Badge, Dialog, Input) and semantic tokens (no raw `<button>`/`<input>`, no palette or arbitrary-value classes, no new component files):
+
+- **Current plan** card — name, price badge, renewal date, "Change plan" action.
+- **Payment method** card — card brand/last4/expiry, "Update card" button opening a `Dialog` with a small card-entry form.
+- **Invoices** card — list of past invoices with amount and a "Download" link styled to match button conventions.
+- **Cancel subscription** card — placed at the bottom as its own clearly-labeled section, with a destructive-variant trigger that opens a confirmation `Dialog` before actually canceling.
+- **Trial-expiring banner** — conditionally rendered at the top using the existing `brand` token (`border-brand`/`bg-brand/10`), matching the opacity-modifier pattern already used elsewhere in the codebase (e.g. `hover:bg-primary/90`).
+
+One thing worth flagging: I initially reached for shadcn's typical `asChild` pattern on `Button`/`DialogTrigger`, but this fixture's versions are hand-rolled (no Radix `Slot`), so `asChild` would've silently broken (invalid DOM attribute, nested interactive elements). I fixed it by composing `buttonVariants` classes directly onto `DialogTrigger`/`<a>` instead.
+
+I wasn't able to run `tsc --noEmit` here — the sandbox declined the command — so I reviewed the file manually against the existing component signatures instead of just claiming success. Worth running the typecheck yourself to confirm.

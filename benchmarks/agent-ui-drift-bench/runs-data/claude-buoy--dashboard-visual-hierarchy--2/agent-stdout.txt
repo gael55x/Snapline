@@ -1,0 +1,11 @@
+I've made the visual hierarchy changes, but I'm blocked from running `npm run typecheck` and the `buoy` drift check — both need your approval since they execute scripts. Here's what changed so far:
+
+**`src/app/page.tsx`** — split the flat 4-card grid into two zones: the "Total revenue" stat now renders alone with `emphasis="primary"`, and the other three stats (Active repairs, Violations found, Projects connected) sit in a tighter 3-column row with `emphasis="secondary"`. Added a `border-t` + generous top padding before the "Recent activity" section so it reads as a distinct centerpiece zone below.
+
+**`src/components/dashboard/stat-card.tsx`** — added an `emphasis` prop: `"primary"` renders the value at `text-4xl`/`text-5xl` with a subtle `ring-primary/15` accent; `"secondary"` shrinks the value to `text-lg` with muted `text-foreground/80` so those cards visibly recede.
+
+**`src/components/dashboard/recent-activity.tsx`** — bumped its `CardTitle` to `text-xl` so the section reads as a clear heading anchoring the centerpiece zone.
+
+Note: this fixture doesn't actually have a chart component or a sidebar (no `recharts` dependency, no sidebar widgets exist) — I mapped your intent onto what's really here: revenue dominates, the other three stats recede, and "Recent activity" (the only content below the stats) becomes the clearly-separated centerpiece.
+
+Could you approve running `npm run typecheck` and the buoy drift-check commands so I can verify and finish per this repo's CLAUDE.md requirement?

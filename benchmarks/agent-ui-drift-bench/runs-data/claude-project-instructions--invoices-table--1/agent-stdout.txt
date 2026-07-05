@@ -1,0 +1,9 @@
+Added a billing page with a fully functional invoices table:
+
+- **`src/components/ui/table.tsx`** — the missing shadcn `Table` primitive (Table, TableHeader/Body/Row/Head/Cell), built the same way as the existing `badge.tsx`/`button.tsx`/`card.tsx`, since the design system needs it for any tabular UI.
+- **`src/components/invoices-table.tsx`** — client component with sortable column headers (Invoice, Date, Amount, Status, default sort: Date descending), a status `Badge` per row (`Paid` → default/primary, `Pending` → secondary, `Failed` → destructive — all existing semantic variants, no new palette colors needed), a "Download PDF" `Button` action per row, and prev/next pagination at 10 rows/page.
+- **`src/app/billing/page.tsx`** — new billing route rendering the table inside a `Card`, with 12 mock invoices to exercise pagination.
+
+Followed the project rules throughout: only `@/components/ui` primitives, only semantic classes (`bg-background`, `text-muted-foreground`, `border-border`, etc.), no arbitrary Tailwind values, no ad-hoc duplicate components.
+
+One caveat: Bash commands (`npm run typecheck`, `tsc`) required approval that wasn't granted in this session, so I couldn't run the type checker — I manually traced the types (union narrowing in the sort comparator, `BadgeVariant` typing, table prop types) and they check out, but you may want to run `npm run typecheck` yourself to confirm.

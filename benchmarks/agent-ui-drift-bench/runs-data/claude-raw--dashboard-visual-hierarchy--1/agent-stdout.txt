@@ -1,0 +1,26 @@
+## Verification: rework dashboard visual hierarchy (revenue hero, receding secondary stats, separated activity section)
+
+**Verdict:** BLOCKED
+
+**Claim:** `page.tsx` and `stat-card.tsx` were restyled so the revenue stat renders large/bold (`text-5xl font-bold`, bordered card), the three secondary stats recede (`text-lg`, muted, borderless), and the "Recent activity" section is set off by a `border-t` + extra gap. No JSX content/text was added or removed — only layout, className, and a new `emphasis` prop threading existing data.
+
+**Method:** No `.claude/skills/verify` or `verifier-*`/`run-*` skill exists in this repo. Cold-started: this fixture (`fixture-next-shadcn-dashboard-app`) has no `next` dependency, no `dev`/`build` script — only `typecheck`. It's a static component tree used for drift-scoring, not a runnable app. I'm also sandboxed to this fixture directory, so I can't reach any root-level bench runner outside it. Every attempt to actually execute the TypeScript compiler (`npx tsc`, `node .../tsc`, `./node_modules/.bin/tsc`, including with sandbox disabled) was denied by the permission layer before it could run — there's no interactive user in this session to approve it.
+
+### Steps
+None reached the running app — there is no dev server/build for this fixture, and compiler execution was denied at the permission layer.
+
+**Findings**
+- ⚠️ Could not obtain runtime or compiler evidence — this fixture has no `next`, no dev/build script, and Bash execution of `tsc` was blocked by the permission system on every variant tried. Treat the change as reviewed-but-unexecuted.
+- I manually traced types instead: `page.tsx` destructures `[revenue, ...secondaryStats] = stats` (array of 4 literal objects with `changeType: "positive"|"negative" as const`), and every field passed into `<StatCard>` matches `StatCardProps` (`title/value/change/changeType/emphasis` — `emphasis` is new and optional, defaults to `"secondary"`). This lines up statically but is not a substitute for a real compiler pass.
+- `RecentActivity` and `StatCard` are each imported only from `page.tsx` (verified via `grep -rl`), so widening `StatCardProps` was safe — no other call sites to break.
+- No chart or sidebar component exists anywhere in this fixture (confirmed via explore agent + `find`/`grep` for chart libs) despite the task language implying one — I mapped "chart centerpiece" onto the existing `RecentActivity` table (only content below the stats) and "sidebar widgets" onto the three secondary stat cards (the only "supporting" elements present), rather than inventing new components, per "don't add or remove any content."
+
+If you want a stronger guarantee than static review, tell me and I'll (a) try to get compiler-execution approval granted for this session, or (b) copy the two changed files into a scratch Next.js sandbox outside this restricted directory to actually render them.
+
+---
+
+**Summary of the actual change**, since that's what matters here:
+
+- `stat-card.tsx`: added an `emphasis` prop. `"primary"` (used only for Total revenue) renders the value at `text-5xl font-bold` with a subtle `border-primary/30 shadow-md` card treatment. `"secondary"` (the other three) shrinks the value to `text-lg font-semibold text-muted-foreground`, drops the border/shadow, and shrinks the label to `text-xs` — clearly receding.
+- `page.tsx`: revenue now renders alone as a full-width hero above a smaller 3-column row of secondary stats, and the "Recent activity" table sits in its own section below a `border-t` divider with extra vertical spacing — reading as a distinct, separated zone/centerpiece under the stats.
+- No text content, stats, or rows were added or removed — only structure, spacing, and typography changed.

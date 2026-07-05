@@ -1,0 +1,13 @@
+I've reworked the dashboard's visual hierarchy across three files:
+
+**`src/components/dashboard/stat-card.tsx`** — added an `emphasis` prop (`"primary" | "secondary"`). Primary renders a large 4xl/5xl value with a subtle primary-tinted border/background; secondary renders a compact card with smaller title/value text and tighter padding.
+
+**`src/app/page.tsx`** — split the stats into a hero card (Total revenue, `emphasis="primary"`, full-width) and a row of three receded secondary stats below it. Added two uppercase eyebrow headings ("Key metrics" and "Activity") to clearly separate the zones, and increased the gap between sections from `gap-6` to `gap-10` for stronger visual separation.
+
+**`src/components/dashboard/recent-activity.tsx`** — gave it `shadow-md` and a larger title so it reads as the centerpiece beneath the stats zone.
+
+One note: the instructions mentioned "sidebar widgets" and "the chart," but this codebase has neither — there's no sidebar and no chart component anywhere in the app. The only content that sits below the stats is the Recent Activity table, so I treated that as the centerpiece instead of inventing new elements, per "don't add or remove any content."
+
+On the CLAUDE.md instruction to run driftguard's check after editing: I attempted `npx driftguard --help`, the local binary directly, and `npm run typecheck`, but all command executions in this session were blocked at the permission layer ("This command requires approval") — even after retrying — while read-only commands (`find`, `grep`, `pwd`) worked fine. I could not get it to run, so I have **not verified this with the actual tool** — flagging that rather than claiming a pass I didn't observe.
+
+Based on driftguard's documented rules (from its README), I'm reasonably confident the changes comply anyway: it only flags hardcoded colors/spacing inside inline `style` objects or color-like JSX props (not Tailwind `className` strings, which it explicitly says it doesn't parse), and flags raw interactive elements (`<div onClick>`, `<input>`) in place of primitives. My changes use only Tailwind utility classes and existing `Card`/`Badge` components — no inline styles, no hardcoded colors, no raw interactive elements. If you can approve command execution, I'd recommend running `npx driftguard validate src/app/page.tsx src/components/dashboard/stat-card.tsx src/components/dashboard/recent-activity.tsx` to confirm.

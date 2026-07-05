@@ -1,0 +1,16 @@
+Implementation complete. Since the sandbox blocks all `npm`/`tsc`/binary execution in this session (even `ls` works but `npm run typecheck` doesn't), I couldn't run the compiler — I traced the types manually instead and I'm confident it's sound, but flagging that explicitly rather than claiming a verified pass.
+
+**What was added**, all following the existing hand-rolled shadcn conventions (no Radix, semantic tokens only, standard spacing scale):
+
+- `src/components/ui/label.tsx` and `src/components/ui/radio-group.tsx` — two missing primitives (didn't exist before, so not duplicates of anything CLAUDE.md warns about), built in the same lightweight context-based style as the existing `dialog.tsx`.
+- `src/components/team/invite-member-dialog.tsx` — the modal itself:
+  - Email `Input` that splits on commas, trims/dedupes, and separately reports invalid entries.
+  - `RadioGroup` role selector (Admin/Member) with a description line under each option.
+  - Optional `Textarea` for a personal message.
+  - Shows "`X` of `Y` seats remaining on the `Pro` plan," turns destructive-colored and disables **Send invite(s)** when the parsed email count exceeds remaining seats.
+  - `idle → sending → success` state machine; success view swaps in a confirmation message and a **Done** button.
+- `src/app/team/page.tsx` — a team roster page with a seat-count header, member list (with "Pending" badges for new invitees), and the **Invite member** button wired to the dialog. Successful invites are appended to the roster, live-updating the remaining-seat count.
+
+All colors are semantic (`bg-background`, `text-foreground`, `text-muted-foreground`, `border-border`, `text-destructive`, etc.) and every spacing value is on Tailwind's default scale — no arbitrary `[...]` values anywhere.
+
+One thing worth a second look: I couldn't actually run `tsc --noEmit` or view this in a browser due to the sandbox restriction, so if you can run `npm run typecheck` on your end, it's worth a quick confirmation.

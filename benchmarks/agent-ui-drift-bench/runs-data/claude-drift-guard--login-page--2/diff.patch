@@ -1,0 +1,185 @@
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff..4629b7c 100644
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,3 +1,7 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+@@ -7,9 +11,71 @@ import {
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
++import { Checkbox } from "@/components/ui/checkbox"
+ import { Input } from "@/components/ui/input"
+ 
++interface FormErrors {
++  email?: string
++  password?: string
++}
++
++function GoogleIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true" {...props}>
++      <path
++        fill="currentColor"
++        d="M21.35 11.1h-9.17v2.98h5.27c-.23 1.4-1.6 4.1-5.27 4.1-3.17 0-5.76-2.62-5.76-5.85s2.59-5.85 5.76-5.85c1.8 0 3.01.77 3.7 1.43l2.52-2.43C16.94 3.9 14.83 3 12.18 3 6.99 3 2.78 7.2 2.78 12.33c0 5.13 4.21 9.33 9.4 9.33 5.43 0 9.02-3.81 9.02-9.18 0-.62-.07-1.09-.15-1.38Z"
++      />
++    </svg>
++  )
++}
++
++function GitHubIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true" {...props}>
++      <path
++        fill="currentColor"
++        d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.53 9.53 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
++      />
++    </svg>
++  )
++}
++
++const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
++
+ export default function LoginPage() {
++  const [email, setEmail] = React.useState("")
++  const [password, setPassword] = React.useState("")
++  const [errors, setErrors] = React.useState<FormErrors>({})
++  const [isLoading, setIsLoading] = React.useState(false)
++
++  function validate(): FormErrors {
++    const nextErrors: FormErrors = {}
++    if (!email.trim()) {
++      nextErrors.email = "Email is required."
++    } else if (!EMAIL_PATTERN.test(email)) {
++      nextErrors.email = "Enter a valid email address."
++    }
++    if (!password) {
++      nextErrors.password = "Password is required."
++    } else if (password.length < 8) {
++      nextErrors.password = "Password must be at least 8 characters."
++    }
++    return nextErrors
++  }
++
++  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++    const nextErrors = validate()
++    setErrors(nextErrors)
++    if (Object.keys(nextErrors).length > 0) {
++      return
++    }
++    setIsLoading(true)
++    await new Promise((resolve) => setTimeout(resolve, 1000))
++    setIsLoading(false)
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+@@ -17,8 +83,28 @@ export default function LoginPage() {
+           <CardTitle>Sign in</CardTitle>
+           <CardDescription>Enter your email below to sign in to your account.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="flex flex-col gap-4">
++          <div className="flex flex-col gap-2">
++            <Button variant="outline" className="w-full">
++              <GoogleIcon />
++              Continue with Google
++            </Button>
++            <Button variant="outline" className="w-full">
++              <GitHubIcon />
++              Continue with GitHub
++            </Button>
++          </div>
++
++          <div className="relative">
++            <div className="absolute inset-0 flex items-center">
++              <span className="w-full border-t border-border" />
++            </div>
++            <div className="relative flex justify-center text-xs uppercase">
++              <span className="bg-card px-2 text-muted-foreground">or continue with email</span>
++            </div>
++          </div>
++
++          <form className="flex flex-col gap-4" noValidate onSubmit={handleSubmit}>
+             <div className="flex flex-col gap-2">
+               <label htmlFor="email" className="text-sm font-medium text-foreground">
+                 Email
+@@ -29,8 +115,16 @@ export default function LoginPage() {
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                value={email}
++                onChange={(event) => setEmail(event.target.value)}
++                aria-invalid={Boolean(errors.email)}
++                aria-describedby={errors.email ? "email-error" : undefined}
+               />
++              {errors.email ? (
++                <p id="email-error" role="alert" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
+             <div className="flex flex-col gap-2">
+               <label htmlFor="password" className="text-sm font-medium text-foreground">
+@@ -41,16 +135,45 @@ export default function LoginPage() {
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                value={password}
++                onChange={(event) => setPassword(event.target.value)}
++                aria-invalid={Boolean(errors.password)}
++                aria-describedby={errors.password ? "password-error" : undefined}
+               />
++              {errors.password ? (
++                <p id="password-error" role="alert" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
+             </div>
++
++            <div className="flex items-center justify-between">
++              <div className="flex items-center gap-2">
++                <Checkbox id="remember" name="remember" />
++                <label htmlFor="remember" className="text-sm font-medium text-foreground">
++                  Remember me
++                </label>
++              </div>
++              <a
++                href="/forgot-password"
++                className="text-sm font-medium text-primary underline-offset-4 hover:underline"
++              >
++                Forgot password?
++              </a>
++            </div>
++
++            <Button type="submit" className="w-full" disabled={isLoading}>
++              {isLoading ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
++        <CardFooter className="justify-center">
++          <p className="text-sm text-muted-foreground">
++            Don&apos;t have an account?{" "}
++            <a href="/signup" className="font-medium text-primary underline-offset-4 hover:underline">
++              Sign up
++            </a>
++          </p>
+         </CardFooter>
+       </Card>
+     </main>

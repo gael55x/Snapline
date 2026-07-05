@@ -1,0 +1,11 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":169,"files":["src/components/dashboard/pricing-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":78,"files":["src/components/dashboard/pricing-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":40,"files":["src/components/dashboard/pricing-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":74,"files":["src/components/dashboard/pricing-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":59,"files":["src/components/dashboard/pricing-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":43,"files":["src/app/pricing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":29,"files":["src/components/dashboard/nav.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":73,"files":["src/app/pricing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":82,"files":["src/components/dashboard/pricing-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":72,"files":["src/components/dashboard/pricing-card.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":458,"files":[]}

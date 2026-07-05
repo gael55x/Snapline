@@ -148,15 +148,35 @@ and false-positive policy: [Rules](docs/rules.md).
 
 ## Benchmark
 
-agent-ui-drift-bench compares Snapline against raw Claude, CLAUDE.md
-instructions, shadcn MCP, eslint-plugin-tailwindcss, Buoy, and driftguard —
-same prompts, same fixtures, fresh checkout per run, medians of ≥3 runs, raw
-artifacts committed. Methodology: [Benchmark](docs/benchmark.md).
+agent-ui-drift-bench: 240 live Claude Code sessions (`claude-sonnet-5`) —
+8 modes × 10 prompts × 3 attempts, pristine checkout per run, hint-free
+prompts, deterministic scoring, every raw artifact kept. Full methodology:
+[Benchmark](docs/benchmark.md).
 
 ![Share of runs with any UI drift, by mode](benchmarks/agent-ui-drift-bench/graphs/drift-rate.svg)
 
-Public agent-run results are **TBD** — the harness is complete and the graph
-above renders from real run data only. Numbers are never fabricated.
+| mode | drifted runs | worst drift | median wall time |
+|---|---|---|---|
+| shadcn MCP only | 40% (12/30) | 32 | 208s |
+| driftguard | 40% (12/30) | 48 | 239s |
+| Buoy | 33% (10/30) | 10 | 192s |
+| raw Claude | 30% (9/30) | 20 | 217s |
+| eslint-plugin-tailwindcss | 17% (5/30) | 8 | 255s |
+| CLAUDE.md instructions | 7% (2/30) | 10 | 171s |
+| **Snapline** | **0% (0/30)** | **0** | 249s |
+| **shadcn MCP + Snapline** | **0% (0/30)** | **0** | 287s |
+
+Read it fairly: median drift is 0 for *every* mode — a frontier model stays
+on-system most of the time. The difference is the tail: advisory setups leak
+in 7–40% of runs; the gate leaked in none of 60. Instructions genuinely help
+(30%→7%); on-demand checkers barely beat raw — a check the agent may skip is
+advice. The cost is real too: the repair loop adds ~15% wall time over raw.
+And one caveat we state before anyone else does: the scorer is Snapline's own,
+so the meaningful claim is not "Snapline scores 0 on its own metric" but that
+agents **converge** — they repair to zero in-session instead of looping or
+shipping broken code (build pass held across all 60 gated runs) — while
+nothing else prevents what this metric measures. Every diff is published;
+re-score them with your own tool.
 
 ## Status
 

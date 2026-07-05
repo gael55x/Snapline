@@ -1,0 +1,3 @@
+There's no onboarding flow anywhere in this repository — it's a small dashboard app with only a settings page, a dashboard nav, and a few UI components (badge, button, card, dialog, input, table). No steps, wizard, progress bar, or "onboarding" reference exists in the codebase.
+
+Could you point me to where this onboarding flow lives (a different repo/branch, or is it something to be built from scratch)? I don't want to guess and create a new flow when you may be referring to something specific.

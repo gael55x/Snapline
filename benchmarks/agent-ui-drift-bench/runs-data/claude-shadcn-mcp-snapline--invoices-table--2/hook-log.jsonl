@@ -1,0 +1,5 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":28,"files":["src/components/ui/table.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":0,"files":["src/lib/invoices.ts"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":35,"files":["src/components/invoices-table.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":23,"files":["src/app/billing/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":100,"files":[]}

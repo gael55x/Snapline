@@ -1,0 +1,8 @@
+This checks out — the code follows the codebase's existing conventions correctly and I don't see type errors on manual review. I wasn't able to get shell approval to run `tsc --noEmit` in this session to verify automatically.
+
+Summary of what was added:
+- `src/components/ui/table.tsx` — hand-rolled Table primitives matching this project's existing style (plain `cn`, no Radix/cva, consistent with `badge.tsx`/`card.tsx`).
+- `src/components/invoices-table.tsx` — client component with mock invoice data, sortable Invoice/Date/Amount headers (default: date descending, click to toggle asc/desc), status badges using only existing theme tokens (`primary`=Paid, `brand`=Pending, `destructive`=Failed), a "Download PDF" button per row, and prev/next pagination at 10 rows/page.
+- `src/app/billing/page.tsx` — new billing page rendering the table inside a `Card`.
+
+Could you run `npm run typecheck` on your end to confirm it passes? My sandbox didn't allow me to execute it directly this turn.

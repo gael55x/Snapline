@@ -1,0 +1,15 @@
+Built the billing settings page at `src/app/settings/billing/page.tsx`, with three new UI primitives added to `src/components/ui/` to match this project's hand-rolled (no Radix/cva) component style:
+
+- **alert.tsx** — banner with `notice`/`destructive`/`default` variants (used for the trial-expiring banner)
+- **table.tsx** — semantic table primitives for the invoice list
+- **separator.tsx** — divider primitive (available for reuse, not currently used on this page)
+
+The page itself includes:
+- A trial-expiring **notice banner** (shown conditionally when `daysRemaining <= 7`)
+- **Current plan** card — name badge, price, renewal date, "Change plan," and a "Cancel subscription" action that opens a confirmation dialog (destructive/keep choice)
+- **Payment method** card — card brand/last4/expiry with an "Update card" button opening a dialog with card-entry inputs
+- **Invoices** card — table of recent invoices with status badges and download links
+
+Everything uses only the existing `Button`, `Card`, `Badge`, `Dialog`, `Input` components and semantic Tailwind tokens from `globals.css`/`tailwind.config.ts` — no raw hex, inline styles, or arbitrary bracket values, per `snapline.yml`'s drift rules.
+
+One caveat: the sandbox in this session blocked all `tsc`/`npm` invocations (read-only commands like `grep`/`ls`/`cat` worked fine), so I couldn't run the typecheck script directly — I did a careful manual pass over the new/changed files instead and everything lines up with the existing type signatures. If you can run `npm run typecheck` on your end, worth a quick confirmation.

@@ -1,0 +1,9 @@
+I've added a billing invoices table at `src/app/billing/page.tsx`:
+
+- **`src/components/ui/table.tsx`** — a new `Table` primitive matching this project's hand-rolled shadcn style (no `cva`, plain `cn`, `forwardRef`), styled only with tokens already in the theme (`border-border`, `text-muted-foreground`, `bg-secondary/50` on hover).
+- **`src/components/invoices-table.tsx`** — client component with 23 mock invoices, sortable column headers (Invoice, Date, Amount, Status — click toggles asc/desc, default Date desc), a status `Badge` per row (`Paid` → primary, `Pending` → secondary, `Failed` → destructive — three distinct looks using the existing badge variants, no new colors introduced), a download action per row that generates and downloads a placeholder PDF via `Blob`, and a prev/next footer paginating 10 rows/page.
+- **`src/app/billing/page.tsx`** — page shell wrapping the table in the existing `Card` components.
+
+I deliberately mapped statuses onto the Badge component's existing `default`/`secondary`/`destructive` variants rather than inventing new colors, since `snapline.yml` in this fixture enforces a strict semantic-token allowlist (no raw hex, no arbitrary Tailwind values, no `bg-muted`) — everything here stays within `bg-primary`, `bg-secondary`, `bg-destructive`, `border-border`, `text-foreground`/`text-muted-foreground`, all already permitted.
+
+One caveat: this sandbox's permission mode blocked running `tsc`/`npm run typecheck` for me (every invocation returned "requires approval" without a response), so I couldn't execute a live compile. I manually traced the types (indexed sort comparator, `BadgeVariant`/`InvoiceStatus` mappings, DOM lib usage) and they check out, but you may want to run `npm run typecheck` yourself to confirm.

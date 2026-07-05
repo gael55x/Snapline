@@ -1,0 +1,33 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-drift-guard--login-page--1/repo/fixtures/next-shadcn-basic",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/login/page.tsx",
+    "src/app/page.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/checkbox.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/select.tsx",
+    "src/components/ui/table.tsx",
+    "src/components/ui/textarea.tsx"
+  ],
+  "violations": [],
+  "score": {
+    "driftScore": 0,
+    "totalViolations": 0,
+    "errorViolations": 0,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [],
+  "durationMs": 34
+}

@@ -1,0 +1,8 @@
+This looks syntactically and structurally sound — all components/props match their definitions (`Badge` with `variant="outline"`, `Card*` subcomponents, `Button` variants, `Input` props, `Dialog*` parts, and `React.SVGProps<SVGSVGElement>` for the two local icon components). All original fields (`workspace-name`, `contact-email`, `repo-url`), the `confirmOpen` dialog state, and every click handler are untouched.
+
+Summary of the visual refresh:
+- **Section separation**: page header now has its own bordered band with an "Workspace" eyebrow badge; each card gets a colored icon tile + border/tinted background in its header, with a matching bordered/tinted footer — so header, body, and actions read as distinct zones instead of one flat block.
+- **Form styling**: the three fields now sit in a responsive 2-column grid (name/email side by side, repo URL full-width) with more breathing room (`gap-6`), and a small "Optional" hint next to the Repository URL label.
+- **Emphasis on key actions**: primary "Save changes" is now rightmost with a subtle shadow; "Danger zone" gets a destructive-tinted card treatment with a warning icon in both the card and the confirmation dialog, so the risk registers before the user reads the copy.
+
+I couldn't run `tsc --noEmit` — the sandbox blocked executing `node`/`tsc` even with the safety override — so I verified correctness by re-reading the file against each component's actual prop signatures. Let me know if you'd like me to find another way to run the typecheck.

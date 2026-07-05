@@ -1,0 +1,1 @@
+The sandbox is blocking bash execution and needs your approval. Could you approve running shell commands so I can typecheck and run `npx driftguard --help` as required by this project's CLAUDE.md?

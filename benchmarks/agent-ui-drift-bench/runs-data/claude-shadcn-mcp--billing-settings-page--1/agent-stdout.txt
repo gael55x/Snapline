@@ -1,0 +1,18 @@
+I don't have permission to run shell commands like `npm run typecheck` in this session. Could you run it yourself (or grant Bash approval) so we can confirm the new files type-check cleanly?
+
+For now, here's a summary of what I added:
+
+**New route:** `src/app/settings/billing/page.tsx` — a client component with:
+- A trial-expiry `Alert` banner (warning variant, uses the existing `brand` token) shown conditionally when the trial is ending soon
+- **Current plan** card — name, price, renewal/conversion date, a `Trial`/`Active` badge, and a de-emphasized "Cancel subscription" button in the footer that opens a confirmation dialog (destructive action, not surfaced as a prominent red button to avoid accidental clicks)
+- **Payment method** card — card brand/last4/expiry with an "Update card" button opening a dialog with card-number/expiry/CVC inputs
+- **Invoices** card — table of recent invoices with status badges and per-row "Download" links
+- Two dialogs (update card, cancel subscription) built on the existing hand-rolled `Dialog` primitive, controlled via local `useState`
+
+**New primitives** (hand-rolled to match this repo's existing style — no `cva`/Radix, since neither is installed):
+- `src/components/ui/alert.tsx` — `Alert`, `AlertTitle`, `AlertDescription`
+- `src/components/ui/table.tsx` — `Table`, `TableHeader`, `TableBody`, `TableRow`, `TableHead`, `TableCell`
+
+All classes use existing semantic tokens (`border-border`, `bg-card`, `text-muted-foreground`, `bg-brand`, etc.) — no hardcoded colors — consistent with the rest of the fixture.
+
+Once you approve a shell command, I can run `npm run typecheck` to confirm everything compiles.

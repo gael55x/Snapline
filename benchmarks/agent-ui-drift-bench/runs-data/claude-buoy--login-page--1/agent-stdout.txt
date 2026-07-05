@@ -1,0 +1,14 @@
+I've hit a wall: `npx`/`node` execution commands are being blocked by the permission system (repeated denials), while read-only commands (`find`, `ls`, `cat`) go through fine. I don't want to keep hammering the same blocked command.
+
+I've built the login page at `src/app/login/page.tsx` with:
+- Google/GitHub sign-in buttons above the form, separated by an "or continue with email" divider
+- Email + password fields with inline validation errors (required, email format, password length)
+- "Remember me" checkbox and "Forgot password?" link
+- Submit button with a loading state ("Signing in...", disabled while submitting)
+- "Don't have an account? Sign up" link at the bottom
+
+Per `CLAUDE.md`, I need to run `npx buoy --help` and the drift check to fix any reported issues, but those commands aren't being approved when I invoke them via Bash. Could you either:
+1. Approve the `npx`/`node` command execution in your permission settings, or
+2. Run `npx buoy drift check` yourself and share the output,
+
+so I can fix anything it reports?

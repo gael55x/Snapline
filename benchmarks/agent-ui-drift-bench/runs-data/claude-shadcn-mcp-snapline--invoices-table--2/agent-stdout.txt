@@ -1,0 +1,3 @@
+The user's permission settings are blocking these commands. Let me ask directly instead of retrying blindly.
+
+I need your approval to run the typecheck command (`npm run typecheck` / `tsc --noEmit`) in the fixture directory to verify the new files compile cleanly. Would you like to approve it, or should I just do a manual review instead?

@@ -1,0 +1,5 @@
+{"agent":"claude","kind":"post-tool-use","action":"block","durationMs":28,"files":["src/components/ui/checkbox.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":50,"files":["src/components/ui/checkbox.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":34,"files":["src/app/login/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":33,"files":["src/app/login/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":78,"files":[]}

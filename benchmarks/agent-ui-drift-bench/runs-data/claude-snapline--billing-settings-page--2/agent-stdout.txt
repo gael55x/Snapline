@@ -1,0 +1,13 @@
+That's just the CSS module ambient declaration — nothing else needed. The sandbox blocked running `tsc`/`npm run typecheck` (approval denied both times), so I verified types manually by cross-checking every prop against the component signatures I read (Button, Card*, Dialog*, Input, Badge, `cn`) — all match.
+
+Summary of what was built at `src/app/settings/billing/page.tsx`:
+
+- **Trial banner** (orange `brand` token) shown conditionally, with a CTA that opens the update-card dialog.
+- **Current plan card** — name, price, renewal date, a "Trial" badge, and a de-emphasized **Cancel subscription** button in the footer (ghost + destructive text, so it's discoverable but not the visual focal point).
+- **Payment method card** — card brand/last4/expiry with an **Update card** button opening a dialog form (card number/expiry/CVC using the existing `Input`).
+- **Invoices card** — last 3 invoices with date, amount, status badge, and a "Download" link per row.
+- **Cancel subscription dialog** — confirms the access-until date before cancelling, with a "Keep subscription" escape hatch.
+
+Everything reuses existing primitives (`Card`, `Badge`, `Button`, `Dialog`, `Input`) and theme tokens only — no new colors or libraries introduced.
+
+One caveat: I wasn't able to actually run `npm run typecheck` or a dev server in this sandbox (both were denied), so this hasn't been runtime-verified — only checked by hand against the component source.

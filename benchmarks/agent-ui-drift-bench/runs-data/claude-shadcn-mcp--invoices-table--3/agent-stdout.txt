@@ -1,0 +1,13 @@
+This confirms the code is correct and consistent with the project's conventions. The `cn` import in `table.tsx` also checks out against the existing pattern in `card.tsx`/`button.tsx`.
+
+## Summary
+
+Added a billing page at `src/app/billing/page.tsx` with a new `Table` primitive at `src/components/ui/table.tsx`:
+
+- **Table primitive** (`table.tsx`) — built to match the existing `cn`-based, non-cva style already used by `button.tsx`/`badge.tsx`/`card.tsx`.
+- **Invoices table** — columns for invoice number, date, amount, status, and a "Download PDF" action button per row.
+- **Status badges** reuse existing theme tokens only, no new colors introduced: Paid → `bg-brand` (same pattern as the homepage's beta badge), Pending → `variant="secondary"`, Failed → `variant="destructive"`.
+- **Sorting** — all four columns are clickable headers with an ↑/↓ indicator; defaults to date descending; clicking toggles direction, switching columns resets to ascending.
+- **Pagination** — 10 rows/page with Previous/Next buttons and a "Page X of Y" / "Showing X–Y of Z" footer, using the mock 23-invoice dataset (so pagination is actually exercised across 3 pages).
+
+Note: I couldn't run `tsc --noEmit` to verify — the sandbox blocked the command as requiring approval that never resolved — so I manually traced the types (particularly the `SortKey` narrowing in `compareInvoices`) instead. Let me know if you'd like me to try the typecheck again with your approval, or wire this page into any nav/layout.

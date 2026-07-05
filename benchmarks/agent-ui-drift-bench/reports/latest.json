@@ -1,39 +1,43 @@
 {
   "benchmark": "agent-ui-drift-bench",
-  "generatedAt": "2026-07-05T03:53:31.632Z",
+  "generatedAt": "2026-07-05T05:08:20.180Z",
   "configHash": "da6de300d39ed56d",
   "scorer": "ui-drift-score-v1",
   "modes": [
     {
       "mode": "claude-raw",
       "runs": 30,
-      "failures": 1,
+      "failures": 0,
       "median": {
         "driftScore": 0,
         "totalViolations": 0,
         "componentReuseRate": 1,
         "buildPassRate": 1,
         "repairIterations": 0,
-        "totalWallTimeSeconds": 215
-      }
+        "totalWallTimeSeconds": 216.5
+      },
+      "driftedRunRate": 0.3,
+      "worstDriftScore": 20
     },
     {
       "mode": "claude-project-instructions",
-      "runs": 25,
+      "runs": 30,
       "failures": 0,
       "median": {
         "driftScore": 0,
         "totalViolations": 0,
         "componentReuseRate": 1,
-        "buildPassRate": 0.96,
+        "buildPassRate": 0.9666666666666667,
         "repairIterations": 0,
-        "totalWallTimeSeconds": 193
-      }
+        "totalWallTimeSeconds": 171
+      },
+      "driftedRunRate": 0.06666666666666667,
+      "worstDriftScore": 10
     },
     {
       "mode": "claude-shadcn-mcp",
-      "runs": 21,
-      "failures": 1,
+      "runs": 30,
+      "failures": 0,
       "median": {
         "driftScore": 0,
         "totalViolations": 0,
@@ -41,24 +45,28 @@
         "buildPassRate": 1,
         "repairIterations": 0,
         "totalWallTimeSeconds": 208
-      }
+      },
+      "driftedRunRate": 0.4,
+      "worstDriftScore": 32
     },
     {
       "mode": "claude-tailwind-eslint",
       "runs": 30,
-      "failures": 1,
+      "failures": 0,
       "median": {
         "driftScore": 0,
         "totalViolations": 0,
         "componentReuseRate": 1,
         "buildPassRate": 1,
         "repairIterations": 0,
-        "totalWallTimeSeconds": 242
-      }
+        "totalWallTimeSeconds": 254.5
+      },
+      "driftedRunRate": 0.16666666666666666,
+      "worstDriftScore": 8
     },
     {
       "mode": "claude-buoy",
-      "runs": 21,
+      "runs": 30,
       "failures": 0,
       "median": {
         "driftScore": 0,
@@ -66,12 +74,14 @@
         "componentReuseRate": 1,
         "buildPassRate": 1,
         "repairIterations": 0,
-        "totalWallTimeSeconds": 192
-      }
+        "totalWallTimeSeconds": 191.5
+      },
+      "driftedRunRate": 0.3333333333333333,
+      "worstDriftScore": 10
     },
     {
       "mode": "claude-drift-guard",
-      "runs": 16,
+      "runs": 30,
       "failures": 0,
       "median": {
         "driftScore": 0,
@@ -79,8 +89,10 @@
         "componentReuseRate": 1,
         "buildPassRate": 1,
         "repairIterations": 0,
-        "totalWallTimeSeconds": 292.5
-      }
+        "totalWallTimeSeconds": 239
+      },
+      "driftedRunRate": 0.4,
+      "worstDriftScore": 48
     },
     {
       "mode": "claude-snapline",
@@ -93,11 +105,13 @@
         "buildPassRate": 1,
         "repairIterations": 0,
         "totalWallTimeSeconds": 249
-      }
+      },
+      "driftedRunRate": 0,
+      "worstDriftScore": 0
     },
     {
       "mode": "claude-shadcn-mcp-snapline",
-      "runs": 15,
+      "runs": 30,
       "failures": 0,
       "median": {
         "driftScore": 0,
@@ -105,8 +119,10 @@
         "componentReuseRate": 1,
         "buildPassRate": 1,
         "repairIterations": 0,
-        "totalWallTimeSeconds": 308
-      }
+        "totalWallTimeSeconds": 286.5
+      },
+      "driftedRunRate": 0,
+      "worstDriftScore": 0
     }
   ],
   "runs": [
@@ -331,6 +347,228 @@
       ],
       "scannerJsonPath": "runs/claude-buoy--dashboard-visual-hierarchy--3/scanner.json",
       "gitDiffPath": "runs/claude-buoy--dashboard-visual-hierarchy--3/diff.patch"
+    },
+    {
+      "id": "claude-buoy--empty-state--1",
+      "timestamp": "2026-07-05T04:20:48.971Z",
+      "mode": "claude-buoy",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 120,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-buoy--empty-state--1/agent-stdout.txt",
+        "runs/claude-buoy--empty-state--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-buoy--empty-state--1/scanner.json",
+      "gitDiffPath": "runs/claude-buoy--empty-state--1/diff.patch"
+    },
+    {
+      "id": "claude-buoy--empty-state--2",
+      "timestamp": "2026-07-05T04:22:56.688Z",
+      "mode": "claude-buoy",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 188,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-buoy--empty-state--2/agent-stdout.txt",
+        "runs/claude-buoy--empty-state--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-buoy--empty-state--2/scanner.json",
+      "gitDiffPath": "runs/claude-buoy--empty-state--2/diff.patch"
+    },
+    {
+      "id": "claude-buoy--empty-state--3",
+      "timestamp": "2026-07-05T04:26:08.884Z",
+      "mode": "claude-buoy",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 1,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 119,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-buoy--empty-state--3/agent-stdout.txt",
+        "runs/claude-buoy--empty-state--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-buoy--empty-state--3/scanner.json",
+      "gitDiffPath": "runs/claude-buoy--empty-state--3/diff.patch"
+    },
+    {
+      "id": "claude-buoy--invoices-table--1",
+      "timestamp": "2026-07-05T04:05:43.101Z",
+      "mode": "claude-buoy",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9375
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 297,
+        "filesTouched": 5
+      },
+      "rawOutputPaths": [
+        "runs/claude-buoy--invoices-table--1/agent-stdout.txt",
+        "runs/claude-buoy--invoices-table--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-buoy--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs/claude-buoy--invoices-table--1/diff.patch"
+    },
+    {
+      "id": "claude-buoy--invoices-table--2",
+      "timestamp": "2026-07-05T04:10:44.907Z",
+      "mode": "claude-buoy",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9375
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 204,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-buoy--invoices-table--2/agent-stdout.txt",
+        "runs/claude-buoy--invoices-table--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-buoy--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs/claude-buoy--invoices-table--2/diff.patch"
+    },
+    {
+      "id": "claude-buoy--invoices-table--3",
+      "timestamp": "2026-07-05T04:14:12.986Z",
+      "mode": "claude-buoy",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9375
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 391,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-buoy--invoices-table--3/agent-stdout.txt",
+        "runs/claude-buoy--invoices-table--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-buoy--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs/claude-buoy--invoices-table--3/diff.patch"
     },
     {
       "id": "claude-buoy--login-page--1",
@@ -888,6 +1126,117 @@
       "gitDiffPath": "runs/claude-buoy--pricing-cards-polish--3/diff.patch"
     },
     {
+      "id": "claude-buoy--team-invite-modal--1",
+      "timestamp": "2026-07-05T03:55:22.310Z",
+      "mode": "claude-buoy",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 10,
+          "totalViolations": 2,
+          "errorViolations": 0,
+          "warningViolations": 2,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 2,
+          "componentReuseRate": 0.9643
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 292,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-buoy--team-invite-modal--1/agent-stdout.txt",
+        "runs/claude-buoy--team-invite-modal--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-buoy--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs/claude-buoy--team-invite-modal--1/diff.patch"
+    },
+    {
+      "id": "claude-buoy--team-invite-modal--2",
+      "timestamp": "2026-07-05T04:00:18.177Z",
+      "mode": "claude-buoy",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9643
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 156,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-buoy--team-invite-modal--2/agent-stdout.txt",
+        "runs/claude-buoy--team-invite-modal--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-buoy--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs/claude-buoy--team-invite-modal--2/diff.patch"
+    },
+    {
+      "id": "claude-buoy--team-invite-modal--3",
+      "timestamp": "2026-07-05T04:02:57.950Z",
+      "mode": "claude-buoy",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.963
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 161,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-buoy--team-invite-modal--3/agent-stdout.txt",
+        "runs/claude-buoy--team-invite-modal--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-buoy--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs/claude-buoy--team-invite-modal--3/diff.patch"
+    },
+    {
       "id": "claude-drift-guard--billing-settings-page--1",
       "timestamp": "2026-07-05T03:45:58.294Z",
       "mode": "claude-drift-guard",
@@ -923,6 +1272,80 @@
       ],
       "scannerJsonPath": "runs/claude-drift-guard--billing-settings-page--1/scanner.json",
       "gitDiffPath": "runs/claude-drift-guard--billing-settings-page--1/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--billing-settings-page--2",
+      "timestamp": "2026-07-05T03:51:25.653Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 10,
+          "totalViolations": 2,
+          "errorViolations": 0,
+          "warningViolations": 2,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 2,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 273,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--billing-settings-page--2/agent-stdout.txt",
+        "runs/claude-drift-guard--billing-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--billing-settings-page--2/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--billing-settings-page--3",
+      "timestamp": "2026-07-05T03:56:02.545Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 142,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--billing-settings-page--3/agent-stdout.txt",
+        "runs/claude-drift-guard--billing-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--billing-settings-page--3/diff.patch"
     },
     {
       "id": "claude-drift-guard--dashboard-visual-hierarchy--1",
@@ -1034,6 +1457,339 @@
       ],
       "scannerJsonPath": "runs/claude-drift-guard--dashboard-visual-hierarchy--3/scanner.json",
       "gitDiffPath": "runs/claude-drift-guard--dashboard-visual-hierarchy--3/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--empty-state--1",
+      "timestamp": "2026-07-05T04:34:13.149Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 1,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 198,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--empty-state--1/agent-stdout.txt",
+        "runs/claude-drift-guard--empty-state--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--empty-state--1/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--empty-state--1/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--empty-state--2",
+      "timestamp": "2026-07-05T04:37:34.573Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 100,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--empty-state--2/agent-stdout.txt",
+        "runs/claude-drift-guard--empty-state--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--empty-state--2/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--empty-state--2/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--empty-state--3",
+      "timestamp": "2026-07-05T04:39:19.598Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 68,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--empty-state--3/agent-stdout.txt",
+        "runs/claude-drift-guard--empty-state--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--empty-state--3/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--empty-state--3/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--invoices-table--1",
+      "timestamp": "2026-07-05T04:22:35.016Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9375
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 268,
+        "filesTouched": 5
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--invoices-table--1/agent-stdout.txt",
+        "runs/claude-drift-guard--invoices-table--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--invoices-table--1/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--invoices-table--2",
+      "timestamp": "2026-07-05T04:27:06.477Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 16,
+          "totalViolations": 2,
+          "errorViolations": 2,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 1,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9375
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 183,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--invoices-table--2/agent-stdout.txt",
+        "runs/claude-drift-guard--invoices-table--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--invoices-table--2/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--invoices-table--3",
+      "timestamp": "2026-07-05T04:30:12.599Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9375
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 237,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--invoices-table--3/agent-stdout.txt",
+        "runs/claude-drift-guard--invoices-table--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--invoices-table--3/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--login-page--1",
+      "timestamp": "2026-07-05T03:58:29.477Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 223,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--login-page--1/agent-stdout.txt",
+        "runs/claude-drift-guard--login-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--login-page--1/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--login-page--1/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--login-page--2",
+      "timestamp": "2026-07-05T04:02:14.893Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 253,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--login-page--2/agent-stdout.txt",
+        "runs/claude-drift-guard--login-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--login-page--2/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--login-page--2/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--login-page--3",
+      "timestamp": "2026-07-05T04:06:30.945Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9545
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 221,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--login-page--3/agent-stdout.txt",
+        "runs/claude-drift-guard--login-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--login-page--3/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--login-page--3/diff.patch"
     },
     {
       "id": "claude-drift-guard--onboarding-cleanup--1",
@@ -1480,6 +2236,117 @@
       "gitDiffPath": "runs/claude-drift-guard--pricing-cards-polish--3/diff.patch"
     },
     {
+      "id": "claude-drift-guard--team-invite-modal--1",
+      "timestamp": "2026-07-05T04:10:14.418Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.963
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 201,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--team-invite-modal--1/agent-stdout.txt",
+        "runs/claude-drift-guard--team-invite-modal--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--team-invite-modal--1/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--team-invite-modal--2",
+      "timestamp": "2026-07-05T04:13:39.966Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9643
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 241,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--team-invite-modal--2/agent-stdout.txt",
+        "runs/claude-drift-guard--team-invite-modal--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--team-invite-modal--2/diff.patch"
+    },
+    {
+      "id": "claude-drift-guard--team-invite-modal--3",
+      "timestamp": "2026-07-05T04:17:44.129Z",
+      "mode": "claude-drift-guard",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9643
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 288,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-drift-guard--team-invite-modal--3/agent-stdout.txt",
+        "runs/claude-drift-guard--team-invite-modal--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-drift-guard--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs/claude-drift-guard--team-invite-modal--3/diff.patch"
+    },
+    {
       "id": "claude-project-instructions--billing-settings-page--1",
       "timestamp": "2026-07-05T03:18:31.121Z",
       "mode": "claude-project-instructions",
@@ -1702,6 +2569,117 @@
       "gitDiffPath": "runs/claude-project-instructions--dashboard-visual-hierarchy--3/diff.patch"
     },
     {
+      "id": "claude-project-instructions--empty-state--1",
+      "timestamp": "2026-07-05T03:58:31.615Z",
+      "mode": "claude-project-instructions",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 70,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-project-instructions--empty-state--1/agent-stdout.txt",
+        "runs/claude-project-instructions--empty-state--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-project-instructions--empty-state--1/scanner.json",
+      "gitDiffPath": "runs/claude-project-instructions--empty-state--1/diff.patch"
+    },
+    {
+      "id": "claude-project-instructions--empty-state--2",
+      "timestamp": "2026-07-05T03:59:44.171Z",
+      "mode": "claude-project-instructions",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 107,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-project-instructions--empty-state--2/agent-stdout.txt",
+        "runs/claude-project-instructions--empty-state--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-project-instructions--empty-state--2/scanner.json",
+      "gitDiffPath": "runs/claude-project-instructions--empty-state--2/diff.patch"
+    },
+    {
+      "id": "claude-project-instructions--empty-state--3",
+      "timestamp": "2026-07-05T04:01:34.627Z",
+      "mode": "claude-project-instructions",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 99,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-project-instructions--empty-state--3/agent-stdout.txt",
+        "runs/claude-project-instructions--empty-state--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-project-instructions--empty-state--3/scanner.json",
+      "gitDiffPath": "runs/claude-project-instructions--empty-state--3/diff.patch"
+    },
+    {
       "id": "claude-project-instructions--invoices-table--1",
       "timestamp": "2026-07-05T03:49:34.628Z",
       "mode": "claude-project-instructions",
@@ -1737,6 +2715,80 @@
       ],
       "scannerJsonPath": "runs/claude-project-instructions--invoices-table--1/scanner.json",
       "gitDiffPath": "runs/claude-project-instructions--invoices-table--1/diff.patch"
+    },
+    {
+      "id": "claude-project-instructions--invoices-table--2",
+      "timestamp": "2026-07-05T03:52:13.985Z",
+      "mode": "claude-project-instructions",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 239,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-project-instructions--invoices-table--2/agent-stdout.txt",
+        "runs/claude-project-instructions--invoices-table--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-project-instructions--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs/claude-project-instructions--invoices-table--2/diff.patch"
+    },
+    {
+      "id": "claude-project-instructions--invoices-table--3",
+      "timestamp": "2026-07-05T03:56:15.848Z",
+      "mode": "claude-project-instructions",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9333
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 132,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-project-instructions--invoices-table--3/agent-stdout.txt",
+        "runs/claude-project-instructions--invoices-table--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-project-instructions--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs/claude-project-instructions--invoices-table--3/diff.patch"
     },
     {
       "id": "claude-project-instructions--login-page--1",
@@ -2776,7 +3828,7 @@
     },
     {
       "id": "claude-raw--invoices-table--2",
-      "timestamp": "2026-07-05T02:55:44.543Z",
+      "timestamp": "2026-07-05T04:57:49.217Z",
       "mode": "claude-raw",
       "fixture": "next-shadcn-custom-theme",
       "promptId": "invoices-table",
@@ -2785,25 +3837,24 @@
       "agent": "claude",
       "result": {
         "score": {
-          "driftScore": 0,
-          "totalViolations": 0,
-          "errorViolations": 0,
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
           "warningViolations": 0,
           "rawHexValues": 0,
           "inlineStyleObjects": 0,
           "arbitraryTailwindValues": 0,
           "rawPaletteClasses": 0,
           "duplicateComponentCount": 0,
-          "rawPrimitiveCount": 0,
-          "componentReuseRate": 1
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9375
         },
-        "buildPass": false,
-        "typecheckPass": false,
+        "buildPass": true,
+        "typecheckPass": true,
         "repairIterations": 0,
         "hookRuntimeMs": 0,
-        "totalWallTimeSeconds": 269,
-        "filesTouched": 0,
-        "failure": "agent exited 1"
+        "totalWallTimeSeconds": 244,
+        "filesTouched": 2
       },
       "rawOutputPaths": [
         "runs/claude-raw--invoices-table--2/agent-stdout.txt",
@@ -3738,6 +4789,228 @@
       "gitDiffPath": "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--3/diff.patch"
     },
     {
+      "id": "claude-shadcn-mcp--empty-state--1",
+      "timestamp": "2026-07-05T04:16:10.085Z",
+      "mode": "claude-shadcn-mcp",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 152,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp--empty-state--1/agent-stdout.txt",
+        "runs/claude-shadcn-mcp--empty-state--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp--empty-state--1/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp--empty-state--1/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp--empty-state--2",
+      "timestamp": "2026-07-05T04:18:46.270Z",
+      "mode": "claude-shadcn-mcp",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 1,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 132,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp--empty-state--2/agent-stdout.txt",
+        "runs/claude-shadcn-mcp--empty-state--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp--empty-state--2/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp--empty-state--2/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp--empty-state--3",
+      "timestamp": "2026-07-05T04:21:00.537Z",
+      "mode": "claude-shadcn-mcp",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 120,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp--empty-state--3/agent-stdout.txt",
+        "runs/claude-shadcn-mcp--empty-state--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp--empty-state--3/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp--empty-state--3/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp--invoices-table--1",
+      "timestamp": "2026-07-05T04:04:33.428Z",
+      "mode": "claude-shadcn-mcp",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9375
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 207,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp--invoices-table--1/agent-stdout.txt",
+        "runs/claude-shadcn-mcp--invoices-table--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp--invoices-table--1/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp--invoices-table--2",
+      "timestamp": "2026-07-05T04:08:02.971Z",
+      "mode": "claude-shadcn-mcp",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9375
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 259,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp--invoices-table--2/agent-stdout.txt",
+        "runs/claude-shadcn-mcp--invoices-table--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp--invoices-table--2/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp--invoices-table--3",
+      "timestamp": "2026-07-05T04:12:24.950Z",
+      "mode": "claude-shadcn-mcp",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9375
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 221,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp--invoices-table--3/agent-stdout.txt",
+        "runs/claude-shadcn-mcp--invoices-table--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp--invoices-table--3/diff.patch"
+    },
+    {
       "id": "claude-shadcn-mcp--login-page--1",
       "timestamp": "2026-07-05T03:43:14.247Z",
       "mode": "claude-shadcn-mcp",
@@ -4109,7 +5382,7 @@
     },
     {
       "id": "claude-shadcn-mcp--premium-dashboard--2",
-      "timestamp": "2026-07-05T02:36:21.482Z",
+      "timestamp": "2026-07-05T05:01:59.128Z",
       "mode": "claude-shadcn-mcp",
       "fixture": "next-shadcn-dashboard-app",
       "promptId": "premium-dashboard",
@@ -4118,25 +5391,24 @@
       "agent": "claude",
       "result": {
         "score": {
-          "driftScore": 0,
-          "totalViolations": 0,
-          "errorViolations": 0,
+          "driftScore": 24,
+          "totalViolations": 3,
+          "errorViolations": 3,
           "warningViolations": 0,
           "rawHexValues": 0,
           "inlineStyleObjects": 0,
-          "arbitraryTailwindValues": 0,
+          "arbitraryTailwindValues": 3,
           "rawPaletteClasses": 0,
           "duplicateComponentCount": 0,
           "rawPrimitiveCount": 0,
           "componentReuseRate": 1
         },
-        "buildPass": false,
-        "typecheckPass": false,
+        "buildPass": true,
+        "typecheckPass": true,
         "repairIterations": 0,
         "hookRuntimeMs": 0,
-        "totalWallTimeSeconds": 231,
-        "filesTouched": 0,
-        "failure": "agent exited 1"
+        "totalWallTimeSeconds": 378,
+        "filesTouched": 13
       },
       "rawOutputPaths": [
         "runs/claude-shadcn-mcp--premium-dashboard--2/agent-stdout.txt",
@@ -4294,6 +5566,228 @@
       "gitDiffPath": "runs/claude-shadcn-mcp--pricing-cards-polish--3/diff.patch"
     },
     {
+      "id": "claude-shadcn-mcp--team-invite-modal--1",
+      "timestamp": "2026-07-05T03:51:28.557Z",
+      "mode": "claude-shadcn-mcp",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 1,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 320,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp--team-invite-modal--1/agent-stdout.txt",
+        "runs/claude-shadcn-mcp--team-invite-modal--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp--team-invite-modal--1/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp--team-invite-modal--2",
+      "timestamp": "2026-07-05T03:56:53.562Z",
+      "mode": "claude-shadcn-mcp",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9643
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 266,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp--team-invite-modal--2/agent-stdout.txt",
+        "runs/claude-shadcn-mcp--team-invite-modal--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp--team-invite-modal--2/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp--team-invite-modal--3",
+      "timestamp": "2026-07-05T04:01:24.577Z",
+      "mode": "claude-shadcn-mcp",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9545
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 185,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp--team-invite-modal--3/agent-stdout.txt",
+        "runs/claude-shadcn-mcp--team-invite-modal--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp--team-invite-modal--3/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--billing-settings-page--1",
+      "timestamp": "2026-07-05T03:53:54.504Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 163,
+        "totalWallTimeSeconds": 205,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--billing-settings-page--1/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--billing-settings-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--billing-settings-page--1/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--billing-settings-page--2",
+      "timestamp": "2026-07-05T03:57:23.905Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 330,
+        "totalWallTimeSeconds": 318,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--billing-settings-page--2/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--billing-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--billing-settings-page--2/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--billing-settings-page--3",
+      "timestamp": "2026-07-05T04:02:44.734Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 500,
+        "totalWallTimeSeconds": 411,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--billing-settings-page--3/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--billing-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--billing-settings-page--3/diff.patch"
+    },
+    {
       "id": "claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--1",
       "timestamp": "2026-07-05T03:40:56.707Z",
       "mode": "claude-shadcn-mcp-snapline",
@@ -4403,6 +5897,339 @@
       ],
       "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--3/scanner.json",
       "gitDiffPath": "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--3/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--empty-state--1",
+      "timestamp": "2026-07-05T04:50:26.229Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 134,
+        "totalWallTimeSeconds": 125,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--empty-state--1/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--empty-state--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--empty-state--1/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--empty-state--1/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--empty-state--2",
+      "timestamp": "2026-07-05T04:52:34.198Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 132,
+        "totalWallTimeSeconds": 145,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--empty-state--2/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--empty-state--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--empty-state--2/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--empty-state--2/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--empty-state--3",
+      "timestamp": "2026-07-05T04:55:01.452Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 1,
+        "hookRuntimeMs": 155,
+        "totalWallTimeSeconds": 95,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--empty-state--3/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--empty-state--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--empty-state--3/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--empty-state--3/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--invoices-table--1",
+      "timestamp": "2026-07-05T04:35:14.597Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 220,
+        "totalWallTimeSeconds": 307,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--invoices-table--1/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--invoices-table--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--invoices-table--1/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--invoices-table--2",
+      "timestamp": "2026-07-05T04:40:25.043Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 186,
+        "totalWallTimeSeconds": 278,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--invoices-table--2/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--invoices-table--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--invoices-table--2/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--invoices-table--3",
+      "timestamp": "2026-07-05T04:45:05.623Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 1,
+        "hookRuntimeMs": 240,
+        "totalWallTimeSeconds": 318,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--invoices-table--3/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--invoices-table--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--invoices-table--3/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--login-page--1",
+      "timestamp": "2026-07-05T04:09:38.295Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 213,
+        "totalWallTimeSeconds": 177,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--login-page--1/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--login-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--login-page--1/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--login-page--1/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--login-page--2",
+      "timestamp": "2026-07-05T04:12:38.346Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 152,
+        "totalWallTimeSeconds": 209,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--login-page--2/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--login-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--login-page--2/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--login-page--2/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--login-page--3",
+      "timestamp": "2026-07-05T04:16:10.856Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 262,
+        "totalWallTimeSeconds": 171,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--login-page--3/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--login-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--login-page--3/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--login-page--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--onboarding-cleanup--1",
@@ -4847,6 +6674,117 @@
       ],
       "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--3/scanner.json",
       "gitDiffPath": "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--3/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--team-invite-modal--1",
+      "timestamp": "2026-07-05T04:19:04.265Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 1,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 1,
+        "hookRuntimeMs": 340,
+        "totalWallTimeSeconds": 368,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--team-invite-modal--1/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--team-invite-modal--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--team-invite-modal--1/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--team-invite-modal--2",
+      "timestamp": "2026-07-05T04:25:16.555Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 2,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.96
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 210,
+        "totalWallTimeSeconds": 366,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--team-invite-modal--2/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--team-invite-modal--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--team-invite-modal--2/diff.patch"
+    },
+    {
+      "id": "claude-shadcn-mcp-snapline--team-invite-modal--3",
+      "timestamp": "2026-07-05T04:31:25.222Z",
+      "mode": "claude-shadcn-mcp-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 3,
+      "model": "claude-sonnet-5",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 354,
+        "totalWallTimeSeconds": 226,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs/claude-shadcn-mcp-snapline--team-invite-modal--3/agent-stdout.txt",
+        "runs/claude-shadcn-mcp-snapline--team-invite-modal--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--team-invite-modal--3/diff.patch"
     },
     {
       "id": "claude-snapline--billing-settings-page--1",
@@ -6034,7 +7972,7 @@
     },
     {
       "id": "claude-tailwind-eslint--billing-settings-page--3",
-      "timestamp": "2026-07-05T02:52:02.034Z",
+      "timestamp": "2026-07-05T05:08:20.180Z",
       "mode": "claude-tailwind-eslint",
       "fixture": "next-shadcn-custom-theme",
       "promptId": "billing-settings-page",
@@ -6055,13 +7993,12 @@
           "rawPrimitiveCount": 0,
           "componentReuseRate": 1
         },
-        "buildPass": false,
-        "typecheckPass": false,
+        "buildPass": true,
+        "typecheckPass": true,
         "repairIterations": 0,
         "hookRuntimeMs": 0,
-        "totalWallTimeSeconds": 492,
-        "filesTouched": 1,
-        "failure": "agent exited 1"
+        "totalWallTimeSeconds": 343,
+        "filesTouched": 1
       },
       "rawOutputPaths": [
         "runs/claude-tailwind-eslint--billing-settings-page--3/agent-stdout.txt",

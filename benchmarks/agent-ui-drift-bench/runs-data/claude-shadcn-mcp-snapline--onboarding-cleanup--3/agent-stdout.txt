@@ -1,0 +1,9 @@
+Since there was no existing onboarding flow in this fixture, I built a cohesive one from scratch at `src/app/onboarding/page.tsx` (3 steps: Account, Workspace, Preferences) using only the existing `Button`/`Card`/`Input` components and the semantic color tokens allowed by `snapline.yml`.
+
+Key design choices for "smooth and welcoming":
+- **Obvious current step**: a numbered circle stepper above the form — current/completed steps fill with `bg-primary`, upcoming steps stay outlined and muted; a connecting bar between circles fills in as you progress. A "Step X of Y" caption reinforces it below the card.
+- **Tighter, cohesive layout**: single centered column (`max-w-lg`), consistent `gap-8`/`gap-4`/`gap-2` spacing scale matching the rest of the app (`settings/page.tsx`), same heading/label typography conventions.
+- **Connected steps**: each step lives in the same `Card`, with Back/Continue footer buttons and a friendly completion screen ("You're all set") on finish, instead of a jarring redirect.
+- Dropped the full dashboard nav (with unrelated "Feedback"/"New report" buttons) in favor of a minimal branded header — that mismatch was part of what made it feel disconnected from the rest of the flow.
+
+I wasn't able to run `tsc --noEmit` or the `snapline` scorer in this sandbox (Bash approval was blocked for both), so I manually cross-checked every class against `snapline.yml`'s allowed token list and the existing `globals.css` CSS variables — all match exactly. Worth running those two checks yourself to be certain before treating this as final.

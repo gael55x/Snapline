@@ -1,0 +1,22 @@
+I've hit a wall getting shell command approval in this session (`ls` and other read-only commands work, but `tsc`/`node_modules/.bin/tsc` invocations are consistently blocked). I don't want to keep hammering the same blocked call, so here's where things stand.
+
+**What I built:**
+- `src/components/ui/table.tsx` — new shadcn-style `Table`/`TableHeader`/`TableBody`/`TableRow`/`TableHead`/`TableCell` primitives, styled only with existing theme tokens (`border`, `muted`, `muted-foreground`, `foreground`) to match `card.tsx`/`button.tsx` conventions.
+- `src/components/billing/invoices-table.tsx` — client component (`"use client"`) with:
+  - Mock data: 24 invoices with invoice number, date, amount, status.
+  - Sortable headers for all four columns (click to sort, click again to reverse), defaulting to date descending.
+  - Status badges using existing `Badge` variants only — `Paid` → `default` (filled primary), `Pending` → `outline`, `Failed` → `destructive` — so each state is visually distinct without inventing off-theme colors (no green/yellow tokens exist in this theme).
+  - Download PDF action button per row (ghost button, wired to a placeholder handler).
+  - Pagination at 10 rows/page with Previous/Next buttons that disable at the boundaries and a "Page X of Y" label; sorting resets to page 1.
+- `src/app/billing/page.tsx` — new billing route rendering the table inside the existing `Card` primitives.
+
+**Still needed before I'd call this done:** per this project's CLAUDE.md, I must run `npx driftguard --help`, run its validate command against the new/edited files, and fix anything it flags — plus a plain `tsc --noEmit` sanity check. Both are blocked pending your approval.
+
+Could you either approve Bash for `npx`/`tsc`, or run this and paste the output back to me:
+
+```
+npx tsc --noEmit
+npx driftguard validate src/components/ui/table.tsx
+npx driftguard validate src/components/billing/invoices-table.tsx
+npx driftguard validate src/app/billing/page.tsx
+```

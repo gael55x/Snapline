@@ -1,0 +1,7 @@
+I searched the whole repo (source files, git history for any onboarding-related paths, related keywords like "wizard"/"step"/"progress"/"welcome") and this codebase has no onboarding flow — it only contains a dashboard page, a settings page, and a handful of shared UI components (`card`, `dialog`, `badge`, `table`, `button`, `input`).
+
+There's nothing here to clean up. A couple of possibilities:
+- You may be thinking of a different repo/branch than this one.
+- If you'd like, I can build a new onboarding flow from scratch (a multi-step form with a progress indicator) using the existing shadcn-style UI components — but that means designing "the steps and form fields" myself, since none currently exist, which conflicts with your instruction to keep them "exactly the same."
+
+Can you point me to the onboarding flow you mean, or confirm you'd like me to design one from scratch?

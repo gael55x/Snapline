@@ -1,0 +1,10 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":0,"files":["src/app/globals.css"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":0,"files":["src/app/globals.css"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":0,"files":["tailwind.config.ts"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":24,"files":["src/components/ui/badge.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":27,"files":["src/components/ui/table.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"block","durationMs":51,"files":["src/components/invoices-table.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":105,"files":["src/components/invoices-table.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":38,"files":["src/app/billing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":37,"files":["src/components/invoices-table.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":81,"files":[]}

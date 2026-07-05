@@ -1,0 +1,15 @@
+I checked the whole repo and there's no onboarding flow here — no matching files, no `onboarding`/`wizard`/`step`/`progress` naming anywhere in the codebase, and nothing in git history either. The actual UI consists of:
+
+- `src/app/page.tsx` (dashboard home)
+- `src/app/settings/page.tsx` (settings page)
+- Dashboard components (`nav.tsx`, `recent-activity.tsx`, `stat-card.tsx`)
+- A handful of shadcn primitives (`badge`, `button`, `card`, `dialog`, `input`, `table` — no `Progress` or stepper component)
+
+Since you asked me to clean up an *existing* onboarding flow while keeping the steps and fields "exactly the same," and no such flow exists to preserve, I don't want to guess and build a brand-new multi-step wizard from scratch — that'd be inventing scope you didn't ask for.
+
+A couple of possibilities:
+1. You meant a different repo/branch (this one is a benchmark fixture under `agent-ui-drift-bench/.../claude-drift-guard--onboarding-cleanup--3`).
+2. You want me to build a new onboarding flow from scratch (in which case I'd need you to define the steps/fields first).
+3. You actually meant the settings page or something else in this app.
+
+Which is it?

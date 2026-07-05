@@ -1,0 +1,11 @@
+This all checks out — types line up with each component's props (`Card`/`CardContent` etc. accept `className` + children, `Dialog` takes `open`/`onOpenChange`, `Button` variants/sizes match `buttonVariants`), JSX is well-formed, and every color class used (`bg-background`, `text-foreground`, `bg-primary`/`text-primary-foreground`, `bg-secondary`, `text-secondary-foreground` via the `secondary` button variant, `text-muted-foreground`, `border-border`, `bg-card`/`text-card-foreground` via `Card`'s defaults, `bg-destructive`/`text-destructive-foreground`) is on the fixture's allowed token list — no raw hex, inline styles, or arbitrary Tailwind brackets, and every interactive element goes through the shadcn `Button`/`Input`/`Dialog`/`Card` primitives rather than raw HTML.
+
+Built `src/app/settings/billing/page.tsx`:
+
+- **Trial banner** — shown when `trial.active`, using the `bg-destructive`/`text-destructive-foreground` tokens with a CTA that opens the update-card dialog.
+- **Current plan card** — name badge, price, renewal date, and a low-emphasis "Cancel subscription" button in the footer (deliberately subordinate, not a prominent destructive action) that opens a confirmation dialog.
+- **Payment method card** — card brand/last4/expiry with an "Update card" button opening a `Dialog` with `Input` fields (number/expiry/CVC).
+- **Invoices card** — last 4 invoices with date, id, amount, a status `Badge`, and a real `<a download>` link per row.
+- **Cancel confirmation dialog** — explains what happens (access until renewal date) with a safe "Keep subscription" default and a `destructive`-variant confirm button.
+
+One caveat: this sandbox blocked me from running `tsc`/`npx` here to verify the typecheck live, so I reviewed the code by hand against each component's prop types instead of getting a tool-confirmed pass — worth running `npm run typecheck` yourself to be sure.

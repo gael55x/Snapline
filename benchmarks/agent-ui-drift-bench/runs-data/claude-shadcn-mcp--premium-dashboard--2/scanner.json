@@ -1,0 +1,167 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-shadcn-mcp--premium-dashboard--2/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-arbitrary-tailwind:src/components/dashboard/nav.tsx:21:49:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Arbitrary Tailwind value \"text-[10px]\"",
+      "location": {
+        "line": 21,
+        "column": 49
+      },
+      "evidence": "text-[10px]",
+      "repair": {
+        "instruction": "Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-arbitrary-tailwind:src/components/dashboard/recent-activity.tsx:123:89:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "message": "Arbitrary Tailwind value \"text-[11px]\"",
+      "location": {
+        "line": 123,
+        "column": 89
+      },
+      "evidence": "text-[11px]",
+      "repair": {
+        "instruction": "Replace text-[11px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-arbitrary-tailwind:src/components/ui/button.tsx:36:272:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/ui/button.tsx",
+      "message": "Arbitrary Tailwind value \"active:scale-[0.98]\"",
+      "location": {
+        "line": 36,
+        "column": 272
+      },
+      "evidence": "active:scale-[0.98]",
+      "repair": {
+        "instruction": "Remove active:scale-[0.98]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 24,
+    "totalViolations": 3,
+    "errorViolations": 3,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 3,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/dashboard/nav.tsx",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/dashboard/nav.tsx:21:49:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Arbitrary Tailwind value \"text-[10px]\"",
+          "location": {
+            "line": 21,
+            "column": 49
+          },
+          "evidence": "text-[10px]",
+          "repair": {
+            "instruction": "Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/nav.tsx\n\n1 violation:\n- [error] arbitrary value: text-[10px] (line 21)\n\nRepair:\n- Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale."
+    },
+    {
+      "title": "Repair UI drift in src/components/dashboard/recent-activity.tsx",
+      "filePath": "src/components/dashboard/recent-activity.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/dashboard/recent-activity.tsx:123:89:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/dashboard/recent-activity.tsx",
+          "message": "Arbitrary Tailwind value \"text-[11px]\"",
+          "location": {
+            "line": 123,
+            "column": 89
+          },
+          "evidence": "text-[11px]",
+          "repair": {
+            "instruction": "Replace text-[11px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Replace text-[11px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/recent-activity.tsx\n\n1 violation:\n- [error] arbitrary value: text-[11px] (line 123)\n\nRepair:\n- Replace text-[11px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale."
+    },
+    {
+      "title": "Repair UI drift in src/components/ui/button.tsx",
+      "filePath": "src/components/ui/button.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/ui/button.tsx:36:272:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/ui/button.tsx",
+          "message": "Arbitrary Tailwind value \"active:scale-[0.98]\"",
+          "location": {
+            "line": 36,
+            "column": 272
+          },
+          "evidence": "active:scale-[0.98]",
+          "repair": {
+            "instruction": "Remove active:scale-[0.98]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove active:scale-[0.98]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/ui/button.tsx\n\n1 violation:\n- [error] arbitrary value: active:scale-[0.98] (line 36)\n\nRepair:\n- Remove active:scale-[0.98]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+    }
+  ],
+  "durationMs": 37
+}

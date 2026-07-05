@@ -1,0 +1,1 @@
+I'm blocked from running any executable (npx, tsc, or the local buoy binary) — these require your explicit approval in this session, and it's being auto-denied. I need your approval to run `./node_modules/.bin/buoy drift check` (per CLAUDE.md's requirement to run buoy after editing UI files). Could you approve that, or let me know if I should proceed without it?

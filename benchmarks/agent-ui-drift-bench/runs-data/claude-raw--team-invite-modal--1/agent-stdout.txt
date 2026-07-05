@@ -1,0 +1,6 @@
+Built the invite flow using only the fixture's existing primitives (Dialog, Button, Input, Textarea, Badge) and theme tokens, no new dependencies:
+
+- **`src/components/invite-member-modal.tsx`** — `InviteMemberModal({ seatsTotal, seatsUsed })`: comma-separated email input with parsing/dedup/validation, an accessible two-option role radiogroup (Admin/Member, each with a description line), an optional message textarea, a seats-remaining badge that flips to `destructive` and shows a warning when the invite count exceeds remaining seats (disabling "Send invite"), and a success screen with "Invite more" / "Done" actions.
+- **`src/app/team/page.tsx`** — new team page listing mock members and wiring the modal in in the header with real seat counts.
+
+I wasn't able to run `tsc`/`npm run typecheck` — bash calls that invoke node/npm require an approval this sandbox isn't granting — so I reviewed the types by hand instead of confirming via the compiler. Want me to try the typecheck again, or are you able to approve that command on your end?

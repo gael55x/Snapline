@@ -1,0 +1,3 @@
+I checked the whole codebase and there's no onboarding flow, wizard, steps, or progress bar component anywhere — this repo only has a dashboard, settings page, and basic UI primitives. There's nothing here matching what you described.
+
+Could you point me to the right repo/branch, or is this something that hasn't been built yet and you'd like me to create it from scratch?

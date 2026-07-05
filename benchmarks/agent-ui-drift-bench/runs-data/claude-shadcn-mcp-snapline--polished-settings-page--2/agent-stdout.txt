@@ -1,0 +1,12 @@
+All original ids (`workspace-name`, `contact-email`, `repo-url`), names, types, `defaultValue`s, placeholder, and the `onClick`/dialog logic are untouched — only markup/classes changed.
+
+Here's a summary of the visual refresh made to `src/app/settings/page.tsx`:
+
+- **Section separation**: each card header now has a `border-b` divider from its body; the profile form splits into an identity group (name/email) and a link group (repo URL) separated by an internal `border-t`.
+- **Better form layout**: workspace name and contact email now sit side-by-side in a responsive grid instead of stacking full-width; added a small helper line under the repository URL field.
+- **Clearer emphasis on actions**: Save changes is now the right-most, primary-colored button (Cancel demoted to a secondary position) — a more standard "safe action last, filled" pattern. Delete workspace is right-aligned and paired with a `destructive` badge plus a short bullet list explaining consequences, so the danger zone reads as deliberately weighted rather than an afterthought.
+- **Polish touches**: a "Workspace" eyebrow label above the page title, and `Public`/`Irreversible` badges on the two cards for quick scannability.
+
+All colors/utilities used are limited to the semantic tokens already allowed by this repo's `snapline.yml` drift rules (`bg-background`, `text-foreground`, `text-muted-foreground`, `border-border`, plus the existing `Badge` component's built-in `secondary`/`destructive` variants) — no raw hex, inline styles, arbitrary Tailwind values, or new dependencies were introduced, and `Card`/`Button`/`Input`/`Dialog` components are reused throughout rather than duplicated.
+
+Note: I wasn't able to run `tsc`/the project's own `snapline` lint binary in this sandbox (command execution was blocked pending approval), so I verified compliance manually by grepping for hex colors, `style=`, and bracket-arbitrary Tailwind syntax — all clean. Worth running `npm run typecheck` and the snapline scanner yourself to confirm.

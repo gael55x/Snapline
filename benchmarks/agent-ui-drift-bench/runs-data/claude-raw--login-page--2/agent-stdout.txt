@@ -1,0 +1,12 @@
+This all checks out against the existing conventions (matches types used in `button.tsx`/`input.tsx`, no unresolved imports since `next` isn't a real dependency here). The implementation is complete.
+
+Summary of changes in `fixtures/next-shadcn-basic`:
+- Added `src/components/ui/label.tsx`, `checkbox.tsx`, `separator.tsx` — new primitives built by hand in the same style as the existing `button.tsx`/`input.tsx`/`card.tsx` (no Radix/lucide, since those aren't installed in this fixture).
+- Rewrote `src/app/login/page.tsx`:
+  - Google/GitHub sign-in buttons (inline SVG icons) above an "or continue with email" divider (`Separator`).
+  - Email/password inputs with real client-side validation (`useState`, regex/length checks) rendering inline `text-destructive` error messages, `aria-invalid`/`aria-describedby` wiring.
+  - "Remember me" checkbox and "Forgot password?" link next to the password label.
+  - Submit button shows a "Signing in..." loading state via a `disabled` + timeout-based `isSubmitting` state.
+  - Footer links to `/signup` for new users.
+
+Note: I couldn't run `npm run typecheck`/`tsc` — command execution was blocked by approval in this session — so I checked types by hand instead. If you can, please run `npm run typecheck` to confirm.

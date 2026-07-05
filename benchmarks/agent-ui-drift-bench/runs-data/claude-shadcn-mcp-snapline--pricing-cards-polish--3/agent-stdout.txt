@@ -1,0 +1,10 @@
+This is a clean, minimal nav addition.
+
+I built a new Pricing page (there wasn't one in this fixture yet) at `src/app/pricing/page.tsx`, added a `Pricing` link to the dashboard nav, and created `src/components/pricing/pricing-cards.tsx` with three tiers (Starter / Pro / Enterprise):
+
+- **Pro pops**: primary-colored top accent bar, `border-primary`, elevated `shadow-lg shadow-primary/20`, lifted and slightly scaled up on desktop (`lg:-translate-y-4 lg:scale-105`), and a "Most popular" badge.
+- **Price as hero**: large bold price (`text-5xl` for Pro, `text-4xl` for others) with the `/mo` cadence as a small muted suffix.
+- **Feature list**: each item gets a filled check-icon badge (primary-filled for Pro, secondary-filled for the others) instead of a plain bullet, for better scannability.
+- Fully compliant with `snapline.yml`: only semantic color tokens, uses the shared `Card`/`Button`/`Badge` components, no raw hex/inline styles/arbitrary Tailwind brackets.
+
+Note: I wasn't able to run `tsc --noEmit` or start the dev server to visually verify — command execution was blocked in this sandboxed session — so I reviewed the code manually against the existing components' conventions instead of confirming it in a running browser.

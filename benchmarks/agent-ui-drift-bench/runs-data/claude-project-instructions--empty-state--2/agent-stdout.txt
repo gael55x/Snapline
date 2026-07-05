@@ -1,0 +1,6 @@
+I don't have approval to run the typecheck command right now, so I can't execute it in this session. The changes are straightforward TSX matching existing patterns in the repo, but I'd recommend running `npm run typecheck` yourself to confirm.
+
+I've added:
+
+- **`src/components/empty-state.tsx`** — reusable `EmptyState` component (icon in a `bg-muted` circle, centered title/description, optional `action` slot), built with semantic tokens only, no arbitrary values.
+- **`src/app/projects/page.tsx`** — new projects page using `EmptyState` with "No projects yet" copy and a `Button` "Create project" action, plus an inline SVG folder icon (no icon library is installed in this fixture, so I avoided adding a new dependency).

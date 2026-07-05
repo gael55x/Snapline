@@ -1,0 +1,15 @@
+I've built the pricing cards, but I need to flag one thing: I could not execute `npm run typecheck` or `npx driftguard validate` — every node/npm/npx invocation in this sandbox is being rejected with "This command requires approval" (tried 7 times, various forms including `tsc` directly), so I couldn't run the CLAUDE.md-mandated check myself. You may need to grant Bash execution permission for this session, or run the check yourself.
+
+What I built (no pricing UI existed in this fixture before, so I created it fresh with standard 3-tier SaaS copy, same design tokens as the rest of the app):
+
+- **`src/components/dashboard/pricing-cards.tsx`** — new `PricingCards` component: Starter / Pro / Enterprise, with the price as a large `text-5xl` hero, a checkmark-icon feature list, and the Pro card popping via a soft `blur-2xl` glow behind it, a primary-colored ring/border, elevated shadow, `md:scale-105`, a "Most popular" badge, and a subtle gradient wash inside the card.
+- **`src/app/pricing/page.tsx`** — new route rendering the cards under the dashboard nav.
+- **`src/components/dashboard/nav.tsx`** — added a "Pricing" nav link.
+
+I manually checked the new code against driftguard's three documented rules (`no-hardcoded-colors`, `spacing-scale`, `use-primitives`): everything uses Tailwind utility classes and the existing `Card`/`Badge`/`Button` primitives — no inline `style` objects, no hex/rgb colors, and no `<div onClick>` patterns — so it should pass, but I wasn't able to confirm with the actual tool.
+
+Please run these to confirm and let me know if anything needs fixing:
+```
+npm run typecheck
+npx driftguard validate src/components/dashboard/pricing-cards.tsx src/app/pricing/page.tsx src/components/dashboard/nav.tsx
+```

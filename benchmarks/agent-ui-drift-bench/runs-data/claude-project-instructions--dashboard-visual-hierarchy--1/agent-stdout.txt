@@ -1,0 +1,13 @@
+Both files are syntactically sound TSX with correctly typed props. Everything uses semantic tokens (`text-primary`, `ring-primary`, `border-border`, `text-muted-foreground`, `text-foreground`) and standard Tailwind scale classes — no arbitrary values, no palette classes, no new components, and no content added or removed.
+
+## Summary
+
+Reworked the visual hierarchy across three files:
+
+- **`stat-card.tsx`** — added an `emphasis` prop. The revenue card now renders at `text-4xl font-bold text-primary` with a subtle `ring-primary/30` accent; the other three stats now render smaller and muted (`text-xl font-semibold text-muted-foreground`), causing them to visibly recede.
+- **`page.tsx`** — gave the revenue card its own full-width row above the other three (which now sit together in a compact `sm:grid-cols-3` row), and added a `border-t border-border` divider before the activity section to clearly separate the stats zone from the section below.
+- **`recent-activity.tsx`** — bumped the "Recent activity" title to `text-lg` so it reads as a clear section heading and gives that block presence as the page's main content area below the stats.
+
+One caveat: this fixture has no chart component and no sidebar anywhere in the codebase (confirmed via full source scan) — the dashboard is just nav + stat cards + an activity table. I applied "chart as centerpiece" to the activity table (the only content below the stats) and there was nothing to de-emphasize as a "sidebar widget," so that part of the request doesn't map onto this app's actual structure.
+
+I wasn't able to run `tsc`/`npm` to verify the build — command execution needed approval I couldn't obtain in this session — so I manually reviewed both edited files for syntax/type correctness instead. Worth running `npm run typecheck` and eyeballing it in a browser before merging.

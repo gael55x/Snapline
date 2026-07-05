@@ -1,0 +1,9 @@
+I searched the whole repo (`src/app`, `src/components`, git history including all branches) and there's no onboarding flow here — only a Dashboard (`src/app/page.tsx`), Settings (`src/app/settings/page.tsx`), and their shared components. No file or route named `onboarding`, `wizard`, `steps`, `setup`, etc., and it's never existed in git history either.
+
+Since you said "the steps and form fields should stay exactly the same," I don't want to guess at what those are and invent a flow that doesn't match what you actually have. A couple of possibilities:
+
+1. You're pointed at the wrong repo/branch — is the onboarding flow in a different project?
+2. It exists somewhere I'm not seeing (e.g., not yet committed, or named something non-obvious) — can you point me to the file path?
+3. You'd like me to design a new onboarding flow from scratch using the existing design system (shadcn components, the same nav/card/button patterns already in this app) — in which case there are no existing steps/fields to preserve, so I'd want your input on what the steps should be.
+
+Which of these is it?

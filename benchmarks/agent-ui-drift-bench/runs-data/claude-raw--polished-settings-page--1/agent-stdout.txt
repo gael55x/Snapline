@@ -1,0 +1,9 @@
+I've refreshed the settings page with the same fields and behavior intact, just restyled:
+
+- **Section separation**: added a divider under the page header, `border-t` dividers between each card's header/content/footer, and `divide-y` rules between form rows.
+- **Form styling**: each field now uses a two-column row (label + helper text on the left, input capped at `max-w-md` on the right) — a more deliberate, product-like settings layout instead of stacked label/input pairs.
+- **Emphasis on key actions**: footers are right-aligned so Cancel/Delete sit next to the primary action; the Danger Zone card gets a `border-destructive/30` accent and a destructive-colored title plus a plain-language consequence line, so it visually reads as higher-stakes than the profile form.
+
+I only used tokens/components already in this design system (`border-border`, `text-muted-foreground`, `destructive` variants, existing `Card`/`Button`/`Input`), since no new UI libraries (e.g. icons, Separator) are installed in this fixture — avoiding one-off styles keeps it consistent with the rest of the app.
+
+Note: sandboxed Bash commands (`tsc`, `npm run typecheck`) required approval I didn't have in this session, so I verified correctness by careful reading rather than a live typecheck — all ids, names, types, `defaultValue`s, placeholder, and click handlers are unchanged from the original.

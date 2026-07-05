@@ -1,0 +1,13 @@
+That's fine either way — the types check out by inspection. The pricing section is complete: a new `/pricing` route with a `PricingCards` component, reachable from the nav.
+
+## Summary
+
+There were no existing pricing cards anywhere in this fixture, so I built the section from scratch at `src/components/pricing/pricing-cards.tsx` + `src/app/pricing/page.tsx`, wired into nav (`nav.tsx`), using the same three-tier structure (Starter / Pro / Enterprise) with copy fitting the app's repair/violation-tracking domain.
+
+Design choices to make it "pop":
+- **Depth**: Pro card gets a `border-primary/60` ring, `shadow-2xl shadow-primary/20`, a subtle gradient wash (`bg-gradient-to-b from-primary/[0.06]`), and lifts above its siblings (`lg:-translate-y-3 lg:scale-[1.03]`). Non-highlighted cards get a gentle hover lift/shadow so the whole grid feels tactile, not flat.
+- **Pro as obvious choice**: floating "Most popular" pill badge overlapping the top border, primary-colored price, solid `default` CTA button with its own glow shadow, while Starter/Enterprise use quieter `outline` buttons.
+- **Price as hero**: bumped to `text-5xl font-bold` with the cadence (`/month`) as a small muted suffix baseline-aligned next to it.
+- **Feature list**: replaced plain text rows with check icons in filled circle badges (solid primary for Pro, subtle muted for the others), separated from the price/CTA block by a hairline divider.
+
+I couldn't run `tsc`/`npm run typecheck` — Bash commands invoking any binary were blocked by this session's sandbox — so I hand-verified types against the existing `cn`, `Button`, and `ButtonVariant` signatures instead of getting an automated confirmation. Worth running `npm run typecheck` yourself before merging.

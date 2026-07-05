@@ -1,0 +1,37 @@
+{
+  "id": "claude-shadcn-mcp--premium-dashboard--3",
+  "timestamp": "2026-07-05T02:40:17.871Z",
+  "mode": "claude-shadcn-mcp",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "premium-dashboard",
+  "attempt": 3,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 32,
+      "totalViolations": 4,
+      "errorViolations": 4,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 4,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 566,
+    "filesTouched": 13
+  },
+  "rawOutputPaths": [
+    "runs/claude-shadcn-mcp--premium-dashboard--3/agent-stdout.txt",
+    "runs/claude-shadcn-mcp--premium-dashboard--3/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-shadcn-mcp--premium-dashboard--3/scanner.json",
+  "gitDiffPath": "runs/claude-shadcn-mcp--premium-dashboard--3/diff.patch"
+}

@@ -1,0 +1,3 @@
+There's no onboarding flow anywhere in this codebase — no files named "onboard", and no wizard/step/progress/welcome components in `src/app` or `src/components`. The only pages are a dashboard (`src/app/page.tsx`), a settings page, and dashboard-specific components (nav, recent-activity, stat-card).
+
+Before I build something new: is there a specific file/route you meant (maybe in a different branch, or a page that hasn't been added yet), or would you like me to create a new onboarding flow from scratch? If it's the latter, I'll need you to define the steps and fields, since I don't want to invent a flow you didn't ask for.

@@ -1,0 +1,9 @@
+This all uses existing components/tokens correctly — the tsc check isn't essential given the change is straightforward JSX/className edits with no new types. The visual refresh is complete.
+
+Summary of changes to `src/app/settings/page.tsx`:
+- Added a bottom border under the page header to separate it from content, and bumped overall spacing (`py-10`, `gap-8`) for more breathing room.
+- Grouped "Workspace name" and "Contact email" into a responsive 2-column row, added short helper text under each field, and added a border-topped footer to visually detach actions from the form.
+- Gave the Danger Zone card a `border-destructive/30` accent, added a "Irreversible" destructive badge next to its title, added an explanatory sentence about consequences, and separated its action button with a destructive-tinted border.
+- Tinted the confirm dialog's title red (`text-destructive`) to reinforce the stakes of that action.
+
+All field ids/names/defaultValues/placeholders, button variants, and click handlers are unchanged — only visual structure and copy were added, using only semantic tokens, existing `@/components/ui` primitives, and the standard Tailwind spacing scale (no arbitrary values, no new component files).

@@ -1,0 +1,118 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+index c106fe3..cce3803 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+@@ -3,6 +3,7 @@
+ import * as React from "react"
+ 
+ import { DashboardNav } from "@/components/dashboard/nav"
++import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+@@ -28,37 +29,45 @@ export default function SettingsPage() {
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/settings" />
+-      <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
++      <main className="mx-auto flex max-w-3xl flex-col gap-8 px-6 py-10">
++        <div className="flex flex-col gap-1.5 border-b border-border pb-6">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Settings</h1>
+           <p className="text-sm text-muted-foreground">
+             Manage your workspace profile and danger zone actions.
+           </p>
+         </div>
+ 
+         <Card>
+-          <CardHeader>
+-            <CardTitle>Workspace profile</CardTitle>
++          <CardHeader className="border-b border-border bg-muted">
++            <CardTitle className="text-lg">Workspace profile</CardTitle>
+             <CardDescription>This information is shown on shared reports.</CardDescription>
+           </CardHeader>
+-          <CardContent>
+-            <form className="flex flex-col gap-4">
+-              <div className="flex flex-col gap-2">
+-                <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
+-                  Workspace name
+-                </label>
+-                <Input id="workspace-name" name="workspaceName" defaultValue="Snapline Ops" />
+-              </div>
+-              <div className="flex flex-col gap-2">
+-                <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
+-                  Contact email
+-                </label>
+-                <Input
+-                  id="contact-email"
+-                  name="contactEmail"
+-                  type="email"
+-                  defaultValue="ops@example.com"
+-                />
++          <CardContent className="pt-6">
++            <form className="flex flex-col gap-6">
++              <div className="grid gap-6 sm:grid-cols-2">
++                <div className="flex flex-col gap-2">
++                  <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
++                    Workspace name
++                  </label>
++                  <Input id="workspace-name" name="workspaceName" defaultValue="Snapline Ops" />
++                  <p className="text-xs text-muted-foreground">
++                    Shown in the navigation bar and on shared reports.
++                  </p>
++                </div>
++                <div className="flex flex-col gap-2">
++                  <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
++                    Contact email
++                  </label>
++                  <Input
++                    id="contact-email"
++                    name="contactEmail"
++                    type="email"
++                    defaultValue="ops@example.com"
++                  />
++                  <p className="text-xs text-muted-foreground">
++                    Used for report delivery and billing alerts.
++                  </p>
++                </div>
+               </div>
+               <div className="flex flex-col gap-2">
+                 <label htmlFor="repo-url" className="text-sm font-medium text-foreground">
+@@ -70,21 +79,30 @@ export default function SettingsPage() {
+                   type="url"
+                   placeholder="https://github.com/acme/app"
+                 />
++                <p className="text-xs text-muted-foreground">
++                  Linked for drift scans and pull request checks.
++                </p>
+               </div>
+             </form>
+           </CardContent>
+-          <CardFooter className="gap-2">
+-            <Button>Save changes</Button>
++          <CardFooter className="justify-end gap-2 border-t border-border bg-muted">
+             <Button variant="ghost">Cancel</Button>
++            <Button>Save changes</Button>
+           </CardFooter>
+         </Card>
+ 
+-        <Card>
+-          <CardHeader>
+-            <CardTitle>Danger zone</CardTitle>
++        <Card className="border-l-4 border-l-destructive">
++          <CardHeader className="border-b border-border">
++            <div className="flex items-center gap-2">
++              <CardTitle className="text-lg">Danger zone</CardTitle>
++              <Badge variant="destructive">Irreversible</Badge>
++            </div>
+             <CardDescription>Destructive actions that cannot be undone.</CardDescription>
+           </CardHeader>
+-          <CardFooter>
++          <CardFooter className="justify-between gap-4">
++            <p className="text-sm text-muted-foreground">
++              Permanently delete this workspace and all of its data.
++            </p>
+             <Button variant="destructive" onClick={() => setConfirmOpen(true)}>
+               Delete workspace
+             </Button>

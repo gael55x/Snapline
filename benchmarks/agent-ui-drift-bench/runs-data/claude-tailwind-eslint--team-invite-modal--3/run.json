@@ -1,0 +1,37 @@
+{
+  "id": "claude-tailwind-eslint--team-invite-modal--3",
+  "timestamp": "2026-07-05T03:18:47.460Z",
+  "mode": "claude-tailwind-eslint",
+  "fixture": "next-shadcn-custom-theme",
+  "promptId": "team-invite-modal",
+  "attempt": 3,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 0,
+      "totalViolations": 0,
+      "errorViolations": 0,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 0.963
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 242,
+    "filesTouched": 2
+  },
+  "rawOutputPaths": [
+    "runs/claude-tailwind-eslint--team-invite-modal--3/agent-stdout.txt",
+    "runs/claude-tailwind-eslint--team-invite-modal--3/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-tailwind-eslint--team-invite-modal--3/scanner.json",
+  "gitDiffPath": "runs/claude-tailwind-eslint--team-invite-modal--3/diff.patch"
+}

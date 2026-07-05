@@ -1,0 +1,13 @@
+This looks correct and syntactically sound. No pricing UI existed in this repo, so I built one from scratch since the request assumed it already did:
+
+- **New:** `src/components/pricing/pricing-cards.tsx` — a `PricingCards` component with Starter/Pro/Enterprise tiers.
+- **New:** `src/app/pricing/page.tsx` — the page shell, matching the pattern in `settings/page.tsx`.
+- **Edited:** `src/components/dashboard/nav.tsx` — added a "Pricing" nav link so the page is reachable.
+
+Design choices, all using semantic tokens/standard spacing scale (no arbitrary values, no palette classes, per CLAUDE.md):
+- **Pro card pops**: 2px `border-primary`, `shadow-xl`, a subtle `bg-gradient-to-b from-primary/5`, a `bg-primary` top accent bar, a "Most popular" `Badge`, and `lg:scale-105` + `z-10` so it visually sits above its neighbors.
+- **Price as hero**: large `text-4xl`/`text-5xl font-bold tracking-tight`, with the `/month` period in muted, smaller text beside it.
+- **Feature list**: checkmark icons (inline SVG, since no icon library is installed) in `text-primary` on the Pro card vs `text-muted-foreground` elsewhere, consistent `gap-3` spacing.
+- All built from `@/components/ui` primitives (Card, Badge, Button) — no hand-rolled containers or duplicate components.
+
+Note: I couldn't run `tsc`/`npm` in this sandbox (commands required approval that wasn't granted), so I wasn't able to execute `npm run typecheck` to confirm — but the code closely mirrors the typed patterns already in `stat-card.tsx` and `recent-activity.tsx`. Since this fixture has no dev server config (no Next.js in `package.json`, only a typecheck script), I couldn't visually preview it in a browser either — worth a manual look once you can run it locally.

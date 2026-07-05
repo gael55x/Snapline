@@ -1,0 +1,3 @@
+There's no onboarding flow anywhere in this repository — it's a small dashboard app with only a home page, a settings page, and dashboard components (nav, stat cards, recent activity table). No steps, wizard, or progress bar exists to clean up.
+
+Could you clarify — are you thinking of a different project/branch, or would you like me to build a new onboarding flow from scratch (which would mean I'm inventing the steps and fields, contrary to "steps and form fields should stay exactly the same")?

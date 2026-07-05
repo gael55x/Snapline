@@ -1,0 +1,11 @@
+I've built the reusable `EmptyState` component and wired it into a new projects page.
+
+**`src/components/empty-state.tsx`** — new component, following the same `forwardRef` + `cn` pattern as the existing `ui/` primitives:
+- Props: `icon` (ReactNode), `title` (string), `description` (optional string), `action` (optional ReactNode), plus standard `div` attrs.
+- Layout: flex column, centered both axes, icon sits in a `h-12 w-12 rounded-full bg-muted` soft circle above the title/description, with the action button below.
+
+**`src/app/projects/page.tsx`** — new route using it:
+- A small inline `FolderIcon` SVG (no icon library is installed in this fixture — checked `package.json`/`node_modules`, only `react`/`react-dom`/`typescript` are present, so I didn't introduce a new dependency).
+- `<EmptyState icon={<FolderIcon .../>} title="No projects yet" description="..." action={<Button>Create project</Button>} />`.
+
+One caveat: this sandbox blocked all execution commands (`npm`, `npx`, `node`) with a permission-approval error I couldn't get past, so I wasn't able to actually run `tsc --noEmit` to confirm the typecheck passes. I manually verified the code against the strict `tsconfig.json` and the exact patterns used in `card.tsx`/`button.tsx` (same `forwardRef` shape, same `cn` usage, same `React.SVGProps` import style) and it should compile cleanly — but if you can grant Bash approval I'd like to run `npm run typecheck` to confirm for real rather than just assert it.

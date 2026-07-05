@@ -1,0 +1,12 @@
+Good — matches conventions, and no pre-existing table.tsx conflict (the one found is the one I just created).
+
+I couldn't get `tsc` to run in this sandboxed session (commands need approval that isn't coming through), so I manually traced types across the new files instead. Here's a summary of what was added:
+
+**New/changed files:**
+- `src/app/billing/page.tsx` — new billing page with header + card wrapping the invoices table.
+- `src/components/invoices-table.tsx` — client component: sortable columns (Invoice, Date, Amount, Status; default sort = Date desc, click to toggle asc/desc), 10-row pagination with Prev/Next footer showing "Showing X–Y of Z", and a "Download PDF" action button per row.
+- `src/components/ui/table.tsx` — shadcn-style `Table` primitives (matches existing `card.tsx`/`badge.tsx` conventions), since none existed yet.
+- `src/components/ui/badge.tsx` — added `success` and `warning` variants for distinct per-status badge looks (Paid=success, Pending=warning, Failed=destructive).
+- `src/app/globals.css` / `tailwind.config.ts` — added `--success`/`--warning` semantic tokens (light + dark) rather than hardcoding colors, consistent with this fixture's all-tokens theming approach.
+
+Since I couldn't execute `tsc`/dev server here, please run `npm run typecheck` and view `/billing` locally to confirm rendering and interactions look right.

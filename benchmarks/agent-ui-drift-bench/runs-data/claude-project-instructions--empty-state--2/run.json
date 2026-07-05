@@ -1,0 +1,37 @@
+{
+  "id": "claude-project-instructions--empty-state--2",
+  "timestamp": "2026-07-05T03:59:44.171Z",
+  "mode": "claude-project-instructions",
+  "fixture": "next-shadcn-basic",
+  "promptId": "empty-state",
+  "attempt": 2,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 0,
+      "totalViolations": 0,
+      "errorViolations": 0,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 107,
+    "filesTouched": 2
+  },
+  "rawOutputPaths": [
+    "runs/claude-project-instructions--empty-state--2/agent-stdout.txt",
+    "runs/claude-project-instructions--empty-state--2/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-project-instructions--empty-state--2/scanner.json",
+  "gitDiffPath": "runs/claude-project-instructions--empty-state--2/diff.patch"
+}

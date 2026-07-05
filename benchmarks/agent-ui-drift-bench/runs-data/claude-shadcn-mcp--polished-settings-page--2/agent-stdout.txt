@@ -1,0 +1,8 @@
+I can't run the typecheck command in this environment (permission not granted), but I reviewed the file manually — all imports are used, JSX is balanced, and every field's `id`/`name`/`type`/`defaultValue`/`placeholder` plus the delete-confirmation dialog logic are unchanged.
+
+Summary of the refresh to `src/app/settings/page.tsx`:
+- **Page header**: added an uppercase "Workspace" eyebrow and bumped the title to `text-3xl`, with a bottom border separating it from the content.
+- **Workspace profile card**: tinted header (`bg-muted/40`) with a bottom border to visually separate it from the form; fields now sit in a responsive 2-column grid (name/email side by side, repo URL full-width with new helper text); footer gets a top border and right-aligned actions with "Save changes" as the emphasized primary button.
+- **Danger zone card**: distinct destructive-tinted border/header (`border-destructive/30`, `bg-destructive/5`) with an "Irreversible" badge, and the footer now pairs an explicit description ("Delete this workspace... for good") with the destructive button, so the risk reads clearly instead of being a bare button.
+
+All styling uses existing design tokens (`bg-muted`, `border-border`, `text-destructive`, etc.) and existing UI primitives (`Card`, `Badge`, `Button`, `Input`) — no new dependencies, no hardcoded colors.

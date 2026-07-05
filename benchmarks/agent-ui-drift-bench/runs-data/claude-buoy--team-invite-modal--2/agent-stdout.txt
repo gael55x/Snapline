@@ -1,0 +1,15 @@
+I've implemented the invite modal and team page, but every Bash command in this session is being denied (typecheck and `npx buoy --help` both got rejected), so I haven't been able to run the required drift check or verify the TypeScript compiles. Could you approve Bash execution, or run these manually and share the output?
+
+```
+npx tsc --noEmit
+npx buoy --help
+```
+
+Once I see Buoy's check command, I'll run it and fix anything it flags, per the project's CLAUDE.md requirement.
+
+Here's what I built in the meantime:
+
+- **`src/components/invite-member-modal.tsx`** — self-contained `InviteMemberModal` client component: comma-separated email input (parsed, deduped, validated), an Admin/Member role selector rendered as a `radiogroup` with a one-line description per role, an optional personal-message textarea, a live "N of seatLimit seats remaining" readout, and a success screen after sending (with "Invite more" / "Done"). The invite button is disabled while sending, when no valid emails are entered, or when the request would exceed remaining seats.
+- **`src/app/team/page.tsx`** — new team page with a mock member list and the modal wired in via `<InviteMemberModal seatsUsed={...} seatLimit={8} />`.
+
+Both reuse only existing primitives (`Dialog`, `Button`, `Input`, `Textarea`, `Badge`, `Card`) and theme tokens — no new colors or one-off styles were introduced.

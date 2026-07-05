@@ -1,0 +1,16 @@
+I've built the feature but couldn't get approval to run `npm run typecheck` automatically — I did a careful manual type-check pass instead (verified prop types, literal unions, and JSX). If you want, run `npm run typecheck` yourself to confirm; otherwise here's what I built:
+
+**New primitives** (hand-rolled, matching the existing style — no new dependencies, only the semantic color tokens already in `globals.css`/`tailwind.config.ts`):
+- `src/components/ui/label.tsx`
+- `src/components/ui/radio-group.tsx` — context-based, like the existing `Dialog`, styled with `accent-[hsl(var(--primary))]` so the native radio dot picks up the theme's primary color instead of the browser default blue.
+
+**`src/components/invite-member-dialog.tsx`** — the modal itself:
+- Comma-separated email input, deduped and validated against a simple email regex, with inline errors for bad addresses.
+- Role selector as two selectable cards (Admin / Member) each with a description, built on the new `RadioGroup`.
+- Optional personal message textarea.
+- Shows remaining seats in the dialog description; disables "Send invite" when there are no emails, any are invalid, or the count exceeds remaining seats (with an explicit over-limit message).
+- Success state replaces the form after sending, listing the invited addresses, with a "Done" button; state resets on close.
+
+**`src/app/team/page.tsx`** — new team page with a mock member list, a seats-used badge, and the invite dialog wired to `remainingSeats = 10 - members.length`.
+
+One bug I caught and fixed myself during review: I'd initially stacked `border-border` and `border-primary` on the same element for the selected role card. This repo's `cn()` is a plain string-join (no `tailwind-merge`), so both classes would've survived and whichever "wins" visually would depend on Tailwind's internal utility-ordering rather than explicit intent. Changed it to branch between the two classes instead of stacking them.

@@ -1,0 +1,1 @@
+These commands need explicit approval from you before I can run them — could you approve running `./node_modules/.bin/tsc --noEmit` (or `npx tsc --noEmit`) in this directory so I can verify the new page typechecks?

@@ -1,0 +1,15 @@
+I'm unable to get this command approved automatically in this environment — it seems to require your explicit confirmation in the UI. The code changes are complete and I've manually verified the types; let me know if you'd like to approve the typecheck run, or I can consider the implementation done as-is.
+
+## Summary
+
+Added an invoices table to a new billing page:
+
+- **`src/app/billing/page.tsx`** — new billing page with a `Card` wrapping the invoices table.
+- **`src/components/invoices-table.tsx`** — client component with 23 mock invoices, sortable Invoice/Date/Amount column headers (click to toggle asc/desc, default sort by date descending), 10-row pagination with a Prev/Next footer, and a "Download PDF" action per row.
+- **`src/components/ui/table.tsx`** — new shadcn-style table primitives (`Table`, `TableHeader`, `TableBody`, `TableRow`, `TableHead`, `TableCell`, `TableFooter`), matching the project's existing component conventions.
+- **`src/components/ui/badge.tsx`** — added `success` and `warning` variants so each invoice status gets a distinct badge look (Paid = success/green, Pending = warning/amber, Failed = destructive/red).
+- **`src/app/globals.css`** + **`tailwind.config.ts`** — added `--success`/`--warning` semantic tokens (light + dark) rather than hardcoding colors, consistent with this fixture's all-tokens theming approach.
+
+Snapline's post-write hook caught a raw `<button>` I'd used for the sortable header toggle and blocked the write — I fixed it by using the `Button` component (`variant="ghost"`) instead, which resolved the drift violation.
+
+I wasn't able to get Bash approval to run `tsc --noEmit` or `snapline` in this session to do a final automated verification — let me know if you'd like to grant that so I can confirm cleanly, otherwise the code is ready for manual review.

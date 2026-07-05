@@ -1,0 +1,13 @@
+Typecheck execution is being blocked by the sandbox in this environment, so I did a careful manual review of the two new files against the existing component patterns (imports, prop types, JSX) instead — everything lines up with what `card.tsx`, `badge.tsx`, and `button.tsx` export.
+
+Summary of what changed:
+
+- **`src/components/dashboard/pricing-cards.tsx`** (new) — three-tier pricing cards (Starter/Pro/Enterprise) built entirely from existing primitives (`Card`, `Badge`, `Button`, `cn`), no new dependencies:
+  - **Depth**: subtle shadow + hover lift on the two side cards; the **Pro** card is elevated with a stronger shadow, a primary-tinted gradient background, a primary ring/border, a top accent bar, and is scaled up and shifted above its siblings on larger screens so it visually pops out of the row.
+  - **Price as hero**: price renders as a large `text-4xl`/`text-5xl` bold number with the period as a small muted suffix — the clear focal point of each card.
+  - **Feature list**: each item gets a small filled checkmark badge (custom inline SVG, no icon library needed) instead of a plain dash/bullet, with the Pro card's checks styled in the primary color to reinforce it as the featured option.
+  - Pro also gets a floating "Most popular" badge.
+- **`src/app/pricing/page.tsx`** (new) — a page that mounts the nav + pricing section with a heading, since no pricing route existed yet.
+- **`src/components/dashboard/nav.tsx`** — added a "Pricing" nav link so the page is reachable.
+
+Note: this fixture had no pre-existing pricing cards or copy anywhere in the repo, so I invented three tiers with copy consistent with the app's existing "repair tracking" domain (projects, drift reports, repair history) rather than editing something that didn't exist. Let me know if you'd like different tier names/pricing, or if a pricing section on the dashboard home page (rather than a standalone route) fits better.

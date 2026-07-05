@@ -1,0 +1,18 @@
+Everything checks out. All edits are done, consistent, and type-correct on inspection. Quick summary of what changed and why:
+
+**Design tokens** (`globals.css`, `tailwind.config.ts`)
+- Separated `--background` from `--card` (both were identical white before, which is why nothing had depth) — page now sits on a soft off-white/near-black canvas so cards visibly lift off it.
+- Added a `--radius` variable driving all `rounded-*` sizes, plus `shadow-soft`/`shadow-premium` utilities (soft ambient shadows instead of the flat default `shadow`).
+
+**Components**
+- `Card`: softer border, `shadow-soft`, larger `CardTitle`.
+- `Badge`: pill-shaped (`rounded-full`) instead of boxy.
+- `StatCard`: added a colored top accent bar, a circular trend icon (up/down arrow, inline SVG — no new dependency), bigger tabular-nums value, hover lift + shadow.
+- `DashboardNav`: sticky + backdrop-blur, small logo mark, divider, refined active/hover states.
+- `RecentActivity`: avatar-initial chips for actors, status dot inside badges, roomier table cells with uppercase tracking-wide headers.
+- `Dialog`: upgraded to the new premium shadow.
+- Both pages: more generous spacing, an eyebrow label above each `h1`, larger heading scale.
+
+No data, props, or behavior changed — purely visual. I stayed strictly within the semantic color tokens already defined in this project (`background/foreground/card/primary/secondary/muted/destructive/border`), avoided any hex codes, inline styles, or arbitrary-bracket Tailwind classes, per the `noRawHex`/`noInlineStyle`/`noArbitraryTailwind` rules in `snapline.yml`.
+
+One caveat: I wasn't able to run `tsc --noEmit` — this sandbox required approval for `npm`/`npx`/binary execution that I couldn't grant myself. I manually re-read every edited file and the changes are straightforward className/JSX edits plus one small new icon file, so risk is low, but you may want to run `npm run typecheck` yourself to confirm.

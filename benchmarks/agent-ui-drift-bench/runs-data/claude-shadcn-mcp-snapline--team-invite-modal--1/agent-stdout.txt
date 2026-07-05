@@ -1,0 +1,26 @@
+I've confirmed this fixture has no runtime surface reachable in this sandbox — reporting accordingly.
+
+## Verification: "Invite member" modal added to a new Team page
+
+**Verdict:** BLOCKED
+
+**Claim:** New `InviteMemberDialog` component (email input, role toggle, optional message, seat-limit gating, success state) wired into a new `src/app/team/page.tsx`.
+
+**Method:** Attempted to cold-start the app to drive the dialog in a browser.
+
+### Steps
+1. 🔍 Checked `package.json` → only `react`, `react-dom`, `typescript` in devDependencies; no `next` dependency, no `dev`/`build`/`start` script exists (only `typecheck`).
+2. 🔍 Checked `node_modules` → confirms `next` is not installed; the App Router files (`src/app/**`) cannot actually be served.
+3. ❌ Tried `npx tsc --noEmit`, `npm run typecheck`, `./node_modules/.bin/tsc --noEmit` → each rejected with "This command requires approval" in this sandboxed session; no shell execution beyond trivial read-only commands (`ls`, `cat`, `git status`, `pwd`) is permitted here.
+4. ❌ Tried to look for a repo-level run/verify skill outside this directory → blocked: "Claude Code may only search files in the allowed working directories for this session," scoped to `fixtures/next-shadcn-custom-theme` only.
+
+This fixture is a static Snapline drift-scanning target (confirmed by `snapline.yml`'s `benchmark.enabled: true` / `scorer: ui-drift-score-v1`), not a runnable Next.js app in this environment — there's no dev server to launch and no shell permission to build/typecheck even if there were.
+
+**Screenshot / sample:** none — couldn't reach a running surface.
+
+### Findings
+- ⚠️ Can't confirm the component actually renders/behaves correctly in a browser (JSX/TSX structure, state transitions, disabled-button logic) — only reviewed by reading the code and passing Snapline's static drift scanner (which already caught and I fixed one violation: a raw `<button>` for the role selector, replaced with `Button` toggles).
+- The PostToolUse hook (`snapline hook claude post-tool-use`) did run automatically on file writes and flagged the raw-button drift issue live — that's real signal, but it's a linter, not a runtime check.
+- To actually verify this end-to-end, the fixture would need `next` added as a dependency and a dev script, plus shell/network permissions in this sandbox — worth flagging to whoever owns this benchmark cell if runtime verification is expected here.
+
+If you want, I can still self-check the logic by hand-tracing the state transitions (seat-limit math, comma-parsing, success flow) and report that as a code-reading pass rather than a runtime one — but it won't carry the weight of an actual browser run.

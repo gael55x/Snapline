@@ -1,0 +1,12 @@
+Bash execution is being blocked in this session (permission denials on every attempt), so I did a manual review instead — this repo is a static drift-scanner *fixture* (only `react`/`typescript` are installed; no Next.js, Tailwind, or Radix), so there's no real dev server to run anyway. Everything is hand-verified against the existing conventions.
+
+What I built:
+
+- **`src/components/ui/alert.tsx`**, **`separator.tsx`**, **`table.tsx`** — three new primitives (`Alert`/`AlertTitle`/`AlertDescription`, `Separator`, `Table` + parts) written in the exact same style as the existing components (`forwardRef` + `cn`, no Radix/cva/lucide since none are installed), using only semantic theme tokens already defined in `tailwind.config.ts`/`globals.css` (`border`, `card`, `brand`, `destructive`, `muted-foreground`, etc.) — no hardcoded colors.
+- **`src/app/billing/page.tsx`** — the billing settings page:
+  - **Trial banner**: an `Alert` (brand-colored) that only renders when `daysUntilTrialEnds` (computed from a mock `trialEndsAt`) falls within a 7-day warning window — real conditional logic, not just a static banner.
+  - **Current plan card**: name, price, renewal date, status badge, plus "Cancel subscription" tucked into the footer as a text link that opens a confirmation `Dialog` (reusing the existing Dialog primitive) — a sensible, low-risk placement that avoids a stray destructive button up top.
+  - **Payment method card**: card brand/last4/expiry with an "Update card" button.
+  - **Invoices card**: a `Table` of the last 3 invoices with date, amount, status badge, and a styled download link per row.
+
+One thing worth flagging: I initially wrote the download link using `<Button asChild><a>...</a></Button>`, but this fixture's `Button` has no Slot/`asChild` support (no Radix installed) — that would've nested an `<a>` inside a `<button>`, invalid HTML. Fixed by styling the anchor directly with `buttonVariants`. I also avoided stacking conflicting Tailwind utilities (e.g., `pt-0` from `CardFooter` fighting a `pt-6` override) since `cn` here is a naive class-join with no `tailwind-merge` dedup — used `mt-6` (margin) instead where I needed spacing next to the `Separator`.

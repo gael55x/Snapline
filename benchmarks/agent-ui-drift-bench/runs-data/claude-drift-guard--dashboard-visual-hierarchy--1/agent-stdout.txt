@@ -1,0 +1,9 @@
+Both edits are Tailwind-class-only changes (no inline styles, no raw `<div onClick>`), which is exactly what driftguard's three rules (`no-hardcoded-colors`, `spacing-scale`, `use-primitives`) inspect via AST — so they won't trip anything. Here's what changed and where I got blocked.
+
+**Changes:**
+- `src/components/dashboard/stat-card.tsx` — added an `emphasis?: "primary" | "secondary"` prop. Primary renders the value at `text-4xl sm:text-5xl` with a subtle `border-primary/30 bg-primary/5` card treatment; secondary (default) shrinks the value to `text-xl` so it visibly recedes next to the hero number.
+- `src/app/page.tsx` — split the flat 4-card grid into a "Key metrics" zone (revenue as a full-height hero card at `lg:grid-cols-3` col-span-1, the three secondary stats compressed into the remaining two columns) and an "Activity" zone wrapping `RecentActivity`, each with a small uppercase `<h2>` label so the zones read as clearly separate. No stats or activity rows were added/removed — same four numbers, same table.
+
+**Blocker:** CLAUDE.md asks me to run `npx driftguard --help` and the check command before finishing. Every attempt to execute a binary in this session (`npx driftguard`, `npx tsc`, even calling `node .../cli.js` directly) was rejected with "This command requires approval" and never reached an interactive prompt I could act on. I couldn't self-approve, so I inspected driftguard's source directly instead: it also turns out there's no `driftguard.config.ts` anywhere in this fixture, so `driftguard validate` would currently fail with "Could not find driftguard.config.ts" regardless of my edits — that's a pre-existing gap, not something I introduced.
+
+Can you approve running `npx driftguard init` and `npx driftguard validate src/app/page.tsx src/components/dashboard/stat-card.tsx` (and `npx tsc --noEmit`) so I can confirm cleanly, or run them yourself?

@@ -1,0 +1,8 @@
+All three original fields (workspace-name, contact-email, repo-url with identical ids/names/types/defaults/placeholder), both button labels, and the delete-confirmation dialog are byte-identical to the original — only the visual structure changed. The `Label` and `Separator` components follow the exact hand-rolled pattern (`React.forwardRef` + `cn`) already used by `Input`/`Button`/`Badge`, so they introduce no new dependencies.
+
+Summary of the refresh:
+- **Section separation**: page header now sits above a divider; each card header gets a `border-b` divider from its content; the two cards (profile vs. danger zone) are visually distinct.
+- **Form styling**: proper `Label` components replace raw `<label>` tags, name/email fields sit in a responsive two-column grid, a `Separator` groups "identity" fields from the repo URL, and helper text was added under the repo URL field.
+- **Emphasis on important actions**: the danger zone card gets a destructive-tinted border/header and an "Irreversible" badge, plus inline copy explaining the consequence of deletion next to the delete button; the save footer is right-aligned with a top border to read as a clear, deliberate action bar.
+
+One caveat: I couldn't run `npm run typecheck` because shell command approval wasn't granted in this session — please run it (or let me try again) to confirm the TypeScript compiles cleanly.

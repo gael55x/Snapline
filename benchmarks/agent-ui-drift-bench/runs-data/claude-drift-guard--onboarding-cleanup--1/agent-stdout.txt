@@ -1,0 +1,14 @@
+This repo doesn't actually contain an onboarding flow — I confirmed this both myself and via a search agent. The whole codebase is just:
+
+- `src/app/page.tsx` — a dashboard overview page
+- `src/app/settings/page.tsx` — a settings page
+- `src/components/dashboard/*` — nav, stat cards, recent activity
+- `src/components/ui/*` — badge, button, card, dialog, input, table (no `progress` component)
+
+There's no `onboarding` route, no stepper/wizard component, and no progress-bar UI anywhere in the tree. So there's nothing existing to "clean up" — no layout to tighten, no steps to reconnect, no progress bar to make more visible.
+
+A couple of possibilities:
+1. You meant a different repo/branch that actually has this flow.
+2. You want me to build a new onboarding flow from scratch — but that's a different task than a cleanup, since "steps and form fields should stay exactly the same" implies something already exists to preserve.
+
+Which is it — should I look elsewhere, or do you want me to design a new multi-step onboarding flow for this dashboard app (and if so, what steps/fields should it collect)?

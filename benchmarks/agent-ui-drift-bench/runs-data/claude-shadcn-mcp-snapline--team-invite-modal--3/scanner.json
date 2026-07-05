@@ -1,0 +1,31 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-shadcn-mcp-snapline--team-invite-modal--3/repo/fixtures/next-shadcn-custom-theme",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/team/page.tsx",
+    "src/components/invite-member-dialog.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/textarea.tsx"
+  ],
+  "violations": [],
+  "score": {
+    "driftScore": 0,
+    "totalViolations": 0,
+    "errorViolations": 0,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [],
+  "durationMs": 34
+}

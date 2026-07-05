@@ -1,0 +1,11 @@
+This all reads correctly and no content (data/text) was added or removed — only structure and styling changed.
+
+## Summary
+
+This fixture doesn't have a literal chart or sidebar (it's a simplified dashboard: 4 stat cards + a "Recent activity" table, top nav, no sidebar), so I mapped the request onto the actual elements:
+
+- **`src/components/dashboard/stat-card.tsx`** — added a `featured` variant: the revenue card gets a large `text-4xl/5xl` value, subtle primary-tinted border/gradient, and a `default` (brand-colored) badge. Regular stat cards now use `shadow-none`, a lighter border, smaller (`text-xl`) muted values, and `text-xs` labels — visibly receded.
+- **`src/app/page.tsx`** — revenue is pulled out and rendered full-width/featured above the other three stats, which now sit in a tighter 3-column row beneath it. A `border-t` + increased spacing (`gap-10`, `pt-8`) separates the stats zone from the activity zone.
+- **`src/components/dashboard/recent-activity.tsx`** — bumped its card shadow and title size (`text-xl`) so it reads as the page's centerpiece, the most substantial block after the de-emphasized secondary stats.
+
+No stats, rows, or copy were added/removed — only layout, spacing, and typography. Note: I couldn't run `npm run typecheck` (Bash approval was declined in this session) — worth running that yourself to confirm before shipping.

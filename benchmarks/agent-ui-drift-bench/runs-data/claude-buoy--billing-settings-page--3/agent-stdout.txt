@@ -1,0 +1,10 @@
+I've tried running the typecheck and Buoy drift check twice, and both require approval that hasn't come through — I'll stop retrying and check in instead of hammering the same call.
+
+The billing settings page is built at `src/app/settings/billing/page.tsx`, using only the existing shadcn primitives (Card, Badge, Button, Dialog) and theme tokens — no new dependencies or hardcoded colors. It includes:
+
+- **Trial banner** (brand-toned, dismissable-style) shown when the trial is ending soon, with an "Add payment method" CTA.
+- **Current plan card**: name, price, renewal date, status badge, and a "Cancel subscription" action that opens a confirmation dialog (reusing the existing `Dialog` component) rather than firing destructively on click.
+- **Payment method card**: card brand/last4/expiry with an "Update card" button.
+- **Invoices card**: last 3 invoices with date, amount, status badge, and a download link styled to match `Button`'s outline/sm variant.
+
+Per this project's `CLAUDE.md`, I need to run `npx buoy --help` and then the drift check to fix any reported issues, but both that command and `npx tsc --noEmit` are being blocked pending your approval. Could you approve running those two commands (or run them yourself) so I can verify the page passes typecheck and Buoy's drift check?

@@ -1,0 +1,11 @@
+I've built out the login page at `src/app/login/page.tsx`:
+
+- **OAuth buttons**: `outline`-variant Google/GitHub buttons with inline SVG icons, placed above an "or continue with email" divider.
+- **Form**: email + password `Input`s with a new `Label` component, a `Checkbox` component for "Remember me", and a "Forgot password?" link next to the password label.
+- **Validation**: client-side checks (required email/password, email format, 8-char minimum) surface as inline `text-destructive` messages tied to each field via `aria-describedby`/`aria-invalid`.
+- **Loading state**: submit button disables and shows "Signing in..." for a simulated 1.5s request.
+- **Sign-up link**: in the card footer.
+
+Since the fixture has no Radix/Next dependencies (`package.json` only lists React/TypeScript, and every existing `ui/*` component is a hand-rolled native-element wrapper around `cn`), I added `Label` and `Checkbox` following that same pattern rather than pulling in shadcn's Radix-based versions, and used plain `<a>` tags instead of `next/link`.
+
+One thing I couldn't do: running `npm run typecheck` requires your approval and got denied each time I retried, so I verified types by manual inspection instead — worth running it yourself to confirm.

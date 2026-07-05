@@ -1,0 +1,16 @@
+I've built the invite modal and wired it into a new team page, matching the fixture's existing shadcn-style conventions.
+
+**`src/components/invite-member-modal.tsx`** (new):
+- Controlled `Dialog` (this repo's custom, non-Radix dialog) triggered by the existing `Button` component
+- Email `Input` that parses comma-separated addresses (trims, dedupes, validates format)
+- Role selector built from two accessible native radio inputs styled as cards, each with a one-line description (Admin vs Member) — kept as raw `<input type="radio">` rather than forcing it through the text-oriented `Input` component, since that component's fixed height/width classes can't be reliably overridden without `tailwind-merge` (there isn't one in this repo's `cn`)
+- Optional personal message `Textarea`
+- Live "`remainingSeats` of `seatsTotal` seats remaining" readout, computed from `seatsUsed`/`seatsTotal` props
+- Invite button disabled when there are no valid recipients or the recipient count exceeds remaining seats, with an inline `Badge variant="destructive"` warning when over the limit
+- A success view (swaps the dialog body) after "sending," with a "Done" button that closes and resets state
+
+**`src/app/team/page.tsx`** (new): a team roster using the existing `Card`/`Badge` components, with the `InviteMemberModal` in the header wired to real seat counts (`seatsUsed` = roster length, `seatsTotal = 10`).
+
+Styling only uses colors already established in this theme (`background`, `foreground`, `primary`, `secondary`, `muted`, `border`, `destructive`, plus `card`/`badge` via their components) — no hex, inline styles, or arbitrary Tailwind values, per `snapline.yml`'s drift rules.
+
+One caveat: I couldn't run `tsc --noEmit` or start a dev server to visually verify — this sandbox denies executing `npm`/`npx`/`node` scripts in this session (plain read/search commands work fine). I did a careful manual pass for type correctness and JSX balance, but you'll want to run `npm run typecheck` yourself to confirm, and open `/team` in a browser to check spacing/behavior.

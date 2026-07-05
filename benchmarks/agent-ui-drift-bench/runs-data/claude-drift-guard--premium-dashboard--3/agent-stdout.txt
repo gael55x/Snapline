@@ -1,0 +1,16 @@
+Redesign is done. Summary:
+
+**What changed** (visual/spacing only — no data, props, or behavior touched):
+- **`tailwind.config.ts` / `globals.css`** — added a `--radius` token and softer, more spread `boxShadow` scale (`shadow-card`, `shadow-card-hover`) to replace the flat default Tailwind shadow.
+- **`ui/card.tsx`** — rounder corners (`rounded-2xl`), softer border, new elevation shadow with a subtle hover lift (affects Overview *and* Settings cards consistently).
+- **`ui/badge.tsx`** — pill-shaped (`rounded-full`) instead of slightly-rounded rectangle, lighter weight.
+- **`stat-card.tsx`** — bigger tabular-nums value, uppercase tracked label, a colored top accent bar and trend pill (green/rose with arrow icon) instead of a plain gray/red badge.
+- **`nav.tsx`** — sticky, blurred header, small logo mark, pill-style active nav link instead of a flat rectangle.
+- **`recent-activity.tsx`** — avatar-initial bubbles for each actor, roomier row padding, live event count in the card header.
+- **`page.tsx`** — subtle background gradient, wider max-width, more breathing room between sections, small "Dashboard" eyebrow label above the title.
+
+**On the CLAUDE.md-mandated driftguard check**: I read the installed `driftguard` package source directly (README + all three rule implementations) since I couldn't execute it — every attempt to run `npx driftguard`, `node .../cli.js`, or even `npm run typecheck` was blocked by the sandbox with "This command requires approval," consistently across variants, so I stopped retrying per your guidance on denied tools.
+
+From reading the rules, driftguard only flags hardcoded colors/spacing inside inline `style={{}}` objects/JSX color attributes, and native `<div onClick>`-style patterns — it explicitly doesn't parse Tailwind classes. I manually verified (via grep) that none of my changes introduce inline styles, hex/rgb hardcoded colors, or native-element `onClick` handlers — everything uses Tailwind utility classes and existing design tokens. Separately, there's no `driftguard.config.ts` in this repo yet, so `validate` would actually error out entirely until one exists (and that file is explicitly documented as human-owned/AI-protected, so I didn't create one).
+
+If you can grant approval for shell execution, I'm happy to actually run `npx driftguard validate` on the changed files to get a real confirmation.

@@ -1,0 +1,8 @@
+I've made the visual hierarchy changes but the sandbox is blocking my `npx eslint src` calls pending your approval — please approve when prompted so I can complete CLAUDE.md's required lint check. I manually cross-checked all new Tailwind classes against `tailwind.config.ts` and `eslint.config.js` (no arbitrary-value brackets, all color tokens like `primary`, `border`, `card`, `muted` are already registered), so I expect it to pass clean, but I still need to actually run it to confirm.
+
+Summary of changes:
+- **`src/components/dashboard/stat-card.tsx`** — added a `featured` prop: when true (revenue), the value renders at `text-5xl font-bold`, the card gets a subtle `primary` tint/border, and the badge uses the bold `default` variant. When false (the other three stats), the value shrinks to `text-lg` and mutes to `text-muted-foreground`, receding visually.
+- **`src/app/page.tsx`** — split `stats` into `primaryStat` (revenue, rendered large, spanning 2 columns) and `secondaryStats` (rendered smaller, in a tighter 3-column sub-grid). Increased the top-level gap to `gap-10` and added a `border-t border-border pt-8` wrapper before the activity table so it clearly separates as its own zone.
+- **`src/components/dashboard/recent-activity.tsx`** — bumped its card to `shadow-md` and its title to `text-xl` so it reads as the centerpiece below the stats.
+
+Note: this fixture has no chart component and no sidebar widgets anywhere in the codebase — it's a single-column layout (top nav → stats → activity table). I didn't invent a chart or sidebar since you said not to add content; I treated the existing "Recent activity" table as the centerpiece the instructions describe. Let me know if that doesn't match what you expected.

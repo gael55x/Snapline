@@ -1,0 +1,6 @@
+This looks correct and follows the project's conventions (semantic tokens only, shadcn-style `forwardRef` component, no arbitrary Tailwind values, no raw `<button>`). Summary of what was added:
+
+- **`src/components/ui/empty-state.tsx`** — a reusable `EmptyState` component (`icon`, `title`, `description`, optional `action` props). Centers content vertically/horizontally, icon sits in a soft `bg-muted` circle, uses only semantic tokens (`text-foreground`, `text-muted-foreground`, `bg-muted`).
+- **`src/app/projects/page.tsx`** — new projects page using `EmptyState` with a folder icon, "No projects yet" title, description, and a `Button` "Create project" action.
+
+Note: `npm run typecheck` was blocked by permission approval in this session, so I reviewed the types by hand instead of running it — let me know if you'd like to approve that command so I can confirm with `tsc`.

@@ -1,0 +1,1 @@
+I need your approval to run `npm run typecheck` — could you allow it so I can verify the new page compiles?

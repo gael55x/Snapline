@@ -1,0 +1,79 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-buoy--premium-dashboard--2/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-arbitrary-tailwind:src/components/ui/button.tsx:35:272:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/ui/button.tsx",
+      "message": "Arbitrary Tailwind value \"active:scale-[0.98]\"",
+      "location": {
+        "line": 35,
+        "column": 272
+      },
+      "evidence": "active:scale-[0.98]",
+      "repair": {
+        "instruction": "Remove active:scale-[0.98]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 8,
+    "totalViolations": 1,
+    "errorViolations": 1,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 1,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/ui/button.tsx",
+      "filePath": "src/components/ui/button.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/ui/button.tsx:35:272:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/ui/button.tsx",
+          "message": "Arbitrary Tailwind value \"active:scale-[0.98]\"",
+          "location": {
+            "line": 35,
+            "column": 272
+          },
+          "evidence": "active:scale-[0.98]",
+          "repair": {
+            "instruction": "Remove active:scale-[0.98]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove active:scale-[0.98]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/ui/button.tsx\n\n1 violation:\n- [error] arbitrary value: active:scale-[0.98] (line 35)\n\nRepair:\n- Remove active:scale-[0.98]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+    }
+  ],
+  "durationMs": 39
+}

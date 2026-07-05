@@ -1,0 +1,1 @@
+The typecheck command needs explicit approval from you to run. Could you approve running `./node_modules/.bin/tsc --noEmit` (or `npm run typecheck`) so I can verify the changes compile cleanly?

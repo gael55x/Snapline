@@ -1,0 +1,37 @@
+{
+  "id": "claude-project-instructions--billing-settings-page--1",
+  "timestamp": "2026-07-05T03:18:31.121Z",
+  "mode": "claude-project-instructions",
+  "fixture": "next-shadcn-custom-theme",
+  "promptId": "billing-settings-page",
+  "attempt": 1,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 10,
+      "totalViolations": 2,
+      "errorViolations": 0,
+      "warningViolations": 2,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 2,
+      "componentReuseRate": 1
+    },
+    "buildPass": false,
+    "typecheckPass": false,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 211,
+    "filesTouched": 1
+  },
+  "rawOutputPaths": [
+    "runs/claude-project-instructions--billing-settings-page--1/agent-stdout.txt",
+    "runs/claude-project-instructions--billing-settings-page--1/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-project-instructions--billing-settings-page--1/scanner.json",
+  "gitDiffPath": "runs/claude-project-instructions--billing-settings-page--1/diff.patch"
+}

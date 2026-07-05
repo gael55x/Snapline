@@ -1,0 +1,1 @@
+Running the typecheck script needs your approval (it executes `tsc` via npm). Can I run `npm run typecheck` to verify the new login page compiles cleanly?

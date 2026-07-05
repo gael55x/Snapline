@@ -1,0 +1,10 @@
+I've implemented the feature, but every attempt to run `npx eslint src` (as CLAUDE.md requires) is being auto-denied by the current permission mode — no prompt is reaching me to retry against. I manually reviewed the new/changed files for the two lint rules in `eslint.config.js` (`no-arbitrary-value`, `no-custom-classname`) and found no bracket-value classNames and no ad-hoc color literals — all new colors (`success`, `warning`) were added as proper theme tokens in `tailwind.config.ts`/`globals.css`, matching the existing `brand` token pattern, rather than hardcoded Tailwind colors.
+
+Could you approve running `npx eslint src` (or run it yourself) so I can confirm there are zero reported problems, per the project's CLAUDE.md requirement?
+
+Summary of what I added:
+- **`src/app/globals.css`** / **`tailwind.config.ts`**: new `success`/`warning` semantic color tokens (light + dark), following the same pattern as existing `brand` tokens.
+- **`src/components/ui/badge.tsx`**: added `success` and `warning` badge variants.
+- **`src/components/ui/table.tsx`**: new `Table`/`TableHeader`/`TableBody`/`TableRow`/`TableHead`/`TableCell` primitives, matching the existing shadcn-style component conventions.
+- **`src/components/invoices-table.tsx`**: client component with 24 mock invoices, sortable headers (number/date/amount/status, click to toggle asc/desc, defaults to date descending), status badges (Paid=success, Pending=warning, Failed=destructive), a "Download PDF" action per row (generates a client-side Blob download), and prev/next pagination at 10 rows/page.
+- **`src/app/billing/page.tsx`**: new billing page wrapping the table in a `Card`.

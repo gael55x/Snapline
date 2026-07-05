@@ -1,0 +1,14 @@
+I've built out the login page with all the requested pieces. I couldn't get approval to run `npx tsc --noEmit` in this session, so I manually verified the types by inspection — let me know if you'd like to grant Bash access so I can confirm with an actual run.
+
+**What changed:**
+- `src/components/ui/checkbox.tsx` (new) — hand-rolled checkbox primitive matching this fixture's existing style (no Radix/CVA, just `forwardRef` + `cn`), consistent with `button.tsx`/`input.tsx`.
+- `src/components/ui/separator.tsx` (new) — same pattern, horizontal/vertical divider.
+- `src/app/login/page.tsx` (rewritten) — now a client component with:
+  - Google/GitHub outline buttons above the form (inline SVG icons, no new icon-library dependency since none exists in `package.json`)
+  - "or continue with email" divider using the new `Separator`
+  - Email/password fields with inline validation errors (`aria-invalid`, `aria-describedby`, error text in `text-destructive`)
+  - "Remember me" checkbox and a "Forgot password?" link next to the password label
+  - Submit button shows a "Signing in..." loading state and disables while submitting
+  - Footer link to `/signup` for new users
+
+I kept everything consistent with the fixture's minimal, dependency-free component style rather than pulling in Radix/shadcn's real checkbox/separator (which aren't installed here). Since there's no `next` package or router actually installed, links use plain `<a>` tags, matching the rest of the codebase.

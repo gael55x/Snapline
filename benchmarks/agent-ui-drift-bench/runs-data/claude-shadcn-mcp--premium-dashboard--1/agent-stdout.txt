@@ -1,0 +1,13 @@
+Clean. Here's a summary of what changed:
+
+**Design token layer** (`globals.css`, `tailwind.config.ts`) — the biggest lever: previously `--background` and `--card` were identical, so cards sat flush against the page with no depth. Gave the page a subtly distinct off-white/near-black surface so cards visibly lift off it (a hallmark of premium dashboards). Added proper `success`/`warning`/`ring` tokens, extending the existing shadcn token architecture rather than reaching for one-off Tailwind colors.
+
+**Primitives** (`card`, `badge`, `button`, `input`, `table`, `dialog`) — larger radii (`rounded-2xl`), refined shadows, a real focus ring (previously defaulted to browser blue, clashing with the neutral theme), tactile `active:scale-95` press feedback, backdrop-blur dialog overlay, more generous table padding.
+
+**Dashboard components**:
+- `nav.tsx` — sticky, blurred header; segmented-control style tab switcher instead of flat links; refined logo mark
+- `stat-card.tsx` — icon chips, larger tabular numbers, semantic green/red trend badges with arrow icons (previously just gray)
+- `recent-activity.tsx` — avatar initials, uppercase table headers, colored status dots, edge-to-edge table inside the card
+- `page.tsx` / `settings/page.tsx` — better spacing rhythm, eyebrow labels, danger-zone card gets a subtle destructive-tinted border
+
+No data, copy, routes, or behavior changed — same stats, same activity rows, same settings fields. I couldn't run `tsc`/npm in this sandbox (command execution needs approval that isn't resolving here), so I hand-verified types and grepped for stray hex codes/inline styles — none found.

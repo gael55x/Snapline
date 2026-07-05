@@ -1,0 +1,10 @@
+All edits are in place and no content (data, links, rows, buttons) was added or removed — only structure and styling changed.
+
+Summary of what changed and why:
+
+**Note on scope:** this fixture doesn't actually have a chart or a sidebar — it's a top-nav dashboard with 4 stat cards + a "Recent activity" table. I mapped the requested hierarchy onto the real elements: revenue as the dominant number, the other 3 stats as secondary, the activity table as the below-the-fold centerpiece, and the header nav as the closest analog to peripheral "widget" chrome.
+
+- `src/app/page.tsx`: split the stats into a featured "Total revenue" card (spans 2/3 width) and a compact secondary stack for the other three; added small uppercase eyebrow labels ("Key metrics" / "Activity") and a border-top divider to clearly separate zones.
+- `src/components/dashboard/stat-card.tsx`: added a `featured` variant — 5xl bold value, primary-colored left accent border, shadow — vs. the default variant, which is now smaller (text-xl value, xs title, no shadow) so it visibly recedes.
+- `src/components/dashboard/recent-activity.tsx`: bumped to `shadow-lg` and a larger title so it reads as the centerpiece beneath the metrics.
+- `src/components/dashboard/nav.tsx`: dropped the header's card background to plain background, muted the "Snapline Ops" label and switched the "v2" badge to `outline`, so the top chrome no longer competes with the dashboard content.

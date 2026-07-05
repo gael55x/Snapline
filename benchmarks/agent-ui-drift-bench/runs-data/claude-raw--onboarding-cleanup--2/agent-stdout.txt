@@ -1,0 +1,6 @@
+I searched the entire codebase — all files, git history, and tracked/untracked state — and there's no onboarding flow anywhere in this project. The app only has a dashboard (`src/app/page.tsx`) and a settings page (`src/app/settings/page.tsx`); no onboarding steps, wizard, or progress bar component exists under any name.
+
+Since you mentioned the steps and form fields should "stay exactly the same," I don't want to fabricate an onboarding flow that doesn't currently exist. Could you clarify:
+
+- Is this in a different repo/branch than what's checked out here?
+- Or did you want me to build a new multi-step onboarding flow from scratch (in which case "keep steps/fields the same" wouldn't apply since there's nothing to preserve)?

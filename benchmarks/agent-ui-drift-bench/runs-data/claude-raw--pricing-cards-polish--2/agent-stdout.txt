@@ -1,0 +1,8 @@
+I searched the whole codebase (dashboard page, settings page, all `src/components`) and confirmed there's no existing pricing cards component anywhere in this fixture app — no plan tiers, no `$`/`/month` copy, no `PricingCard` file. It's just a dashboard (stat cards, recent activity, nav) and a settings page.
+
+Since there's nothing to restyle, I don't want to guess at tier names/pricing/features that might not match what you have in mind. Two options:
+
+1. **Build it fresh** — I create a new pricing section (e.g. a `/pricing` route or a `PricingCards` component) with a reasonable 3-tier setup (Free / Pro / Enterprise) and copy I write, styled with depth, a hero price, and a highlighted "Pro" card.
+2. **You point me to the real copy** — if this component exists in another repo/branch/file I haven't found, tell me where and I'll restyle that instead.
+
+Which would you like?

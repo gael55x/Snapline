@@ -1,0 +1,12 @@
+Clean — no arbitrary bracket values, no hex colors, no inline styles anywhere in the touched files. Everything runs through semantic tokens and standard Tailwind scale classes, using the existing shadcn `Card`/`Badge`/`Button` primitives throughout.
+
+Here's a summary of what changed:
+
+- **`globals.css`** — subtle radial-gradient wash behind the page (pure CSS, no Tailwind bracket syntax) for depth, plus refined font-feature-settings.
+- **`ui/card.tsx`** — softer border opacity, larger radius, refined shadow — lifts every card app-wide.
+- **`nav.tsx`** — sticky + backdrop-blur header, logo mark, pill-style active nav state, user avatar badge.
+- **`stat-card.tsx`** — each stat now has a monochrome icon glyph, a top accent bar, hover elevation (`-translate-y-0.5` + `shadow-lg`), a trend arrow inside the badge, and `tabular-nums` on the value for clean digit alignment.
+- **`recent-activity.tsx`** — divided header with an event-count badge, uppercase tracked column headers, roomier row padding, and status dots inside the badges.
+- **`page.tsx`** — wider container, better vertical rhythm, an eyebrow label above the title, and icons wired into each stat.
+
+One thing worth flagging: this repo has a live pre-commit-style hook (`snapline hook claude post-tool-use`) that scans every edit for design-system drift (raw hex, inline styles, arbitrary Tailwind values, non-semantic colors) per `snapline.yml`. It actually caught one violation I introduced (`text-[11px]`) and I fixed it immediately — everything now passes clean. No functionality or data was touched, purely visual polish.

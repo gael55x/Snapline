@@ -1,0 +1,37 @@
+{
+  "id": "claude-tailwind-eslint--polished-settings-page--3",
+  "timestamp": "2026-07-05T01:07:16.614Z",
+  "mode": "claude-tailwind-eslint",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "polished-settings-page",
+  "attempt": 3,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 0,
+      "totalViolations": 0,
+      "errorViolations": 0,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 272,
+    "filesTouched": 1
+  },
+  "rawOutputPaths": [
+    "runs/claude-tailwind-eslint--polished-settings-page--3/agent-stdout.txt",
+    "runs/claude-tailwind-eslint--polished-settings-page--3/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-tailwind-eslint--polished-settings-page--3/scanner.json",
+  "gitDiffPath": "runs/claude-tailwind-eslint--polished-settings-page--3/diff.patch"
+}

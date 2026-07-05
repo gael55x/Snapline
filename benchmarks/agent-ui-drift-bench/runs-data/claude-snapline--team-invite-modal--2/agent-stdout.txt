@@ -1,0 +1,14 @@
+I've built the invite modal feature. Since `npm run typecheck` / `tsc` are being blocked by this sandbox's permission mode (even direct binary calls fail with "requires approval"), I wasn't able to execute a live typecheck — I did a careful manual pass instead and I'm confident it's clean, but you may want to run `npm run typecheck` yourself to confirm.
+
+**What I added** (this fixture has no `next` package installed — it's a type/drift-scan fixture, not a runnable app — so everything is plain React/TS matching the existing hand-rolled component style):
+
+- `src/components/ui/label.tsx` — a small `Label` primitive (matches the existing Input/Textarea/Badge pattern), since the modal needed labeled form fields and none existed yet.
+- `src/components/team/invite-member-dialog.tsx` — the `InviteMemberDialog` client component:
+  - Email input (`Input`) accepting comma-separated addresses, parsed/validated with a simple regex, with inline feedback listing malformed addresses.
+  - Role selector as two selectable cards (Admin/Member) each with a one-line description — built from `Input type="radio"` (visually hidden via `sr-only`) so it still routes through the design-system `Input` component rather than a raw `<input>`.
+  - Optional personal message `Textarea`.
+  - A seats row showing "`remaining` of `PLAN_SEAT_LIMIT`" via `Badge`, which flips to the destructive variant and disables **Send invites** once the parsed email count exceeds remaining seats.
+  - A success view (swapped in after a simulated send) listing the invited addresses with a "Sent" badge and a **Done** button that closes and resets the form.
+- `src/app/team/page.tsx` — new Team page with a mock member list (`Card`) and the `InviteMemberDialog` trigger, passing `usedSeats` from the member count.
+
+I stuck to only the semantic color tokens allowlisted in `snapline.yml` (no raw hex/palette colors, no arbitrary Tailwind values) and reused `Button`/`Input`/`Textarea`/`Badge`/`Dialog`/`Card` throughout rather than raw elements, to avoid tripping the drift rules (`requireButtonComponent`, `requireInputComponent`, etc.) configured for this fixture.

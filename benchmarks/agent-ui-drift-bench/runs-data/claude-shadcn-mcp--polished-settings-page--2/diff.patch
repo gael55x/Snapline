@@ -1,0 +1,93 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+index c106fe3..462956d 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+@@ -3,6 +3,7 @@
+ import * as React from "react"
+ 
+ import { DashboardNav } from "@/components/dashboard/nav"
++import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+@@ -28,21 +29,24 @@ export default function SettingsPage() {
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/settings" />
+-      <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
++      <main className="mx-auto flex max-w-3xl flex-col gap-8 px-6 py-10">
++        <div className="flex flex-col gap-1.5 border-b border-border pb-6">
++          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
++            Workspace
++          </p>
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Settings</h1>
+           <p className="text-sm text-muted-foreground">
+             Manage your workspace profile and danger zone actions.
+           </p>
+         </div>
+ 
+-        <Card>
+-          <CardHeader>
++        <Card className="overflow-hidden">
++          <CardHeader className="border-b border-border bg-muted/40">
+             <CardTitle>Workspace profile</CardTitle>
+             <CardDescription>This information is shown on shared reports.</CardDescription>
+           </CardHeader>
+-          <CardContent>
+-            <form className="flex flex-col gap-4">
++          <CardContent className="pt-6">
++            <form className="grid gap-6 sm:grid-cols-2">
+               <div className="flex flex-col gap-2">
+                 <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
+                   Workspace name
+@@ -60,7 +64,7 @@ export default function SettingsPage() {
+                   defaultValue="ops@example.com"
+                 />
+               </div>
+-              <div className="flex flex-col gap-2">
++              <div className="flex flex-col gap-2 sm:col-span-2">
+                 <label htmlFor="repo-url" className="text-sm font-medium text-foreground">
+                   Repository URL
+                 </label>
+@@ -70,21 +74,33 @@ export default function SettingsPage() {
+                   type="url"
+                   placeholder="https://github.com/acme/app"
+                 />
++                <p className="text-xs text-muted-foreground">
++                  Used to link commits to this workspace&apos;s repair reports.
++                </p>
+               </div>
+             </form>
+           </CardContent>
+-          <CardFooter className="gap-2">
+-            <Button>Save changes</Button>
++          <CardFooter className="justify-end gap-2 border-t border-border pt-6">
+             <Button variant="ghost">Cancel</Button>
++            <Button>Save changes</Button>
+           </CardFooter>
+         </Card>
+ 
+-        <Card>
+-          <CardHeader>
+-            <CardTitle>Danger zone</CardTitle>
++        <Card className="border-destructive/30">
++          <CardHeader className="border-b border-destructive/20 bg-destructive/5">
++            <div className="flex items-center gap-2">
++              <CardTitle className="text-destructive">Danger zone</CardTitle>
++              <Badge variant="destructive">Irreversible</Badge>
++            </div>
+             <CardDescription>Destructive actions that cannot be undone.</CardDescription>
+           </CardHeader>
+-          <CardFooter>
++          <CardFooter className="flex items-center justify-between gap-4 pt-6">
++            <div className="flex flex-col gap-0.5">
++              <p className="text-sm font-medium text-foreground">Delete this workspace</p>
++              <p className="text-sm text-muted-foreground">
++                Removes all projects, reports, and repair history for good.
++              </p>
++            </div>
+             <Button variant="destructive" onClick={() => setConfirmOpen(true)}>
+               Delete workspace
+             </Button>

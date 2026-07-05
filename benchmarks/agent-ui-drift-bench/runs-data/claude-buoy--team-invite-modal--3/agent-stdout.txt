@@ -1,0 +1,1 @@
+I'll pause here rather than keep retrying the same blocked command. Please approve the Bash tool (or adjust permission settings) when ready, and I'll run `npm run typecheck` followed by `npx buoy --help` and the drift check that this project's CLAUDE.md requires after UI edits.

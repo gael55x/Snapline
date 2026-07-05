@@ -1,0 +1,11 @@
+This repo had no pricing page at all, so I built one from scratch using the existing shadcn/Tailwind design tokens and component conventions (`Card`, `Badge`, `Button`), then wired it into the nav at `/pricing`.
+
+What makes the cards pop:
+- **Pro card is visually the hero**: `border-2 border-primary`, a subtle `bg-gradient-to-b from-primary/5` wash, `shadow-2xl shadow-primary/20`, and `md:scale-105 md:-my-4` so it physically sits above and larger than its neighbors, with a floating "Most popular" badge straddling the top edge.
+- **Depth on all cards**: base tiers get `shadow-sm` with a `hover:-translate-y-1 hover:shadow-lg` lift, so the whole set feels tactile instead of flat.
+- **Price as the hero element**: bumped to `text-4xl`/`text-5xl` bold, baseline-aligned with a muted `/month`, rather than being the same size as the description text.
+- **Feature list styling**: each item gets a filled check-icon badge (primary-filled on Pro, muted on the others) instead of a plain bullet, reinforcing which tier is "the good one."
+
+All styling stays within the existing design tokens (`primary`, `muted`, `card`, `border`, etc.) — no hardcoded colors — consistent with how `StatCard` and `RecentActivity` are built.
+
+One caveat: sandbox restrictions blocked me from running `tsc --noEmit` to confirm the typecheck, so I hand-verified types against the existing `Button`/`Card`/`Badge` prop signatures instead of getting a compiler confirmation. Worth running `npm run typecheck` yourself before merging.

@@ -1,0 +1,5 @@
+I can't run `tsc` in this sandboxed benchmark environment (bash commands are restricted), but the code follows the exact same patterns as `card.tsx` and `button.tsx` (forwardRef, `cn` helper, HTMLAttributes extension), so it should typecheck cleanly.
+
+**Summary:**
+- `src/components/ui/empty-state.tsx` — new reusable `EmptyState` component: takes `icon` (ReactNode), `title`, `description`, and optional `action`; centers content with the icon in a soft `bg-muted` circle above the title/description, with the action button below.
+- `src/app/projects/page.tsx` — new projects page using `EmptyState` with a folder icon, "No projects yet" title, description, and a "Create project" button.

@@ -1,0 +1,1 @@
+There's genuinely no onboarding flow anywhere in this repo's history — this fixture only contains a dashboard (nav, stat cards, settings, recent activity). Could you clarify which flow/screen you mean, or is this the wrong repo/branch for that task?

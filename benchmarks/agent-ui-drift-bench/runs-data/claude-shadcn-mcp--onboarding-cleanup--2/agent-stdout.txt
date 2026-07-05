@@ -1,0 +1,9 @@
+I checked the full repo and there's no onboarding flow anywhere in this codebase — no route, component, or history for it. The app only has:
+
+- A dashboard (`src/app/page.tsx`)
+- A settings page (`src/app/settings/page.tsx`)
+- A handful of shadcn UI primitives and dashboard components
+
+There's no "steps," "progress bar," or multi-step form in the code at all, and it's never existed in git history. Since you asked me to keep the steps and form fields exactly the same, I don't want to invent an onboarding flow from scratch and pass it off as a "cleanup" — that would be fabricating a feature, not tidying an existing one.
+
+Could you point me to where the onboarding flow lives (a different repo/branch, or a file I'm missing), or would you like me to build a new multi-step onboarding flow from scratch for this dashboard?

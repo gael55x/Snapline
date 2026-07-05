@@ -1,0 +1,12 @@
+I've applied a full visual refresh to the dashboard, keeping all data and functionality untouched. Note: I wasn't able to run `npm run typecheck` or start a dev server in this sandbox (permission-gated, and the fixture has no `next`/`lucide-react` installed — it's a static fixture, not a runnable app), so I hand-verified types and grepped for hardcoded colors/inline styles/arbitrary values (found none — everything routes through the existing CSS-variable token system).
+
+**What changed:**
+- **Design tokens** (`globals.css`, `tailwind.config.ts`): added `--success`/`--warning`/`--ring` semantic color variables (extending the existing token pattern, not hardcoding), a soft ambient `shadow-card`/`shadow-card-hover`, Inter as the display font, and a subtle radial-gradient page background (`bg-shell`).
+- **Stat cards**: larger tabular-nums values, a tinted icon badge per metric, and a trend indicator (arrow + color) instead of a plain badge.
+- **Cards** everywhere: softer borders, ambient shadow instead of flat `shadow`.
+- **Recent activity table**: avatar-initial circles for actors, semantic soft-tint status pills (green/amber/red with a dot) instead of solid badges, uppercase tracked column headers, roomier row padding.
+- **Nav header**: sticky + glassy blur, small logo mark, refined active-tab pill.
+- **Badges/buttons/inputs/dialog**: pill-shaped badges, softened destructive badge color, crisper focus rings, slightly bigger dialog radius/shadow.
+- **Settings page**: matching spacing/typography, danger-zone card gets a subtle red ring accent.
+
+If you'd like, I can try running the typecheck again if you approve the npm permission prompt, or you can run `npm run typecheck` yourself to confirm.

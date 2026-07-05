@@ -1,0 +1,6 @@
+I've created the reusable `EmptyState` component and wired it into a new projects page:
+
+- **`src/components/empty-state.tsx`** — a `forwardRef` component with `icon`, `title`, `description?`, and `action?` props. Centers content vertically/horizontally (`flex flex-1 items-center justify-center`), wraps the icon in a soft `bg-muted` circle, and follows the same style conventions (`cn`, `forwardRef`, `displayName`) as the other components in `src/components/ui`.
+- **`src/app/projects/page.tsx`** — new route using `EmptyState` with a "No projects yet" title, a description, an inline folder SVG icon (no icon library is installed in this fixture, so I added a small local `FolderIcon` rather than pulling in a new dependency), and a `Create project` `Button` as the action.
+
+Note: I wasn't able to run `tsc --noEmit` in this sandbox (Bash commands require approval that isn't being granted here), so I reviewed the types by hand but haven't executed the typecheck — worth running `npm run typecheck` yourself to confirm.

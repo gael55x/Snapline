@@ -1,0 +1,133 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97..39e0877 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -30,28 +30,43 @@ const stats = [
+ ]
+ 
+ export default function DashboardPage() {
++  const [primaryStat, ...secondaryStats] = stats
++
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
++      <main className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-8">
+         <div className="flex flex-col gap-1">
+           <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
+-            <StatCard
+-              key={stat.title}
+-              title={stat.title}
+-              value={stat.value}
+-              change={stat.change}
+-              changeType={stat.changeType}
+-            />
+-          ))}
++        <section className="grid gap-4 lg:grid-cols-3">
++          <StatCard
++            key={primaryStat.title}
++            title={primaryStat.title}
++            value={primaryStat.value}
++            change={primaryStat.change}
++            changeType={primaryStat.changeType}
++            emphasis="primary"
++            className="lg:col-span-2"
++          />
++          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-1">
++            {secondaryStats.map((stat) => (
++              <StatCard
++                key={stat.title}
++                title={stat.title}
++                value={stat.value}
++                change={stat.change}
++                changeType={stat.changeType}
++              />
++            ))}
++          </div>
+         </section>
+-        <RecentActivity />
++        <div className="border-t border-border pt-8">
++          <RecentActivity />
++        </div>
+       </main>
+     </div>
+   )
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774c..bcd114d 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,9 +65,9 @@ function statusVariant(status: ActivityRow["status"]) {
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
++    <Card className="shadow-md">
+       <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++        <CardTitle className="text-lg sm:text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+       <CardContent>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27..bb9ae0e 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,22 +1,48 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  emphasis?: "primary" | "secondary"
++  className?: string
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  emphasis = "secondary",
++  className,
++}: StatCardProps) {
++  const isPrimary = emphasis === "primary"
++
+   return (
+-    <Card>
++    <Card className={cn(isPrimary ? "shadow-md" : "border-border/60 shadow-none", className)}>
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
++        <CardTitle
++          className={cn(
++            "font-medium text-muted-foreground",
++            isPrimary ? "text-sm uppercase tracking-wide" : "text-xs",
++          )}
++        >
++          {title}
++        </CardTitle>
+         <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
++        <div
++          className={cn(
++            "font-bold text-foreground",
++            isPrimary ? "text-4xl sm:text-5xl" : "text-lg",
++          )}
++        >
++          {value}
++        </div>
+         <p className="text-xs text-muted-foreground">compared to last month</p>
+       </CardContent>
+     </Card>

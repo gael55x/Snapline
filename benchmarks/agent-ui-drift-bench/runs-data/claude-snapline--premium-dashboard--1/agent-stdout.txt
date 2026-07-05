@@ -1,0 +1,13 @@
+All files are syntactically correct and consistent — no functionality or data was touched, only presentation. Everything stays within the strict semantic-token/no-arbitrary-value/no-inline-style constraints defined in `snapline.yml`.
+
+Summary of the premium redesign:
+
+- **Depth & atmosphere**: subtle radial gradient wash in `globals.css`, tinted card/button/dialog shadows (`shadow-foreground/5`, `shadow-primary/20`) instead of flat default shadows, custom scrollbar and selection color.
+- **Cards**: softer `rounded-2xl` corners, muted `border-border/60`, roomier `p-7` padding, bumped `CardTitle` to `text-lg` for stronger hierarchy.
+- **Stat tiles**: bigger `text-3xl tabular-nums` figures, uppercase tracking on labels, trend arrows (↑/↓) on the existing badges, hover lift (`-translate-y-0.5` + shadow).
+- **Nav**: sticky glass header (`backdrop-blur`), a logo mark, a divider, pill-shaped nav links.
+- **Table**: uppercase tracked column headers, generous cell padding, avatar-initial chips per actor, status dots inside badges.
+- **Buttons/Inputs/Badges**: `rounded-lg`/`rounded-full`, a theme-correct `ring-primary` focus ring (previously fell back to Tailwind's default blue ring, which clashed with the neutral palette), tactile `active:scale-95` press feedback.
+- **Settings**: matching spacing/typography, a subtle `border-destructive/30` accent on the danger-zone card.
+
+One note: I couldn't run `npx tsc --noEmit` in this session (blocked pending approval), so I manually re-read every edited file for syntax correctness instead — all look clean. If you'd like, approve a `tsc` run and I'll confirm the type-check passes.

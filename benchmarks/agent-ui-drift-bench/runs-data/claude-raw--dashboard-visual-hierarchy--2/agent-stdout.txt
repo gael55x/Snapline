@@ -1,0 +1,11 @@
+This is correct and consistent with the codebase's `cn` signature (accepts `string | false | null | undefined`). The changes are complete:
+
+**`stat-card.tsx`** — added a `variant: "featured" | "default"` prop. Featured (revenue) gets a large `text-4xl`/`text-5xl` value, subtle tinted card with shadow, and uppercase label. Default (secondary stats) recedes: smaller `text-xl` value, flatter shadowless card, smaller muted label and badge.
+
+**`page.tsx`** — split the hero stat (Total revenue) out from the other three; it now renders full-width and dominant above a 3-column row of the shrunken secondary stats. Added two eyebrow section headings ("Key metrics" / "Activity") with a border-top divider to clearly separate the stats zone from the activity zone.
+
+**`recent-activity.tsx`** — bumped the card to `shadow-md` and its title to `text-xl` so it reads as the visual centerpiece of the page, since this fixture has no chart component to use instead.
+
+One note: the prompt mentioned de-emphasizing "sidebar widgets" and a "chart" centerpiece, but this fixture has neither — no sidebar exists (the nav is a top header bar) and no chart component exists anywhere in the app. I applied the same hierarchy principle to what's actually present (stats + the Recent Activity table) rather than inventing new UI elements, per "don't add or remove any content."
+
+No content, copy, or data changed — only sizing, weight, color emphasis, and structural headings.

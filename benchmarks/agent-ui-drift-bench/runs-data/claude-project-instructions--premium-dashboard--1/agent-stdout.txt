@@ -1,0 +1,20 @@
+I've completed the redesign. Since Bash commands aren't going through for approval in this session, I verified correctness by re-reading every edited file directly rather than running `tsc`/`grep`.
+
+## Summary of changes
+
+**Shared primitives** (`ui/card.tsx`, `ui/badge.tsx`, `ui/button.tsx`, `ui/input.tsx`, `ui/dialog.tsx`, `ui/table.tsx`) — cascades polish everywhere:
+- Cards: `rounded-2xl`, softer `border-border/60`, calmer `shadow-sm`, larger `text-lg` titles
+- Badges: pill-shaped (`rounded-full`), lighter `font-medium`
+- Buttons/inputs: taller (`h-10`), `rounded-lg`, on-brand focus rings (`ring-primary/40` instead of default blue)
+- Dialog: `rounded-2xl`, `shadow-xl`, blurred overlay, more generous padding
+- Table: uppercase tracking-wide headers, roomier cell padding, no trailing border on the last row
+
+**Dashboard-specific:**
+- Nav: sticky + backdrop-blur header, small logo mark, pill-shaped active/inactive nav links
+- Stat cards: bigger `text-3xl` figures, trend arrows (↑/↓) on the change badge, a subtle radial glow accent, hover elevation
+- Overview & Settings pages: eyebrow labels, larger page titles, a bottom-border header divider, and more generous vertical rhythm (`gap-8`, `py-10`)
+- Danger Zone card gets a subtle `border-destructive/30` tint for visual hierarchy
+
+All changes stick strictly to the semantic tokens (`background`, `foreground`, `card`, `primary`, `secondary`, `muted`, `destructive`, `border`, with opacity modifiers like `/10`), the default Tailwind spacing/radius/shadow scale (no bracket/arbitrary values), and existing shadcn components — no new files, no raw `<button>`/`<input>`, no data or functionality changes.
+
+One caveat: I couldn't execute `tsc --noEmit` or a visual browser check in this session because Bash commands aren't clearing approval — you may want to run `npm run typecheck` yourself to confirm, though the edits were purely className/JSX-string changes with no type surface altered.

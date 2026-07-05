@@ -1,0 +1,11 @@
+Type-checking commands are blocked in this sandbox, so I manually verified the file against the existing component prop types instead. The code only uses valid `Button`/`Badge` variants and standard HTML attribute props that match the existing components' type signatures.
+
+I added `src/app/billing/page.tsx`, a client component built entirely from the existing shadcn-style primitives (`Card`, `Badge`, `Button`, `Dialog`, `Input`) and theme tokens — no new dependencies:
+
+- **Trial banner** — shown conditionally at the top (`bg-brand/10` / `border-brand`) when a trial is expiring soon, with a CTA that opens the update-card dialog.
+- **Current plan card** — plan name, price, renewal date, and a status badge; includes a "Cancel subscription" action in the footer.
+- **Payment method card** — masked card details with an "Update card" button that opens a dialog to enter new card info (updates local state on save).
+- **Invoices card** — last 4 invoices with date, status badge, amount, and a download link per row.
+- **Cancel subscription dialog** — confirms the plan stays active until the renewal date, then flips the plan badge to "Cancels at period end" and removes the cancel action.
+
+Since there's no `next` package or dev server wired into this fixture (it's typechecked via `tsc`, not run), I couldn't launch it in a browser to click through — worth doing if this fixture ever gets a real Next.js runtime.

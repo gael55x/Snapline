@@ -1,0 +1,8 @@
+All the tokens used (`bg-muted`, `text-muted-foreground`, `text-foreground`) already exist in the theme. Both files are consistent with the existing shadcn conventions in this repo, so the implementation should be correct even though I couldn't get `tsc` approval to run in this sandbox to confirm.
+
+I've added:
+
+- **`src/components/empty-state.tsx`** — a reusable `EmptyState` component (`icon`, `title`, `description`, optional `action`). It centers content vertically/horizontally, with the icon shown in a soft `bg-muted` circle above the title/description text and the action rendered below.
+- **`src/app/projects/page.tsx`** — new projects page using `EmptyState` with a small inline folder icon, "No projects yet" title, description, and a `Create project` `Button` as the action. (No icon library like lucide-react is installed in this fixture, so I used a lightweight inline SVG icon component matching the `icon` prop's shape — swap in a real icon lib easily since the prop just expects `React.ComponentType<{ className?: string }>`.)
+
+Note: I couldn't get `tsc --noEmit` to run — the sandbox held it pending approval — so please run `npm run typecheck` (or approve the command) to confirm compilation.

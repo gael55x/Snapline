@@ -1,0 +1,79 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-tailwind-eslint--premium-dashboard--1/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-raw-palette-color:src/components/ui/card.tsx:10:92:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/ui/card.tsx",
+      "message": "Raw Tailwind palette color \"ring-black/5\"",
+      "location": {
+        "line": 10,
+        "column": 92
+      },
+      "evidence": "ring-black/5",
+      "repair": {
+        "instruction": "Replace ring-black/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 4,
+    "totalViolations": 1,
+    "errorViolations": 0,
+    "warningViolations": 1,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 1,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/ui/card.tsx",
+      "filePath": "src/components/ui/card.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/components/ui/card.tsx:10:92:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/ui/card.tsx",
+          "message": "Raw Tailwind palette color \"ring-black/5\"",
+          "location": {
+            "line": 10,
+            "column": 92
+          },
+          "evidence": "ring-black/5",
+          "repair": {
+            "instruction": "Replace ring-black/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace ring-black/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+      ],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/ui/card.tsx\n\n1 violation:\n- [warn] raw Tailwind color: ring-black/5 (line 10)\n\nRecommended:\n- Replace ring-black/5 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+    }
+  ],
+  "durationMs": 224
+}

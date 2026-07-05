@@ -1,0 +1,7 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":24,"files":["src/components/ui/separator.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":25,"files":["src/components/ui/alert.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":35,"files":["src/components/ui/table.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":85,"files":["src/app/settings/billing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":49,"files":["src/app/settings/billing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":32,"files":["src/app/settings/billing/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":80,"files":[]}

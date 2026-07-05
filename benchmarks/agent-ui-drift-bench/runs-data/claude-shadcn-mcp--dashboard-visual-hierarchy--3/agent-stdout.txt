@@ -1,0 +1,9 @@
+All three files are correct and type-consistent (props match, `cn` usage matches its signature of `Array<string | false | null | undefined>`). Since this fixture has no build/dev script (it's a static scanning fixture, not a runnable app), I've verified the changes visually via code review.
+
+Summary of the visual hierarchy rework in `fixtures/next-shadcn-dashboard-app`:
+
+- **`src/app/page.tsx`** — split the flat 4-card grid into a hero row (Total revenue alone, full-width) followed by a 3-column row for the secondary stats. Added a `border-t` divider with extra top padding before "Recent activity" to clearly separate the stats zone from the centerpiece zone.
+- **`src/components/dashboard/stat-card.tsx`** — added an `emphasis` prop (`"primary" | "secondary"`, default secondary). Primary (revenue) gets a large `text-4xl sm:text-5xl` bold value, an uppercase eyebrow-style label, and a subtle `shadow-md`/border accent. Secondary stats recede: smaller `text-lg` value in muted foreground color, smaller badge/caption text.
+- **`src/components/dashboard/recent-activity.tsx`** — bumped its `CardTitle` to `text-xl` and gave the card `shadow-md` so it reads as the prominent centerpiece beneath the stats, since this fixture has no separate chart component.
+
+No stats, rows, or text content were added or removed — only layout, spacing, and typography changed.

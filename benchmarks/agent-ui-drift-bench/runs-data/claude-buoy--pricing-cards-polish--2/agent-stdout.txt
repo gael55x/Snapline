@@ -1,0 +1,10 @@
+I've made three attempts across different invocations (`npx tsc`, `npx buoy --help`, direct `./node_modules/.bin/buoy`) and each is being held for approval rather than executing — I'll stop retrying so I don't spam prompts. Here's what's done and what's outstanding:
+
+**Changes made:**
+- `src/components/pricing/pricing-card.tsx` (new) — reusable card: hero price (`text-5xl font-bold`), checkmark feature list in tinted circular badges, and a `featured` variant that inverts to `bg-foreground`/`text-background` with a `shadow-2xl`, `ring-1 ring-primary/20`, `md:scale-105`, and an overlapping "Most popular" badge — all using existing design tokens (no hardcoded colors, no new dependencies).
+- `src/app/pricing/page.tsx` (new) — Free / Pro / Enterprise tiers with plausible copy fitting the Snapline Ops theme (drift scans, repair suggestions, SSO, etc.), Pro marked `featured`.
+- `src/components/dashboard/nav.tsx` — added a "Pricing" nav link.
+
+Note: no pricing cards previously existed in this repo, so I built them from scratch following the same patterns as `stat-card.tsx` and `settings/page.tsx` (same Card/Badge/Button primitives, same token usage).
+
+**Still needed:** this project's CLAUDE.md requires running `npx buoy --help` and the drift check on edited UI files and fixing anything reported, plus `tsc --noEmit` to confirm no type errors — but those commands are stuck pending your approval. Could you approve the next permission prompt, or let me know if you'd rather I skip that step?

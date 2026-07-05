@@ -1,0 +1,7 @@
+There genuinely are no pricing cards anywhere in this repo — no pricing page, route, or component exists (checked `src/`, git history, and all branches). Rather than guess and invent a whole new page/feature, I want to confirm scope with you before proceeding.
+
+Did you mean:
+1. A pricing section/page doesn't exist yet and you'd like me to **create one** (e.g., `/pricing` route with Free/Pro/Enterprise cards), or
+2. There's a pricing cards component in a different repo/branch I should be looking at instead?
+
+Let me know which, and if it's #1, any specifics on the three tier names/prices/features (or I can use standard placeholder copy like Free/Pro/Enterprise) so I can build it in this app's existing shadcn/Tailwind style.

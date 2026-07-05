@@ -1,0 +1,81 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-shadcn-mcp--pricing-cards-polish--2/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/pricing/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/pricing-cards.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-arbitrary-tailwind:src/components/dashboard/pricing-cards.tsx:92:146:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/dashboard/pricing-cards.tsx",
+      "message": "Arbitrary Tailwind value \"sm:scale-[1.03]\"",
+      "location": {
+        "line": 92,
+        "column": 146
+      },
+      "evidence": "sm:scale-[1.03]",
+      "repair": {
+        "instruction": "Remove sm:scale-[1.03]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 8,
+    "totalViolations": 1,
+    "errorViolations": 1,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 1,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/dashboard/pricing-cards.tsx",
+      "filePath": "src/components/dashboard/pricing-cards.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/dashboard/pricing-cards.tsx:92:146:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/dashboard/pricing-cards.tsx",
+          "message": "Arbitrary Tailwind value \"sm:scale-[1.03]\"",
+          "location": {
+            "line": 92,
+            "column": 146
+          },
+          "evidence": "sm:scale-[1.03]",
+          "repair": {
+            "instruction": "Remove sm:scale-[1.03]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove sm:scale-[1.03]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/pricing-cards.tsx\n\n1 violation:\n- [error] arbitrary value: sm:scale-[1.03] (line 92)\n\nRepair:\n- Remove sm:scale-[1.03]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+    }
+  ],
+  "durationMs": 98
+}

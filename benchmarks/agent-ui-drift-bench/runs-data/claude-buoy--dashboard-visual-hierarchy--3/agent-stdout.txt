@@ -1,0 +1,1 @@
+I need explicit approval to run this. Would you like me to run `npx tsc --noEmit` to typecheck, and then `npx buoy --help` / the drift check as required by this project's CLAUDE.md?

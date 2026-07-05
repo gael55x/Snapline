@@ -1,0 +1,10 @@
+I'll pause here rather than keep retrying — the eslint command needs a manual approval click from you that hasn't come through yet.
+
+**Summary of changes made so far** (dashboard visual hierarchy rework in `fixtures/next-shadcn-dashboard-app`):
+- `src/components/dashboard/stat-card.tsx`: added a `variant` prop (`hero` | `secondary`). Hero renders the value at `text-4xl`/`text-5xl` with a subtle primary-tinted border and shadow; secondary renders smaller (`text-lg`), muted (`text-foreground/80`), with a lighter, shadow-less card.
+- `src/app/page.tsx`: split the "Total revenue" stat out as the standalone hero card, grouped the other three stats into a smaller 3-column row below it, and added a `border-t` divider + increased spacing before the Recent Activity section to clearly separate the stats zone from the activity zone.
+- `src/components/dashboard/recent-activity.tsx`: gave it `shadow-md` and a larger `text-xl` title so it reads as the page's centerpiece.
+
+No content (stats, table rows, links, copy) was added or removed — only structure/classNames changed.
+
+Per this project's CLAUDE.md, I need to run `npx eslint src` and fix anything it reports before calling this done. Could you approve that command (or run it yourself and share the output)?

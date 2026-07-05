@@ -1,0 +1,9 @@
+Both files look correct — types are consistent (`variant` is optional, defaults preserved), no content added or removed. Everything checks out logically since this is plain JSX/Tailwind with no new type surface beyond the optional prop.
+
+Summary of the hierarchy rework (this fixture has no literal chart or sidebar — only a 4-card stat grid and a full-width activity table, so I mapped the intent onto those):
+
+- **`stat-card.tsx`** — added a `variant` prop. `primary` renders the value at `text-4xl`/`text-5xl` with a subtle shadow/border; `secondary` shrinks the value to `text-xl`, drops the shadow, and mutes the card background (`bg-muted/30`) so it visibly recedes.
+- **`page.tsx`** — pulled "Total revenue" out of the 4-up grid into its own hero row (`variant="primary"`), leaving the other three stats in a smaller 3-col row (`variant="secondary"`) beneath it. Added a `border-t` + wider gap before Recent Activity to clearly separate the stats zone from the activity zone.
+- **`recent-activity.tsx`** — bumped the card to `shadow-md` and its title to `text-lg` so it reads as the centerpiece beneath the stats.
+
+No sidebar widgets exist in this codebase to de-emphasize (single-column layout only) — flagging that in case it doesn't match what you expected.

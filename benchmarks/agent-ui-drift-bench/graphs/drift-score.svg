@@ -6,7 +6,7 @@
   </defs>
   <rect width="760" height="364" fill="#ffffff"/>
   <text x="16" y="28" font-size="15" font-weight="bold" fill="#111" font-family="ui-sans-serif, system-ui">UI drift score (median, lower is better)</text>
-  <text x="16" y="46" font-size="11" fill="#666" font-family="ui-sans-serif, system-ui">agent-ui-drift-bench · 188 runs · generated 2026-07-05T03:53:31.632Z · config da6de300d39ed56d · median, lower is better</text>
+  <text x="16" y="46" font-size="11" fill="#666" font-family="ui-sans-serif, system-ui">agent-ui-drift-bench · 240 runs · generated 2026-07-05T05:08:20.180Z · config da6de300d39ed56d · median, lower is better</text>
   <text x="222" y="77" text-anchor="end" font-size="12" fill="#333" font-family="ui-monospace, monospace">claude-raw</text>
   <rect x="230" y="60" width="2" height="26" fill="#64748b" rx="3"/>
   <text x="240" y="77" font-size="12" fill="#333" font-family="ui-monospace, monospace">0.0</text>

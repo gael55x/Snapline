@@ -1,0 +1,8 @@
+I've made the visual refresh to the settings page. I still need to run the required ESLint check (per this project's CLAUDE.md) but the command keeps requiring approval that isn't going through — could you approve running `./node_modules/.bin/eslint src` (or run it yourself) so I can confirm there are no lint issues?
+
+In the meantime, here's a summary of what changed in `src/app/settings/page.tsx`:
+
+- Added a bottom border under the page header to visually separate it from content.
+- **Workspace profile card**: added a border under the header and above the footer, gave the footer a subtle muted background, increased form field spacing (gap-4 → gap-5), and reordered footer buttons so "Save changes" (primary) is last/rightmost per convention.
+- **Danger zone card**: added a destructive-tinted border and header divider, added an "Irreversible" destructive badge next to the title for emphasis, and restructured the action into a label/description-left, button-right row so the destructive action reads as more deliberate.
+- All field IDs, names, default values, placeholders, and the confirmation dialog behavior are unchanged.

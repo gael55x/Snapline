@@ -1,0 +1,16 @@
+I couldn't get shell approval to run `npm run typecheck` or start the dev server in this sandbox (all `npm`/`npx`/`node`/`tsc` invocations were blocked), so I verified everything by careful manual reading instead. Here's what I built, respecting this fixture's Snapline theme rules (semantic tokens only, no raw hex/inline styles/arbitrary Tailwind, must use the shared Button/Input/Dialog/Card primitives):
+
+- **`src/components/ui/label.tsx`** (new) — small `Label` primitive for form fields, matching the existing UI kit style.
+- **`src/components/ui/input.tsx`** (edited) — `Input` now renders compact styling for `type="checkbox"`/`"radio"` instead of the full-width text-input classes, so the role selector can reuse the shared component instead of a raw `<input>`.
+- **`src/components/invite-member-modal.tsx`** (new) — the `InviteMemberModal`:
+  - Comma-separated email field, parsed/deduped, with basic format validation and an inline hint for malformed entries.
+  - Admin/Member role selector as two selectable cards, each with a short description, built from `Input type="radio"`.
+  - Optional personal message `Textarea`.
+  - A seats banner showing "`remaining` of `total` seats remaining", with a destructive `Badge` showing "Over by N" when the entered email count exceeds remaining seats.
+  - Invite button disabled when over the limit, no valid emails, or invalid formatting; label updates to show the count being invited.
+  - Success view (checkmark, confirmation copy, "Done" button) shown after a simulated send.
+- **`src/app/team/page.tsx`** (new) — a team page with a mocked member list (7 members, 10 seat plan) and the "Invite member" trigger button, so `remainingSeats` is realistically 3.
+
+All colors used come from the allowed semantic list in `snapline.yml` (`bg-primary`, `bg-secondary`, `bg-background`, `text-foreground`, `text-muted-foreground`, `border-border`, `bg-destructive`/`text-destructive-foreground` via `Badge`).
+
+One caveat: I wasn't able to actually run `tsc --noEmit` or load the page in a browser to confirm it renders/compiles — please run `npm run typecheck` (or start the dev server and visit `/team`) to confirm before you rely on this.

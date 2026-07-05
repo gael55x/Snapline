@@ -1,0 +1,201 @@
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff..7b5e553 100644
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,3 +1,7 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+@@ -7,9 +11,81 @@ import {
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
++import { Checkbox } from "@/components/ui/checkbox"
+ import { Input } from "@/components/ui/input"
++import { Label } from "@/components/ui/label"
++import { cn } from "@/lib/utils"
++
++interface FormErrors {
++  email?: string
++  password?: string
++}
++
++function GoogleIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
++      <path
++        fill="#4285F4"
++        d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.88c2.27-2.09 3.54-5.17 3.54-8.82Z"
++      />
++      <path
++        fill="#34A853"
++        d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3c-1.08.72-2.45 1.16-4.05 1.16-3.11 0-5.75-2.1-6.69-4.92H1.3v3.09C3.26 21.3 7.31 24 12 24Z"
++      />
++      <path
++        fill="#FBBC05"
++        d="M5.31 14.33c-.24-.72-.38-1.49-.38-2.33s.14-1.61.38-2.33V6.58H1.3A11.98 11.98 0 0 0 0 12c0 1.94.47 3.77 1.3 5.42l4.01-3.09Z"
++      />
++      <path
++        fill="#EA4335"
++        d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.44-3.44C17.94 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.3 6.58l4.01 3.09c.94-2.82 3.58-4.92 6.69-4.92Z"
++      />
++    </svg>
++  )
++}
++
++function GitHubIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
++      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.04-3.34.73-4.04-1.61-4.04-1.61-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.82 2.8 1.3 3.49.99.11-.77.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22 0 1.61-.01 2.9-.01 3.29 0 .32.22.7.83.58C20.56 21.79 24 17.3 24 12c0-6.63-5.37-12-12-12Z" />
++    </svg>
++  )
++}
+ 
+ export default function LoginPage() {
++  const [email, setEmail] = React.useState("")
++  const [password, setPassword] = React.useState("")
++  const [errors, setErrors] = React.useState<FormErrors>({})
++  const [isSubmitting, setIsSubmitting] = React.useState(false)
++
++  function validate(): FormErrors {
++    const nextErrors: FormErrors = {}
++    if (!email) {
++      nextErrors.email = "Email is required."
++    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
++      nextErrors.email = "Enter a valid email address."
++    }
++    if (!password) {
++      nextErrors.password = "Password is required."
++    } else if (password.length < 8) {
++      nextErrors.password = "Password must be at least 8 characters."
++    }
++    return nextErrors
++  }
++
++  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++    const nextErrors = validate()
++    setErrors(nextErrors)
++    if (Object.keys(nextErrors).length > 0) {
++      return
++    }
++    setIsSubmitting(true)
++    window.setTimeout(() => {
++      setIsSubmitting(false)
++    }, 1500)
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+@@ -17,40 +93,91 @@ export default function LoginPage() {
+           <CardTitle>Sign in</CardTitle>
+           <CardDescription>Enter your email below to sign in to your account.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="flex flex-col gap-4">
++          <div className="flex flex-col gap-2">
++            <Button variant="outline" className="w-full" type="button">
++              <GoogleIcon className="h-4 w-4" />
++              Continue with Google
++            </Button>
++            <Button variant="outline" className="w-full" type="button">
++              <GitHubIcon className="h-4 w-4" />
++              Continue with GitHub
++            </Button>
++          </div>
++
++          <div className="flex items-center gap-3">
++            <div className="h-px flex-1 bg-border" />
++            <span className="text-xs text-muted-foreground">or continue with email</span>
++            <div className="h-px flex-1 bg-border" />
++          </div>
++
++          <form className="flex flex-col gap-4" onSubmit={handleSubmit} noValidate>
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="email" className="text-sm font-medium text-foreground">
+-                Email
+-              </label>
++              <Label htmlFor="email">Email</Label>
+               <Input
+                 id="email"
+                 name="email"
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                value={email}
++                onChange={(event) => setEmail(event.target.value)}
++                aria-invalid={Boolean(errors.email)}
++                aria-describedby={errors.email ? "email-error" : undefined}
++                className={cn(errors.email && "border-destructive focus-visible:ring-destructive")}
+               />
++              {errors.email && (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              )}
+             </div>
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <Label htmlFor="password">Password</Label>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                value={password}
++                onChange={(event) => setPassword(event.target.value)}
++                aria-invalid={Boolean(errors.password)}
++                aria-describedby={errors.password ? "password-error" : undefined}
++                className={cn(
++                  errors.password && "border-destructive focus-visible:ring-destructive",
++                )}
+               />
++              {errors.password && (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              )}
+             </div>
++
++            <div className="flex items-center justify-between">
++              <div className="flex items-center gap-2">
++                <Checkbox id="remember-me" name="remember-me" />
++                <Label htmlFor="remember-me" className="font-normal">
++                  Remember me
++                </Label>
++              </div>
++              <a href="/forgot-password" className="text-sm font-medium text-primary hover:underline">
++                Forgot password?
++              </a>
++            </div>
++
++            <Button type="submit" className="w-full" disabled={isSubmitting}>
++              {isSubmitting ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
++        <CardFooter className="justify-center">
++          <p className="text-sm text-muted-foreground">
++            Don&apos;t have an account?{" "}
++            <a href="/signup" className="font-medium text-primary hover:underline">
++              Sign up
++            </a>
++          </p>
+         </CardFooter>
+       </Card>
+     </main>

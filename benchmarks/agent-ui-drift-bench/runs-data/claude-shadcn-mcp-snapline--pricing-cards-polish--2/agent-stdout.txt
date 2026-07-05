@@ -1,0 +1,15 @@
+Good, that's a clean one-line addition. The work is complete:
+
+**What I built** (there was no existing pricing page in this fixture, so I created one from scratch following the app's existing shadcn/Tailwind conventions):
+
+- `src/components/dashboard/pricing-cards.tsx` — three-tier `PricingCards` component (Starter / Pro / Enterprise), using only `Card`, `Badge`, `Button` primitives and semantic color tokens (no raw hex, no inline styles, no arbitrary bracket values — per `snapline.yml`'s drift rules).
+- `src/app/pricing/page.tsx` — new route rendering the cards under the existing `DashboardNav`.
+- `src/components/dashboard/nav.tsx` — added a "Pricing" nav link.
+
+**How it "pops":**
+- **Pro card is elevated**: `ring-2 ring-primary`, a stronger `shadow-xl shadow-primary/10`, lifted up on desktop (`lg:-translate-y-3`), a solid primary accent bar across the top, and a "Most popular" badge.
+- **Price is the hero**: large tabular numerals (`text-4xl`/`text-5xl` for Pro), muted `/month` cadence beside it, given breathing room via header spacing.
+- **Feature lists** got check-icon "pills" (filled `bg-primary` on Pro, `bg-secondary` on the others) instead of plain bullet text, with consistent spacing.
+- Non-highlighted cards get a subtle hover lift (`hover:-translate-y-1 hover:shadow-lg`) so the whole set feels tactile, not flat.
+
+One thing worth flagging: I couldn't run `tsc --noEmit` in this sandbox (all shell invocations of `tsc`/`node`/`npx` were denied), so I hand-verified types and, importantly, traced every Tailwind class combination against this repo's `cn()` helper — which is a plain string-join, **not** `tailwind-merge` — to make sure no override relies on ambiguous cascade order. If you can run `npm run typecheck` locally, worth a quick sanity check.

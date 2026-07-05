@@ -1,0 +1,37 @@
+{
+  "id": "claude-drift-guard--premium-dashboard--2",
+  "timestamp": "2026-07-05T02:36:38.444Z",
+  "mode": "claude-drift-guard",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "premium-dashboard",
+  "attempt": 2,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 8,
+      "totalViolations": 1,
+      "errorViolations": 1,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 1,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 710,
+    "filesTouched": 8
+  },
+  "rawOutputPaths": [
+    "runs/claude-drift-guard--premium-dashboard--2/agent-stdout.txt",
+    "runs/claude-drift-guard--premium-dashboard--2/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-drift-guard--premium-dashboard--2/scanner.json",
+  "gitDiffPath": "runs/claude-drift-guard--premium-dashboard--2/diff.patch"
+}

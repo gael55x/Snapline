@@ -1,0 +1,141 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+index c106fe3..1550158 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+@@ -3,6 +3,7 @@
+ import * as React from "react"
+ 
+ import { DashboardNav } from "@/components/dashboard/nav"
++import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+@@ -21,6 +22,29 @@ import {
+   DialogTitle,
+ } from "@/components/ui/dialog"
+ import { Input } from "@/components/ui/input"
++import { Label } from "@/components/ui/label"
++
++function SettingsField({
++  htmlFor,
++  label,
++  hint,
++  children,
++}: {
++  htmlFor: string
++  label: string
++  hint: string
++  children: React.ReactNode
++}) {
++  return (
++    <div className="grid grid-cols-1 gap-3 py-5 first:pt-0 last:pb-0 sm:grid-cols-3 sm:items-start sm:gap-8">
++      <div className="flex flex-col gap-1 sm:col-span-1">
++        <Label htmlFor={htmlFor}>{label}</Label>
++        <p className="text-xs text-muted-foreground">{hint}</p>
++      </div>
++      <div className="sm:col-span-2 sm:max-w-sm">{children}</div>
++    </div>
++  )
++}
+ 
+ export default function SettingsPage() {
+   const [confirmOpen, setConfirmOpen] = React.useState(false)
+@@ -28,8 +52,8 @@ export default function SettingsPage() {
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/settings" />
+-      <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
++      <main className="mx-auto flex max-w-3xl flex-col gap-8 px-6 py-10">
++        <div className="flex flex-col gap-1.5">
+           <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
+           <p className="text-sm text-muted-foreground">
+             Manage your workspace profile and danger zone actions.
+@@ -37,51 +61,57 @@ export default function SettingsPage() {
+         </div>
+ 
+         <Card>
+-          <CardHeader>
++          <CardHeader className="border-b border-border">
+             <CardTitle>Workspace profile</CardTitle>
+             <CardDescription>This information is shown on shared reports.</CardDescription>
+           </CardHeader>
+           <CardContent>
+-            <form className="flex flex-col gap-4">
+-              <div className="flex flex-col gap-2">
+-                <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
+-                  Workspace name
+-                </label>
++            <form className="flex flex-col divide-y divide-border">
++              <SettingsField
++                htmlFor="workspace-name"
++                label="Workspace name"
++                hint="Shown in the sidebar and on shared reports."
++              >
+                 <Input id="workspace-name" name="workspaceName" defaultValue="Snapline Ops" />
+-              </div>
+-              <div className="flex flex-col gap-2">
+-                <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
+-                  Contact email
+-                </label>
++              </SettingsField>
++              <SettingsField
++                htmlFor="contact-email"
++                label="Contact email"
++                hint="Where report notifications are sent."
++              >
+                 <Input
+                   id="contact-email"
+                   name="contactEmail"
+                   type="email"
+                   defaultValue="ops@example.com"
+                 />
+-              </div>
+-              <div className="flex flex-col gap-2">
+-                <label htmlFor="repo-url" className="text-sm font-medium text-foreground">
+-                  Repository URL
+-                </label>
++              </SettingsField>
++              <SettingsField
++                htmlFor="repo-url"
++                label="Repository URL"
++                hint="Used to link commits to repairs."
++              >
+                 <Input
+                   id="repo-url"
+                   name="repoUrl"
+                   type="url"
+                   placeholder="https://github.com/acme/app"
+                 />
+-              </div>
++              </SettingsField>
+             </form>
+           </CardContent>
+-          <CardFooter className="gap-2">
++          <CardFooter className="justify-end gap-2 border-t border-border">
+             <Button>Save changes</Button>
+             <Button variant="ghost">Cancel</Button>
+           </CardFooter>
+         </Card>
+ 
+-        <Card>
+-          <CardHeader>
+-            <CardTitle>Danger zone</CardTitle>
++        <Card className="border-destructive/30 bg-destructive/5">
++          <CardHeader className="border-b border-destructive/20">
++            <div className="flex items-center gap-2">
++              <CardTitle className="text-destructive">Danger zone</CardTitle>
++              <Badge variant="destructive">Irreversible</Badge>
++            </div>
+             <CardDescription>Destructive actions that cannot be undone.</CardDescription>
+           </CardHeader>
+           <CardFooter>
+@@ -94,7 +124,7 @@ export default function SettingsPage() {
+         <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+           <DialogContent>
+             <DialogHeader>
+-              <DialogTitle>Delete workspace?</DialogTitle>
++              <DialogTitle className="text-destructive">Delete workspace?</DialogTitle>
+               <DialogDescription>
+                 This permanently removes the workspace, its projects, and all repair history.
+               </DialogDescription>

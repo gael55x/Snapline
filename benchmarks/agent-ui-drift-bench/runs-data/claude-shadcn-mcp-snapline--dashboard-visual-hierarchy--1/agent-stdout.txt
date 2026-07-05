@@ -1,0 +1,11 @@
+This is type-safe — all props are correctly typed and used. I was unable to run the bash typecheck command in this session (blocked by approval), but the code changes are straightforward JSX/prop additions with no new type risk.
+
+Summary of what changed, and one caveat:
+
+**`stat-card.tsx`** — added a `variant` prop (`"featured" | "compact"`, default `"compact"`). Featured renders a huge `text-5xl` value with an accent border and shadow; compact shrinks the value to `text-lg`, drops the shadow, and uses a thinner border/tighter label — so secondary numbers visibly recede.
+
+**`page.tsx`** — split the revenue stat out of the grid. It now renders alone as the `featured` card, with the other three stats below it in a smaller 3-column grid as `compact` cards. A `border-t` + extra vertical spacing (`pt-8`, `gap-10`) now separates the stats zone from the activity zone.
+
+**`recent-activity.tsx`** — gave the card a `shadow-md` and bumped its title to `text-xl`, so it reads as the heavier, centerpiece block beneath the stats — it's the only detailed content section on the page, so I treated it as the "chart" equivalent.
+
+One thing worth flagging: this fixture's dashboard has no chart component and no sidebar — those don't exist in the actual codebase. I mapped "chart/centerpiece" onto the Recent Activity table (the only substantial content block below the stats) and skipped the sidebar instruction entirely rather than inventing new UI, since you said not to add or remove content. Let me know if there's a sidebar/chart elsewhere I missed.

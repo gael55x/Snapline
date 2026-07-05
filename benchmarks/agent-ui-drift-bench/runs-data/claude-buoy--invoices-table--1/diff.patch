@@ -1,0 +1,58 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/globals.css b/fixtures/next-shadcn-custom-theme/src/app/globals.css
+index 43199da..60479f3 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/globals.css
++++ b/fixtures/next-shadcn-custom-theme/src/app/globals.css
+@@ -16,6 +16,10 @@
+     --muted-foreground: 261 12% 44%;
+     --destructive: 0 84.2% 60.2%;
+     --destructive-foreground: 0 0% 98%;
++    --success: 142 71% 34%;
++    --success-foreground: 138 76% 97%;
++    --warning: 38 92% 40%;
++    --warning-foreground: 48 96% 97%;
+     --border: 260 28% 88%;
+     --brand: 24 95% 53%;
+     --brand-foreground: 26 100% 97%;
+@@ -34,6 +38,10 @@
+     --muted-foreground: 261 15% 68%;
+     --destructive: 0 62.8% 30.6%;
+     --destructive-foreground: 0 0% 98%;
++    --success: 142 64% 44%;
++    --success-foreground: 144 61% 8%;
++    --warning: 38 92% 55%;
++    --warning-foreground: 40 80% 8%;
+     --border: 262 30% 20%;
+     --brand: 24 90% 58%;
+     --brand-foreground: 24 60% 8%;
+diff --git a/fixtures/next-shadcn-custom-theme/src/components/ui/badge.tsx b/fixtures/next-shadcn-custom-theme/src/components/ui/badge.tsx
+index 5e9bec3..1f6518b 100644
+--- a/fixtures/next-shadcn-custom-theme/src/components/ui/badge.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/components/ui/badge.tsx
+@@ -7,6 +7,8 @@ const badgeVariants = {
+     default: "border-transparent bg-primary text-primary-foreground shadow",
+     secondary: "border-transparent bg-secondary text-secondary-foreground",
+     destructive: "border-transparent bg-destructive text-destructive-foreground shadow",
++    success: "border-transparent bg-success text-success-foreground shadow",
++    warning: "border-transparent bg-warning text-warning-foreground shadow",
+     outline: "border-border text-foreground",
+   },
+ } as const
+diff --git a/fixtures/next-shadcn-custom-theme/tailwind.config.ts b/fixtures/next-shadcn-custom-theme/tailwind.config.ts
+index 960c031..d9ff74d 100644
+--- a/fixtures/next-shadcn-custom-theme/tailwind.config.ts
++++ b/fixtures/next-shadcn-custom-theme/tailwind.config.ts
+@@ -27,6 +27,14 @@ const config = {
+           DEFAULT: "hsl(var(--destructive))",
+           foreground: "hsl(var(--destructive-foreground))",
+         },
++        success: {
++          DEFAULT: "hsl(var(--success))",
++          foreground: "hsl(var(--success-foreground))",
++        },
++        warning: {
++          DEFAULT: "hsl(var(--warning))",
++          foreground: "hsl(var(--warning-foreground))",
++        },
+         brand: {
+           DEFAULT: "hsl(var(--brand))",
+           foreground: "hsl(var(--brand-foreground))",

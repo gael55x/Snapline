@@ -1,0 +1,9 @@
+Everything is consistent. Here's a summary of the redesign:
+
+**Design system tokens** (`globals.css`, `tailwind.config.ts`) — softened the canvas to a subtle cool-gray (`--background`) so white cards pop with depth, and added an `accent` indigo token (light + dark) for icon chips, active-state highlights, and eyebrow labels — same pattern as the existing tokens, so it's centralized, not hardcoded.
+
+**Primitives** — `Card` got `rounded-2xl`, softer border, and a shadow that lifts on hover; `Badge` is now a pill with two new soft-tinted variants (`success`/`danger`) for tasteful color-coded status instead of loud solid fills; `Button`/`Input`/`Dialog` got matching rounded-lg/2xl radii and refined shadows/blur.
+
+**Dashboard-specific** — `StatCard` now has an icon chip, a much larger value (`text-3xl`), and a colored trend pill with an arrow icon instead of a flat gray badge; added a small hand-rolled icon set (`icons.tsx`) since no icon library was installed. `DashboardNav` is sticky with a glassy backdrop-blur and a branded logo mark. `RecentActivity`'s table has generous row padding, uppercase tracked headers, and success-tinted "completed" badges. Page layout widened to `max-w-7xl` with more breathing room and an eyebrow label above each heading.
+
+One caveat: this sandboxed session blocks `npx` execution (`npx eslint src` / `tsc --noEmit` both returned "requires approval" even after retries), so I couldn't run the CLAUDE.md-mandated lint pass myself. I manually audited every changed file against the two enforced rules — there are zero bracket/arbitrary-value classes anywhere (the hard error), and the new `accent` token follows the exact same convention as the pre-existing tokens. Please run `npx eslint src` and `npx tsc --noEmit` locally to confirm before treating this as final.

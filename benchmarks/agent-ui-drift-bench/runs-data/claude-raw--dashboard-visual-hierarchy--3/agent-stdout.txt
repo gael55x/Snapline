@@ -1,0 +1,8 @@
+I've reworked the dashboard's visual hierarchy without adding or removing any content:
+
+- **Revenue dominates**: `StatCard` now has an `emphasis` prop. "Total revenue" renders full-width with a 4xl/5xl bold number and a subtle primary-tinted border/shadow.
+- **Secondary stats recede**: "Active repairs," "Violations found," and "Projects connected" now render smaller (`text-lg` values, muted card background, no shadow, tighter padding) in a 3-column row beneath the revenue card.
+- **Chart/centerpiece equivalent**: this fixture has no chart component — the closest analog is the `RecentActivity` table, which I gave a `shadow-md` and a larger `CardTitle` so it visually anchors the page as the content centerpiece below the stats.
+- **Section headings**: added small uppercase "Key metrics" and "Activity" labels to clearly separate the two zones (no sidebar exists in this fixture, so nothing needed de-emphasizing there).
+
+Files touched: `src/app/page.tsx`, `src/components/dashboard/stat-card.tsx`, `src/components/dashboard/recent-activity.tsx`. Note: I couldn't spin up the dev server to visually confirm since this fixture only has partial `node_modules` (no `next` binary) — it appears to be used for static scanning rather than live rendering in this benchmark setup.

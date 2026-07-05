@@ -1,0 +1,1 @@
+I need your approval to run `npx eslint src` (required by this project's CLAUDE.md after editing UI files). Please approve the command so I can verify the new component passes lint.

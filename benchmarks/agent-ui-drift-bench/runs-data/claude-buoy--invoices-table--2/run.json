@@ -1,0 +1,37 @@
+{
+  "id": "claude-buoy--invoices-table--2",
+  "timestamp": "2026-07-05T04:10:44.907Z",
+  "mode": "claude-buoy",
+  "fixture": "next-shadcn-custom-theme",
+  "promptId": "invoices-table",
+  "attempt": 2,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 8,
+      "totalViolations": 1,
+      "errorViolations": 1,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 1,
+      "componentReuseRate": 0.9375
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 204,
+    "filesTouched": 3
+  },
+  "rawOutputPaths": [
+    "runs/claude-buoy--invoices-table--2/agent-stdout.txt",
+    "runs/claude-buoy--invoices-table--2/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-buoy--invoices-table--2/scanner.json",
+  "gitDiffPath": "runs/claude-buoy--invoices-table--2/diff.patch"
+}

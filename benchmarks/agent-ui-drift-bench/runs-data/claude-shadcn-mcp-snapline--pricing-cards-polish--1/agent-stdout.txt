@@ -1,0 +1,8 @@
+This all reads correctly — no raw hex, no inline styles, no arbitrary bracket values, and it uses the existing `Card`/`Button`/`Badge` components consistently with the rest of the app.
+
+Summary of changes:
+- **`src/components/dashboard/pricing-card.tsx`** (new): a `PricingCard` component with the price as the large hero element, a checkmark-in-circle feature list, and a distinct treatment for the highlighted tier — wrapped in a `bg-primary` frame with a soft blurred glow, a lift on desktop (`lg:-translate-y-3`), a "Most popular" badge, and a bigger price/CTA.
+- **`src/app/pricing/page.tsx`** (new): the three tiers (Starter/Pro/Enterprise) with the same kind of copy as the rest of the dashboard (drift scans, repairs, violations), rendered in a 3-col grid with Pro visually elevated.
+- **`src/components/dashboard/nav.tsx`**: added a "Pricing" nav link so the page is reachable.
+
+Note: this fixture had no pre-existing pricing page anywhere in the repo (verified via `grep`/`find` and git history), so I built it from scratch rather than restyling something existing. I couldn't run `tsc`/`npm` here (sandboxed to read-only shell commands), so I hand-verified types and Tailwind class-precedence behavior instead of running the type checker.

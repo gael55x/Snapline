@@ -1,0 +1,78 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-drift-guard--team-invite-modal--2/repo/fixtures/next-shadcn-custom-theme",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/team/page.tsx",
+    "src/components/invite-member-modal.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/label.tsx",
+    "src/components/ui/textarea.tsx"
+  ],
+  "violations": [
+    {
+      "id": "require-button-component:src/components/invite-member-modal.tsx:140:23:1",
+      "ruleId": "require-button-component",
+      "severity": "error",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "message": "Raw <button> used while <Button> exists",
+      "location": {
+        "line": 140,
+        "column": 23
+      },
+      "evidence": "<button>",
+      "repair": {
+        "instruction": "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes.",
+        "safeFix": true
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 8,
+    "totalViolations": 1,
+    "errorViolations": 1,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 1,
+    "componentReuseRate": 0.9643
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/invite-member-modal.tsx",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "violations": [
+        {
+          "id": "require-button-component:src/components/invite-member-modal.tsx:140:23:1",
+          "ruleId": "require-button-component",
+          "severity": "error",
+          "filePath": "src/components/invite-member-modal.tsx",
+          "message": "Raw <button> used while <Button> exists",
+          "location": {
+            "line": 140,
+            "column": 23
+          },
+          "evidence": "<button>",
+          "repair": {
+            "instruction": "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes.",
+            "safeFix": true
+          }
+        }
+      ],
+      "requiredActions": [
+        "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/invite-member-modal.tsx\n\n1 violation:\n- [error] raw <button> used while <Button> exists (line 140)\n\nRepair:\n- Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes."
+    }
+  ],
+  "durationMs": 60
+}

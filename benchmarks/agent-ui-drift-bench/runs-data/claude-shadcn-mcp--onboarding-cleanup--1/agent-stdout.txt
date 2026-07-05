@@ -1,0 +1,6 @@
+The agent's findings are confirmed — there's no onboarding flow anywhere in this repo, in git history, or on any branch. This is a small dashboard fixture with just a home page and a settings page; no onboarding route, wizard, stepper, or progress component exists to clean up.
+
+Since there's nothing to work from, I don't want to guess and build an entire onboarding flow from scratch — that would be a much bigger, more consequential task than "clean up the existing flow" and I'd be inventing steps/fields you didn't ask for. A couple of questions before I proceed:
+
+1. Is this the right repo/checkout? The onboarding flow might live in a different project or branch that isn't present here.
+2. If you do want me to build an onboarding flow from scratch (not just restyle one), can you tell me what the steps and fields should actually be, so I match what you have in mind rather than making it up?

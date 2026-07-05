@@ -1,0 +1,1 @@
+The typecheck command needs your approval to run. Want me to proceed with it, or would you rather run `npx tsc --noEmit` yourself?

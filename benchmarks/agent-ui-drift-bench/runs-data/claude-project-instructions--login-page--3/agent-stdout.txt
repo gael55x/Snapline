@@ -1,0 +1,7 @@
+The file reads correctly and is type-safe by inspection (I wasn't able to run `tsc` — the command required approval that didn't come through, so I stopped retrying per the no-repeat-after-denial rule).
+
+Summary of changes:
+- **`src/components/ui/checkbox.tsx`** (new) — a hand-rolled `Checkbox` primitive matching this repo's existing pattern (`Input`/`Button` style, no Radix dependency since none is installed), styled with semantic tokens (`border-border`, `accent-primary`).
+- **`src/app/login/page.tsx`** (rewritten) — Google/GitHub outline buttons above an "or continue with email" divider, controlled email/password inputs with inline validation errors (`text-destructive`), a "Remember me" checkbox + "Forgot password?" link row, a submit button with a loading state, and a sign-up link in the footer. All styling uses only semantic classes from `CLAUDE.md` (no arbitrary values, no palette/hex classes except the unavoidable literal brand colors inside the Google logo SVG paths, which aren't Tailwind classes/inline styles).
+
+I couldn't execute `tsc --noEmit` in this session (bash approval wasn't granted for it) — worth running that yourself to confirm before treating this as fully verified.

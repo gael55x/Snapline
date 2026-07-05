@@ -1,0 +1,1 @@
+I need your approval to run the typecheck command — could you approve it, or let me know if you'd prefer to run `npm run typecheck` yourself?

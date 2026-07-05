@@ -1,0 +1,12 @@
+This all looks correct and consistent with the fixture's existing patterns. I attempted to run `tsc --noEmit` to verify compilation but the sandbox blocks all bash execution beyond basic read commands (`ls`, `cat`, `find`) in this session, so I couldn't execute a live typecheck or dev server.
+
+Summary of changes:
+- **`src/components/ui/label.tsx`, `checkbox.tsx`, `separator.tsx`** — new, dependency-free primitives added to match this fixture's existing hand-rolled style (no Radix/cva, since none are installed here).
+- **`src/app/login/page.tsx`** — rebuilt as a client component with:
+  - Google/GitHub sign-in buttons (inline SVG logos, no icon lib needed) above an "or continue with email" divider
+  - Email/password fields with inline validation errors on submit (required, email format, min password length)
+  - "Remember me" checkbox and "Forgot password?" link
+  - Submit button with a spinner + "Signing in..." loading state
+  - "Don't have an account? Sign up" link at the bottom (`/signup`)
+
+Since I couldn't run the dev server, please sanity-check it visually with `npm run dev` before merging.

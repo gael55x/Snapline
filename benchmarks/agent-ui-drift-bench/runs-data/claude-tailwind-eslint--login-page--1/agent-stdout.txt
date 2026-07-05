@@ -1,0 +1,1 @@
+I need your approval to run `npx eslint src` (and `npx tsc --noEmit`) so I can verify the new login page passes the checks required by this project's CLAUDE.md. Can you approve running these commands?

@@ -1,0 +1,37 @@
+{
+  "id": "claude-snapline--premium-dashboard--2",
+  "timestamp": "2026-07-05T00:22:09.389Z",
+  "mode": "claude-snapline",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "premium-dashboard",
+  "attempt": 2,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 0,
+      "totalViolations": 0,
+      "errorViolations": 0,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 3,
+    "hookRuntimeMs": 990,
+    "totalWallTimeSeconds": 821,
+    "filesTouched": 14
+  },
+  "rawOutputPaths": [
+    "runs/claude-snapline--premium-dashboard--2/agent-stdout.txt",
+    "runs/claude-snapline--premium-dashboard--2/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-snapline--premium-dashboard--2/scanner.json",
+  "gitDiffPath": "runs/claude-snapline--premium-dashboard--2/diff.patch"
+}

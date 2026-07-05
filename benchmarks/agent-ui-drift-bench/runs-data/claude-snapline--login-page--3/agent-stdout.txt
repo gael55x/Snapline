@@ -1,0 +1,12 @@
+It looks like shell command execution isn't approved in this session, so I can't run `tsc`/`git status` here. I did a careful manual review instead of relying on the compiler.
+
+Here's what I built in `src/app/login/page.tsx`, plus two new primitives to match this repo's hand-rolled shadcn style (`src/components/ui/label.tsx`, `src/components/ui/checkbox.tsx`):
+
+- **Google / GitHub buttons** side-by-side above the form (outline variant, inline SVG icons), followed by an "or continue with email" divider.
+- **Email + password fields** using the existing `Input`/new `Label` components, with a "Forgot password?" link inline next to the Password label.
+- **Remember me** checkbox.
+- **Inline validation**: on submit, empty/invalid email and empty/short password produce `text-destructive` messages under each field, with `aria-invalid`/`aria-describedby` wired up and the input border turning destructive-red.
+- **Loading state**: submit button disables and shows "Signing in..." during a simulated async submit.
+- **Sign-up link** in the card footer pointing to `/signup`.
+
+Since I couldn't execute `tsc --noEmit` in this session (Bash calls are being blocked/require approval that isn't coming through), please run `npm run typecheck` on your end to confirm — I've manually traced all prop types against the existing `Button`/`Input`/`Card` components and the strict `tsconfig.json`, and didn't find any mismatches, but a real compiler pass is the safer check.

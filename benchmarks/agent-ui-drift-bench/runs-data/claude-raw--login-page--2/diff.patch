@@ -1,0 +1,174 @@
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff..a76a0fe 100644
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,3 +1,5 @@
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+@@ -7,9 +9,51 @@ import {
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
++import { Checkbox } from "@/components/ui/checkbox"
+ import { Input } from "@/components/ui/input"
++import { Label } from "@/components/ui/label"
++import { Separator } from "@/components/ui/separator"
++
++interface FormErrors {
++  email?: string
++  password?: string
++}
++
++function validateEmail(value: string) {
++  if (!value) return "Email is required."
++  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return "Enter a valid email address."
++  return undefined
++}
++
++function validatePassword(value: string) {
++  if (!value) return "Password is required."
++  if (value.length < 8) return "Password must be at least 8 characters."
++  return undefined
++}
+ 
+ export default function LoginPage() {
++  const [email, setEmail] = React.useState("")
++  const [password, setPassword] = React.useState("")
++  const [errors, setErrors] = React.useState<FormErrors>({})
++  const [isSubmitting, setIsSubmitting] = React.useState(false)
++
++  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++
++    const nextErrors: FormErrors = {
++      email: validateEmail(email),
++      password: validatePassword(password),
++    }
++    setErrors(nextErrors)
++
++    if (nextErrors.email || nextErrors.password) {
++      return
++    }
++
++    setIsSubmitting(true)
++    window.setTimeout(() => setIsSubmitting(false), 1500)
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+@@ -17,40 +61,96 @@ export default function LoginPage() {
+           <CardTitle>Sign in</CardTitle>
+           <CardDescription>Enter your email below to sign in to your account.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="flex flex-col gap-4">
++          <div className="flex flex-col gap-2">
++            <Button variant="outline" className="w-full" type="button">
++              <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
++                <path
++                  fill="currentColor"
++                  d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 5.44C8.36 19.27 5 16.25 5 12s3.36-7.27 7.19-7.27c3.08 0 4.9 1.97 4.9 1.97L19 4.72S16.56 2 12.19 2C6.42 2 2.03 6.8 2.03 12s4.39 10 10.16 10c5.35 0 9.25-3.67 9.25-9.09 0-1.15-.09-1.81-.09-1.81Z"
++                />
++              </svg>
++              Continue with Google
++            </Button>
++            <Button variant="outline" className="w-full" type="button">
++              <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
++                <path
++                  fill="currentColor"
++                  d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.83-2.34 4.68-4.57 4.92.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.02 10.02 0 0 0 22 12c0-5.52-4.48-10-10-10Z"
++                />
++              </svg>
++              Continue with GitHub
++            </Button>
++          </div>
++          <div className="flex items-center gap-2">
++            <Separator className="flex-1" />
++            <span className="text-xs text-muted-foreground">or continue with email</span>
++            <Separator className="flex-1" />
++          </div>
++          <form className="flex flex-col gap-4" onSubmit={handleSubmit} noValidate>
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="email" className="text-sm font-medium text-foreground">
+-                Email
+-              </label>
++              <Label htmlFor="email">Email</Label>
+               <Input
+                 id="email"
+                 name="email"
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                value={email}
++                onChange={(event) => setEmail(event.target.value)}
++                aria-invalid={Boolean(errors.email)}
++                aria-describedby={errors.email ? "email-error" : undefined}
+               />
++              {errors.email ? (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <div className="flex items-center justify-between">
++                <Label htmlFor="password">Password</Label>
++                <a
++                  href="/forgot-password"
++                  className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
++                >
++                  Forgot password?
++                </a>
++              </div>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                value={password}
++                onChange={(event) => setPassword(event.target.value)}
++                aria-invalid={Boolean(errors.password)}
++                aria-describedby={errors.password ? "password-error" : undefined}
+               />
++              {errors.password ? (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
++            </div>
++            <div className="flex items-center gap-2">
++              <Checkbox id="remember" name="remember" />
++              <Label htmlFor="remember" className="font-normal">
++                Remember me
++              </Label>
+             </div>
++            <Button type="submit" className="w-full" disabled={isSubmitting}>
++              {isSubmitting ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
++        <CardFooter>
++          <p className="w-full text-center text-sm text-muted-foreground">
++            Don&apos;t have an account?{" "}
++            <a href="/signup" className="text-foreground underline-offset-4 hover:underline">
++              Sign up
++            </a>
++          </p>
+         </CardFooter>
+       </Card>
+     </main>

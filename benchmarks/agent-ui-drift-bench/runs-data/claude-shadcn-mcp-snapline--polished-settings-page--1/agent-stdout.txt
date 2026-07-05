@@ -1,0 +1,8 @@
+The settings page now has clear visual hierarchy while keeping every field, id, name, and click handler unchanged:
+
+- **Workspace profile**: fields are laid out in label/hint + input rows (three-column grid) separated by hairline dividers (`divide-y`), with a bordered header and footer for clean section separation. Save changes stays primary, Cancel stays ghost.
+- **Danger zone**: now visually flagged as high-stakes — a subtle red-tinted border/background, red section title, and an "Irreversible" badge — so it reads as a distinct, deliberate zone rather than just another flat card.
+- Added `Label` and `Separator` primitives (`src/components/ui/label.tsx`, `src/components/ui/separator.tsx`) matching the existing hand-rolled shadcn style, since they didn't exist yet.
+- Delete confirmation dialog title is now tinted red to match the danger theme.
+
+One note: I couldn't run `tsc`/build locally in this sandbox (command execution was blocked), so I verified correctness by careful manual review instead of a compiler check — worth a quick `npm run typecheck` on your end before merging. Also fixed two Tailwind arbitrary-value usages (`grid-cols-[200px_1fr]`, `bg-destructive/[0.03]`) that the repo's drift linter flagged, replacing them with standard scale values (`grid-cols-3` + `col-span-*`, `bg-destructive/5`).

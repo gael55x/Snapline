@@ -1,0 +1,3 @@
+I confirmed this codebase has only a dashboard page and a settings page — there is no onboarding flow anywhere in the project (no matching files, routes, components, or even keywords like "step", "wizard", or "progress"). I don't want to guess and build a new onboarding flow from scratch, since that's a much bigger scope than "cleaning up" an existing one.
+
+Could you point me to where the onboarding flow lives — a different repo/branch, or a path I should check? If it genuinely doesn't exist yet in this project, let me know and I can scope out building one instead of assuming its shape.

@@ -1,0 +1,37 @@
+{
+  "id": "claude-buoy--empty-state--3",
+  "timestamp": "2026-07-05T04:26:08.884Z",
+  "mode": "claude-buoy",
+  "fixture": "next-shadcn-basic",
+  "promptId": "empty-state",
+  "attempt": 3,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 8,
+      "totalViolations": 1,
+      "errorViolations": 1,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 1,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 119,
+    "filesTouched": 2
+  },
+  "rawOutputPaths": [
+    "runs/claude-buoy--empty-state--3/agent-stdout.txt",
+    "runs/claude-buoy--empty-state--3/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-buoy--empty-state--3/scanner.json",
+  "gitDiffPath": "runs/claude-buoy--empty-state--3/diff.patch"
+}

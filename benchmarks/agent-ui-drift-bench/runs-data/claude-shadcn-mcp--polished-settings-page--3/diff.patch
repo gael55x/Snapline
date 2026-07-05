@@ -1,0 +1,183 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+index c106fe3..a459699 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+@@ -3,6 +3,7 @@
+ import * as React from "react"
+ 
+ import { DashboardNav } from "@/components/dashboard/nav"
++import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+@@ -22,48 +23,101 @@ import {
+ } from "@/components/ui/dialog"
+ import { Input } from "@/components/ui/input"
+ 
++function BuildingIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      viewBox="0 0 24 24"
++      fill="none"
++      stroke="currentColor"
++      strokeWidth="2"
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      {...props}
++    >
++      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
++      <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
++      <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
++      <path d="M10 6h4" />
++      <path d="M10 10h4" />
++      <path d="M10 14h4" />
++      <path d="M10 18h4" />
++    </svg>
++  )
++}
++
++function AlertTriangleIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      viewBox="0 0 24 24"
++      fill="none"
++      stroke="currentColor"
++      strokeWidth="2"
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      {...props}
++    >
++      <path d="m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
++      <path d="M12 9v4" />
++      <path d="M12 17h.01" />
++    </svg>
++  )
++}
++
+ export default function SettingsPage() {
+   const [confirmOpen, setConfirmOpen] = React.useState(false)
+ 
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/settings" />
+-      <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
++      <main className="mx-auto flex max-w-4xl flex-col gap-10 px-6 py-10">
++        <div className="flex flex-col gap-2 border-b border-border pb-6">
++          <Badge variant="outline" className="w-fit text-muted-foreground">
++            Workspace
++          </Badge>
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Settings</h1>
+           <p className="text-sm text-muted-foreground">
+             Manage your workspace profile and danger zone actions.
+           </p>
+         </div>
+ 
+-        <Card>
+-          <CardHeader>
+-            <CardTitle>Workspace profile</CardTitle>
+-            <CardDescription>This information is shown on shared reports.</CardDescription>
++        <Card className="overflow-hidden">
++          <CardHeader className="flex flex-row items-start gap-4 border-b border-border bg-muted/30">
++            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
++              <BuildingIcon className="h-5 w-5" />
++            </div>
++            <div className="flex flex-col gap-1">
++              <CardTitle>Workspace profile</CardTitle>
++              <CardDescription>This information is shown on shared reports.</CardDescription>
++            </div>
+           </CardHeader>
+-          <CardContent>
+-            <form className="flex flex-col gap-4">
+-              <div className="flex flex-col gap-2">
+-                <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
+-                  Workspace name
+-                </label>
+-                <Input id="workspace-name" name="workspaceName" defaultValue="Snapline Ops" />
++          <CardContent className="pt-6">
++            <form className="flex flex-col gap-6">
++              <div className="grid gap-6 sm:grid-cols-2">
++                <div className="flex flex-col gap-2">
++                  <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
++                    Workspace name
++                  </label>
++                  <Input id="workspace-name" name="workspaceName" defaultValue="Snapline Ops" />
++                </div>
++                <div className="flex flex-col gap-2">
++                  <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
++                    Contact email
++                  </label>
++                  <Input
++                    id="contact-email"
++                    name="contactEmail"
++                    type="email"
++                    defaultValue="ops@example.com"
++                  />
++                </div>
+               </div>
+               <div className="flex flex-col gap-2">
+-                <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
+-                  Contact email
+-                </label>
+-                <Input
+-                  id="contact-email"
+-                  name="contactEmail"
+-                  type="email"
+-                  defaultValue="ops@example.com"
+-                />
+-              </div>
+-              <div className="flex flex-col gap-2">
+-                <label htmlFor="repo-url" className="text-sm font-medium text-foreground">
+-                  Repository URL
+-                </label>
++                <div className="flex items-center justify-between">
++                  <label htmlFor="repo-url" className="text-sm font-medium text-foreground">
++                    Repository URL
++                  </label>
++                  <span className="text-xs text-muted-foreground">Optional</span>
++                </div>
+                 <Input
+                   id="repo-url"
+                   name="repoUrl"
+@@ -73,18 +127,23 @@ export default function SettingsPage() {
+               </div>
+             </form>
+           </CardContent>
+-          <CardFooter className="gap-2">
+-            <Button>Save changes</Button>
++          <CardFooter className="justify-end gap-2 border-t border-border bg-muted/30">
+             <Button variant="ghost">Cancel</Button>
++            <Button className="shadow-md">Save changes</Button>
+           </CardFooter>
+         </Card>
+ 
+-        <Card>
+-          <CardHeader>
+-            <CardTitle>Danger zone</CardTitle>
+-            <CardDescription>Destructive actions that cannot be undone.</CardDescription>
++        <Card className="overflow-hidden border-destructive/30">
++          <CardHeader className="flex flex-row items-start gap-4 border-b border-destructive/20 bg-destructive/5">
++            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
++              <AlertTriangleIcon className="h-5 w-5" />
++            </div>
++            <div className="flex flex-col gap-1">
++              <CardTitle className="text-destructive">Danger zone</CardTitle>
++              <CardDescription>Destructive actions that cannot be undone.</CardDescription>
++            </div>
+           </CardHeader>
+-          <CardFooter>
++          <CardFooter className="justify-end pt-6">
+             <Button variant="destructive" onClick={() => setConfirmOpen(true)}>
+               Delete workspace
+             </Button>
+@@ -94,6 +153,9 @@ export default function SettingsPage() {
+         <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+           <DialogContent>
+             <DialogHeader>
++              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-destructive/10 text-destructive">
++                <AlertTriangleIcon className="h-5 w-5" />
++              </div>
+               <DialogTitle>Delete workspace?</DialogTitle>
+               <DialogDescription>
+                 This permanently removes the workspace, its projects, and all repair history.

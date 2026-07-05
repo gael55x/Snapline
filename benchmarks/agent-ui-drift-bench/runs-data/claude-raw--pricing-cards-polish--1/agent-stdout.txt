@@ -1,0 +1,3 @@
+I searched the whole repo and there's no pricing page or pricing-cards component anywhere — not in `src/app`, `src/components`, or any route (only `/` and `/settings` exist). There's nothing with tiers, prices, or plan copy to restyle.
+
+Since you said "same three tiers and copy, just better looking," I don't want to invent plan names/prices/features from scratch and pass them off as your existing content. Could you point me to where the pricing cards live (maybe a different repo/branch, or a design file), or should I create a new `/pricing` page from scratch with placeholder Starter/Pro/Enterprise tiers for you to fill in with real copy?

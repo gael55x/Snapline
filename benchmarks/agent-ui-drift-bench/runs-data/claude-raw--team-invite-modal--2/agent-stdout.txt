@@ -1,0 +1,14 @@
+This looks solid and self-consistent. This is a benchmark/fixture environment without `next` or a dev server installed, and Bash execution for `tsc`/`npm` is being blocked by the sandbox here, so I can't run a live typecheck or dev server — I've instead done a careful manual pass for type-correctness against the existing primitives' signatures.
+
+Summary of what was added:
+
+- **`src/components/team/invite-member-modal.tsx`** — self-contained modal (trigger button + `Dialog`) with:
+  - Comma-separated email input, parsed/validated with a regex, showing per-address validation errors
+  - Admin/Member role picker as two selectable description cards (no `Select` primitive existed in this fixture, so I built it from `button` + existing tokens)
+  - Optional personal message `Textarea`
+  - A persistent seats-remaining `Badge` (turns destructive when over limit) and an inline over-limit warning
+  - Submit disabled whenever the list is empty, has invalid addresses, or exceeds remaining seats; shows "Sending…" while pending
+  - A distinct success view listing sent addresses, with "Invite more" (resets form) and "Done" (closes)
+- **`src/app/team/page.tsx`** — new team page with a mock member list/seat count and the invite modal wired up; accepted invites get appended as "Invited" members.
+
+I wasn't able to execute `npm run typecheck` or start a dev server in this sandbox (Bash commands are being auto-rejected here). If you can run it locally, `npm run typecheck` in `fixtures/next-shadcn-custom-theme` would be the good next step to confirm.

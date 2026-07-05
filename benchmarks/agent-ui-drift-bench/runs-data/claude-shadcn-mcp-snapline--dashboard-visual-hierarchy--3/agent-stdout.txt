@@ -1,0 +1,9 @@
+This looks correct and complete. Note: this codebase's actual dashboard has no chart or sidebar widgets (just 4 stat cards + a Recent Activity table below) — I mapped the request onto what exists rather than inventing new elements, since you said not to add or remove content:
+
+- **`StatCard`** (`src/components/dashboard/stat-card.tsx`) gained a `variant` prop. `primary` gets a `text-5xl` bold value, a colored left accent border, and a subtle ring; `secondary` gets a muted `text-xs` label and a smaller `text-lg` value at 80% opacity — so it visibly recedes.
+- **`page.tsx`** now splits the flat grid into three zones, each under its own uppercase eyebrow heading:
+  - **"Key metric"** — Total revenue alone, rendered with `variant="primary"`, dominating the top.
+  - **"At a glance"** — the other three stats (Active repairs, Violations found, Projects connected) rendered `variant="secondary"`, visually quieter and grouped together.
+  - **"Activity"** — the Recent Activity table, now separated by a `border-t` divider and extra top padding so it reads as the centerpiece beneath the stats rather than just another stacked block.
+
+All four stats, all activity rows, and the nav are untouched — only layout/typography changed. I couldn't run `typecheck` or a dev server (command approval was declined), so I reviewed the diff by hand; the destructured `revenue`/`secondaryStats` types line up with `StatCardProps` correctly.

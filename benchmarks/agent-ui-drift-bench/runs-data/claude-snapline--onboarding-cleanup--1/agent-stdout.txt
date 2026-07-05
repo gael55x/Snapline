@@ -1,0 +1,8 @@
+The exploration agent confirms what I found: there's no onboarding flow anywhere in this repo's history, on any branch, or in the working tree. This fixture is just a minimal dashboard shell (home page, settings page, nav/stat-card/recent-activity components).
+
+Since you asked me to "clean up" an existing flow and keep the steps/fields "exactly the same," but nothing exists to preserve — could you confirm:
+
+1. Is there a different repo or path where this onboarding flow actually lives (maybe I'm in the wrong fixture)?
+2. Or should I design and build a new multi-step onboarding flow from scratch for this dashboard app (I'd need you to tell me what steps/fields it should collect, since there's no existing spec to match)?
+
+I don't want to invent steps/fields on your behalf and have them not match what you had in mind.

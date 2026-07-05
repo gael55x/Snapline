@@ -1,0 +1,112 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-shadcn-mcp--dashboard-visual-hierarchy--3/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-arbitrary-tailwind:src/components/dashboard/stat-card.tsx:35:40:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Arbitrary Tailwind value \"text-[10px]\"",
+      "location": {
+        "line": 35,
+        "column": 40
+      },
+      "evidence": "text-[10px]",
+      "repair": {
+        "instruction": "Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-arbitrary-tailwind:src/components/dashboard/stat-card.tsx:51:76:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Arbitrary Tailwind value \"text-[11px]\"",
+      "location": {
+        "line": 51,
+        "column": 76
+      },
+      "evidence": "text-[11px]",
+      "repair": {
+        "instruction": "Replace text-[11px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 16,
+    "totalViolations": 2,
+    "errorViolations": 2,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 2,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/dashboard/stat-card.tsx",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/dashboard/stat-card.tsx:35:40:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Arbitrary Tailwind value \"text-[10px]\"",
+          "location": {
+            "line": 35,
+            "column": 40
+          },
+          "evidence": "text-[10px]",
+          "repair": {
+            "instruction": "Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-arbitrary-tailwind:src/components/dashboard/stat-card.tsx:51:76:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Arbitrary Tailwind value \"text-[11px]\"",
+          "location": {
+            "line": 51,
+            "column": 76
+          },
+          "evidence": "text-[11px]",
+          "repair": {
+            "instruction": "Replace text-[11px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+        "Replace text-[11px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/stat-card.tsx\n\n2 violations:\n- [error] arbitrary value: text-[10px] (line 35)\n- [error] arbitrary value: text-[11px] (line 51)\n\nRepair:\n- Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.\n- Replace text-[11px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale."
+    }
+  ],
+  "durationMs": 75
+}

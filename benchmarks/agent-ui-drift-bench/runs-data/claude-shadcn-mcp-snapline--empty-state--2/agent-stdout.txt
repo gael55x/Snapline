@@ -1,0 +1,11 @@
+I've built the component and wired it up. I attempted to run `tsc --noEmit` to verify, but execution requires your approval and got blocked each time — let me know if you'd like me to try that with your approval, otherwise I've manually reviewed the types and they check out.
+
+**`src/components/ui/empty-state.tsx`** — new reusable `EmptyState` component:
+- Props: `icon` (component type, rendered internally so sizing/color stay consistent), `title` (string), `description` (optional string), `action` (optional `ReactNode`), plus it forwards a ref and spreads remaining `div` props.
+- Layout: centered flex column filling available space (`flex-1 items-center justify-center`), icon shown in a `h-12 w-12 rounded-full bg-muted` soft circle, title/description stacked below, action rendered underneath if provided.
+
+**`src/app/projects/page.tsx`** — new page (didn't exist before) using it:
+- Renders `EmptyState` with a small inline folder SVG icon, title "No projects yet", a description, and a `Button` "Create project" as the action.
+- Used an inline SVG rather than `lucide-react` since that package isn't installed in this fixture's `package.json`/`node_modules` — didn't want to silently add a new dependency. If this repo does use `lucide-react` elsewhere in your real app, swap `FolderIcon` for e.g. `FolderOpen` from that package.
+
+Both files follow the existing conventions in the repo (`React.forwardRef`, `cn()` for class merging, semantic Tailwind tokens like `bg-muted`/`text-muted-foreground`).

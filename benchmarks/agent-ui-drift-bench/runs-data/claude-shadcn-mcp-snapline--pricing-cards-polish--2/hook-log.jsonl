@@ -1,0 +1,9 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":34,"files":["src/components/dashboard/pricing-cards.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":24,"files":["src/app/pricing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":25,"files":["src/components/dashboard/nav.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":29,"files":["src/components/dashboard/pricing-cards.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":29,"files":["src/components/dashboard/pricing-cards.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":28,"files":["src/components/dashboard/pricing-cards.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":29,"files":["src/components/dashboard/pricing-cards.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":185,"files":["src/components/dashboard/pricing-cards.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":124,"files":[]}

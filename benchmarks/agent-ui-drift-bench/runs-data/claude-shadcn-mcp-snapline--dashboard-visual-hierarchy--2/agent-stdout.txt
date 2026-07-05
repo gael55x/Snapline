@@ -1,0 +1,11 @@
+All three files look correct and consistent — no content added or removed, just restructured and restyled.
+
+## Summary
+
+This fixture has no chart component or sidebar, so I mapped the hierarchy request onto what actually exists (confirmed via a full-codebase search: no chart library, no sidebar widget):
+
+- **`src/app/page.tsx`** — split the single 4-stat grid into three explicit zones, each with an uppercase muted `h2` label (`Key metric`, `Secondary metrics`, `Activity`) to visually separate them.
+- **`src/components/dashboard/stat-card.tsx`** — added an `emphasis` prop. `"primary"` (used for Total revenue) renders a much larger value (`text-4xl`/`sm:text-5xl`), an accented border, and a stronger shadow. The default `"secondary"` (the other three stats) drops the shadow and shrinks the value to `text-lg`, so they visibly recede.
+- **`src/components/dashboard/recent-activity.tsx`** — bumped its card shadow and heading size so it reads as the centerpiece beneath the stats, since it's the only content block in that position.
+
+I wasn't able to run `tsc` or a dev server to verify visually — this sandbox blocks `npx`/build commands — so I verified correctness by re-reading the final diffs instead. The changes are straightforward Tailwind class edits with no new deps, so risk is low, but you may want to eyeball it in a browser when you get a chance.

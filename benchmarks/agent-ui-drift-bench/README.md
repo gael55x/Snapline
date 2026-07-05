@@ -53,3 +53,11 @@ pnpm bench:graph                                    # reports/latest.json -> gra
 
 Graphs and tables only ever contain numbers from recorded runs. If you see TBD,
 the run has not happened yet.
+
+## Published raw data
+
+- `runs-data/` (committed): per-run `run.json`, `scanner.json`, `diff.patch`,
+  agent stdout/stderr, and hook logs for all 240 cells of the sonnet-5 matrix.
+- Full archive incl. each run's final fixture tree: attached to the
+  [0.1.0 release](https://github.com/gael55x/Snapline/releases/tag/%40usesnapline/cli%400.1.0)
+  as `agent-ui-drift-bench-sonnet5-full.tar.gz`.

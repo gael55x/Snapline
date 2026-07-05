@@ -1,0 +1,6 @@
+All the semantic tokens used in `EmptyState` (`border-border`, `bg-muted`, `text-muted-foreground`, `text-foreground`) already exist in the design system and match the pattern used in `button.tsx`/`card.tsx`. Note: I couldn't run `tsc --noEmit` since binary execution required an approval this sandbox didn't grant — worth running yourself if you want a final check, though I reviewed the types by hand and they line up.
+
+Summary of what I added:
+
+- **`src/components/empty-state.tsx`** — new `EmptyState` component (`icon`, `title`, `description`, optional `action` props), centered flex layout, icon sits in a `h-12 w-12 rounded-full bg-muted` circle above the title/description, `forwardRef` + `cn()` merge for `className` following the same conventions as the existing `Card`/`Button` primitives.
+- **`src/app/projects/page.tsx`** — new projects page (didn't exist before) using `EmptyState` with a small inline folder SVG icon (no icon library was installed, so I kept it dependency-free), "No projects yet" title, and a `Create project` `Button` as the action.

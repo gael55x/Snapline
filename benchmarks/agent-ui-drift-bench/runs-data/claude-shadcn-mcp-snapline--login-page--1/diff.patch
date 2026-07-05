@@ -1,0 +1,204 @@
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff..71cb2e5 100644
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,3 +1,7 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+@@ -7,9 +11,84 @@ import {
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
++import { Checkbox } from "@/components/ui/checkbox"
+ import { Input } from "@/components/ui/input"
++import { Label } from "@/components/ui/label"
++import { Separator } from "@/components/ui/separator"
++
++interface FormErrors {
++  email?: string
++  password?: string
++}
++
++function GoogleIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg viewBox="0 0 24 24" className="h-4 w-4" {...props}>
++      <path
++        fill="#4285F4"
++        d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.43 3.58v2.98h3.93c2.3-2.12 3.52-5.24 3.52-8.8z"
++      />
++      <path
++        fill="#34A853"
++        d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.93-2.98c-1.09.73-2.48 1.16-4 1.16-3.08 0-5.68-2.08-6.62-4.87H1.32v3.07C3.29 21.3 7.31 24 12 24z"
++      />
++      <path
++        fill="#FBBC05"
++        d="M5.38 14.4c-.24-.73-.38-1.5-.38-2.4s.14-1.67.38-2.4V6.53H1.32A11.99 11.99 0 0 0 0 12c0 1.93.46 3.76 1.32 5.47l4.06-3.07z"
++      />
++      <path
++        fill="#EA4335"
++        d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.45-3.45C17.94 1.19 15.24 0 12 0 7.31 0 3.29 2.7 1.32 6.53l4.06 3.07C6.32 6.81 8.92 4.75 12 4.75z"
++      />
++    </svg>
++  )
++}
++
++function GitHubIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" {...props}>
++      <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.09 3.29 9.4 7.86 10.93.58.11.79-.25.79-.56 0-.27-.01-1.17-.02-2.12-3.2.7-3.87-1.36-3.87-1.36-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.17.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.07.78 2.15 0 1.55-.01 2.8-.01 3.18 0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z" />
++    </svg>
++  )
++}
+ 
+ export default function LoginPage() {
++  const [email, setEmail] = React.useState("")
++  const [password, setPassword] = React.useState("")
++  const [rememberMe, setRememberMe] = React.useState(false)
++  const [errors, setErrors] = React.useState<FormErrors>({})
++  const [isSubmitting, setIsSubmitting] = React.useState(false)
++
++  function validate(): FormErrors {
++    const nextErrors: FormErrors = {}
++    if (!email) {
++      nextErrors.email = "Email is required."
++    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
++      nextErrors.email = "Enter a valid email address."
++    }
++    if (!password) {
++      nextErrors.password = "Password is required."
++    } else if (password.length < 8) {
++      nextErrors.password = "Password must be at least 8 characters."
++    }
++    return nextErrors
++  }
++
++  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++    const nextErrors = validate()
++    setErrors(nextErrors)
++    if (Object.keys(nextErrors).length > 0) {
++      return
++    }
++    setIsSubmitting(true)
++    try {
++      await new Promise((resolve) => setTimeout(resolve, 1200))
++    } finally {
++      setIsSubmitting(false)
++    }
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+@@ -17,40 +96,91 @@ export default function LoginPage() {
+           <CardTitle>Sign in</CardTitle>
+           <CardDescription>Enter your email below to sign in to your account.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="flex flex-col gap-4">
++          <div className="grid grid-cols-2 gap-3">
++            <Button variant="outline" type="button">
++              <GoogleIcon />
++              Google
++            </Button>
++            <Button variant="outline" type="button">
++              <GitHubIcon />
++              GitHub
++            </Button>
++          </div>
++
++          <div className="flex items-center gap-3">
++            <Separator className="flex-1" />
++            <span className="text-xs text-muted-foreground">or continue with email</span>
++            <Separator className="flex-1" />
++          </div>
++
++          <form className="flex flex-col gap-4" onSubmit={handleSubmit} noValidate>
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="email" className="text-sm font-medium text-foreground">
+-                Email
+-              </label>
++              <Label htmlFor="email">Email</Label>
+               <Input
+                 id="email"
+                 name="email"
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                value={email}
++                onChange={(event) => setEmail(event.target.value)}
++                aria-invalid={Boolean(errors.email)}
++                aria-describedby={errors.email ? "email-error" : undefined}
+               />
++              {errors.email ? (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <Label htmlFor="password">Password</Label>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                value={password}
++                onChange={(event) => setPassword(event.target.value)}
++                aria-invalid={Boolean(errors.password)}
++                aria-describedby={errors.password ? "password-error" : undefined}
+               />
++              {errors.password ? (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
+             </div>
++
++            <div className="flex items-center justify-between">
++              <div className="flex items-center gap-2">
++                <Checkbox
++                  id="remember-me"
++                  checked={rememberMe}
++                  onCheckedChange={setRememberMe}
++                />
++                <Label htmlFor="remember-me" className="font-normal text-muted-foreground">
++                  Remember me
++                </Label>
++              </div>
++              <a href="#" className="text-sm font-medium text-primary underline-offset-4 hover:underline">
++                Forgot password?
++              </a>
++            </div>
++
++            <Button type="submit" className="w-full" disabled={isSubmitting}>
++              {isSubmitting ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
++        <CardFooter className="justify-center">
++          <p className="text-sm text-muted-foreground">
++            Don&apos;t have an account?{" "}
++            <a href="#" className="font-medium text-primary underline-offset-4 hover:underline">
++              Sign up
++            </a>
++          </p>
+         </CardFooter>
+       </Card>
+     </main>

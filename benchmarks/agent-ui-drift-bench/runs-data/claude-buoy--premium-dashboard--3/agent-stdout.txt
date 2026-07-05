@@ -1,0 +1,18 @@
+I was unable to execute `tsc` or `buoy` in this sandbox — every invocation (via `npx` and directly via `node_modules/.bin`) returns "requires approval" with no prompt reaching you, so I couldn't run the CLAUDE.md-mandated drift check or a compile check. I did a manual line-by-line review of every change instead, and specifically checked for Tailwind cascade-order pitfalls (this repo's `cn()` is a plain string-join, not `tailwind-merge`) — I caught and fixed one real bug where I'd overridden `p-6` with `p-0` (ambiguous, same-shorthand conflict) and switched it to the codebase's own proven `px-0 pb-0` longhand pattern.
+
+**What changed, all using only existing design tokens (no new hardcoded colors):**
+- `tailwind.config.ts` — added `shadow-soft` / `shadow-soft-lg` tokens (built from `--foreground` at low opacity)
+- `globals.css` — subtle ambient radial-gradient background using `--primary`
+- `ui/card.tsx`, `ui/badge.tsx`, `ui/button.tsx`, `ui/input.tsx`, `ui/dialog.tsx` — softer shadows, larger radii, pill-shaped badges, primary-tinted focus rings
+- `dashboard/nav.tsx` — sticky blurred header, gradient logo mark, segmented-pill navigation
+- `dashboard/stat-card.tsx` — larger value typography, top accent bar, trend arrow icon, hover lift
+- `dashboard/recent-activity.tsx` — avatar initials, dot-status badges, full-bleed table, event count badge
+- `app/page.tsx`, `app/settings/page.tsx` — refined spacing/typography, eyebrow labels, destructive-tinted danger-zone card
+
+No data, props, or interactive behavior were changed — only visual treatment.
+
+**Please run these yourself and let me know if anything needs fixing:**
+```
+npx tsc --noEmit
+npx buoy drift check
+```

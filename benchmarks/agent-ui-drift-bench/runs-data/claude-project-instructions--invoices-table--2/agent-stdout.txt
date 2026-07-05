@@ -1,0 +1,17 @@
+I couldn't get `npm run typecheck` past the approval gate in this session (repeated attempts all returned "requires approval" with no prompt surfacing), so I manually reviewed the new/changed files for type correctness against the existing patterns instead.
+
+## What I added
+
+- **`src/components/ui/table.tsx`** — new shadcn-style `Table` primitive (`Table`, `TableHeader`, `TableBody`, `TableRow`, `TableHead`, `TableCell`), built the same way as the existing `card.tsx`/`button.tsx` (`forwardRef` + `cn`, no new dependencies).
+- **`src/components/invoices-table.tsx`** — client component (`"use client"`) with:
+  - 24 mock invoices (deterministic, hardcoded — no `Math.random`/`Date.now`, avoids SSR hydration mismatches).
+  - Sortable headers (Invoice, Date, Amount, Status) built with the existing `Button` component (`variant="ghost"`) instead of a raw `<button>`, showing `▲`/`▼`/`↕` state.
+  - Default sort: date descending.
+  - Status badges using the existing `Badge` variants: `Paid → default` (primary), `Pending → secondary`, `Failed → destructive` — three distinct looks, no new tokens needed.
+  - "Download PDF" action per row as a ghost `Button` with an inline SVG icon (no icon library in `package.json`, so no new dependency).
+  - Pagination at 10 rows/page with a Previous/Next footer (`Button variant="outline"`, disabled at the boundaries) and a "Showing X–Y of Z" label.
+- **`src/app/billing/page.tsx`** — new billing page, following the same `<main>`/`Card` layout convention as `src/app/page.tsx`, embedding `InvoicesTable` inside a `Card`.
+
+Everything sticks to semantic tokens only (`border-border`, `text-muted-foreground`, `bg-muted/50`, existing `Badge`/`Button` variants), no arbitrary spacing values, and no duplicate component files.
+
+Since I couldn't run `npm run typecheck` (approval didn't go through even after several retries), could you run it locally to confirm, or re-approve the Bash tool so I can verify?

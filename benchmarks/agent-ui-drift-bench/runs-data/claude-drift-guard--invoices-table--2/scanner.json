@@ -1,0 +1,111 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-drift-guard--invoices-table--2/repo/fixtures/next-shadcn-custom-theme",
+  "scannedFiles": [
+    "src/app/billing/page.tsx",
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/components/billing/invoices-table.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx",
+    "src/components/ui/textarea.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-arbitrary-tailwind:src/components/billing/invoices-table.tsx:141:42:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/billing/invoices-table.tsx",
+      "message": "Arbitrary Tailwind value \"text-[10px]\"",
+      "location": {
+        "line": 141,
+        "column": 42
+      },
+      "evidence": "text-[10px]",
+      "repair": {
+        "instruction": "Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "require-button-component:src/components/billing/invoices-table.tsx:132:17:1",
+      "ruleId": "require-button-component",
+      "severity": "error",
+      "filePath": "src/components/billing/invoices-table.tsx",
+      "message": "Raw <button> used while <Button> exists",
+      "location": {
+        "line": 132,
+        "column": 17
+      },
+      "evidence": "<button>",
+      "repair": {
+        "instruction": "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes.",
+        "safeFix": true
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 16,
+    "totalViolations": 2,
+    "errorViolations": 2,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 1,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 1,
+    "componentReuseRate": 0.9375
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/billing/invoices-table.tsx",
+      "filePath": "src/components/billing/invoices-table.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/billing/invoices-table.tsx:141:42:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/billing/invoices-table.tsx",
+          "message": "Arbitrary Tailwind value \"text-[10px]\"",
+          "location": {
+            "line": 141,
+            "column": 42
+          },
+          "evidence": "text-[10px]",
+          "repair": {
+            "instruction": "Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "require-button-component:src/components/billing/invoices-table.tsx:132:17:1",
+          "ruleId": "require-button-component",
+          "severity": "error",
+          "filePath": "src/components/billing/invoices-table.tsx",
+          "message": "Raw <button> used while <Button> exists",
+          "location": {
+            "line": 132,
+            "column": 17
+          },
+          "evidence": "<button>",
+          "repair": {
+            "instruction": "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes.",
+            "safeFix": true
+          }
+        }
+      ],
+      "requiredActions": [
+        "Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+        "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/billing/invoices-table.tsx\n\n2 violations:\n- [error] arbitrary value: text-[10px] (line 141)\n- [error] raw <button> used while <Button> exists (line 132)\n\nRepair:\n- Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.\n- Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes."
+    }
+  ],
+  "durationMs": 36
+}

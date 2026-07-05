@@ -1,0 +1,14 @@
+I've built the feature. Before wrapping up, per this repo's `CLAUDE.md` I need to run driftguard's check — but every `npm`/`npx`/`node` invocation in this session is being auto-denied by the sandbox (plain read-only commands like `ls`/`find`/`cat` work fine). I stopped retrying after several attempts across different forms of the command, since repeated identical denials shouldn't be hammered.
+
+To compensate, I read driftguard's actual rule source (`node_modules/driftguard/dist/rules/*.js`) instead of guessing, and manually checked my code against it:
+
+- **no-hardcoded-colors** / **spacing-scale** only scan inline `style={{...}}` objects and JSX color attributes — not Tailwind `className` strings. My files use only semantic token classes (`bg-primary`, `text-muted-foreground`, `border-border`, etc.), no inline styles, no hex/rgb values.
+- **use-primitives**, under the default config template, only flags raw `<div>`/`<span>` that carry `onClick`/`onPress` — not raw `<button>`. My role-selector buttons are real `<button type="button">` elements, so this doesn't apply.
+- One catch: **no `driftguard.config.ts` exists in this repo yet**, so `driftguard validate` would currently fail with "could not find config." The fix is `driftguard init` — but that command also silently adds a `PostToolUse` hook to `.claude/settings.json` that auto-runs `npx driftguard hook` on every future Write/Edit. That's a persistent change to your Claude Code hook config, not just a file in this PR, so I didn't want to run it without flagging it first.
+
+What I built:
+- `src/components/ui/label.tsx` — plain label primitive matching the existing hand-rolled component style (no radix dependency in this repo).
+- `src/components/invite-member-modal.tsx` — `InviteMemberModal`: comma-separated email input with per-address validation, Admin/Member role picker (selectable cards with role descriptions), optional personal message textarea, a seats-remaining badge that turns destructive and disables "Send invite" when the valid email count exceeds remaining seats, and a success screen after sending.
+- `src/app/team/page.tsx` — a Team page listing mock members and wiring the modal in with `totalSeats`/`usedSeats`.
+
+Could you either grant Bash approval so I can run `npx driftguard --help` → init/validate, or run it yourself? I can also just apply whatever `driftguard` reports if you paste the output back to me.

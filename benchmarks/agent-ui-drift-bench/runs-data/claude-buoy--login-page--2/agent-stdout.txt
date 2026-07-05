@@ -1,0 +1,15 @@
+I'm unable to execute shell commands right now — every Bash call (`npm run typecheck`, `npx buoy`, even calling `tsc` directly) is coming back "requires approval" rather than actually prompting successfully. I don't want to keep retrying the same call.
+
+Could you approve a Bash command (or let me know if there's a permission mode issue), so I can:
+1. Run `npm run typecheck` to confirm the new login page compiles.
+2. Run `npx buoy --help` and then the drift check it points to, and fix anything it flags, per this project's `CLAUDE.md` instruction.
+
+In the meantime, here's what I've implemented in `src/app/login/page.tsx` (plus a new hand-rolled `src/components/ui/checkbox.tsx` matching the existing Input/Select style, since no Checkbox component existed):
+
+- Email + password fields using the existing `Input` component, with per-field inline validation errors (required, email format, min-length password) shown via `aria-invalid`/`aria-describedby` and a `text-destructive` message.
+- "Remember me" checkbox and a "Forgot password?" link on the same row.
+- Google and GitHub sign-in buttons (`variant="outline"`, inline SVG icons) above the form, separated by an "or continue with email" divider.
+- Submit button shows a "Signing in..." loading state and disables while submitting.
+- Footer links to `/signup` for new users.
+
+Let me know once you can approve, or if you'd like me to proceed without running the checks.

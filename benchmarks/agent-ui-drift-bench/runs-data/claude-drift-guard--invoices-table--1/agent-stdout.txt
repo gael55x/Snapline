@@ -1,0 +1,10 @@
+It looks like these commands aren't getting approved automatically in this session — each attempt returns "requires approval" without a prompt resolving. Rather than keep retrying, here's where things stand:
+
+**Done:**
+- Added `--success`/`--warning` HSL tokens to `globals.css` (light + dark) and wired them into `tailwind.config.ts`, following the same pattern as the existing `--brand` token — no hardcoded colors.
+- Added `success`/`warning` variants to `badge.tsx` for distinct Paid/Pending look, reusing `destructive` for Failed.
+- Created `src/components/ui/table.tsx` (shadcn-style primitives: Table, TableHeader/Body/Row/Head/Cell) using only existing theme tokens.
+- Created `src/app/billing/invoices-table.tsx` — client component with sortable headers (invoice #, date, amount, status; defaults to date descending), a Download PDF button per row (native Blob download, no new deps), and prev/next pagination at 10 rows/page.
+- Created `src/app/billing/page.tsx` with 24 mock invoices wired into a `Card`.
+
+**Blocked:** `npm run typecheck` and `npx driftguard --help`/`validate` are both being rejected before reaching your approval prompt. Could you check your permission settings (or approve directly) so I can run these two commands? Per this project's CLAUDE.md, I need to run the driftguard check on the new files and fix anything it reports before calling this done.

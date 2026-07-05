@@ -1,0 +1,13 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":64,"files":["src/components/ui/separator.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":25,"files":["src/components/ui/alert.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":24,"files":["src/components/ui/alert.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":55,"files":["src/app/settings/billing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":32,"files":["src/app/settings/billing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":34,"files":["src/app/settings/billing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":37,"files":["src/app/settings/billing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":32,"files":["src/app/settings/billing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":25,"files":["src/components/ui/separator.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":26,"files":["src/components/ui/alert.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":24,"files":["src/components/ui/alert.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":41,"files":["src/app/settings/billing/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":81,"files":[]}

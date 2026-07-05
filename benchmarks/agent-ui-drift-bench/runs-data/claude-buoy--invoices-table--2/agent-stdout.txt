@@ -1,0 +1,15 @@
+All bash commands in this session are being blocked pending approval, so I can't run `tsc` or the required `npx buoy` drift check myself. Here's where things stand:
+
+**Done:**
+- Added `src/components/ui/table.tsx` (Table primitives following the existing shadcn style, using only theme tokens).
+- Extended `src/components/ui/badge.tsx` with `success` (maps to `primary`) and `warning` (maps to `brand`) variants — no new colors introduced, everything routes through existing CSS variables.
+- Created `src/app/billing/page.tsx`: an invoices table with Invoice/Date/Amount/Status columns, per-status badges (Paid→success, Pending→warning, Failed→destructive), a per-row "Download PDF" button, sortable column headers (click to toggle asc/desc, defaults to Date descending), and prev/next pagination at 10 rows/page.
+
+**Blocked:** every `Bash` call in this session (`npx tsc --noEmit`, `npx buoy --help`) is being rejected with "This command requires approval" before I can even see a prompt — so I haven't been able to typecheck or run the Buoy drift check that CLAUDE.md requires after UI edits.
+
+Could you either approve the next Bash call, or run these two locally and paste back any errors:
+```
+npm run typecheck
+npx buoy drift check
+```
+I'll fix anything they surface.

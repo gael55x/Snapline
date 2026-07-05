@@ -1,0 +1,10 @@
+Built the billing settings page at `src/app/billing/page.tsx` using only the existing `@/components/ui` primitives (Badge, Button, Card, Dialog) and semantic tokens per the project's CLAUDE.md rules — no raw `<button>`, no palette colors, no arbitrary Tailwind values, no new duplicate component files.
+
+The page includes:
+- **Trial-expiring banner** — shown conditionally (`trialDaysLeft > 0`), with an "Upgrade now" CTA
+- **Current plan** card — name, price, renewal date, "Change plan" button
+- **Payment method** card — card brand/last4/expiry with "Update card" button
+- **Invoices** card — last 3 invoices with date, status badge, amount, and a "Download" button each
+- **Cancel subscription** — placed in its own card at the bottom (sensible, low-emphasis spot); clicking opens a confirmation `Dialog` (controlled via local `useState`) with "Keep subscription" / destructive "Cancel subscription" actions
+
+Note: I wasn't able to run `tsc --noEmit` to verify the typecheck — the sandbox denied running the compiler in this session. I manually cross-checked all `Button`/`Badge` variant props and the `Dialog` `open`/`onOpenChange` usage against their component definitions and they match; worth running `npm run typecheck` yourself to confirm.

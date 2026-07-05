@@ -1,0 +1,19 @@
+I've built the feature but couldn't get approval to run `tsc --noEmit` to verify it compiles — I manually traced through the types and JSX structure and it lines up with existing patterns, but I'd like you to run the check yourself:
+
+```
+cd fixtures/next-shadcn-custom-theme && npx tsc --noEmit
+```
+
+**What I added**, following the repo's existing hand-rolled shadcn-style convention (no new dependencies — I avoided pulling in real shadcn/Radix components since this repo hand-rolls its primitives directly against the CSS token classes, and using the real shadcn MCP components would introduce mismatched styling/colors not driven by this project's theme tokens):
+
+- `src/components/ui/label.tsx` — new `Label` primitive, matching the style of `input.tsx`/`textarea.tsx`.
+- `src/components/invite-member-modal.tsx` — the `InviteMemberModal`:
+  - Email `Input` that parses comma-separated addresses (dedups, trims, flags invalid ones).
+  - Role selector (Admin/Member) built as accessible radio cards with a one-line description each.
+  - Optional personal-message `Textarea`.
+  - A seat-count badge (turns destructive-colored when over the limit) plus a contextual warning message.
+  - "Send invite(s)" button disabled when there are no valid emails, any malformed email, or the count exceeds remaining seats.
+  - A success state that swaps the dialog body to a confirmation list of sent addresses with a "Done" button that resets and closes.
+- `src/app/team/page.tsx` — new team page listing mock members and seat usage, with the modal's trigger button in the header (this is what "opens from the team page").
+
+Let me know if the typecheck comes back clean, or paste me the errors and I'll fix them.

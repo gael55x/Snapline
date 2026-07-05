@@ -1,0 +1,18 @@
+I've reviewed the file for correctness against this repo's existing lint-passing patterns (`card.tsx`, `input.tsx`, `button.tsx`, `page.tsx`) and matched class ordering conventions accordingly (e.g. border-before-background, background-before-padding, background-before-text-color — verified against those files).
+
+However, I'm blocked: this session's permission mode is rejecting every attempt to actually execute `npx eslint src` / `tsc --noEmit` / even the local binaries directly, with "This command requires approval" and no prompt reaching me. Per `CLAUDE.md`, I'm required to run ESLint on UI files and fix every reported problem before finishing — I can't fully guarantee that without actually running it.
+
+**Could you either approve the pending Bash permission prompt, or run these two commands yourself and paste back any output?**
+```
+npx tsc --noEmit
+npx eslint src
+```
+
+In the meantime, here's what I built at `src/app/billing/page.tsx`:
+- **Current plan** card — name badge, price, renewal date, "Change plan" button
+- **Payment method** card — card brand/last4/expiry with an "Update card" button
+- **Invoices** card — last 4 invoices with amount, status badge, and a download link each
+- **Cancel subscription** card — opens a confirmation dialog (built on the repo's custom `Dialog` primitive) before confirming
+- A **trial-expiring banner** at the top, shown conditionally via mock state (`trial.daysRemaining <= 7`)
+
+All styling uses only the existing semantic theme tokens (`primary`, `muted`, `brand`, `destructive`, etc.) and existing `ui/` components — no arbitrary values, no new dependencies.

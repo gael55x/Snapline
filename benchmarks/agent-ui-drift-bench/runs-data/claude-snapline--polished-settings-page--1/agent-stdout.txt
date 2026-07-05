@@ -1,0 +1,10 @@
+I've given the settings page a proper visual refresh in `src/app/settings/page.tsx`:
+
+- **Header**: larger title, bottom border to separate it from content, more generous page padding/spacing.
+- **Workspace profile card**: icon badge in the header, fields laid out in a responsive 2-column grid (name/email side by side, repo URL full-width), helper captions under each input, an "(optional)" hint on Repository URL, and a footer separated by a border + subtle tint with "Save changes" now visually emphasized (bold, shadow) over "Cancel."
+- **Danger zone card**: tinted destructive border/background, warning icon, a short list of what deletion removes, and a footer that pairs an "irreversible" caption with the emphasized destructive button — separating it clearly as the high-risk section.
+- **Delete dialog**: added the same warning icon for visual consistency, text/behavior unchanged.
+
+All existing field ids, names, types, default values, placeholders, button labels, and click handlers are untouched — this is purely visual/structural polish, no new dependencies (icons are inline SVGs, no radix/lucide added).
+
+One note: I couldn't run `tsc --noEmit` to verify types because the sandbox blocked the command pending your approval — the changes are plain TSX/Tailwind with no new types, so it should be safe, but let me know if you'd like me to retry the typecheck with approval.

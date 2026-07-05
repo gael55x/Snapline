@@ -1,0 +1,6 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":91,"files":["src/components/ui/button.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":55,"files":["src/components/ui/button.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":53,"files":["src/components/ui/button.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":54,"files":["src/components/invite-member-dialog.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":27,"files":["src/app/team/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":74,"files":[]}

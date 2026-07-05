@@ -1,0 +1,1 @@
+I need explicit approval from you to run this lint command (`./node_modules/.bin/eslint src`), which the project's CLAUDE.md requires after editing UI files. Please approve it in the permission prompt so I can verify and fix any lint issues in the new billing settings page.

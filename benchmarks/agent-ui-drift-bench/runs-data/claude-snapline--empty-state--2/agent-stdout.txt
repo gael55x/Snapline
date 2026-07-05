@@ -1,0 +1,6 @@
+Type checking is available but requires manual approval that isn't going through in this session — I'll skip running it and rely on manual review since the code follows the exact same patterns (forwardRef, `cn`, path aliases) as the existing components, which typecheck cleanly.
+
+I've created:
+
+- `src/components/ui/empty-state.tsx` — reusable `EmptyState` component (icon in a soft `bg-muted` circle, centered title/description, optional `action`), following the same `forwardRef` + `cn` pattern as the other shadcn-style components.
+- `src/app/projects/page.tsx` — new projects page using `EmptyState` with "No projects yet" and a "Create project" button.

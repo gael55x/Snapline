@@ -1,0 +1,222 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-raw--premium-dashboard--1/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:49:93:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-emerald-400\"",
+      "location": {
+        "line": 49,
+        "column": 93
+      },
+      "evidence": "bg-emerald-400",
+      "repair": {
+        "instruction": "Replace bg-emerald-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:50:74:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-emerald-500\"",
+      "location": {
+        "line": 50,
+        "column": 74
+      },
+      "evidence": "bg-emerald-500",
+      "repair": {
+        "instruction": "Replace bg-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:15:99:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"from-indigo-500\"",
+      "location": {
+        "line": 15,
+        "column": 99
+      },
+      "evidence": "from-indigo-500",
+      "repair": {
+        "instruction": "Replace from-indigo-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:15:115:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"to-violet-600\"",
+      "location": {
+        "line": 15,
+        "column": 115
+      },
+      "evidence": "to-violet-600",
+      "repair": {
+        "instruction": "Replace to-violet-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:15:147:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"text-white\"",
+      "location": {
+        "line": 15,
+        "column": 147
+      },
+      "evidence": "text-white",
+      "repair": {
+        "instruction": "Replace text-white with text-primary-foreground or text-foreground, depending on the surface.",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 20,
+    "totalViolations": 5,
+    "errorViolations": 0,
+    "warningViolations": 5,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 5,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/app/page.tsx",
+      "filePath": "src/app/page.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:49:93:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-emerald-400\"",
+          "location": {
+            "line": 49,
+            "column": 93
+          },
+          "evidence": "bg-emerald-400",
+          "repair": {
+            "instruction": "Replace bg-emerald-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:50:74:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-emerald-500\"",
+          "location": {
+            "line": 50,
+            "column": 74
+          },
+          "evidence": "bg-emerald-500",
+          "repair": {
+            "instruction": "Replace bg-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace bg-emerald-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+      ],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/app/page.tsx\n\n2 violations:\n- [warn] raw Tailwind color: bg-emerald-400 (line 49)\n- [warn] raw Tailwind color: bg-emerald-500 (line 50)\n\nRecommended:\n- Replace bg-emerald-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+    },
+    {
+      "title": "Repair UI drift in src/components/dashboard/nav.tsx",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:15:99:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"from-indigo-500\"",
+          "location": {
+            "line": 15,
+            "column": 99
+          },
+          "evidence": "from-indigo-500",
+          "repair": {
+            "instruction": "Replace from-indigo-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:15:115:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"to-violet-600\"",
+          "location": {
+            "line": 15,
+            "column": 115
+          },
+          "evidence": "to-violet-600",
+          "repair": {
+            "instruction": "Replace to-violet-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:15:147:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"text-white\"",
+          "location": {
+            "line": 15,
+            "column": 147
+          },
+          "evidence": "text-white",
+          "repair": {
+            "instruction": "Replace text-white with text-primary-foreground or text-foreground, depending on the surface.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace from-indigo-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace to-violet-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-white with text-primary-foreground or text-foreground, depending on the surface."
+      ],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/nav.tsx\n\n3 violations:\n- [warn] raw Tailwind color: from-indigo-500 (line 15)\n- [warn] raw Tailwind color: to-violet-600 (line 15)\n- [warn] raw Tailwind color: text-white (line 15)\n\nRecommended:\n- Replace from-indigo-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace to-violet-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-white with text-primary-foreground or text-foreground, depending on the surface."
+    }
+  ],
+  "durationMs": 43
+}

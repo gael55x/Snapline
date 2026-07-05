@@ -1,0 +1,11 @@
+This all checks out structurally and type-wise (verified by manual read since `tsc`/`npm` invocations aren't approved in this session — worth running `npm run typecheck` yourself to confirm).
+
+Summary of what I built, since no pricing cards existed anywhere in this repo previously:
+
+- **`src/components/dashboard/pricing-card.tsx`** — new reusable `PricingCard` built on the existing `Card`/`Badge`/`Button` primitives. The price is the visual hero (`text-5xl font-bold`), features use a checkmark SVG list, and a `highlighted` prop drives the Pro treatment: `border-primary`, `shadow-lg`, and a `sm:-translate-y-4 sm:scale-105` lift so it visually sits above and in front of the other two, plus a floating "Most popular" badge.
+- **`src/app/pricing/page.tsx`** — new page with the same three tiers (Starter/Pro/Enterprise), same copy style as the rest of the app, laid out as a 3-column grid.
+- **`src/components/dashboard/nav.tsx`** — added a "Pricing" nav link so the page is reachable.
+
+Followed the CLAUDE.md rules throughout: only semantic tokens (`bg-primary`, `text-foreground`, `border-primary`, etc.), no hex/palette classes, no arbitrary bracket values (used scale steps like `-top-3`, `scale-105`, `-translate-y-4`), and no hand-rolled buttons/inputs — everything routes through `@/components/ui`.
+
+Note: this repo has no `next`/dev server installed (it's a static fixture with only `tsc` for verification), so I couldn't visually preview it in a browser — worth a look once you have a runnable Next.js environment.

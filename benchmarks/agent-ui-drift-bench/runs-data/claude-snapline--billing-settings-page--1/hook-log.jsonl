@@ -1,0 +1,2 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":34,"files":["src/app/settings/billing/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":122,"files":[]}

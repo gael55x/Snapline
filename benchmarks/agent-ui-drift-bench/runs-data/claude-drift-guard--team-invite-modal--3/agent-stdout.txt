@@ -1,0 +1,20 @@
+I've built the invite modal feature, but hit an environment limitation worth flagging before I call this done.
+
+**What I built:**
+- `src/components/ui/label.tsx` — a `Label` primitive (didn't exist yet, needed for form fields)
+- `src/components/team/invite-member-modal.tsx` — the modal itself:
+  - Email input accepting comma-separated addresses (deduped, trimmed)
+  - Role selector (Member/Admin) as accessible radio cards, each with a short description
+  - Optional personal message textarea
+  - A seats badge showing "N of Total" remaining, turning destructive + showing a warning line when the invite count exceeds remaining seats
+  - "Send invite" disabled when there are zero valid entries or the count exceeds remaining seats
+  - A success state (checkmark + confirmation copy) that replaces the form after sending, with a "Done" button to close
+- `src/app/team/page.tsx` — a team page with a member list and the "Invite member" trigger, since no team page existed yet
+
+All of it is built from the existing local primitives only (Button, Input, Textarea, Card, Badge, Dialog) — no raw `<div onClick>`, no inline hardcoded colors/spacing, everything themed via the existing Tailwind tokens.
+
+**Where I got stuck:** CLAUDE.md requires running `npx driftguard --help` and the validate check before finishing, but every `node`/`npx` invocation in this session (including plain `node -e "1+1"` and `npx tsc --noEmit`) was rejected with "This command requires approval" — execution seems to be blocked at the sandbox level for this session, not just for driftguard. Separately, I confirmed there's no `driftguard.config.ts` anywhere in this fixture, so `driftguard validate` would fail on missing config even if it ran (it'd need `driftguard init` first).
+
+I manually cross-checked the new code against driftguard's actual rule source (`no-hardcoded-colors`, `spacing-scale`, `use-primitives` in `node_modules/driftguard/dist/rules/`) — none of the three should flag anything here, since I avoided inline styles entirely and used only existing components/native form elements.
+
+Could you either approve a `node`/`npx` command so I can run the real check, or run `npx driftguard --help` / `npx driftguard validate` yourself and share the output if anything comes back?

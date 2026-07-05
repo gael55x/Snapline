@@ -1,0 +1,3 @@
+Confirmed — this repository doesn't have an onboarding flow, wizard, stepper, or progress bar anywhere in the codebase. The only files here are a dashboard nav, a settings page, and shadcn/ui primitives (Button, Input, Card, Dialog, Badge, Table).
+
+So there's nothing existing to clean up — no steps, no progress bar, no form fields to preserve. Before I build anything from scratch, I want to check: is this the repo you meant, or were you expecting an onboarding flow that might live elsewhere (a different branch, or maybe it just hasn't been built yet and you'd like me to create one)? I don't want to invent a "clean up" for a flow that doesn't exist yet without confirming that's actually what you want.

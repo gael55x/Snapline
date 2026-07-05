@@ -1,0 +1,79 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-raw--dashboard-visual-hierarchy--2/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-arbitrary-tailwind:src/components/dashboard/stat-card.tsx:44:48:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "message": "Arbitrary Tailwind value \"text-[10px]\"",
+      "location": {
+        "line": 44,
+        "column": 48
+      },
+      "evidence": "text-[10px]",
+      "repair": {
+        "instruction": "Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 8,
+    "totalViolations": 1,
+    "errorViolations": 1,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 1,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/dashboard/stat-card.tsx",
+      "filePath": "src/components/dashboard/stat-card.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/dashboard/stat-card.tsx:44:48:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/dashboard/stat-card.tsx",
+          "message": "Arbitrary Tailwind value \"text-[10px]\"",
+          "location": {
+            "line": 44,
+            "column": 48
+          },
+          "evidence": "text-[10px]",
+          "repair": {
+            "instruction": "Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/stat-card.tsx\n\n1 violation:\n- [error] arbitrary value: text-[10px] (line 44)\n\nRepair:\n- Replace text-[10px] with text-xs (12px) if the value is still needed — arbitrary values bypass the design scale."
+    }
+  ],
+  "durationMs": 35
+}

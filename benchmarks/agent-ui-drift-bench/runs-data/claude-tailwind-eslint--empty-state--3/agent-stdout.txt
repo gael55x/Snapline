@@ -1,0 +1,1 @@
+I need your approval to run the eslint check that CLAUDE.md requires. Could you approve one of the eslint commands (e.g. `./node_modules/.bin/eslint src`) so I can lint and fix any issues before finishing?

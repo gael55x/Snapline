@@ -1,0 +1,80 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-drift-guard--empty-state--1/repo/fixtures/next-shadcn-basic",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/login/page.tsx",
+    "src/app/page.tsx",
+    "src/app/projects/page.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/empty-state.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/select.tsx",
+    "src/components/ui/table.tsx",
+    "src/components/ui/textarea.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-arbitrary-tailwind:src/components/ui/empty-state.tsx:17:15:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/ui/empty-state.tsx",
+      "message": "Arbitrary Tailwind value \"min-h-[16rem]\"",
+      "location": {
+        "line": 17,
+        "column": 15
+      },
+      "evidence": "min-h-[16rem]",
+      "repair": {
+        "instruction": "Remove min-h-[16rem]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 8,
+    "totalViolations": 1,
+    "errorViolations": 1,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 1,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/ui/empty-state.tsx",
+      "filePath": "src/components/ui/empty-state.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/ui/empty-state.tsx:17:15:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/ui/empty-state.tsx",
+          "message": "Arbitrary Tailwind value \"min-h-[16rem]\"",
+          "location": {
+            "line": 17,
+            "column": 15
+          },
+          "evidence": "min-h-[16rem]",
+          "repair": {
+            "instruction": "Remove min-h-[16rem]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove min-h-[16rem]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/ui/empty-state.tsx\n\n1 violation:\n- [error] arbitrary value: min-h-[16rem] (line 17)\n\nRepair:\n- Remove min-h-[16rem]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+    }
+  ],
+  "durationMs": 32
+}

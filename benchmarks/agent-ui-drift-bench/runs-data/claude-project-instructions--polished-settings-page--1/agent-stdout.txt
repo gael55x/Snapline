@@ -1,0 +1,9 @@
+The file is structurally sound — all tags balanced, imports match usage, all field ids/names/types/defaultValues/placeholder and click handlers preserved exactly.
+
+Summary of the refresh:
+- **Section separation**: header now has a bottom border dividing it from the cards; each card's header/content/footer are divided by `border-b`/`border-t` instead of blending together.
+- **Form styling**: workspace name + contact email sit side-by-side in a two-column grid on wider screens, with more generous spacing (`gap-5`/`gap-8` vs the old cramped `gap-4`/`gap-6`).
+- **Emphasis on important actions**: the footer is right-aligned with Cancel before the primary "Save changes" button (primary action lands last, the conventional emphasis position); the Danger Zone card gets a destructive-tinted border/background wash and an "Irreversible" badge so it visually reads as a distinct, higher-stakes zone.
+- Stayed within the CLAUDE.md constraints: only `@/components/ui` primitives, only semantic tokens (`border-border`, `bg-destructive/5`, etc. — opacity modifiers on semantic colors, no hex/palette classes), only standard spacing scale values, no new component files.
+
+All field ids, names, types, default values, placeholder text, and the delete-confirmation dialog logic are untouched — only layout/visual classes changed.

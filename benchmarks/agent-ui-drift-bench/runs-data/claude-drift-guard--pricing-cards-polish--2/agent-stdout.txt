@@ -1,0 +1,9 @@
+I searched the entire codebase and there's no pricing cards component or page anywhere — not in the app routes, not in git history, not on any branch. This is a dashboard app ("Snapline Ops") with just Overview and Settings pages.
+
+Since "same three tiers and copy, just much better looking" implies existing content, I want to check before inventing pricing/tier names and copy myself. A few options:
+
+1. **You have specific tier copy in mind** (names, prices, features) — tell me and I'll build a polished pricing card component from scratch with that content.
+2. **You want me to invent reasonable SaaS tiers** (e.g., Free / Pro / Enterprise) for this ops/repair-tracking product and design a strong visual treatment around them.
+3. There's a different repo/branch where this actually lives that I should be pointed to.
+
+Which would you like?

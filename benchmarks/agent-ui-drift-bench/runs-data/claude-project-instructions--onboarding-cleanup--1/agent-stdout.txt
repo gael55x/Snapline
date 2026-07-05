@@ -1,0 +1,3 @@
+There's no onboarding flow anywhere in this repository — it only has a dashboard page, a settings page, and a small set of shared UI/dashboard components. No files, routes, or components mention "onboarding" at all.
+
+Could you point me to where this flow lives (a different repo/branch, or a path I'm missing), or did you want me to build a new onboarding flow from scratch in this project? I don't want to guess and create something disconnected from what you're actually looking at.

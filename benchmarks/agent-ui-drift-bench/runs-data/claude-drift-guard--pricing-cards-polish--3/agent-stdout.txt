@@ -1,0 +1,13 @@
+I've built the new pricing page, but I'm blocked running `driftguard` — every invocation (via `npx`, the local binary, and `node` directly) is coming back as requiring approval and isn't going through. I'll stop retrying rather than spamming the same call.
+
+**What I built** (no pricing cards existed anywhere in this repo before):
+- `src/components/dashboard/pricing-cards.tsx` — new `PricingCards` component with Starter/Pro/Enterprise tiers. The Pro card is visually lifted: scaled up on desktop, a colored top accent bar, a "Most popular" badge, a heavier shadow/ring, and a filled primary checkmark/button vs. outline on the other two. Price is the visual hero (large bold `text-4xl`/`text-5xl` with muted `/month` suffix), and features use a checkmark-in-circle list instead of plain text.
+- `src/app/pricing/page.tsx` — new page rendering the cards under the dashboard nav.
+- `src/components/dashboard/nav.tsx` — added a "Pricing" link so the page is reachable.
+
+Per your `CLAUDE.md`, I need to run `driftguard`'s check against these new files and fix anything it flags before calling this done — could you approve the command so I can run it? It'll be something like:
+
+```
+npx driftguard --help
+```
+followed by whatever validate command it reports (likely `npx driftguard validate <file>` on the new/edited files).

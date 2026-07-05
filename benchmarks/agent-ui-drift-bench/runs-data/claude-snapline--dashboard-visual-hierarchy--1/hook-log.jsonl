@@ -1,0 +1,5 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":26,"files":["src/components/dashboard/stat-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":26,"files":["src/app/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":26,"files":["src/components/dashboard/recent-activity.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":30,"files":["src/components/dashboard/nav.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":87,"files":[]}

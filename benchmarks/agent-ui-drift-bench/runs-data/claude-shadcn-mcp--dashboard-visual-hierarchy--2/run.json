@@ -1,0 +1,37 @@
+{
+  "id": "claude-shadcn-mcp--dashboard-visual-hierarchy--2",
+  "timestamp": "2026-07-05T03:24:05.949Z",
+  "mode": "claude-shadcn-mcp",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "dashboard-visual-hierarchy",
+  "attempt": 2,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 8,
+      "totalViolations": 1,
+      "errorViolations": 1,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 1,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 167,
+    "filesTouched": 2
+  },
+  "rawOutputPaths": [
+    "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--2/agent-stdout.txt",
+    "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--2/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--2/scanner.json",
+  "gitDiffPath": "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--2/diff.patch"
+}

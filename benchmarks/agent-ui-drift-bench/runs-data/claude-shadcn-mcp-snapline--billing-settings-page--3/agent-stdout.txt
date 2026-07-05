@@ -1,0 +1,9 @@
+I built the billing settings page at `src/app/settings/billing/page.tsx`, plus two new primitives (`alert.tsx`, `separator.tsx`) matching this fixture's existing hand-rolled component style.
+
+What's there:
+- **Trial banner** — dismissible-style `Alert` at the top, shown when `daysRemaining <= 7`, with a CTA that opens the update-card dialog.
+- **Current plan card** — name badge, price, renewal date, "Change plan," and a de-emphasized "Cancel subscription" action (opens a confirmation dialog with the real destructive button, rather than making cancel itself loud).
+- **Payment method card** — card brand/last4/expiry with an "Update card" button opening a dialog with card inputs.
+- **Invoices card** — last 4 invoices with date, status badge, amount, and a download link per row.
+
+One thing worth flagging: this repo's `snapline.yml` defines a strict allowlist of semantic color tokens (e.g. `bg-primary`, `text-foreground`, `bg-destructive`/`text-destructive-foreground`, but notably not `bg-muted`, `text-primary`, or `text-destructive` alone). I hit a few natural inclinations that would have violated it — nesting `<Button>` inside `<DialogTrigger>` via a nonexistent `asChild`/Slot pattern, styling a "Cancel subscription" trigger with a bare `text-destructive`, and a `Separator`/chip using `bg-muted`/`bg-border`. I reworked those to use controlled `Dialog` state (`open`/`onOpenChange` + `useState`) instead of trigger-wrapping, and kept every color class I authored within the allowed list. Wasn't able to run `tsc` or the snapline scanner directly in this sandbox (commands were blocked), so I verified types and token usage by manual inspection against each component's interface and the yml allowlist.

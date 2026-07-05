@@ -1,0 +1,11 @@
+I've built out the login page fixture (I wasn't able to get the sandbox to run `tsc`/`npm` directly in this session — could you run `npm run typecheck` when convenient to confirm?). Summary of changes:
+
+- **`src/components/ui/checkbox.tsx`** (new) — hand-rolled checkbox matching the existing Input/Button styling conventions (no Radix/icon-lib deps, since none are installed here), with an inline SVG check mark.
+- **`src/app/login/page.tsx`** (rewritten, now a client component):
+  - Google/GitHub "continue with" buttons (outline variant, inline SVG logos) above an `or continue with email` divider.
+  - Email + password fields with client-side validation (required, email format, 8-char password minimum) rendering inline `text-destructive` error messages and `aria-invalid`/`aria-describedby`.
+  - "Remember me" checkbox and a "Forgot password?" anchor link on the same row.
+  - Submit button shows a spinning icon + "Signing in..." while `isLoading` is true (simulated with a timeout since there's no backend in this fixture).
+  - Footer link to `/signup` for new users (plain `<a>`, since this fixture has no `next` package installed — no `next/link` available).
+
+Snapline's drift hook already caught one arbitrary Tailwind value (`p-[3px]`) during development, which I fixed to `p-0.5`.

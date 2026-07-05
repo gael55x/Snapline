@@ -1,0 +1,15 @@
+I've added the invite member feature to this fixture. Note: this project has no `next`/`tailwindcss` deps installed (it's a static Snapline drift-detection fixture, not a runnable app), so I verified everything by careful manual read-through against the existing hand-rolled component conventions rather than a live build.
+
+**New files:**
+- `src/components/ui/label.tsx` — a `Label` primitive matching the existing `forwardRef` + `cn` pattern (didn't exist yet).
+- `src/components/team/invite-member-modal.tsx` — the `InviteMemberModal`:
+  - Comma-separated email `Input`, parsed/deduped/validated with inline error text for malformed addresses.
+  - Role selector as two radio cards (Admin/Member) each with a short description, since there's no `Select` primitive in this fixture.
+  - Optional personal-message `Textarea`.
+  - A seat-usage strip showing `{emails entered} of {remaining seats} used` and `{used}/{total} seats filled`; turns destructive-colored and disables the send button when the entered count exceeds remaining seats.
+  - A success step (checkmark + confirmation copy) shown after "sending," with a Done button that resets state on close.
+- `src/app/team/page.tsx` — a Team page with a mock member list and plan seat count, wiring `totalSeats`/`usedSeats` into the modal.
+
+All styling uses only the semantic tokens already defined in `tailwind.config.ts`/`globals.css` (`primary`, `muted`, `destructive`, `border`, etc.) — no hardcoded colors, consistent with the rest of the fixture.
+
+One thing to flag: I wasn't able to actually run `tsc`/`npm run typecheck` in this sandbox (the command required approval I couldn't grant), so if you want a hard guarantee before this is used in the benchmark, run `npm run typecheck` yourself.

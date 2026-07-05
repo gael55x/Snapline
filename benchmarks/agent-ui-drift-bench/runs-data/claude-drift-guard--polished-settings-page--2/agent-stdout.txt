@@ -1,0 +1,14 @@
+This is correct: JSX is well-balanced, all imports are used, tags are properly closed, and every existing field/id/name/type/value/placeholder/onClick is preserved verbatim.
+
+## Summary
+
+I redesigned `src/app/settings/page.tsx`:
+
+- **Section separation**: bordered header/footer bands on each card, an "Identity" vs "Integration" grouping inside the profile form split by a new `Separator` primitive (`src/components/ui/separator.tsx`, matching the existing shadcn-style pattern), and a bottom border under the page title.
+- **Nicer form styling**: fields laid out in a responsive 2-column grid with uppercase group labels, consistent spacing, and a muted-tint footer band for the save/cancel actions.
+- **Emphasis on important actions**: the Danger Zone card now has a destructive-tinted border, a destructive-colored title, a red "Irreversible" badge, and a tinted footer band around the delete action so it visually stands apart as high-stakes.
+- Added a small "Workspace settings" eyebrow badge for polish.
+
+All existing fields (`workspace-name`, `contact-email`, `repo-url` — same ids/names/types/defaults/placeholder) and all button behavior (Save/Cancel no-ops, Delete opening the confirm dialog, dialog Cancel/Delete closing it) are unchanged. I only used existing Tailwind tokens/utilities and existing Button/Input/Card/Badge/Dialog primitives — no inline styles, no hardcoded colors, no raw clickable `div`s — by construction that avoids driftguard's three rules (`no-hardcoded-colors`, `spacing-scale`, `use-primitives`).
+
+**One limitation to flag**: CLAUDE.md requires running `npx driftguard --help`/the validate command after UI edits, and I attempted this multiple times along with `npm run typecheck` — all executable commands (`npx`, `npm`, `node`) were blocked with "This command requires approval" in this sandbox, and retries didn't resolve it. I did not find a `driftguard.config.ts` in the repo either, which the tool requires to run at all (it would error asking you to run `driftguard init` first — and per driftguard's own docs, that config file is meant to be human-authored, not created by an AI agent). I verified compliance manually by inspecting the rules and confirming the diff has no inline styles, no hardcoded colors/off-scale spacing, and no raw interactive primitives. If you can run it locally (`npx driftguard init` then `npx driftguard validate src/app/settings/page.tsx`), I'd recommend doing so to confirm.

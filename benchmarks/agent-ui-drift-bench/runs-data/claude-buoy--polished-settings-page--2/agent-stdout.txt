@@ -1,0 +1,12 @@
+Running Buoy's CLI is being blocked by the permission system (three different invocation attempts — `npx buoy --help`, with sandbox disabled, and the local binary directly — were all denied). Per your CLAUDE.md, I'm supposed to run Buoy's drift check on this UI change and fix what it reports before finishing, but I can't get the command to execute.
+
+Could you either:
+1. Approve running `./node_modules/.bin/buoy --help` (and the subsequent check command it reports) when prompted, or
+2. Run it yourself and paste the output/findings back to me so I can address them?
+
+In the meantime, here's a summary of the settings page redesign I made in `src/app/settings/page.tsx`:
+
+- **Section separation**: added a border under the page header, a divider under each card's header, and a tinted footer bar (`bg-muted/30`) separating actions from content.
+- **Form styling**: replaced the flat stacked-label layout with a two-column field pattern (label + helper description on the left, input on the right), separated by dividers — matches the settings UX of polished products (Linear/Vercel-style) instead of a plain scaffold form.
+- **Emphasis on important actions**: "Save changes" is now right-aligned and bolded as the primary action in its own footer bar; the danger zone card is visually flagged with a destructive-tinted border, an "Irreversible" badge, and a tinted footer around the delete button so it reads as distinct/risky rather than blending in with the rest of the page.
+- All existing field ids/names/defaultValues/placeholder, the Save/Cancel/Delete buttons, and the confirmation dialog's behavior are unchanged — only visual/structural presentation changed.

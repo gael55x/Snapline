@@ -1,0 +1,10 @@
+I built out the login page at `src/app/login/page.tsx`:
+
+- **New primitives** `src/components/ui/label.tsx` and `src/components/ui/checkbox.tsx` — built in the same no-Radix, `cn`-based style as the existing `button.tsx`/`input.tsx`, using only semantic tokens.
+- **OAuth buttons**: `Button variant="outline"` for Google/GitHub above the form, separated by an "or continue with email" divider (plain `border-border` lines, no new component needed).
+- **Form**: controlled email/password `Input`s with `Label`s, inline error messages (`text-destructive`) shown after failed validation (required + email format, required + 8-char minimum), `aria-invalid`/`aria-describedby` wired up.
+- **Remember me**: new `Checkbox` + `Label`. **Forgot password?**: link next to the password label.
+- **Submit button**: disabled + spinner + "Signing in..." while `isSubmitting` is true (simulated async).
+- **Footer**: "Don't have an account? Sign up" link.
+
+Note: I couldn't run `tsc --noEmit` or any `npm`/`npx`/binary-execution command in this sandbox — they're blocked by permissions (only read-only commands like `ls`/`find`/`grep` are allowed). I reviewed the TypeScript by hand instead; if you want, run `npm run typecheck` yourself to confirm.

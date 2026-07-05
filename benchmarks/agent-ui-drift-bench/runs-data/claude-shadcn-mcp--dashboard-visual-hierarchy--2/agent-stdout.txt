@@ -1,0 +1,8 @@
+This reworks the hierarchy without adding or removing any content:
+
+- **Revenue dominates**: `Total revenue` is pulled out of the grid into its own full-width `StatCard` with `emphasis="primary"` — 5xl bold value, uppercase label, subtle primary border.
+- **Secondary stats recede**: the other three stats sit in a smaller 3-column row underneath, with muted background, no shadow, smaller value text (xl vs 5xl), and a tinier badge.
+- **Recent activity reads as the centerpiece**: it's now its own section, separated by a top border and extra spacing (`gap-10` instead of `gap-6`), directly below the metrics zone.
+- **Section headings separate zones**: added "Key metrics" and "Activity" eyebrow labels so each zone is clearly delineated.
+
+Note: this fixture has no chart or sidebar widgets — the actual dashboard only contains stat cards and a "Recent activity" table — so I applied the same hierarchy principles (dominant primary metric, receding secondary metrics, clearly separated centerpiece section) to the content that exists rather than inventing new elements.

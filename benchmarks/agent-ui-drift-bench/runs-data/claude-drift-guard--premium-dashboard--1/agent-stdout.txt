@@ -1,0 +1,40 @@
+I've completed the visual redesign. Here's a summary of what changed and why, plus an important caveat about the CLAUDE.md-mandated driftguard check.
+
+## What changed
+
+**Theme (`globals.css` / `tailwind.config.ts`)**
+- Light/dark backgrounds now sit at a subtle tint distinct from card white, so cards have real depth instead of blending into the page (previously `--card` and `--background` were identical).
+- Added a soft top radial glow to the page background using `hsl(var(--muted))`.
+- Added `success`/`warning` semantic color tokens (green/amber) alongside the existing `destructive`, for proper status color-coding.
+- Added custom `shadow-card` / `shadow-card-hover` tokens — a layered, soft shadow instead of Tailwind's flat default `shadow`.
+
+**Shared primitives**
+- `Card`: larger radius (`rounded-2xl`), softer border, new layered shadow.
+- `Badge`: pill-shaped (`rounded-full`), tinted (not solid) destructive/success/warning variants — the softer "status chip" look premium dashboards use.
+- `Table`: tinted header row, uppercase tracked column labels, more generous cell padding, softer row dividers.
+
+**Dashboard-specific**
+- `StatCard`: uppercase eyebrow label, larger bold value, a colored trend pill with an up/down arrow (inline SVG, no new deps) instead of a plain badge, a subtle corner glow, and a hover lift.
+- `RecentActivity`: initials avatars per actor, colored status dots (green/amber/red), edge-to-edge table inside a header-padded card.
+- `DashboardNav`: sticky + backdrop-blur header, a small logo mark, cleaner active/hover states.
+- Page-level spacing and heading typography opened up (`gap-6→8`, `py-8→10`, bolder→semibold tighter headings) on both Overview and Settings.
+
+No stat values, activity data, or interactive behavior were touched — only styling.
+
+## driftguard check — needs your attention
+
+Per CLAUDE.md I tried to run `npx driftguard --help`, `npx driftguard init`, and `npm run typecheck`, but every non-read-only shell command in this session returned "requires approval" and was never approved, so I couldn't execute them.
+
+To compensate, I read driftguard's actual rule source in `node_modules/driftguard/dist/rules/*.js` and manually verified my diffs against it:
+- **no-hardcoded-colors** / **spacing-scale** only inspect `style={{...}}` objects and specific JSX props (`color`, `fill`, `margin`, etc.) — I added zero inline styles anywhere.
+- **use-primitives** only flags raw `<div>`/`<span>` with `onClick`/`onPress` — I added no new event handlers on raw elements.
+- My one JSX color-ish attribute, `stroke="currentColor"` on the trend-arrow SVG, is explicitly exempted by the tool.
+
+So I'm confident this passes with 0 violations, but I couldn't get a live confirmation. Could you approve a shell command, or run these yourself:
+```
+npx driftguard init      # no config existed in the repo yet
+npx driftguard validate src/components/dashboard/stat-card.tsx
+npx driftguard validate src/components/dashboard/recent-activity.tsx
+npx driftguard validate src/components/dashboard/nav.tsx
+npm run typecheck
+```

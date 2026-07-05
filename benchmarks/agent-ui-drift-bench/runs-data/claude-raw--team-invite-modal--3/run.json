@@ -1,0 +1,37 @@
+{
+  "id": "claude-raw--team-invite-modal--3",
+  "timestamp": "2026-07-05T02:47:56.618Z",
+  "mode": "claude-raw",
+  "fixture": "next-shadcn-custom-theme",
+  "promptId": "team-invite-modal",
+  "attempt": 3,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 0,
+      "totalViolations": 0,
+      "errorViolations": 0,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 0.9643
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 243,
+    "filesTouched": 3
+  },
+  "rawOutputPaths": [
+    "runs/claude-raw--team-invite-modal--3/agent-stdout.txt",
+    "runs/claude-raw--team-invite-modal--3/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-raw--team-invite-modal--3/scanner.json",
+  "gitDiffPath": "runs/claude-raw--team-invite-modal--3/diff.patch"
+}

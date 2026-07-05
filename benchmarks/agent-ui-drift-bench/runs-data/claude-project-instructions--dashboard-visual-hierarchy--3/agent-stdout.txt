@@ -1,0 +1,17 @@
+I confirmed the actual state of the codebase directly — there's a mismatch with the request worth flagging before I touch anything.
+
+**What actually exists** (`src/app/page.tsx`):
+- A 4-up stat grid (Total revenue, Active repairs, Violations found, Projects connected) — all rendered identically via the same `StatCard` component, no size/weight differentiation.
+- A single `RecentActivity` table below it, full-width.
+
+**What doesn't exist**: there's no chart anywhere in this app (no chart library in `package.json`, no chart component in the tree), and no sidebar — everything is one vertical column, not a two-column layout with a side panel.
+
+Since your CLAUDE.md says not to add/remove content, and you also said "don't add or remove any content," I don't want to fabricate a chart component that isn't there. Here's how I'd interpret the request against what actually exists:
+
+- **Revenue dominates**: pull "Total revenue" out of the 4-up grid into its own hero treatment (much larger number, bolder), leaving the other 3 stats in a visibly smaller/quieter row.
+- **Secondary stats recede**: shrink/mute the remaining 3 stat cards relative to the hero.
+- **"Chart as centerpiece"**: there's no chart to elevate — the only content below the stats is the `RecentActivity` table. I'd treat that table as the below-the-fold centerpiece section (clear heading, given room) rather than inventing a new chart widget.
+- **"De-emphasize sidebar widgets"**: there's no actual sidebar in this layout. If you meant the secondary stat cards, that's covered above; if you had something else in mind, let me know.
+- **Section headings**: add clear headings to visually separate "Overview stats" from the activity section (the page already has one page-level heading — I'd add a section-level heading above the activity table).
+
+Does that mapping sound right, or did you have a different page in mind that actually has a chart/sidebar?

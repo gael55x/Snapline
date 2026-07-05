@@ -1,0 +1,87 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+index c106fe3..6aaa1c5 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+@@ -28,26 +28,30 @@ export default function SettingsPage() {
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/settings" />
+-      <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
++      <main className="mx-auto flex max-w-4xl flex-col gap-10 px-6 py-10">
++        <div className="flex flex-col gap-1.5 border-b border-border pb-6">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Settings</h1>
+           <p className="text-sm text-muted-foreground">
+             Manage your workspace profile and danger zone actions.
+           </p>
+         </div>
+ 
+-        <Card>
+-          <CardHeader>
+-            <CardTitle>Workspace profile</CardTitle>
++        <Card className="overflow-hidden border-border/80">
++          <div className="h-1 w-full bg-primary" aria-hidden="true" />
++          <CardHeader className="pb-4">
++            <CardTitle className="text-lg">Workspace profile</CardTitle>
+             <CardDescription>This information is shown on shared reports.</CardDescription>
+           </CardHeader>
+-          <CardContent>
+-            <form className="flex flex-col gap-4">
++          <CardContent className="pt-2">
++            <form className="grid gap-x-6 gap-y-5 sm:grid-cols-2">
+               <div className="flex flex-col gap-2">
+                 <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
+                   Workspace name
+                 </label>
+                 <Input id="workspace-name" name="workspaceName" defaultValue="Snapline Ops" />
++                <p className="text-xs text-muted-foreground">
++                  Shown in the header and on shared reports.
++                </p>
+               </div>
+               <div className="flex flex-col gap-2">
+                 <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
+@@ -59,8 +63,11 @@ export default function SettingsPage() {
+                   type="email"
+                   defaultValue="ops@example.com"
+                 />
++                <p className="text-xs text-muted-foreground">
++                  Where report notifications are sent.
++                </p>
+               </div>
+-              <div className="flex flex-col gap-2">
++              <div className="flex flex-col gap-2 sm:col-span-2">
+                 <label htmlFor="repo-url" className="text-sm font-medium text-foreground">
+                   Repository URL
+                 </label>
+@@ -70,21 +77,25 @@ export default function SettingsPage() {
+                   type="url"
+                   placeholder="https://github.com/acme/app"
+                 />
++                <p className="text-xs text-muted-foreground">
++                  Used to link commits to repair history.
++                </p>
+               </div>
+             </form>
+           </CardContent>
+-          <CardFooter className="gap-2">
++          <CardFooter className="justify-end gap-2 border-t border-border bg-muted/40 py-4">
+             <Button>Save changes</Button>
+             <Button variant="ghost">Cancel</Button>
+           </CardFooter>
+         </Card>
+ 
+-        <Card>
+-          <CardHeader>
+-            <CardTitle>Danger zone</CardTitle>
++        <Card className="overflow-hidden border-destructive/30">
++          <div className="h-1 w-full bg-destructive" aria-hidden="true" />
++          <CardHeader className="pb-4">
++            <CardTitle className="text-lg text-destructive">Danger zone</CardTitle>
+             <CardDescription>Destructive actions that cannot be undone.</CardDescription>
+           </CardHeader>
+-          <CardFooter>
++          <CardFooter className="justify-end border-t border-destructive/20 bg-destructive/5 py-4">
+             <Button variant="destructive" onClick={() => setConfirmOpen(true)}>
+               Delete workspace
+             </Button>

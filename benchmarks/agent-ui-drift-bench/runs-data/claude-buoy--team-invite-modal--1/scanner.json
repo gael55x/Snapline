@@ -1,0 +1,109 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs/claude-buoy--team-invite-modal--1/repo/fixtures/next-shadcn-custom-theme",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/team/page.tsx",
+    "src/components/invite-member-dialog.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/textarea.tsx"
+  ],
+  "violations": [
+    {
+      "id": "require-card-component:src/components/invite-member-dialog.tsx:123:13:1",
+      "ruleId": "require-card-component",
+      "severity": "warn",
+      "filePath": "src/components/invite-member-dialog.tsx",
+      "message": "Repeated custom card container while <Card> exists",
+      "location": {
+        "line": 123,
+        "column": 13
+      },
+      "evidence": "<div className=\"flex flex-col items-center gap-3 rounded-md border border-border bg-muted/40 p-6 text-center\">",
+      "repair": {
+        "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "require-card-component:src/components/invite-member-dialog.tsx:207:13:1",
+      "ruleId": "require-card-component",
+      "severity": "warn",
+      "filePath": "src/components/invite-member-dialog.tsx",
+      "message": "Repeated custom card container while <Card> exists",
+      "location": {
+        "line": 207,
+        "column": 13
+      },
+      "evidence": "<div className=\"flex items-center justify-between rounded-md border border-border bg-muted/40 px-3 py-2 text-sm\">",
+      "repair": {
+        "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 10,
+    "totalViolations": 2,
+    "errorViolations": 0,
+    "warningViolations": 2,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 2,
+    "componentReuseRate": 0.9643
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/invite-member-dialog.tsx",
+      "filePath": "src/components/invite-member-dialog.tsx",
+      "violations": [
+        {
+          "id": "require-card-component:src/components/invite-member-dialog.tsx:123:13:1",
+          "ruleId": "require-card-component",
+          "severity": "warn",
+          "filePath": "src/components/invite-member-dialog.tsx",
+          "message": "Repeated custom card container while <Card> exists",
+          "location": {
+            "line": 123,
+            "column": 13
+          },
+          "evidence": "<div className=\"flex flex-col items-center gap-3 rounded-md border border-border bg-muted/40 p-6 text-center\">",
+          "repair": {
+            "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "require-card-component:src/components/invite-member-dialog.tsx:207:13:1",
+          "ruleId": "require-card-component",
+          "severity": "warn",
+          "filePath": "src/components/invite-member-dialog.tsx",
+          "message": "Repeated custom card container while <Card> exists",
+          "location": {
+            "line": 207,
+            "column": 13
+          },
+          "evidence": "<div className=\"flex items-center justify-between rounded-md border border-border bg-muted/40 px-3 py-2 text-sm\">",
+          "repair": {
+            "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region)."
+      ],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/invite-member-dialog.tsx\n\n2 violations:\n- [warn] custom card container while <Card> exists (line 123)\n- [warn] custom card container while <Card> exists (line 207)\n\nRecommended:\n- Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region)."
+    }
+  ],
+  "durationMs": 38
+}

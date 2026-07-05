@@ -1,0 +1,162 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97..9e80729 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -30,28 +30,53 @@ const stats = [
+ ]
+ 
+ export default function DashboardPage() {
++  const [primaryStat, ...secondaryStats] = stats
++
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
++      <main className="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-8">
+         <div className="flex flex-col gap-1">
+           <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
+-            <StatCard
+-              key={stat.title}
+-              title={stat.title}
+-              value={stat.value}
+-              change={stat.change}
+-              changeType={stat.changeType}
+-            />
+-          ))}
++
++        <section className="flex flex-col gap-4">
++          <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
++            Key metrics
++          </h2>
++          <div className="grid gap-4 lg:grid-cols-3">
++            <div className="lg:col-span-2">
++              <StatCard
++                title={primaryStat.title}
++                value={primaryStat.value}
++                change={primaryStat.change}
++                changeType={primaryStat.changeType}
++                variant="featured"
++              />
++            </div>
++            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-1">
++              {secondaryStats.map((stat) => (
++                <StatCard
++                  key={stat.title}
++                  title={stat.title}
++                  value={stat.value}
++                  change={stat.change}
++                  changeType={stat.changeType}
++                />
++              ))}
++            </div>
++          </div>
++        </section>
++
++        <section className="flex flex-col gap-4 border-t border-border pt-8">
++          <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
++            Activity
++          </h2>
++          <RecentActivity />
+         </section>
+-        <RecentActivity />
+       </main>
+     </div>
+   )
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f61..237acf8 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@ const links = [
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-medium text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774c..f76b4b9 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,9 +65,9 @@ function statusVariant(status: ActivityRow["status"]) {
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
++    <Card className="shadow-lg">
+       <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+       <CardContent>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27..7df3004 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,22 +1,46 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  variant?: "featured" | "default"
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  variant = "default",
++}: StatCardProps) {
++  const isFeatured = variant === "featured"
++
+   return (
+-    <Card>
+-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
++    <Card className={cn(isFeatured ? "border-l-4 border-l-primary shadow-lg" : "shadow-none")}>
++      <CardHeader
++        className={cn(
++          "flex flex-row items-center justify-between space-y-0",
++          isFeatured ? "pb-2" : "pb-1",
++        )}
++      >
++        <CardTitle
++          className={cn(
++            "font-medium text-muted-foreground",
++            isFeatured ? "text-sm uppercase tracking-wide" : "text-xs",
++          )}
++        >
++          {title}
++        </CardTitle>
+         <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
++        <div className={cn("font-bold text-foreground", isFeatured ? "text-5xl" : "text-xl")}>
++          {value}
++        </div>
+         <p className="text-xs text-muted-foreground">compared to last month</p>
+       </CardContent>
+     </Card>

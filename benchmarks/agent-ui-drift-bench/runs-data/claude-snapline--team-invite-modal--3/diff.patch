@@ -1,0 +1,20 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/components/ui/input.tsx b/fixtures/next-shadcn-custom-theme/src/components/ui/input.tsx
+index 7481286..c21fe1e 100644
+--- a/fixtures/next-shadcn-custom-theme/src/components/ui/input.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/components/ui/input.tsx
+@@ -6,11 +6,14 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement>
+ 
+ const Input = React.forwardRef<HTMLInputElement, InputProps>(
+   ({ className, type, ...props }, ref) => {
++    const isToggle = type === "checkbox" || type === "radio"
+     return (
+       <input
+         type={type}
+         className={cn(
+-          "flex h-9 w-full rounded-md border border-border bg-background px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50",
++          isToggle
++            ? "h-4 w-4 rounded-full border border-border text-primary shadow-sm accent-primary focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50"
++            : "flex h-9 w-full rounded-md border border-border bg-background px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50",
+           className,
+         )}
+         ref={ref}

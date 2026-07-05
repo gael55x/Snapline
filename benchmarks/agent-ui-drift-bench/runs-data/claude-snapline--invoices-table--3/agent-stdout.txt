@@ -1,0 +1,9 @@
+That's unrelated and fine. The implementation is complete.
+
+I added three files, staying strictly within the fixture's semantic-token allowlist (no raw hex/palette colors, no raw `<button>`, per `snapline.yml`):
+
+- **`src/components/ui/table.tsx`** — new shadcn-style `Table` primitive set (matches the existing Card/Button/Badge pattern in this repo).
+- **`src/components/invoices-table.tsx`** — the invoices table itself: 23 mock invoices, sortable headers (Invoice, Date, Amount, Status) defaulting to Date descending, status badges using the *existing* Badge variants (`default`=Paid, `secondary`=Pending, `destructive`=Failed — no new colors introduced), a "Download PDF" button per row that generates and downloads a stub PDF blob client-side, and pagination at 10 rows/page with a Previous/Next footer.
+- **`src/app/billing/page.tsx`** — new billing page wrapping the table in a `Card`, since none existed before.
+
+One caveat: Bash commands beyond basic listing are being blocked for approval in this session, so I couldn't run `tsc --noEmit` to confirm the typecheck passes. I traced the types by hand (Badge/Button prop shapes, `Record<InvoiceStatus, BadgeVariant>`, sort comparator return type) and didn't find issues, but you may want to run `npm run typecheck` yourself to confirm.

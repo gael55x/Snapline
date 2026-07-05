@@ -1,0 +1,7 @@
+Looks like Bash approval isn't going through in this session, so I can't run the typecheck. I manually reviewed the code — it's type-correct against the existing patterns (matches `Card`'s `forwardRef` style, `cn` usage, and `ButtonProps` shape).
+
+Summary of what I built:
+- `src/components/empty-state.tsx` — reusable `EmptyState` with `icon` (ReactNode), `title` (string), `description` (optional string), `action` (optional ReactNode), centered vertically/horizontally with the icon in a `bg-muted` soft circle. Uses only semantic tokens (`bg-muted`, `text-muted-foreground`, `text-foreground`), no arbitrary values, extends `HTMLAttributes<HTMLDivElement>` for flexibility.
+- `src/app/projects/page.tsx` — new projects page using `EmptyState` with a "No projects yet" title, description, and a `Button` ("Create project") as the action. Icon is an inline SVG (no icon library is installed in this fixture, so I avoided adding a new dependency).
+
+You may want to run `npm run typecheck` yourself to confirm since I couldn't get Bash approval in this session.

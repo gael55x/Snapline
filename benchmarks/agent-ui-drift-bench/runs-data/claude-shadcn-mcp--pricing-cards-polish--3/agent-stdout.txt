@@ -1,0 +1,6 @@
+This repo (a repair-shop/dashboard app) has no pricing page or pricing-cards component at all — I searched every file in `src/` and confirmed there's no tier/plan/price content anywhere (only a dashboard overview, settings page, and a nav/stat-card/recent-activity set of components).
+
+Since there's nothing existing to "make pop," I don't want to guess at copy, tier names, or prices you didn't provide. Could you either:
+
+1. Point me to the actual file/page where these pricing cards live (maybe a different branch or repo path), or
+2. Give me the three tiers' copy (names, prices, feature lists) so I can build the component from scratch styled to match this app's shadcn theme?

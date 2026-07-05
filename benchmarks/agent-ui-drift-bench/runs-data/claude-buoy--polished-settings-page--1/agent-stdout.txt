@@ -1,0 +1,9 @@
+I've redesigned the settings page (`src/app/settings/page.tsx`) while keeping every field, id, name, default value, and interaction (dialog open/close, delete confirm) exactly as before. Changes:
+
+- **Section separation**: page header now has a bottom border and larger type; each card's header/footer got `border-b`/`border-t` + `bg-muted` bands so sections read as distinct blocks instead of a flat stack.
+- **Nicer form styling**: Workspace name and Contact email now sit side-by-side in a responsive grid, and every field has a small helper caption explaining its purpose.
+- **Emphasis on important actions**: the profile footer is right-aligned with Cancel (ghost) before the primary Save changes button; the Danger zone card gets a destructive-colored left accent bar and an "Irreversible" badge, plus explanatory text next to the delete action so its weight is unmistakable.
+
+All of this uses components/tokens already in the app (`Badge`, `Card`, `Button`, `Input`, `border-border`, `bg-muted`, `text-destructive`) — no new dependencies.
+
+One issue: this project's `CLAUDE.md` requires running `npx buoy --help` and then the drift check after UI edits, but every attempt to run `buoy` (via `npx`, the local binary, `--help`, and `check`, with and without sandbox override) was blocked with "This command requires approval" and never prompted through. Could you either approve that command or run `npx buoy check` yourself so any flagged drift gets fixed? I don't want to keep retrying a call that's being denied.

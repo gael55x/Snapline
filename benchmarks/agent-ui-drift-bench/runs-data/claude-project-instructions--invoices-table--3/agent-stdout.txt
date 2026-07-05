@@ -1,0 +1,11 @@
+No arbitrary values found. The implementation is complete:
+
+- **`src/components/ui/table.tsx`** — new shadcn-style `Table`/`TableHeader`/`TableBody`/`TableRow`/`TableHead`/`TableCell` primitives, built the same way as the existing `Card`/`Button` components (forwardRef, `cn`, semantic tokens only).
+- **`src/app/billing/page.tsx`** — new billing page with an invoices table:
+  - Columns: Invoice, Date, Amount, Status, Download.
+  - Clickable sortable headers (▲/▼ indicator) for all columns, defaulting to Date descending.
+  - Status shown as a `Badge` with a distinct variant per state (`default`/Paid, `secondary`/Pending, `destructive`/Failed) — reusing existing badge variants rather than inventing new palette colors.
+  - Paginated at 10 rows/page with a Previous/Next footer using the existing `Button` component.
+  - All colors are semantic tokens (`bg-muted`, `text-muted-foreground`, `border-border`, etc.), no hex/arbitrary values, and only `@/components/ui` primitives are used — no raw `<button>`/hand-rolled containers.
+
+I wasn't able to run `tsc`/`npm` in this session (Bash approval for those binaries wasn't granted), so I manually reviewed the types instead of getting a compiler confirmation — worth running `npm run typecheck` yourself to confirm.

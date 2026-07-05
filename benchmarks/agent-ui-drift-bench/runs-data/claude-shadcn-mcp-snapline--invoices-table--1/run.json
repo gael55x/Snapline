@@ -1,0 +1,37 @@
+{
+  "id": "claude-shadcn-mcp-snapline--invoices-table--1",
+  "timestamp": "2026-07-05T04:35:14.597Z",
+  "mode": "claude-shadcn-mcp-snapline",
+  "fixture": "next-shadcn-custom-theme",
+  "promptId": "invoices-table",
+  "attempt": 1,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 0,
+      "totalViolations": 0,
+      "errorViolations": 0,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 220,
+    "totalWallTimeSeconds": 307,
+    "filesTouched": 3
+  },
+  "rawOutputPaths": [
+    "runs/claude-shadcn-mcp-snapline--invoices-table--1/agent-stdout.txt",
+    "runs/claude-shadcn-mcp-snapline--invoices-table--1/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--invoices-table--1/scanner.json",
+  "gitDiffPath": "runs/claude-shadcn-mcp-snapline--invoices-table--1/diff.patch"
+}

@@ -1,0 +1,1 @@
+I need your approval to run `npx buoy --help` (and then the actual drift check) as required by this project's CLAUDE.md. Could you approve the command?

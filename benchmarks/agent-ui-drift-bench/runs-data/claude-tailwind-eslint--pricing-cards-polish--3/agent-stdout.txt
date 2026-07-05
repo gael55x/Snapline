@@ -1,0 +1,15 @@
+I've built the new pricing page and cards, but I'm blocked from running `npx eslint src` (tried several invocation methods — all require approval that isn't going through). Could you approve running ESLint, or run `npx eslint src` yourself so I can fix anything it flags? Meanwhile, here's what I did:
+
+**New files:**
+- `src/components/pricing/pricing-cards.tsx` — the pricing cards component
+- `src/app/pricing/page.tsx` — a new `/pricing` route
+- Added a "Pricing" nav link in `src/components/dashboard/nav.tsx`
+
+Note: there were no existing pricing cards anywhere in this repo (only `Overview` and `Settings` pages existed), so I created the tiers fresh — Starter ($19/mo), Pro ($49/mo, highlighted), Enterprise (Custom) — using copy that fits the "Snapline Ops" drift-monitoring product, rather than restyling something that didn't exist.
+
+**Visual treatment:**
+- Pro card is lifted (`-translate-y-3`, `scale-105` on lg), has a colored top accent bar, a subtle primary-tinted gradient background, a ring + `shadow-2xl`, and a "Most popular" badge — it visually pops against the other two flatter cards.
+- Price is the hero: `text-5xl font-bold` with the cadence (`/mo`) as a small muted suffix beside it.
+- Feature list items use a checkmark in a filled circle (primary-filled on the Pro card, muted on others) instead of plain bullets/text.
+
+I manually double-checked against this repo's `eslint-plugin-tailwindcss` config (`no-arbitrary-value: error`) and removed the bracket-syntax classes I'd initially used (`from-primary/[0.06]`, `scale-[1.03]`), replacing them with standard scale steps (`from-primary/5`, `scale-105`), but I can't guarantee it's fully clean without actually running the linter.

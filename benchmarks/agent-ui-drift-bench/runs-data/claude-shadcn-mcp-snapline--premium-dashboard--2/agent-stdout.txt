@@ -1,0 +1,19 @@
+I've completed a full visual overhaul of the dashboard while keeping all data and functionality identical. Summary of changes:
+
+**Design system upgrades** (`ui/card.tsx`, `ui/badge.tsx`, `ui/table.tsx`, `ui/button.tsx`):
+- Softer, larger corner radii (`rounded-2xl`/`rounded-lg`) and subtler shadows/borders (`shadow-sm`, `border-border/60`) instead of the flat default shadow
+- Badges are now pills with icon support and softened "tinted" destructive/outline colors instead of solid, loud fills
+- Table headers got proper uppercase/tracked micro-typography and more breathing room (taller rows, wider padding)
+- Buttons got a subtle press animation (`active:scale-95`) and softer radius
+- `CardTitle` now has a real heading size (it previously had no font-size at all, which is part of why section headers looked flat)
+
+**Dashboard-specific** (`nav.tsx`, `stat-card.tsx`, `recent-activity.tsx`, `page.tsx`):
+- Sticky, blurred nav bar with a proper logo mark
+- Stat cards now have icon chips, a bigger/bolder value, and a trend badge with directional arrows — plus a subtle hover lift
+- Added a small local SVG icon set (`dashboard/icons.tsx`) so no new dependency was introduced
+- Recent activity rows now show avatar-initial chips for actors
+- More generous page spacing/max-width and refined header typography throughout, including Settings
+
+All colors used are the existing semantic design tokens (`background`, `foreground`, `primary`, `secondary`, `muted`, `card`, `destructive`, `border`) — no raw hex, no arbitrary Tailwind values, and no new components duplicating `Badge`/`Card`, per the project's `snapline.yml` drift rules.
+
+One caveat: this fixture only has `react`/`react-dom`/`typescript` installed (no Next.js or Tailwind in `node_modules`), so I couldn't run a dev server or `tsc` here (sandbox denied approval for those commands) to visually confirm in-browser. I manually re-read every changed file to verify JSX/TypeScript correctness and that Tailwind class combinations (e.g. the `pt-0`/`pt-6` override on `CardContent`) follow the standard shadcn idiom that reliably compiles. If you can run `npm run typecheck` or spin up the app locally, it's worth a quick visual pass to confirm.

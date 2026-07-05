@@ -1,0 +1,19 @@
+I'll pause here rather than keep retrying blocked commands. Here's a summary of the changes made so far.
+
+## What changed
+
+**Shared primitives** (`components/ui/`):
+- `card.tsx` — larger radius (`rounded-2xl`), softer border (`border-border/60`), subtler shadow (`shadow-sm`)
+- `badge.tsx` — pill-shaped (`rounded-full`), lighter weight for a refined chip look
+- `table.tsx` — roomier cell padding, uppercase/tracked header labels (Stripe/Linear-style data table)
+
+**Dashboard components:**
+- `nav.tsx` — sticky, blurred header with a small logo mark and a refined active-link pill
+- `stat-card.tsx` — hover-lift + shadow, a status-colored top accent stripe, larger tabular numerals
+- `recent-activity.tsx` — divider header with tinted background, table flush to card edges
+- `page.tsx` — more generous spacing, larger heading, subtle gradient page background
+- `layout.tsx` — tinted text-selection color
+
+All changes reuse existing design tokens (`bg-card`, `text-muted-foreground`, `border-border`, `bg-primary`, etc.) and standard Tailwind scale values — no hardcoded hex colors or arbitrary pixel values, so it should stay clean for the Buoy drift checker. No data or functionality was touched.
+
+I still need to run `npm run typecheck` and the Buoy check per this repo's CLAUDE.md, but both `npm` and `npx` invocations are being blocked in this sandbox even after you approve — could you run those two commands locally, or let me know if there's a different way to grant Bash approval here?

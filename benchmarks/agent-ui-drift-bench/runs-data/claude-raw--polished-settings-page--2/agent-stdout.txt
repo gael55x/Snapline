@@ -1,0 +1,9 @@
+I refreshed `src/app/settings/page.tsx` (all changes are visual/structural — no fields, ids, names, defaults, or handlers were touched):
+
+- **Section separation**: header now has a bottom border to separate it from the cards; each card's header gets a subtle tinted background + divider before its content, and the save/cancel footer is now a distinct bordered bar instead of floating buttons.
+- **Form styling**: workspace name / contact email sit side-by-side in a 2-column grid on larger screens, with repository URL spanning full width — reads as a designed form instead of a stacked list.
+- **Emphasis on important actions**: Cancel/Save are reordered to the standard secondary-then-primary, right-aligned pattern (previously left-aligned with primary first, which read as accidental). The danger zone now has a red-tinted ring, a warning icon, and the delete action lives in its own bordered/tinted row with a title + description, so it visually reads as high-stakes rather than just another button under a header. Added a matching icon to the confirmation dialog for consistency.
+
+I couldn't run `tsc`/`npm` in this sandbox (blocked pending approval), so I verified correctness by manual review instead — every prop, id/name/type/defaultValue, `useState`, and `onClick` handler is identical to before, and I avoided any Tailwind class collisions with the existing components (this project's `cn()` is a plain string join, not `tailwind-merge`, so I only added classes that don't overlap with each component's base classes, using wrapper `div`s for padding tweaks where needed).
+
+If you'd like, I can run the typecheck once you approve `npx`/`tsc`, or you can eyeball it by starting the dev server.

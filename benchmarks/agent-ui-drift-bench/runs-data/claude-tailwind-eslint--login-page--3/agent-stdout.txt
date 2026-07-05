@@ -1,0 +1,12 @@
+I've implemented the login page changes, but I can't get Bash command approval in this session to run the required `npx eslint src` check from CLAUDE.md. I'll pause here rather than keep re-prompting.
+
+**Summary of changes:**
+- `src/components/ui/checkbox.tsx` (new) — a hand-rolled `Checkbox` component matching the style of the existing `Input`/`Button` components (no Radix dependency, consistent with this fixture's pattern).
+- `src/app/login/page.tsx` (rewritten, now a client component) — Google/GitHub buttons above the form, an "or continue with email" divider, email/password fields with inline validation errors (required + format/length checks), a "Remember me" checkbox, a "Forgot password?" link, a submit button with a loading state (`Signing in…` + disabled), and a "Sign up" link at the bottom.
+- `src/app/signup/page.tsx` (new) — minimal sign-up page so the login page's "Sign up" link has a real target, styled consistently with the rest of the fixture.
+
+Could you either approve the next Bash permission prompt, or run these locally and paste the output so I can fix anything it flags?
+```
+npx eslint src
+npx tsc --noEmit
+```

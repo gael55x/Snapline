@@ -1,0 +1,14 @@
+**Summary of what was added** (I wasn't able to get Bash approval to run `tsc`/`npx` in this sandbox, so I verified types by careful manual read-through instead of a live typecheck):
+
+- `src/app/team/page.tsx` — a Team page listing members, seat usage (`Badge` showing "N of M seats used"), and an "Invite member" button that opens the modal.
+- `src/components/team/invite-member-dialog.tsx` — the modal itself:
+  - Comma-separated email input, parsed/deduped/validated live, with inline formatting hints for bad entries.
+  - A two-option Admin/Member role picker (card-style radio group) with a one-line description of each role's access.
+  - Optional personal-message textarea.
+  - A live seat badge ("N seats left" / "Exceeds seats by N") that flips to destructive styling and disables **Send invite** once the pending valid emails would exceed remaining seats.
+  - A success view (checkmark + sent email list + "Done") that replaces the form after a simulated send, and resets when the dialog is closed/reopened.
+- `src/components/ui/label.tsx` — a small primitive needed for accessible field labels, built in the same hand-rolled style as the existing `ui/` components (this fixture has no Radix/lucide deps installed).
+
+Everything reuses the existing `Button`, `Input`, `Textarea`, `Dialog`, `Card`, `Badge` primitives and only uses colors from `snapline.yml`'s semantic allowlist, so it shouldn't introduce new drift findings.
+
+One thing worth flagging: I couldn't actually run `tsc --noEmit` or launch the app to click through the flow — every non-trivial Bash command in this session required approval that never came through. If you can approve a quick `npm run typecheck`, I'd like to confirm there are no type errors before calling this done.

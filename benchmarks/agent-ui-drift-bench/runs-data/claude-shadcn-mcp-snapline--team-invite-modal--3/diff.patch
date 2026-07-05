@@ -1,0 +1,29 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/components/ui/button.tsx b/fixtures/next-shadcn-custom-theme/src/components/ui/button.tsx
+index 0e9b29b..2cf5965 100644
+--- a/fixtures/next-shadcn-custom-theme/src/components/ui/button.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/components/ui/button.tsx
+@@ -2,6 +2,9 @@ import * as React from "react"
+ 
+ import { cn } from "@/lib/utils"
+ 
++const buttonBaseClasses =
++  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50"
++
+ const buttonVariants = {
+   variant: {
+     default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+@@ -32,7 +35,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+     return (
+       <button
+         className={cn(
+-          "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50",
++          buttonBaseClasses,
+           buttonVariants.variant[variant],
+           buttonVariants.size[size],
+           className,
+@@ -45,4 +48,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+ )
+ Button.displayName = "Button"
+ 
+-export { Button, buttonVariants }
++export { Button, buttonVariants, buttonBaseClasses }

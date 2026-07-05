@@ -1,0 +1,9 @@
+Apologies — that last call contradicted what I just said. I'll stop attempting further commands and wait for your approval or for you to run the Buoy check directly.
+
+Summary of the redesign in `src/app/settings/page.tsx` (plus new `src/components/ui/label.tsx`):
+- Added a divider under the page title and borders between each card's header/content/footer for clearer section separation.
+- Replaced raw `<label>` tags with a proper `Label` component; grouped Workspace name / Contact email into a two-column row and added a helper caption under Repository URL for nicer form styling.
+- Danger zone card now has a destructive-colored border/header and a description + button row (GitHub-style "danger zone" pattern) to make the irreversible action stand out; reordered Save/Cancel to right-aligned with Save as the emphasized primary action.
+- All existing field ids/names/defaults, the dialog, and all click handlers are untouched.
+
+Let me know once you can approve command execution (or confirm you've run `npx buoy check` yourself) and I'll fix any findings it reports.

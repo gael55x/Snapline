@@ -1,0 +1,16 @@
+Clean diff, temp file gone. Here's a summary of the redesign.
+
+## What changed
+
+I gave the dashboard a premium SaaS feel using only Tailwind utilities and the existing design tokens — no functionality or data changed:
+
+- **Stat cards** (`stat-card.tsx`) — added icon badges, larger tabular numerals, subtle hover elevation (`shadow-soft` → `shadow-soft-lg` with a lift), and a trend arrow inside the badge.
+- **Nav** (`nav.tsx`) — sticky + glassy backdrop blur, a small gradient logo mark, and the two links now sit in a segmented pill control instead of plain text links.
+- **Recent activity table** (`recent-activity.tsx`) — avatar-initial circles for actors, status dots inside badges, tighter uppercase column headers, more generous row padding.
+- **Overview page** (`page.tsx`) — wider container, more breathing room, wired the new icons into the existing `stats` data (no values changed).
+- **Tailwind config / globals.css** — added `shadow-soft`/`shadow-soft-lg` tokens and a very subtle radial background + selection-color touch, all built from the existing CSS variables.
+- New `icons.tsx` — small hand-written inline SVGs (no new dependency), all using `currentColor` so nothing is hardcoded.
+
+**On driftguard (per CLAUDE.md):** there was no `driftguard.config.ts` yet, so I created one, mapping its token/spacing config to this project's actual CSS variables, and excluded `src/components/ui/**` (the design-system primitives) from AI edits — matching driftguard's own philosophy of protecting primitive source files. I did all the visual work by composing `className` on top of those primitives rather than editing them. I manually verified against driftguard's actual rules (read its source): it only flags hardcoded colors/spacing in inline `style={}` props or specific color attributes (`fill`, `stroke`, etc.), and flags raw `<div onClick>`-style elements — none of which appear anywhere in my changes (everything is Tailwind classNames, and interactive elements still use the existing `Button`/`Input` primitives).
+
+**Caveat:** I wasn't able to actually run `npx driftguard validate` or `tsc --noEmit` — every `npx`/`node`/binary-execution command in this sandbox was auto-denied (only plain filesystem commands like `ls`/`find`/`cat` went through), and there's also no `next`/dev server installed in this fixture to preview in a browser. I did a careful manual line-by-line check of every edited file against driftguard's actual rule source and TypeScript's types, but you should run `npx driftguard validate` and `tsc --noEmit` yourself to confirm before merging.

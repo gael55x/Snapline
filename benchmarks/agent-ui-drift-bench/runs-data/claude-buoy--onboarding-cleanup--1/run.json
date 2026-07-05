@@ -1,0 +1,37 @@
+{
+  "id": "claude-buoy--onboarding-cleanup--1",
+  "timestamp": "2026-07-05T03:23:56.437Z",
+  "mode": "claude-buoy",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "onboarding-cleanup",
+  "attempt": 1,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 0,
+      "totalViolations": 0,
+      "errorViolations": 0,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 60,
+    "filesTouched": 0
+  },
+  "rawOutputPaths": [
+    "runs/claude-buoy--onboarding-cleanup--1/agent-stdout.txt",
+    "runs/claude-buoy--onboarding-cleanup--1/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-buoy--onboarding-cleanup--1/scanner.json",
+  "gitDiffPath": "runs/claude-buoy--onboarding-cleanup--1/diff.patch"
+}

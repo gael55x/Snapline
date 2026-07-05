@@ -1,0 +1,1 @@
+I'm being blocked from running `eslint` directly — this needs your explicit approval since it executes a devDependency binary. Could you approve running `npx eslint src` (or the equivalent permission), so I can verify the lint check the project's CLAUDE.md requires?

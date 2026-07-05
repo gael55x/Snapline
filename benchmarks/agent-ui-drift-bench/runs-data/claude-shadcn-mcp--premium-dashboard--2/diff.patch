@@ -1,0 +1,616 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/globals.css b/fixtures/next-shadcn-dashboard-app/src/app/globals.css
+index e33ed4d..44ea933 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/globals.css
++++ b/fixtures/next-shadcn-dashboard-app/src/app/globals.css
+@@ -4,7 +4,7 @@
+ 
+ @layer base {
+   :root {
+-    --background: 0 0% 100%;
++    --background: 240 20% 99%;
+     --foreground: 240 10% 3.9%;
+     --card: 0 0% 100%;
+     --card-foreground: 240 10% 3.9%;
+@@ -14,9 +14,14 @@
+     --secondary-foreground: 240 5.9% 10%;
+     --muted: 240 4.8% 95.9%;
+     --muted-foreground: 240 3.8% 46.1%;
++    --accent: 243 75% 59%;
++    --accent-foreground: 0 0% 100%;
+     --destructive: 0 84.2% 60.2%;
+     --destructive-foreground: 0 0% 98%;
++    --success: 152 60% 36%;
++    --success-foreground: 0 0% 98%;
+     --border: 240 5.9% 90%;
++    --ring: 243 75% 59%;
+   }
+ 
+   .dark {
+@@ -30,9 +35,14 @@
+     --secondary-foreground: 0 0% 98%;
+     --muted: 240 3.7% 15.9%;
+     --muted-foreground: 240 5% 64.9%;
++    --accent: 234 89% 74%;
++    --accent-foreground: 240 5.9% 10%;
+     --destructive: 0 62.8% 30.6%;
+     --destructive-foreground: 0 0% 98%;
++    --success: 152 55% 45%;
++    --success-foreground: 240 5.9% 10%;
+     --border: 240 3.7% 15.9%;
++    --ring: 234 89% 74%;
+   }
+ }
+ 
+@@ -42,5 +52,41 @@
+   }
+   body {
+     @apply bg-background text-foreground;
++    background-image: radial-gradient(
++      circle at top,
++      hsl(var(--accent) / 0.06),
++      transparent 55%
++    );
++    background-attachment: fixed;
++    font-feature-settings: "cv11", "ss01";
++  }
++}
++
++@layer utilities {
++  @keyframes fade-in-up {
++    from {
++      opacity: 0;
++      transform: translateY(6px);
++    }
++    to {
++      opacity: 1;
++      transform: translateY(0);
++    }
++  }
++
++  .stat-grid > * {
++    animation: fade-in-up 0.45s ease-out both;
++  }
++  .stat-grid > *:nth-child(1) {
++    animation-delay: 0ms;
++  }
++  .stat-grid > *:nth-child(2) {
++    animation-delay: 60ms;
++  }
++  .stat-grid > *:nth-child(3) {
++    animation-delay: 120ms;
++  }
++  .stat-grid > *:nth-child(4) {
++    animation-delay: 180ms;
+   }
+ }
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97..c34ef4d 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -33,14 +33,17 @@ export default function DashboardPage() {
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10">
++        <div className="flex flex-col gap-1.5">
++          <span className="text-xs font-semibold uppercase tracking-widest text-accent">
++            Dashboard
++          </span>
++          <h1 className="text-3xl font-semibold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
++        <section className="stat-grid grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+           {stats.map((stat) => (
+             <StatCard
+               key={stat.title}
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+index c106fe3..b0631ea 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+@@ -28,9 +28,12 @@ export default function SettingsPage() {
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/settings" />
+-      <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
++      <main className="mx-auto flex max-w-3xl flex-col gap-8 px-6 py-10">
++        <div className="flex flex-col gap-1.5">
++          <span className="text-xs font-semibold uppercase tracking-widest text-accent">
++            Workspace
++          </span>
++          <h1 className="text-3xl font-semibold tracking-tight text-foreground">Settings</h1>
+           <p className="text-sm text-muted-foreground">
+             Manage your workspace profile and danger zone actions.
+           </p>
+@@ -79,9 +82,9 @@ export default function SettingsPage() {
+           </CardFooter>
+         </Card>
+ 
+-        <Card>
++        <Card className="border-destructive/30 bg-destructive/[0.03]">
+           <CardHeader>
+-            <CardTitle>Danger zone</CardTitle>
++            <CardTitle className="text-destructive">Danger zone</CardTitle>
+             <CardDescription>Destructive actions that cannot be undone.</CardDescription>
+           </CardHeader>
+           <CardFooter>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f61..c3d2e06 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,19 @@ const links = [
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
+-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+-        <div className="flex items-center gap-6">
+-          <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++    <header className="sticky top-0 z-20 border-b border-border/60 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
++      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
++        <div className="flex items-center gap-8">
++          <div className="flex items-center gap-2.5">
++            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent/70 text-xs font-bold text-accent-foreground shadow-sm">
++              S
++            </span>
++            <span className="text-sm font-semibold tracking-tight text-foreground">
++              Snapline Ops
++            </span>
++            <Badge variant="outline" className="text-[10px] font-medium text-muted-foreground">
++              v2
++            </Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -22,8 +29,8 @@ export function DashboardNav({ currentPath }: { currentPath: string }) {
+                 href={link.href}
+                 className={
+                   link.href === currentPath
+-                    ? "rounded-md px-3 py-1.5 text-sm font-medium bg-muted text-foreground"
+-                    : "rounded-md px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground"
++                    ? "rounded-full bg-foreground px-3.5 py-1.5 text-sm font-medium text-background shadow-sm transition-colors"
++                    : "rounded-full px-3.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                 }
+               >
+                 {link.label}
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774c..c5b5707 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -8,6 +8,7 @@ import {
+   TableHeader,
+   TableRow,
+ } from "@/components/ui/table"
++import { cn } from "@/lib/utils"
+ 
+ interface ActivityRow {
+   id: string
+@@ -60,15 +61,46 @@ function statusVariant(status: ActivityRow["status"]) {
+   if (status === "pending") {
+     return "outline" as const
+   }
+-  return "secondary" as const
++  return "success" as const
+ }
+ 
++function statusDotClass(status: ActivityRow["status"]) {
++  if (status === "failed") {
++    return "bg-destructive"
++  }
++  if (status === "pending") {
++    return "bg-amber-500"
++  }
++  return "bg-success"
++}
++
++function initials(name: string) {
++  return name
++    .split(" ")
++    .map((part) => part[0])
++    .join("")
++    .slice(0, 2)
++    .toUpperCase()
++}
++
++const avatarTints = [
++  "bg-accent/10 text-accent",
++  "bg-sky-500/10 text-sky-600 dark:text-sky-400",
++  "bg-violet-500/10 text-violet-600 dark:text-violet-400",
++  "bg-rose-500/10 text-rose-600 dark:text-rose-400",
++]
++
+ export function RecentActivity() {
+   return (
+     <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
+-        <CardDescription>Latest events across your connected projects.</CardDescription>
++      <CardHeader className="flex flex-row items-center justify-between space-y-0">
++        <div className="flex flex-col gap-1.5">
++          <CardTitle>Recent activity</CardTitle>
++          <CardDescription>Latest events across your connected projects.</CardDescription>
++        </div>
++        <Badge variant="outline" className="text-muted-foreground">
++          {activity.length} events
++        </Badge>
+       </CardHeader>
+       <CardContent>
+         <Table>
+@@ -82,13 +114,28 @@ export function RecentActivity() {
+             </TableRow>
+           </TableHeader>
+           <TableBody>
+-            {activity.map((row) => (
++            {activity.map((row, index) => (
+               <TableRow key={row.id}>
+-                <TableCell className="font-medium">{row.actor}</TableCell>
+-                <TableCell>{row.action}</TableCell>
++                <TableCell className="font-medium">
++                  <div className="flex items-center gap-2.5">
++                    <span
++                      className={cn(
++                        "flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[11px] font-semibold",
++                        avatarTints[index % avatarTints.length],
++                      )}
++                    >
++                      {initials(row.actor)}
++                    </span>
++                    {row.actor}
++                  </div>
++                </TableCell>
++                <TableCell className="text-muted-foreground">{row.action}</TableCell>
+                 <TableCell className="text-muted-foreground">{row.target}</TableCell>
+                 <TableCell>
+-                  <Badge variant={statusVariant(row.status)}>{row.status}</Badge>
++                  <Badge variant={statusVariant(row.status)}>
++                    <span className={cn("h-1.5 w-1.5 rounded-full", statusDotClass(row.status))} />
++                    {row.status}
++                  </Badge>
+                 </TableCell>
+                 <TableCell className="text-right text-muted-foreground">{row.time}</TableCell>
+               </TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27..c5a3486 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,5 +1,7 @@
+-import { Badge } from "@/components/ui/badge"
++import type { SVGProps } from "react"
++
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+@@ -8,16 +10,129 @@ export interface StatCardProps {
+   changeType?: "positive" | "negative"
+ }
+ 
++function IconWrap(props: SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      viewBox="0 0 24 24"
++      fill="none"
++      stroke="currentColor"
++      strokeWidth={1.75}
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      {...props}
++    />
++  )
++}
++
++function RevenueIcon(props: SVGProps<SVGSVGElement>) {
++  return (
++    <IconWrap {...props}>
++      <path d="M12 2v20M17 5.5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
++    </IconWrap>
++  )
++}
++
++function ActivityIcon(props: SVGProps<SVGSVGElement>) {
++  return (
++    <IconWrap {...props}>
++      <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
++    </IconWrap>
++  )
++}
++
++function AlertIcon(props: SVGProps<SVGSVGElement>) {
++  return (
++    <IconWrap {...props}>
++      <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z" />
++      <path d="M12 9v4M12 17h.01" />
++    </IconWrap>
++  )
++}
++
++function LayersIcon(props: SVGProps<SVGSVGElement>) {
++  return (
++    <IconWrap {...props}>
++      <path d="m12 2 9 5-9 5-9-5 9-5Z" />
++      <path d="m3 12 9 5 9-5M3 17l9 5 9-5" />
++    </IconWrap>
++  )
++}
++
++function TrendUpIcon(props: SVGProps<SVGSVGElement>) {
++  return (
++    <IconWrap {...props}>
++      <path d="M23 6 13.5 15.5l-5-5L1 18" />
++      <path d="M17 6h6v6" />
++    </IconWrap>
++  )
++}
++
++function TrendDownIcon(props: SVGProps<SVGSVGElement>) {
++  return (
++    <IconWrap {...props}>
++      <path d="M23 18 13.5 8.5l-5 5L1 6" />
++      <path d="M17 18h6v-6" />
++    </IconWrap>
++  )
++}
++
++const iconByTitle: Record<string, { icon: (props: SVGProps<SVGSVGElement>) => JSX.Element; tint: string }> = {
++  "Total revenue": {
++    icon: RevenueIcon,
++    tint: "bg-accent/10 text-accent",
++  },
++  "Active repairs": {
++    icon: ActivityIcon,
++    tint: "bg-sky-500/10 text-sky-600 dark:text-sky-400",
++  },
++  "Violations found": {
++    icon: AlertIcon,
++    tint: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
++  },
++  "Projects connected": {
++    icon: LayersIcon,
++    tint: "bg-violet-500/10 text-violet-600 dark:text-violet-400",
++  },
++}
++
+ export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++  const meta = iconByTitle[title]
++  const Icon = meta?.icon ?? ActivityIcon
++  const isPositive = changeType === "positive"
++
+   return (
+-    <Card>
++    <Card className="group relative overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-premium">
++      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent/70 via-accent/30 to-transparent opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+-        <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
++        <CardTitle className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
++          {title}
++        </CardTitle>
++        <span className={cn("flex h-8 w-8 items-center justify-center rounded-lg", meta?.tint ?? "bg-muted text-muted-foreground")}>
++          <Icon className="h-4 w-4" />
++        </span>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className="text-3xl font-semibold tracking-tight text-foreground tabular-nums">
++          {value}
++        </div>
++        <div className="mt-3 flex items-center gap-1.5">
++          <span
++            className={cn(
++              "inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-xs font-semibold",
++              isPositive
++                ? "bg-success/10 text-success"
++                : "bg-destructive/10 text-destructive",
++            )}
++          >
++            {isPositive ? (
++              <TrendUpIcon className="h-3 w-3" />
++            ) : (
++              <TrendDownIcon className="h-3 w-3" />
++            )}
++            {change}
++          </span>
++          <p className="text-xs text-muted-foreground">vs last month</p>
++        </div>
+       </CardContent>
+     </Card>
+   )
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/ui/badge.tsx b/fixtures/next-shadcn-dashboard-app/src/components/ui/badge.tsx
+index 5e9bec3..1ff4b4f 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/ui/badge.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/ui/badge.tsx
+@@ -4,9 +4,11 @@ import { cn } from "@/lib/utils"
+ 
+ const badgeVariants = {
+   variant: {
+-    default: "border-transparent bg-primary text-primary-foreground shadow",
++    default: "border-transparent bg-primary text-primary-foreground shadow-sm",
+     secondary: "border-transparent bg-secondary text-secondary-foreground",
+-    destructive: "border-transparent bg-destructive text-destructive-foreground shadow",
++    destructive:
++      "border-transparent bg-destructive/10 text-destructive dark:bg-destructive/20",
++    success: "border-transparent bg-success/10 text-success dark:bg-success/15",
+     outline: "border-border text-foreground",
+   },
+ } as const
+@@ -21,7 +23,7 @@ function Badge({ className, variant = "default", ...props }: BadgeProps) {
+   return (
+     <div
+       className={cn(
+-        "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors",
++        "inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-semibold tracking-tight transition-colors",
+         badgeVariants.variant[variant],
+         className,
+       )}
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/ui/button.tsx b/fixtures/next-shadcn-dashboard-app/src/components/ui/button.tsx
+index 0e9b29b..61c1c0a 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/ui/button.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/ui/button.tsx
+@@ -4,17 +4,18 @@ import { cn } from "@/lib/utils"
+ 
+ const buttonVariants = {
+   variant: {
+-    default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
++    default: "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:shadow",
+     destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+-    outline: "border border-border bg-background shadow-sm hover:bg-muted hover:text-foreground",
++    outline:
++      "border border-border bg-background shadow-sm hover:border-border hover:bg-muted hover:text-foreground",
+     secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+     ghost: "hover:bg-muted hover:text-foreground",
+     link: "text-primary underline-offset-4 hover:underline",
+   },
+   size: {
+     default: "h-9 px-4 py-2",
+-    sm: "h-8 rounded-md px-3 text-xs",
+-    lg: "h-10 rounded-md px-8",
++    sm: "h-8 rounded-lg px-3 text-xs",
++    lg: "h-10 rounded-lg px-8",
+     icon: "h-9 w-9",
+   },
+ } as const
+@@ -32,7 +33,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+     return (
+       <button
+         className={cn(
+-          "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50",
++          "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50",
+           buttonVariants.variant[variant],
+           buttonVariants.size[size],
+           className,
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/ui/card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/ui/card.tsx
+index dd23e94..fc98611 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/ui/card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/ui/card.tsx
+@@ -7,7 +7,7 @@ const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElemen
+     <div
+       ref={ref}
+       className={cn(
+-        "rounded-xl border border-border bg-card text-card-foreground shadow",
++        "rounded-2xl border border-border/60 bg-card text-card-foreground shadow-soft",
+         className,
+       )}
+       {...props}
+@@ -27,7 +27,7 @@ const CardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivE
+   ({ className, ...props }, ref) => (
+     <div
+       ref={ref}
+-      className={cn("font-semibold leading-none tracking-tight", className)}
++      className={cn("text-base font-semibold leading-none tracking-tight", className)}
+       {...props}
+     />
+   ),
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/ui/dialog.tsx b/fixtures/next-shadcn-dashboard-app/src/components/ui/dialog.tsx
+index 1cf1f44..49c75d7 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/ui/dialog.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/ui/dialog.tsx
+@@ -67,7 +67,7 @@ const DialogContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTML
+     return (
+       <div className="fixed inset-0 z-50 flex items-center justify-center">
+         <div
+-          className="fixed inset-0 bg-background/80"
++          className="fixed inset-0 bg-background/80 backdrop-blur-sm"
+           onClick={() => onOpenChange(false)}
+           aria-hidden="true"
+         />
+@@ -76,7 +76,7 @@ const DialogContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTML
+           role="dialog"
+           aria-modal="true"
+           className={cn(
+-            "relative z-50 grid w-full max-w-lg gap-4 rounded-lg border border-border bg-card p-6 text-card-foreground shadow-lg",
++            "relative z-50 grid w-full max-w-lg gap-4 rounded-2xl border border-border/60 bg-card p-6 text-card-foreground shadow-premium-lg",
+             className,
+           )}
+           {...props}
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/ui/input.tsx b/fixtures/next-shadcn-dashboard-app/src/components/ui/input.tsx
+index 7481286..205cd5d 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/ui/input.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/ui/input.tsx
+@@ -10,7 +10,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
+       <input
+         type={type}
+         className={cn(
+-          "flex h-9 w-full rounded-md border border-border bg-background px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50",
++          "flex h-9 w-full rounded-lg border border-border bg-background px-3 py-1 text-sm text-foreground shadow-sm transition-shadow placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:border-ring disabled:cursor-not-allowed disabled:opacity-50",
+           className,
+         )}
+         ref={ref}
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/ui/table.tsx b/fixtures/next-shadcn-dashboard-app/src/components/ui/table.tsx
+index c01503e..012aa2d 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/ui/table.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/ui/table.tsx
+@@ -29,7 +29,10 @@ const TableRow = React.forwardRef<HTMLTableRowElement, React.HTMLAttributes<HTML
+   ({ className, ...props }, ref) => (
+     <tr
+       ref={ref}
+-      className={cn("border-b border-border transition-colors hover:bg-muted/50", className)}
++      className={cn(
++        "border-b border-border/60 transition-colors last:border-0 hover:bg-muted/40",
++        className,
++      )}
+       {...props}
+     />
+   ),
+@@ -42,7 +45,10 @@ const TableHead = React.forwardRef<
+ >(({ className, ...props }, ref) => (
+   <th
+     ref={ref}
+-    className={cn("h-10 px-2 text-left align-middle font-medium text-muted-foreground", className)}
++    className={cn(
++      "h-10 px-3 text-left align-middle text-xs font-medium uppercase tracking-wider text-muted-foreground",
++      className,
++    )}
+     {...props}
+   />
+ ))
+@@ -52,7 +58,7 @@ const TableCell = React.forwardRef<
+   HTMLTableCellElement,
+   React.TdHTMLAttributes<HTMLTableCellElement>
+ >(({ className, ...props }, ref) => (
+-  <td ref={ref} className={cn("p-2 align-middle", className)} {...props} />
++  <td ref={ref} className={cn("p-3 align-middle", className)} {...props} />
+ ))
+ TableCell.displayName = "TableCell"
+ 
+diff --git a/fixtures/next-shadcn-dashboard-app/tailwind.config.ts b/fixtures/next-shadcn-dashboard-app/tailwind.config.ts
+index 048f85a..e59c3a3 100644
+--- a/fixtures/next-shadcn-dashboard-app/tailwind.config.ts
++++ b/fixtures/next-shadcn-dashboard-app/tailwind.config.ts
+@@ -23,10 +23,26 @@ const config = {
+           DEFAULT: "hsl(var(--card))",
+           foreground: "hsl(var(--card-foreground))",
+         },
++        accent: {
++          DEFAULT: "hsl(var(--accent))",
++          foreground: "hsl(var(--accent-foreground))",
++        },
+         destructive: {
+           DEFAULT: "hsl(var(--destructive))",
+           foreground: "hsl(var(--destructive-foreground))",
+         },
++        success: {
++          DEFAULT: "hsl(var(--success))",
++          foreground: "hsl(var(--success-foreground))",
++        },
++        ring: "hsl(var(--ring))",
++      },
++      boxShadow: {
++        soft: "0 1px 2px 0 rgb(0 0 0 / 0.04), 0 1px 1px 0 rgb(0 0 0 / 0.03)",
++        premium:
++          "0 1px 2px 0 rgb(0 0 0 / 0.04), 0 12px 28px -12px rgb(0 0 0 / 0.16)",
++        "premium-lg":
++          "0 2px 4px 0 rgb(0 0 0 / 0.04), 0 24px 48px -16px rgb(0 0 0 / 0.22)",
+       },
+     },
+   },

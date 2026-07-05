@@ -1,0 +1,11 @@
+I'll pause the retries here since the approval isn't coming through automatically. I've made the following changes and would appreciate your approval to run the verification commands (or you can run them yourself):
+
+**Created:**
+- `src/components/ui/empty-state.tsx` — reusable `EmptyState` component (icon in a soft circle via `bg-muted rounded-full`, centered title/description, optional `action` slot), following the existing `forwardRef` + `cn()` pattern used by `Card`/`Button`.
+- `src/app/projects/page.tsx` — Projects page using `EmptyState` with a "No projects yet" message and a "Create project" button (with an inline SVG folder icon since no icon library like `lucide-react` is installed in this fixture).
+
+**Still need to run** (per this project's `CLAUDE.md`, which requires a Buoy drift check after UI edits):
+- `npm run typecheck`
+- `npx buoy --help` → then the drift-check command it reports, fixing any findings
+
+Please approve the Bash tool so I can run these, or let me know if you'd like to run them and paste back the output.

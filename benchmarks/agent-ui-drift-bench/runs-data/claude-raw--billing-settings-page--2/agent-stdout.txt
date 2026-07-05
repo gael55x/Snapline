@@ -1,0 +1,1 @@
+Running the actual TypeScript compiler needs your approval (basic shell commands like `ls` work, but executing `tsc`/`node` binaries is gated). Want me to try running the typecheck again so you can approve it, or would you prefer to run `npm run typecheck` yourself?

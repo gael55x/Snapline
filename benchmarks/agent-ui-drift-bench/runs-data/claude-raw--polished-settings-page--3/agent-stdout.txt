@@ -1,0 +1,1 @@
+I need your approval to run `npm run typecheck` to verify the changes compile cleanly. Would you like to approve it, or should I skip verification?

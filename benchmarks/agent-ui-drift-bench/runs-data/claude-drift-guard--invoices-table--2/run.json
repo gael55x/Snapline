@@ -1,0 +1,37 @@
+{
+  "id": "claude-drift-guard--invoices-table--2",
+  "timestamp": "2026-07-05T04:27:06.477Z",
+  "mode": "claude-drift-guard",
+  "fixture": "next-shadcn-custom-theme",
+  "promptId": "invoices-table",
+  "attempt": 2,
+  "model": "claude-sonnet-5",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 16,
+      "totalViolations": 2,
+      "errorViolations": 2,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 1,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 1,
+      "componentReuseRate": 0.9375
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 183,
+    "filesTouched": 3
+  },
+  "rawOutputPaths": [
+    "runs/claude-drift-guard--invoices-table--2/agent-stdout.txt",
+    "runs/claude-drift-guard--invoices-table--2/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs/claude-drift-guard--invoices-table--2/scanner.json",
+  "gitDiffPath": "runs/claude-drift-guard--invoices-table--2/diff.patch"
+}

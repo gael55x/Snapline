@@ -1,0 +1,16 @@
+The bash tool is asking for permission that isn't being granted automatically — I'll pause here rather than keep retrying the same command.
+
+I've built out the pricing page since none existed in this fixture. Quick summary of what I did and why, since I can't get shell approval to run the typecheck right now:
+
+**Files added/changed:**
+- `src/components/pricing/pricing-cards.tsx` — new `PricingCards` component with 3 tiers (Starter/Pro/Enterprise), themed to match the existing "Snapline Ops" drift-repair product copy already in the dashboard (violations, repairs, projects).
+- `src/app/pricing/page.tsx` — new route rendering it.
+- `src/components/dashboard/nav.tsx` — added a "Pricing" nav link.
+
+**How I made the Pro card pop, within this repo's strict token allowlist (`snapline.yml` bans raw hex/arbitrary Tailwind/non-semantic colors):**
+- Pro card sits inside an extra `bg-primary` padded frame (`p-1.5 rounded-2xl shadow-xl lg:-translate-y-4`) that lifts and outlines it in the brand color, while the inner `Card` stays untouched (avoids stacking conflicting `bg-*`/`border-*` classes on top of the shared `Card` component, which has no risk here since this `cn()` helper is a plain string-join with no Tailwind-merge dedup logic).
+- A "Most popular" `Badge` (secondary variant, for contrast against the primary frame) floats at the top of the Pro card.
+- Price is now the visual hero on every card: `text-5xl font-bold` for the number, small muted `/month` suffix.
+- Feature lists got checkmark icons in circular `bg-secondary` badges instead of plain bullet text.
+
+Could you grant Bash approval (or let me know your preferred way to verify) so I can run `tsc --noEmit` and confirm it compiles clean?

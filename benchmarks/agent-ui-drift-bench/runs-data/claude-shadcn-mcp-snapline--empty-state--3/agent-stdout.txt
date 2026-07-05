@@ -1,0 +1,6 @@
+This all matches the existing conventions (semantic tokens, `cn`, forwardRef pattern) and the design scale. The component and page are complete:
+
+- **`src/components/ui/empty-state.tsx`** — reusable `EmptyState` with `icon`, `title`, `description` (optional), and `action` (optional) props. Centers content vertically/horizontally, with the icon in a soft `bg-muted` circle above the text.
+- **`src/app/projects/page.tsx`** — new projects page using it with "No projects yet" and a "Create project" button.
+
+Note: I couldn't run `tsc`/`npx` in this sandbox (commands were denied), so I manually reviewed types instead of confirming via typecheck — worth running `npm run typecheck` yourself to confirm.

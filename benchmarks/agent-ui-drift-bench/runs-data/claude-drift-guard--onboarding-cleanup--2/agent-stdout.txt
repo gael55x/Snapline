@@ -1,0 +1,7 @@
+I confirmed the exploration was accurate — this repo doesn't actually have an onboarding flow anywhere. It's a small fixture app (dashboard home + settings page) with no onboarding page, wizard/step components, or progress indicator, and no `progress.tsx`/`steps.tsx` UI primitive either.
+
+Since you asked me to keep "the steps and form fields exactly the same," I don't want to guess at content that doesn't exist and invent an onboarding flow from scratch under that framing — that would be a different task (building new UI, not cleaning up existing UI).
+
+Could you clarify:
+1. Is the onboarding flow in a different repo/branch than `fixtures/next-shadcn-dashboard-app`, or
+2. Do you want me to design and build a new onboarding flow from scratch for this app (in which case I'd want to know roughly what steps/fields it should collect)?

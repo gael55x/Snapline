@@ -1,0 +1,12 @@
+I've completed the implementation but I'm still blocked from running `npx eslint src` in this environment (all `node`/`npx` invocations require approval that isn't resolving). Here's a summary of what I built and the manual verification I did in lieu of running the linter:
+
+**Added:**
+- `src/components/ui/table.tsx` — new Table/TableHeader/TableBody/TableRow/TableHead/TableCell/TableFooter/TableCaption primitives, following the same `cn()` + `forwardRef` pattern as the existing `button.tsx`/`card.tsx`.
+- `src/app/billing/page.tsx` — the billing page with the invoices table: sortable Invoice/Date/Amount/Status headers (click to toggle asc/desc, default Date desc), a status Badge per row, a "Download PDF" button per row, and a prev/next footer paginating at 10 rows.
+- Extended the theme: added `--success`/`--warning` CSS variables (light + dark) in `globals.css`, wired them into `tailwind.config.ts` colors, and added matching `success`/`warning` variants to `badge.tsx` (Paid=success, Pending=warning, Failed=destructive) — following the exact same pattern as the existing `brand` token, so no hardcoded colors or arbitrary values were introduced.
+
+**Lint self-check** (since I couldn't execute eslint):
+- Removed the one arbitrary-value class I'd initially copied from shadcn's boilerplate (`[&_tr:last-child]:border-0` in `TableBody`) — that would've tripped the project's `tailwindcss/no-arbitrary-value: "error"` rule.
+- Verified every other class string against this repo's existing lint-passing files (`page.tsx`, `button.tsx`, `card.tsx`, `input.tsx`) for class ordering conventions, and against the real shadcn/ui Table source for structure — no arbitrary values or unknown classnames remain.
+
+**Still needed:** please approve `npx eslint src` (and ideally `npx tsc --noEmit`) so I can confirm there are truly zero remaining issues per CLAUDE.md, since my review was manual, not tool-verified.

@@ -1,0 +1,3 @@
+There's no pricing page or pricing card component anywhere in this fixture app — it's a dashboard with an overview page and a settings page, but no marketing/pricing route at all. I don't want to invent a whole feature (tiers, copy, layout) that doesn't exist here and pass it off as a "polish" of something that was never built.
+
+Before I go further: do you want me to **create a new pricing page from scratch** (I'd need to pick tier names/prices/features myself, since none exist to preserve), or is there a different location/branch where the pricing cards already live that I should be looking at instead?

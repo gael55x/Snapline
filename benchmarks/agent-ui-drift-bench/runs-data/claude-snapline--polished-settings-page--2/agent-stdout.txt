@@ -1,0 +1,7 @@
+All fields (ids, names, types, default values, placeholder), the confirm dialog, and all click handlers are unchanged — only layout/styling changed. Summary of the refresh:
+
+- **Section separation**: header now has a bottom rule; each card gets a colored top accent bar (primary for profile, destructive red for danger zone) and a tinted, bordered footer that visually separates form fields from actions.
+- **Nicer form styling**: fields sit in a responsive 2-column grid (repo URL spans full width) with helper text under each input, wider page container, more generous spacing throughout.
+- **Emphasis on actions**: footers are right-aligned action bars with a subtle background tint; "Save changes" now leads as the primary CTA; the danger zone is unmistakably marked via red border/accent/footer tint.
+
+Note: this fixture app has no `node_modules` installed (only `@types` packages, no Next/Tailwind), so I couldn't run a dev server or `tsc` to visually confirm — I verified correctness by manually checking the JSX structure and cross-referencing every class against this repo's actual design tokens (`globals.css`, `tailwind.config.ts`) and component variants (`button.tsx`, `card.tsx`, `input.tsx`).

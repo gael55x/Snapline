@@ -1,0 +1,13 @@
+The empty state component and projects page are built, but I'm blocked from running the required Buoy drift check — every attempt to execute a binary (`npx tsc`, `npx buoy`, `./node_modules/.bin/buoy`) returns "This command requires approval," even though read-only commands like `ls` work fine. This looks like your permission settings are gating command execution in this session.
+
+Could you approve running a command, or let me know how you'd like to proceed? I need to run something like:
+```
+./node_modules/.bin/buoy drift check
+```
+(and `npx tsc --noEmit` to typecheck) per the project's CLAUDE.md instructions before I can confirm the new component and page are drift-free.
+
+**What I've built so far:**
+- `src/components/ui/empty-state.tsx` — reusable `EmptyState` component (icon in a soft circle via `bg-muted`/`rounded-full`, centered title + description, optional `action` slot) following the same `forwardRef` + `cn()` pattern as the other shadcn-style components in this repo.
+- `src/app/projects/page.tsx` — new projects page using `EmptyState` with a folder icon, "No projects yet" title, and a "Create project" button.
+
+Let me know if you can grant the approval, or if you'd like me to just proceed and note that verification is pending.

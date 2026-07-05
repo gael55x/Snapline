@@ -1,0 +1,3 @@
+I searched the whole codebase and there's no onboarding flow here at all — no `/onboarding` route, no wizard/step components, nothing referencing "onboarding" anywhere in `src/`. The app only has two pages: the dashboard overview (`src/app/page.tsx`) and settings (`src/app/settings/page.tsx`), plus nav, stat-card, and recent-activity components.
+
+Since "steps and form fields should stay exactly the same" implies an existing flow, I want to check before doing anything: is the onboarding flow located somewhere else (a different repo/branch I don't have access to), or would you like me to build a new multi-step onboarding flow from scratch using this app's existing design system (Card, Button, Input, Badge components, same spacing/color conventions as Settings/Overview)?

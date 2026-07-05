@@ -1,0 +1,14 @@
+I'm unable to get Bash approval to run in this session, so I can't execute the typecheck or the required `driftguard` check myself right now.
+
+Please run these two commands and let me know the output so I can fix anything driftguard flags:
+
+```bash
+npx tsc --noEmit
+npx driftguard --help
+```
+
+Summary of what I built while I wait:
+- `src/components/ui/empty-state.tsx` — new `EmptyState` component (shadcn-style, `forwardRef` + `cn`) taking `icon`, `title`, `description`, and optional `action` props. Centers content vertically/horizontally with the icon in a `rounded-full bg-muted` circle above the title/description.
+- `src/app/projects/page.tsx` — new projects page using `EmptyState` with a small inline folder SVG icon, "No projects yet" title, description, and a `Button` labeled "Create project" as the action.
+
+Both use existing semantic Tailwind tokens (`bg-muted`, `text-muted-foreground`, `text-foreground`) consistent with `card.tsx`/`button.tsx`, and no new dependencies (no icon library was installed, so I used a plain inline SVG).

@@ -1,0 +1,3 @@
+There's no onboarding flow in this repo at all — it only has a dashboard, a settings page, and a small set of UI primitives (button, card, dialog, input, table, badge). No steps, wizard, or progress-bar components exist anywhere in `src/`.
+
+Could you point me to where the onboarding flow lives (a different repo/branch, or perhaps it hasn't been added to this fixture yet)? I don't want to fabricate a flow that doesn't exist here.

@@ -1,0 +1,7 @@
+I reworked the dashboard's visual hierarchy across three files:
+
+- **`stat-card.tsx`**: added a `featured` variant — the featured card gets a large `text-5xl` value, subtle shadow/border, and uppercase label; the default variant (used for secondary stats) now has smaller text (`text-lg`), no shadow, and a lighter border to make it visually recede.
+- **`page.tsx`**: split `stats` into `revenue` + `secondaryStats`. Revenue now renders alone as a full-width featured `StatCard`, with the three secondary stats in a smaller row beneath it. Added two uppercase eyebrow headings ("Key metrics" and "Activity") to clearly separate the stats zone from the activity zone.
+- **`recent-activity.tsx`**: bumped the card's shadow and title size slightly so it reads as the centerpiece below the metrics.
+
+Note: this fixture has no literal chart or sidebar widget — the "Recent activity" table is the only content block below the stats, so I treated it as the centerpiece per the intent, and skipped the sidebar instruction since no sidebar exists (nothing to de-emphasize without inventing new content). Automated commands (tsc, npm) required approval I couldn't get in this session, so I wasn't able to run a live type-check — worth running `npm run typecheck` yourself to confirm.

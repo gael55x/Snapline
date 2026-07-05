@@ -1,0 +1,1 @@
+I need explicit approval to run the TypeScript compiler for verification. Could you approve running `tsc --noEmit` (or grant Bash execute permission), so I can confirm the new login page typechecks cleanly?

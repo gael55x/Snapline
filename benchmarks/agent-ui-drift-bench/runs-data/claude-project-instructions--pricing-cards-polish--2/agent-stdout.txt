@@ -1,0 +1,5 @@
+I searched the whole repo and there's no pricing cards component anywhere — no `pricing` file, no plan/tier copy, nothing matching "Pro"/"Enterprise"/"$.../month" in any `.tsx`/`.ts`/`.css` file. The only pages that exist are the dashboard overview (`src/app/page.tsx`) and settings (`src/app/settings/page.tsx`).
+
+Since you asked to keep "the same three tiers and copy," I don't want to invent tier names/prices/features that don't match what you actually have. Could you either:
+1. Point me to the file/repo where the current pricing cards live (maybe a different project or a page not yet committed here), or
+2. Give me the three tiers' copy (names, prices, features) and confirm you want me to build a new pricing section in this app from scratch, styled per this repo's CLAUDE.md rules (shadcn/ui components, semantic tokens only, no arbitrary Tailwind values)?

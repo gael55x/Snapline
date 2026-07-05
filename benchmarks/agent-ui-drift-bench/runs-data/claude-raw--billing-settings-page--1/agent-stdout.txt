@@ -1,0 +1,10 @@
+I'll stop retrying that command since it's being denied consistently rather than prompting — you'll need to run `npx tsc --noEmit` yourself in this fixture directory to confirm, or grant Bash approval and I'll retry.
+
+**What I built:** `src/app/settings/billing/page.tsx`, using only the existing shadcn-style primitives (`Card`, `Badge`, `Button`, `Dialog`, `Input`) and theme tokens (`bg-brand`, `text-muted-foreground`, `border-border`, etc.) — no new dependencies, matching the fixture's zero-`next`/zero-`lucide` setup.
+
+- **Trial banner** — shown conditionally (`trial.isEnding`) at the top using the `brand` token, since that's the only warning-ish color defined in this theme.
+- **Current plan card** — name badge, price, renewal date, and a "Cancel subscription" ghost/destructive trigger in the footer that opens a confirmation `Dialog` (no accidental cancels).
+- **Payment method card** — masked card brand/last4/expiry with an "Update card" button that opens a `Dialog` with card-detail inputs.
+- **Invoices card** — last 4 invoices as a divided list, each with a status badge and a "Download" link styled as an outline button.
+
+Note: the `Dialog` component here has no `DialogClose` export, so I controlled `open`/`onOpenChange` from local `useState` in the page (it already supports controlled mode) rather than modifying the shared UI primitive.

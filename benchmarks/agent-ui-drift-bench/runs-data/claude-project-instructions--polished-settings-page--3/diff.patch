@@ -1,0 +1,122 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+index c106fe3..2455a6b 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+@@ -3,6 +3,7 @@
+ import * as React from "react"
+ 
+ import { DashboardNav } from "@/components/dashboard/nav"
++import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+@@ -28,8 +29,8 @@ export default function SettingsPage() {
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/settings" />
+-      <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
++      <main className="mx-auto flex max-w-3xl flex-col gap-8 px-6 py-10">
++        <div className="flex flex-col gap-1 border-b border-border pb-6">
+           <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
+           <p className="text-sm text-muted-foreground">
+             Manage your workspace profile and danger zone actions.
+@@ -42,25 +43,33 @@ export default function SettingsPage() {
+             <CardDescription>This information is shown on shared reports.</CardDescription>
+           </CardHeader>
+           <CardContent>
+-            <form className="flex flex-col gap-4">
+-              <div className="flex flex-col gap-2">
+-                <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
+-                  Workspace name
+-                </label>
+-                <Input id="workspace-name" name="workspaceName" defaultValue="Snapline Ops" />
+-              </div>
+-              <div className="flex flex-col gap-2">
+-                <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
+-                  Contact email
+-                </label>
+-                <Input
+-                  id="contact-email"
+-                  name="contactEmail"
+-                  type="email"
+-                  defaultValue="ops@example.com"
+-                />
++            <form className="flex flex-col gap-6">
++              <div className="grid gap-5 sm:grid-cols-2">
++                <div className="flex flex-col gap-1.5">
++                  <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
++                    Workspace name
++                  </label>
++                  <Input id="workspace-name" name="workspaceName" defaultValue="Snapline Ops" />
++                  <p className="text-xs text-muted-foreground">
++                    Appears in the header of every shared report.
++                  </p>
++                </div>
++                <div className="flex flex-col gap-1.5">
++                  <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
++                    Contact email
++                  </label>
++                  <Input
++                    id="contact-email"
++                    name="contactEmail"
++                    type="email"
++                    defaultValue="ops@example.com"
++                  />
++                  <p className="text-xs text-muted-foreground">
++                    Used for billing and workspace notifications.
++                  </p>
++                </div>
+               </div>
+-              <div className="flex flex-col gap-2">
++              <div className="flex flex-col gap-1.5">
+                 <label htmlFor="repo-url" className="text-sm font-medium text-foreground">
+                   Repository URL
+                 </label>
+@@ -70,21 +79,33 @@ export default function SettingsPage() {
+                   type="url"
+                   placeholder="https://github.com/acme/app"
+                 />
++                <p className="text-xs text-muted-foreground">
++                  Connected repositories are scanned automatically on every push.
++                </p>
+               </div>
+             </form>
+           </CardContent>
+-          <CardFooter className="gap-2">
++          <CardFooter className="gap-3 border-t border-border pt-6">
+             <Button>Save changes</Button>
+             <Button variant="ghost">Cancel</Button>
+           </CardFooter>
+         </Card>
+ 
+-        <Card>
++        <Card className="border-destructive/30">
+           <CardHeader>
+-            <CardTitle>Danger zone</CardTitle>
++            <div className="flex items-center gap-2">
++              <CardTitle>Danger zone</CardTitle>
++              <Badge variant="destructive">Irreversible</Badge>
++            </div>
+             <CardDescription>Destructive actions that cannot be undone.</CardDescription>
+           </CardHeader>
+-          <CardFooter>
++          <CardContent>
++            <p className="text-sm text-muted-foreground">
++              Deleting the workspace removes all projects, connected repositories, and repair
++              history immediately.
++            </p>
++          </CardContent>
++          <CardFooter className="border-t border-destructive/20 pt-6">
+             <Button variant="destructive" onClick={() => setConfirmOpen(true)}>
+               Delete workspace
+             </Button>
+@@ -94,7 +115,7 @@ export default function SettingsPage() {
+         <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+           <DialogContent>
+             <DialogHeader>
+-              <DialogTitle>Delete workspace?</DialogTitle>
++              <DialogTitle className="text-destructive">Delete workspace?</DialogTitle>
+               <DialogDescription>
+                 This permanently removes the workspace, its projects, and all repair history.
+               </DialogDescription>

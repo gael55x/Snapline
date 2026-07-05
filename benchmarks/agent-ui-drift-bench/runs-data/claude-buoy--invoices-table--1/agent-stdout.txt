@@ -1,0 +1,21 @@
+I've built the invoices table feature. Here's a summary of what changed:
+
+**Theme (`globals.css` / `tailwind.config.ts`)** — added `--success`/`--warning` HSL tokens (light + dark) alongside the existing `primary`/`destructive`/`brand` pattern, so status badges stay on semantic tokens instead of hardcoded Tailwind colors.
+
+**`badge.tsx`** — added `success` and `warning` variants to the existing variant map.
+
+**`table.tsx` (new)** — shadcn-style `Table`/`TableHeader`/`TableBody`/`TableRow`/`TableHead`/`TableCell`/`TableFooter` primitives, styled with the same `border`/`muted`/`foreground` tokens as the other `ui/` components.
+
+**`src/app/billing/page.tsx` (new)** — client component with:
+- Invoice #, date, amount, status, download-PDF action columns
+- Status badges: Paid→`success`, Pending→`warning`, Failed→`destructive`
+- Sortable headers (click to toggle asc/desc, `aria-sort` set) defaulting to date descending
+- 10-row pagination with Prev/Next buttons in a card footer, disabled at the bounds
+
+**Blocked:** I could not run `npm run typecheck` or `npx buoy drift check` (the CLAUDE.md-required check) — every code-execution command is being auto-blocked in this session before an approval dialog appears, even after retrying with direct binary paths. Read-only commands work fine.
+
+Please run these yourself and let me know the output so I can fix anything Buoy flags:
+```
+npm run typecheck
+npx buoy drift check
+```

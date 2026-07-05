@@ -1,0 +1,15 @@
+All edits are in place. I couldn't execute `tsc`/`npm` in this session (every Bash invocation, even direct binary paths, came back "requires approval" without a way for me to get that approval), and there's no dev server available either — this fixture only ships `react`/`react-dom`/`typescript` in `node_modules`, no `next` dependency or `dev` script, so it's a static-analysis-only fixture rather than a runnable app. I did a careful manual read-through of every changed file instead to check for type errors and, importantly, class-conflict bugs — this fixture's `cn()` helper is a naive string-join (no `tailwind-merge`), so I avoided ever passing a `className` override that competes with a base component's own class for the same CSS property.
+
+## What changed (visual only — no data or behavior touched)
+
+- **Design tokens** (`globals.css`, `tailwind.config.ts`): added `accent` (indigo), `success` (green), `warning` (amber), and `ring` colors, a shared `--radius` scale, and two layered "premium" box-shadows.
+- **Card**: softer shadow that deepens on hover, subtler border, larger title type (`text-lg`) — card titles were previously unstyled default size, a big source of the "cheap" feel.
+- **Badge**: added `success`/`warning` variants so status colors are semantic instead of generic gray.
+- **Button/Input**: refined focus rings (using the new `ring` token), subtle press/hover feedback, taller input.
+- **Table**: uppercase tracked headers, roomier row padding, no trailing border on the last row.
+- **Stat cards**: bigger tabular numbers, a color-coded top accent bar (green/red), and a proper trend pill with an arrow icon instead of a flat badge.
+- **Recent activity**: actor initials avatars, status badges mapped to success/warning/destructive.
+- **Nav**: sticky + backdrop-blur header, small gradient brand mark, icon on the primary CTA.
+- **Layout**: a very subtle radial accent glow behind the header for depth; page containers widened to `max-w-7xl` with more breathing room.
+
+Since I can't spin up a browser here, I'd recommend a quick visual pass once you have `next` installed locally to confirm it reads the way you want — happy to iterate further based on what you see.

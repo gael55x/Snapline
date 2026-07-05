@@ -1,0 +1,1 @@
+I need your approval to run the TypeScript typecheck (`npm run typecheck` / `tsc --noEmit`) to verify the new files compile cleanly. Could you approve one of these Bash commands?
