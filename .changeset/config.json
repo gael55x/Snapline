@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["fixture-*", "agent-ui-drift-bench", "snapline-monorepo"]
+  "ignore": ["fixture-*", "agent-ui-drift-bench"]
 }
