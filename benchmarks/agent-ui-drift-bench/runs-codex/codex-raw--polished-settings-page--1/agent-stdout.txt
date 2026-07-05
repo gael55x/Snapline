@@ -1,7 +1,0 @@
-Done in [src/app/settings/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--polished-settings-page--1/repo/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx:29). Kept all existing fields, names, defaults, placeholders, and dialog handlers; changed only layout/styling.
-
-Verified:
-`npm run typecheck`
-`git diff --check`
-
-Skipped new components/dependencies. Browser smoke was not available because this fixture has no dev script and lacks `next`/`tailwindcss` in `node_modules`.

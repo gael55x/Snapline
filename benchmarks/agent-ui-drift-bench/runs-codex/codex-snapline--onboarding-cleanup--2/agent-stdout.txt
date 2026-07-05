@@ -1,7 +1,0 @@
-Implemented the onboarding cleanup in [src/app/settings/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--onboarding-cleanup--2/repo/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx): added a clearer setup header, visible progress bar, connected step list, and a tighter form layout while keeping the existing field IDs/names/defaults/placeholders and actions intact.
-
-Checks passed:
-`npm run typecheck`
-`./node_modules/.bin/snapline scan --changed` twice, final result: on-system.
-
-Skipped new components/dependencies; add them only if this grows into a real multi-step stateful flow.

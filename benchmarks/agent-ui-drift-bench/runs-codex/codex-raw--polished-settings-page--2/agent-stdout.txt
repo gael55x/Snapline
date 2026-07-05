@@ -1,5 +1,0 @@
-Updated [src/app/settings/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--polished-settings-page--2/repo/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx): refreshed the settings page with stronger section separation, roomier divided form rows, nicer input focus/surface styling, and a clearer danger-zone treatment.
-
-Verified: `npm run typecheck` and `git diff --check` pass.
-
-Skipped browser smoke test: this fixture only has `tsc`/`tsserver` installed and no runnable Next dev script/binary.

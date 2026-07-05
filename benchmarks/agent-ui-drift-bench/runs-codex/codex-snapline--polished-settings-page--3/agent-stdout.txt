@@ -1,3 +1,0 @@
-Updated [src/app/settings/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--polished-settings-page--3/repo/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx) with a cleaner settings layout: muted page background, stronger header, sectioned two-column structure, improved field rows, and clearer action emphasis. Existing fields, names, defaults, input types, labels, and dialog behavior are unchanged.
-
-Verified: `npm run typecheck`, `npx --no-install snapline scan --changed`, and `git diff --check`. Direct `snapline scan --changed` is not on `PATH`, but the local npx scanner passed. Skipped new components, dependencies, and global theme changes.

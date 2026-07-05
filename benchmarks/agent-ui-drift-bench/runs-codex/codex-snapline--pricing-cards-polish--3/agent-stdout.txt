@@ -1,7 +1,0 @@
-Implemented in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--pricing-cards-polish--3/repo/fixtures/next-shadcn-dashboard-app/src/app/page.tsx): added a three-tier pricing section with a stronger Pro card, hero-sized prices, deeper shadows, and styled feature rows.
-
-Verified:
-- `npm run typecheck`
-- `./node_modules/.bin/snapline scan --changed` after edit and again before finishing
-
-Skipped dev server: this fixture has no `dev` script.

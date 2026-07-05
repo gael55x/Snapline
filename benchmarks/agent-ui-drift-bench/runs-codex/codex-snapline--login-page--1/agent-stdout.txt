@@ -1,3 +1,0 @@
-Implemented in [src/app/login/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--login-page--1/repo/fixtures/next-shadcn-basic/src/app/login/page.tsx:1): social sign-in buttons, divider, email/password form, remember checkbox, forgot/signup links, inline validation, and submit loading state.
-
-Verified with `npm run typecheck` and `./node_modules/.bin/snapline scan --changed` twice. Direct `snapline` was not on PATH, and this fixture has no dev script/Next dependency to start a local server.

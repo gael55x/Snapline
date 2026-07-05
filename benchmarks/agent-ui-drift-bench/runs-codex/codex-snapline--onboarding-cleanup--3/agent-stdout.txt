@@ -1,8 +1,0 @@
-Updated [src/app/settings/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--onboarding-cleanup--3/repo/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx:26): added a clearer onboarding header, visible progress bar, connected step rail, and tighter card/form/footer spacing. The existing field labels, ids, names, types, defaults, and placeholders stayed unchanged.
-
-Verified:
-- `./node_modules/.bin/snapline scan --changed` passes
-- `npm run typecheck` passes
-- Final Snapline scan passes
-
-Skipped a stateful multi-step wizard; add it only if the product should actually hide/show fields per step.

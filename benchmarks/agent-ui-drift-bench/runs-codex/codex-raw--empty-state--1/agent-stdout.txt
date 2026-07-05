@@ -1,3 +1,0 @@
-Implemented `EmptyState` in [src/components/empty-state.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic/src/components/empty-state.tsx:1) and added `/projects` in [src/app/projects/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic/src/app/projects/page.tsx:1) with “No projects yet” and a “Create project” button.
-
-Verification: `npm run typecheck` passes. Skipped adding an icon dependency or variant system; add those only when a second real use case needs them.

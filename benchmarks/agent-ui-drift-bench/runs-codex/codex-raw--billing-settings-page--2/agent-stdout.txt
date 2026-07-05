@@ -1,5 +1,0 @@
-Built the billing settings page in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx): current plan, expiring-trial banner, payment method with `Update card`, recent invoices with download links, and cancel subscription.
-
-Verification: `npm run typecheck` passes.
-
-Skipped new components, icons, and fake payment flows. Add those when real billing APIs/actions exist.

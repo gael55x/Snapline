@@ -1,5 +1,0 @@
-Implemented in [src/app/login/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--1/repo/fixtures/next-shadcn-basic/src/app/login/page.tsx).
-
-Added Google/GitHub buttons, divider, email/password form, remember checkbox, forgot-password link, inline validation errors, loading submit state, and sign-up link.
-
-Verified: `npm run typecheck` passes. Skipped auth/provider wiring and a real sign-up route; add those when backend routes exist.

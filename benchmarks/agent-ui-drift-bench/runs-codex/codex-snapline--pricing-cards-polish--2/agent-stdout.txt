@@ -1,7 +1,0 @@
-Implemented in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--pricing-cards-polish--2/repo/fixtures/next-shadcn-dashboard-app/src/app/page.tsx:36): added a three-tier pricing section, made Pro visually dominant, made prices the card hero, and tightened feature list styling with token-safe depth.
-
-Verification:
-- `npm run typecheck` passed
-- `./node_modules/.bin/snapline scan --changed` passed on final run
-
-Skipped: new component files/custom CSS/new colors. Add only if this pricing UI gets reused elsewhere.

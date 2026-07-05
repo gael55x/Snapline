@@ -1,8 +1,0 @@
-Updated [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--pricing-cards-polish--1/repo/fixtures/next-shadcn-dashboard-app/src/app/page.tsx) with three pricing cards, stronger price treatment, better feature list styling, and a visually dominant Pro card.
-
-Note: this checkout had no existing pricing tiers/copy to preserve, so I added Basic/Pro/Enterprise content in the main page.
-
-Verified:
-`./node_modules/.bin/snapline scan --changed` passed twice.
-`npm run typecheck` passed.
-No dev server started because this fixture has no `dev` script or local Next binary.

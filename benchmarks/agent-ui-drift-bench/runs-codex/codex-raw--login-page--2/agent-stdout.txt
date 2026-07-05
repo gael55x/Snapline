@@ -1,3 +1,0 @@
-Updated [src/app/login/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--2/repo/fixtures/next-shadcn-basic/src/app/login/page.tsx) with the full login UI: Google/GitHub buttons, email divider, email/password fields, remember-me checkbox, forgot-password link, inline validation errors, loading submit state, and sign-up link.
-
-Verification: `npm run typecheck` passed. Skipped real auth/OAuth wiring because this fixture has no backend routes; valid submit shows a short local loading state.

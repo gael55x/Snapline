@@ -1,8 +1,0 @@
-Refreshed [src/app/settings/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--polished-settings-page--1/repo/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx): wider two-column page layout, separated card headers/footers, cleaner form rows, stronger input focus styling, and a more distinct destructive section. Existing fields, defaults, names, types, buttons, and dialog behavior are unchanged.
-
-Verified:
-- `./node_modules/.bin/snapline scan --changed` passed, including final required pass.
-- `npm run typecheck` passed.
-- `npm run dev` could not start because this fixture has no `dev` script.
-
-Skipped new components/dependencies; the existing shadcn-style primitives covered it.

@@ -1,7 +1,0 @@
-Built the billing settings page in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--billing-settings-page--1/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx:54). It includes the trial warning banner, current plan details, payment method with `Update card`, invoice download links, and `Cancel subscription`.
-
-Verified:
-- `npm run typecheck` passes.
-- `./node_modules/.bin/snapline scan --changed` passes twice.
-
-Skipped new components, dependencies, and real billing wiring; add those only when this fixture needs live payment behavior.

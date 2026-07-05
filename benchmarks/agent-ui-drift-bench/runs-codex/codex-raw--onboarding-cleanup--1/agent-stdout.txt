@@ -1,5 +1,0 @@
-Implemented the onboarding cleanup in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--onboarding-cleanup--1/repo/fixtures/next-shadcn-dashboard-app/src/app/page.tsx:12).
-
-Changed the home page into a cohesive onboarding screen with a stronger stepper, visible progress bar, tighter layout, and a cleaner form card. The workspace fields remain the same: workspace name, contact email, repository URL.
-
-Verified with `npm run typecheck`. Skipped new components/dependencies; this fixture has no `dev` script, so I couldn’t run a local browser preview from the package as-is.

@@ -1,5 +1,0 @@
-Implemented the invoices table in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--invoices-table--3/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx:24): default date-desc sorting, sortable headers, distinct status badges, PDF download links, and 10-row prev/next pagination.
-
-Verification passed: `npm run typecheck` and `git diff --check`.
-
-Skipped: new table abstraction, new dependency, and real PDF generation. Add those only when more pages reuse the table or downloads need backend-backed files.

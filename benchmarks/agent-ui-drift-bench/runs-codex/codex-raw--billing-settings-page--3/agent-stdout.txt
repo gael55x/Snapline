@@ -1,3 +1,0 @@
-Built the billing settings page in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx): plan summary, trial warning banner, payment method with update button, invoice table with download links, and cancel subscription action.
-
-Verification: `npm run typecheck` passes. Skipped real billing/Stripe wiring; add it when this fixture needs live account data.

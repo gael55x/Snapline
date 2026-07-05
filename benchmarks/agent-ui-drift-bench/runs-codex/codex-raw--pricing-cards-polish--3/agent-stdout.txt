@@ -1,5 +1,0 @@
-Implemented the pricing card polish in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--pricing-cards-polish--3/repo/fixtures/next-shadcn-dashboard-app/src/app/page.tsx:1). Pro is now raised, dark, shadowed, and visually dominant; prices are the hero element; feature lists use styled markers.
-
-Verified: `npm run typecheck` and `git diff --check` both pass. I couldn’t run a browser/dev server because this fixture has no `next` package or dev script installed.
-
-Skipped new components/dependencies; add a shared `PricingCard` only if this gets reused on another route.

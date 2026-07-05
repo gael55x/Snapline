@@ -1,9 +1,0 @@
-I can’t make this safely yet: this fixture has no onboarding route/component or step/progress markup to edit. I checked the tracked source and only found:
-
-- `src/app/page.tsx` dashboard overview
-- `src/app/settings/page.tsx` workspace settings form
-- dashboard/ui primitives
-
-There are no `onboard*`, `step`, or `progress` UI files/strings in `src`.
-
-Please point me at the intended file/component, or paste the current onboarding markup. I’ll then make the smallest visual cleanup and run `snapline scan --changed` after the `.tsx` edit.
