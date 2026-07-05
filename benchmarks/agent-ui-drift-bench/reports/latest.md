@@ -1,19 +1,19 @@
 # agent-ui-drift-bench — latest report
 
-- generated: 2026-07-05T03:08:36.416Z
+- generated: 2026-07-05T03:53:31.632Z
 - config hash: da6de300d39ed56d
 - scorer: ui-drift-score-v1
-- total runs: 103
+- total runs: 188
 
 | mode | runs | failures | drift score (median) | violations (median) | component reuse (median) | build pass | repair iterations | wall time (s) |
 |---|---|---|---|---|---|---|---|---|
 | claude-raw | 30 | 1 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 215 |
-| claude-project-instructions | 12 | 0 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 165 |
-| claude-shadcn-mcp | 6 | 1 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 449 |
-| claude-tailwind-eslint | 21 | 1 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 241 |
-| claude-buoy | 5 | 0 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 461 |
-| claude-drift-guard | 4 | 0 | 8.0 | 1.0 | 100.0% | 100% | 0.0 | 567 |
-| claude-snapline | 21 | 0 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 234 |
-| claude-shadcn-mcp-snapline | 4 | 0 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 538 |
+| claude-project-instructions | 25 | 0 | 0.0 | 0.0 | 100.0% | 96% | 0.0 | 193 |
+| claude-shadcn-mcp | 21 | 1 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 208 |
+| claude-tailwind-eslint | 30 | 1 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 242 |
+| claude-buoy | 21 | 0 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 192 |
+| claude-drift-guard | 16 | 0 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 293 |
+| claude-snapline | 30 | 0 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 249 |
+| claude-shadcn-mcp-snapline | 15 | 0 | 0.0 | 0.0 | 100.0% | 100% | 0.0 | 308 |
 
 TBD = no successful runs recorded for this mode yet. Values are never fabricated.
