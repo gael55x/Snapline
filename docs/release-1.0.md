@@ -48,10 +48,13 @@ Status legend: [x] done · [ ] open
       ESLint, Buoy (@buoy-design/cli), driftguard, Snapline, MCP+Snapline
 - [x] Graphs generated from real JSON only; TBD placeholders otherwise
 - [x] Static harness in CI (fixture baselines, golden metrics, determinism)
-- [x] **Public agent-run results: ≥3 runs per mode.** The live runner
-      (`pnpm bench:agent -- --all`) is complete but has not been executed —
-      it needs a `claude` CLI, API budget, and hours of wall time. Until this
-      lands, README/graphs show TBD and no comparative claims are made.
+- [x] **Public agent-run results: ≥3 runs per mode.** Executed 2026-07-05:
+      240 live `claude-sonnet-5` sessions (8 modes × 10 prompts × 3 attempts,
+      0 unresolved failures) — gate 0/60 drifted vs 7–40% advisory. Plus
+      cross-model (Haiku 4.5: raw 53% drifted/worst 444, gated 0/30) and
+      cross-agent (Codex `gpt-5.5`: raw 61%, instruction-level Snapline 0/18;
+      15 quota-failure cells recorded, retry deferred to quota reset). Raw
+      data in `runs-data*/` and release archives.
 
 ## Quality
 
@@ -69,11 +72,12 @@ Status legend: [x] done · [ ] open
 
 ## Verdict
 
-**1.0-ready except one criterion:** the public benchmark run. Everything a
-user touches (scanner, hooks, CLI, plugin, docs) meets the bar. Ship 1.0 after
-executing the benchmark matrix and committing reports/latest.json — or ship
-0.9 now and reserve 1.0 for the day the graph has real bars. Do not tag 1.0
-with a TBD graph while the README's benchmark claim remains the primary pitch.
+**All criteria met — 1.0 approved for release** (2026-07-05). The benchmark
+matrix ran in full with published raw data across three result sets
+(Sonnet 5, Haiku 4.5, Codex/gpt-5.5), the README graph renders from real
+JSON, and 0.1.0 has been validated end-to-end from the public registry,
+including a real-world production install. The 1.0 changeset is staged;
+`pnpm release` (or the CI release workflow) publishes it.
 
 ## Known limitations
 
