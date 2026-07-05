@@ -1,0 +1,176 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97..6776bed 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -1,57 +1,121 @@
+ import { DashboardNav } from "@/components/dashboard/nav"
+-import { RecentActivity } from "@/components/dashboard/recent-activity"
+-import { StatCard } from "@/components/dashboard/stat-card"
++import { Badge } from "@/components/ui/badge"
++import { Button } from "@/components/ui/button"
++import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+ 
+-const stats = [
++const plans = [
+   {
+-    title: "Total revenue",
+-    value: "$45,231.89",
+-    change: "+20.1%",
+-    changeType: "positive" as const,
++    name: "Basic",
++    price: "$19",
++    description: "For small teams getting started.",
++    features: ["3 projects", "Weekly reports", "Email support"],
++    cta: "Start Basic",
+   },
+   {
+-    title: "Active repairs",
+-    value: "312",
+-    change: "+12.4%",
+-    changeType: "positive" as const,
++    name: "Pro",
++    price: "$49",
++    description: "For growing teams that need more control.",
++    features: ["Unlimited projects", "Daily reports", "Priority support"],
++    cta: "Choose Pro",
++    featured: true,
+   },
+   {
+-    title: "Violations found",
+-    value: "1,024",
+-    change: "-4.3%",
+-    changeType: "negative" as const,
+-  },
+-  {
+-    title: "Projects connected",
+-    value: "24",
+-    change: "+3",
+-    changeType: "positive" as const,
++    name: "Enterprise",
++    price: "$99",
++    description: "For organizations with advanced needs.",
++    features: ["Custom workflows", "SAML SSO", "Dedicated success manager"],
++    cta: "Contact sales",
+   },
+ ]
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-[radial-gradient(circle_at_top,#eef2ff_0,#ffffff_36rem)]">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
+-          <p className="text-sm text-muted-foreground">
+-            A summary of repair activity across your projects.
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-10">
++        <div className="mx-auto flex max-w-2xl flex-col gap-3 text-center">
++          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">
++            Pricing built for repair teams
++          </h1>
++          <p className="text-sm leading-6 text-muted-foreground sm:text-base">
++            Pick the plan that matches your reporting volume and support needs.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
+-            <StatCard
+-              key={stat.title}
+-              title={stat.title}
+-              value={stat.value}
+-              change={stat.change}
+-              changeType={stat.changeType}
+-            />
++
++        <section className="grid items-stretch gap-5 lg:grid-cols-3">
++          {plans.map((plan) => (
++            <Card
++              key={plan.name}
++              className={
++                plan.featured
++                  ? "relative flex flex-col overflow-hidden border-foreground bg-foreground text-background shadow-2xl shadow-foreground/25 lg:-mt-4"
++                  : "flex flex-col overflow-hidden border-border/70 bg-white/90 shadow-lg shadow-slate-200/70"
++              }
++            >
++              {plan.featured ? (
++                <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-cyan-300 via-white to-emerald-300" />
++              ) : null}
++              <CardHeader className="gap-4 p-7">
++                <div className="flex items-center justify-between gap-3">
++                  <CardTitle className="text-xl tracking-normal">{plan.name}</CardTitle>
++                  {plan.featured ? (
++                    <Badge className="bg-white/15 text-background">Best value</Badge>
++                  ) : null}
++                </div>
++                <div>
++                  <div className="flex items-end gap-2">
++                    <span className="text-6xl font-black">{plan.price}</span>
++                    <span
++                      className={
++                        plan.featured
++                          ? "pb-2 text-sm font-medium text-background/70"
++                          : "pb-2 text-sm font-medium text-muted-foreground"
++                      }
++                    >
++                      /mo
++                    </span>
++                  </div>
++                  <p
++                    className={
++                      plan.featured
++                        ? "mt-3 text-sm leading-6 text-background/75"
++                        : "mt-3 text-sm leading-6 text-muted-foreground"
++                    }
++                  >
++                    {plan.description}
++                  </p>
++                </div>
++              </CardHeader>
++              <CardContent className="flex flex-1 flex-col gap-6 p-7 pt-0">
++                <ul className="grid gap-3 text-sm">
++                  {plan.features.map((feature) => (
++                    <li key={feature} className="flex items-center gap-3">
++                      <span
++                        aria-hidden="true"
++                        className={
++                          plan.featured
++                            ? "h-2.5 w-2.5 rounded-full bg-cyan-200 shadow-[0_0_0_5px_rgba(255,255,255,0.12)]"
++                            : "h-2.5 w-2.5 rounded-full bg-foreground shadow-[0_0_0_5px_rgba(24,24,27,0.08)]"
++                        }
++                      />
++                      <span>{feature}</span>
++                    </li>
++                  ))}
++                </ul>
++                <Button
++                  className={
++                    plan.featured
++                      ? "mt-auto h-11 bg-background text-foreground shadow-lg hover:bg-background/90"
++                      : "mt-auto h-11"
++                  }
++                  variant={plan.featured ? "default" : "outline"}
++                >
++                  {plan.cta}
++                </Button>
++              </CardContent>
++            </Card>
+           ))}
+         </section>
+-        <RecentActivity />
+       </main>
+     </div>
+   )
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f61..b2fc03f 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+ 
+ const links = [
+-  { href: "/", label: "Overview" },
++  { href: "/", label: "Pricing" },
+   { href: "/settings", label: "Settings" },
+ ]
+ 

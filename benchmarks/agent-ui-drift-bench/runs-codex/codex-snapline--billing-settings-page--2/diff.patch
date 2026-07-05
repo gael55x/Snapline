@@ -1,0 +1,182 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee..e89752a 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,57 +1,133 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+-
+-const features = [
+-  {
+-    title: "Semantic tokens",
+-    description:
+-      "Every surface is painted with theme variables, so a single palette swap restyles the whole product.",
+-  },
+-  {
+-    title: "Composable primitives",
+-    description:
+-      "Cards, badges, and buttons snap together without any bespoke CSS or arbitrary values.",
+-  },
+-  {
+-    title: "Dark mode ready",
+-    description:
+-      "The .dark block redefines the same tokens, so components never need to know about color schemes.",
+-  },
++import {
++  Card,
++  CardContent,
++  CardDescription,
++  CardFooter,
++  CardHeader,
++  CardTitle,
++} from "@/components/ui/card"
++
++const plan = {
++  name: "Growth",
++  price: "$49 / month",
++  renewalDate: "Renews July 12, 2026",
++}
++
++const paymentMethod = {
++  brand: "Visa",
++  last4: "4242",
++  expires: "Expires 09/28",
++}
++
++const invoices = [
++  { id: "INV-1048", date: "June 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1031", date: "May 12, 2026", amount: "$49.00", status: "Paid" },
++  { id: "INV-1014", date: "April 12, 2026", amount: "$49.00", status: "Paid" },
+ ]
+ 
+ export default function HomePage() {
+   return (
+-    <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+-      <section className="flex flex-col items-center gap-6 text-center">
+-        <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+-        <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">
+-          Ship interfaces that never drift off-theme
+-        </h1>
+-        <p className="max-w-xl text-lg text-muted-foreground">
+-          A marketing fixture built entirely from shadcn-style components and a custom brand token,
+-          used to exercise Snapline theme checks.
++    <main className="mx-auto flex min-h-screen max-w-6xl flex-col gap-8 px-6 py-10">
++      <section className="flex flex-col gap-2">
++        <Badge className="w-fit bg-secondary text-secondary-foreground">
++          Trial expires in 3 days
++        </Badge>
++        <h1 className="text-3xl font-bold text-foreground">Billing settings</h1>
++        <p className="max-w-2xl text-sm text-muted-foreground">
++          Manage your subscription, payment method, and billing history.
+         </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
+-        </div>
+       </section>
+ 
+-      <section className="grid gap-6 sm:grid-cols-3">
+-        {features.map((feature) => (
+-          <Card key={feature.title}>
+-            <CardHeader>
+-              <CardTitle>{feature.title}</CardTitle>
+-            </CardHeader>
+-            <CardContent>
+-              <CardDescription>{feature.description}</CardDescription>
+-            </CardContent>
+-          </Card>
+-        ))}
++      <section className="rounded-xl border border-border bg-secondary p-4 text-secondary-foreground">
++        Your trial ends on July 8, 2026. Add a payment method or confirm your current card to keep
++        the workspace active.
+       </section>
++
++      <section className="grid gap-6 lg:grid-cols-3">
++        <Card>
++          <CardHeader>
++            <CardTitle>Current plan</CardTitle>
++            <CardDescription>{plan.renewalDate}</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div>
++              <p className="text-sm text-muted-foreground">Plan</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.name}</p>
++            </div>
++            <div>
++              <p className="text-sm text-muted-foreground">Price</p>
++              <p className="text-2xl font-semibold text-card-foreground">{plan.price}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button variant="destructive" className="w-full">
++              Cancel subscription
++            </Button>
++          </CardFooter>
++        </Card>
++
++        <Card>
++          <CardHeader>
++            <CardTitle>Payment method</CardTitle>
++            <CardDescription>Card used for future renewals.</CardDescription>
++          </CardHeader>
++          <CardContent className="space-y-4">
++            <div className="rounded-lg border border-border bg-background p-4">
++              <p className="font-medium text-foreground">
++                {paymentMethod.brand} ending in {paymentMethod.last4}
++              </p>
++              <p className="text-sm text-muted-foreground">{paymentMethod.expires}</p>
++            </div>
++          </CardContent>
++          <CardFooter>
++            <Button className="w-full">Update card</Button>
++          </CardFooter>
++        </Card>
++
++        <Card className="lg:col-span-1">
++          <CardHeader>
++            <CardTitle>Billing contact</CardTitle>
++            <CardDescription>Receipts are sent to this address.</CardDescription>
++          </CardHeader>
++          <CardContent>
++            <p className="font-medium text-card-foreground">billing@snapline.test</p>
++            <p className="text-sm text-muted-foreground">Workspace owner</p>
++          </CardContent>
++        </Card>
++      </section>
++
++      <Card>
++        <CardHeader>
++          <CardTitle>Invoices</CardTitle>
++          <CardDescription>Recent charges and downloadable receipts.</CardDescription>
++        </CardHeader>
++        <CardContent>
++          <div className="overflow-hidden rounded-lg border border-border">
++            {invoices.map((invoice) => (
++              <div
++                key={invoice.id}
++                className="grid gap-3 border-b border-border bg-card p-4 last:border-b-0 sm:grid-cols-4 sm:items-center"
++              >
++                <div>
++                  <p className="font-medium text-card-foreground">{invoice.id}</p>
++                  <p className="text-sm text-muted-foreground">{invoice.date}</p>
++                </div>
++                <p className="text-sm text-muted-foreground sm:text-center">{invoice.status}</p>
++                <p className="font-medium text-card-foreground sm:text-center">{invoice.amount}</p>
++                <a
++                  href={`/invoices/${invoice.id}.pdf`}
++                  download
++                  className="text-sm font-medium text-foreground underline-offset-4 hover:underline sm:text-right"
++                >
++                  Download
++                </a>
++              </div>
++            ))}
++          </div>
++        </CardContent>
++      </Card>
+     </main>
+   )
+ }

@@ -1,0 +1,37 @@
+{
+  "id": "codex-raw--pricing-cards-polish--3",
+  "timestamp": "2026-07-05T06:52:12.662Z",
+  "mode": "codex-raw",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "pricing-cards-polish",
+  "attempt": 3,
+  "model": "gpt-5.5",
+  "agent": "codex",
+  "result": {
+    "score": {
+      "driftScore": 96,
+      "totalViolations": 16,
+      "errorViolations": 8,
+      "warningViolations": 8,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 8,
+      "rawPaletteClasses": 8,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 221,
+    "filesTouched": 1
+  },
+  "rawOutputPaths": [
+    "runs-codex/codex-raw--pricing-cards-polish--3/agent-stdout.txt",
+    "runs-codex/codex-raw--pricing-cards-polish--3/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs-codex/codex-raw--pricing-cards-polish--3/scanner.json",
+  "gitDiffPath": "runs-codex/codex-raw--pricing-cards-polish--3/diff.patch"
+}

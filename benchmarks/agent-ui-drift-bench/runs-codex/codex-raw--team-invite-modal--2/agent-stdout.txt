@@ -1,0 +1,5 @@
+Implemented the team invite flow in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--team-invite-modal--2/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx).
+
+It now has a team page, `Invite member` modal, comma-separated multi-email input, Admin/Member role choices with descriptions, optional message, remaining-seat count, over-limit disabled submit, and a success state after sending.
+
+Verification: `npm run typecheck` passes. Skipped custom select/API wiring; add those when this fixture has a real backend or select primitive.

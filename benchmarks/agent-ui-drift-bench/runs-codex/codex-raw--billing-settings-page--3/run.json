@@ -1,0 +1,37 @@
+{
+  "id": "codex-raw--billing-settings-page--3",
+  "timestamp": "2026-07-05T08:39:03.574Z",
+  "mode": "codex-raw",
+  "fixture": "next-shadcn-custom-theme",
+  "promptId": "billing-settings-page",
+  "attempt": 3,
+  "model": "gpt-5.5",
+  "agent": "codex",
+  "result": {
+    "score": {
+      "driftScore": 16,
+      "totalViolations": 2,
+      "errorViolations": 2,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 2,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 169,
+    "filesTouched": 1
+  },
+  "rawOutputPaths": [
+    "runs-codex/codex-raw--billing-settings-page--3/agent-stdout.txt",
+    "runs-codex/codex-raw--billing-settings-page--3/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs-codex/codex-raw--billing-settings-page--3/scanner.json",
+  "gitDiffPath": "runs-codex/codex-raw--billing-settings-page--3/diff.patch"
+}

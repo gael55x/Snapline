@@ -1,0 +1,2402 @@
+Reading additional input from stdin...
+OpenAI Codex v0.142.5
+--------
+workdir: /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019f3173-9c44-75b3-82d9-4f454ab2fb94
+--------
+user
+Create a login page with email and password fields, a "Remember me" checkbox, and a "Forgot password?" link. Add buttons for signing in with Google and GitHub above the form, separated by an "or continue with email" divider. Show inline validation errors and a loading state on the submit button. At the bottom, link to the sign-up page for new users.
+2026-07-05T08:44:49.075250Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T08:44:49.080556Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T08:44:50.732640Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T08:44:50.753057Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:44:50.753078Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:44:50.753676Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:44:50.753685Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:44:50.754199Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:44:50.754212Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:44:50.754797Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:44:50.754806Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:44:50.755254Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:44:50.755267Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:44:50.756396Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:44:50.756405Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+hook: SessionStart
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+2026-07-05T08:44:52.729460Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+I’m using the ponytail skill because this is a coding task; I’ll keep the implementation small and reuse the app’s existing patterns. First I’m doing the required read-only pass so the UI lands in the right file with minimal churn.
+2026-07-05T08:45:04.648935Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.skill.injected] failed: tag value contains invalid characters: ponytail:ponytail
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/gailleamolong/.codex/plugins/cache/ponytail/ponytail/4.8.4/skills/ponytail/SKILL.md" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+---
+name: ponytail
+description: >
+  Forces the laziest solution that actually works, simplest, shortest, most
+  minimal. Channels a senior dev who has seen everything: question whether the
+  task needs to exist at all (YAGNI), reach for the standard library before
+  custom code, native platform features before dependencies, one line before
+  fifty. Supports intensity levels: lite, full (default), ultra. Use on ANY
+  coding task: writing, adding, refactoring, fixing, reviewing, or designing
+  code, and choosing libraries or dependencies. Also use whenever the user
+  says "ponytail", "be lazy", "lazy mode", "simplest solution", "minimal
+  solution", "yagni", "do less", or "shortest path", or complains about
+  over-engineering, bloat, boilerplate, or unnecessary dependencies. Do NOT
+  use for non-coding requests (general knowledge, prose, translation,
+  summaries, recipes).
+argument-hint: "[lite|full|ultra]"
+license: MIT
+---
+
+# Ponytail
+
+You are a lazy senior developer. Lazy means efficient, not careless. You have
+seen every over-engineered codebase and been paged at 3am for one. The best
+code is the code never written.
+
+## Persistence
+
+ACTIVE EVERY RESPONSE. No drift back to over-building. Still active if
+unsure. Off only: "stop ponytail" / "normal mode". Default: **full**.
+Switch: `/ponytail lite|full|ultra`.
+
+## The ladder
+
+Stop at the first rung that holds:
+
+1. **Does this need to exist at all?** Speculative need = skip it, say so in one line. (YAGNI)
+2. **Already in this codebase?** A helper, util, type, or pattern that already lives here → reuse it. Look before you write; re-implementing what's a few files over is the most common slop.
+3. **Stdlib does it?** Use it.
+4. **Native platform feature covers it?** `<input type="date">` over a picker lib, CSS over JS, DB constraint over app code.
+5. **Already-installed dependency solves it?** Use it. Never add a new one for what a few lines can do.
+6. **Can it be one line?** One line.
+7. **Only then:** the minimum code that works.
+
+The ladder is a reflex, not a research project — but it runs *after* you
+understand the problem, not instead of it. Read the task and the code it
+touches first, trace the real flow end to end, then climb. Two rungs work →
+take the higher one and move on. The first lazy solution that works is the
+right one — once you actually know what the change has to touch.
+
+**Bug fix = root cause, not symptom.** A report names a symptom. Before you
+edit, grep every caller of the function you're about to touch. The lazy fix IS
+the root-cause fix: one guard in the shared function is a smaller diff than a
+guard in every caller — and patching only the path the ticket names leaves
+every sibling caller still broken. Fix it once, where all callers route through.
+
+## Rules
+
+- No unrequested abstractions: no interface with one implementation, no factory for one product, no config for a value that never changes.
+- No boilerplate, no scaffolding "for later", later can scaffold for itself.
+- Deletion over addition. Boring over clever, clever is what someone decodes at 3am.
+- Fewest files possible. Shortest working diff wins — but only once you understand the problem. The smallest change in the wrong place isn't lazy, it's a second bug.
+- Complex request? Ship the lazy version and question it in the same response, "Did X; Y covers it. Need full X? Say so." Never stall on an answer you can default.
+- Two stdlib options, same size? Take the one that's correct on edge cases. Lazy means writing less code, not picking the flimsier algorithm.
+- Mark deliberate simplifications with a `ponytail:` comment (`// ponytail: this exists`), simple reads as intent, not ignorance. Shortcut with a known ceiling (global lock, O(n²) scan, naive heuristic)? The comment names the ceiling and the upgrade path: `# ponytail: global lock, per-account locks if throughput matters`.
+
+## Output
+
+Code first. Then at most three short lines: what was skipped, when to add it.
+No essays, no feature tours, no design notes. If the explanation is longer
+than the code, delete the explanation, every paragraph defending a
+simplification is complexity smuggled back in as prose. Explanation the user
+explicitly asked for (a report, a walkthrough, per-phase notes) is not debt,
+give it in full, the rule is only against unrequested prose.
+
+Pattern: `[code] → skipped: [X], add when [Y].`
+
+## Intensity
+
+| Level | What change |
+|-------|------------|
+| **lite** | Build what's asked, but name the lazier alternative in one line. User picks. |
+| **full** | The ladder enforced. Stdlib and native first. Shortest diff, shortest explanation. Default. |
+| **ultra** | YAGNI extremist. Deletion before addition. Ship the one-liner and challenge the rest of the requirement in the same breath. |
+
+Example: "Add a cache for these API responses."
+- lite: "Done, cache added. FYI: `functools.lru_cache` covers this in one line if you'd rather not own a cache class."
+- full: "`@lru_cache(maxsize=1000)` on the fetch function. Skipped custom cache class, add when lru_cache measurably falls short."
+- ultra: "No cache until a profiler says so. When it does: `@lru_cache`. A hand-rolled TTL cache class is a bug farm with a hit rate."
+
+## When NOT to be lazy
+
+Never simplify away: input validation at trust boundaries, error handling
+that prevents data loss, security measures, accessibility basics, anything
+explicitly requested. User insists on the full version → build it, no
+re-arguing.
+
+Never lazy about understanding the problem. The ladder shortens the
+solution, never the reading. Trace the whole thing first — every file the
+change touches, the actual flow — before picking a rung. Laziness that skips
+comprehension to ship a small diff is the dangerous kind: it dresses up as
+efficiency and ships a confident wrong fix. Read fully, then be lazy.
+
+Hardware is never the ideal on paper: a real clock drifts, a real sensor
+reads off, a PCA9685 runs a few percent fast. Leave the calibration knob, not
+just less code, the physical world needs tuning a minimal model can't see.
+
+Lazy code without its check is unfinished. Non-trivial logic (a branch, a
+loop, a parser, a money/security path) leaves ONE runnable check behind, the
+smallest thing that fails if the logic breaks: an `assert`-based
+`demo()`/`__main__` self-check or one small `test_*.py`. No frameworks, no
+fixtures, no per-function suites unless asked. Trivial one-liners need no
+test, YAGNI applies to tests too.
+
+## Boundaries
+
+Ponytail governs what you build, not how you talk (pair with Caveman for
+terse prose). "stop ponytail" / "normal mode": revert. Level persists until
+changed or session end.
+
+The shortest path to done is the right path.
+
+2026-07-05T08:45:04.750174Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+I’ve confirmed the ponytail rules. Now I’m checking the app shape, installed UI pieces, and whether there is already a page/form pattern to reuse.
+exec
+/bin/zsh -lc "pwd && rg --files -g '"'!node_modules'"' -g '"'!dist'"' -g '"'!*lock*'"'" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+src/lib/utils.ts
+src/components/ui/input.tsx
+src/components/ui/textarea.tsx
+src/components/ui/select.tsx
+src/components/ui/button.tsx
+src/components/ui/table.tsx
+src/components/ui/badge.tsx
+src/components/ui/dialog.tsx
+src/components/ui/card.tsx
+src/app/login/page.tsx
+src/app/globals.css
+src/app/page.tsx
+src/app/layout.tsx
+src/globals.d.ts
+tsconfig.json
+components.json
+package.json
+tailwind.config.ts
+
+exec
+/bin/zsh -lc "sed -n '1,220p' package.json" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+{
+  "name": "fixture-next-shadcn-basic",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.6.3"
+  }
+}
+
+exec
+/bin/zsh -lc "find . -maxdepth 3 -type f \\( -name 'AGENTS.md' -o -name 'components.json' -o -name 'tailwind.config.*' -o -name 'globals.css' -o -name 'page.*' -o -name 'layout.*' \\) -print" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+./tailwind.config.ts
+./components.json
+./src/app/layout.tsx
+./src/app/page.tsx
+./src/app/globals.css
+
+2026-07-05T08:45:13.916498Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+This fixture is very small: a Next app with hand-rolled shadcn-style primitives and an existing `src/app/login/page.tsx`. I’m reading that page and the available controls before touching anything.
+exec
+/bin/zsh -lc "sed -n '1,240p' src/app/login/page.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+exec
+/bin/zsh -lc "sed -n '1,220p' src/app/page.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+
+export default function LoginPage() {
+  return (
+    <main className="flex min-h-screen items-center justify-center p-6">
+      <Card className="w-full max-w-sm">
+        <CardHeader>
+          <CardTitle>Sign in</CardTitle>
+          <CardDescription>Enter your email below to sign in to your account.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
+              <label htmlFor="email" className="text-sm font-medium text-foreground">
+                Email
+              </label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                autoComplete="email"
+                required
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="password" className="text-sm font-medium text-foreground">
+                Password
+              </label>
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                required
+              />
+            </div>
+          </form>
+        </CardContent>
+        <CardFooter className="flex-col gap-2">
+          <Button className="w-full">Sign in</Button>
+          <Button variant="ghost" className="w-full">
+            Forgot password?
+          </Button>
+        </CardFooter>
+      </Card>
+    </main>
+  )
+}
+
+ succeeded in 0ms:
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+export default function HomePage() {
+  return (
+    <main className="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-center gap-6 p-6">
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle>Welcome back</CardTitle>
+          <CardDescription>A minimal fixture app used to exercise Snapline checks.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Everything on this page is composed from shadcn-style components and semantic Tailwind
+            tokens.
+          </p>
+        </CardContent>
+        <CardFooter className="gap-2">
+          <Button>Get started</Button>
+          <Button variant="outline">Learn more</Button>
+        </CardFooter>
+      </Card>
+    </main>
+  )
+}
+
+exec
+/bin/zsh -lc "sed -n '1,260p' src/app/globals.css" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/ui/card.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        "rounded-xl border border-border bg-card text-card-foreground shadow",
+        className,
+      )}
+      {...props}
+    />
+  ),
+)
+Card.displayName = "Card"
+
+const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+  ),
+)
+CardHeader.displayName = "CardHeader"
+
+const CardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn("font-semibold leading-none tracking-tight", className)}
+      {...props}
+    />
+  ),
+)
+CardTitle.displayName = "CardTitle"
+
+const CardDescription = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />
+  ),
+)
+CardDescription.displayName = "CardDescription"
+
+const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+  ),
+)
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("flex items-center p-6 pt-0", className)} {...props} />
+  ),
+)
+CardFooter.displayName = "CardFooter"
+
+export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/ui/button.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = {
+  variant: {
+    default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+    destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+    outline: "border border-border bg-background shadow-sm hover:bg-muted hover:text-foreground",
+    secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+    ghost: "hover:bg-muted hover:text-foreground",
+    link: "text-primary underline-offset-4 hover:underline",
+  },
+  size: {
+    default: "h-9 px-4 py-2",
+    sm: "h-8 rounded-md px-3 text-xs",
+    lg: "h-10 rounded-md px-8",
+    icon: "h-9 w-9",
+  },
+} as const
+
+export type ButtonVariant = keyof typeof buttonVariants.variant
+export type ButtonSize = keyof typeof buttonVariants.size
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant
+  size?: ButtonSize
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = "default", size = "default", ...props }, ref) => {
+    return (
+      <button
+        className={cn(
+          "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50",
+          buttonVariants.variant[variant],
+          buttonVariants.size[size],
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
+  },
+)
+Button.displayName = "Button"
+
+export { Button, buttonVariants }
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/ui/input.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement>
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, ...props }, ref) => {
+    return (
+      <input
+        type={type}
+        className={cn(
+          "flex h-9 w-full rounded-md border border-border bg-background px-3 py-1 text-sm text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50",
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
+  },
+)
+Input.displayName = "Input"
+
+export { Input }
+
+2026-07-05T08:45:27.841656Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+exec
+/bin/zsh -lc "sed -n '1,220p' tsconfig.json" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+exec
+/bin/zsh -lc "sed -n '1,220p' src/app/layout.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+{
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "noEmit": true,
+    "lib": ["ES2022", "DOM"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}
+
+exec
+/bin/zsh -lc "sed -n '1,220p' tailwind.config.ts" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+import * as React from "react"
+
+import "./globals.css"
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+        {children}
+      </body>
+    </html>
+  )
+}
+
+ succeeded in 0ms:
+const config = {
+  darkMode: ["class"],
+  content: ["./src/**/*.{ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+      },
+    },
+  },
+}
+
+export default config
+
+exec
+/bin/zsh -lc 'git status --short' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+2026-07-05T08:45:44.671593Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+Current-state understanding:
+- Login already exists at `src/app/login/page.tsx`.
+- Available primitives are `Button`, `Card`, and `Input`; no checkbox or auth/icon components are installed.
+- There is no backend/auth action, so the submit loading state has to be local fixture behavior.
+
+Ambiguities / assumptions:
+- `/signup` and `/forgot-password` can be plain links; no route creation was requested.
+- Social auth buttons are visual-only buttons because no auth provider wiring exists.
+- Inline validation means custom client-side messages near the fields, not browser-native tooltips.
+
+Success criteria:
+- Email/password fields, remember checkbox, forgot-password link, social buttons, divider, submit loading state, inline errors, and sign-up link are all visible on `/login`.
+- Invalid submit shows field-level errors without leaving the page.
+- Valid submit disables the submit button and shows a loading label.
+- Existing shadcn-style primitives and Tailwind tokens are reused.
+
+Main risks / likely failure modes:
+- Accidentally placing the submit button outside the form.
+- Using fake auth behavior that looks like a real integration.
+- TypeScript strictness around form event handling.
+
+Multiple-perspective review:
+- Domain correctness: this is a login UI only; no auth claims.
+- Architecture/modularity: keep it in the page; extracting components here would be ceremony.
+- Production risk: low, but local validation must not be treated as security.
+- Regression risk: limited to `/login`.
+- Testability: `npm run typecheck` is the useful check in this fixture.
+- Developer experience: simple state and explicit errors beat adding form libraries.
+- Security/data safety: no credential transmission is added.
+- Performance/resource usage: negligible.
+
+Proposed approach:
+- Convert `src/app/login/page.tsx` to a tiny client component.
+- Add a small local validator and local loading state.
+- Use native checkbox markup instead of adding a UI component.
+
+Files likely affected:
+- `src/app/login/page.tsx`
+
+Test plan:
+- Run `npm run typecheck`.
+
+Rollback/safety plan:
+- One-file change; revert `src/app/login/page.tsx` if needed.
+codex
+I’m making the one-file change now: client state for validation/loading, native checkbox markup, and the requested auth/link layout using the existing primitives.
+apply patch
+patch: completed
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic/src/app/login/page.tsx
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff615271f5aee0dc719e83a8109979aaa2c..7a1224d5609f3ff976293d3ce7a6084251f1fd1c
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,24 +1,83 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+   CardContent,
+   CardDescription,
+-  CardFooter,
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
+ import { Input } from "@/components/ui/input"
+ 
++type Errors = {
++  email?: string
++  password?: string
++}
++
++function validateLogin(formData: FormData) {
++  const email = String(formData.get("email") ?? "").trim()
++  const password = String(formData.get("password") ?? "")
++  const errors: Errors = {}
++
++  if (!email) {
++    errors.email = "Email is required."
++  } else if (!/^\S+@\S+\.\S+$/.test(email)) {
++    errors.email = "Enter a valid email address."
++  }
++
++  if (!password) {
++    errors.password = "Password is required."
++  }
++
++  return errors
++}
++
+ export default function LoginPage() {
++  const [errors, setErrors] = React.useState<Errors>({})
++  const [isLoading, setIsLoading] = React.useState(false)
++
++  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++
++    const nextErrors = validateLogin(new FormData(event.currentTarget))
++    setErrors(nextErrors)
++
++    if (Object.keys(nextErrors).length) {
++      return
++    }
++
++    setIsLoading(true)
++    // ponytail: fixture has no auth endpoint; replace this with the real submit when it exists.
++    window.setTimeout(() => setIsLoading(false), 800)
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+         <CardHeader>
+           <CardTitle>Sign in</CardTitle>
+-          <CardDescription>Enter your email below to sign in to your account.</CardDescription>
++          <CardDescription>Choose a provider or continue with your email.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="space-y-6">
++          <div className="grid gap-3">
++            <Button type="button" variant="outline" className="w-full">
++              Continue with Google
++            </Button>
++            <Button type="button" variant="outline" className="w-full">
++              Continue with GitHub
++            </Button>
++          </div>
++
++          <div className="flex items-center gap-3 text-xs text-muted-foreground">
++            <div className="h-px flex-1 bg-border" />
++            <span>or continue with email</span>
++            <div className="h-px flex-1 bg-border" />
++          </div>
++
++          <form className="flex flex-col gap-4" noValidate onSubmit={handleSubmit}>
+             <div className="flex flex-col gap-2">
+               <label htmlFor="email" className="text-sm font-medium text-foreground">
+                 Email
+@@ -29,29 +88,67 @@
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                aria-describedby={errors.email ? "email-error" : undefined}
++                aria-invalid={Boolean(errors.email)}
+               />
++              {errors.email ? (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
++
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <div className="flex items-center justify-between gap-4">
++                <label htmlFor="password" className="text-sm font-medium text-foreground">
++                  Password
++                </label>
++                <a
++                  href="/forgot-password"
++                  className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
++                >
++                  Forgot password?
++                </a>
++              </div>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                aria-describedby={errors.password ? "password-error" : undefined}
++                aria-invalid={Boolean(errors.password)}
+               />
++              {errors.password ? (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
+             </div>
++
++            <label className="flex items-center gap-2 text-sm text-muted-foreground">
++              <input
++                name="remember"
++                type="checkbox"
++                className="h-4 w-4 rounded border-border text-primary"
++              />
++              Remember me
++            </label>
++
++            <Button type="submit" className="w-full" disabled={isLoading}>
++              {isLoading ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
++
++          <p className="text-center text-sm text-muted-foreground">
++            New here?{" "}
++            <a
++              href="/signup"
++              className="font-medium text-foreground underline-offset-4 hover:underline"
++            >
++              Create an account
++            </a>
++          </p>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
+-        </CardFooter>
+       </Card>
+     </main>
+   )
+
+2026-07-05T08:46:30.379234Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff615271f5aee0dc719e83a8109979aaa2c..7a1224d5609f3ff976293d3ce7a6084251f1fd1c
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,24 +1,83 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+   CardContent,
+   CardDescription,
+-  CardFooter,
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
+ import { Input } from "@/components/ui/input"
+ 
++type Errors = {
++  email?: string
++  password?: string
++}
++
++function validateLogin(formData: FormData) {
++  const email = String(formData.get("email") ?? "").trim()
++  const password = String(formData.get("password") ?? "")
++  const errors: Errors = {}
++
++  if (!email) {
++    errors.email = "Email is required."
++  } else if (!/^\S+@\S+\.\S+$/.test(email)) {
++    errors.email = "Enter a valid email address."
++  }
++
++  if (!password) {
++    errors.password = "Password is required."
++  }
++
++  return errors
++}
++
+ export default function LoginPage() {
++  const [errors, setErrors] = React.useState<Errors>({})
++  const [isLoading, setIsLoading] = React.useState(false)
++
++  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++
++    const nextErrors = validateLogin(new FormData(event.currentTarget))
++    setErrors(nextErrors)
++
++    if (Object.keys(nextErrors).length) {
++      return
++    }
++
++    setIsLoading(true)
++    // ponytail: fixture has no auth endpoint; replace this with the real submit when it exists.
++    window.setTimeout(() => setIsLoading(false), 800)
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+         <CardHeader>
+           <CardTitle>Sign in</CardTitle>
+-          <CardDescription>Enter your email below to sign in to your account.</CardDescription>
++          <CardDescription>Choose a provider or continue with your email.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="space-y-6">
++          <div className="grid gap-3">
++            <Button type="button" variant="outline" className="w-full">
++              Continue with Google
++            </Button>
++            <Button type="button" variant="outline" className="w-full">
++              Continue with GitHub
++            </Button>
++          </div>
++
++          <div className="flex items-center gap-3 text-xs text-muted-foreground">
++            <div className="h-px flex-1 bg-border" />
++            <span>or continue with email</span>
++            <div className="h-px flex-1 bg-border" />
++          </div>
++
++          <form className="flex flex-col gap-4" noValidate onSubmit={handleSubmit}>
+             <div className="flex flex-col gap-2">
+               <label htmlFor="email" className="text-sm font-medium text-foreground">
+                 Email
+@@ -29,29 +88,67 @@
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                aria-describedby={errors.email ? "email-error" : undefined}
++                aria-invalid={Boolean(errors.email)}
+               />
++              {errors.email ? (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
++
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <div className="flex items-center justify-between gap-4">
++                <label htmlFor="password" className="text-sm font-medium text-foreground">
++                  Password
++                </label>
++                <a
++                  href="/forgot-password"
++                  className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
++                >
++                  Forgot password?
++                </a>
++              </div>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                aria-describedby={errors.password ? "password-error" : undefined}
++                aria-invalid={Boolean(errors.password)}
+               />
++              {errors.password ? (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
+             </div>
++
++            <label className="flex items-center gap-2 text-sm text-muted-foreground">
++              <input
++                name="remember"
++                type="checkbox"
++                className="h-4 w-4 rounded border-border text-primary"
++              />
++              Remember me
++            </label>
++
++            <Button type="submit" className="w-full" disabled={isLoading}>
++              {isLoading ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
++
++          <p className="text-center text-sm text-muted-foreground">
++            New here?{" "}
++            <a
++              href="/signup"
++              className="font-medium text-foreground underline-offset-4 hover:underline"
++            >
++              Create an account
++            </a>
++          </p>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
+-        </CardFooter>
+       </Card>
+     </main>
+   )
+
+codex
+The page is patched. I’m running the fixture’s typecheck and reading the final file once to catch basic JSX/TypeScript mistakes.
+exec
+/bin/zsh -lc "sed -n '1,260p' src/app/login/page.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+"use client"
+
+import * as React from "react"
+
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+
+type Errors = {
+  email?: string
+  password?: string
+}
+
+function validateLogin(formData: FormData) {
+  const email = String(formData.get("email") ?? "").trim()
+  const password = String(formData.get("password") ?? "")
+  const errors: Errors = {}
+
+  if (!email) {
+    errors.email = "Email is required."
+  } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+    errors.email = "Enter a valid email address."
+  }
+
+  if (!password) {
+    errors.password = "Password is required."
+  }
+
+  return errors
+}
+
+export default function LoginPage() {
+  const [errors, setErrors] = React.useState<Errors>({})
+  const [isLoading, setIsLoading] = React.useState(false)
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
+    const nextErrors = validateLogin(new FormData(event.currentTarget))
+    setErrors(nextErrors)
+
+    if (Object.keys(nextErrors).length) {
+      return
+    }
+
+    setIsLoading(true)
+    // ponytail: fixture has no auth endpoint; replace this with the real submit when it exists.
+    window.setTimeout(() => setIsLoading(false), 800)
+  }
+
+  return (
+    <main className="flex min-h-screen items-center justify-center p-6">
+      <Card className="w-full max-w-sm">
+        <CardHeader>
+          <CardTitle>Sign in</CardTitle>
+          <CardDescription>Choose a provider or continue with your email.</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          <div className="grid gap-3">
+            <Button type="button" variant="outline" className="w-full">
+              Continue with Google
+            </Button>
+            <Button type="button" variant="outline" className="w-full">
+              Continue with GitHub
+            </Button>
+          </div>
+
+          <div className="flex items-center gap-3 text-xs text-muted-foreground">
+            <div className="h-px flex-1 bg-border" />
+            <span>or continue with email</span>
+            <div className="h-px flex-1 bg-border" />
+          </div>
+
+          <form className="flex flex-col gap-4" noValidate onSubmit={handleSubmit}>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="email" className="text-sm font-medium text-foreground">
+                Email
+              </label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                autoComplete="email"
+                aria-describedby={errors.email ? "email-error" : undefined}
+                aria-invalid={Boolean(errors.email)}
+              />
+              {errors.email ? (
+                <p id="email-error" className="text-sm text-destructive">
+                  {errors.email}
+                </p>
+              ) : null}
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center justify-between gap-4">
+                <label htmlFor="password" className="text-sm font-medium text-foreground">
+                  Password
+                </label>
+                <a
+                  href="/forgot-password"
+                  className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
+                >
+                  Forgot password?
+                </a>
+              </div>
+              <Input
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                aria-describedby={errors.password ? "password-error" : undefined}
+                aria-invalid={Boolean(errors.password)}
+              />
+              {errors.password ? (
+                <p id="password-error" className="text-sm text-destructive">
+                  {errors.password}
+                </p>
+              ) : null}
+            </div>
+
+            <label className="flex items-center gap-2 text-sm text-muted-foreground">
+              <input
+                name="remember"
+                type="checkbox"
+                className="h-4 w-4 rounded border-border text-primary"
+              />
+              Remember me
+            </label>
+
+            <Button type="submit" className="w-full" disabled={isLoading}>
+              {isLoading ? "Signing in..." : "Sign in"}
+            </Button>
+          </form>
+
+          <p className="text-center text-sm text-muted-foreground">
+            New here?{" "}
+            <a
+              href="/signup"
+              className="font-medium text-foreground underline-offset-4 hover:underline"
+            >
+              Create an account
+            </a>
+          </p>
+        </CardContent>
+      </Card>
+    </main>
+  )
+}
+
+exec
+/bin/zsh -lc 'npm run typecheck' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+2026-07-05T08:46:42.488643Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff615271f5aee0dc719e83a8109979aaa2c..7a1224d5609f3ff976293d3ce7a6084251f1fd1c
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,24 +1,83 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+   CardContent,
+   CardDescription,
+-  CardFooter,
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
+ import { Input } from "@/components/ui/input"
+ 
++type Errors = {
++  email?: string
++  password?: string
++}
++
++function validateLogin(formData: FormData) {
++  const email = String(formData.get("email") ?? "").trim()
++  const password = String(formData.get("password") ?? "")
++  const errors: Errors = {}
++
++  if (!email) {
++    errors.email = "Email is required."
++  } else if (!/^\S+@\S+\.\S+$/.test(email)) {
++    errors.email = "Enter a valid email address."
++  }
++
++  if (!password) {
++    errors.password = "Password is required."
++  }
++
++  return errors
++}
++
+ export default function LoginPage() {
++  const [errors, setErrors] = React.useState<Errors>({})
++  const [isLoading, setIsLoading] = React.useState(false)
++
++  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++
++    const nextErrors = validateLogin(new FormData(event.currentTarget))
++    setErrors(nextErrors)
++
++    if (Object.keys(nextErrors).length) {
++      return
++    }
++
++    setIsLoading(true)
++    // ponytail: fixture has no auth endpoint; replace this with the real submit when it exists.
++    window.setTimeout(() => setIsLoading(false), 800)
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+         <CardHeader>
+           <CardTitle>Sign in</CardTitle>
+-          <CardDescription>Enter your email below to sign in to your account.</CardDescription>
++          <CardDescription>Choose a provider or continue with your email.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="space-y-6">
++          <div className="grid gap-3">
++            <Button type="button" variant="outline" className="w-full">
++              Continue with Google
++            </Button>
++            <Button type="button" variant="outline" className="w-full">
++              Continue with GitHub
++            </Button>
++          </div>
++
++          <div className="flex items-center gap-3 text-xs text-muted-foreground">
++            <div className="h-px flex-1 bg-border" />
++            <span>or continue with email</span>
++            <div className="h-px flex-1 bg-border" />
++          </div>
++
++          <form className="flex flex-col gap-4" noValidate onSubmit={handleSubmit}>
+             <div className="flex flex-col gap-2">
+               <label htmlFor="email" className="text-sm font-medium text-foreground">
+                 Email
+@@ -29,29 +88,67 @@
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                aria-describedby={errors.email ? "email-error" : undefined}
++                aria-invalid={Boolean(errors.email)}
+               />
++              {errors.email ? (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
++
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <div className="flex items-center justify-between gap-4">
++                <label htmlFor="password" className="text-sm font-medium text-foreground">
++                  Password
++                </label>
++                <a
++                  href="/forgot-password"
++                  className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
++                >
++                  Forgot password?
++                </a>
++              </div>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                aria-describedby={errors.password ? "password-error" : undefined}
++                aria-invalid={Boolean(errors.password)}
+               />
++              {errors.password ? (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
+             </div>
++
++            <label className="flex items-center gap-2 text-sm text-muted-foreground">
++              <input
++                name="remember"
++                type="checkbox"
++                className="h-4 w-4 rounded border-border text-primary"
++              />
++              Remember me
++            </label>
++
++            <Button type="submit" className="w-full" disabled={isLoading}>
++              {isLoading ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
++
++          <p className="text-center text-sm text-muted-foreground">
++            New here?{" "}
++            <a
++              href="/signup"
++              className="font-medium text-foreground underline-offset-4 hover:underline"
++            >
++              Create an account
++            </a>
++          </p>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
+-        </CardFooter>
+       </Card>
+     </main>
+   )
+
+ succeeded in 3966ms:
+npm warn Unknown env config "recursive". This will stop working in the next major version of npm.
+
+> fixture-next-shadcn-basic@0.0.0 typecheck
+> tsc --noEmit
+
+
+codex
+Typecheck passes. I’m checking the final diff so the close-out can be precise and I can confirm no unrelated files moved.
+exec
+/bin/zsh -lc 'git diff -- src/app/login/page.tsx' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff..7a1224d 100644
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,24 +1,83 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+   CardContent,
+   CardDescription,
+-  CardFooter,
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
+ import { Input } from "@/components/ui/input"
+ 
++type Errors = {
++  email?: string
++  password?: string
++}
++
++function validateLogin(formData: FormData) {
++  const email = String(formData.get("email") ?? "").trim()
++  const password = String(formData.get("password") ?? "")
++  const errors: Errors = {}
++
++  if (!email) {
++    errors.email = "Email is required."
++  } else if (!/^\S+@\S+\.\S+$/.test(email)) {
++    errors.email = "Enter a valid email address."
++  }
++
++  if (!password) {
++    errors.password = "Password is required."
++  }
++
++  return errors
++}
++
+ export default function LoginPage() {
++  const [errors, setErrors] = React.useState<Errors>({})
++  const [isLoading, setIsLoading] = React.useState(false)
++
++  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++
++    const nextErrors = validateLogin(new FormData(event.currentTarget))
++    setErrors(nextErrors)
++
++    if (Object.keys(nextErrors).length) {
++      return
++    }
++
++    setIsLoading(true)
++    // ponytail: fixture has no auth endpoint; replace this with the real submit when it exists.
++    window.setTimeout(() => setIsLoading(false), 800)
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+         <CardHeader>
+           <CardTitle>Sign in</CardTitle>
+-          <CardDescription>Enter your email below to sign in to your account.</CardDescription>
++          <CardDescription>Choose a provider or continue with your email.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="space-y-6">
++          <div className="grid gap-3">
++            <Button type="button" variant="outline" className="w-full">
++              Continue with Google
++            </Button>
++            <Button type="button" variant="outline" className="w-full">
++              Continue with GitHub
++            </Button>
++          </div>
++
++          <div className="flex items-center gap-3 text-xs text-muted-foreground">
++            <div className="h-px flex-1 bg-border" />
++            <span>or continue with email</span>
++            <div className="h-px flex-1 bg-border" />
++          </div>
++
++          <form className="flex flex-col gap-4" noValidate onSubmit={handleSubmit}>
+             <div className="flex flex-col gap-2">
+               <label htmlFor="email" className="text-sm font-medium text-foreground">
+                 Email
+@@ -29,29 +88,67 @@ export default function LoginPage() {
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                aria-describedby={errors.email ? "email-error" : undefined}
++                aria-invalid={Boolean(errors.email)}
+               />
++              {errors.email ? (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
++
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <div className="flex items-center justify-between gap-4">
++                <label htmlFor="password" className="text-sm font-medium text-foreground">
++                  Password
++                </label>
++                <a
++                  href="/forgot-password"
++                  className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
++                >
++                  Forgot password?
++                </a>
++              </div>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                aria-describedby={errors.password ? "password-error" : undefined}
++                aria-invalid={Boolean(errors.password)}
+               />
++              {errors.password ? (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
+             </div>
++
++            <label className="flex items-center gap-2 text-sm text-muted-foreground">
++              <input
++                name="remember"
++                type="checkbox"
++                className="h-4 w-4 rounded border-border text-primary"
++              />
++              Remember me
++            </label>
++
++            <Button type="submit" className="w-full" disabled={isLoading}>
++              {isLoading ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
++
++          <p className="text-center text-sm text-muted-foreground">
++            New here?{" "}
++            <a
++              href="/signup"
++              className="font-medium text-foreground underline-offset-4 hover:underline"
++            >
++              Create an account
++            </a>
++          </p>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
+-        </CardFooter>
+       </Card>
+     </main>
+   )
+
+exec
+/bin/zsh -lc 'git status --short' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+ M src/app/login/page.tsx
+
+2026-07-05T08:46:52.082759Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff615271f5aee0dc719e83a8109979aaa2c..7a1224d5609f3ff976293d3ce7a6084251f1fd1c
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,24 +1,83 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+   CardContent,
+   CardDescription,
+-  CardFooter,
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
+ import { Input } from "@/components/ui/input"
+ 
++type Errors = {
++  email?: string
++  password?: string
++}
++
++function validateLogin(formData: FormData) {
++  const email = String(formData.get("email") ?? "").trim()
++  const password = String(formData.get("password") ?? "")
++  const errors: Errors = {}
++
++  if (!email) {
++    errors.email = "Email is required."
++  } else if (!/^\S+@\S+\.\S+$/.test(email)) {
++    errors.email = "Enter a valid email address."
++  }
++
++  if (!password) {
++    errors.password = "Password is required."
++  }
++
++  return errors
++}
++
+ export default function LoginPage() {
++  const [errors, setErrors] = React.useState<Errors>({})
++  const [isLoading, setIsLoading] = React.useState(false)
++
++  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++
++    const nextErrors = validateLogin(new FormData(event.currentTarget))
++    setErrors(nextErrors)
++
++    if (Object.keys(nextErrors).length) {
++      return
++    }
++
++    setIsLoading(true)
++    // ponytail: fixture has no auth endpoint; replace this with the real submit when it exists.
++    window.setTimeout(() => setIsLoading(false), 800)
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+         <CardHeader>
+           <CardTitle>Sign in</CardTitle>
+-          <CardDescription>Enter your email below to sign in to your account.</CardDescription>
++          <CardDescription>Choose a provider or continue with your email.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="space-y-6">
++          <div className="grid gap-3">
++            <Button type="button" variant="outline" className="w-full">
++              Continue with Google
++            </Button>
++            <Button type="button" variant="outline" className="w-full">
++              Continue with GitHub
++            </Button>
++          </div>
++
++          <div className="flex items-center gap-3 text-xs text-muted-foreground">
++            <div className="h-px flex-1 bg-border" />
++            <span>or continue with email</span>
++            <div className="h-px flex-1 bg-border" />
++          </div>
++
++          <form className="flex flex-col gap-4" noValidate onSubmit={handleSubmit}>
+             <div className="flex flex-col gap-2">
+               <label htmlFor="email" className="text-sm font-medium text-foreground">
+                 Email
+@@ -29,29 +88,67 @@
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                aria-describedby={errors.email ? "email-error" : undefined}
++                aria-invalid={Boolean(errors.email)}
+               />
++              {errors.email ? (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
++
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <div className="flex items-center justify-between gap-4">
++                <label htmlFor="password" className="text-sm font-medium text-foreground">
++                  Password
++                </label>
++                <a
++                  href="/forgot-password"
++                  className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
++                >
++                  Forgot password?
++                </a>
++              </div>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                aria-describedby={errors.password ? "password-error" : undefined}
++                aria-invalid={Boolean(errors.password)}
+               />
++              {errors.password ? (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
+             </div>
++
++            <label className="flex items-center gap-2 text-sm text-muted-foreground">
++              <input
++                name="remember"
++                type="checkbox"
++                className="h-4 w-4 rounded border-border text-primary"
++              />
++              Remember me
++            </label>
++
++            <Button type="submit" className="w-full" disabled={isLoading}>
++              {isLoading ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
++
++          <p className="text-center text-sm text-muted-foreground">
++            New here?{" "}
++            <a
++              href="/signup"
++              className="font-medium text-foreground underline-offset-4 hover:underline"
++            >
++              Create an account
++            </a>
++          </p>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
+-        </CardFooter>
+       </Card>
+     </main>
+   )
+
+codex
+The diff is contained to the login page. I’m tightening the social button labels to match the requested wording exactly.
+apply patch
+patch: completed
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic/src/app/login/page.tsx
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff615271f5aee0dc719e83a8109979aaa2c..1b0340697ade0c9d1d697546a8cce35865e0e5a1
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,24 +1,83 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+   CardContent,
+   CardDescription,
+-  CardFooter,
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
+ import { Input } from "@/components/ui/input"
+ 
++type Errors = {
++  email?: string
++  password?: string
++}
++
++function validateLogin(formData: FormData) {
++  const email = String(formData.get("email") ?? "").trim()
++  const password = String(formData.get("password") ?? "")
++  const errors: Errors = {}
++
++  if (!email) {
++    errors.email = "Email is required."
++  } else if (!/^\S+@\S+\.\S+$/.test(email)) {
++    errors.email = "Enter a valid email address."
++  }
++
++  if (!password) {
++    errors.password = "Password is required."
++  }
++
++  return errors
++}
++
+ export default function LoginPage() {
++  const [errors, setErrors] = React.useState<Errors>({})
++  const [isLoading, setIsLoading] = React.useState(false)
++
++  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++
++    const nextErrors = validateLogin(new FormData(event.currentTarget))
++    setErrors(nextErrors)
++
++    if (Object.keys(nextErrors).length) {
++      return
++    }
++
++    setIsLoading(true)
++    // ponytail: fixture has no auth endpoint; replace this with the real submit when it exists.
++    window.setTimeout(() => setIsLoading(false), 800)
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+         <CardHeader>
+           <CardTitle>Sign in</CardTitle>
+-          <CardDescription>Enter your email below to sign in to your account.</CardDescription>
++          <CardDescription>Choose a provider or continue with your email.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="space-y-6">
++          <div className="grid gap-3">
++            <Button type="button" variant="outline" className="w-full">
++              Sign in with Google
++            </Button>
++            <Button type="button" variant="outline" className="w-full">
++              Sign in with GitHub
++            </Button>
++          </div>
++
++          <div className="flex items-center gap-3 text-xs text-muted-foreground">
++            <div className="h-px flex-1 bg-border" />
++            <span>or continue with email</span>
++            <div className="h-px flex-1 bg-border" />
++          </div>
++
++          <form className="flex flex-col gap-4" noValidate onSubmit={handleSubmit}>
+             <div className="flex flex-col gap-2">
+               <label htmlFor="email" className="text-sm font-medium text-foreground">
+                 Email
+@@ -29,29 +88,67 @@
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                aria-describedby={errors.email ? "email-error" : undefined}
++                aria-invalid={Boolean(errors.email)}
+               />
++              {errors.email ? (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
++
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <div className="flex items-center justify-between gap-4">
++                <label htmlFor="password" className="text-sm font-medium text-foreground">
++                  Password
++                </label>
++                <a
++                  href="/forgot-password"
++                  className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
++                >
++                  Forgot password?
++                </a>
++              </div>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                aria-describedby={errors.password ? "password-error" : undefined}
++                aria-invalid={Boolean(errors.password)}
+               />
++              {errors.password ? (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
+             </div>
++
++            <label className="flex items-center gap-2 text-sm text-muted-foreground">
++              <input
++                name="remember"
++                type="checkbox"
++                className="h-4 w-4 rounded border-border text-primary"
++              />
++              Remember me
++            </label>
++
++            <Button type="submit" className="w-full" disabled={isLoading}>
++              {isLoading ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
++
++          <p className="text-center text-sm text-muted-foreground">
++            New here?{" "}
++            <a
++              href="/signup"
++              className="font-medium text-foreground underline-offset-4 hover:underline"
++            >
++              Create an account
++            </a>
++          </p>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
+-        </CardFooter>
+       </Card>
+     </main>
+   )
+
+2026-07-05T08:47:05.957279Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff615271f5aee0dc719e83a8109979aaa2c..1b0340697ade0c9d1d697546a8cce35865e0e5a1
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,24 +1,83 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+   CardContent,
+   CardDescription,
+-  CardFooter,
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
+ import { Input } from "@/components/ui/input"
+ 
++type Errors = {
++  email?: string
++  password?: string
++}
++
++function validateLogin(formData: FormData) {
++  const email = String(formData.get("email") ?? "").trim()
++  const password = String(formData.get("password") ?? "")
++  const errors: Errors = {}
++
++  if (!email) {
++    errors.email = "Email is required."
++  } else if (!/^\S+@\S+\.\S+$/.test(email)) {
++    errors.email = "Enter a valid email address."
++  }
++
++  if (!password) {
++    errors.password = "Password is required."
++  }
++
++  return errors
++}
++
+ export default function LoginPage() {
++  const [errors, setErrors] = React.useState<Errors>({})
++  const [isLoading, setIsLoading] = React.useState(false)
++
++  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++
++    const nextErrors = validateLogin(new FormData(event.currentTarget))
++    setErrors(nextErrors)
++
++    if (Object.keys(nextErrors).length) {
++      return
++    }
++
++    setIsLoading(true)
++    // ponytail: fixture has no auth endpoint; replace this with the real submit when it exists.
++    window.setTimeout(() => setIsLoading(false), 800)
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+         <CardHeader>
+           <CardTitle>Sign in</CardTitle>
+-          <CardDescription>Enter your email below to sign in to your account.</CardDescription>
++          <CardDescription>Choose a provider or continue with your email.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="space-y-6">
++          <div className="grid gap-3">
++            <Button type="button" variant="outline" className="w-full">
++              Sign in with Google
++            </Button>
++            <Button type="button" variant="outline" className="w-full">
++              Sign in with GitHub
++            </Button>
++          </div>
++
++          <div className="flex items-center gap-3 text-xs text-muted-foreground">
++            <div className="h-px flex-1 bg-border" />
++            <span>or continue with email</span>
++            <div className="h-px flex-1 bg-border" />
++          </div>
++
++          <form className="flex flex-col gap-4" noValidate onSubmit={handleSubmit}>
+             <div className="flex flex-col gap-2">
+               <label htmlFor="email" className="text-sm font-medium text-foreground">
+                 Email
+@@ -29,29 +88,67 @@
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                aria-describedby={errors.email ? "email-error" : undefined}
++                aria-invalid={Boolean(errors.email)}
+               />
++              {errors.email ? (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
++
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <div className="flex items-center justify-between gap-4">
++                <label htmlFor="password" className="text-sm font-medium text-foreground">
++                  Password
++                </label>
++                <a
++                  href="/forgot-password"
++                  className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
++                >
++                  Forgot password?
++                </a>
++              </div>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                aria-describedby={errors.password ? "password-error" : undefined}
++                aria-invalid={Boolean(errors.password)}
+               />
++              {errors.password ? (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
+             </div>
++
++            <label className="flex items-center gap-2 text-sm text-muted-foreground">
++              <input
++                name="remember"
++                type="checkbox"
++                className="h-4 w-4 rounded border-border text-primary"
++              />
++              Remember me
++            </label>
++
++            <Button type="submit" className="w-full" disabled={isLoading}>
++              {isLoading ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
++
++          <p className="text-center text-sm text-muted-foreground">
++            New here?{" "}
++            <a
++              href="/signup"
++              className="font-medium text-foreground underline-offset-4 hover:underline"
++            >
++              Create an account
++            </a>
++          </p>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
+-        </CardFooter>
+       </Card>
+     </main>
+   )
+
+codex
+I made that wording-only adjustment and am rerunning the same verification.
+exec
+/bin/zsh -lc 'npm run typecheck' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+exec
+/bin/zsh -lc 'git diff --stat && git status --short' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+ fixtures/next-shadcn-basic/src/app/login/page.tsx | 127 +++++++++++++++++++---
+ 1 file changed, 112 insertions(+), 15 deletions(-)
+ M src/app/login/page.tsx
+
+2026-07-05T08:47:15.199459Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff615271f5aee0dc719e83a8109979aaa2c..1b0340697ade0c9d1d697546a8cce35865e0e5a1
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,24 +1,83 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+   CardContent,
+   CardDescription,
+-  CardFooter,
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
+ import { Input } from "@/components/ui/input"
+ 
++type Errors = {
++  email?: string
++  password?: string
++}
++
++function validateLogin(formData: FormData) {
++  const email = String(formData.get("email") ?? "").trim()
++  const password = String(formData.get("password") ?? "")
++  const errors: Errors = {}
++
++  if (!email) {
++    errors.email = "Email is required."
++  } else if (!/^\S+@\S+\.\S+$/.test(email)) {
++    errors.email = "Enter a valid email address."
++  }
++
++  if (!password) {
++    errors.password = "Password is required."
++  }
++
++  return errors
++}
++
+ export default function LoginPage() {
++  const [errors, setErrors] = React.useState<Errors>({})
++  const [isLoading, setIsLoading] = React.useState(false)
++
++  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++
++    const nextErrors = validateLogin(new FormData(event.currentTarget))
++    setErrors(nextErrors)
++
++    if (Object.keys(nextErrors).length) {
++      return
++    }
++
++    setIsLoading(true)
++    // ponytail: fixture has no auth endpoint; replace this with the real submit when it exists.
++    window.setTimeout(() => setIsLoading(false), 800)
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+         <CardHeader>
+           <CardTitle>Sign in</CardTitle>
+-          <CardDescription>Enter your email below to sign in to your account.</CardDescription>
++          <CardDescription>Choose a provider or continue with your email.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="space-y-6">
++          <div className="grid gap-3">
++            <Button type="button" variant="outline" className="w-full">
++              Sign in with Google
++            </Button>
++            <Button type="button" variant="outline" className="w-full">
++              Sign in with GitHub
++            </Button>
++          </div>
++
++          <div className="flex items-center gap-3 text-xs text-muted-foreground">
++            <div className="h-px flex-1 bg-border" />
++            <span>or continue with email</span>
++            <div className="h-px flex-1 bg-border" />
++          </div>
++
++          <form className="flex flex-col gap-4" noValidate onSubmit={handleSubmit}>
+             <div className="flex flex-col gap-2">
+               <label htmlFor="email" className="text-sm font-medium text-foreground">
+                 Email
+@@ -29,29 +88,67 @@
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                aria-describedby={errors.email ? "email-error" : undefined}
++                aria-invalid={Boolean(errors.email)}
+               />
++              {errors.email ? (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
++
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <div className="flex items-center justify-between gap-4">
++                <label htmlFor="password" className="text-sm font-medium text-foreground">
++                  Password
++                </label>
++                <a
++                  href="/forgot-password"
++                  className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
++                >
++                  Forgot password?
++                </a>
++              </div>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                aria-describedby={errors.password ? "password-error" : undefined}
++                aria-invalid={Boolean(errors.password)}
+               />
++              {errors.password ? (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
+             </div>
++
++            <label className="flex items-center gap-2 text-sm text-muted-foreground">
++              <input
++                name="remember"
++                type="checkbox"
++                className="h-4 w-4 rounded border-border text-primary"
++              />
++              Remember me
++            </label>
++
++            <Button type="submit" className="w-full" disabled={isLoading}>
++              {isLoading ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
++
++          <p className="text-center text-sm text-muted-foreground">
++            New here?{" "}
++            <a
++              href="/signup"
++              className="font-medium text-foreground underline-offset-4 hover:underline"
++            >
++              Create an account
++            </a>
++          </p>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
+-        </CardFooter>
+       </Card>
+     </main>
+   )
+
+ succeeded in 3362ms:
+
+> fixture-next-shadcn-basic@0.0.0 typecheck
+> tsc --noEmit
+
+
+codex
+Implemented the login page in [src/app/login/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--login-page--3/repo/fixtures/next-shadcn-basic/src/app/login/page.tsx).
+
+It now includes Google/GitHub sign-in buttons, the divider, email/password fields, remember-me checkbox, forgot-password link, inline validation errors, submit loading state, and the sign-up link.
+
+Verification: `npm run typecheck` passes. I did not start a dev server because this fixture’s `package.json` has no `dev` script. Skipped real auth wiring; add it when provider endpoints exist.
+diff --git a/fixtures/next-shadcn-basic/src/app/login/page.tsx b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+index 57357ff615271f5aee0dc719e83a8109979aaa2c..1b0340697ade0c9d1d697546a8cce35865e0e5a1
+--- a/fixtures/next-shadcn-basic/src/app/login/page.tsx
++++ b/fixtures/next-shadcn-basic/src/app/login/page.tsx
+@@ -1,24 +1,83 @@
++"use client"
++
++import * as React from "react"
++
+ import { Button } from "@/components/ui/button"
+ import {
+   Card,
+   CardContent,
+   CardDescription,
+-  CardFooter,
+   CardHeader,
+   CardTitle,
+ } from "@/components/ui/card"
+ import { Input } from "@/components/ui/input"
+ 
++type Errors = {
++  email?: string
++  password?: string
++}
++
++function validateLogin(formData: FormData) {
++  const email = String(formData.get("email") ?? "").trim()
++  const password = String(formData.get("password") ?? "")
++  const errors: Errors = {}
++
++  if (!email) {
++    errors.email = "Email is required."
++  } else if (!/^\S+@\S+\.\S+$/.test(email)) {
++    errors.email = "Enter a valid email address."
++  }
++
++  if (!password) {
++    errors.password = "Password is required."
++  }
++
++  return errors
++}
++
+ export default function LoginPage() {
++  const [errors, setErrors] = React.useState<Errors>({})
++  const [isLoading, setIsLoading] = React.useState(false)
++
++  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
++    event.preventDefault()
++
++    const nextErrors = validateLogin(new FormData(event.currentTarget))
++    setErrors(nextErrors)
++
++    if (Object.keys(nextErrors).length) {
++      return
++    }
++
++    setIsLoading(true)
++    // ponytail: fixture has no auth endpoint; replace this with the real submit when it exists.
++    window.setTimeout(() => setIsLoading(false), 800)
++  }
++
+   return (
+     <main className="flex min-h-screen items-center justify-center p-6">
+       <Card className="w-full max-w-sm">
+         <CardHeader>
+           <CardTitle>Sign in</CardTitle>
+-          <CardDescription>Enter your email below to sign in to your account.</CardDescription>
++          <CardDescription>Choose a provider or continue with your email.</CardDescription>
+         </CardHeader>
+-        <CardContent>
+-          <form className="flex flex-col gap-4">
++        <CardContent className="space-y-6">
++          <div className="grid gap-3">
++            <Button type="button" variant="outline" className="w-full">
++              Sign in with Google
++            </Button>
++            <Button type="button" variant="outline" className="w-full">
++              Sign in with GitHub
++            </Button>
++          </div>
++
++          <div className="flex items-center gap-3 text-xs text-muted-foreground">
++            <div className="h-px flex-1 bg-border" />
++            <span>or continue with email</span>
++            <div className="h-px flex-1 bg-border" />
++          </div>
++
++          <form className="flex flex-col gap-4" noValidate onSubmit={handleSubmit}>
+             <div className="flex flex-col gap-2">
+               <label htmlFor="email" className="text-sm font-medium text-foreground">
+                 Email
+@@ -29,29 +88,67 @@
+                 type="email"
+                 placeholder="you@example.com"
+                 autoComplete="email"
+-                required
++                aria-describedby={errors.email ? "email-error" : undefined}
++                aria-invalid={Boolean(errors.email)}
+               />
++              {errors.email ? (
++                <p id="email-error" className="text-sm text-destructive">
++                  {errors.email}
++                </p>
++              ) : null}
+             </div>
++
+             <div className="flex flex-col gap-2">
+-              <label htmlFor="password" className="text-sm font-medium text-foreground">
+-                Password
+-              </label>
++              <div className="flex items-center justify-between gap-4">
++                <label htmlFor="password" className="text-sm font-medium text-foreground">
++                  Password
++                </label>
++                <a
++                  href="/forgot-password"
++                  className="text-sm text-muted-foreground underline-offset-4 hover:text-foreground hover:underline"
++                >
++                  Forgot password?
++                </a>
++              </div>
+               <Input
+                 id="password"
+                 name="password"
+                 type="password"
+                 autoComplete="current-password"
+-                required
++                aria-describedby={errors.password ? "password-error" : undefined}
++                aria-invalid={Boolean(errors.password)}
+               />
++              {errors.password ? (
++                <p id="password-error" className="text-sm text-destructive">
++                  {errors.password}
++                </p>
++              ) : null}
+             </div>
++
++            <label className="flex items-center gap-2 text-sm text-muted-foreground">
++              <input
++                name="remember"
++                type="checkbox"
++                className="h-4 w-4 rounded border-border text-primary"
++              />
++              Remember me
++            </label>
++
++            <Button type="submit" className="w-full" disabled={isLoading}>
++              {isLoading ? "Signing in..." : "Sign in"}
++            </Button>
+           </form>
++
++          <p className="text-center text-sm text-muted-foreground">
++            New here?{" "}
++            <a
++              href="/signup"
++              className="font-medium text-foreground underline-offset-4 hover:underline"
++            >
++              Create an account
++            </a>
++          </p>
+         </CardContent>
+-        <CardFooter className="flex-col gap-2">
+-          <Button className="w-full">Sign in</Button>
+-          <Button variant="ghost" className="w-full">
+-            Forgot password?
+-          </Button>
+-        </CardFooter>
+       </Card>
+     </main>
+   )
+
+tokens used
+57,337

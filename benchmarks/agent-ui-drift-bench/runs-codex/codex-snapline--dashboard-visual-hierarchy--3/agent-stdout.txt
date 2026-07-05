@@ -1,0 +1,13 @@
+Implemented the hierarchy pass in:
+
+- [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--dashboard-visual-hierarchy--3/repo/fixtures/next-shadcn-dashboard-app/src/app/page.tsx)
+- [src/components/dashboard/stat-card.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--dashboard-visual-hierarchy--3/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx)
+- [src/components/dashboard/recent-activity.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-snapline--dashboard-visual-hierarchy--3/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx)
+
+Revenue now gets the dominant span/type treatment, secondary stats are quieter, and the lower activity panel is visually stronger with a clearer section boundary. No visible content was added or removed.
+
+Verified:
+- `./node_modules/.bin/snapline scan --changed` passed
+- `npm run typecheck` passed
+
+Skipped adding a real chart/sidebar treatment because this fixture has neither, and the request explicitly said not to add content.

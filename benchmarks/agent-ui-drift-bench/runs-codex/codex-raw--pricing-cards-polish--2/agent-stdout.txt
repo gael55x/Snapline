@@ -1,0 +1,5 @@
+Implemented in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--pricing-cards-polish--2/repo/fixtures/next-shadcn-dashboard-app/src/app/page.tsx:6): the pricing cards now have stronger depth, price-led hierarchy, styled feature markers, and a clearly emphasized Pro card with contrast, elevation, accent bar, badge, and stronger CTA.
+
+Also aligned the nav label to `Pricing` in [src/components/dashboard/nav.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--pricing-cards-polish--2/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx:4).
+
+Verification: `npm run typecheck` passes. No visual dev-server smoke test was possible because this fixture only has a `typecheck` script and lacks checked-in Next/Tailwind runtime deps. Note: there was no existing pricing copy in this repo to preserve, so the tier copy now lives in the `plans` array.

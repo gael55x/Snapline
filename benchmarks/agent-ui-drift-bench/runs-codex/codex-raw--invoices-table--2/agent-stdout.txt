@@ -1,0 +1,5 @@
+Implemented in [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--invoices-table--2/repo/fixtures/next-shadcn-custom-theme/src/app/page.tsx:30): invoice table, status badges, sortable headers, date-desc default sort, 10-row prev/next pagination, and PDF action buttons.
+
+Verification: `npm run typecheck` and `git diff --check` pass. No dev server started because this fixture has no `dev` script.
+
+Skipped new table/pagination components and dependencies; add them only if this gets reused across pages.

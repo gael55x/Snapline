@@ -1,0 +1,189 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--premium-dashboard--1/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:17:58:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"border-teal-200\"",
+      "location": {
+        "line": 17,
+        "column": 58
+      },
+      "evidence": "border-teal-200",
+      "repair": {
+        "instruction": "Replace border-teal-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:17:74:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"bg-teal-50\"",
+      "location": {
+        "line": 17,
+        "column": 74
+      },
+      "evidence": "bg-teal-50",
+      "repair": {
+        "instruction": "Replace bg-teal-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:17:85:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "message": "Raw Tailwind palette color \"text-teal-800\"",
+      "location": {
+        "line": 17,
+        "column": 85
+      },
+      "evidence": "text-teal-800",
+      "repair": {
+        "instruction": "Replace text-teal-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-arbitrary-tailwind:src/components/ui/card.tsx:10:74:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/components/ui/card.tsx",
+      "message": "Arbitrary Tailwind value \"shadow-[0_20px_55px_-38px_rgba(15,23,42,0.55)]\"",
+      "location": {
+        "line": 10,
+        "column": 74
+      },
+      "evidence": "shadow-[0_20px_55px_-38px_rgba(15,23,42,0.55)]",
+      "repair": {
+        "instruction": "Remove shadow-[0_20px_55px_-38px_rgba(15,23,42,0.55)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 20,
+    "totalViolations": 4,
+    "errorViolations": 1,
+    "warningViolations": 3,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 1,
+    "rawPaletteClasses": 3,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/dashboard/nav.tsx",
+      "filePath": "src/components/dashboard/nav.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:17:58:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"border-teal-200\"",
+          "location": {
+            "line": 17,
+            "column": 58
+          },
+          "evidence": "border-teal-200",
+          "repair": {
+            "instruction": "Replace border-teal-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:17:74:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"bg-teal-50\"",
+          "location": {
+            "line": 17,
+            "column": 74
+          },
+          "evidence": "bg-teal-50",
+          "repair": {
+            "instruction": "Replace bg-teal-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/nav.tsx:17:85:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/nav.tsx",
+          "message": "Raw Tailwind palette color \"text-teal-800\"",
+          "location": {
+            "line": 17,
+            "column": 85
+          },
+          "evidence": "text-teal-800",
+          "repair": {
+            "instruction": "Replace text-teal-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace border-teal-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-teal-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-teal-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+      ],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/nav.tsx\n\n3 violations:\n- [warn] raw Tailwind color: border-teal-200 (line 17)\n- [warn] raw Tailwind color: bg-teal-50 (line 17)\n- [warn] raw Tailwind color: text-teal-800 (line 17)\n\nRecommended:\n- Replace border-teal-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-teal-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-teal-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+    },
+    {
+      "title": "Repair UI drift in src/components/ui/card.tsx",
+      "filePath": "src/components/ui/card.tsx",
+      "violations": [
+        {
+          "id": "no-arbitrary-tailwind:src/components/ui/card.tsx:10:74:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/components/ui/card.tsx",
+          "message": "Arbitrary Tailwind value \"shadow-[0_20px_55px_-38px_rgba(15,23,42,0.55)]\"",
+          "location": {
+            "line": 10,
+            "column": 74
+          },
+          "evidence": "shadow-[0_20px_55px_-38px_rgba(15,23,42,0.55)]",
+          "repair": {
+            "instruction": "Remove shadow-[0_20px_55px_-38px_rgba(15,23,42,0.55)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove shadow-[0_20px_55px_-38px_rgba(15,23,42,0.55)]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/ui/card.tsx\n\n1 violation:\n- [error] arbitrary value: shadow-[0_20px_55px_-38px_rgba(15,23,42,0.55)] (line 10)\n\nRepair:\n- Remove shadow-[0_20px_55px_-38px_rgba(15,23,42,0.55)]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+    }
+  ],
+  "durationMs": 111
+}

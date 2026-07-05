@@ -135,6 +135,8 @@ function runOne(spec: RunSpec, dryRun: boolean): void {
       cwd: fixtureDir,
       encoding: "utf8",
       timeout: 1800000,
+      killSignal: "SIGKILL",
+      maxBuffer: 50 * 1024 * 1024,
       env: { ...process.env, ...invocation.env, SNAPLINE_HOOK_LOG: hookLog },
     })
     fs.writeFileSync(path.join(runDir, "agent-stdout.txt"), agentResult.stdout ?? "")

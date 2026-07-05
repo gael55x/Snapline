@@ -1,0 +1,148 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97..dd08335 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@ const stats = [
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f61..1691fb3 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@ const links = [
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@ export function DashboardNav({ currentPath }: { currentPath: string }) {
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774c..9740828 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@ function statusVariant(status: ActivityRow["status"]) {
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="ring-1 ring-foreground/10">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="!pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27..55b4dd4 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,51 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        featured ? "ring-2 ring-foreground/15 sm:col-span-2" : "opacity-90",
++      )}
++      style={
++        featured
++          ? { backgroundColor: "hsl(var(--foreground))", color: "hsl(var(--background))" }
++          : undefined
++      }
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
+         <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )

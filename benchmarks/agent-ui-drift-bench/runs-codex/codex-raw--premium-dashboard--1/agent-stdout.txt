@@ -1,0 +1,7 @@
+Done. I upgraded the dashboard styling without changing the data, routes, or handlers.
+
+Changed the visual layer in [globals.css](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--premium-dashboard--1/repo/fixtures/next-shadcn-dashboard-app/src/app/globals.css), [page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--premium-dashboard--1/repo/fixtures/next-shadcn-dashboard-app/src/app/page.tsx), [nav.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--premium-dashboard--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx), [stat-card.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--premium-dashboard--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx), and [recent-activity.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--premium-dashboard--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx). Also tightened shared card/button polish.
+
+Verification: `npm run typecheck` passed, and `git diff --check` is clean. I could not run a browser preview because this fixture has no `next` dependency and no `dev`/`build` script.
+
+Skipped new dependencies/assets; add those only if the product needs branded iconography or real chart visuals.

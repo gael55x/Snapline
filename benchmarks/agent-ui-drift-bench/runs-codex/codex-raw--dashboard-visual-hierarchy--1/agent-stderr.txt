@@ -1,0 +1,3336 @@
+Reading additional input from stdin...
+OpenAI Codex v0.142.5
+--------
+workdir: /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019f315d-a69e-76d1-8bb1-f53b61a1dc70
+--------
+user
+Everything on the dashboard has the same visual weight, so nothing stands out. Rework the visual hierarchy: the key revenue number should dominate, secondary stats should recede, and the chart should read as the centerpiece below them. De-emphasize the sidebar widgets and make section headings clearly separate the zones. Don't add or remove any content.
+2026-07-05T08:20:50.033221Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T08:20:50.039556Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T08:20:52.606059Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T08:20:52.641885Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:20:52.641918Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:20:52.642771Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:20:52.642791Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:20:52.643645Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:20:52.643660Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:20:52.644353Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:20:52.644367Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:20:52.645327Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:20:52.645346Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:20:52.647445Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T08:20:52.647464Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+hook: SessionStart
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+2026-07-05T08:20:54.448504Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+Using `ponytail` because this is a coding task and the shortest correct UI diff matters here. I’ll do a quick read-only pass first, then state the concrete plan before editing.
+2026-07-05T08:21:12.903474Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.skill.injected] failed: tag value contains invalid characters: ponytail:ponytail
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/gailleamolong/.codex/plugins/cache/ponytail/ponytail/4.8.4/skills/ponytail/SKILL.md" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+---
+name: ponytail
+description: >
+  Forces the laziest solution that actually works, simplest, shortest, most
+  minimal. Channels a senior dev who has seen everything: question whether the
+  task needs to exist at all (YAGNI), reach for the standard library before
+  custom code, native platform features before dependencies, one line before
+  fifty. Supports intensity levels: lite, full (default), ultra. Use on ANY
+  coding task: writing, adding, refactoring, fixing, reviewing, or designing
+  code, and choosing libraries or dependencies. Also use whenever the user
+  says "ponytail", "be lazy", "lazy mode", "simplest solution", "minimal
+  solution", "yagni", "do less", or "shortest path", or complains about
+  over-engineering, bloat, boilerplate, or unnecessary dependencies. Do NOT
+  use for non-coding requests (general knowledge, prose, translation,
+  summaries, recipes).
+argument-hint: "[lite|full|ultra]"
+license: MIT
+---
+
+# Ponytail
+
+You are a lazy senior developer. Lazy means efficient, not careless. You have
+seen every over-engineered codebase and been paged at 3am for one. The best
+code is the code never written.
+
+## Persistence
+
+ACTIVE EVERY RESPONSE. No drift back to over-building. Still active if
+unsure. Off only: "stop ponytail" / "normal mode". Default: **full**.
+Switch: `/ponytail lite|full|ultra`.
+
+## The ladder
+
+Stop at the first rung that holds:
+
+1. **Does this need to exist at all?** Speculative need = skip it, say so in one line. (YAGNI)
+2. **Already in this codebase?** A helper, util, type, or pattern that already lives here → reuse it. Look before you write; re-implementing what's a few files over is the most common slop.
+3. **Stdlib does it?** Use it.
+4. **Native platform feature covers it?** `<input type="date">` over a picker lib, CSS over JS, DB constraint over app code.
+5. **Already-installed dependency solves it?** Use it. Never add a new one for what a few lines can do.
+6. **Can it be one line?** One line.
+7. **Only then:** the minimum code that works.
+
+The ladder is a reflex, not a research project — but it runs *after* you
+understand the problem, not instead of it. Read the task and the code it
+touches first, trace the real flow end to end, then climb. Two rungs work →
+take the higher one and move on. The first lazy solution that works is the
+right one — once you actually know what the change has to touch.
+
+**Bug fix = root cause, not symptom.** A report names a symptom. Before you
+edit, grep every caller of the function you're about to touch. The lazy fix IS
+the root-cause fix: one guard in the shared function is a smaller diff than a
+guard in every caller — and patching only the path the ticket names leaves
+every sibling caller still broken. Fix it once, where all callers route through.
+
+## Rules
+
+- No unrequested abstractions: no interface with one implementation, no factory for one product, no config for a value that never changes.
+- No boilerplate, no scaffolding "for later", later can scaffold for itself.
+- Deletion over addition. Boring over clever, clever is what someone decodes at 3am.
+- Fewest files possible. Shortest working diff wins — but only once you understand the problem. The smallest change in the wrong place isn't lazy, it's a second bug.
+- Complex request? Ship the lazy version and question it in the same response, "Did X; Y covers it. Need full X? Say so." Never stall on an answer you can default.
+- Two stdlib options, same size? Take the one that's correct on edge cases. Lazy means writing less code, not picking the flimsier algorithm.
+- Mark deliberate simplifications with a `ponytail:` comment (`// ponytail: this exists`), simple reads as intent, not ignorance. Shortcut with a known ceiling (global lock, O(n²) scan, naive heuristic)? The comment names the ceiling and the upgrade path: `# ponytail: global lock, per-account locks if throughput matters`.
+
+## Output
+
+Code first. Then at most three short lines: what was skipped, when to add it.
+No essays, no feature tours, no design notes. If the explanation is longer
+than the code, delete the explanation, every paragraph defending a
+simplification is complexity smuggled back in as prose. Explanation the user
+explicitly asked for (a report, a walkthrough, per-phase notes) is not debt,
+give it in full, the rule is only against unrequested prose.
+
+Pattern: `[code] → skipped: [X], add when [Y].`
+
+## Intensity
+
+| Level | What change |
+|-------|------------|
+| **lite** | Build what's asked, but name the lazier alternative in one line. User picks. |
+| **full** | The ladder enforced. Stdlib and native first. Shortest diff, shortest explanation. Default. |
+| **ultra** | YAGNI extremist. Deletion before addition. Ship the one-liner and challenge the rest of the requirement in the same breath. |
+
+Example: "Add a cache for these API responses."
+- lite: "Done, cache added. FYI: `functools.lru_cache` covers this in one line if you'd rather not own a cache class."
+- full: "`@lru_cache(maxsize=1000)` on the fetch function. Skipped custom cache class, add when lru_cache measurably falls short."
+- ultra: "No cache until a profiler says so. When it does: `@lru_cache`. A hand-rolled TTL cache class is a bug farm with a hit rate."
+
+## When NOT to be lazy
+
+Never simplify away: input validation at trust boundaries, error handling
+that prevents data loss, security measures, accessibility basics, anything
+explicitly requested. User insists on the full version → build it, no
+re-arguing.
+
+Never lazy about understanding the problem. The ladder shortens the
+solution, never the reading. Trace the whole thing first — every file the
+change touches, the actual flow — before picking a rung. Laziness that skips
+comprehension to ship a small diff is the dangerous kind: it dresses up as
+efficiency and ships a confident wrong fix. Read fully, then be lazy.
+
+Hardware is never the ideal on paper: a real clock drifts, a real sensor
+reads off, a PCA9685 runs a few percent fast. Leave the calibration knob, not
+just less code, the physical world needs tuning a minimal model can't see.
+
+Lazy code without its check is unfinished. Non-trivial logic (a branch, a
+loop, a parser, a money/security path) leaves ONE runnable check behind, the
+smallest thing that fails if the logic breaks: an `assert`-based
+`demo()`/`__main__` self-check or one small `test_*.py`. No frameworks, no
+fixtures, no per-function suites unless asked. Trivial one-liners need no
+test, YAGNI applies to tests too.
+
+## Boundaries
+
+Ponytail governs what you build, not how you talk (pair with Caveman for
+terse prose). "stop ponytail" / "normal mode": revert. Level persists until
+changed or session end.
+
+The shortest path to done is the right path.
+
+exec
+/bin/zsh -lc 'rg -n "Snapline|next-shadcn-dashboard-app|dashboard visual hierarchy|visual hierarchy" /Users/gailleamolong/.codex/memories/MEMORY.md' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ exited 1 in 0ms:
+exec
+/bin/zsh -lc 'find .. -name AGENTS.md -print' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+2026-07-05T08:21:13.174319Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+No relevant memory entry surfaced for this fixture, so I’m treating this as a fresh repo task. Next I’m locating the dashboard implementation and existing styling primitives before touching anything.
+exec
+/bin/zsh -lc pwd in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+
+exec
+/bin/zsh -lc 'rg --files' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+src/lib/utils.ts
+src/components/dashboard/stat-card.tsx
+src/components/dashboard/recent-activity.tsx
+src/components/dashboard/nav.tsx
+src/components/ui/input.tsx
+src/components/ui/button.tsx
+src/components/ui/table.tsx
+src/components/ui/badge.tsx
+src/components/ui/dialog.tsx
+src/components/ui/card.tsx
+src/app/globals.css
+src/app/page.tsx
+src/app/layout.tsx
+src/app/settings/page.tsx
+src/globals.d.ts
+tsconfig.json
+components.json
+package.json
+tailwind.config.ts
+
+exec
+/bin/zsh -lc 'git status --short' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+2026-07-05T08:21:22.697044Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+The repo is small and clean. The likely surface is the dashboard page plus a few local components, so I’m reading those rather than introducing new layout machinery.
+exec
+/bin/zsh -lc "sed -n '1,260p' src/app/page.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/dashboard/stat-card.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+import { DashboardNav } from "@/components/dashboard/nav"
+import { RecentActivity } from "@/components/dashboard/recent-activity"
+import { StatCard } from "@/components/dashboard/stat-card"
+
+const stats = [
+  {
+    title: "Total revenue",
+    value: "$45,231.89",
+    change: "+20.1%",
+    changeType: "positive" as const,
+  },
+  {
+    title: "Active repairs",
+    value: "312",
+    change: "+12.4%",
+    changeType: "positive" as const,
+  },
+  {
+    title: "Violations found",
+    value: "1,024",
+    change: "-4.3%",
+    changeType: "negative" as const,
+  },
+  {
+    title: "Projects connected",
+    value: "24",
+    change: "+3",
+    changeType: "positive" as const,
+  },
+]
+
+export default function DashboardPage() {
+  return (
+    <div className="min-h-screen bg-background">
+      <DashboardNav currentPath="/" />
+      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+        <div className="flex flex-col gap-1">
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
+          <p className="text-sm text-muted-foreground">
+            A summary of repair activity across your projects.
+          </p>
+        </div>
+        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((stat) => (
+            <StatCard
+              key={stat.title}
+              title={stat.title}
+              value={stat.value}
+              change={stat.change}
+              changeType={stat.changeType}
+            />
+          ))}
+        </section>
+        <RecentActivity />
+      </main>
+    </div>
+  )
+}
+
+ succeeded in 0ms:
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+
+export interface StatCardProps {
+  title: string
+  value: string
+  change: string
+  changeType?: "positive" | "negative"
+}
+
+export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
+  return (
+    <Card>
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+        <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+      </CardHeader>
+      <CardContent>
+        <div className="text-2xl font-bold text-foreground">{value}</div>
+        <p className="text-xs text-muted-foreground">compared to last month</p>
+      </CardContent>
+    </Card>
+  )
+}
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/dashboard/recent-activity.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/dashboard/nav.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+
+const links = [
+  { href: "/", label: "Overview" },
+  { href: "/settings", label: "Settings" },
+]
+
+export function DashboardNav({ currentPath }: { currentPath: string }) {
+  return (
+    <header className="border-b border-border bg-card">
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+        <div className="flex items-center gap-6">
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+            <Badge variant="secondary">v2</Badge>
+          </div>
+          <nav className="flex items-center gap-1">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={
+                  link.href === currentPath
+                    ? "rounded-md px-3 py-1.5 text-sm font-medium bg-muted text-foreground"
+                    : "rounded-md px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground"
+                }
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button variant="ghost" size="sm">
+            Feedback
+          </Button>
+          <Button size="sm">New report</Button>
+        </div>
+      </div>
+    </header>
+  )
+}
+
+ succeeded in 0ms:
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+
+interface ActivityRow {
+  id: string
+  actor: string
+  action: string
+  target: string
+  status: "completed" | "pending" | "failed"
+  time: string
+}
+
+const activity: ActivityRow[] = [
+  {
+    id: "act-001",
+    actor: "Gaille Amolong",
+    action: "Deployed",
+    target: "marketing-site",
+    status: "completed",
+    time: "2 minutes ago",
+  },
+  {
+    id: "act-002",
+    actor: "CI Bot",
+    action: "Repaired",
+    target: "checkout-form styles",
+    status: "completed",
+    time: "18 minutes ago",
+  },
+  {
+    id: "act-003",
+    actor: "Ana Reyes",
+    action: "Updated",
+    target: "billing settings",
+    status: "pending",
+    time: "1 hour ago",
+  },
+  {
+    id: "act-004",
+    actor: "CI Bot",
+    action: "Flagged",
+    target: "dashboard hex colors",
+    status: "failed",
+    time: "3 hours ago",
+  },
+]
+
+function statusVariant(status: ActivityRow["status"]) {
+  if (status === "failed") {
+    return "destructive" as const
+  }
+  if (status === "pending") {
+    return "outline" as const
+  }
+  return "secondary" as const
+}
+
+export function RecentActivity() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Recent activity</CardTitle>
+        <CardDescription>Latest events across your connected projects.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Actor</TableHead>
+              <TableHead>Action</TableHead>
+              <TableHead>Target</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead className="text-right">When</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {activity.map((row) => (
+              <TableRow key={row.id}>
+                <TableCell className="font-medium">{row.actor}</TableCell>
+                <TableCell>{row.action}</TableCell>
+                <TableCell className="text-muted-foreground">{row.target}</TableCell>
+                <TableCell>
+                  <Badge variant={statusVariant(row.status)}>{row.status}</Badge>
+                </TableCell>
+                <TableCell className="text-right text-muted-foreground">{row.time}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  )
+}
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/app/globals.css" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+exec
+/bin/zsh -lc 'cat package.json' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+{
+  "name": "fixture-next-shadcn-dashboard-app",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.6.3"
+  }
+}
+
+2026-07-05T08:21:36.122828Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+There is no separate chart component in this fixture; the lower “Recent activity” panel is the only centerpiece candidate. I’m checking the shared card styles so the hierarchy change can stay CSS-class level, not a component rewrite.
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/ui/button.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = {
+  variant: {
+    default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+    destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+    outline: "border border-border bg-background shadow-sm hover:bg-muted hover:text-foreground",
+    secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+    ghost: "hover:bg-muted hover:text-foreground",
+    link: "text-primary underline-offset-4 hover:underline",
+  },
+  size: {
+    default: "h-9 px-4 py-2",
+    sm: "h-8 rounded-md px-3 text-xs",
+    lg: "h-10 rounded-md px-8",
+    icon: "h-9 w-9",
+  },
+} as const
+
+export type ButtonVariant = keyof typeof buttonVariants.variant
+export type ButtonSize = keyof typeof buttonVariants.size
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant
+  size?: ButtonSize
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = "default", size = "default", ...props }, ref) => {
+    return (
+      <button
+        className={cn(
+          "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50",
+          buttonVariants.variant[variant],
+          buttonVariants.size[size],
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
+  },
+)
+Button.displayName = "Button"
+
+export { Button, buttonVariants }
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/ui/card.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+exec
+/bin/zsh -lc "sed -n '1,220p' tailwind.config.ts" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        "rounded-xl border border-border bg-card text-card-foreground shadow",
+        className,
+      )}
+      {...props}
+    />
+  ),
+)
+Card.displayName = "Card"
+
+const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+  ),
+)
+CardHeader.displayName = "CardHeader"
+
+const CardTitle = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn("font-semibold leading-none tracking-tight", className)}
+      {...props}
+    />
+  ),
+)
+CardTitle.displayName = "CardTitle"
+
+const CardDescription = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("text-sm text-muted-foreground", className)} {...props} />
+  ),
+)
+CardDescription.displayName = "CardDescription"
+
+const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+  ),
+)
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn("flex items-center p-6 pt-0", className)} {...props} />
+  ),
+)
+CardFooter.displayName = "CardFooter"
+
+export { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
+
+ succeeded in 0ms:
+const config = {
+  darkMode: ["class"],
+  content: ["./src/**/*.{ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        border: "hsl(var(--border))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+      },
+    },
+  },
+}
+
+export default config
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/ui/badge.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const badgeVariants = {
+  variant: {
+    default: "border-transparent bg-primary text-primary-foreground shadow",
+    secondary: "border-transparent bg-secondary text-secondary-foreground",
+    destructive: "border-transparent bg-destructive text-destructive-foreground shadow",
+    outline: "border-border text-foreground",
+  },
+} as const
+
+export type BadgeVariant = keyof typeof badgeVariants.variant
+
+export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: BadgeVariant
+}
+
+function Badge({ className, variant = "default", ...props }: BadgeProps) {
+  return (
+    <div
+      className={cn(
+        "inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors",
+        badgeVariants.variant[variant],
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+
+export { Badge, badgeVariants }
+
+exec
+/bin/zsh -lc "sed -n '1,180p' src/app/settings/page.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+"use client"
+
+import * as React from "react"
+
+import { DashboardNav } from "@/components/dashboard/nav"
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+
+export default function SettingsPage() {
+  const [confirmOpen, setConfirmOpen] = React.useState(false)
+
+  return (
+    <div className="min-h-screen bg-background">
+      <DashboardNav currentPath="/settings" />
+      <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-8">
+        <div className="flex flex-col gap-1">
+          <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
+          <p className="text-sm text-muted-foreground">
+            Manage your workspace profile and danger zone actions.
+          </p>
+        </div>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Workspace profile</CardTitle>
+            <CardDescription>This information is shown on shared reports.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
+                  Workspace name
+                </label>
+                <Input id="workspace-name" name="workspaceName" defaultValue="Snapline Ops" />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
+                  Contact email
+                </label>
+                <Input
+                  id="contact-email"
+                  name="contactEmail"
+                  type="email"
+                  defaultValue="ops@example.com"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="repo-url" className="text-sm font-medium text-foreground">
+                  Repository URL
+                </label>
+                <Input
+                  id="repo-url"
+                  name="repoUrl"
+                  type="url"
+                  placeholder="https://github.com/acme/app"
+                />
+              </div>
+            </form>
+          </CardContent>
+          <CardFooter className="gap-2">
+            <Button>Save changes</Button>
+            <Button variant="ghost">Cancel</Button>
+          </CardFooter>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Danger zone</CardTitle>
+            <CardDescription>Destructive actions that cannot be undone.</CardDescription>
+          </CardHeader>
+          <CardFooter>
+            <Button variant="destructive" onClick={() => setConfirmOpen(true)}>
+              Delete workspace
+            </Button>
+          </CardFooter>
+        </Card>
+
+        <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Delete workspace?</DialogTitle>
+              <DialogDescription>
+                This permanently removes the workspace, its projects, and all repair history.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <Button variant="ghost" onClick={() => setConfirmOpen(false)}>
+                Cancel
+              </Button>
+              <Button variant="destructive" onClick={() => setConfirmOpen(false)}>
+                Delete workspace
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </main>
+    </div>
+  )
+}
+
+2026-07-05T08:21:49.854527Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+One ambiguity: the code has no chart content to restyle, only the existing “Recent activity” panel. Since the request says not to add or remove content, I’ll make that lower panel the visual centerpiece rather than inventing a chart.
+exec
+/bin/zsh -lc 'nl -ba src/components/dashboard/stat-card.tsx' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+     1	import { Badge } from "@/components/ui/badge"
+     2	import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+     3	
+     4	export interface StatCardProps {
+     5	  title: string
+     6	  value: string
+     7	  change: string
+     8	  changeType?: "positive" | "negative"
+     9	}
+    10	
+    11	export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
+    12	  return (
+    13	    <Card>
+    14	      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+    15	        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+    16	        <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+    17	      </CardHeader>
+    18	      <CardContent>
+    19	        <div className="text-2xl font-bold text-foreground">{value}</div>
+    20	        <p className="text-xs text-muted-foreground">compared to last month</p>
+    21	      </CardContent>
+    22	    </Card>
+    23	  )
+    24	}
+
+exec
+/bin/zsh -lc 'nl -ba src/app/page.tsx' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+     1	import { DashboardNav } from "@/components/dashboard/nav"
+     2	import { RecentActivity } from "@/components/dashboard/recent-activity"
+     3	import { StatCard } from "@/components/dashboard/stat-card"
+     4	
+     5	const stats = [
+     6	  {
+     7	    title: "Total revenue",
+     8	    value: "$45,231.89",
+     9	    change: "+20.1%",
+    10	    changeType: "positive" as const,
+    11	  },
+    12	  {
+    13	    title: "Active repairs",
+    14	    value: "312",
+    15	    change: "+12.4%",
+    16	    changeType: "positive" as const,
+    17	  },
+    18	  {
+    19	    title: "Violations found",
+    20	    value: "1,024",
+    21	    change: "-4.3%",
+    22	    changeType: "negative" as const,
+    23	  },
+    24	  {
+    25	    title: "Projects connected",
+    26	    value: "24",
+    27	    change: "+3",
+    28	    changeType: "positive" as const,
+    29	  },
+    30	]
+    31	
+    32	export default function DashboardPage() {
+    33	  return (
+    34	    <div className="min-h-screen bg-background">
+    35	      <DashboardNav currentPath="/" />
+    36	      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+    37	        <div className="flex flex-col gap-1">
+    38	          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
+    39	          <p className="text-sm text-muted-foreground">
+    40	            A summary of repair activity across your projects.
+    41	          </p>
+    42	        </div>
+    43	        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    44	          {stats.map((stat) => (
+    45	            <StatCard
+    46	              key={stat.title}
+    47	              title={stat.title}
+    48	              value={stat.value}
+    49	              change={stat.change}
+    50	              changeType={stat.changeType}
+    51	            />
+    52	          ))}
+    53	        </section>
+    54	        <RecentActivity />
+    55	      </main>
+    56	    </div>
+    57	  )
+    58	}
+
+exec
+/bin/zsh -lc 'rg -n "chart|Chart|Revenue|Total revenue|Recent activity|section|sidebar" src' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+src/app/page.tsx:7:    title: "Total revenue",
+src/app/page.tsx:43:        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+src/app/page.tsx:53:        </section>
+src/components/dashboard/recent-activity.tsx:70:        <CardTitle>Recent activity</CardTitle>
+
+exec
+/bin/zsh -lc 'nl -ba src/components/dashboard/recent-activity.tsx' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+     1	import { Badge } from "@/components/ui/badge"
+     2	import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+     3	import {
+     4	  Table,
+     5	  TableBody,
+     6	  TableCell,
+     7	  TableHead,
+     8	  TableHeader,
+     9	  TableRow,
+    10	} from "@/components/ui/table"
+    11	
+    12	interface ActivityRow {
+    13	  id: string
+    14	  actor: string
+    15	  action: string
+    16	  target: string
+    17	  status: "completed" | "pending" | "failed"
+    18	  time: string
+    19	}
+    20	
+    21	const activity: ActivityRow[] = [
+    22	  {
+    23	    id: "act-001",
+    24	    actor: "Gaille Amolong",
+    25	    action: "Deployed",
+    26	    target: "marketing-site",
+    27	    status: "completed",
+    28	    time: "2 minutes ago",
+    29	  },
+    30	  {
+    31	    id: "act-002",
+    32	    actor: "CI Bot",
+    33	    action: "Repaired",
+    34	    target: "checkout-form styles",
+    35	    status: "completed",
+    36	    time: "18 minutes ago",
+    37	  },
+    38	  {
+    39	    id: "act-003",
+    40	    actor: "Ana Reyes",
+    41	    action: "Updated",
+    42	    target: "billing settings",
+    43	    status: "pending",
+    44	    time: "1 hour ago",
+    45	  },
+    46	  {
+    47	    id: "act-004",
+    48	    actor: "CI Bot",
+    49	    action: "Flagged",
+    50	    target: "dashboard hex colors",
+    51	    status: "failed",
+    52	    time: "3 hours ago",
+    53	  },
+    54	]
+    55	
+    56	function statusVariant(status: ActivityRow["status"]) {
+    57	  if (status === "failed") {
+    58	    return "destructive" as const
+    59	  }
+    60	  if (status === "pending") {
+    61	    return "outline" as const
+    62	  }
+    63	  return "secondary" as const
+    64	}
+    65	
+    66	export function RecentActivity() {
+    67	  return (
+    68	    <Card>
+    69	      <CardHeader>
+    70	        <CardTitle>Recent activity</CardTitle>
+    71	        <CardDescription>Latest events across your connected projects.</CardDescription>
+    72	      </CardHeader>
+    73	      <CardContent>
+    74	        <Table>
+    75	          <TableHeader>
+    76	            <TableRow>
+    77	              <TableHead>Actor</TableHead>
+    78	              <TableHead>Action</TableHead>
+    79	              <TableHead>Target</TableHead>
+    80	              <TableHead>Status</TableHead>
+    81	              <TableHead className="text-right">When</TableHead>
+    82	            </TableRow>
+    83	          </TableHeader>
+    84	          <TableBody>
+    85	            {activity.map((row) => (
+    86	              <TableRow key={row.id}>
+    87	                <TableCell className="font-medium">{row.actor}</TableCell>
+    88	                <TableCell>{row.action}</TableCell>
+    89	                <TableCell className="text-muted-foreground">{row.target}</TableCell>
+    90	                <TableCell>
+    91	                  <Badge variant={statusVariant(row.status)}>{row.status}</Badge>
+    92	                </TableCell>
+    93	                <TableCell className="text-right text-muted-foreground">{row.time}</TableCell>
+    94	              </TableRow>
+    95	            ))}
+    96	          </TableBody>
+    97	        </Table>
+    98	      </CardContent>
+    99	    </Card>
+   100	  )
+   101	}
+
+2026-07-05T08:22:02.914505Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+Current-state understanding: `src/app/page.tsx` renders one stat grid and the lower `RecentActivity` panel; all cards share the same `Card` weight. There is no chart or sidebar in this fixture, so the safe interpretation is: make the revenue stat dominant, make the other stats quieter, make the lower panel feel like the main body section, and reduce top/nav widget emphasis without changing labels/data.
+
+Ambiguities/assumptions: “chart” maps to the existing lower panel because adding a chart would violate “don’t add content.” “Sidebar widgets” maps to the nav/action widgets because no sidebar exists.
+
+Success criteria: same content strings remain; revenue card is visually largest/highest contrast; secondary stats are smaller/quieter; lower panel has stronger section treatment; headings/separators create clear zones.
+
+Main risks: over-styling a fixture, changing shared `Card` globally, or adding markup/content the task explicitly forbids.
+
+Multiple-perspective review: domain correctness is content preservation; architecture says keep this local to dashboard components; production risk is low visual CSS; regression risk is settings page if shared UI is changed, so avoid it; testability is typecheck plus diff inspection; DX stays simple; security/data safety not relevant; performance unchanged.
+
+Proposed approach: add a `featured` visual mode to `StatCard`, apply it only to “Total revenue,” restyle `RecentActivity` and `DashboardNav` locally with Tailwind classes.
+
+Files likely affected: `src/app/page.tsx`, `src/components/dashboard/stat-card.tsx`, `src/components/dashboard/recent-activity.tsx`, `src/components/dashboard/nav.tsx`.
+
+Test plan: run `npm run typecheck`; if available, inspect diff for unchanged content strings.
+
+Rollback/safety: one small class-only diff; revert those four files if the hierarchy direction is wrong.
+
+No blocking questions.
+codex
+I’m making a local styling change now: one featured stat mode, quieter secondary cards, a stronger lower panel, and muted navigation chrome. No shared base component edits.
+apply patch
+patch: completed
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97a8f3dcb99a4d1cbd6638e2ae0e1ab324a..dd0833543c6db4c8ab1cc05ab5c894dfb9942ba4
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f6170d20bb877a4800ac5b43d562d1954af7..1691fb30bc9f7f8f44e304dced8f5cc0324383d4
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774ce863533f14157bbf338b0fc05afc3e811..9fd411a3b2ef49f83533bc0154d8477ea7a1078d
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="border-foreground/15 bg-background shadow-lg">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27933ce67cf22679f91dec00d5097fd5758..d6bde71c8a617c7db1119133bf0c29a34e37a4a0
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,54 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        "shadow-none",
++        featured
++          ? "bg-foreground text-background shadow-lg sm:col-span-2"
++          : "border-border/70 bg-background/60",
++      )}
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+-        <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
++        <Badge
++          variant={changeType === "negative" ? "destructive" : "secondary"}
++          className={featured ? "border-background/20 bg-background/15 text-background" : ""}
++        >
++          {change}
++        </Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+2026-07-05T08:22:57.897584Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97a8f3dcb99a4d1cbd6638e2ae0e1ab324a..dd0833543c6db4c8ab1cc05ab5c894dfb9942ba4
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f6170d20bb877a4800ac5b43d562d1954af7..1691fb30bc9f7f8f44e304dced8f5cc0324383d4
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774ce863533f14157bbf338b0fc05afc3e811..9fd411a3b2ef49f83533bc0154d8477ea7a1078d
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="border-foreground/15 bg-background shadow-lg">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27933ce67cf22679f91dec00d5097fd5758..d6bde71c8a617c7db1119133bf0c29a34e37a4a0
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,54 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        "shadow-none",
++        featured
++          ? "bg-foreground text-background shadow-lg sm:col-span-2"
++          : "border-border/70 bg-background/60",
++      )}
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+-        <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
++        <Badge
++          variant={changeType === "negative" ? "destructive" : "secondary"}
++          className={featured ? "border-background/20 bg-background/15 text-background" : ""}
++        >
++          {change}
++        </Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+codex
+The change is in place. I’m running the cheap verification now and checking the diff specifically for accidental content changes.
+exec
+/bin/zsh -lc 'git diff -- src/app/page.tsx src/components/dashboard/stat-card.tsx src/components/dashboard/recent-activity.tsx src/components/dashboard/nav.tsx' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97..dd08335 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@ const stats = [
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f61..1691fb3 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@ const links = [
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@ export function DashboardNav({ currentPath }: { currentPath: string }) {
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774c..9fd411a 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@ function statusVariant(status: ActivityRow["status"]) {
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="border-foreground/15 bg-background shadow-lg">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27..d6bde71 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,54 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        "shadow-none",
++        featured
++          ? "bg-foreground text-background shadow-lg sm:col-span-2"
++          : "border-border/70 bg-background/60",
++      )}
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+-        <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
++        <Badge
++          variant={changeType === "negative" ? "destructive" : "secondary"}
++          className={featured ? "border-background/20 bg-background/15 text-background" : ""}
++        >
++          {change}
++        </Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+exec
+/bin/zsh -lc 'npm run typecheck' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+2026-07-05T08:23:08.299489Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97a8f3dcb99a4d1cbd6638e2ae0e1ab324a..dd0833543c6db4c8ab1cc05ab5c894dfb9942ba4
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f6170d20bb877a4800ac5b43d562d1954af7..1691fb30bc9f7f8f44e304dced8f5cc0324383d4
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774ce863533f14157bbf338b0fc05afc3e811..9fd411a3b2ef49f83533bc0154d8477ea7a1078d
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="border-foreground/15 bg-background shadow-lg">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27933ce67cf22679f91dec00d5097fd5758..d6bde71c8a617c7db1119133bf0c29a34e37a4a0
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,54 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        "shadow-none",
++        featured
++          ? "bg-foreground text-background shadow-lg sm:col-span-2"
++          : "border-border/70 bg-background/60",
++      )}
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+-        <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
++        <Badge
++          variant={changeType === "negative" ? "destructive" : "secondary"}
++          className={featured ? "border-background/20 bg-background/15 text-background" : ""}
++        >
++          {change}
++        </Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+ succeeded in 3577ms:
+npm warn Unknown env config "recursive". This will stop working in the next major version of npm.
+
+> fixture-next-shadcn-dashboard-app@0.0.0 typecheck
+> tsc --noEmit
+
+
+codex
+Typecheck passes. I’m checking whether this fixture has a runnable Next dev setup for a visual pass; package scripts only expose typecheck, so I won’t invent a server path if it’s not present.
+exec
+/bin/zsh -lc 'test -x node_modules/.bin/next && node_modules/.bin/next --version' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+exec
+/bin/zsh -lc ls in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+components.json
+node_modules
+package.json
+src
+tailwind.config.ts
+tsconfig.json
+
+ exited 1 in 0ms:
+exec
+/bin/zsh -lc 'git diff --stat' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+ .../next-shadcn-dashboard-app/src/app/page.tsx     | 13 ++++---
+ .../src/components/dashboard/nav.tsx               | 10 +++--
+ .../src/components/dashboard/recent-activity.tsx   |  8 ++--
+ .../src/components/dashboard/stat-card.tsx         | 43 +++++++++++++++++++---
+ 4 files changed, 54 insertions(+), 20 deletions(-)
+
+2026-07-05T08:23:17.563039Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97a8f3dcb99a4d1cbd6638e2ae0e1ab324a..dd0833543c6db4c8ab1cc05ab5c894dfb9942ba4
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f6170d20bb877a4800ac5b43d562d1954af7..1691fb30bc9f7f8f44e304dced8f5cc0324383d4
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774ce863533f14157bbf338b0fc05afc3e811..9fd411a3b2ef49f83533bc0154d8477ea7a1078d
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="border-foreground/15 bg-background shadow-lg">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27933ce67cf22679f91dec00d5097fd5758..d6bde71c8a617c7db1119133bf0c29a34e37a4a0
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,54 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        "shadow-none",
++        featured
++          ? "bg-foreground text-background shadow-lg sm:col-span-2"
++          : "border-border/70 bg-background/60",
++      )}
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+-        <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
++        <Badge
++          variant={changeType === "negative" ? "destructive" : "secondary"}
++          className={featured ? "border-background/20 bg-background/15 text-background" : ""}
++        >
++          {change}
++        </Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+exec
+/bin/zsh -lc "sed -n '1,120p' src/lib/utils.ts" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+export function cn(...inputs: Array<string | false | null | undefined>): string {
+  return inputs.filter(Boolean).join(" ")
+}
+
+2026-07-05T08:23:31.701670Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97a8f3dcb99a4d1cbd6638e2ae0e1ab324a..dd0833543c6db4c8ab1cc05ab5c894dfb9942ba4
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f6170d20bb877a4800ac5b43d562d1954af7..1691fb30bc9f7f8f44e304dced8f5cc0324383d4
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774ce863533f14157bbf338b0fc05afc3e811..9fd411a3b2ef49f83533bc0154d8477ea7a1078d
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="border-foreground/15 bg-background shadow-lg">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27933ce67cf22679f91dec00d5097fd5758..d6bde71c8a617c7db1119133bf0c29a34e37a4a0
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,54 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        "shadow-none",
++        featured
++          ? "bg-foreground text-background shadow-lg sm:col-span-2"
++          : "border-border/70 bg-background/60",
++      )}
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+-        <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
++        <Badge
++          variant={changeType === "negative" ? "destructive" : "secondary"}
++          className={featured ? "border-background/20 bg-background/15 text-background" : ""}
++        >
++          {change}
++        </Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+codex
+I spotted one local risk: `cn` only joins classes, it does not resolve conflicting Tailwind utilities. I’m trimming overrides that would depend on conflict order and keeping the hierarchy on non-conflicting size, spacing, border, and shadow where possible.
+codex
+I’m keeping the hierarchy visible but removing class conflicts that could render inconsistently under plain Tailwind. The only inline style is for the featured revenue card’s inversion, because it cleanly beats the shared card background without touching the shared component.
+apply patch
+patch: completed
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97a8f3dcb99a4d1cbd6638e2ae0e1ab324a..dd0833543c6db4c8ab1cc05ab5c894dfb9942ba4
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f6170d20bb877a4800ac5b43d562d1954af7..1691fb30bc9f7f8f44e304dced8f5cc0324383d4
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774ce863533f14157bbf338b0fc05afc3e811..9740828c05eeeb2278293983de764776f357a669
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="ring-1 ring-foreground/10">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="!pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27933ce67cf22679f91dec00d5097fd5758..55b4dd4b0e8a7f884b124d25d786ff851f405e57
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,51 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        featured ? "ring-2 ring-foreground/15 sm:col-span-2" : "opacity-90",
++      )}
++      style={
++        featured
++          ? { backgroundColor: "hsl(var(--foreground))", color: "hsl(var(--background))" }
++          : undefined
++      }
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
+         <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+2026-07-05T08:24:24.752372Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97a8f3dcb99a4d1cbd6638e2ae0e1ab324a..dd0833543c6db4c8ab1cc05ab5c894dfb9942ba4
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f6170d20bb877a4800ac5b43d562d1954af7..1691fb30bc9f7f8f44e304dced8f5cc0324383d4
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774ce863533f14157bbf338b0fc05afc3e811..9740828c05eeeb2278293983de764776f357a669
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="ring-1 ring-foreground/10">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="!pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27933ce67cf22679f91dec00d5097fd5758..55b4dd4b0e8a7f884b124d25d786ff851f405e57
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,51 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        featured ? "ring-2 ring-foreground/15 sm:col-span-2" : "opacity-90",
++      )}
++      style={
++        featured
++          ? { backgroundColor: "hsl(var(--foreground))", color: "hsl(var(--background))" }
++          : undefined
++      }
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
+         <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+codex
+The risky class overrides are trimmed. I’m rerunning typecheck and reviewing the final diff once more.
+exec
+/bin/zsh -lc 'npm run typecheck' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+exec
+/bin/zsh -lc 'git diff -- src/app/page.tsx src/components/dashboard/stat-card.tsx src/components/dashboard/recent-activity.tsx src/components/dashboard/nav.tsx' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97..dd08335 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@ const stats = [
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f61..1691fb3 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@ const links = [
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@ export function DashboardNav({ currentPath }: { currentPath: string }) {
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774c..9740828 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@ function statusVariant(status: ActivityRow["status"]) {
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="ring-1 ring-foreground/10">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="!pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27..55b4dd4 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,51 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        featured ? "ring-2 ring-foreground/15 sm:col-span-2" : "opacity-90",
++      )}
++      style={
++        featured
++          ? { backgroundColor: "hsl(var(--foreground))", color: "hsl(var(--background))" }
++          : undefined
++      }
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
+         <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+2026-07-05T08:24:35.525945Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97a8f3dcb99a4d1cbd6638e2ae0e1ab324a..dd0833543c6db4c8ab1cc05ab5c894dfb9942ba4
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f6170d20bb877a4800ac5b43d562d1954af7..1691fb30bc9f7f8f44e304dced8f5cc0324383d4
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774ce863533f14157bbf338b0fc05afc3e811..9740828c05eeeb2278293983de764776f357a669
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="ring-1 ring-foreground/10">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="!pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27933ce67cf22679f91dec00d5097fd5758..55b4dd4b0e8a7f884b124d25d786ff851f405e57
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,51 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        featured ? "ring-2 ring-foreground/15 sm:col-span-2" : "opacity-90",
++      )}
++      style={
++        featured
++          ? { backgroundColor: "hsl(var(--foreground))", color: "hsl(var(--background))" }
++          : undefined
++      }
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
+         <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+ succeeded in 3145ms:
+npm warn Unknown env config "recursive". This will stop working in the next major version of npm.
+
+> fixture-next-shadcn-dashboard-app@0.0.0 typecheck
+> tsc --noEmit
+
+
+codex
+The final diff preserves all dashboard strings and passes `tsc`. There is no `dev` script and no local `next` binary in this fixture, so verification stops at typecheck and source diff.
+exec
+/bin/zsh -lc 'nl -ba src/components/dashboard/stat-card.tsx' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+     1	import { Badge } from "@/components/ui/badge"
+     2	import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+     3	import { cn } from "@/lib/utils"
+     4	
+     5	export interface StatCardProps {
+     6	  title: string
+     7	  value: string
+     8	  change: string
+     9	  changeType?: "positive" | "negative"
+    10	  featured?: boolean
+    11	}
+    12	
+    13	export function StatCard({
+    14	  title,
+    15	  value,
+    16	  change,
+    17	  changeType = "positive",
+    18	  featured = false,
+    19	}: StatCardProps) {
+    20	  return (
+    21	    <Card
+    22	      className={cn(
+    23	        featured ? "ring-2 ring-foreground/15 sm:col-span-2" : "opacity-90",
+    24	      )}
+    25	      style={
+    26	        featured
+    27	          ? { backgroundColor: "hsl(var(--foreground))", color: "hsl(var(--background))" }
+    28	          : undefined
+    29	      }
+    30	    >
+    31	      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+    32	        <CardTitle
+    33	          className={cn(
+    34	            "text-sm font-medium",
+    35	            featured ? "text-background/70" : "text-muted-foreground",
+    36	          )}
+    37	        >
+    38	          {title}
+    39	        </CardTitle>
+    40	        <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+    41	      </CardHeader>
+    42	      <CardContent>
+    43	        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
+    44	          {value}
+    45	        </div>
+    46	        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
+    47	          compared to last month
+    48	        </p>
+    49	      </CardContent>
+    50	    </Card>
+    51	  )
+    52	}
+
+exec
+/bin/zsh -lc "nl -ba src/components/dashboard/recent-activity.tsx | sed -n '60,105p'" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+    60	  if (status === "pending") {
+    61	    return "outline" as const
+    62	  }
+    63	  return "secondary" as const
+    64	}
+    65	
+    66	export function RecentActivity() {
+    67	  return (
+    68	    <Card className="ring-1 ring-foreground/10">
+    69	      <CardHeader className="border-b border-border pb-5">
+    70	        <CardTitle className="text-xl">Recent activity</CardTitle>
+    71	        <CardDescription>Latest events across your connected projects.</CardDescription>
+    72	      </CardHeader>
+    73	      <CardContent className="!pt-6">
+    74	        <Table>
+    75	          <TableHeader>
+    76	            <TableRow>
+    77	              <TableHead>Actor</TableHead>
+    78	              <TableHead>Action</TableHead>
+    79	              <TableHead>Target</TableHead>
+    80	              <TableHead>Status</TableHead>
+    81	              <TableHead className="text-right">When</TableHead>
+    82	            </TableRow>
+    83	          </TableHeader>
+    84	          <TableBody>
+    85	            {activity.map((row) => (
+    86	              <TableRow key={row.id}>
+    87	                <TableCell className="font-medium">{row.actor}</TableCell>
+    88	                <TableCell>{row.action}</TableCell>
+    89	                <TableCell className="text-muted-foreground">{row.target}</TableCell>
+    90	                <TableCell>
+    91	                  <Badge variant={statusVariant(row.status)}>{row.status}</Badge>
+    92	                </TableCell>
+    93	                <TableCell className="text-right text-muted-foreground">{row.time}</TableCell>
+    94	              </TableRow>
+    95	            ))}
+    96	          </TableBody>
+    97	        </Table>
+    98	      </CardContent>
+    99	    </Card>
+   100	  )
+   101	}
+
+exec
+/bin/zsh -lc 'nl -ba src/app/page.tsx' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+     1	import { DashboardNav } from "@/components/dashboard/nav"
+     2	import { RecentActivity } from "@/components/dashboard/recent-activity"
+     3	import { StatCard } from "@/components/dashboard/stat-card"
+     4	
+     5	const stats = [
+     6	  {
+     7	    title: "Total revenue",
+     8	    value: "$45,231.89",
+     9	    change: "+20.1%",
+    10	    changeType: "positive" as const,
+    11	  },
+    12	  {
+    13	    title: "Active repairs",
+    14	    value: "312",
+    15	    change: "+12.4%",
+    16	    changeType: "positive" as const,
+    17	  },
+    18	  {
+    19	    title: "Violations found",
+    20	    value: "1,024",
+    21	    change: "-4.3%",
+    22	    changeType: "negative" as const,
+    23	  },
+    24	  {
+    25	    title: "Projects connected",
+    26	    value: "24",
+    27	    change: "+3",
+    28	    changeType: "positive" as const,
+    29	  },
+    30	]
+    31	
+    32	export default function DashboardPage() {
+    33	  return (
+    34	    <div className="min-h-screen bg-muted/30">
+    35	      <DashboardNav currentPath="/" />
+    36	      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
+    37	        <div className="border-b border-border pb-5">
+    38	          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+    39	          <p className="text-sm text-muted-foreground">
+    40	            A summary of repair activity across your projects.
+    41	          </p>
+    42	        </div>
+    43	        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+    44	          {stats.map((stat, index) => (
+    45	            <StatCard
+    46	              key={stat.title}
+    47	              title={stat.title}
+    48	              value={stat.value}
+    49	              change={stat.change}
+    50	              changeType={stat.changeType}
+    51	              featured={index === 0}
+    52	            />
+    53	          ))}
+    54	        </section>
+    55	        <RecentActivity />
+    56	      </main>
+    57	    </div>
+    58	  )
+    59	}
+
+exec
+/bin/zsh -lc 'nl -ba src/components/dashboard/nav.tsx' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+     1	import { Badge } from "@/components/ui/badge"
+     2	import { Button } from "@/components/ui/button"
+     3	
+     4	const links = [
+     5	  { href: "/", label: "Overview" },
+     6	  { href: "/settings", label: "Settings" },
+     7	]
+     8	
+     9	export function DashboardNav({ currentPath }: { currentPath: string }) {
+    10	  return (
+    11	    <header className="border-b border-border bg-background/80">
+    12	      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+    13	        <div className="flex items-center gap-6">
+    14	          <div className="flex items-center gap-2">
+    15	            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
+    16	            <Badge variant="outline">v2</Badge>
+    17	          </div>
+    18	          <nav className="flex items-center gap-1">
+    19	            {links.map((link) => (
+    20	              <a
+    21	                key={link.href}
+    22	                href={link.href}
+    23	                className={
+    24	                  link.href === currentPath
+    25	                    ? "rounded-md px-3 py-1.5 text-sm font-medium bg-muted text-foreground"
+    26	                    : "rounded-md px-3 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground"
+    27	                }
+    28	              >
+    29	                {link.label}
+    30	              </a>
+    31	            ))}
+    32	          </nav>
+    33	        </div>
+    34	        <div className="flex items-center gap-2">
+    35	          <Button variant="ghost" size="sm">
+    36	            Feedback
+    37	          </Button>
+    38	          <Button variant="outline" size="sm">
+    39	            New report
+    40	          </Button>
+    41	        </div>
+    42	      </div>
+    43	    </header>
+    44	  )
+    45	}
+
+2026-07-05T08:24:51.763191Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97a8f3dcb99a4d1cbd6638e2ae0e1ab324a..dd0833543c6db4c8ab1cc05ab5c894dfb9942ba4
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f6170d20bb877a4800ac5b43d562d1954af7..1691fb30bc9f7f8f44e304dced8f5cc0324383d4
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774ce863533f14157bbf338b0fc05afc3e811..9740828c05eeeb2278293983de764776f357a669
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="ring-1 ring-foreground/10">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="!pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27933ce67cf22679f91dec00d5097fd5758..55b4dd4b0e8a7f884b124d25d786ff851f405e57
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,51 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        featured ? "ring-2 ring-foreground/15 sm:col-span-2" : "opacity-90",
++      )}
++      style={
++        featured
++          ? { backgroundColor: "hsl(var(--foreground))", color: "hsl(var(--background))" }
++          : undefined
++      }
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
+         <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+codex
+One last cheap check: whitespace/diff hygiene.
+exec
+/bin/zsh -lc 'git diff --check' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app
+ succeeded in 0ms:
+2026-07-05T08:24:57.455376Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97a8f3dcb99a4d1cbd6638e2ae0e1ab324a..dd0833543c6db4c8ab1cc05ab5c894dfb9942ba4
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f6170d20bb877a4800ac5b43d562d1954af7..1691fb30bc9f7f8f44e304dced8f5cc0324383d4
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774ce863533f14157bbf338b0fc05afc3e811..9740828c05eeeb2278293983de764776f357a669
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="ring-1 ring-foreground/10">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="!pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27933ce67cf22679f91dec00d5097fd5758..55b4dd4b0e8a7f884b124d25d786ff851f405e57
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,51 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        featured ? "ring-2 ring-foreground/15 sm:col-span-2" : "opacity-90",
++      )}
++      style={
++        featured
++          ? { backgroundColor: "hsl(var(--foreground))", color: "hsl(var(--background))" }
++          : undefined
++      }
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
+         <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+codex
+Implemented the hierarchy pass without adding/removing content.
+
+Changed:
+- [src/app/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/app/page.tsx:34): stronger page heading, clearer zone spacing, revenue stat spans wider.
+- [src/components/dashboard/stat-card.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx:21): featured revenue treatment; secondary stats recede.
+- [src/components/dashboard/recent-activity.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx:68): lower panel reads more like the centerpiece.
+- [src/components/dashboard/nav.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--dashboard-visual-hierarchy--1/repo/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx:11): nav widgets are quieter.
+
+Verification:
+- `npm run typecheck` passes.
+- `git diff --check` passes.
+- No visual server run: this fixture has no `dev` script and no local `next` binary.
+
+Skipped adding a real chart/sidebar because the fixture has neither and the request explicitly said not to change content.
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97a8f3dcb99a4d1cbd6638e2ae0e1ab324a..dd0833543c6db4c8ab1cc05ab5c894dfb9942ba4
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -31,23 +31,24 @@
+ 
+ export default function DashboardPage() {
+   return (
+-    <div className="min-h-screen bg-background">
++    <div className="min-h-screen bg-muted/30">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="border-b border-border pb-5">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
++          {stats.map((stat, index) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              featured={index === 0}
+             />
+           ))}
+         </section>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f6170d20bb877a4800ac5b43d562d1954af7..1691fb30bc9f7f8f44e304dced8f5cc0324383d4
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -8,12 +8,12 @@
+ 
+ export function DashboardNav({ currentPath }: { currentPath: string }) {
+   return (
+-    <header className="border-b border-border bg-card">
++    <header className="border-b border-border bg-background/80">
+       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
+         <div className="flex items-center gap-6">
+           <div className="flex items-center gap-2">
+-            <span className="text-sm font-semibold text-foreground">Snapline Ops</span>
+-            <Badge variant="secondary">v2</Badge>
++            <span className="text-sm font-semibold text-muted-foreground">Snapline Ops</span>
++            <Badge variant="outline">v2</Badge>
+           </div>
+           <nav className="flex items-center gap-1">
+             {links.map((link) => (
+@@ -35,7 +35,9 @@
+           <Button variant="ghost" size="sm">
+             Feedback
+           </Button>
+-          <Button size="sm">New report</Button>
++          <Button variant="outline" size="sm">
++            New report
++          </Button>
+         </div>
+       </div>
+     </header>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774ce863533f14157bbf338b0fc05afc3e811..9740828c05eeeb2278293983de764776f357a669
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,12 +65,12 @@
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
++    <Card className="ring-1 ring-foreground/10">
++      <CardHeader className="border-b border-border pb-5">
++        <CardTitle className="text-xl">Recent activity</CardTitle>
+         <CardDescription>Latest events across your connected projects.</CardDescription>
+       </CardHeader>
+-      <CardContent>
++      <CardContent className="!pt-6">
+         <Table>
+           <TableHeader>
+             <TableRow>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27933ce67cf22679f91dec00d5097fd5758..55b4dd4b0e8a7f884b124d25d786ff851f405e57
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -1,23 +1,51 @@
+ import { Badge } from "@/components/ui/badge"
+ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
++import { cn } from "@/lib/utils"
+ 
+ export interface StatCardProps {
+   title: string
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  featured?: boolean
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({
++  title,
++  value,
++  change,
++  changeType = "positive",
++  featured = false,
++}: StatCardProps) {
+   return (
+-    <Card>
++    <Card
++      className={cn(
++        featured ? "ring-2 ring-foreground/15 sm:col-span-2" : "opacity-90",
++      )}
++      style={
++        featured
++          ? { backgroundColor: "hsl(var(--foreground))", color: "hsl(var(--background))" }
++          : undefined
++      }
++    >
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
++        <CardTitle
++          className={cn(
++            "text-sm font-medium",
++            featured ? "text-background/70" : "text-muted-foreground",
++          )}
++        >
++          {title}
++        </CardTitle>
+         <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className={cn("font-bold", featured ? "text-5xl" : "text-xl text-foreground/75")}>
++          {value}
++        </div>
++        <p className={cn("text-xs", featured ? "text-background/60" : "text-muted-foreground")}>
++          compared to last month
++        </p>
+       </CardContent>
+     </Card>
+   )
+
+tokens used
+90,343

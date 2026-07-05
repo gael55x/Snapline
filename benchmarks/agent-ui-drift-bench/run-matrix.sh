@@ -38,6 +38,13 @@ fi
 if [ -n "$RUNS_SUFFIX" ]; then
   RUNS_SUBDIR="runs-$RUNS_SUFFIX"
 fi
+if [ "$AGENT" = "codex" ]; then
+  if CODEX_BIN="$(command -v codex 2>/dev/null)"; then
+    export CODEX_BIN
+  else
+    echo "[matrix] WARNING: codex not found on PATH; cells will record agent spawn failures" >> "$LOG"
+  fi
+fi
 PROMPTS="premium-dashboard polished-settings-page pricing-cards-polish onboarding-cleanup dashboard-visual-hierarchy billing-settings-page login-page team-invite-modal invoices-table empty-state"
 ATTEMPTS="1 2 3"
 

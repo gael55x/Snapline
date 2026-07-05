@@ -1,0 +1,1166 @@
+Reading additional input from stdin...
+OpenAI Codex v0.142.5
+--------
+workdir: /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019f318e-36ee-7243-af58-3b9b72f60fc0
+--------
+user
+Build a reusable empty state component for when a list has no items yet. It should take an icon, a title, a short description, and an optional action button as props. Center it in the available space with the icon in a soft circle above the text. Use it for the projects page with "No projects yet" and a "Create project" button.
+2026-07-05T09:13:52.744319Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T09:13:52.758520Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T09:13:57.251852Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+2026-07-05T09:13:57.301013Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T09:13:57.301046Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T09:13:57.302240Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T09:13:57.302289Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T09:13:57.303573Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T09:13:57.303616Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T09:13:57.305881Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T09:13:57.305936Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T09:13:57.307787Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T09:13:57.307827Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+2026-07-05T09:13:57.312262Z  WARN codex_core_skills::loader: ignoring interface.icon_small: icon path with '..' must resolve under plugin assets/
+2026-07-05T09:13:57.312300Z  WARN codex_core_skills::loader: ignoring interface.icon_large: icon path with '..' must resolve under plugin assets/
+hook: SessionStart
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+2026-07-05T09:14:00.057270Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+I’ll use the ponytail guidance here: inspect the existing page/components first, then make the smallest reusable component that fits the current style.
+2026-07-05T09:14:08.979786Z  WARN codex_otel::events::session_telemetry: metrics counter [codex.skill.injected] failed: tag value contains invalid characters: ponytail:ponytail
+exec
+/bin/zsh -lc "sed -n '1,220p' /Users/gailleamolong/.codex/plugins/cache/ponytail/ponytail/4.8.4/skills/ponytail/SKILL.md" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+---
+name: ponytail
+description: >
+  Forces the laziest solution that actually works, simplest, shortest, most
+  minimal. Channels a senior dev who has seen everything: question whether the
+  task needs to exist at all (YAGNI), reach for the standard library before
+  custom code, native platform features before dependencies, one line before
+  fifty. Supports intensity levels: lite, full (default), ultra. Use on ANY
+  coding task: writing, adding, refactoring, fixing, reviewing, or designing
+  code, and choosing libraries or dependencies. Also use whenever the user
+  says "ponytail", "be lazy", "lazy mode", "simplest solution", "minimal
+  solution", "yagni", "do less", or "shortest path", or complains about
+  over-engineering, bloat, boilerplate, or unnecessary dependencies. Do NOT
+  use for non-coding requests (general knowledge, prose, translation,
+  summaries, recipes).
+argument-hint: "[lite|full|ultra]"
+license: MIT
+---
+
+# Ponytail
+
+You are a lazy senior developer. Lazy means efficient, not careless. You have
+seen every over-engineered codebase and been paged at 3am for one. The best
+code is the code never written.
+
+## Persistence
+
+ACTIVE EVERY RESPONSE. No drift back to over-building. Still active if
+unsure. Off only: "stop ponytail" / "normal mode". Default: **full**.
+Switch: `/ponytail lite|full|ultra`.
+
+## The ladder
+
+Stop at the first rung that holds:
+
+1. **Does this need to exist at all?** Speculative need = skip it, say so in one line. (YAGNI)
+2. **Already in this codebase?** A helper, util, type, or pattern that already lives here → reuse it. Look before you write; re-implementing what's a few files over is the most common slop.
+3. **Stdlib does it?** Use it.
+4. **Native platform feature covers it?** `<input type="date">` over a picker lib, CSS over JS, DB constraint over app code.
+5. **Already-installed dependency solves it?** Use it. Never add a new one for what a few lines can do.
+6. **Can it be one line?** One line.
+7. **Only then:** the minimum code that works.
+
+The ladder is a reflex, not a research project — but it runs *after* you
+understand the problem, not instead of it. Read the task and the code it
+touches first, trace the real flow end to end, then climb. Two rungs work →
+take the higher one and move on. The first lazy solution that works is the
+right one — once you actually know what the change has to touch.
+
+**Bug fix = root cause, not symptom.** A report names a symptom. Before you
+edit, grep every caller of the function you're about to touch. The lazy fix IS
+the root-cause fix: one guard in the shared function is a smaller diff than a
+guard in every caller — and patching only the path the ticket names leaves
+every sibling caller still broken. Fix it once, where all callers route through.
+
+## Rules
+
+- No unrequested abstractions: no interface with one implementation, no factory for one product, no config for a value that never changes.
+- No boilerplate, no scaffolding "for later", later can scaffold for itself.
+- Deletion over addition. Boring over clever, clever is what someone decodes at 3am.
+- Fewest files possible. Shortest working diff wins — but only once you understand the problem. The smallest change in the wrong place isn't lazy, it's a second bug.
+- Complex request? Ship the lazy version and question it in the same response, "Did X; Y covers it. Need full X? Say so." Never stall on an answer you can default.
+- Two stdlib options, same size? Take the one that's correct on edge cases. Lazy means writing less code, not picking the flimsier algorithm.
+- Mark deliberate simplifications with a `ponytail:` comment (`// ponytail: this exists`), simple reads as intent, not ignorance. Shortcut with a known ceiling (global lock, O(n²) scan, naive heuristic)? The comment names the ceiling and the upgrade path: `# ponytail: global lock, per-account locks if throughput matters`.
+
+## Output
+
+Code first. Then at most three short lines: what was skipped, when to add it.
+No essays, no feature tours, no design notes. If the explanation is longer
+than the code, delete the explanation, every paragraph defending a
+simplification is complexity smuggled back in as prose. Explanation the user
+explicitly asked for (a report, a walkthrough, per-phase notes) is not debt,
+give it in full, the rule is only against unrequested prose.
+
+Pattern: `[code] → skipped: [X], add when [Y].`
+
+## Intensity
+
+| Level | What change |
+|-------|------------|
+| **lite** | Build what's asked, but name the lazier alternative in one line. User picks. |
+| **full** | The ladder enforced. Stdlib and native first. Shortest diff, shortest explanation. Default. |
+| **ultra** | YAGNI extremist. Deletion before addition. Ship the one-liner and challenge the rest of the requirement in the same breath. |
+
+Example: "Add a cache for these API responses."
+- lite: "Done, cache added. FYI: `functools.lru_cache` covers this in one line if you'd rather not own a cache class."
+- full: "`@lru_cache(maxsize=1000)` on the fetch function. Skipped custom cache class, add when lru_cache measurably falls short."
+- ultra: "No cache until a profiler says so. When it does: `@lru_cache`. A hand-rolled TTL cache class is a bug farm with a hit rate."
+
+## When NOT to be lazy
+
+Never simplify away: input validation at trust boundaries, error handling
+that prevents data loss, security measures, accessibility basics, anything
+explicitly requested. User insists on the full version → build it, no
+re-arguing.
+
+Never lazy about understanding the problem. The ladder shortens the
+solution, never the reading. Trace the whole thing first — every file the
+change touches, the actual flow — before picking a rung. Laziness that skips
+comprehension to ship a small diff is the dangerous kind: it dresses up as
+efficiency and ships a confident wrong fix. Read fully, then be lazy.
+
+Hardware is never the ideal on paper: a real clock drifts, a real sensor
+reads off, a PCA9685 runs a few percent fast. Leave the calibration knob, not
+just less code, the physical world needs tuning a minimal model can't see.
+
+Lazy code without its check is unfinished. Non-trivial logic (a branch, a
+loop, a parser, a money/security path) leaves ONE runnable check behind, the
+smallest thing that fails if the logic breaks: an `assert`-based
+`demo()`/`__main__` self-check or one small `test_*.py`. No frameworks, no
+fixtures, no per-function suites unless asked. Trivial one-liners need no
+test, YAGNI applies to tests too.
+
+## Boundaries
+
+Ponytail governs what you build, not how you talk (pair with Caveman for
+terse prose). "stop ponytail" / "normal mode": revert. Level persists until
+changed or session end.
+
+The shortest path to done is the right path.
+
+2026-07-05T09:14:09.099472Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+I’m checking the existing Next/shadcn structure and the projects page before editing, so the component lands where the repo already expects reusable UI to live.
+exec
+/bin/zsh -lc 'find .. -name AGENTS.md -print' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+exec
+/bin/zsh -lc "pwd && rg --files -g '"'!*node_modules*'"'" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+src/lib/utils.ts
+src/components/ui/input.tsx
+src/components/ui/textarea.tsx
+src/components/ui/select.tsx
+src/components/ui/button.tsx
+src/components/ui/table.tsx
+src/components/ui/badge.tsx
+src/components/ui/dialog.tsx
+src/components/ui/card.tsx
+src/app/login/page.tsx
+src/app/globals.css
+src/app/page.tsx
+src/app/layout.tsx
+src/globals.d.ts
+tsconfig.json
+components.json
+package.json
+tailwind.config.ts
+
+exec
+/bin/zsh -lc 'git status --short' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+2026-07-05T09:14:18.377865Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+This fixture is small: only `src/app/page.tsx` plus shadcn UI primitives under `src/components/ui`. No repo-level `AGENTS.md` file showed up beyond the instructions you provided.
+exec
+/bin/zsh -lc "sed -n '1,240p' src/app/page.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/ui/button.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+import { Button } from "@/components/ui/button"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+export default function HomePage() {
+  return (
+    <main className="mx-auto flex min-h-screen max-w-2xl flex-col items-center justify-center gap-6 p-6">
+      <Card className="w-full">
+        <CardHeader>
+          <CardTitle>Welcome back</CardTitle>
+          <CardDescription>A minimal fixture app used to exercise Snapline checks.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p className="text-sm text-muted-foreground">
+            Everything on this page is composed from shadcn-style components and semantic Tailwind
+            tokens.
+          </p>
+        </CardContent>
+        <CardFooter className="gap-2">
+          <Button>Get started</Button>
+          <Button variant="outline">Learn more</Button>
+        </CardFooter>
+      </Card>
+    </main>
+  )
+}
+
+ succeeded in 0ms:
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = {
+  variant: {
+    default: "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+    destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+    outline: "border border-border bg-background shadow-sm hover:bg-muted hover:text-foreground",
+    secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+    ghost: "hover:bg-muted hover:text-foreground",
+    link: "text-primary underline-offset-4 hover:underline",
+  },
+  size: {
+    default: "h-9 px-4 py-2",
+    sm: "h-8 rounded-md px-3 text-xs",
+    lg: "h-10 rounded-md px-8",
+    icon: "h-9 w-9",
+  },
+} as const
+
+export type ButtonVariant = keyof typeof buttonVariants.variant
+export type ButtonSize = keyof typeof buttonVariants.size
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant
+  size?: ButtonSize
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = "default", size = "default", ...props }, ref) => {
+    return (
+      <button
+        className={cn(
+          "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50",
+          buttonVariants.variant[variant],
+          buttonVariants.size[size],
+          className,
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
+  },
+)
+Button.displayName = "Button"
+
+export { Button, buttonVariants }
+
+exec
+/bin/zsh -lc "sed -n '1,220p' src/lib/utils.ts" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+export function cn(...inputs: Array<string | false | null | undefined>): string {
+  return inputs.filter(Boolean).join(" ")
+}
+
+exec
+/bin/zsh -lc 'cat package.json' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+{
+  "name": "fixture-next-shadcn-basic",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.6.3"
+  }
+}
+
+2026-07-05T09:14:29.379405Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+Current state: there is no projects route yet, and no icon library dependency installed. I’ll avoid adding one; the reusable component can accept any `ReactNode` icon, and the projects page can use one tiny local SVG.
+exec
+/bin/zsh -lc "cat tsconfig.json && sed -n '1,220p' src/app/layout.tsx && sed -n '1,260p' src/app/globals.css" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+{
+  "compilerOptions": {
+    "strict": true,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "noEmit": true,
+    "lib": ["ES2022", "DOM"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}
+import * as React from "react"
+
+import "./globals.css"
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
+        {children}
+      </body>
+    </html>
+  )
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+2026-07-05T09:14:48.144513Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+codex
+Before coding:
+
+1. Current-state understanding: this is a tiny Next app-router fixture with shadcn-style primitives in `src/components/ui`; there is no reusable empty state and no `/projects` route yet.
+2. Ambiguities/assumptions: I’m treating “projects page” as a new `src/app/projects/page.tsx`, not replacing the existing home page.
+3. Success criteria: reusable component accepts `icon`, `title`, `description`, optional `action`; it centers content, uses a soft circular icon container, and `/projects` renders “No projects yet” plus a “Create project” button.
+4. Main risks: adding a dependency for one icon, over-generalizing props, or creating layout that only works on one page.
+5. Multiple-perspective review: domain is simple empty-list UX; architecture should be one shared component plus one route; production risk low; regression risk limited to new files; testability is TypeScript compile; DX is plain `ReactNode` props; security not relevant; performance trivial.
+6. Proposed approach: add `src/components/empty-state.tsx`; add `src/app/projects/page.tsx`; reuse existing `Button`; use a small local SVG icon.
+7. Files likely affected: `src/components/empty-state.tsx`, `src/app/projects/page.tsx`.
+8. Test plan: run `npm run typecheck`.
+9. Rollback/safety plan: delete the two new files.
+10. Questions: none blocking.
+codex
+I’m making two new files only: the reusable empty state component, then the `/projects` page that consumes it.
+exec
+/bin/zsh -lc 'mkdir -p src/app/projects' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+2026-07-05T09:15:01.176671Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+apply patch
+patch: completed
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+diff --git a/fixtures/next-shadcn-basic/src/app/projects/page.tsx b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..9b27c9fb5eb39019aea47101a609f239d87a4baf
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+@@ -0,0 +1,34 @@
++import { EmptyState } from "@/components/empty-state"
++import { Button } from "@/components/ui/button"
++
++function ProjectIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      aria-hidden="true"
++      fill="none"
++      stroke="currentColor"
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      strokeWidth="2"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <path d="M4 6h7l2 2h7v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
++      <path d="M12 12v4" />
++      <path d="M10 14h4" />
++    </svg>
++  )
++}
++
++export default function ProjectsPage() {
++  return (
++    <main className="flex min-h-screen">
++      <EmptyState
++        icon={<ProjectIcon className="h-7 w-7" />}
++        title="No projects yet"
++        description="Create your first project to start organizing your work."
++        action={<Button>Create project</Button>}
++      />
++    </main>
++  )
++}
+diff --git a/fixtures/next-shadcn-basic/src/components/empty-state.tsx b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..b9282d7dd868b566d4b16c0f4aedfd3ae741de04
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+@@ -0,0 +1,23 @@
++import * as React from "react"
++
++interface EmptyStateProps {
++  icon: React.ReactNode
++  title: string
++  description: string
++  action?: React.ReactNode
++}
++
++export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
++  return (
++    <div className="flex flex-1 items-center justify-center px-6 py-12 text-center">
++      <div className="flex max-w-sm flex-col items-center">
++        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-muted text-muted-foreground">
++          {icon}
++        </div>
++        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
++        <p className="mt-2 text-sm text-muted-foreground">{description}</p>
++        {action ? <div className="mt-6">{action}</div> : null}
++      </div>
++    </div>
++  )
++}
+
+2026-07-05T09:15:14.263534Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-basic/src/app/projects/page.tsx b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..9b27c9fb5eb39019aea47101a609f239d87a4baf
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+@@ -0,0 +1,34 @@
++import { EmptyState } from "@/components/empty-state"
++import { Button } from "@/components/ui/button"
++
++function ProjectIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      aria-hidden="true"
++      fill="none"
++      stroke="currentColor"
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      strokeWidth="2"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <path d="M4 6h7l2 2h7v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
++      <path d="M12 12v4" />
++      <path d="M10 14h4" />
++    </svg>
++  )
++}
++
++export default function ProjectsPage() {
++  return (
++    <main className="flex min-h-screen">
++      <EmptyState
++        icon={<ProjectIcon className="h-7 w-7" />}
++        title="No projects yet"
++        description="Create your first project to start organizing your work."
++        action={<Button>Create project</Button>}
++      />
++    </main>
++  )
++}
+diff --git a/fixtures/next-shadcn-basic/src/components/empty-state.tsx b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..b9282d7dd868b566d4b16c0f4aedfd3ae741de04
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+@@ -0,0 +1,23 @@
++import * as React from "react"
++
++interface EmptyStateProps {
++  icon: React.ReactNode
++  title: string
++  description: string
++  action?: React.ReactNode
++}
++
++export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
++  return (
++    <div className="flex flex-1 items-center justify-center px-6 py-12 text-center">
++      <div className="flex max-w-sm flex-col items-center">
++        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-muted text-muted-foreground">
++          {icon}
++        </div>
++        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
++        <p className="mt-2 text-sm text-muted-foreground">{description}</p>
++        {action ? <div className="mt-6">{action}</div> : null}
++      </div>
++    </div>
++  )
++}
+
+codex
+The component is intentionally small: no dependency, no variant system, and no class override until a second use case proves it needs one. Now I’m typechecking the fixture.
+exec
+/bin/zsh -lc 'npm run typecheck' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 13813ms:
+npm warn Unknown env config "recursive". This will stop working in the next major version of npm.
+
+> fixture-next-shadcn-basic@0.0.0 typecheck
+> tsc --noEmit
+
+
+2026-07-05T09:15:34.932077Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-basic/src/app/projects/page.tsx b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..9b27c9fb5eb39019aea47101a609f239d87a4baf
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+@@ -0,0 +1,34 @@
++import { EmptyState } from "@/components/empty-state"
++import { Button } from "@/components/ui/button"
++
++function ProjectIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      aria-hidden="true"
++      fill="none"
++      stroke="currentColor"
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      strokeWidth="2"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <path d="M4 6h7l2 2h7v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
++      <path d="M12 12v4" />
++      <path d="M10 14h4" />
++    </svg>
++  )
++}
++
++export default function ProjectsPage() {
++  return (
++    <main className="flex min-h-screen">
++      <EmptyState
++        icon={<ProjectIcon className="h-7 w-7" />}
++        title="No projects yet"
++        description="Create your first project to start organizing your work."
++        action={<Button>Create project</Button>}
++      />
++    </main>
++  )
++}
+diff --git a/fixtures/next-shadcn-basic/src/components/empty-state.tsx b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..b9282d7dd868b566d4b16c0f4aedfd3ae741de04
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+@@ -0,0 +1,23 @@
++import * as React from "react"
++
++interface EmptyStateProps {
++  icon: React.ReactNode
++  title: string
++  description: string
++  action?: React.ReactNode
++}
++
++export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
++  return (
++    <div className="flex flex-1 items-center justify-center px-6 py-12 text-center">
++      <div className="flex max-w-sm flex-col items-center">
++        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-muted text-muted-foreground">
++          {icon}
++        </div>
++        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
++        <p className="mt-2 text-sm text-muted-foreground">{description}</p>
++        {action ? <div className="mt-6">{action}</div> : null}
++      </div>
++    </div>
++  )
++}
+
+codex
+Typecheck passes. I’m doing one quick diff check to make sure the change stayed scoped to the empty state and projects route.
+exec
+/bin/zsh -lc 'git diff -- src/components/empty-state.tsx src/app/projects/page.tsx' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+exec
+/bin/zsh -lc 'git status --short' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+2026-07-05T09:15:42.178908Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-basic/src/app/projects/page.tsx b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..9b27c9fb5eb39019aea47101a609f239d87a4baf
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+@@ -0,0 +1,34 @@
++import { EmptyState } from "@/components/empty-state"
++import { Button } from "@/components/ui/button"
++
++function ProjectIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      aria-hidden="true"
++      fill="none"
++      stroke="currentColor"
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      strokeWidth="2"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <path d="M4 6h7l2 2h7v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
++      <path d="M12 12v4" />
++      <path d="M10 14h4" />
++    </svg>
++  )
++}
++
++export default function ProjectsPage() {
++  return (
++    <main className="flex min-h-screen">
++      <EmptyState
++        icon={<ProjectIcon className="h-7 w-7" />}
++        title="No projects yet"
++        description="Create your first project to start organizing your work."
++        action={<Button>Create project</Button>}
++      />
++    </main>
++  )
++}
+diff --git a/fixtures/next-shadcn-basic/src/components/empty-state.tsx b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..b9282d7dd868b566d4b16c0f4aedfd3ae741de04
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+@@ -0,0 +1,23 @@
++import * as React from "react"
++
++interface EmptyStateProps {
++  icon: React.ReactNode
++  title: string
++  description: string
++  action?: React.ReactNode
++}
++
++export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
++  return (
++    <div className="flex flex-1 items-center justify-center px-6 py-12 text-center">
++      <div className="flex max-w-sm flex-col items-center">
++        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-muted text-muted-foreground">
++          {icon}
++        </div>
++        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
++        <p className="mt-2 text-sm text-muted-foreground">{description}</p>
++        {action ? <div className="mt-6">{action}</div> : null}
++      </div>
++    </div>
++  )
++}
+
+ succeeded in 115ms:
+?? src/app/projects/
+?? src/components/empty-state.tsx
+
+codex
+The files are untracked as expected for this new feature. One more read of the added files, then I’ll wrap up.
+exec
+/bin/zsh -lc "sed -n '1,240p' src/app/projects/page.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+exec
+/bin/zsh -lc "sed -n '1,220p' src/components/empty-state.tsx" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+import { EmptyState } from "@/components/empty-state"
+import { Button } from "@/components/ui/button"
+
+function ProjectIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      {...props}
+    >
+      <path d="M4 6h7l2 2h7v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
+      <path d="M12 12v4" />
+      <path d="M10 14h4" />
+    </svg>
+  )
+}
+
+export default function ProjectsPage() {
+  return (
+    <main className="flex min-h-screen">
+      <EmptyState
+        icon={<ProjectIcon className="h-7 w-7" />}
+        title="No projects yet"
+        description="Create your first project to start organizing your work."
+        action={<Button>Create project</Button>}
+      />
+    </main>
+  )
+}
+
+ succeeded in 0ms:
+import * as React from "react"
+
+interface EmptyStateProps {
+  icon: React.ReactNode
+  title: string
+  description: string
+  action?: React.ReactNode
+}
+
+export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
+  return (
+    <div className="flex flex-1 items-center justify-center px-6 py-12 text-center">
+      <div className="flex max-w-sm flex-col items-center">
+        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-muted text-muted-foreground">
+          {icon}
+        </div>
+        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
+        <p className="mt-2 text-sm text-muted-foreground">{description}</p>
+        {action ? <div className="mt-6">{action}</div> : null}
+      </div>
+    </div>
+  )
+}
+
+exec
+/bin/zsh -lc "sed -n '1,200p' src/globals.d.ts" in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+ succeeded in 0ms:
+declare module "*.css"
+
+2026-07-05T09:15:52.178459Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-basic/src/app/projects/page.tsx b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..9b27c9fb5eb39019aea47101a609f239d87a4baf
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+@@ -0,0 +1,34 @@
++import { EmptyState } from "@/components/empty-state"
++import { Button } from "@/components/ui/button"
++
++function ProjectIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      aria-hidden="true"
++      fill="none"
++      stroke="currentColor"
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      strokeWidth="2"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <path d="M4 6h7l2 2h7v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
++      <path d="M12 12v4" />
++      <path d="M10 14h4" />
++    </svg>
++  )
++}
++
++export default function ProjectsPage() {
++  return (
++    <main className="flex min-h-screen">
++      <EmptyState
++        icon={<ProjectIcon className="h-7 w-7" />}
++        title="No projects yet"
++        description="Create your first project to start organizing your work."
++        action={<Button>Create project</Button>}
++      />
++    </main>
++  )
++}
+diff --git a/fixtures/next-shadcn-basic/src/components/empty-state.tsx b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..b9282d7dd868b566d4b16c0f4aedfd3ae741de04
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+@@ -0,0 +1,23 @@
++import * as React from "react"
++
++interface EmptyStateProps {
++  icon: React.ReactNode
++  title: string
++  description: string
++  action?: React.ReactNode
++}
++
++export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
++  return (
++    <div className="flex flex-1 items-center justify-center px-6 py-12 text-center">
++      <div className="flex max-w-sm flex-col items-center">
++        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-muted text-muted-foreground">
++          {icon}
++        </div>
++        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
++        <p className="mt-2 text-sm text-muted-foreground">{description}</p>
++        {action ? <div className="mt-6">{action}</div> : null}
++      </div>
++    </div>
++  )
++}
+
+codex
+One small layout tweak: making the projects page flex direction explicit so `flex-1` means vertical available space if the page later grows a header or toolbar.
+apply patch
+patch: completed
+/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+diff --git a/fixtures/next-shadcn-basic/src/app/projects/page.tsx b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..083b1be34d6fde27c6fe40c8a767540e72556c97
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+@@ -0,0 +1,34 @@
++import { EmptyState } from "@/components/empty-state"
++import { Button } from "@/components/ui/button"
++
++function ProjectIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      aria-hidden="true"
++      fill="none"
++      stroke="currentColor"
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      strokeWidth="2"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <path d="M4 6h7l2 2h7v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
++      <path d="M12 12v4" />
++      <path d="M10 14h4" />
++    </svg>
++  )
++}
++
++export default function ProjectsPage() {
++  return (
++    <main className="flex min-h-screen flex-col">
++      <EmptyState
++        icon={<ProjectIcon className="h-7 w-7" />}
++        title="No projects yet"
++        description="Create your first project to start organizing your work."
++        action={<Button>Create project</Button>}
++      />
++    </main>
++  )
++}
+diff --git a/fixtures/next-shadcn-basic/src/components/empty-state.tsx b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..b9282d7dd868b566d4b16c0f4aedfd3ae741de04
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+@@ -0,0 +1,23 @@
++import * as React from "react"
++
++interface EmptyStateProps {
++  icon: React.ReactNode
++  title: string
++  description: string
++  action?: React.ReactNode
++}
++
++export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
++  return (
++    <div className="flex flex-1 items-center justify-center px-6 py-12 text-center">
++      <div className="flex max-w-sm flex-col items-center">
++        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-muted text-muted-foreground">
++          {icon}
++        </div>
++        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
++        <p className="mt-2 text-sm text-muted-foreground">{description}</p>
++        {action ? <div className="mt-6">{action}</div> : null}
++      </div>
++    </div>
++  )
++}
+
+2026-07-05T09:16:10.948126Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-basic/src/app/projects/page.tsx b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..083b1be34d6fde27c6fe40c8a767540e72556c97
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+@@ -0,0 +1,34 @@
++import { EmptyState } from "@/components/empty-state"
++import { Button } from "@/components/ui/button"
++
++function ProjectIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      aria-hidden="true"
++      fill="none"
++      stroke="currentColor"
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      strokeWidth="2"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <path d="M4 6h7l2 2h7v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
++      <path d="M12 12v4" />
++      <path d="M10 14h4" />
++    </svg>
++  )
++}
++
++export default function ProjectsPage() {
++  return (
++    <main className="flex min-h-screen flex-col">
++      <EmptyState
++        icon={<ProjectIcon className="h-7 w-7" />}
++        title="No projects yet"
++        description="Create your first project to start organizing your work."
++        action={<Button>Create project</Button>}
++      />
++    </main>
++  )
++}
+diff --git a/fixtures/next-shadcn-basic/src/components/empty-state.tsx b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..b9282d7dd868b566d4b16c0f4aedfd3ae741de04
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+@@ -0,0 +1,23 @@
++import * as React from "react"
++
++interface EmptyStateProps {
++  icon: React.ReactNode
++  title: string
++  description: string
++  action?: React.ReactNode
++}
++
++export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
++  return (
++    <div className="flex flex-1 items-center justify-center px-6 py-12 text-center">
++      <div className="flex max-w-sm flex-col items-center">
++        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-muted text-muted-foreground">
++          {icon}
++        </div>
++        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
++        <p className="mt-2 text-sm text-muted-foreground">{description}</p>
++        {action ? <div className="mt-6">{action}</div> : null}
++      </div>
++    </div>
++  )
++}
+
+exec
+/bin/zsh -lc 'npm run typecheck' in /Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic
+2026-07-05T09:16:25.239934Z  WARN codex_core_plugins::manifest: ignoring interface.defaultPrompt[0]: prompt must be at most 128 characters path=/Users/gailleamolong/.codex/.tmp/plugins/plugins/ngs-analysis/.codex-plugin/plugin.json
+diff --git a/fixtures/next-shadcn-basic/src/app/projects/page.tsx b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..083b1be34d6fde27c6fe40c8a767540e72556c97
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+@@ -0,0 +1,34 @@
++import { EmptyState } from "@/components/empty-state"
++import { Button } from "@/components/ui/button"
++
++function ProjectIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      aria-hidden="true"
++      fill="none"
++      stroke="currentColor"
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      strokeWidth="2"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <path d="M4 6h7l2 2h7v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
++      <path d="M12 12v4" />
++      <path d="M10 14h4" />
++    </svg>
++  )
++}
++
++export default function ProjectsPage() {
++  return (
++    <main className="flex min-h-screen flex-col">
++      <EmptyState
++        icon={<ProjectIcon className="h-7 w-7" />}
++        title="No projects yet"
++        description="Create your first project to start organizing your work."
++        action={<Button>Create project</Button>}
++      />
++    </main>
++  )
++}
+diff --git a/fixtures/next-shadcn-basic/src/components/empty-state.tsx b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..b9282d7dd868b566d4b16c0f4aedfd3ae741de04
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+@@ -0,0 +1,23 @@
++import * as React from "react"
++
++interface EmptyStateProps {
++  icon: React.ReactNode
++  title: string
++  description: string
++  action?: React.ReactNode
++}
++
++export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
++  return (
++    <div className="flex flex-1 items-center justify-center px-6 py-12 text-center">
++      <div className="flex max-w-sm flex-col items-center">
++        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-muted text-muted-foreground">
++          {icon}
++        </div>
++        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
++        <p className="mt-2 text-sm text-muted-foreground">{description}</p>
++        {action ? <div className="mt-6">{action}</div> : null}
++      </div>
++    </div>
++  )
++}
+
+ succeeded in 10154ms:
+npm warn Unknown env config "recursive". This will stop working in the next major version of npm.
+
+> fixture-next-shadcn-basic@0.0.0 typecheck
+> tsc --noEmit
+
+
+codex
+Implemented `EmptyState` in [src/components/empty-state.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic/src/components/empty-state.tsx:1) and added `/projects` in [src/app/projects/page.tsx](/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--empty-state--1/repo/fixtures/next-shadcn-basic/src/app/projects/page.tsx:1) with “No projects yet” and a “Create project” button.
+
+Verification: `npm run typecheck` passes. Skipped adding an icon dependency or variant system; add those only when a second real use case needs them.
+diff --git a/fixtures/next-shadcn-basic/src/app/projects/page.tsx b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..083b1be34d6fde27c6fe40c8a767540e72556c97
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/app/projects/page.tsx
+@@ -0,0 +1,34 @@
++import { EmptyState } from "@/components/empty-state"
++import { Button } from "@/components/ui/button"
++
++function ProjectIcon(props: React.SVGProps<SVGSVGElement>) {
++  return (
++    <svg
++      aria-hidden="true"
++      fill="none"
++      stroke="currentColor"
++      strokeLinecap="round"
++      strokeLinejoin="round"
++      strokeWidth="2"
++      viewBox="0 0 24 24"
++      {...props}
++    >
++      <path d="M4 6h7l2 2h7v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" />
++      <path d="M12 12v4" />
++      <path d="M10 14h4" />
++    </svg>
++  )
++}
++
++export default function ProjectsPage() {
++  return (
++    <main className="flex min-h-screen flex-col">
++      <EmptyState
++        icon={<ProjectIcon className="h-7 w-7" />}
++        title="No projects yet"
++        description="Create your first project to start organizing your work."
++        action={<Button>Create project</Button>}
++      />
++    </main>
++  )
++}
+diff --git a/fixtures/next-shadcn-basic/src/components/empty-state.tsx b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+new file mode 100644
+index 0000000000000000000000000000000000000000..b9282d7dd868b566d4b16c0f4aedfd3ae741de04
+--- /dev/null
++++ b/fixtures/next-shadcn-basic/src/components/empty-state.tsx
+@@ -0,0 +1,23 @@
++import * as React from "react"
++
++interface EmptyStateProps {
++  icon: React.ReactNode
++  title: string
++  description: string
++  action?: React.ReactNode
++}
++
++export function EmptyState({ icon, title, description, action }: EmptyStateProps) {
++  return (
++    <div className="flex flex-1 items-center justify-center px-6 py-12 text-center">
++      <div className="flex max-w-sm flex-col items-center">
++        <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-muted text-muted-foreground">
++          {icon}
++        </div>
++        <h2 className="text-lg font-semibold tracking-tight">{title}</h2>
++        <p className="mt-2 text-sm text-muted-foreground">{description}</p>
++        {action ? <div className="mt-6">{action}</div> : null}
++      </div>
++    </div>
++  )
++}
+
+tokens used
+49,009

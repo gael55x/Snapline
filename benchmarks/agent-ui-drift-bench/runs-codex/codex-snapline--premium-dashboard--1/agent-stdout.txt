@@ -1,0 +1,8 @@
+Done. I upgraded the dashboard polish with semantic theme tokens, tighter shared card/button/badge/table styling, a stronger nav, roomier layout, stat-card accents, and a cleaner activity panel. No functionality or dashboard data changed.
+
+Verification passed:
+- `./node_modules/.bin/snapline scan --changed`
+- `npm run typecheck`
+- `git diff --check`
+
+Skipped new dependencies, fake widgets, and invented data. I did not start a dev server because this fixture exposes only `typecheck` and has no local `next` binary.

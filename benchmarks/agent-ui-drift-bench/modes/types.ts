@@ -28,7 +28,7 @@ export function claudeInvocation(prompt: string, model: string): AgentInvocation
 
 export function codexInvocation(prompt: string, model: string): AgentInvocation {
   return {
-    cmd: "codex",
+    cmd: process.env.CODEX_BIN ?? "codex",
     // Verified 2026-07-05 with codex-cli 0.142.5 help: `codex exec` is
     // non-interactive; `--sandbox workspace-write` permits cwd edits, and
     // `-c approval_policy="never"` prevents human approval prompts.

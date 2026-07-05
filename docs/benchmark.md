@@ -34,13 +34,21 @@ The published results come from the **reduced matrix**:
   everywhere. Runs execute in parallel workers (one mode per worker); each
   run's checkout commit SHA is recorded.
 
-**Cross-model slices.** The same harness runs against other models via
-`--model` (cells land in a segregated `runs-<model>/` directory with their own
-report, never mixed into the primary matrix). Published slices name the exact
-model ID — e.g. `claude-haiku-4-5-20251001` for the older/cheaper-tier
-comparison (`MODEL=<id> ./run-matrix.sh "<mode>"` to reproduce). Every
-`run.json` records its model; reports and graph subtitles list the model(s)
-they aggregate.
+**Cross-model and cross-agent slices.** The same harness runs against other
+models via `--model` and other agents via `AGENT=codex` (cells land in
+segregated `runs-<model|agent>/` directories with their own reports, never
+mixed into the primary matrix). Every `run.json` records its exact model ID;
+reports and graph subtitles list the model(s) they aggregate. Published
+slices:
+
+- `claude-haiku-4-5-20251001` (raw vs gated):
+  [reports/latest-haiku.md](../benchmarks/agent-ui-drift-bench/reports/latest-haiku.md)
+- Codex CLI / `gpt-5.5` (raw vs **instruction-level** Snapline — Codex has no
+  lifecycle hooks, so this slice measures the repair-contract format without
+  a gate): [reports/latest-codex.md](../benchmarks/agent-ui-drift-bench/reports/latest-codex.md)
+
+Reproduce: `MODEL=<id> ./run-matrix.sh "<mode>"` or
+`AGENT=codex ./run-matrix.sh "codex-raw"`.
 
 ## What one run looks like
 
