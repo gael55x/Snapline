@@ -33,21 +33,25 @@ export function svgBarChart(
   format: (v: number) => string = (v) => v.toFixed(1),
 ): string {
   const max = Math.max(1, ...bars.map((b) => b.value ?? 0))
-  const chartWidth = WIDTH - LABEL_WIDTH - MARGIN * 2 - 70
+  // Label column sized to the longest label (12px monospace ≈ 7.3px/char) so
+  // long mode names never clip; bars get whatever width remains.
+  const longestLabel = Math.max(...bars.map((b) => b.label.length), 10)
+  const labelWidth = Math.max(LABEL_WIDTH, Math.ceil(longestLabel * 7.3) + 16)
+  const chartWidth = WIDTH - labelWidth - MARGIN * 2 - 70
   const height = MARGIN * 2 + 44 + bars.length * (BAR_HEIGHT + GAP)
   const rows = bars.map((bar, i) => {
     const y = MARGIN + 44 + i * (BAR_HEIGHT + GAP)
-    const labelText = `<text x="${LABEL_WIDTH - 8}" y="${y + BAR_HEIGHT / 2 + 4}" text-anchor="end" font-size="12" fill="#333" font-family="ui-monospace, monospace">${esc(bar.label)}</text>`
+    const labelText = `<text x="${labelWidth - 8}" y="${y + BAR_HEIGHT / 2 + 4}" text-anchor="end" font-size="12" fill="#333" font-family="ui-monospace, monospace">${esc(bar.label)}</text>`
     if (bar.value === null) {
       return `${labelText}
-  <rect x="${LABEL_WIDTH}" y="${y}" width="${chartWidth}" height="${BAR_HEIGHT}" fill="url(#tbd)" opacity="0.35" rx="3"/>
-  <text x="${LABEL_WIDTH + 8}" y="${y + BAR_HEIGHT / 2 + 4}" font-size="12" fill="#888" font-family="ui-monospace, monospace">TBD — no runs recorded</text>`
+  <rect x="${labelWidth}" y="${y}" width="${chartWidth}" height="${BAR_HEIGHT}" fill="url(#tbd)" opacity="0.35" rx="3"/>
+  <text x="${labelWidth + 8}" y="${y + BAR_HEIGHT / 2 + 4}" font-size="12" fill="#888" font-family="ui-monospace, monospace">TBD — no runs recorded</text>`
     }
     const w = Math.max(2, Math.round((bar.value / max) * chartWidth))
     const fill = bar.highlight === true ? "#0f766e" : "#64748b"
     return `${labelText}
-  <rect x="${LABEL_WIDTH}" y="${y}" width="${w}" height="${BAR_HEIGHT}" fill="${fill}" rx="3"/>
-  <text x="${LABEL_WIDTH + w + 8}" y="${y + BAR_HEIGHT / 2 + 4}" font-size="12" fill="#333" font-family="ui-monospace, monospace">${esc(format(bar.value))}</text>`
+  <rect x="${labelWidth}" y="${y}" width="${w}" height="${BAR_HEIGHT}" fill="${fill}" rx="3"/>
+  <text x="${labelWidth + w + 8}" y="${y + BAR_HEIGHT / 2 + 4}" font-size="12" fill="#333" font-family="ui-monospace, monospace">${esc(format(bar.value))}</text>`
   })
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" role="img" aria-label="${esc(title)}">
   <defs>
