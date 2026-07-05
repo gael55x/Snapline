@@ -8,6 +8,19 @@
 
 # Documentation
 
+## 60-second setup
+
+```sh
+npm i -D @usesnapline/cli     # 1. install (always before npx snapline)
+npx snapline init --claude    # 2. detect project, write snapline.yml, wire Claude hooks
+npx snapline doctor           # 3. verify everything resolves
+```
+
+Restart your Claude Code session (hooks load at session start) — done. Your
+agent now gets blocked with exact repair contracts on off-system UI and cannot
+finish while errors remain. Full walkthrough with expected outputs:
+[Quickstart](quickstart.md).
+
 ## Start here
 
 | Page                            | What it covers                                             |

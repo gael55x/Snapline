@@ -1,91 +1,145 @@
 # Quickstart
 
-## Install
+Three commands, ~2 minutes, then your agent can't ship off-system UI anymore.
+
+Works on any React + Tailwind project; shadcn/ui projects get the most out of
+the component rules. You need Node 20+ and git.
+
+## Step 1 — install
 
 ```sh
 npm i -D @usesnapline/cli
+```
+
+> Always install before running `npx snapline`. Without a local install, npx
+> resolves the bare `snapline` name to an unrelated legacy package.
+
+## Step 2 — initialize
+
+```sh
 npx snapline init
+```
+
+You should see something like:
+
+```
+✔ Next.js detected
+✔ Tailwind detected
+✔ shadcn components.json found
+✔ ui directory: src/components/ui
+✔ wrote snapline.yml
+✔ created .snapline/ (state, self-gitignored)
+• next: "snapline install claude" to enable the repair loop
+```
+
+`init` reads your project — `components.json`, the ui directory, tsconfig (or
+jsconfig) aliases — and writes `snapline.yml` mapping the components you
+actually have. It never overwrites an existing `snapline.yml`.
+
+<details>
+<summary>Lines show • or ⚠ instead of ✔?</summary>
+
+- <b>“Tailwind not detected”</b> — Snapline's rules assume Tailwind classes;
+  without it only the inline-style and hex rules are useful.
+- <b>“no components/ui directory”</b> — component rules (require-button etc.)
+  stay dormant until an import in <code>snapline.yml</code> resolves to a real
+  file. Everything else works. Add mappings later in
+  <a href="config.md">config.md</a>.
+- Wrong ui path or custom tokens (e.g. a <code>brand</code> color)? Edit
+  <code>snapline.yml</code> — it's ~40 readable lines.
+
+</details>
+
+## Step 3 — wire the hooks
+
+```sh
 npx snapline install claude
 ```
 
-Install the package before running `npx snapline` — without a local install,
-npx resolves the bare `snapline` name to an unrelated legacy package.
-
-`init` detects your project (Next.js, Tailwind, shadcn `components.json`, the
-`components/ui` directory), writes `snapline.yml` with defaults, and creates a
-self-gitignored `.snapline/` state directory. It never overwrites an existing
-`snapline.yml`.
-
-`install claude` merges two hooks into `.claude/settings.json`: PostToolUse on
-`Write|Edit|MultiEdit` and Stop. The exact JSON is in [hooks.md](hooks.md).
-`snapline init --claude` does both steps in one command.
-
-## What happens on the next agent edit
-
-The agent writes a file with drift; the PostToolUse hook scans that one file
-and blocks with a repair contract:
-
 ```
-SNAPLINE FOUND UI DRIFT
-
-src/app/settings/page.tsx
-
-3 violations:
-- [error] arbitrary value: mt-[13px] (line 8)
-- [error] raw <button> used while <Button> exists (line 15)
-- [warn] raw Tailwind color: text-gray-500 (line 9)
-
-Repair:
-- Replace mt-[13px] with mt-3 (12px) if the value is still needed — arbitrary values bypass the design scale.
-- Import Button from "@/components/ui/button" and replace the raw <button> with <Button>. Use variant props (variant="default" | "outline" | "ghost" | "destructive") instead of color classes.
-
-Recommended:
-- Replace text-gray-500 with text-muted-foreground.
+✔ Claude hooks installed: .claude/settings.json
+  PostToolUse (Write|Edit|MultiEdit) -> snapline hook claude post-tool-use
+  Stop -> snapline hook claude stop
 ```
 
-The agent applies the required actions and continues. When it tries to finish,
-the Stop hook scans the full git-changed set; remaining errors block completion
-the same way. Format details: [repair-contracts.md](repair-contracts.md).
+**Then restart your Claude Code session** — hooks are loaded at session start,
+so the current session won't see them.
 
-## Scan, score, fix
+That's the whole setup. (`npx snapline init --claude` does steps 2+3 at once.)
+
+## Step 4 — watch it work (30 seconds)
+
+Paste a deliberately drifted line into any `.tsx` file:
+
+```tsx
+export const Bad = () => <button className="bg-blue-500 mt-[13px]">Buy</button>
+```
 
 ```sh
-npx snapline scan             # whole project; exit 1 if any errors
+npx snapline scan
+```
+
+```
+src/app/bad.tsx
+  ✖ src/app/bad.tsx:1:44
+    Arbitrary Tailwind value "mt-[13px]" [no-arbitrary-tailwind]
+    fix: Replace mt-[13px] with mt-3 (12px) if the value is still needed — arbitrary values bypass the design scale.
+  ✖ src/app/bad.tsx:1:25
+    Raw <button> used while <Button> exists [require-button-component]
+    ...
+
+2 error(s), 1 warning(s) — drift score 15
+```
+
+Now ask Claude to edit that file. The PostToolUse hook feeds it the same
+violations as a repair contract, it fixes them before continuing, and the Stop
+hook keeps it from finishing while errors remain. You don't run anything —
+the loop is automatic from here.
+
+## Day-to-day commands
+
+```sh
+npx snapline scan             # whole project; exit 1 if any errors (CI-ready)
 npx snapline scan --changed   # only git-changed + untracked files
-npx snapline scan --json      # machine-readable
+npx snapline scan --json      # machine-readable ScanResult
 npx snapline score            # drift score summary; always exit 0
 npx snapline fix --safe       # apply only mechanical, unambiguous fixes
-npx snapline fix --safe --dry-run
+npx snapline doctor           # verify config, aliases, components, hooks
 ```
 
-`fix` accepts only `--safe`; anything ambiguous is left for the agent. Safe
-fixes are limited to unambiguous color-class swaps (`bg-blue-500` →
-`bg-primary`), simple `<button>`/`<input>` → `<Button>`/`<Input>` swaps, and
-static inline spacing that maps exactly onto the Tailwind scale.
+`fix` accepts only `--safe`: unambiguous color swaps (`bg-blue-500` →
+`bg-primary`), simple `<button>`/`<input>` component swaps, and inline spacing
+that maps exactly onto the scale. Anything ambiguous is left for the agent —
+that's the design.
 
-## Check the setup
+<details>
+<summary>Troubleshooting: hooks don't seem to fire</summary>
 
-```sh
-npx snapline doctor
-```
+1. Restart the Claude Code session (hooks load at session start).
+2. <code>npx snapline doctor</code> — it checks both hooks are present in
+   <code>.claude/settings.json</code>, plus everything else.
+3. Blocked and unsure why? The block reason <i>is</i> the repair contract;
+   <code>npx snapline scan --changed</code> reproduces it in your terminal.
+4. Using the plugin instead of the CLI install? If the CLI package is missing,
+   hooks allow silently by design — install it with
+   <code>npm i -D @usesnapline/cli</code>.
 
-Verifies config, Tailwind, tsconfig aliases, component resolution, Claude
-hooks, Node >= 20, git, and the `.snapline/` directory.
+</details>
 
 ## Alternative: Claude Code plugin
-
-Instead of `install claude`, add the plugin from the repo's marketplace:
 
 ```
 /plugin marketplace add gael55x/Snapline
 /plugin install snapline
 ```
 
-The plugin wires the same two hooks and calls the project-local CLI. If the CLI
-is not installed, hooks allow silently — Snapline never breaks a session. See
-[claude.md](claude.md).
+Wires the same two hooks via the plugin system; the project still needs the
+CLI package (step 1). Details: [claude.md](claude.md).
 
 ## Other agents
 
-- Codex (beta, instruction-level until Codex ships hooks): [codex.md](codex.md)
-- Cursor (experimental, rule file only): [cursor.md](cursor.md)
+- Codex — beta, instruction-level until Codex ships hooks: [codex.md](codex.md)
+- Cursor — experimental, rule file only: [cursor.md](cursor.md)
+
+Next: [mental-model.md](mental-model.md) for the loop in one diagram, or
+[rules.md](rules.md) for exactly what gets flagged and what never does.
