@@ -1,0 +1,41 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97..5c7e1f9 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -1,6 +1,10 @@
++"use client"
++
++import * as React from "react"
+ import { DashboardNav } from "@/components/dashboard/nav"
+ import { RecentActivity } from "@/components/dashboard/recent-activity"
+ import { StatCard } from "@/components/dashboard/stat-card"
++import { Onboarding } from "@/components/dashboard/onboarding"
+ 
+ const stats = [
+   {
+@@ -30,6 +34,17 @@ const stats = [
+ ]
+ 
+ export default function DashboardPage() {
++  const [showOnboarding, setShowOnboarding] = React.useState(true)
++
++  const handleOnboardingComplete = (data: {
++    workspaceName: string
++    contactEmail: string
++    repoUrl: string
++  }) => {
++    console.log("Onboarding completed:", data)
++    setShowOnboarding(false)
++  }
++
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/" />
+@@ -53,6 +68,7 @@ export default function DashboardPage() {
+         </section>
+         <RecentActivity />
+       </main>
++      <Onboarding open={showOnboarding} onComplete={handleOnboardingComplete} />
+     </div>
+   )
+ }

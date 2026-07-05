@@ -1,0 +1,13 @@
+{"agent":"claude","kind":"post-tool-use","action":"warn","durationMs":27,"files":["src/components/dashboard/stat-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":25,"files":["src/components/dashboard/stat-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":24,"files":["src/app/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":25,"files":["src/app/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":26,"files":["src/components/dashboard/recent-activity.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":25,"files":["src/components/dashboard/nav.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":71,"files":["src/components/ui/card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":0,"files":["src/app/globals.css"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":0,"files":["src/app/globals.css"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":57,"files":["src/components/dashboard/stat-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":41,"files":["src/components/dashboard/stat-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":30,"files":["src/components/dashboard/stat-card.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":92,"files":[]}

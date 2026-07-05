@@ -1,0 +1,22 @@
+Perfect! I've created a beautifully redesigned pricing cards component with:
+
+**Key Design Improvements:**
+
+1. **Pro Card Elevation** — Scaled up 5% (`md:scale-105`), gradient background, and prominent shadow to make it the obvious choice
+2. **"Most Popular" Badge** — Floats above the Pro card to draw immediate attention
+3. **Price as Hero** — Massive 5xl bold text with breathing room, price comes first in the visual hierarchy
+4. **Depth & Polish**:
+   - Rounded corners (2xl) and strategic shadows
+   - Gradient background on Pro card (`from-primary/5 to-primary/10`)
+   - Hover effects with enhanced shadows
+   - Animated glow effect on Pro card hover
+   - Clean borders with theme-aware colors
+
+5. **Better Feature Lists**:
+   - SVG checkmarks (primary color for Pro, muted for others)
+   - Consistent spacing and alignment
+   - Clear visual hierarchy
+
+6. **Responsive Layout** — 3-column grid on desktop, responsive on mobile
+
+The component is ready at `/src/components/dashboard/pricing-cards.tsx` and wired to a new pricing page at `/pricing`. The design uses your existing Tailwind theme and shadcn components, so it integrates seamlessly with the rest of your app.

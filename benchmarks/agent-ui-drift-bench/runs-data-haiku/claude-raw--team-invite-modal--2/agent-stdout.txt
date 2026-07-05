@@ -1,0 +1,38 @@
+Perfect! I've successfully created an "Invite member" modal for the team page with all the requested features. Here's what I've built:
+
+## Components Created
+
+**1. Team Page** (`src/app/team/page.tsx`)
+- Displays team information and current members
+- Shows plan details with seat counts
+- Integrates the invite member modal
+
+**2. Invite Member Modal** (`src/components/invite-member-modal.tsx`)
+- ✅ **Email input** - accepts multiple comma-separated addresses
+- ✅ **Real-time validation** - shows count of invites and warns when exceeding the limit
+- ✅ **Role selector** - toggles between Member and Admin with descriptions
+  - *Member*: Can create and edit content, but cannot manage team settings
+  - *Admin*: Full access to all features and team management
+- ✅ **Personal message textarea** - optional field for a welcome message
+- ✅ **Remaining seats counter** - displayed in the dialog description (7 available in the demo)
+- ✅ **Disabled invite button** - when over limit or no emails entered
+- ✅ **Success state** - shows a checkmark with confirmation message, auto-closes after 2 seconds
+
+## Features
+
+- **Smart validation**: Invite button is disabled when:
+  - No emails are entered
+  - More emails than available seats
+  - Currently sending invites
+  
+- **Visual feedback**:
+  - Selected role is highlighted with the primary color
+  - Email count shows in a status box
+  - Error message shows how many invites exceed the limit
+  - Success screen with checkmark animation
+
+- **Form reset**: All fields reset after successful send
+
+- **Navigation**: Added a "Team" button on the home page to access the team settings
+
+The modal is production-ready and uses the existing shadcn/ui component patterns in your project. The theme tokens automatically apply for both light and dark modes.

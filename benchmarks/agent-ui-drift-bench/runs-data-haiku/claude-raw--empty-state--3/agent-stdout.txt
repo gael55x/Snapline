@@ -1,0 +1,25 @@
+Perfect! I've built a reusable EmptyState component with full implementation. Here's what was created:
+
+## **EmptyState Component** (`src/components/ui/empty-state.tsx`)
+A flexible component that accepts:
+- **`icon`** (optional) — Any React node (SVG, icon, etc.)
+- **`title`** — Main heading
+- **`description`** — Supporting text
+- **`action`** (optional) — Button or interactive element
+
+The component centers content vertically and horizontally, displays the icon in a 20×20 px soft circle with muted background, and stacks the title, description, and action below it.
+
+## **Projects Page** (`src/app/projects/page.tsx`)
+Uses the EmptyState with:
+- Plus icon (SVG)
+- "No projects yet" title
+- "Create your first project to get started" description
+- "Create project" button
+
+## **Example Implementations** (`src/components/empty-state-examples.tsx`)
+Three reusable examples showing:
+- `NoProjectsExample` — Create-first flow
+- `NoSearchResultsExample` — No results with help text (no action)
+- `NoItemsExample` — Empty list without icon
+
+The component follows shadcn/ui patterns: uses `cn()` utilities, `React.forwardRef` for DOM access, proper TypeScript typing, and Tailwind semantic tokens so it respects light/dark mode theming automatically. It's ready to use across your app wherever you need empty states.

@@ -1,0 +1,553 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--1/repo/fixtures/next-shadcn-custom-theme",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/team/page.tsx",
+    "src/components/invite-member-modal.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/textarea.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-inline-style:src/app/team/page.tsx:66:17:1",
+      "ruleId": "no-inline-style",
+      "severity": "error",
+      "filePath": "src/app/team/page.tsx",
+      "message": "Inline style object on <div>",
+      "location": {
+        "line": 66,
+        "column": 17
+      },
+      "evidence": "style={{ width: `${(occupiedSeats / currentPlanSeats) * 100}%` }}",
+      "repair": {
+        "instruction": "Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/team/page.tsx:125:28:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/team/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-blue-100\"",
+      "location": {
+        "line": 125,
+        "column": 28
+      },
+      "evidence": "bg-blue-100",
+      "repair": {
+        "instruction": "Replace bg-blue-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/team/page.tsx:125:40:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/team/page.tsx",
+      "message": "Raw Tailwind palette color \"text-blue-800\"",
+      "location": {
+        "line": 125,
+        "column": 40
+      },
+      "evidence": "text-blue-800",
+      "repair": {
+        "instruction": "Replace text-blue-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/team/page.tsx:125:54:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/team/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:bg-blue-900\"",
+      "location": {
+        "line": 125,
+        "column": 54
+      },
+      "evidence": "dark:bg-blue-900",
+      "repair": {
+        "instruction": "Replace dark:bg-blue-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/team/page.tsx:125:71:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/team/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-blue-300\"",
+      "location": {
+        "line": 125,
+        "column": 71
+      },
+      "evidence": "dark:text-blue-300",
+      "repair": {
+        "instruction": "Replace dark:text-blue-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/team/page.tsx:126:28:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/team/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-gray-100\"",
+      "location": {
+        "line": 126,
+        "column": 28
+      },
+      "evidence": "bg-gray-100",
+      "repair": {
+        "instruction": "Replace bg-gray-100 with bg-muted.",
+        "safeFix": true,
+        "replacement": "bg-muted"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/team/page.tsx:126:40:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/team/page.tsx",
+      "message": "Raw Tailwind palette color \"text-gray-800\"",
+      "location": {
+        "line": 126,
+        "column": 40
+      },
+      "evidence": "text-gray-800",
+      "repair": {
+        "instruction": "Replace text-gray-800 with text-foreground.",
+        "safeFix": true,
+        "replacement": "text-foreground"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/team/page.tsx:126:54:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/team/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:bg-gray-900\"",
+      "location": {
+        "line": 126,
+        "column": 54
+      },
+      "evidence": "dark:bg-gray-900",
+      "repair": {
+        "instruction": "Replace dark:bg-gray-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/team/page.tsx:126:71:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/team/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-gray-300\"",
+      "location": {
+        "line": 126,
+        "column": 71
+      },
+      "evidence": "dark:text-gray-300",
+      "repair": {
+        "instruction": "Replace dark:text-gray-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:78:87:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "message": "Raw Tailwind palette color \"bg-green-100\"",
+      "location": {
+        "line": 78,
+        "column": 87
+      },
+      "evidence": "bg-green-100",
+      "repair": {
+        "instruction": "Replace bg-green-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:78:100:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "message": "Raw Tailwind palette color \"dark:bg-green-900\"",
+      "location": {
+        "line": 78,
+        "column": 100
+      },
+      "evidence": "dark:bg-green-900",
+      "repair": {
+        "instruction": "Replace dark:bg-green-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:80:38:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "message": "Raw Tailwind palette color \"text-green-600\"",
+      "location": {
+        "line": 80,
+        "column": 38
+      },
+      "evidence": "text-green-600",
+      "repair": {
+        "instruction": "Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:80:53:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-green-300\"",
+      "location": {
+        "line": 80,
+        "column": 53
+      },
+      "evidence": "dark:text-green-300",
+      "repair": {
+        "instruction": "Replace dark:text-green-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:101:40:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "message": "Raw Tailwind palette color \"text-green-600\"",
+      "location": {
+        "line": 101,
+        "column": 40
+      },
+      "evidence": "text-green-600",
+      "repair": {
+        "instruction": "Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:101:55:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-green-300\"",
+      "location": {
+        "line": 101,
+        "column": 55
+      },
+      "evidence": "dark:text-green-300",
+      "repair": {
+        "instruction": "Replace dark:text-green-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 65,
+    "totalViolations": 15,
+    "errorViolations": 1,
+    "warningViolations": 14,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 1,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 14,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 0.9706
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/app/team/page.tsx",
+      "filePath": "src/app/team/page.tsx",
+      "violations": [
+        {
+          "id": "no-inline-style:src/app/team/page.tsx:66:17:1",
+          "ruleId": "no-inline-style",
+          "severity": "error",
+          "filePath": "src/app/team/page.tsx",
+          "message": "Inline style object on <div>",
+          "location": {
+            "line": 66,
+            "column": 17
+          },
+          "evidence": "style={{ width: `${(occupiedSeats / currentPlanSeats) * 100}%` }}",
+          "repair": {
+            "instruction": "Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/team/page.tsx:125:28:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/team/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-blue-100\"",
+          "location": {
+            "line": 125,
+            "column": 28
+          },
+          "evidence": "bg-blue-100",
+          "repair": {
+            "instruction": "Replace bg-blue-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/team/page.tsx:125:40:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/team/page.tsx",
+          "message": "Raw Tailwind palette color \"text-blue-800\"",
+          "location": {
+            "line": 125,
+            "column": 40
+          },
+          "evidence": "text-blue-800",
+          "repair": {
+            "instruction": "Replace text-blue-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/team/page.tsx:125:54:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/team/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:bg-blue-900\"",
+          "location": {
+            "line": 125,
+            "column": 54
+          },
+          "evidence": "dark:bg-blue-900",
+          "repair": {
+            "instruction": "Replace dark:bg-blue-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/team/page.tsx:125:71:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/team/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-blue-300\"",
+          "location": {
+            "line": 125,
+            "column": 71
+          },
+          "evidence": "dark:text-blue-300",
+          "repair": {
+            "instruction": "Replace dark:text-blue-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/team/page.tsx:126:28:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/team/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-gray-100\"",
+          "location": {
+            "line": 126,
+            "column": 28
+          },
+          "evidence": "bg-gray-100",
+          "repair": {
+            "instruction": "Replace bg-gray-100 with bg-muted.",
+            "safeFix": true,
+            "replacement": "bg-muted"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/team/page.tsx:126:40:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/team/page.tsx",
+          "message": "Raw Tailwind palette color \"text-gray-800\"",
+          "location": {
+            "line": 126,
+            "column": 40
+          },
+          "evidence": "text-gray-800",
+          "repair": {
+            "instruction": "Replace text-gray-800 with text-foreground.",
+            "safeFix": true,
+            "replacement": "text-foreground"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/team/page.tsx:126:54:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/team/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:bg-gray-900\"",
+          "location": {
+            "line": 126,
+            "column": 54
+          },
+          "evidence": "dark:bg-gray-900",
+          "repair": {
+            "instruction": "Replace dark:bg-gray-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/team/page.tsx:126:71:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/team/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-gray-300\"",
+          "location": {
+            "line": 126,
+            "column": 71
+          },
+          "evidence": "dark:text-gray-300",
+          "repair": {
+            "instruction": "Replace dark:text-gray-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale."
+      ],
+      "optionalActions": [
+        "Replace bg-blue-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-blue-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:bg-blue-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:text-blue-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-gray-100 with bg-muted.",
+        "Replace text-gray-800 with text-foreground.",
+        "Replace dark:bg-gray-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:text-gray-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+      ],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/app/team/page.tsx\n\n9 violations:\n- [error] inline style object: style={{ width: `${(occupiedSeats / currentPlanSeats) * 100}%` }} (line 66)\n- [warn] raw Tailwind color: bg-blue-100 (line 125)\n- [warn] raw Tailwind color: text-blue-800 (line 125)\n- [warn] raw Tailwind color: dark:bg-blue-900 (line 125)\n- [warn] raw Tailwind color: dark:text-blue-300 (line 125)\n- [warn] raw Tailwind color: bg-gray-100 (line 126)\n- [warn] raw Tailwind color: text-gray-800 (line 126)\n- [warn] raw Tailwind color: dark:bg-gray-900 (line 126)\n- [warn] raw Tailwind color: dark:text-gray-300 (line 126)\n\nRepair:\n- Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.\n\nRecommended:\n- Replace bg-blue-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-blue-800 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:bg-blue-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:text-blue-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-gray-100 with bg-muted.\n- Replace text-gray-800 with text-foreground.\n- Replace dark:bg-gray-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:text-gray-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+    },
+    {
+      "title": "Repair UI drift in src/components/invite-member-modal.tsx",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:78:87:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/invite-member-modal.tsx",
+          "message": "Raw Tailwind palette color \"bg-green-100\"",
+          "location": {
+            "line": 78,
+            "column": 87
+          },
+          "evidence": "bg-green-100",
+          "repair": {
+            "instruction": "Replace bg-green-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:78:100:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/invite-member-modal.tsx",
+          "message": "Raw Tailwind palette color \"dark:bg-green-900\"",
+          "location": {
+            "line": 78,
+            "column": 100
+          },
+          "evidence": "dark:bg-green-900",
+          "repair": {
+            "instruction": "Replace dark:bg-green-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:80:38:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/invite-member-modal.tsx",
+          "message": "Raw Tailwind palette color \"text-green-600\"",
+          "location": {
+            "line": 80,
+            "column": 38
+          },
+          "evidence": "text-green-600",
+          "repair": {
+            "instruction": "Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:80:53:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/invite-member-modal.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-green-300\"",
+          "location": {
+            "line": 80,
+            "column": 53
+          },
+          "evidence": "dark:text-green-300",
+          "repair": {
+            "instruction": "Replace dark:text-green-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:101:40:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/invite-member-modal.tsx",
+          "message": "Raw Tailwind palette color \"text-green-600\"",
+          "location": {
+            "line": 101,
+            "column": 40
+          },
+          "evidence": "text-green-600",
+          "repair": {
+            "instruction": "Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:101:55:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/invite-member-modal.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-green-300\"",
+          "location": {
+            "line": 101,
+            "column": 55
+          },
+          "evidence": "dark:text-green-300",
+          "repair": {
+            "instruction": "Replace dark:text-green-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace bg-green-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:bg-green-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:text-green-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+      ],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/invite-member-modal.tsx\n\n6 violations:\n- [warn] raw Tailwind color: bg-green-100 (line 78)\n- [warn] raw Tailwind color: dark:bg-green-900 (line 78)\n- [warn] raw Tailwind color: text-green-600 (line 80)\n- [warn] raw Tailwind color: dark:text-green-300 (line 80)\n- [warn] raw Tailwind color: text-green-600 (line 101)\n- [warn] raw Tailwind color: dark:text-green-300 (line 101)\n\nRecommended:\n- Replace bg-green-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:bg-green-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:text-green-300 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+    }
+  ],
+  "durationMs": 277
+}

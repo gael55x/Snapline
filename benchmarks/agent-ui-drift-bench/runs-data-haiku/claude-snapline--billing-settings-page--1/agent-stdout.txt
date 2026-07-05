@@ -1,0 +1,42 @@
+Excellent! I've successfully built a comprehensive billing settings page. Here's what was created:
+
+## Components & Features
+
+**New Alert Component** (`src/components/ui/alert.tsx`)
+- Supports variants: default, destructive, and warning
+- Used for the trial expiration banner
+
+**Billing Settings Page** (`src/app/billing/page.tsx`)
+
+1. **Trial Expiration Banner** - Prominently displays when trial is expiring soon (shows when ≤7 days remaining)
+
+2. **Current Plan Section** - Card displaying:
+   - Plan name (Pro)
+   - Monthly price ($99)
+   - Next renewal date
+
+3. **Payment Method Section** - Shows:
+   - Card brand and last 4 digits
+   - Expiry date
+   - "Update Card" button that opens a modal dialog with form fields for:
+     - Card number
+     - Expiry date
+     - CVC
+
+4. **Recent Invoices Section** - Lists invoices with:
+   - Invoice ID and date
+   - Amount and payment status (using semantic primary color token)
+   - Download button for each invoice
+
+5. **Cancel Subscription Section** - Destructive action area with:
+   - Clear warning text about cancellation
+   - "Cancel Subscription" button with confirmation dialog
+
+## UI Compliance
+✅ All inputs use the `<Input>` component instead of raw HTML  
+✅ All colors use semantic theme tokens (no raw Tailwind colors)  
+✅ Responsive grid layout (3 columns on desktop, adapts on mobile)  
+✅ Proper use of shadcn components (Card, Button, Dialog, Alert)  
+✅ Dark mode support built-in through the theme system
+
+The page is accessible at `/billing` and uses client-side state management with React hooks for the dialogs.

@@ -1,0 +1,81 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--2/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/onboarding/page.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/onboarding/onboarding-flow.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-inline-style:src/components/onboarding/onboarding-flow.tsx:121:13:1",
+      "ruleId": "no-inline-style",
+      "severity": "error",
+      "filePath": "src/components/onboarding/onboarding-flow.tsx",
+      "message": "Inline style object on <div>",
+      "location": {
+        "line": 121,
+        "column": 13
+      },
+      "evidence": "style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}",
+      "repair": {
+        "instruction": "Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 9,
+    "totalViolations": 1,
+    "errorViolations": 1,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 1,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/onboarding/onboarding-flow.tsx",
+      "filePath": "src/components/onboarding/onboarding-flow.tsx",
+      "violations": [
+        {
+          "id": "no-inline-style:src/components/onboarding/onboarding-flow.tsx:121:13:1",
+          "ruleId": "no-inline-style",
+          "severity": "error",
+          "filePath": "src/components/onboarding/onboarding-flow.tsx",
+          "message": "Inline style object on <div>",
+          "location": {
+            "line": 121,
+            "column": 13
+          },
+          "evidence": "style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}",
+          "repair": {
+            "instruction": "Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/onboarding/onboarding-flow.tsx\n\n1 violation:\n- [error] inline style object: style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }} (line 121)\n\nRepair:\n- Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale."
+    }
+  ],
+  "durationMs": 152
+}

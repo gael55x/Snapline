@@ -1,0 +1,32 @@
+Perfect! I've successfully created an invoices table for the billing page with all the requested features. Here's what was implemented:
+
+## What I Added
+
+**1. Table Component** (`src/components/ui/table.tsx`)
+   - Complete shadcn-style table components with proper styling and accessibility
+
+**2. Billing Page** (`src/app/billing/page.tsx`)
+   - **Columns**: Invoice Number, Date, Amount, Status, and Download PDF action
+   - **Status Badges**: Three distinct styles based on state:
+     - Paid: Primary badge with ✓ icon
+     - Pending: Secondary badge with ◌ icon  
+     - Failed: Destructive badge with ✕ icon
+   - **Sortable Headers**: Click any column header to sort
+     - Default: Date descending (↓)
+     - Toggles ascending/descending with visual indicators (↑/↓)
+   - **Pagination**: 10 rows per page with Previous/Next buttons
+     - Footer shows "Page X of Y"
+     - Buttons disable at boundaries
+   - **Mock Data**: 12 sample invoices showing various statuses
+
+## Key Features
+
+- ✅ Type-safe with TypeScript
+- ✅ Uses existing shadcn components (Badge, Button, Card, Table)
+- ✅ Tailwind CSS styling consistent with the theme
+- ✅ Sorting works across all columns (date, amount, invoice number, status)
+- ✅ Pagination resets to page 1 when sorting changes
+- ✅ Accessible with proper semantic HTML and button states
+- ✅ Client component with React hooks (useState, useMemo)
+
+The page is accessible at `/billing` in your Next.js application. The table displays 10 invoices per page and users can navigate through pages or click column headers to sort the data.

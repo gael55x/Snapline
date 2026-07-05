@@ -1,0 +1,30 @@
+Let me verify the changes look correct. The billing page is complete with all the features you requested:
+
+**Features included:**
+
+1. **Trial expiration banner** - Shows warning when trial is about to expire (using semantic tokens `border-secondary`) and an error state when expired (using `border-destructive`)
+
+2. **Current plan section** - Displays:
+   - Plan name (Pro) with a badge
+   - Monthly price ($99)
+   - Renewal date 
+   - "Change plan" button
+   - "Cancel subscription" button (destructive variant)
+
+3. **Payment method section** - Shows:
+   - Card details (Visa ending in 4242, expiry 12/26)
+   - "Update card" button for changing payment info
+
+4. **Invoices section** - Lists:
+   - Recent invoices with ID, date, amount, and status
+   - Download button for each invoice
+   - Visual distinction between paid and pending invoices
+
+5. **Design** - Uses:
+   - Shadcn/ui components (Card, Button, Badge)
+   - Semantic theme tokens instead of raw colors (compliant with Snapline)
+   - Lucide icons (AlertCircle, CreditCard, Download, Settings2)
+   - Responsive layout with proper spacing
+   - Accessible elements with proper ARIA labels
+
+The page is located at `/billing` route and is also linked from the home page. All styling uses semantic tokens from your theme configuration.

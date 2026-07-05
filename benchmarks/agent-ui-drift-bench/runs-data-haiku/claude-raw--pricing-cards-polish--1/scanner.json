@@ -1,0 +1,212 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--1/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/pricing/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-inline-style:src/app/pricing/page.tsx:127:23:1",
+      "ruleId": "no-inline-style",
+      "severity": "error",
+      "filePath": "src/app/pricing/page.tsx",
+      "message": "Inline style object on <li>",
+      "location": {
+        "line": 127,
+        "column": 23
+      },
+      "evidence": "style={{\n                        transitionDelay: `${idx * 50}ms`,\n                      }}",
+      "repair": {
+        "instruction": "Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-arbitrary-tailwind:src/app/pricing/page.tsx:79:40:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/app/pricing/page.tsx",
+      "message": "Arbitrary Tailwind value \"shadow-[0_20px_60px_-15px_rgba(59,130,246,0.3)]\"",
+      "location": {
+        "line": 79,
+        "column": 40
+      },
+      "evidence": "shadow-[0_20px_60px_-15px_rgba(59,130,246,0.3)]",
+      "repair": {
+        "instruction": "Remove shadow-[0_20px_60px_-15px_rgba(59,130,246,0.3)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-arbitrary-tailwind:src/app/pricing/page.tsx:79:88:1",
+      "ruleId": "no-arbitrary-tailwind",
+      "severity": "error",
+      "filePath": "src/app/pricing/page.tsx",
+      "message": "Arbitrary Tailwind value \"hover:shadow-[0_25px_80px_-20px_rgba(59,130,246,0.4)]\"",
+      "location": {
+        "line": 79,
+        "column": 88
+      },
+      "evidence": "hover:shadow-[0_25px_80px_-20px_rgba(59,130,246,0.4)]",
+      "repair": {
+        "instruction": "Remove hover:shadow-[0_25px_80px_-20px_rgba(59,130,246,0.4)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "require-card-component:src/app/pricing/page.tsx:86:19:1",
+      "ruleId": "require-card-component",
+      "severity": "warn",
+      "filePath": "src/app/pricing/page.tsx",
+      "message": "Repeated custom card container while <Card> exists",
+      "location": {
+        "line": 86,
+        "column": 19
+      },
+      "evidence": "<div className=\"absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-primary to-primary/80 px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-lg\">",
+      "repair": {
+        "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "require-card-component:src/app/pricing/page.tsx:163:9:1",
+      "ruleId": "require-card-component",
+      "severity": "warn",
+      "filePath": "src/app/pricing/page.tsx",
+      "message": "Repeated custom card container while <Card> exists",
+      "location": {
+        "line": 163,
+        "column": 9
+      },
+      "evidence": "<div className=\"rounded-2xl border border-border bg-card p-8 text-center\">",
+      "repair": {
+        "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 35,
+    "totalViolations": 5,
+    "errorViolations": 3,
+    "warningViolations": 2,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 1,
+    "arbitraryTailwindValues": 2,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 2,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/app/pricing/page.tsx",
+      "filePath": "src/app/pricing/page.tsx",
+      "violations": [
+        {
+          "id": "no-inline-style:src/app/pricing/page.tsx:127:23:1",
+          "ruleId": "no-inline-style",
+          "severity": "error",
+          "filePath": "src/app/pricing/page.tsx",
+          "message": "Inline style object on <li>",
+          "location": {
+            "line": 127,
+            "column": 23
+          },
+          "evidence": "style={{\n                        transitionDelay: `${idx * 50}ms`,\n                      }}",
+          "repair": {
+            "instruction": "Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-arbitrary-tailwind:src/app/pricing/page.tsx:79:40:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/app/pricing/page.tsx",
+          "message": "Arbitrary Tailwind value \"shadow-[0_20px_60px_-15px_rgba(59,130,246,0.3)]\"",
+          "location": {
+            "line": 79,
+            "column": 40
+          },
+          "evidence": "shadow-[0_20px_60px_-15px_rgba(59,130,246,0.3)]",
+          "repair": {
+            "instruction": "Remove shadow-[0_20px_60px_-15px_rgba(59,130,246,0.3)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-arbitrary-tailwind:src/app/pricing/page.tsx:79:88:1",
+          "ruleId": "no-arbitrary-tailwind",
+          "severity": "error",
+          "filePath": "src/app/pricing/page.tsx",
+          "message": "Arbitrary Tailwind value \"hover:shadow-[0_25px_80px_-20px_rgba(59,130,246,0.4)]\"",
+          "location": {
+            "line": 79,
+            "column": 88
+          },
+          "evidence": "hover:shadow-[0_25px_80px_-20px_rgba(59,130,246,0.4)]",
+          "repair": {
+            "instruction": "Remove hover:shadow-[0_25px_80px_-20px_rgba(59,130,246,0.4)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "require-card-component:src/app/pricing/page.tsx:86:19:1",
+          "ruleId": "require-card-component",
+          "severity": "warn",
+          "filePath": "src/app/pricing/page.tsx",
+          "message": "Repeated custom card container while <Card> exists",
+          "location": {
+            "line": 86,
+            "column": 19
+          },
+          "evidence": "<div className=\"absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-primary to-primary/80 px-4 py-1.5 text-xs font-semibold text-primary-foreground shadow-lg\">",
+          "repair": {
+            "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "require-card-component:src/app/pricing/page.tsx:163:9:1",
+          "ruleId": "require-card-component",
+          "severity": "warn",
+          "filePath": "src/app/pricing/page.tsx",
+          "message": "Repeated custom card container while <Card> exists",
+          "location": {
+            "line": 163,
+            "column": 9
+          },
+          "evidence": "<div className=\"rounded-2xl border border-border bg-card p-8 text-center\">",
+          "repair": {
+            "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.",
+        "Remove shadow-[0_20px_60px_-15px_rgba(59,130,246,0.3)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.",
+        "Remove hover:shadow-[0_25px_80px_-20px_rgba(59,130,246,0.4)]. Use a value from the design scale, or add a theme token if the design genuinely needs it."
+      ],
+      "optionalActions": [
+        "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region)."
+      ],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/app/pricing/page.tsx\n\n5 violations:\n- [error] inline style object: style={{\n                        transitionDelay: `${idx * 50}ms`,\n                      }} (line 127)\n- [error] arbitrary value: shadow-[0_20px_60px_-15px_rgba(59,130,246,0.3)] (line 79)\n- [error] arbitrary value: hover:shadow-[0_25px_80px_-20px_rgba(59,130,246,0.4)] (line 79)\n- [warn] custom card container while <Card> exists (line 86)\n- [warn] custom card container while <Card> exists (line 163)\n\nRepair:\n- Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.\n- Remove shadow-[0_20px_60px_-15px_rgba(59,130,246,0.3)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.\n- Remove hover:shadow-[0_25px_80px_-20px_rgba(59,130,246,0.4)]. Use a value from the design scale, or add a theme token if the design genuinely needs it.\n\nRecommended:\n- Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region)."
+    }
+  ],
+  "durationMs": 48
+}

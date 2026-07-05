@@ -1,0 +1,37 @@
+{
+  "id": "claude-raw--team-invite-modal--2",
+  "timestamp": "2026-07-05T05:55:50.381Z",
+  "mode": "claude-raw",
+  "fixture": "next-shadcn-custom-theme",
+  "promptId": "team-invite-modal",
+  "attempt": 2,
+  "model": "claude-haiku-4-5-20251001",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 24,
+      "totalViolations": 5,
+      "errorViolations": 1,
+      "warningViolations": 4,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 4,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 1,
+      "componentReuseRate": 0.9667
+    },
+    "buildPass": false,
+    "typecheckPass": false,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 148,
+    "filesTouched": 3
+  },
+  "rawOutputPaths": [
+    "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--2/agent-stdout.txt",
+    "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--2/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--2/scanner.json",
+  "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--2/diff.patch"
+}

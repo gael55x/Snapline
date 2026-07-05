@@ -1,0 +1,210 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--2/repo/fixtures/next-shadcn-custom-theme",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/team/page.tsx",
+    "src/components/invite-member-modal.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/textarea.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:174:85:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "message": "Raw Tailwind palette color \"bg-green-100\"",
+      "location": {
+        "line": 174,
+        "column": 85
+      },
+      "evidence": "bg-green-100",
+      "repair": {
+        "instruction": "Replace bg-green-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:174:98:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "message": "Raw Tailwind palette color \"dark:bg-green-900\"",
+      "location": {
+        "line": 174,
+        "column": 98
+      },
+      "evidence": "dark:bg-green-900",
+      "repair": {
+        "instruction": "Replace dark:bg-green-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:176:36:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "message": "Raw Tailwind palette color \"text-green-600\"",
+      "location": {
+        "line": 176,
+        "column": 36
+      },
+      "evidence": "text-green-600",
+      "repair": {
+        "instruction": "Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:176:51:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-green-400\"",
+      "location": {
+        "line": 176,
+        "column": 51
+      },
+      "evidence": "dark:text-green-400",
+      "repair": {
+        "instruction": "Replace dark:text-green-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "require-button-component:src/components/invite-member-modal.tsx:122:21:1",
+      "ruleId": "require-button-component",
+      "severity": "error",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "message": "Raw <button> used while <Button> exists",
+      "location": {
+        "line": 122,
+        "column": 21
+      },
+      "evidence": "<button>",
+      "repair": {
+        "instruction": "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes.",
+        "safeFix": true
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 24,
+    "totalViolations": 5,
+    "errorViolations": 1,
+    "warningViolations": 4,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 4,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 1,
+    "componentReuseRate": 0.9667
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/invite-member-modal.tsx",
+      "filePath": "src/components/invite-member-modal.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:174:85:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/invite-member-modal.tsx",
+          "message": "Raw Tailwind palette color \"bg-green-100\"",
+          "location": {
+            "line": 174,
+            "column": 85
+          },
+          "evidence": "bg-green-100",
+          "repair": {
+            "instruction": "Replace bg-green-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:174:98:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/invite-member-modal.tsx",
+          "message": "Raw Tailwind palette color \"dark:bg-green-900\"",
+          "location": {
+            "line": 174,
+            "column": 98
+          },
+          "evidence": "dark:bg-green-900",
+          "repair": {
+            "instruction": "Replace dark:bg-green-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:176:36:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/invite-member-modal.tsx",
+          "message": "Raw Tailwind palette color \"text-green-600\"",
+          "location": {
+            "line": 176,
+            "column": 36
+          },
+          "evidence": "text-green-600",
+          "repair": {
+            "instruction": "Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/invite-member-modal.tsx:176:51:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/invite-member-modal.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-green-400\"",
+          "location": {
+            "line": 176,
+            "column": 51
+          },
+          "evidence": "dark:text-green-400",
+          "repair": {
+            "instruction": "Replace dark:text-green-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "require-button-component:src/components/invite-member-modal.tsx:122:21:1",
+          "ruleId": "require-button-component",
+          "severity": "error",
+          "filePath": "src/components/invite-member-modal.tsx",
+          "message": "Raw <button> used while <Button> exists",
+          "location": {
+            "line": 122,
+            "column": 21
+          },
+          "evidence": "<button>",
+          "repair": {
+            "instruction": "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes.",
+            "safeFix": true
+          }
+        }
+      ],
+      "requiredActions": [
+        "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes."
+      ],
+      "optionalActions": [
+        "Replace bg-green-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:bg-green-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:text-green-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+      ],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/invite-member-modal.tsx\n\n5 violations:\n- [warn] raw Tailwind color: bg-green-100 (line 174)\n- [warn] raw Tailwind color: dark:bg-green-900 (line 174)\n- [warn] raw Tailwind color: text-green-600 (line 176)\n- [warn] raw Tailwind color: dark:text-green-400 (line 176)\n- [error] raw <button> used while <Button> exists (line 122)\n\nRepair:\n- Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes.\n\nRecommended:\n- Replace bg-green-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:bg-green-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:text-green-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+    }
+  ],
+  "durationMs": 748
+}

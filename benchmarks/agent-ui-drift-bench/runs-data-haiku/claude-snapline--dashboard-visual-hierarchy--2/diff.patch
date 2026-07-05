@@ -1,0 +1,129 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+index 534cd97..709eed7 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/page.tsx
+@@ -30,28 +30,52 @@ const stats = [
+ ]
+ 
+ export default function DashboardPage() {
++  const revenueStats = stats.slice(0, 1)
++  const secondaryStats = stats.slice(1)
++
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/" />
+-      <main className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Overview</h1>
++      <main className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8">
++        <div className="flex flex-col gap-2">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Overview</h1>
+           <p className="text-sm text-muted-foreground">
+             A summary of repair activity across your projects.
+           </p>
+         </div>
+-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+-          {stats.map((stat) => (
++
++        <section className="flex flex-col gap-4">
++          <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">Key metrics</h2>
++          {revenueStats.map((stat) => (
+             <StatCard
+               key={stat.title}
+               title={stat.title}
+               value={stat.value}
+               change={stat.change}
+               changeType={stat.changeType}
++              size="large"
+             />
+           ))}
+         </section>
+-        <RecentActivity />
++
++        <section className="flex flex-col gap-4">
++          <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">Supporting metrics</h2>
++          <div className="grid gap-4 sm:grid-cols-3">
++            {secondaryStats.map((stat) => (
++              <StatCard
++                key={stat.title}
++                title={stat.title}
++                value={stat.value}
++                change={stat.change}
++                changeType={stat.changeType}
++              />
++            ))}
++          </div>
++        </section>
++
++        <div className="border-t border-border pt-8">
++          <RecentActivity />
++        </div>
+       </main>
+     </div>
+   )
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+index a1f774c..f1e4af3 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/recent-activity.tsx
+@@ -65,10 +65,12 @@ function statusVariant(status: ActivityRow["status"]) {
+ 
+ export function RecentActivity() {
+   return (
+-    <Card>
+-      <CardHeader>
+-        <CardTitle>Recent activity</CardTitle>
+-        <CardDescription>Latest events across your connected projects.</CardDescription>
++    <Card className="border-0 shadow-sm">
++      <CardHeader className="pb-6">
++        <div className="space-y-1">
++          <CardTitle className="text-xl">Recent activity</CardTitle>
++          <CardDescription>Latest events across your connected projects.</CardDescription>
++        </div>
+       </CardHeader>
+       <CardContent>
+         <Table>
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+index 313cd27..d90a784 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/stat-card.tsx
+@@ -6,18 +6,35 @@ export interface StatCardProps {
+   value: string
+   change: string
+   changeType?: "positive" | "negative"
++  size?: "default" | "large"
+ }
+ 
+-export function StatCard({ title, value, change, changeType = "positive" }: StatCardProps) {
++export function StatCard({ title, value, change, changeType = "positive", size = "default" }: StatCardProps) {
++  if (size === "large") {
++    return (
++      <Card className="border-2 bg-gradient-to-br from-card to-card/50">
++        <CardHeader className="pb-4">
++          <CardTitle className="text-base font-medium text-muted-foreground">{title}</CardTitle>
++        </CardHeader>
++        <CardContent className="space-y-2">
++          <div className="text-5xl font-bold text-foreground">{value}</div>
++          <div className="flex items-center justify-between">
++            <p className="text-sm text-muted-foreground">compared to last month</p>
++            <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
++          </div>
++        </CardContent>
++      </Card>
++    )
++  }
++
+   return (
+     <Card>
+       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+-        <CardTitle className="text-sm font-medium text-muted-foreground">{title}</CardTitle>
+-        <Badge variant={changeType === "negative" ? "destructive" : "secondary"}>{change}</Badge>
++        <CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{title}</CardTitle>
++        <Badge variant={changeType === "negative" ? "destructive" : "secondary"} className="text-xs">{change}</Badge>
+       </CardHeader>
+       <CardContent>
+-        <div className="text-2xl font-bold text-foreground">{value}</div>
+-        <p className="text-xs text-muted-foreground">compared to last month</p>
++        <div className="text-3xl font-bold text-foreground">{value}</div>
+       </CardContent>
+     </Card>
+   )

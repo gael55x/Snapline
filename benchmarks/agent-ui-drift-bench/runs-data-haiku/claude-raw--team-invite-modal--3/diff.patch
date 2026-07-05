@@ -1,0 +1,82 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee..6a87702 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,6 +1,9 @@
++"use client"
++
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
++import { InviteMemberModal } from "@/components/invite-member-modal"
+ 
+ const features = [
+   {
+@@ -20,7 +23,19 @@ const features = [
+   },
+ ]
+ 
++const teamMembers = [
++  { name: "Sarah Johnson", email: "sarah@example.com", role: "Admin" },
++  { name: "Mike Chen", email: "mike@example.com", role: "Member" },
++  { name: "Emma Davis", email: "emma@example.com", role: "Member" },
++]
++
+ export default function HomePage() {
++  const handleInviteSend = async (emails: string[], role: string, message: string) => {
++    console.log("Sending invites to:", { emails, role, message })
++    // Simulate API call
++    await new Promise((resolve) => setTimeout(resolve, 1000))
++  }
++
+   return (
+     <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
+       <section className="flex flex-col items-center gap-6 text-center">
+@@ -52,6 +67,47 @@ export default function HomePage() {
+           </Card>
+         ))}
+       </section>
++
++      <section className="space-y-6">
++        <div className="flex items-center justify-between">
++          <div>
++            <h2 className="text-2xl font-bold text-foreground">Team</h2>
++            <p className="text-sm text-muted-foreground">Manage your team members and permissions</p>
++          </div>
++          <InviteMemberModal
++            totalSeats={10}
++            usedSeats={teamMembers.length}
++            onInviteSend={handleInviteSend}
++          />
++        </div>
++
++        <Card>
++          <CardHeader>
++            <CardTitle className="text-base">Team members</CardTitle>
++            <CardDescription>
++              {teamMembers.length} of 10 seats used
++            </CardDescription>
++          </CardHeader>
++          <CardContent>
++            <div className="space-y-3">
++              {teamMembers.map((member) => (
++                <div
++                  key={member.email}
++                  className="flex items-center justify-between rounded-lg border border-border p-3"
++                >
++                  <div>
++                    <p className="font-medium text-foreground">{member.name}</p>
++                    <p className="text-xs text-muted-foreground">{member.email}</p>
++                  </div>
++                  <Badge variant={member.role === "Admin" ? "default" : "secondary"}>
++                    {member.role}
++                  </Badge>
++                </div>
++              ))}
++            </div>
++          </CardContent>
++        </Card>
++      </section>
+     </main>
+   )
+ }

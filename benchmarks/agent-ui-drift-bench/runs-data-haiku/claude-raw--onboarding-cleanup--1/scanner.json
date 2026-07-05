@@ -1,0 +1,114 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--1/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/onboarding/page.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/onboarding-flow.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-inline-style:src/components/dashboard/onboarding-flow.tsx:82:15:1",
+      "ruleId": "no-inline-style",
+      "severity": "error",
+      "filePath": "src/components/dashboard/onboarding-flow.tsx",
+      "message": "Inline style object on <div>",
+      "location": {
+        "line": 82,
+        "column": 15
+      },
+      "evidence": "style={{ width: `${progress}%` }}",
+      "repair": {
+        "instruction": "Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "require-button-component:src/components/dashboard/onboarding-flow.tsx:123:15:1",
+      "ruleId": "require-button-component",
+      "severity": "error",
+      "filePath": "src/components/dashboard/onboarding-flow.tsx",
+      "message": "Raw <button> used while <Button> exists",
+      "location": {
+        "line": 123,
+        "column": 15
+      },
+      "evidence": "<button>",
+      "repair": {
+        "instruction": "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes.",
+        "safeFix": true
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 17,
+    "totalViolations": 2,
+    "errorViolations": 2,
+    "warningViolations": 0,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 1,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 0,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 1,
+    "componentReuseRate": 0.975
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/dashboard/onboarding-flow.tsx",
+      "filePath": "src/components/dashboard/onboarding-flow.tsx",
+      "violations": [
+        {
+          "id": "no-inline-style:src/components/dashboard/onboarding-flow.tsx:82:15:1",
+          "ruleId": "no-inline-style",
+          "severity": "error",
+          "filePath": "src/components/dashboard/onboarding-flow.tsx",
+          "message": "Inline style object on <div>",
+          "location": {
+            "line": 82,
+            "column": 15
+          },
+          "evidence": "style={{ width: `${progress}%` }}",
+          "repair": {
+            "instruction": "Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "require-button-component:src/components/dashboard/onboarding-flow.tsx:123:15:1",
+          "ruleId": "require-button-component",
+          "severity": "error",
+          "filePath": "src/components/dashboard/onboarding-flow.tsx",
+          "message": "Raw <button> used while <Button> exists",
+          "location": {
+            "line": 123,
+            "column": 15
+          },
+          "evidence": "<button>",
+          "repair": {
+            "instruction": "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes.",
+            "safeFix": true
+          }
+        }
+      ],
+      "requiredActions": [
+        "Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.",
+        "Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes."
+      ],
+      "optionalActions": [],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/onboarding-flow.tsx\n\n2 violations:\n- [error] inline style object: style={{ width: `${progress}%` }} (line 82)\n- [error] raw <button> used while <Button> exists (line 123)\n\nRepair:\n- Remove the style attribute. Replace the style object with Tailwind utility classes on the design-system scale.\n- Import Button from \"@/components/ui/button\" and replace the raw <button> with <Button>. Use variant props (variant=\"default\" | \"outline\" | \"ghost\" | \"destructive\") instead of color classes."
+    }
+  ],
+  "durationMs": 173
+}

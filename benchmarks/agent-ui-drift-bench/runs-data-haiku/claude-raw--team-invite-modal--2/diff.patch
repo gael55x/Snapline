@@ -1,0 +1,22 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee..7327bec 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,3 +1,4 @@
++import Link from "next/link"
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+@@ -23,6 +24,12 @@ const features = [
+ export default function HomePage() {
+   return (
+     <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-6 py-24">
++      <nav className="fixed top-0 left-0 right-0 flex justify-end px-6 py-4 z-40">
++        <Link href="/team">
++          <Button variant="outline" size="sm">Team</Button>
++        </Link>
++      </nav>
++
+       <section className="flex flex-col items-center gap-6 text-center">
+         <Badge className="bg-brand text-brand-foreground">Now in public beta</Badge>
+         <h1 className="max-w-2xl text-5xl font-bold tracking-tight text-foreground">

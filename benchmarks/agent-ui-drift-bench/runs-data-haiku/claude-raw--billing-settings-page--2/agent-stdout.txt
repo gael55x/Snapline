@@ -1,0 +1,27 @@
+Perfect! I've built a comprehensive billing settings page with all the requested features:
+
+## What I Created
+
+**New components:**
+- **Alert component** (`src/components/ui/alert.tsx`) — Reusable alert/banner with title and description
+- **Billing page** (`src/app/billing/page.tsx`) — Complete billing settings interface
+
+## Features Included
+
+✅ **Trial expiration banner** — Shows a prominent amber warning when trial is expiring within 7 days  
+✅ **Current plan section** — Displays plan name, monthly price, and next renewal date with an "On Trial" badge  
+✅ **Payment method** — Shows card type and last 4 digits with expiration, "Update Payment Method" button  
+✅ **Recent invoices** — Lists last 3 invoices with download buttons, showing ID, date, amount, and status  
+✅ **Cancel subscription** — Red destructive button positioned in the plan section  
+✅ **Upgrade plan** — Button to upgrade to a higher tier
+
+## Design Highlights
+
+- Uses shadcn/ui Card, Button, and Badge components consistent with your existing design system
+- Semantic token colors for full theme support (brand colors, status colors, etc.)
+- Responsive grid layout (stacks on mobile, 3 columns on desktop for plan details)
+- Hover states on invoice rows for better interactivity
+- Mock billing data with realistic payment info and invoice history
+- Proper date/currency formatting with internationalization
+
+The page is at `/billing` and uses mock data. You can easily replace the `mockBillingData` object with real API calls when integrating with your backend.

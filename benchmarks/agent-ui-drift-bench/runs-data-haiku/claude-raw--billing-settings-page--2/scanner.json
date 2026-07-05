@@ -1,0 +1,208 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--2/repo/fixtures/next-shadcn-custom-theme",
+  "scannedFiles": [
+    "src/app/billing/page.tsx",
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/components/ui/alert.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/textarea.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-raw-palette-color:src/app/billing/page.tsx:65:27:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Raw Tailwind palette color \"border-amber-200\"",
+      "location": {
+        "line": 65,
+        "column": 27
+      },
+      "evidence": "border-amber-200",
+      "repair": {
+        "instruction": "Replace border-amber-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/billing/page.tsx:65:44:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-amber-50\"",
+      "location": {
+        "line": 65,
+        "column": 44
+      },
+      "evidence": "bg-amber-50",
+      "repair": {
+        "instruction": "Replace bg-amber-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/billing/page.tsx:65:56:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Raw Tailwind palette color \"text-amber-900\"",
+      "location": {
+        "line": 65,
+        "column": 56
+      },
+      "evidence": "text-amber-900",
+      "repair": {
+        "instruction": "Replace text-amber-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "require-card-component:src/app/billing/page.tsx:120:17:1",
+      "ruleId": "require-card-component",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Repeated custom card container while <Card> exists",
+      "location": {
+        "line": 120,
+        "column": 17
+      },
+      "evidence": "<div className=\"flex items-center gap-4 rounded-lg border border-border bg-muted p-4\">",
+      "repair": {
+        "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "require-card-component:src/app/billing/page.tsx:121:19:1",
+      "ruleId": "require-card-component",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Repeated custom card container while <Card> exists",
+      "location": {
+        "line": 121,
+        "column": 19
+      },
+      "evidence": "<div className=\"flex h-10 w-16 items-center justify-center rounded-md border border-border bg-background\">",
+      "repair": {
+        "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 22,
+    "totalViolations": 5,
+    "errorViolations": 0,
+    "warningViolations": 5,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 3,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 2,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/app/billing/page.tsx",
+      "filePath": "src/app/billing/page.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/app/billing/page.tsx:65:27:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Raw Tailwind palette color \"border-amber-200\"",
+          "location": {
+            "line": 65,
+            "column": 27
+          },
+          "evidence": "border-amber-200",
+          "repair": {
+            "instruction": "Replace border-amber-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/billing/page.tsx:65:44:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-amber-50\"",
+          "location": {
+            "line": 65,
+            "column": 44
+          },
+          "evidence": "bg-amber-50",
+          "repair": {
+            "instruction": "Replace bg-amber-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/billing/page.tsx:65:56:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Raw Tailwind palette color \"text-amber-900\"",
+          "location": {
+            "line": 65,
+            "column": 56
+          },
+          "evidence": "text-amber-900",
+          "repair": {
+            "instruction": "Replace text-amber-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "require-card-component:src/app/billing/page.tsx:120:17:1",
+          "ruleId": "require-card-component",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Repeated custom card container while <Card> exists",
+          "location": {
+            "line": 120,
+            "column": 17
+          },
+          "evidence": "<div className=\"flex items-center gap-4 rounded-lg border border-border bg-muted p-4\">",
+          "repair": {
+            "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "require-card-component:src/app/billing/page.tsx:121:19:1",
+          "ruleId": "require-card-component",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Repeated custom card container while <Card> exists",
+          "location": {
+            "line": 121,
+            "column": 19
+          },
+          "evidence": "<div className=\"flex h-10 w-16 items-center justify-center rounded-md border border-border bg-background\">",
+          "repair": {
+            "instruction": "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace border-amber-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-amber-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-amber-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region)."
+      ],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/app/billing/page.tsx\n\n5 violations:\n- [warn] raw Tailwind color: border-amber-200 (line 65)\n- [warn] raw Tailwind color: bg-amber-50 (line 65)\n- [warn] raw Tailwind color: text-amber-900 (line 65)\n- [warn] custom card container while <Card> exists (line 120)\n- [warn] custom card container while <Card> exists (line 121)\n\nRecommended:\n- Replace border-amber-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-amber-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-amber-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace this container with Card and CardContent from \"@/components/ui/card\" (CardHeader/CardTitle for the heading region)."
+    }
+  ],
+  "durationMs": 91
+}

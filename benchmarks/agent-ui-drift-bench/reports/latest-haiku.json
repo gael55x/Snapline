@@ -1,0 +1,2290 @@
+{
+  "benchmark": "agent-ui-drift-bench",
+  "generatedAt": "2026-07-05T06:47:20.828Z",
+  "configHash": "da6de300d39ed56d",
+  "scorer": "ui-drift-score-v1",
+  "modes": [
+    {
+      "mode": "claude-raw",
+      "runs": 30,
+      "failures": 0,
+      "median": {
+        "driftScore": 8,
+        "totalViolations": 1,
+        "componentReuseRate": 1,
+        "buildPassRate": 0.7,
+        "repairIterations": 0,
+        "totalWallTimeSeconds": 98
+      },
+      "driftedRunRate": 0.5333333333333333,
+      "worstDriftScore": 444
+    },
+    {
+      "mode": "claude-project-instructions",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-shadcn-mcp",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-tailwind-eslint",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-buoy",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-drift-guard",
+      "runs": 0,
+      "failures": 0
+    },
+    {
+      "mode": "claude-snapline",
+      "runs": 30,
+      "failures": 0,
+      "median": {
+        "driftScore": 0,
+        "totalViolations": 0,
+        "componentReuseRate": 1,
+        "buildPassRate": 0.7,
+        "repairIterations": 0,
+        "totalWallTimeSeconds": 120
+      },
+      "driftedRunRate": 0,
+      "worstDriftScore": 0
+    },
+    {
+      "mode": "claude-shadcn-mcp-snapline",
+      "runs": 0,
+      "failures": 0
+    }
+  ],
+  "runs": [
+    {
+      "id": "claude-raw--billing-settings-page--1",
+      "timestamp": "2026-07-05T05:43:11.084Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9804
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 98,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--billing-settings-page--2",
+      "timestamp": "2026-07-05T05:44:53.012Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 22,
+          "totalViolations": 5,
+          "errorViolations": 0,
+          "warningViolations": 5,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 3,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 2,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 113,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--billing-settings-page--3",
+      "timestamp": "2026-07-05T05:46:51.205Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 24,
+          "totalViolations": 6,
+          "errorViolations": 0,
+          "warningViolations": 6,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 6,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 81,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--3/diff.patch"
+    },
+    {
+      "id": "claude-raw--dashboard-visual-hierarchy--1",
+      "timestamp": "2026-07-05T05:37:52.340Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "dashboard-visual-hierarchy",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 98,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--dashboard-visual-hierarchy--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--dashboard-visual-hierarchy--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--dashboard-visual-hierarchy--2",
+      "timestamp": "2026-07-05T05:39:40.807Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "dashboard-visual-hierarchy",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 111,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--dashboard-visual-hierarchy--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--dashboard-visual-hierarchy--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--dashboard-visual-hierarchy--3",
+      "timestamp": "2026-07-05T05:41:35.701Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "dashboard-visual-hierarchy",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 92,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--dashboard-visual-hierarchy--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--dashboard-visual-hierarchy--3/diff.patch"
+    },
+    {
+      "id": "claude-raw--empty-state--1",
+      "timestamp": "2026-07-05T06:04:49.736Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 60,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--empty-state--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--empty-state--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--empty-state--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--empty-state--2",
+      "timestamp": "2026-07-05T06:05:54.948Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 66,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--empty-state--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--empty-state--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--empty-state--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--empty-state--3",
+      "timestamp": "2026-07-05T06:07:04.303Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 78,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--empty-state--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--empty-state--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--empty-state--3/diff.patch"
+    },
+    {
+      "id": "claude-raw--invoices-table--1",
+      "timestamp": "2026-07-05T06:00:22.663Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9375
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 102,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--invoices-table--2",
+      "timestamp": "2026-07-05T06:02:10.449Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9375
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 75,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--invoices-table--3",
+      "timestamp": "2026-07-05T06:03:31.482Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9333
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 75,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--3/diff.patch"
+    },
+    {
+      "id": "claude-raw--login-page--1",
+      "timestamp": "2026-07-05T05:48:18.193Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.95
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 122,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--login-page--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--login-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--login-page--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--login-page--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--login-page--2",
+      "timestamp": "2026-07-05T05:50:23.801Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 87,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--login-page--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--login-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--login-page--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--login-page--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--login-page--3",
+      "timestamp": "2026-07-05T05:51:53.768Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9524
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 76,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--login-page--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--login-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--login-page--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--login-page--3/diff.patch"
+    },
+    {
+      "id": "claude-raw--onboarding-cleanup--1",
+      "timestamp": "2026-07-05T05:32:41.508Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 17,
+          "totalViolations": 2,
+          "errorViolations": 2,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 1,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.975
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 113,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--onboarding-cleanup--2",
+      "timestamp": "2026-07-05T05:34:43.435Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 9,
+          "totalViolations": 1,
+          "errorViolations": 1,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 1,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 102,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--onboarding-cleanup--3",
+      "timestamp": "2026-07-05T05:36:29.020Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 2,
+          "errorViolations": 0,
+          "warningViolations": 2,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 2,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 78,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--3/diff.patch"
+    },
+    {
+      "id": "claude-raw--polished-settings-page--1",
+      "timestamp": "2026-07-05T05:22:30.295Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 73,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--polished-settings-page--2",
+      "timestamp": "2026-07-05T05:23:47.983Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 48,
+          "totalViolations": 12,
+          "errorViolations": 0,
+          "warningViolations": 12,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 12,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 90,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--polished-settings-page--3",
+      "timestamp": "2026-07-05T05:25:22.126Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 48,
+          "totalViolations": 12,
+          "errorViolations": 0,
+          "warningViolations": 12,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 12,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 88,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--3/diff.patch"
+    },
+    {
+      "id": "claude-raw--premium-dashboard--1",
+      "timestamp": "2026-07-05T05:15:20.398Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 180,
+          "totalViolations": 45,
+          "errorViolations": 0,
+          "warningViolations": 45,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 45,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 130,
+        "filesTouched": 8
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--premium-dashboard--2",
+      "timestamp": "2026-07-05T05:17:34.110Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 444,
+          "totalViolations": 111,
+          "errorViolations": 0,
+          "warningViolations": 111,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 111,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 145,
+        "filesTouched": 7
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--premium-dashboard--3",
+      "timestamp": "2026-07-05T05:20:01.654Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 144,
+        "filesTouched": 9
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--3/diff.patch"
+    },
+    {
+      "id": "claude-raw--pricing-cards-polish--1",
+      "timestamp": "2026-07-05T05:26:53.702Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 35,
+          "totalViolations": 5,
+          "errorViolations": 3,
+          "warningViolations": 2,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 1,
+          "arbitraryTailwindValues": 2,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 2,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 94,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--pricing-cards-polish--2",
+      "timestamp": "2026-07-05T05:28:31.138Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 127,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--pricing-cards-polish--3",
+      "timestamp": "2026-07-05T05:30:42.015Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 116,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--pricing-cards-polish--3/diff.patch"
+    },
+    {
+      "id": "claude-raw--team-invite-modal--1",
+      "timestamp": "2026-07-05T05:53:15.062Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 65,
+          "totalViolations": 15,
+          "errorViolations": 1,
+          "warningViolations": 14,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 1,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 14,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9706
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 147,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--1/diff.patch"
+    },
+    {
+      "id": "claude-raw--team-invite-modal--2",
+      "timestamp": "2026-07-05T05:55:50.381Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 24,
+          "totalViolations": 5,
+          "errorViolations": 1,
+          "warningViolations": 4,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 4,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 1,
+          "componentReuseRate": 0.9667
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 148,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--2/diff.patch"
+    },
+    {
+      "id": "claude-raw--team-invite-modal--3",
+      "timestamp": "2026-07-05T05:58:23.933Z",
+      "mode": "claude-raw",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 8,
+          "totalViolations": 2,
+          "errorViolations": 0,
+          "warningViolations": 2,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 2,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9583
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 113,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--team-invite-modal--3/diff.patch"
+    },
+    {
+      "id": "claude-snapline--billing-settings-page--1",
+      "timestamp": "2026-07-05T05:49:00.293Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 2,
+        "hookRuntimeMs": 826,
+        "totalWallTimeSeconds": 146,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--billing-settings-page--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--billing-settings-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--billing-settings-page--1/diff.patch"
+    },
+    {
+      "id": "claude-snapline--billing-settings-page--2",
+      "timestamp": "2026-07-05T05:51:29.813Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 598,
+        "totalWallTimeSeconds": 120,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--billing-settings-page--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--billing-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--billing-settings-page--2/diff.patch"
+    },
+    {
+      "id": "claude-snapline--billing-settings-page--3",
+      "timestamp": "2026-07-05T05:53:35.538Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "billing-settings-page",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 984,
+        "totalWallTimeSeconds": 142,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--billing-settings-page--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--billing-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--billing-settings-page--3/diff.patch"
+    },
+    {
+      "id": "claude-snapline--dashboard-visual-hierarchy--1",
+      "timestamp": "2026-07-05T05:42:37.811Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "dashboard-visual-hierarchy",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 137,
+        "totalWallTimeSeconds": 84,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--dashboard-visual-hierarchy--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--dashboard-visual-hierarchy--1/diff.patch"
+    },
+    {
+      "id": "claude-snapline--dashboard-visual-hierarchy--2",
+      "timestamp": "2026-07-05T05:44:05.648Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "dashboard-visual-hierarchy",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 241,
+        "totalWallTimeSeconds": 120,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--dashboard-visual-hierarchy--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--dashboard-visual-hierarchy--2/diff.patch"
+    },
+    {
+      "id": "claude-snapline--dashboard-visual-hierarchy--3",
+      "timestamp": "2026-07-05T05:46:10.423Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "dashboard-visual-hierarchy",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 1,
+        "hookRuntimeMs": 594,
+        "totalWallTimeSeconds": 166,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--dashboard-visual-hierarchy--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--dashboard-visual-hierarchy--3/diff.patch"
+    },
+    {
+      "id": "claude-snapline--empty-state--1",
+      "timestamp": "2026-07-05T06:14:19.556Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 1,
+        "hookRuntimeMs": 210,
+        "totalWallTimeSeconds": 87,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--empty-state--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--empty-state--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--empty-state--1/diff.patch"
+    },
+    {
+      "id": "claude-snapline--empty-state--2",
+      "timestamp": "2026-07-05T06:47:20.828Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 1,
+        "hookRuntimeMs": 350,
+        "totalWallTimeSeconds": 80,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--empty-state--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--empty-state--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--empty-state--2/diff.patch"
+    },
+    {
+      "id": "claude-snapline--empty-state--3",
+      "timestamp": "2026-07-05T06:17:21.512Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "empty-state",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 142,
+        "totalWallTimeSeconds": 79,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--empty-state--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--empty-state--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--empty-state--3/diff.patch"
+    },
+    {
+      "id": "claude-snapline--invoices-table--1",
+      "timestamp": "2026-07-05T06:08:03.578Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 390,
+        "totalWallTimeSeconds": 120,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--invoices-table--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--invoices-table--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--invoices-table--1/diff.patch"
+    },
+    {
+      "id": "claude-snapline--invoices-table--2",
+      "timestamp": "2026-07-05T06:10:07.651Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 313,
+        "totalWallTimeSeconds": 120,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--invoices-table--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--invoices-table--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--invoices-table--2/diff.patch"
+    },
+    {
+      "id": "claude-snapline--invoices-table--3",
+      "timestamp": "2026-07-05T06:12:17.525Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "invoices-table",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 706,
+        "totalWallTimeSeconds": 117,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--invoices-table--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--invoices-table--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--invoices-table--3/diff.patch"
+    },
+    {
+      "id": "claude-snapline--login-page--1",
+      "timestamp": "2026-07-05T05:56:04.672Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9524
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 278,
+        "totalWallTimeSeconds": 126,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--login-page--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--login-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--login-page--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--login-page--1/diff.patch"
+    },
+    {
+      "id": "claude-snapline--login-page--2",
+      "timestamp": "2026-07-05T05:58:18.124Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 229,
+        "totalWallTimeSeconds": 87,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--login-page--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--login-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--login-page--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--login-page--2/diff.patch"
+    },
+    {
+      "id": "claude-snapline--login-page--3",
+      "timestamp": "2026-07-05T05:59:50.463Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-basic",
+      "promptId": "login-page",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 402,
+        "totalWallTimeSeconds": 99,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--login-page--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--login-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--login-page--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--login-page--3/diff.patch"
+    },
+    {
+      "id": "claude-snapline--onboarding-cleanup--1",
+      "timestamp": "2026-07-05T05:34:19.825Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 1,
+        "hookRuntimeMs": 220,
+        "totalWallTimeSeconds": 150,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--onboarding-cleanup--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--onboarding-cleanup--1/diff.patch"
+    },
+    {
+      "id": "claude-snapline--onboarding-cleanup--2",
+      "timestamp": "2026-07-05T05:36:52.651Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 4,
+        "hookRuntimeMs": 729,
+        "totalWallTimeSeconds": 178,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--onboarding-cleanup--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--onboarding-cleanup--2/diff.patch"
+    },
+    {
+      "id": "claude-snapline--onboarding-cleanup--3",
+      "timestamp": "2026-07-05T05:39:56.725Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "onboarding-cleanup",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.96
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 2,
+        "hookRuntimeMs": 260,
+        "totalWallTimeSeconds": 157,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--onboarding-cleanup--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--onboarding-cleanup--3/diff.patch"
+    },
+    {
+      "id": "claude-snapline--polished-settings-page--1",
+      "timestamp": "2026-07-05T05:23:51.894Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 108,
+        "totalWallTimeSeconds": 81,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--polished-settings-page--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--polished-settings-page--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--polished-settings-page--1/diff.patch"
+    },
+    {
+      "id": "claude-snapline--polished-settings-page--2",
+      "timestamp": "2026-07-05T05:25:18.096Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 127,
+        "totalWallTimeSeconds": 102,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--polished-settings-page--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--polished-settings-page--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--polished-settings-page--2/diff.patch"
+    },
+    {
+      "id": "claude-snapline--polished-settings-page--3",
+      "timestamp": "2026-07-05T05:27:02.934Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "polished-settings-page",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 201,
+        "totalWallTimeSeconds": 102,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--polished-settings-page--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--polished-settings-page--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--polished-settings-page--3/diff.patch"
+    },
+    {
+      "id": "claude-snapline--premium-dashboard--1",
+      "timestamp": "2026-07-05T05:15:20.398Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 1,
+        "hookRuntimeMs": 867,
+        "totalWallTimeSeconds": 201,
+        "filesTouched": 11
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--1/diff.patch"
+    },
+    {
+      "id": "claude-snapline--premium-dashboard--2",
+      "timestamp": "2026-07-05T05:18:44.744Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 399,
+        "totalWallTimeSeconds": 141,
+        "filesTouched": 9
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--2/diff.patch"
+    },
+    {
+      "id": "claude-snapline--premium-dashboard--3",
+      "timestamp": "2026-07-05T05:21:08.275Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "premium-dashboard",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 443,
+        "totalWallTimeSeconds": 159,
+        "filesTouched": 5
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--premium-dashboard--3/diff.patch"
+    },
+    {
+      "id": "claude-snapline--pricing-cards-polish--1",
+      "timestamp": "2026-07-05T05:28:47.736Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 243,
+        "totalWallTimeSeconds": 94,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--pricing-cards-polish--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--pricing-cards-polish--1/diff.patch"
+    },
+    {
+      "id": "claude-snapline--pricing-cards-polish--2",
+      "timestamp": "2026-07-05T05:30:24.338Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 220,
+        "totalWallTimeSeconds": 114,
+        "filesTouched": 3
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--pricing-cards-polish--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--pricing-cards-polish--2/diff.patch"
+    },
+    {
+      "id": "claude-snapline--pricing-cards-polish--3",
+      "timestamp": "2026-07-05T05:32:21.799Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 648,
+        "totalWallTimeSeconds": 111,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--pricing-cards-polish--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--pricing-cards-polish--3/diff.patch"
+    },
+    {
+      "id": "claude-snapline--team-invite-modal--1",
+      "timestamp": "2026-07-05T06:01:35.113Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 1,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 0.9667
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 481,
+        "totalWallTimeSeconds": 145,
+        "filesTouched": 2
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--team-invite-modal--1/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--team-invite-modal--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--team-invite-modal--1/diff.patch"
+    },
+    {
+      "id": "claude-snapline--team-invite-modal--2",
+      "timestamp": "2026-07-05T06:04:03.382Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 2,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 425,
+        "totalWallTimeSeconds": 110,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--team-invite-modal--2/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--team-invite-modal--2/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--team-invite-modal--2/diff.patch"
+    },
+    {
+      "id": "claude-snapline--team-invite-modal--3",
+      "timestamp": "2026-07-05T06:05:57.709Z",
+      "mode": "claude-snapline",
+      "fixture": "next-shadcn-custom-theme",
+      "promptId": "team-invite-modal",
+      "attempt": 3,
+      "model": "claude-haiku-4-5-20251001",
+      "agent": "claude",
+      "result": {
+        "score": {
+          "driftScore": 0,
+          "totalViolations": 0,
+          "errorViolations": 0,
+          "warningViolations": 0,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 0,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": false,
+        "typecheckPass": false,
+        "repairIterations": 0,
+        "hookRuntimeMs": 350,
+        "totalWallTimeSeconds": 123,
+        "filesTouched": 4
+      },
+      "rawOutputPaths": [
+        "runs-claude-haiku-4-5-20251001/claude-snapline--team-invite-modal--3/agent-stdout.txt",
+        "runs-claude-haiku-4-5-20251001/claude-snapline--team-invite-modal--3/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-snapline--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-snapline--team-invite-modal--3/diff.patch"
+    }
+  ]
+}

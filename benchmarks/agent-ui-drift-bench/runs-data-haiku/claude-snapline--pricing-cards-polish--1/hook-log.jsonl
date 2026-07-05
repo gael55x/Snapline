@@ -1,0 +1,5 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":32,"files":["src/components/pricing/pricing-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":30,"files":["src/app/pricing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":34,"files":["src/components/dashboard/nav.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":81,"files":[]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":66,"files":[]}

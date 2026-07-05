@@ -1,0 +1,15 @@
+Done! I've created a reusable EmptyState component and implemented it on a projects page.
+
+**EmptyState Component** (`src/components/empty-state.tsx`):
+- Takes icon, title, description, and optional action button config
+- Centers content vertically and horizontally in the viewport
+- Displays the icon in a soft gray circle (16×16px)
+- Fully typed with proper TypeScript interfaces
+- Action button is optional and supports any Button props
+
+**Projects Page** (`src/app/projects/page.tsx`):
+- Uses the EmptyState component
+- Shows "No projects yet" with a folder icon
+- Includes a "Create project" button
+
+The component is fully reusable — just pass different icons, titles, descriptions, and action handlers for other empty states in your app.

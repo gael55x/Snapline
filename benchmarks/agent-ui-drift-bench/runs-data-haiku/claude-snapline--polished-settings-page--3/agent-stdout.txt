@@ -1,0 +1,22 @@
+Perfect! The settings page has been visually refreshed with all color tokens compliant with the design system. Here's what was improved:
+
+**Visual Enhancements:**
+
+1. **Better hierarchy & spacing** — Increased main heading to 3xl, improved typography sizes, and enlarged gaps between sections (gap-8)
+
+2. **Section separation** — Added secondary background colors to card headers and subtle shadows to make sections stand out distinctly
+
+3. **Form styling** — Each field now has:
+   - Bolded labels for clarity
+   - Helpful hint text beneath each label explaining its purpose
+   - Increased input heights (h-9) for better usability
+   - Consistent spacing and organization
+
+4. **Danger zone emphasis** — Visual distinction with:
+   - A red destructive icon badge to immediately signal caution
+   - Clearer warning text and improved dialog messaging
+   - Consistent destructive styling throughout
+
+5. **Design system compliance** — All colors now use semantic tokens (bg-secondary, border-border, bg-destructive, text-destructive) instead of raw Tailwind colors
+
+All existing fields, form behavior, and functionality remain unchanged—only the visual presentation improved to feel more polished and intentional.

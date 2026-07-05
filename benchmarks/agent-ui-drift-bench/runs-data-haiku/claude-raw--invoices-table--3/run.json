@@ -1,0 +1,37 @@
+{
+  "id": "claude-raw--invoices-table--3",
+  "timestamp": "2026-07-05T06:03:31.482Z",
+  "mode": "claude-raw",
+  "fixture": "next-shadcn-custom-theme",
+  "promptId": "invoices-table",
+  "attempt": 3,
+  "model": "claude-haiku-4-5-20251001",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 8,
+      "totalViolations": 1,
+      "errorViolations": 1,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 1,
+      "componentReuseRate": 0.9333
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 75,
+    "filesTouched": 2
+  },
+  "rawOutputPaths": [
+    "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--3/agent-stdout.txt",
+    "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--3/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--3/scanner.json",
+  "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--invoices-table--3/diff.patch"
+}

@@ -1,0 +1,22 @@
+Perfect! I've created a clean, professional onboarding flow for you. Here's what I built:
+
+**Key improvements:**
+
+1. **Progressive step indicator** — An animated progress bar at the top shows which step you're on, filling left-to-right as you advance. Much more visible than a typical progress indicator.
+
+2. **One field per step** — Each step focuses on a single form field, reducing cognitive load and making the form feel less overwhelming. Steps are:
+   - Workspace name
+   - Contact email  
+   - Repository URL
+
+3. **Consistent spacing** — Proper vertical rhythm throughout: welcome heading, step description, input field, and buttons are all well-spaced using Tailwind utilities.
+
+4. **Clear step hierarchy** — Each step has a prominent title and short description, so users know exactly what they're filling in and why.
+
+5. **Cohesive design** — Centered card with shadow, gradient background, and semantic color use. Feels welcoming and professional.
+
+6. **Obvious current step** — The progress bar segments light up as you complete each step, and "Step X of 3" text confirms position.
+
+7. **Smooth flow** — Back/Next buttons with proper disabled states, autofocus on each field, and transition effects on the progress bar.
+
+The onboarding page is at `/onboard` and the form component handles all the state management. The form fields stay exactly the same—just presented in a much cleaner, more polished way.

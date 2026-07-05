@@ -1,0 +1,9 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":24,"files":["src/components/dashboard/stat-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":27,"files":["src/app/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":29,"files":["src/components/dashboard/recent-activity.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":28,"files":["src/app/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":25,"files":["src/components/dashboard/stat-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"block","durationMs":25,"files":["src/components/dashboard/stat-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":26,"files":["src/components/dashboard/stat-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":55,"files":["src/components/dashboard/recent-activity.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":355,"files":[]}

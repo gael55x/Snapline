@@ -1,0 +1,32 @@
+Perfect! I've created the invite member modal with all the requested features. Here's a summary of what was implemented:
+
+## Components Created:
+
+1. **`src/components/ui/select.tsx`** - A semantic select component following the shadcn pattern
+2. **`src/components/ui/label.tsx`** - A label component for form fields
+3. **`src/components/invite-modal.tsx`** - The main invite modal component with:
+   - Email input accepting comma-separated addresses
+   - Real-time count of emails to be invited
+   - Role selector (Admin/Member) with descriptions of each role
+   - Optional personal message textarea
+   - Remaining seats display from the plan
+   - Disabled invite button when email count exceeds available seats
+   - Error message when trying to invite more than available seats
+   - Success state with checkmark that auto-closes after 2 seconds
+
+4. **`src/app/team/page.tsx`** - Team page featuring:
+   - List of current team members with role badges
+   - Display of used/total seats
+   - Button to open the invite modal
+
+## Key Features:
+
+✅ **Email handling** - Parses comma-separated emails and counts invitations
+✅ **Role selection** - Admin or Member with contextual descriptions
+✅ **Seat management** - Shows available seats and prevents over-inviting
+✅ **Optional message** - Personal message field for invitation context
+✅ **Success feedback** - Clear success state with auto-dismiss
+✅ **Theme compliance** - Uses only semantic tokens (fixed the raw color warning)
+✅ **Responsive design** - Works well on different screen sizes
+
+The modal opens from the team page's "Invite members" button and handles the full invitation flow with proper validation and user feedback.

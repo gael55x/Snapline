@@ -1,0 +1,3 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":487,"files":["src/components/ui/table.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":121,"files":["src/app/billing/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":98,"files":[]}

@@ -1,0 +1,27 @@
+Perfect! I've successfully created an invoices table for the billing page. Here's what I implemented:
+
+## Created Files
+
+1. **`src/components/invoices-table.tsx`** - A fully functional invoices table component with:
+   - **12 mock invoices** with invoice number, date, amount, and status
+   - **Sortable columns**: Date and Amount (click headers to toggle sort direction)
+   - **Default sort**: By date in descending order (newest first)
+   - **Status badges** with distinct styling:
+     - ✅ **Paid** - default (primary) style
+     - ⏳ **Pending** - secondary style  
+     - ❌ **Failed** - destructive (red) style
+   - **Pagination**: 10 rows per page with Previous/Next buttons
+   - **Download PDF action** button for each invoice
+   - **Responsive table** with hover effects
+
+2. **`src/app/billing/page.tsx`** - Billing page that displays the table with a header section
+
+## Key Features
+
+- **Smart sorting**: Click "Date" or "Amount" headers to sort ascending/descending
+- **Full pagination**: Shows current page and total count
+- **Disabled buttons**: Previous/Next buttons disable appropriately at page boundaries
+- **Clean styling**: Uses the existing shadcn/ui components and Tailwind for consistent theming
+- **Semantic HTML**: Proper table structure with thead/tbody
+
+You can now visit `/billing` to see the invoices table in action. The table is interactive and fully responsive.

@@ -1,0 +1,25 @@
+Perfect! I've successfully reworked the dashboard visual hierarchy. Here's what I changed:
+
+## Key Changes
+
+**1. Featured Revenue Card** — The "Total revenue" stat now dominates with:
+- Text size increased from 2xl to 5xl
+- A gradient background and primary border to make it stand out
+- Spans half the width while secondary stats compress to the other half
+
+**2. Restructured Layout with Clear Zones:**
+- **Key Metrics section**: Total revenue featured on left (lg:col-span-2), three secondary stats in 2×2 grid on right (lg:col-span-2)
+- **Activity section**: RecentActivity table positioned as the centerpiece below
+- Section headings ("Key Metrics", "Activity") with uppercase styling and borders clearly separate zones
+
+**3. De-emphasized Navigation:**
+- Background changed from `bg-card` to `bg-background` to blend subtly
+- Text reduced to `text-xs` with muted colors for a lighter touch
+- Makes the main content the clear focal point
+
+**4. Enhanced Spacing:**
+- Increased gap between sections (gap-8) for breathing room
+- Larger padding in RecentActivity card header
+- Border separators create visual breaks between zones
+
+The visual hierarchy is now clear: Total revenue dominates, secondary stats recede into smaller cards, and the activity table reads as the prominent centerpiece below. All content is preserved—nothing was added or removed, only reorganized and restyled.

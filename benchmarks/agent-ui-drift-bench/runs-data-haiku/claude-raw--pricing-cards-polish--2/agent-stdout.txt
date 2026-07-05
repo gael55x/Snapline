@@ -1,0 +1,19 @@
+Done! I've created beautiful, visually striking pricing cards for your dashboard. Here's what I built:
+
+## What's New
+
+**Pricing Cards Component** (`src/components/dashboard/pricing-cards.tsx`)
+- **Three tiers**: Starter ($29), Pro ($99), Enterprise ($299) 
+- **Pro card pops** with a "MOST POPULAR" badge, primary border, shadow with primary tint, and slight scale-up on larger screens
+- **Price is the hero** — large 5xl bold numbers front-and-center with `/month` baseline
+- **Visual depth** — checkmark icons for each feature, dividers, proper hierarchy and spacing
+- **Feature lists** styled with custom SVG checkmarks, clean spacing, and professional typography
+- **Responsive design** — three-column grid that adapts to mobile/tablet
+
+**New Pricing Page** (`src/app/pricing/page.tsx`)
+- Integrated with your existing dashboard nav and layout
+
+**Navigation Updated** (`src/components/dashboard/nav.tsx`)
+- Added "Pricing" link between Overview and Settings
+
+The Pro tier genuinely draws the eye with the combination of border color, shadow, and slight scaling. The price is unmissably large, and the feature list reads clearly with good visual rhythm. All styling follows your shadcn/ui design system.

@@ -1,0 +1,3 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":71,"files":["src/components/ui/checkbox.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":142,"files":["src/app/login/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":189,"files":[]}

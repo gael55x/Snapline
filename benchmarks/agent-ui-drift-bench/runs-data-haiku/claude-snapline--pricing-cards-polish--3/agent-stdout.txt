@@ -1,0 +1,15 @@
+The pricing page is ready! Here's what you'll see when you visit `/pricing`:
+
+**Three stunning pricing cards:**
+- **Starter** ($29) - Clean, secondary button, 6 features
+- **Pro** ($99) - Scaled up larger, highlighted ring, "Most Popular" badge, primary blue button, 8 features
+- **Enterprise** ($299) - Same prominence as Starter but with enterprise features
+
+**Design highlights:**
+- **Price as the hero** - Text-5xl bold price dominates the top section
+- **Pro card pops** - 5% larger with a subtle ring effect and prominent badge
+- **Visual depth** - Hover effects and shadow variations make cards feel interactive
+- **Clean feature list** - Primary-colored checkmarks paired with semantic typography
+- **Design system compliant** - All colors use semantic tokens (no raw Tailwind colors)
+
+The cards follow your design system perfectly and should feel polished and intentional rather than flat and generic. The Pro tier naturally draws the eye as the recommended choice.

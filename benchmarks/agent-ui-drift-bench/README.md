@@ -61,3 +61,6 @@ the run has not happened yet.
 - Full archive incl. each run's final fixture tree: attached to the
   [0.1.0 release](https://github.com/gael55x/Snapline/releases/tag/%40usesnapline/cli%400.1.0)
   as `agent-ui-drift-bench-sonnet5-full.tar.gz`.
+- `runs-data-haiku/` + `reports/latest-haiku.*`: cross-model slice,
+  `claude-haiku-4-5-20251001`, raw vs gated (60 runs); full archive on the
+  release as `agent-ui-drift-bench-haiku45-full.tar.gz`.

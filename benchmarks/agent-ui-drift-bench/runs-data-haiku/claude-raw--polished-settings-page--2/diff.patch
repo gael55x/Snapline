@@ -1,0 +1,224 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+index c106fe3..a9aed7c 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/app/settings/page.tsx
+@@ -28,88 +28,146 @@ export default function SettingsPage() {
+   return (
+     <div className="min-h-screen bg-background">
+       <DashboardNav currentPath="/settings" />
+-      <main className="mx-auto flex max-w-3xl flex-col gap-6 px-6 py-8">
+-        <div className="flex flex-col gap-1">
+-          <h1 className="text-2xl font-bold tracking-tight text-foreground">Settings</h1>
+-          <p className="text-sm text-muted-foreground">
+-            Manage your workspace profile and danger zone actions.
++      <main className="mx-auto flex max-w-2xl flex-col gap-12 px-6 py-12">
++        <div className="space-y-2 border-b pb-8">
++          <h1 className="text-3xl font-bold tracking-tight text-foreground">Settings</h1>
++          <p className="text-base text-muted-foreground">
++            Manage your workspace configuration and critical actions.
+           </p>
+         </div>
+ 
+-        <Card>
+-          <CardHeader>
+-            <CardTitle>Workspace profile</CardTitle>
+-            <CardDescription>This information is shown on shared reports.</CardDescription>
+-          </CardHeader>
+-          <CardContent>
+-            <form className="flex flex-col gap-4">
+-              <div className="flex flex-col gap-2">
+-                <label htmlFor="workspace-name" className="text-sm font-medium text-foreground">
+-                  Workspace name
+-                </label>
+-                <Input id="workspace-name" name="workspaceName" defaultValue="Snapline Ops" />
+-              </div>
+-              <div className="flex flex-col gap-2">
+-                <label htmlFor="contact-email" className="text-sm font-medium text-foreground">
+-                  Contact email
+-                </label>
+-                <Input
+-                  id="contact-email"
+-                  name="contactEmail"
+-                  type="email"
+-                  defaultValue="ops@example.com"
+-                />
+-              </div>
+-              <div className="flex flex-col gap-2">
+-                <label htmlFor="repo-url" className="text-sm font-medium text-foreground">
+-                  Repository URL
+-                </label>
+-                <Input
+-                  id="repo-url"
+-                  name="repoUrl"
+-                  type="url"
+-                  placeholder="https://github.com/acme/app"
+-                />
++        <section className="space-y-6">
++          <div className="space-y-1">
++            <h2 className="text-lg font-semibold text-foreground">Workspace Profile</h2>
++            <p className="text-sm text-muted-foreground">
++              Your workspace identity shown on shared reports and integrations.
++            </p>
++          </div>
++
++          <Card className="border bg-card shadow-sm">
++            <CardContent className="pt-6">
++              <form className="space-y-6">
++                <div className="space-y-2">
++                  <label
++                    htmlFor="workspace-name"
++                    className="text-sm font-semibold text-foreground"
++                  >
++                    Workspace name
++                  </label>
++                  <p className="text-xs text-muted-foreground">
++                    The primary identifier for your workspace.
++                  </p>
++                  <Input
++                    id="workspace-name"
++                    name="workspaceName"
++                    defaultValue="Snapline Ops"
++                    className="mt-2 border-input focus:ring-1"
++                  />
++                </div>
++
++                <div className="space-y-2">
++                  <label
++                    htmlFor="contact-email"
++                    className="text-sm font-semibold text-foreground"
++                  >
++                    Contact email
++                  </label>
++                  <p className="text-xs text-muted-foreground">
++                    Used for notifications and critical workspace updates.
++                  </p>
++                  <Input
++                    id="contact-email"
++                    name="contactEmail"
++                    type="email"
++                    defaultValue="ops@example.com"
++                    className="mt-2 border-input focus:ring-1"
++                  />
++                </div>
++
++                <div className="space-y-2">
++                  <label htmlFor="repo-url" className="text-sm font-semibold text-foreground">
++                    Repository URL
++                  </label>
++                  <p className="text-xs text-muted-foreground">
++                    Link to your source control repository for context and integrations.
++                  </p>
++                  <Input
++                    id="repo-url"
++                    name="repoUrl"
++                    type="url"
++                    placeholder="https://github.com/acme/app"
++                    className="mt-2 border-input focus:ring-1"
++                  />
++                </div>
++              </form>
++            </CardContent>
++            <CardFooter className="border-t bg-muted/30 px-6 py-4">
++              <div className="flex gap-2">
++                <Button className="px-6 font-medium">Save changes</Button>
++                <Button variant="ghost" className="px-6">
++                  Cancel
++                </Button>
+               </div>
+-            </form>
+-          </CardContent>
+-          <CardFooter className="gap-2">
+-            <Button>Save changes</Button>
+-            <Button variant="ghost">Cancel</Button>
+-          </CardFooter>
+-        </Card>
++            </CardFooter>
++          </Card>
++        </section>
+ 
+-        <Card>
+-          <CardHeader>
+-            <CardTitle>Danger zone</CardTitle>
+-            <CardDescription>Destructive actions that cannot be undone.</CardDescription>
+-          </CardHeader>
+-          <CardFooter>
+-            <Button variant="destructive" onClick={() => setConfirmOpen(true)}>
+-              Delete workspace
+-            </Button>
+-          </CardFooter>
+-        </Card>
++        <section className="space-y-6">
++          <div className="space-y-1">
++            <h2 className="text-lg font-semibold text-foreground">Danger Zone</h2>
++            <p className="text-sm text-muted-foreground">
++              Irreversible actions. These operations cannot be undone.
++            </p>
++          </div>
+ 
+-        <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
+-          <DialogContent>
+-            <DialogHeader>
+-              <DialogTitle>Delete workspace?</DialogTitle>
+-              <DialogDescription>
+-                This permanently removes the workspace, its projects, and all repair history.
+-              </DialogDescription>
+-            </DialogHeader>
+-            <DialogFooter>
+-              <Button variant="ghost" onClick={() => setConfirmOpen(false)}>
+-                Cancel
+-              </Button>
+-              <Button variant="destructive" onClick={() => setConfirmOpen(false)}>
++          <Card className="border-red-200 bg-red-50 dark:border-red-900 dark:bg-red-950/20 shadow-sm">
++            <CardContent className="pt-6">
++              <div className="space-y-3">
++                <h3 className="text-sm font-semibold text-red-900 dark:text-red-100">
++                  Delete workspace
++                </h3>
++                <p className="text-sm text-red-800 dark:text-red-200">
++                  Permanently remove this workspace, all projects, and all historical data. This
++                  operation cannot be reversed.
++                </p>
++              </div>
++            </CardContent>
++            <CardFooter className="border-t border-red-200 bg-red-100/50 dark:border-red-900 dark:bg-red-950/40 px-6 py-4">
++              <Button
++                variant="destructive"
++                className="px-6 font-medium"
++                onClick={() => setConfirmOpen(true)}
++              >
+                 Delete workspace
+               </Button>
+-            </DialogFooter>
+-          </DialogContent>
+-        </Dialog>
++            </CardFooter>
++          </Card>
++        </section>
+       </main>
++
++      <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
++        <DialogContent className="sm:max-w-md">
++          <DialogHeader>
++            <DialogTitle className="text-xl">Delete workspace?</DialogTitle>
++            <DialogDescription className="text-base">
++              This permanently removes the workspace, its projects, and all repair history. This
++              action cannot be undone.
++            </DialogDescription>
++          </DialogHeader>
++          <DialogFooter className="gap-2 pt-4">
++            <Button variant="ghost" onClick={() => setConfirmOpen(false)} className="px-6">
++              Cancel
++            </Button>
++            <Button
++              variant="destructive"
++              onClick={() => setConfirmOpen(false)}
++              className="px-6 font-medium"
++            >
++              Delete workspace
++            </Button>
++          </DialogFooter>
++        </DialogContent>
++      </Dialog>
+     </div>
+   )
+ }

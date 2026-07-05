@@ -1,0 +1,12 @@
+diff --git a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+index 3278f61..ff6722d 100644
+--- a/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
++++ b/fixtures/next-shadcn-dashboard-app/src/components/dashboard/nav.tsx
+@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
+ 
+ const links = [
+   { href: "/", label: "Overview" },
++  { href: "/pricing", label: "Pricing" },
+   { href: "/settings", label: "Settings" },
+ ]
+ 

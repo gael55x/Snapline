@@ -1,0 +1,26 @@
+Perfect! I've created a reusable **EmptyState** component and demonstrated it on a projects page. Here's what I built:
+
+## EmptyState Component (`src/components/EmptyState.tsx`)
+
+A flexible, centered component that accepts:
+- **icon**: Any React node (SVG, component, etc.)
+- **title**: Main heading
+- **description**: Subtitle text
+- **action**: Optional button with label and onClick handler
+
+Features:
+- Icon displayed in a soft circular background (`rounded-full bg-muted`)
+- Centered layout using flexbox
+- Fixed height container (min-h-96) that centers content vertically
+- Max-width constraint for optimal text reading
+- SVG sizing CSS (`[&_svg]:h-8 [&_svg]:w-8`) for consistent icon sizing
+
+## Projects Page Example (`src/app/projects/page.tsx`)
+
+Demonstrates the component with:
+- Simple SVG Plus icon (no external dependency)
+- "No projects yet" heading
+- Helpful description text
+- "Create project" action button
+
+The component is **reusable** — just pass different icons, titles, descriptions, and actions for other empty states throughout your app (no tasks, no notifications, empty search results, etc.).

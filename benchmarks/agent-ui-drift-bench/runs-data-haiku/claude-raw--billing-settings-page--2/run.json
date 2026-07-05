@@ -1,0 +1,37 @@
+{
+  "id": "claude-raw--billing-settings-page--2",
+  "timestamp": "2026-07-05T05:44:53.012Z",
+  "mode": "claude-raw",
+  "fixture": "next-shadcn-custom-theme",
+  "promptId": "billing-settings-page",
+  "attempt": 2,
+  "model": "claude-haiku-4-5-20251001",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 22,
+      "totalViolations": 5,
+      "errorViolations": 0,
+      "warningViolations": 5,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 3,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 2,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 113,
+    "filesTouched": 2
+  },
+  "rawOutputPaths": [
+    "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--2/agent-stdout.txt",
+    "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--2/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--2/scanner.json",
+  "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--2/diff.patch"
+}

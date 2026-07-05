@@ -1,0 +1,16 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee..5bb9ace 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -38,6 +38,11 @@ export default function HomePage() {
+             Book a demo
+           </Button>
+         </div>
++        <div className="mt-4">
++          <a href="/billing" className="text-sm text-primary hover:underline">
++            View Billing Settings
++          </a>
++        </div>
+       </section>
+ 
+       <section className="grid gap-6 sm:grid-cols-3">

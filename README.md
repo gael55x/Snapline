@@ -151,10 +151,7 @@ and false-positive policy: [Rules](docs/rules.md).
 agent-ui-drift-bench: 240 live Claude Code sessions — 8 modes × 10 prompts ×
 3 attempts, pristine checkout per run, hint-free prompts, deterministic
 scoring, every raw artifact kept. **Model: `claude-sonnet-5`** (agent: Claude
-Code CLI, `acceptEdits`). A cross-model slice on `claude-haiku-4-5-20251001`
-is in progress — early cells show weaker models drift far harder (raw drift
-180 vs Sonnet's worst 20 on the same prompt) while the gate still converges
-them to 0. Full methodology: [Benchmark](docs/benchmark.md).
+Code CLI, `acceptEdits`). Full methodology: [Benchmark](docs/benchmark.md).
 
 ![Share of runs with any UI drift, by mode](benchmarks/agent-ui-drift-bench/graphs/drift-rate.svg)
 
@@ -180,6 +177,16 @@ agents **converge** — they repair to zero in-session instead of looping or
 shipping broken code (build pass held across all 60 gated runs) — while
 nothing else prevents what this metric measures. Every diff is published;
 re-score them with your own tool.
+
+**Cross-model slice — `claude-haiku-4-5-20251001`** (60 runs, raw vs gated,
+same prompts): weaker models drift far harder, and the gate matters far more.
+Raw Haiku drifted in **53% of runs (16/30)** with a worst drift score of
+**444** (22× Sonnet's worst) and a nonzero *median*. Gated Haiku: **0/30** —
+and here the hooks visibly earned it: 13 PostToolUse blocks across 8 runs,
+each repaired to zero in-session. Report:
+[reports/latest-haiku.md](benchmarks/agent-ui-drift-bench/reports/latest-haiku.md).
+A cross-agent slice (Codex CLI, `gpt-5.5`, instruction-level Snapline — Codex
+has no lifecycle hooks) is running; results publish the same way.
 
 ## Status
 

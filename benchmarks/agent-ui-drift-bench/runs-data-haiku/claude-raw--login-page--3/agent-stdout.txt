@@ -1,0 +1,35 @@
+Perfect! I've created a comprehensive login page with all the requested features. Here's what's included:
+
+## Features Implemented:
+
+**Top Social Sign-In:**
+- Google sign-in button with proper logo
+- GitHub sign-in button with proper logo
+- "Or continue with email" divider
+
+**Email Form:**
+- Email input field with validation
+- Password input field with validation
+- Remember me checkbox
+- Inline validation error messages (red text below fields)
+- Loading state with spinner on submit button
+
+**Validation:**
+- Email: checks for required and valid format
+- Password: checks for required and minimum 6 characters
+- Errors clear when the user starts typing to fix them
+
+**User Actions:**
+- "Forgot password?" link (routes to `/forgot-password`)
+- "Sign up" link at the bottom (routes to `/signup`)
+- Submit button shows "Signing in..." with a spinner during submission
+- All inputs are disabled while loading
+
+**Styling:**
+- Uses shadcn/ui Card, Button, and Input components
+- Responsive design (centered, max-width 448px)
+- Proper spacing and typography
+- Accessible form labels
+- Disabled states for inputs and buttons during loading
+
+The page is fully functional with client-side form validation and state management. The social sign-in buttons and form submission have placeholder handlers that log to the console—ready for you to integrate with your authentication service.

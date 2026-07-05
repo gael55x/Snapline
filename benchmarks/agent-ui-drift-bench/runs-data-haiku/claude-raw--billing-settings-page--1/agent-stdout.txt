@@ -1,0 +1,31 @@
+Perfect! I've created a complete billing settings page with all the requested features. Here's what's included:
+
+## Components Built
+
+**1. New Alert Component** (`src/components/ui/alert.tsx`)
+- Used for the trial expiry banner with warning variant support
+
+**2. Billing Settings Page** (`src/app/billing/page.tsx`)
+
+The page includes:
+- **Trial Expiry Banner** - Displays a warning when the trial is ending soon (currently showing 5 days remaining)
+- **Current Plan Section** - Shows:
+  - Plan name (Pro Plan) with Active badge
+  - Monthly price ($99)
+  - Next renewal date
+- **Payment Method Section** - Displays:
+  - Card brand and last 4 digits (Visa •••• 4242)
+  - Expiry date
+  - "Update Card" button that opens a modal dialog with form fields for cardholder name, card number, expiry, and CVC
+- **Invoices Section** - Responsive table showing:
+  - Invoice ID
+  - Date
+  - Amount
+  - Status badge (Paid/Pending)
+  - Download PDF button for each invoice
+- **Danger Zone** - Cancel Subscription section with:
+  - Warning message about access retention
+  - "Cancel Subscription" button
+  - Confirmation dialog with a dropdown to select cancellation reason
+
+The page uses your custom theme tokens (`brand`, `destructive`, `primary`, etc.) and is fully responsive with proper styling for both light and dark modes. All components are built with shadcn UI primitives that already exist in your project.

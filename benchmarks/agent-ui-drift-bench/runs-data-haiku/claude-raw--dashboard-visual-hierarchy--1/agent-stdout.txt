@@ -1,0 +1,16 @@
+Done. I've reworked the visual hierarchy with these changes:
+
+**StatCard Component** (`stat-card.tsx`):
+- Added `size` prop supporting "lg" (large key metric) and "sm" (secondary)
+- **Large cards**: text-5xl value (dominates), larger padding, wider title
+- **Small cards**: text-xl value, uppercase condensed labels, smaller badges
+
+**Page Layout** (`page.tsx`):
+- Split stats into sections with clear headings:
+  - **"Key metrics"** → Revenue in large card (full width lg:col-span-2)
+  - **"Secondary metrics"** → 3 other stats in 3-column grid (de-emphasized)
+  - **"Activity center"** → Recent Activity table as centerpiece
+- Increased gap between sections (gap-8) for clear visual separation
+- Uppercase section headings with tracking-wide for emphasis
+
+**Result**: Total Revenue now dominates with massive typography and dedicated space. Secondary stats are visually recessed in a compact 3-column layout. The Activity table gets prominence as the final section. Clear heading hierarchy separates all zones. No content added or removed.

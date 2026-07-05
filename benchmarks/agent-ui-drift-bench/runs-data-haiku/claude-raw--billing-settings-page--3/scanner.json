@@ -1,0 +1,241 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-claude-haiku-4-5-20251001/claude-raw--billing-settings-page--3/repo/fixtures/next-shadcn-custom-theme",
+  "scannedFiles": [
+    "src/app/billing/page.tsx",
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/textarea.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-raw-palette-color:src/app/billing/page.tsx:59:44:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Raw Tailwind palette color \"border-orange-200\"",
+      "location": {
+        "line": 59,
+        "column": 44
+      },
+      "evidence": "border-orange-200",
+      "repair": {
+        "instruction": "Replace border-orange-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/billing/page.tsx:59:62:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-orange-50\"",
+      "location": {
+        "line": 59,
+        "column": 62
+      },
+      "evidence": "bg-orange-50",
+      "repair": {
+        "instruction": "Replace bg-orange-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/billing/page.tsx:59:79:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Raw Tailwind palette color \"text-orange-900\"",
+      "location": {
+        "line": 59,
+        "column": 79
+      },
+      "evidence": "text-orange-900",
+      "repair": {
+        "instruction": "Replace text-orange-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/billing/page.tsx:59:95:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:border-orange-900\"",
+      "location": {
+        "line": 59,
+        "column": 95
+      },
+      "evidence": "dark:border-orange-900",
+      "repair": {
+        "instruction": "Replace dark:border-orange-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/billing/page.tsx:59:118:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:bg-orange-950\"",
+      "location": {
+        "line": 59,
+        "column": 118
+      },
+      "evidence": "dark:bg-orange-950",
+      "repair": {
+        "instruction": "Replace dark:bg-orange-950 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/billing/page.tsx:59:137:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/billing/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-orange-100\"",
+      "location": {
+        "line": 59,
+        "column": 137
+      },
+      "evidence": "dark:text-orange-100",
+      "repair": {
+        "instruction": "Replace dark:text-orange-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 24,
+    "totalViolations": 6,
+    "errorViolations": 0,
+    "warningViolations": 6,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 6,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/app/billing/page.tsx",
+      "filePath": "src/app/billing/page.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/app/billing/page.tsx:59:44:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Raw Tailwind palette color \"border-orange-200\"",
+          "location": {
+            "line": 59,
+            "column": 44
+          },
+          "evidence": "border-orange-200",
+          "repair": {
+            "instruction": "Replace border-orange-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/billing/page.tsx:59:62:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-orange-50\"",
+          "location": {
+            "line": 59,
+            "column": 62
+          },
+          "evidence": "bg-orange-50",
+          "repair": {
+            "instruction": "Replace bg-orange-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/billing/page.tsx:59:79:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Raw Tailwind palette color \"text-orange-900\"",
+          "location": {
+            "line": 59,
+            "column": 79
+          },
+          "evidence": "text-orange-900",
+          "repair": {
+            "instruction": "Replace text-orange-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/billing/page.tsx:59:95:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:border-orange-900\"",
+          "location": {
+            "line": 59,
+            "column": 95
+          },
+          "evidence": "dark:border-orange-900",
+          "repair": {
+            "instruction": "Replace dark:border-orange-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/billing/page.tsx:59:118:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:bg-orange-950\"",
+          "location": {
+            "line": 59,
+            "column": 118
+          },
+          "evidence": "dark:bg-orange-950",
+          "repair": {
+            "instruction": "Replace dark:bg-orange-950 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/billing/page.tsx:59:137:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/billing/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-orange-100\"",
+          "location": {
+            "line": 59,
+            "column": 137
+          },
+          "evidence": "dark:text-orange-100",
+          "repair": {
+            "instruction": "Replace dark:text-orange-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace border-orange-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-orange-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-orange-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:border-orange-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:bg-orange-950 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:text-orange-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+      ],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/app/billing/page.tsx\n\n6 violations:\n- [warn] raw Tailwind color: border-orange-200 (line 59)\n- [warn] raw Tailwind color: bg-orange-50 (line 59)\n- [warn] raw Tailwind color: text-orange-900 (line 59)\n- [warn] raw Tailwind color: dark:border-orange-900 (line 59)\n- [warn] raw Tailwind color: dark:bg-orange-950 (line 59)\n- [warn] raw Tailwind color: dark:text-orange-100 (line 59)\n\nRecommended:\n- Replace border-orange-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-orange-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-orange-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:border-orange-900 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:bg-orange-950 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:text-orange-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+    }
+  ],
+  "durationMs": 37
+}

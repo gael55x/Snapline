@@ -1,0 +1,23 @@
+Perfect! I've successfully reworked the visual hierarchy. Here's what I changed:
+
+## Key Changes:
+
+**1. Stat Card Component** — Added a "primary" variant for the revenue card:
+   - Increased value text from `text-2xl` to `text-5xl` 
+   - Expanded card height with `min-h-80` to make it dominate vertically
+   - Enhanced title styling with larger, bolder text
+
+**2. Layout Restructure** (page.tsx):
+   - **Revenue card** now occupies the left column alone and towers above secondary stats due to its size
+   - **Secondary stats** (3 cards) tucked into the right side in a compact grid, visually receding
+   - Separated into clear zones with uppercase section headings ("Key metrics" and "Activity")
+   - Added visual boundaries: border separating the overview header from content, and border separating metrics from activity
+   - Increased spacing between sections (`gap-8`) for clearer zones
+
+**3. Recent Activity Section** — Enhanced to read as a centerpiece:
+   - Table headers now use uppercase tracking-wide styling to anchor the section
+   - Increased header padding for better breathing room
+   - Stronger title emphasis
+   - Made below the primary metrics with clear visual separation
+
+All changes preserve the existing content—nothing was added or removed, just reweighted through typography, sizing, positioning, and spacing.

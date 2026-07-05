@@ -1,0 +1,446 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--3/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-raw-palette-color:src/app/settings/page.tsx:115:50:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Raw Tailwind palette color \"text-red-600\"",
+      "location": {
+        "line": 115,
+        "column": 50
+      },
+      "evidence": "text-red-600",
+      "repair": {
+        "instruction": "Replace text-red-600 with text-destructive.",
+        "safeFix": true,
+        "replacement": "text-destructive"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/settings/page.tsx:115:63:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-red-500\"",
+      "location": {
+        "line": 115,
+        "column": 63
+      },
+      "evidence": "dark:text-red-500",
+      "repair": {
+        "instruction": "Replace dark:text-red-500 with text-destructive.",
+        "safeFix": true,
+        "replacement": "text-destructive"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/settings/page.tsx:116:50:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Raw Tailwind palette color \"text-red-600\"",
+      "location": {
+        "line": 116,
+        "column": 50
+      },
+      "evidence": "text-red-600",
+      "repair": {
+        "instruction": "Replace text-red-600 with text-destructive.",
+        "safeFix": true,
+        "replacement": "text-destructive"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/settings/page.tsx:116:63:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:text-red-500\"",
+      "location": {
+        "line": 116,
+        "column": 63
+      },
+      "evidence": "dark:text-red-500",
+      "repair": {
+        "instruction": "Replace dark:text-red-500 with text-destructive.",
+        "safeFix": true,
+        "replacement": "text-destructive"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/settings/page.tsx:116:104:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-red-50\"",
+      "location": {
+        "line": 116,
+        "column": 104
+      },
+      "evidence": "bg-red-50",
+      "repair": {
+        "instruction": "Replace bg-red-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/settings/page.tsx:116:114:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:bg-red-950/30\"",
+      "location": {
+        "line": 116,
+        "column": 114
+      },
+      "evidence": "dark:bg-red-950/30",
+      "repair": {
+        "instruction": "Replace dark:bg-red-950/30 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/settings/page.tsx:124:28:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Raw Tailwind palette color \"border-red-200\"",
+      "location": {
+        "line": 124,
+        "column": 28
+      },
+      "evidence": "border-red-200",
+      "repair": {
+        "instruction": "Replace border-red-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/settings/page.tsx:124:43:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:border-red-900/50\"",
+      "location": {
+        "line": 124,
+        "column": 43
+      },
+      "evidence": "dark:border-red-900/50",
+      "repair": {
+        "instruction": "Replace dark:border-red-900/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/settings/page.tsx:124:66:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-red-50/50\"",
+      "location": {
+        "line": 124,
+        "column": 66
+      },
+      "evidence": "bg-red-50/50",
+      "repair": {
+        "instruction": "Replace bg-red-50/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/settings/page.tsx:124:79:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:bg-red-950/10\"",
+      "location": {
+        "line": 124,
+        "column": 79
+      },
+      "evidence": "dark:bg-red-950/10",
+      "repair": {
+        "instruction": "Replace dark:bg-red-950/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/settings/page.tsx:136:38:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Raw Tailwind palette color \"border-red-200\"",
+      "location": {
+        "line": 136,
+        "column": 38
+      },
+      "evidence": "border-red-200",
+      "repair": {
+        "instruction": "Replace border-red-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/settings/page.tsx:136:53:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/settings/page.tsx",
+      "message": "Raw Tailwind palette color \"dark:border-red-900/50\"",
+      "location": {
+        "line": 136,
+        "column": 53
+      },
+      "evidence": "dark:border-red-900/50",
+      "repair": {
+        "instruction": "Replace dark:border-red-900/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 48,
+    "totalViolations": 12,
+    "errorViolations": 0,
+    "warningViolations": 12,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 12,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/app/settings/page.tsx",
+      "filePath": "src/app/settings/page.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/app/settings/page.tsx:115:50:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Raw Tailwind palette color \"text-red-600\"",
+          "location": {
+            "line": 115,
+            "column": 50
+          },
+          "evidence": "text-red-600",
+          "repair": {
+            "instruction": "Replace text-red-600 with text-destructive.",
+            "safeFix": true,
+            "replacement": "text-destructive"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/settings/page.tsx:115:63:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-red-500\"",
+          "location": {
+            "line": 115,
+            "column": 63
+          },
+          "evidence": "dark:text-red-500",
+          "repair": {
+            "instruction": "Replace dark:text-red-500 with text-destructive.",
+            "safeFix": true,
+            "replacement": "text-destructive"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/settings/page.tsx:116:50:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Raw Tailwind palette color \"text-red-600\"",
+          "location": {
+            "line": 116,
+            "column": 50
+          },
+          "evidence": "text-red-600",
+          "repair": {
+            "instruction": "Replace text-red-600 with text-destructive.",
+            "safeFix": true,
+            "replacement": "text-destructive"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/settings/page.tsx:116:63:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:text-red-500\"",
+          "location": {
+            "line": 116,
+            "column": 63
+          },
+          "evidence": "dark:text-red-500",
+          "repair": {
+            "instruction": "Replace dark:text-red-500 with text-destructive.",
+            "safeFix": true,
+            "replacement": "text-destructive"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/settings/page.tsx:116:104:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-red-50\"",
+          "location": {
+            "line": 116,
+            "column": 104
+          },
+          "evidence": "bg-red-50",
+          "repair": {
+            "instruction": "Replace bg-red-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/settings/page.tsx:116:114:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:bg-red-950/30\"",
+          "location": {
+            "line": 116,
+            "column": 114
+          },
+          "evidence": "dark:bg-red-950/30",
+          "repair": {
+            "instruction": "Replace dark:bg-red-950/30 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/settings/page.tsx:124:28:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Raw Tailwind palette color \"border-red-200\"",
+          "location": {
+            "line": 124,
+            "column": 28
+          },
+          "evidence": "border-red-200",
+          "repair": {
+            "instruction": "Replace border-red-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/settings/page.tsx:124:43:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:border-red-900/50\"",
+          "location": {
+            "line": 124,
+            "column": 43
+          },
+          "evidence": "dark:border-red-900/50",
+          "repair": {
+            "instruction": "Replace dark:border-red-900/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/settings/page.tsx:124:66:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-red-50/50\"",
+          "location": {
+            "line": 124,
+            "column": 66
+          },
+          "evidence": "bg-red-50/50",
+          "repair": {
+            "instruction": "Replace bg-red-50/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/settings/page.tsx:124:79:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:bg-red-950/10\"",
+          "location": {
+            "line": 124,
+            "column": 79
+          },
+          "evidence": "dark:bg-red-950/10",
+          "repair": {
+            "instruction": "Replace dark:bg-red-950/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/settings/page.tsx:136:38:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Raw Tailwind palette color \"border-red-200\"",
+          "location": {
+            "line": 136,
+            "column": 38
+          },
+          "evidence": "border-red-200",
+          "repair": {
+            "instruction": "Replace border-red-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/settings/page.tsx:136:53:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/settings/page.tsx",
+          "message": "Raw Tailwind palette color \"dark:border-red-900/50\"",
+          "location": {
+            "line": 136,
+            "column": 53
+          },
+          "evidence": "dark:border-red-900/50",
+          "repair": {
+            "instruction": "Replace dark:border-red-900/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace text-red-600 with text-destructive.",
+        "Replace dark:text-red-500 with text-destructive.",
+        "Replace bg-red-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:bg-red-950/30 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace border-red-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:border-red-900/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-red-50/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace dark:bg-red-950/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+      ],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/app/settings/page.tsx\n\n12 violations:\n- [warn] raw Tailwind color: text-red-600 (line 115)\n- [warn] raw Tailwind color: dark:text-red-500 (line 115)\n- [warn] raw Tailwind color: text-red-600 (line 116)\n- [warn] raw Tailwind color: dark:text-red-500 (line 116)\n- [warn] raw Tailwind color: bg-red-50 (line 116)\n- [warn] raw Tailwind color: dark:bg-red-950/30 (line 116)\n- [warn] raw Tailwind color: border-red-200 (line 124)\n- [warn] raw Tailwind color: dark:border-red-900/50 (line 124)\n- [warn] raw Tailwind color: bg-red-50/50 (line 124)\n- [warn] raw Tailwind color: dark:bg-red-950/10 (line 124)\n- [warn] raw Tailwind color: border-red-200 (line 136)\n- [warn] raw Tailwind color: dark:border-red-900/50 (line 136)\n\nRecommended:\n- Replace text-red-600 with text-destructive.\n- Replace dark:text-red-500 with text-destructive.\n- Replace bg-red-50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:bg-red-950/30 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace border-red-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:border-red-900/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-red-50/50 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace dark:bg-red-950/10 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+    }
+  ],
+  "durationMs": 36
+}

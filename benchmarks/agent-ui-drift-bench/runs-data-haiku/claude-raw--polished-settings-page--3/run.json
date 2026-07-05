@@ -1,0 +1,37 @@
+{
+  "id": "claude-raw--polished-settings-page--3",
+  "timestamp": "2026-07-05T05:25:22.126Z",
+  "mode": "claude-raw",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "polished-settings-page",
+  "attempt": 3,
+  "model": "claude-haiku-4-5-20251001",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 48,
+      "totalViolations": 12,
+      "errorViolations": 0,
+      "warningViolations": 12,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 12,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 88,
+    "filesTouched": 1
+  },
+  "rawOutputPaths": [
+    "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--3/agent-stdout.txt",
+    "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--3/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--3/scanner.json",
+  "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--polished-settings-page--3/diff.patch"
+}

@@ -1,0 +1,54 @@
+Perfect! I've successfully created a comprehensive login page with all the features you requested. Here's what was implemented:
+
+## Created Files
+
+1. **Checkbox Component** (`src/components/ui/checkbox.tsx`):
+   - A styled checkbox component using shadcn/ui patterns
+   - Supports disabled state and focus states
+   - Integrates with the design system
+
+2. **Login Page** (`src/app/login/page.tsx`):
+   - Complete client-side form with state management using React hooks
+
+## Features Implemented
+
+✅ **OAuth Sign-in Buttons**
+- Google sign-in button with official Google colors in SVG logo
+- GitHub sign-in button with official GitHub logo
+- Both buttons have hover states and respect the loading state
+
+✅ **Divider**
+- "or continue with email" divider with proper styling between OAuth buttons and email form
+
+✅ **Email Field**
+- Validates email presence and format (@-symbol check)
+- Shows inline error messages in red text
+- Input borders turn red on validation error
+- Clears error on focus
+
+✅ **Password Field**
+- Validates password presence and minimum 6-character length
+- Shows inline error messages
+- Input styling reflects validation state
+
+✅ **"Remember me" Checkbox**
+- Functional checkbox with label
+- Toggles state on interaction
+- Respects disabled state during loading
+
+✅ **"Forgot password?" Link**
+- Positioned next to the password label
+- Links to `/forgot-password` page
+- Styled as a small, primary-colored link
+
+✅ **Loading State**
+- Submit button text changes to "Signing in..." while processing
+- All form inputs and buttons are disabled during loading
+- OAuth buttons also respect loading state
+
+✅ **Sign-up Link**
+- Located in the card footer
+- Text: "Don't have an account? Sign up"
+- Links to `/sign-up` page
+
+The login page is fully responsive, uses the existing shadcn/ui design system, and includes form validation with clear error messages.

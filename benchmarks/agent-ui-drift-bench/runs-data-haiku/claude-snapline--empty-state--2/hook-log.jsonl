@@ -1,0 +1,4 @@
+{"agent":"claude","kind":"post-tool-use","action":"block","durationMs":24,"files":["src/components/empty-state.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":23,"files":["src/components/empty-state.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":22,"files":["src/app/projects/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":281,"files":[]}

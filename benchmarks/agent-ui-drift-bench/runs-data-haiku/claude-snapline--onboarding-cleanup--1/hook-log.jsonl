@@ -1,0 +1,4 @@
+{"agent":"claude","kind":"post-tool-use","action":"block","durationMs":67,"files":["src/components/onboard/onboarding-form.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":43,"files":["src/components/onboard/onboarding-form.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":27,"files":["src/app/onboard/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":83,"files":[]}

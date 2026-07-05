@@ -1,0 +1,44 @@
+Perfect! I've successfully created an "Invite member" modal with all the requested features. Here's what I've implemented:
+
+## New Components
+
+### 1. **InviteMemberModal** (`src/components/invite-member-modal.tsx`)
+
+A reusable modal component with:
+- **Email input**: Accepts comma-separated email addresses
+- **Role selector**: Dropdown with Admin and Member roles, each with descriptions:
+  - Member: "Can view and contribute to projects"
+  - Admin: "Full access to team settings and member management"
+- **Personal message textarea**: Optional field for custom welcome messages
+- **Seat management**: 
+  - Displays available seats in the header description
+  - Shows real-time count of entered emails
+  - Displays remaining seats next to email count
+  - Error message when exceeding seat limit
+- **Submit button logic**:
+  - Disabled when no emails entered or over seat limit
+  - Shows "Sending..." state while processing
+  - Transitions to success state after sending
+- **Success state**: Shows a checkmark icon with confirmation message and invite count, auto-closes after 2 seconds
+- **Form reset**: Clears all fields after successful submission
+
+### 2. **Updated Team Page** (`src/app/page.tsx`)
+
+Added a new team management section featuring:
+- Team section header with "Invite member" button
+- Team members card displaying:
+  - Member names and email addresses
+  - Role badges (Admin in primary color, Member in secondary)
+  - Seat usage indicator (3 of 10 in the example)
+- Mock handler for invite sending (logs to console and simulates 1-second API delay)
+
+## Key Features
+
+✅ Uses only existing shadcn components (Dialog, Button, Input, Textarea, Badge, Card)  
+✅ Respects the custom theme system with semantic tokens  
+✅ Fully responsive with proper spacing and styling  
+✅ Form validation prevents invalid submissions  
+✅ Graceful error handling for seat limits  
+✅ No external dependencies required (removed lucide-react, used inline SVG)
+
+The modal is production-ready and can be easily integrated with your backend API by implementing the `onInviteSend` callback function.

@@ -1,0 +1,20 @@
+Perfect! I've created a clean, welcoming onboarding flow with all the improvements you requested. Here's what I implemented:
+
+**Key improvements:**
+
+1. **Prominent progress bar** - Large, animated progress indicator at the top with "Step X of 3" label
+2. **Tight, consistent spacing** - Modular gaps (8px, 6px) throughout for a polished feel
+3. **Steps feel connected** - Visual step indicators at the bottom of the card that show which steps you've completed and allow direct navigation
+4. **Current step is obvious** - Clear title and description for each step, plus the progress bar and step count
+5. **Smooth, welcoming design** - Gradient background, centered layout, clean typography, animated transitions
+6. **Exact same fields** - Workspace name, contact email, and repository URL (matching the settings page)
+
+**Features:**
+- One question per step to reduce cognitive load
+- Back/Next buttons with proper disabled states
+- Form validation helpers (email type, URL type for inputs)
+- Smooth color transitions as you progress
+- Centered, responsive layout that looks good on all screen sizes
+- "Welcome to Snapline" header sets the tone
+
+The onboarding is now available at `/onboarding`. Each step is focused and intentional, with no clutter or distracting elements—just a clear path through setup.

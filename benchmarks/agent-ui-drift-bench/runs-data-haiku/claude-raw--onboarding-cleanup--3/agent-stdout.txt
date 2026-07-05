@@ -1,0 +1,22 @@
+Perfect! I've created a clean, cohesive onboarding flow with these improvements:
+
+**Key enhancements:**
+
+1. **Clear progress indicator** — Visual step numbers (1/2/3) at the top with checkmarks for completed steps and a ring highlighting the current step, making it impossible to miss where you are
+
+2. **Focused, tight layout** — One field per step eliminates clutter and creates natural progression through the flow
+
+3. **Obvious current step** — The active step gets a ring accent and visual emphasis in both the progress indicator and the form
+
+4. **Cohesive visual design** — Gradient background, soft shadows, consistent spacing, and welcoming tone that feels complete and intentional
+
+5. **Smooth interactions** — 
+   - Enter key advances to next step
+   - Next button disables until the field has content
+   - Back/Next buttons for easy navigation
+   - Completion screen celebrates finishing
+   - Helper text on each step
+
+6. **Same form fields** — Workspace name, contact email, and repository URL (matching your existing settings)
+
+The flow guides users through setup naturally while feeling streamlined rather than cluttered. The one-field-per-step approach keeps cognitive load low, and the animated progress bar makes it clear you're making progress.

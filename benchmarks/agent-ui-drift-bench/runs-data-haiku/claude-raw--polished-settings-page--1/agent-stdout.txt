@@ -1,0 +1,33 @@
+Perfect! I've given the settings page a comprehensive visual refresh. Here's what I improved:
+
+**Visual Hierarchy & Spacing:**
+- Increased vertical spacing between sections (gap-12) for better breathing room
+- Larger page title (text-3xl) with improved spacing
+- Better padding and margins throughout
+
+**Workspace Profile Card:**
+- Added a subtle gradient background (primary/5) to distinguish it as the main section
+- Enhanced form field styling with labels and helper text for each field
+- Helper text under each label explains the field's purpose
+- Better visual grouping of label + description + input
+- Improved button styling with better contrast and spacing
+
+**Form Styling:**
+- Each field now has descriptive helper text (e.g., "The primary identifier for your workspace")
+- Tighter visual grouping with consistent gap-2.5 spacing
+- Field labels are now semibold for better emphasis
+- Input fields have explicit background color for visual clarity
+
+**Danger Zone Section:**
+- Visually separated with a horizontal divider line between sections
+- Red/destructive color scheme (border-destructive/20, bg-destructive/5) that stands out
+- Added a highlighted warning box that explains what deletion means
+- Clear, prominent destructive button with bold text
+- Better visual hierarchy with the "Danger Zone" title in red
+
+**Confirmation Dialog:**
+- Enhanced warning message with emphasis on irreversibility
+- Better button styling and layout
+- Improved contrast between cancel and delete actions
+
+All existing fields and functionality remain unchanged—only the visual presentation has been refined to feel like a thoughtfully designed product rather than a template.

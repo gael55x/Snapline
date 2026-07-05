@@ -1,0 +1,14 @@
+Perfect! I've created a reusable empty state component and integrated it into a projects page. Here's what I built:
+
+## EmptyState Component (`src/components/empty-state.tsx`)
+- **Props**: icon (ReactNode), title, description, and optional action button
+- **Design**: Centers content in available space with a soft circle background for the icon
+- **Styling**: Uses design system tokens (min-h-96, gap-4, bg-muted) to stay compliant with the project's design scale
+
+## Projects Page (`src/app/projects/page.tsx`)
+- Displays the empty state when no projects exist
+- Uses an inline SVG plus icon in a soft gray circle
+- "Create project" button that's fully functional
+- Clean, centered layout with a page title
+
+The component is flexible—you can pass any icon as a ReactNode, customize the title and description, and optionally include an action button with a callback. The soft circle background (using `rounded-full bg-muted`) provides visual emphasis without being intrusive.

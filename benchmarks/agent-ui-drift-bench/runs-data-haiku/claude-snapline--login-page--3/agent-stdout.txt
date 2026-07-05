@@ -1,0 +1,48 @@
+Perfect! I've created a comprehensive login page with all the requested features. Here's what I've implemented:
+
+## Created Components
+
+### 1. **Checkbox Component** (`src/components/ui/checkbox.tsx`)
+A reusable checkbox component that follows the shadcn/ui design system.
+
+### 2. **Enhanced Login Page** (`src/app/login/page.tsx`)
+
+**Features included:**
+
+✅ **OAuth Sign-in Buttons**
+- Google sign-in button with icon
+- GitHub sign-in button with icon
+- Placed above the email form
+
+✅ **Divider**
+- "Or continue with email" text divider separating OAuth and form sections
+
+✅ **Form Fields**
+- Email input with placeholder
+- Password input with masking
+- Both fields clear error styling when user starts typing
+
+✅ **Remember Me Checkbox**
+- Simple toggle for session persistence
+
+✅ **Inline Validation**
+- Email validation (required + format check)
+- Password validation (required + minimum 6 characters)
+- Error messages display below fields in red
+- Errors clear as user types
+
+✅ **Loading State**
+- Submit button shows spinner and "Signing in..." text while loading
+- Simulated 1.5s delay to demonstrate the loading UI
+- All form fields disabled during submission
+
+✅ **Navigation Links**
+- "Forgot your password?" link at the bottom
+- "Sign up" link for new users with proper Next.js Link component
+
+**Form handling:**
+- Client-side validation before submission
+- State management for form data
+- Error management with auto-clearing
+
+The page uses Tailwind CSS and follows the shadcn/ui component pattern, maintaining consistency with the existing design system.

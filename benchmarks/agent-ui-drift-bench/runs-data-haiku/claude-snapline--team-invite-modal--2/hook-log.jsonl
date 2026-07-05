@@ -1,0 +1,11 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":24,"files":["src/components/ui/select.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"warn","durationMs":49,"files":["src/components/invite-modal.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":54,"files":["src/components/invite-modal.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":22,"files":["src/components/ui/label.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":26,"files":["src/app/team/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":27,"files":["src/app/team/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":35,"files":["src/components/invite-modal.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":30,"files":["src/components/invite-modal.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":25,"files":["src/app/team/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":27,"files":["src/app/team/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":106,"files":[]}

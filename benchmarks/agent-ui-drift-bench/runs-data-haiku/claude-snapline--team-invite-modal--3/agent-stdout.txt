@@ -1,0 +1,32 @@
+Perfect! I've successfully created an "Invite member" modal with all the requested features. Here's what I've built:
+
+## Components Created
+
+### 1. **InviteMemberModal** (`src/components/invite-member-modal.tsx`)
+- **Email input**: Accepts comma-separated email addresses with live count display
+- **Role selector**: Dropdown with Admin/Member options, each with a description
+- **Personal message**: Optional textarea for a welcome message
+- **Remaining seats**: Shows "7 seats available" (configured for 10 total, 3 current members)
+- **Smart button**: Disables when form is invalid (no emails, over limit, or loading)
+- **Success state**: Displays a checkmark with confirmation message after sending
+
+### 2. **Team Page** (`src/app/team/page.tsx`)
+- Shows list of current team members with their roles and join dates
+- "Invite member" button that opens the modal
+- Sample team data for context
+
+### 3. **UI Components**
+- **Select component**: Custom select field matching the theme
+- **Label component**: For form field labels
+
+## Key Features
+
+✅ **Email validation**: Parses comma-separated addresses and filters empty values  
+✅ **Seat management**: Prevents inviting more than available seats; shows error message  
+✅ **Role descriptions**: Each role option displays what permissions it grants  
+✅ **Loading state**: Button shows "Sending..." during the simulated submission  
+✅ **Success feedback**: Modal shows a success screen for 2 seconds before closing  
+✅ **Theme compliance**: Uses semantic color tokens (no raw Tailwind colors)  
+✅ **Form reset**: Clears all fields after successful submission
+
+Navigate to `/team` to see the team page and test the invite modal. Try entering multiple emails separated by commas, selecting different roles, and adding a personal message to see all the features in action.

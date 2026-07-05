@@ -1,0 +1,26 @@
+Perfect! I've built a comprehensive billing settings page for your Next.js + shadcn app. Here's what's included:
+
+**Features implemented:**
+
+1. **Trial Expiration Banner** — Shows a prominent warning when the trial is within 7 days of expiring, with the exact expiration date
+   
+2. **Current Plan Section** — Displays the plan name (Pro Plan), monthly price ($99), and next renewal date in a clean card format
+
+3. **Payment Method** — Shows the card on file (Visa ending in 4242) with expiration date and an "Update card" button that opens a dialog for entering new card details
+
+4. **Invoices Section** — Lists recent invoices with:
+   - Invoice ID and date
+   - Amount and payment status
+   - Individual "Download" buttons for each invoice
+
+5. **Cancel Subscription** — Placed in a "Danger zone" section at the bottom with a confirmation dialog to prevent accidental cancellation
+
+**Component details:**
+- Uses all existing shadcn UI components (Button, Card, Badge, Dialog, Input)
+- Full TypeScript support with proper types
+- State management for dialogs (Update card and Cancel subscription)
+- Responsive layout with consistent spacing
+- Dark mode ready with proper color tokens
+- Mock data for demonstration (easily replaced with real API calls)
+
+The page is located at `/billing` and follows the same styling patterns as your home page. You can customize the mock data in the `mockBillingData` object to connect it to your real billing backend.

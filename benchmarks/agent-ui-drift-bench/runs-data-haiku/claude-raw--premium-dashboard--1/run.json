@@ -1,0 +1,37 @@
+{
+  "id": "claude-raw--premium-dashboard--1",
+  "timestamp": "2026-07-05T05:15:20.398Z",
+  "mode": "claude-raw",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "premium-dashboard",
+  "attempt": 1,
+  "model": "claude-haiku-4-5-20251001",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 180,
+      "totalViolations": 45,
+      "errorViolations": 0,
+      "warningViolations": 45,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 0,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 45,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 130,
+    "filesTouched": 8
+  },
+  "rawOutputPaths": [
+    "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--1/agent-stdout.txt",
+    "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--1/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--1/scanner.json",
+  "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--premium-dashboard--1/diff.patch"
+}

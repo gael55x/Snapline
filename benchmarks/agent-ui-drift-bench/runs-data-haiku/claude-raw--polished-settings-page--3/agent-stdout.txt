@@ -1,0 +1,33 @@
+Perfect! I've refreshed the settings page with a thoughtful visual redesign. Here's what changed:
+
+## Key improvements:
+
+**1. Better section separation**
+- Added a border below the header to frame the title area
+- Organized settings into distinct `<section>` elements with generous spacing
+- Clear visual break between "Workspace profile" and "Danger zone"
+
+**2. Enhanced visual hierarchy**
+- Section titles are now larger (h2) with "Public" and "Destructive" badges
+- Added descriptive help text below each field explaining its purpose
+- Bolder labels with better spacing within form fields
+- Consistent spacing throughout with `space-y-6` between inputs
+
+**3. Improved form styling**
+- Uniform input styling with rounded corners and clean borders
+- Better focus states with ring indicators for accessibility
+- More breathing room around each field group
+- Consistent button styling with proper emphasis
+
+**4. Clearer emphasis on actions**
+- "Save changes" is now the prominent primary action with semibold weight
+- Visual divider above action buttons for clear separation
+- "Danger zone" section uses red coloring and warning badge to signal destructiveness
+- Red-tinted background on the delete card for extra caution
+
+**5. Better confirmation dialog**
+- Larger, clearer title and messaging
+- More detailed description of what will be deleted
+- Consistent button styling
+
+All existing form fields (workspace name, contact email, repo URL) and behaviors are preserved exactly—this is purely a visual refresh to make the page feel more polished and product-like.

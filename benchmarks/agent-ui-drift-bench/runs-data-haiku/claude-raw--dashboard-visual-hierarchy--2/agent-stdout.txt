@@ -1,0 +1,36 @@
+Perfect! I've successfully reworked the visual hierarchy. Here's what changed:
+
+## Key Visual Hierarchy Improvements:
+
+**1. Primary Revenue Metric (Dominates)**
+- Increased to `text-6xl` for dramatic visual weight
+- Added `border-2 border-primary` to make it stand out
+- Gradient background for depth
+- Spans full width (`col-span-full`)
+
+**2. Secondary Stats (Recede)**
+- Reduced to `text-xs uppercase` titles (muted-foreground/70)
+- Grouped in a smaller 3-column grid below
+- Values at `text-3xl` (smaller than primary)
+- Subtle background (bg-card/75)
+- Clear section heading "Secondary metrics" with visual separation
+
+**3. Activity Table (Centerpiece)**
+- Positioned as the main content area with clear separation
+- Enhanced styling: bordered table, stronger headers, hover effects
+- Grouped under "Activity" heading
+- Visual separator (border-t) between zones
+
+**4. Structure & Spacing**
+- Increased gap between sections to `gap-8`
+- Page title upgraded to `text-3xl`
+- Clear section headings in uppercase
+- Visual borders separate the zones
+
+**5. Navigation (De-emphasized)**
+- Reduced to `text-xs` with uppercase styling
+- Subtle background (bg-background/95)
+- Lower opacity borders
+- Minimal visual presence
+
+The dashboard now has proper visual weight distribution where the revenue number commands attention, secondary metrics are clearly subordinate, and the activity table reads as the main content area below.

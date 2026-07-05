@@ -1,0 +1,24 @@
+Done! I've created a clean, polished onboarding flow with several key improvements:
+
+**Key improvements:**
+- **Progress bar at the top**: Animates as users advance, making progress crystal clear
+- **Step indicator**: Shows "Step X of Y" with dot indicators, so users always know where they are
+- **Cohesive card layout**: Everything contained in one unified card that flows smoothly across steps
+- **Proper spacing**: Consistent gaps between sections, organized hierarchy
+- **Polish touches**:
+  - Welcome and completion steps with emoji for warmth
+  - Subtle background on inputs for visual interest
+  - Smooth transitions on the progress bar
+  - Strong typography hierarchy with clear titles and descriptions
+  - Consistent button styling
+
+**Form fields remain exactly the same:**
+- Workspace name
+- Contact email
+- Repository URL
+
+The flow guides users through: Welcome → Workspace name → Contact info → Repository → Completion, creating a welcoming, professional experience that feels like one cohesive journey.
+
+Files created:
+- `src/components/onboarding/onboarding-flow.tsx` — the main component
+- `src/app/onboarding/page.tsx` — the route to view it (visit `/onboarding`)

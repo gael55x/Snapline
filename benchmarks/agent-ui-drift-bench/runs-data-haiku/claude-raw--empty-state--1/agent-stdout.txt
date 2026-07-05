@@ -1,0 +1,24 @@
+Perfect! I've created a reusable `EmptyState` component and a projects page using it. Here's what I built:
+
+## EmptyState Component (`src/components/empty-state.tsx`)
+- **Props:**
+  - `icon`: React node for the icon
+  - `title`: Main heading text
+  - `description`: Supporting text
+  - `action`: Optional button props (children, onClick, etc.)
+- **Features:**
+  - Icon sits in a soft `bg-muted` circle (16×16)
+  - Centered layout with proper spacing
+  - Optional action button below description
+  - Uses semantic Tailwind design tokens
+
+## Projects Page (`src/app/projects/page.tsx`)
+- Shows the page header "Projects" with description
+- Uses EmptyState for the no-projects state
+- Folder icon in the soft circle
+- "No projects yet" title
+- "Create your first project to get started" description
+- "Create project" button with click handler
+- Content wrapped in a card-style container
+
+The component is fully reusable—just pass different icons, titles, descriptions, and actions to use it elsewhere in your app. The styling follows the existing shadcn design patterns and color tokens.

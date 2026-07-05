@@ -1,0 +1,4 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":55,"files":["src/components/dashboard/stat-card.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":39,"files":["src/app/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":39,"files":["src/components/dashboard/recent-activity.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":108,"files":[]}

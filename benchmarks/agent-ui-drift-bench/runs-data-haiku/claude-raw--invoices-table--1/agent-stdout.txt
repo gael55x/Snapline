@@ -1,0 +1,31 @@
+Perfect! I've successfully added an invoices table to the billing page. Here's what I created:
+
+## Components Created
+
+**`src/components/invoices-table.tsx`** - A client-side component featuring:
+- **Columns**: Invoice #, Date, Amount, Status, Download action
+- **Status badges** with distinct styling:
+  - Paid → primary color (blue/purple)
+  - Pending → secondary color (lighter)
+  - Failed → destructive color (red)
+- **Sortable headers** for Invoice #, Date, and Amount with visual arrows (↑/↓)
+- **Default sorting** by date descending
+- **Pagination** with 10 rows per page and prev/next buttons
+- **Hover effects** on rows for better UX
+- **PDF download** action (triggers file download with invoice number)
+
+**`src/app/billing/page.tsx`** - The billing page with:
+- Clean heading and description
+- 15 sample invoices spanning multiple statuses and dates
+- Responsive layout matching the existing home page style
+
+## Features
+✓ Sortable columns (click headers to toggle sort direction)
+✓ Client-side pagination with page info display  
+✓ Status badges using semantic theme colors
+✓ Download action for each invoice
+✓ Empty state message
+✓ Responsive table with horizontal scroll on mobile
+✓ Uses existing shadcn components (Card, Badge, Button)
+
+The implementation uses Tailwind CSS classes aligned with your custom theme tokens and integrates seamlessly with the existing component library.

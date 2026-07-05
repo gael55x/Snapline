@@ -1,0 +1,29 @@
+Perfect! I've successfully implemented the "Invite member" modal for the team page. Here's what I created:
+
+## Implementation Summary
+
+### 1. **InviteMemberModal Component** (`src/components/invite-member-modal.tsx`)
+- **Email input** - Accepts multiple comma-separated addresses with real-time validation
+- **Email counter** - Shows how many valid emails vs. invalid ones are entered
+- **Role selector** - Radio buttons for Admin and Member with descriptions explaining each role's permissions
+- **Personal message** - Optional textarea for welcome messages
+- **Remaining seats display** - Shows available seats count prominently in the dialog
+- **Smart button state** - Disables invite button when:
+  - No valid emails entered
+  - Email count exceeds remaining seats
+  - Request is loading
+  - Success state is displayed
+- **Seat limit enforcement** - Shows an error message if trying to invite more people than available seats
+- **Success state** - Displays a confirmation screen with:
+  - Green checkmark icon
+  - Count of invitations sent
+  - List of invited email addresses
+  - Close button to reset the modal
+
+### 2. **Team Page** (`src/app/team/page.tsx`)
+- "Invite member" button positioned in the header
+- Plan capacity card showing current seats, usage progress bar, and available seats
+- Quick stats card with member counts broken down by role
+- Team members list showing names, emails, join dates, and role badges
+
+The implementation uses the existing shadcn/ui components and follows the project's design patterns. Email validation is client-side with a regex pattern, and there's a brief loading animation before showing the success confirmation.

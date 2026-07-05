@@ -1,0 +1,28 @@
+I've created a polished onboarding component that addresses all your concerns:
+
+## What's been built:
+
+**New component** (`src/components/dashboard/onboarding.tsx`):
+- **Prominent progress bar** with Tailwind-based width transitions (1/3, 2/3, full width) that shows current progress at the top
+- **Clear visual hierarchy**: each step has a large title, helpful description, and step counter (e.g., "1 / 3")
+- **One field at a time**: form fields are focused on a single input per step, reducing clutter
+- **Smart step indicators** at the bottom that show:
+  - Current step (wider, fully colored)
+  - Completed steps (narrower, semi-transparent)
+  - Upcoming steps (narrow, light border)
+  - Clickable to jump to any step
+- **Consistent spacing** using design-system tokens (space-y-6 for major sections, space-y-2 for field groups)
+- **Better connectivity**: visual flow from progress bar → step title → input → buttons → step indicators
+- **Keyboard support**: Enter key submits, Back button is disabled on first step
+- **Integration**: the component is now imported in the main page and set to display on load for testing
+
+## Design improvements:
+- Tight layout with max-width-md (medium dialog size)
+- Proper button styling using the Button component with variants
+- ARIA labels for accessibility
+- Smooth 500ms transitions on the progress bar for a polished feel
+- Form fields sized appropriately within the dialog context
+
+The three steps (workspace name, contact email, repository URL) and all form fields remain exactly as they were—only the presentation and flow have been refined for a more cohesive, welcoming experience.
+
+The component is ready for testing. Just stage and commit the files when ready!

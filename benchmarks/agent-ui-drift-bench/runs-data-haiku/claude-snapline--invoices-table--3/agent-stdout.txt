@@ -1,0 +1,38 @@
+Perfect! I've successfully added an invoices table to the billing page with all the requested features. Here's what was created:
+
+## Files Created
+
+### 1. **Table Components** (`src/components/ui/table.tsx`)
+Semantic table components following shadcn/ui patterns:
+- `Table`, `TableHeader`, `TableBody`, `TableRow`, `TableHead`, `TableCell`, `TableFooter`
+- Properly styled with semantic tokens and border handling
+- Hover effects on rows for better UX
+
+### 2. **Billing Page** (`src/app/billing/page.tsx`)
+A complete invoices management page with:
+
+**Features Implemented:**
+- ✅ **Invoice Columns**: Invoice Number, Date, Amount, Status, Download PDF action
+- ✅ **Status Badges**: Three distinct styles using the theme's badge variants
+  - **Paid** (default blue) 
+  - **Pending** (secondary gray)
+  - **Failed** (destructive red)
+- ✅ **Sorting**: 
+  - Default sort by date (descending)
+  - Clickable column headers for Date and Amount
+  - Visual indicators (↑↓) showing current sort field and direction
+- ✅ **Pagination**:
+  - 10 rows per page
+  - Previous/Next buttons with disabled states at boundaries
+  - Row counter showing "Showing X to Y of Z invoices"
+- ✅ **Download Action**: Download PDF button that generates a text file with invoice data
+- ✅ **Mock Data**: 12 sample invoices with varied statuses for testing
+
+**Design Details:**
+- Uses the existing design token system (CSS variables)
+- Responsive table with horizontal scroll on small screens
+- Consistent with the shadcn/ui component patterns
+- Proper TypeScript typing
+- Client-side component with React hooks for state management
+
+The page is accessible at `/billing` and integrates seamlessly with the custom theme system already in place.

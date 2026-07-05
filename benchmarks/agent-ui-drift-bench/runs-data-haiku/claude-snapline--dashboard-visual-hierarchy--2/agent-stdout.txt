@@ -1,0 +1,22 @@
+Perfect! I've reworked the visual hierarchy of the dashboard. Here's what changed:
+
+## Key Changes:
+
+**StatCard Component** — Added size variants:
+- Large (for revenue): text-5xl, border-2, gradient background, full-width
+- Default (for secondary): text-3xl, compact, uppercase titles with tracking
+
+**Page Layout** — Reorganized into clear sections:
+1. **Key metrics** — Revenue card dominates with much larger text (5xl vs 2xl)
+2. **Supporting metrics** — 3 secondary stats in a compact grid (was 4-column), now smaller/muted
+3. **Visual separator** — Border-top before the activity section
+4. **Recent activity** — Positioned as the centerpiece below, with larger heading (text-xl)
+
+**Section Headings** — Added clear zone separation with uppercase, tracking-widest styling
+
+## Visual Weight Distribution:
+- **Revenue**: ~40% — dominates with massive 5xl text, thicker border, gradient
+- **Secondary stats**: ~25% — recede with smaller 3xl text, compact 3-column layout
+- **Activity**: ~35% — the centerpiece, positioned prominently with clear visual break
+
+No content was added or removed—just restructured the layout and styling to create proper hierarchy. The revenue number now immediately grabs attention, secondary metrics provide supporting context, and the activity table functions as the main content area.

@@ -1,0 +1,114 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--3/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/onboarding/page.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/onboarding.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/onboarding.tsx:84:42:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/onboarding.tsx",
+      "message": "Raw Tailwind palette color \"bg-green-100\"",
+      "location": {
+        "line": 84,
+        "column": 42
+      },
+      "evidence": "bg-green-100",
+      "repair": {
+        "instruction": "Replace bg-green-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/components/dashboard/onboarding.tsx:86:36:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/components/dashboard/onboarding.tsx",
+      "message": "Raw Tailwind palette color \"text-green-600\"",
+      "location": {
+        "line": 86,
+        "column": 36
+      },
+      "evidence": "text-green-600",
+      "repair": {
+        "instruction": "Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 8,
+    "totalViolations": 2,
+    "errorViolations": 0,
+    "warningViolations": 2,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 2,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/components/dashboard/onboarding.tsx",
+      "filePath": "src/components/dashboard/onboarding.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/onboarding.tsx:84:42:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/onboarding.tsx",
+          "message": "Raw Tailwind palette color \"bg-green-100\"",
+          "location": {
+            "line": 84,
+            "column": 42
+          },
+          "evidence": "bg-green-100",
+          "repair": {
+            "instruction": "Replace bg-green-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/components/dashboard/onboarding.tsx:86:36:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/components/dashboard/onboarding.tsx",
+          "message": "Raw Tailwind palette color \"text-green-600\"",
+          "location": {
+            "line": 86,
+            "column": 36
+          },
+          "evidence": "text-green-600",
+          "repair": {
+            "instruction": "Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace bg-green-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+      ],
+      "safeFixAvailable": false,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/components/dashboard/onboarding.tsx\n\n2 violations:\n- [warn] raw Tailwind color: bg-green-100 (line 84)\n- [warn] raw Tailwind color: text-green-600 (line 86)\n\nRecommended:\n- Replace bg-green-100 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace text-green-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+    }
+  ],
+  "durationMs": 47
+}

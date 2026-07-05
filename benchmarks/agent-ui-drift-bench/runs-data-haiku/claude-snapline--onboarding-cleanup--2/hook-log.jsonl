@@ -1,0 +1,9 @@
+{"agent":"claude","kind":"post-tool-use","action":"block","durationMs":44,"files":["src/components/dashboard/onboarding.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"block","durationMs":74,"files":["src/components/dashboard/onboarding.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":71,"files":["src/components/dashboard/onboarding.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"block","durationMs":102,"files":["src/components/dashboard/onboarding.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"block","durationMs":39,"files":["src/components/dashboard/onboarding.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":37,"files":["src/components/dashboard/onboarding.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":26,"files":["src/app/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":26,"files":["src/app/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":310,"files":[]}

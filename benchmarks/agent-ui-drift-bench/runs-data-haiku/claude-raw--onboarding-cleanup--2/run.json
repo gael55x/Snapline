@@ -1,0 +1,37 @@
+{
+  "id": "claude-raw--onboarding-cleanup--2",
+  "timestamp": "2026-07-05T05:34:43.435Z",
+  "mode": "claude-raw",
+  "fixture": "next-shadcn-dashboard-app",
+  "promptId": "onboarding-cleanup",
+  "attempt": 2,
+  "model": "claude-haiku-4-5-20251001",
+  "agent": "claude",
+  "result": {
+    "score": {
+      "driftScore": 9,
+      "totalViolations": 1,
+      "errorViolations": 1,
+      "warningViolations": 0,
+      "rawHexValues": 0,
+      "inlineStyleObjects": 1,
+      "arbitraryTailwindValues": 0,
+      "rawPaletteClasses": 0,
+      "duplicateComponentCount": 0,
+      "rawPrimitiveCount": 0,
+      "componentReuseRate": 1
+    },
+    "buildPass": true,
+    "typecheckPass": true,
+    "repairIterations": 0,
+    "hookRuntimeMs": 0,
+    "totalWallTimeSeconds": 102,
+    "filesTouched": 2
+  },
+  "rawOutputPaths": [
+    "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--2/agent-stdout.txt",
+    "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--2/agent-stderr.txt"
+  ],
+  "scannerJsonPath": "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--2/scanner.json",
+  "gitDiffPath": "runs-claude-haiku-4-5-20251001/claude-raw--onboarding-cleanup--2/diff.patch"
+}

@@ -1,0 +1,9 @@
+Perfect! The agent confirmed the pricing cards are now in place with all the visual polish. The design includes:
+
+✅ **Pro card stands out** — scaled 5% larger, primary border, `shadow-2xl`, gradient background, and "Most popular" badge  
+✅ **Price as hero** — large 5xl font with "/month" subtext  
+✅ **Polished features** — Check icons, divider separator, consistent spacing  
+✅ **Three tiers preserved** — Starter ($29), Professional ($99), Enterprise (Custom) with original copy  
+✅ **Responsive design** — 3-column grid that adapts to mobile
+
+The pricing page is at `/pricing` and is integrated into the navigation. The cards will draw the eye with depth (shadows, gradients), the Pro tier is physically larger and visually prioritized, and the feature lists are much more scannable with icons and proper hierarchy.

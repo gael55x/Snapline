@@ -1,0 +1,23 @@
+Perfect! I've reworked the dashboard visual hierarchy as requested. Here's what changed:
+
+**Key improvements:**
+
+1. **Key revenue dominates** — "Total revenue" is now featured with:
+   - 3x larger text (text-6xl instead of text-2xl)
+   - Gradient background for prominence
+   - Prominent badge styling
+   - Its own dedicated section at the top
+
+2. **Secondary stats recede** — The other three metrics are now:
+   - Smaller and grouped in a 3-column grid
+   - Under a clearly labeled "Secondary metrics" section heading
+   - Visually de-emphasized to support the key metric
+
+3. **Activity is the centerpiece** — The recent activity table now:
+   - Has its own "Activity" section heading
+   - Is clearly separated and reads as a distinct zone
+   - Anchors the bottom of the layout
+
+4. **Clear visual separation** — Section headings use uppercase styling with consistent spacing to delineate zones
+
+All content remains the same — nothing added or removed, just reorganized and restyled for proper visual hierarchy.

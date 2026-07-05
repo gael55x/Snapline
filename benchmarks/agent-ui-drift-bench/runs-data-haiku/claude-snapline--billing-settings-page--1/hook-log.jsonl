@@ -1,0 +1,6 @@
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":218,"files":["src/components/ui/alert.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"block","durationMs":208,"files":["src/app/billing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"block","durationMs":36,"files":["src/app/billing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"warn","durationMs":73,"files":["src/app/billing/page.tsx"]}
+{"agent":"claude","kind":"post-tool-use","action":"allow","durationMs":174,"files":["src/app/billing/page.tsx"]}
+{"agent":"claude","kind":"stop","action":"allow","durationMs":117,"files":[]}

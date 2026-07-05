@@ -1,0 +1,33 @@
+diff --git a/fixtures/next-shadcn-custom-theme/src/app/page.tsx b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+index fc1b5ee..40ea0f9 100644
+--- a/fixtures/next-shadcn-custom-theme/src/app/page.tsx
++++ b/fixtures/next-shadcn-custom-theme/src/app/page.tsx
+@@ -1,3 +1,4 @@
++import Link from "next/link"
+ import { Badge } from "@/components/ui/badge"
+ import { Button } from "@/components/ui/button"
+ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+@@ -32,11 +33,18 @@ export default function HomePage() {
+           A marketing fixture built entirely from shadcn-style components and a custom brand token,
+           used to exercise Snapline theme checks.
+         </p>
+-        <div className="flex items-center gap-3">
+-          <Button size="lg">Start free trial</Button>
+-          <Button size="lg" variant="outline">
+-            Book a demo
+-          </Button>
++        <div className="flex flex-col items-center gap-3">
++          <div className="flex items-center gap-3">
++            <Button size="lg">Start free trial</Button>
++            <Button size="lg" variant="outline">
++              Book a demo
++            </Button>
++          </div>
++          <Link href="/billing">
++            <Button variant="link" className="text-muted-foreground">
++              View billing settings
++            </Button>
++          </Link>
+         </div>
+       </section>
+ 

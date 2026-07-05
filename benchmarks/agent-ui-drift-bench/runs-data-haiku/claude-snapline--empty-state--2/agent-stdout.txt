@@ -1,0 +1,14 @@
+Perfect! I've created a reusable empty state component and integrated it into a projects page. Here's what was built:
+
+**EmptyState Component** (`src/components/empty-state.tsx`):
+- Accepts `icon` (ReactNode), `title`, `description`, and optional `actionLabel` + `onAction` callback
+- Icon rendered in a soft circle (`h-16 w-16 rounded-full bg-muted`)
+- Content centered vertically and horizontally with semantic spacing
+- Optional action button that appears when `actionLabel` is provided
+
+**Projects Page** (`src/app/projects/projects/page.tsx`):
+- Uses the empty state with a folder emoji (📁), "No projects yet" title, and "Create project" button
+- Page header for context
+- Handler for the action button (currently shows an alert)
+
+The component uses the project's existing design tokens (semantic Tailwind colors like `bg-muted`, `text-muted-foreground`) and integrates seamlessly with the shadcn Button component. It's flexible enough to work with any icon (string, emoji, or React component) and optional actions.

@@ -1,0 +1,37 @@
+Perfect! I've created a comprehensive billing settings page for your app. Here's what I built:
+
+## Features Included:
+
+1. **Trial Expiration Banner** — Shows a prominent destructive alert if the trial is ending soon with the countdown and end date
+
+2. **Current Plan Section** — Displays:
+   - Plan name (Pro)
+   - Annual price ($99/year)
+   - Next renewal date
+   - Buttons to change plan or view full invoice history
+
+3. **Payment Method Section** — Shows:
+   - Card type (Visa), last 4 digits, and expiration date
+   - **Update** button to change the card
+   - Fallback UI if no payment method is on file
+
+4. **Recent Invoices** — Lists the last 3 invoices with:
+   - Invoice ID and status badge
+   - Invoice date
+   - Amount
+   - **Download** button for each invoice
+
+5. **Danger Zone** — Cancel subscription option with:
+   - Clear warning about permanent cancellation
+   - Info about data retention (30 days)
+   - Red destructive button to trigger cancellation
+
+## Design Highlights:
+
+- Uses all existing shadcn/ui components (Card, Button, Badge, Alert) — created an Alert component since it wasn't in the fixtures yet
+- Fully semantic color tokens (no arbitrary colors or hex values) to comply with Snapline's theme checking
+- Responsive grid layout that adapts from 1 to 3 columns on larger screens
+- Proper visual hierarchy with consistent spacing and typography
+- Dark mode support via the existing theme CSS
+
+The page is ready to integrate with your backend — just replace the `mockData` with actual API calls to your billing service. The navigation link to view the billing page is also added to the homepage.
