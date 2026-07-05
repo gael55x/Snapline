@@ -63,10 +63,48 @@ export function svgBarChart(
 `
 }
 
-function loadReport(): BenchmarkReport | undefined {
-  const file = path.join(benchRoot, "reports", "latest.json")
+function loadReport(name = "latest"): BenchmarkReport | undefined {
+  const file = path.join(benchRoot, "reports", `${name}.json`)
   if (!fs.existsSync(file)) return undefined
   return JSON.parse(fs.readFileSync(file, "utf8")) as BenchmarkReport
+}
+
+/**
+ * Cross-model/cross-agent chart: raw vs Snapline drifted-run rate per slice,
+ * built only from slice reports that exist. Codex is labeled instruction-level
+ * — no hook gate exists for Codex.
+ */
+function crossSliceChart(): string | undefined {
+  const slices: ReadonlyArray<{
+    report: string
+    label: string
+    rawMode: string
+    gatedMode: string
+    gatedLabel: string
+  }> = [
+    { report: "latest", label: "Claude Sonnet 5", rawMode: "claude-raw", gatedMode: "claude-snapline", gatedLabel: "snapline (hook gate)" },
+    { report: "latest-haiku", label: "Claude Haiku 4.5", rawMode: "claude-raw", gatedMode: "claude-snapline", gatedLabel: "snapline (hook gate)" },
+    { report: "latest-codex", label: "Codex gpt-5.5", rawMode: "codex-raw", gatedMode: "codex-snapline", gatedLabel: "snapline (instructions only)" },
+  ]
+  const bars: Bar[] = []
+  let totalRuns = 0
+  for (const slice of slices) {
+    const report = loadReport(slice.report)
+    if (report === undefined || report.runs.length === 0) continue
+    const raw = report.modes.find((m) => m.mode === slice.rawMode)
+    const gated = report.modes.find((m) => m.mode === slice.gatedMode)
+    if (raw?.driftedRunRate === undefined || gated?.driftedRunRate === undefined) continue
+    totalRuns += report.runs.length
+    bars.push({ label: `${slice.label} — raw`, value: raw.driftedRunRate })
+    bars.push({ label: `${slice.label} — ${slice.gatedLabel}`, value: gated.driftedRunRate, highlight: true })
+  }
+  if (bars.length === 0) return undefined
+  return svgBarChart(
+    "Drifted runs by model/agent — raw vs Snapline (lower is better)",
+    `agent-ui-drift-bench · ${totalRuns} runs across slices · full reports in reports/`,
+    bars,
+    (v) => `${(v * 100).toFixed(0)}%`,
+  )
 }
 
 export function generateGraphs(): string[] {
@@ -140,6 +178,11 @@ export function generateGraphs(): string[] {
   for (const chart of charts) {
     fs.writeFileSync(path.join(graphsDir, chart.file), chart.svg)
     written.push(chart.file)
+  }
+  const cross = crossSliceChart()
+  if (cross !== undefined) {
+    fs.writeFileSync(path.join(graphsDir, "cross-model-drift-rate.svg"), cross)
+    written.push("cross-model-drift-rate.svg")
   }
   return written
 }

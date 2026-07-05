@@ -178,6 +178,8 @@ shipping broken code (build pass held across all 60 gated runs) — while
 nothing else prevents what this metric measures. Every diff is published;
 re-score them with your own tool.
 
+![Drifted runs by model and agent, raw vs Snapline](benchmarks/agent-ui-drift-bench/graphs/cross-model-drift-rate.svg)
+
 **Cross-model slice — `claude-haiku-4-5-20251001`** (60 runs, raw vs gated,
 same prompts): weaker models drift far harder, and the gate matters far more.
 Raw Haiku drifted in **53% of runs (16/30)** with a worst drift score of
@@ -187,7 +189,7 @@ each repaired to zero in-session. Report:
 [reports/latest-haiku.md](benchmarks/agent-ui-drift-bench/reports/latest-haiku.md).
 **Cross-agent slice — Codex CLI, `gpt-5.5`** (44 valid runs; 15 cells failed
 on account quota/timeouts, recorded with reasons and pending their retry —
-never dropped): raw Codex drifted in **61% of runs (16/26)** with a nonzero
+never dropped): raw Codex drifted in **62% of runs (16/26)** with a nonzero
 median (16). With Snapline in **instruction-level mode** — AGENTS.md +
 scan-before-finish, *no hook gate exists for Codex yet* — it went **0/18**.
 That isolates the repair-contract format itself: exact, machine-followable
