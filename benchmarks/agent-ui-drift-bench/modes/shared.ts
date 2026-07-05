@@ -49,26 +49,20 @@ export function captureHelp(fixtureDir: string, bin: string): void {
 
 /**
  * Install the workspace Snapline CLI into the fixture and wire Claude hooks.
- * The fixture is a pnpm workspace member inside the fresh clone, so the CLI is
- * added as a workspace dependency (npm cannot resolve workspace:* protocols).
+ * The checkout already contains the built CLI (packages/cli/dist), so the
+ * install is a bin wrapper — exactly what a package manager's .bin shim is,
+ * without a per-cell network install (which proved flaky under parallel load).
  */
 export function installSnapline(fixtureDir: string, repoRoot: string): void {
-  const pkgPath = path.join(fixtureDir, "package.json")
-  const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf8")) as {
-    devDependencies?: Record<string, string>
-  }
-  pkg.devDependencies = { ...pkg.devDependencies, "@usesnapline/cli": "workspace:*" }
-  fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + "\n")
-  execFileSync("pnpm", ["install", "--no-frozen-lockfile", "--prefer-offline"], {
-    cwd: repoRoot,
-    stdio: "pipe",
-    timeout: 300000,
-  })
-  execFileSync(path.join(fixtureDir, "node_modules", ".bin", "snapline"), ["init", "--claude"], {
-    cwd: fixtureDir,
-    stdio: "pipe",
-    timeout: 60000,
-  })
+  const binDir = path.join(fixtureDir, "node_modules", ".bin")
+  fs.mkdirSync(binDir, { recursive: true })
+  const bin = path.join(binDir, "snapline")
+  fs.writeFileSync(
+    bin,
+    `#!/bin/sh\nexec node "${path.join(repoRoot, "packages", "cli", "dist", "main.js")}" "$@"\n`,
+  )
+  fs.chmodSync(bin, 0o755)
+  execFileSync(bin, ["init", "--claude"], { cwd: fixtureDir, stdio: "pipe", timeout: 60000 })
 }
 
 export function writeShadcnMcpConfig(fixtureDir: string): void {

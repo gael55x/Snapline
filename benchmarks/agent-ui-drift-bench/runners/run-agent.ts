@@ -57,14 +57,27 @@ function runOne(spec: RunSpec, dryRun: boolean): void {
   const hookLog = path.join(runDir, "hook-log.jsonl")
 
   try {
-    // 1-2. fresh checkout + install
-    git(benchRoot, ["clone", "--quiet", repoRoot, cloneDir])
-    execFileSync("pnpm", ["install", "--frozen-lockfile", "--prefer-offline"], {
-      cwd: cloneDir,
-      stdio: "pipe",
-      timeout: 600000,
-    })
-    execFileSync("pnpm", ["build"], { cwd: cloneDir, stdio: "pipe", timeout: 600000 })
+    // 1-2. fresh checkout + install. With SNAPLINE_BENCH_TEMPLATE set, a
+    // byte-identical copy-on-write copy (APFS clonefile) of a pristine
+    // installed+built checkout replaces the per-cell clone+install+build —
+    // identical isolation, ~2 minutes less overhead per cell. The template's
+    // commit SHA is recorded alongside the run.
+    const template = process.env.SNAPLINE_BENCH_TEMPLATE
+    if (template !== undefined && template.length > 0 && fs.existsSync(template)) {
+      execFileSync("cp", ["-c", "-R", template, cloneDir], { stdio: "pipe", timeout: 300000 })
+      fs.writeFileSync(
+        path.join(runDir, "template-sha.txt"),
+        git(cloneDir, ["rev-parse", "HEAD"]),
+      )
+    } else {
+      git(benchRoot, ["clone", "--quiet", repoRoot, cloneDir])
+      execFileSync("pnpm", ["install", "--frozen-lockfile", "--prefer-offline"], {
+        cwd: cloneDir,
+        stdio: "pipe",
+        timeout: 600000,
+      })
+      execFileSync("pnpm", ["build"], { cwd: cloneDir, stdio: "pipe", timeout: 600000 })
+    }
 
     // 3. mode setup, committed so the agent diff is only the agent's work
     mode.prepare(fixtureDir, cloneDir)
