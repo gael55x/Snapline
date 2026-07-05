@@ -62,12 +62,12 @@ for (const file of docFiles) {
   }
 }
 
-// 4. README benchmark graph must exist
-const graph = path.join(root, "benchmarks", "agent-ui-drift-bench", "graphs", "drift-score.svg")
-if (!fs.existsSync(graph)) {
-  errors.push(
-    "benchmarks/agent-ui-drift-bench/graphs/drift-score.svg missing — run pnpm bench:static",
-  )
+// 4. Every graph the README embeds must exist
+const readmeText = fs.readFileSync(path.join(root, "README.md"), "utf8")
+for (const match of readmeText.matchAll(/\]\((benchmarks\/[^)]+\.svg)\)/g)) {
+  if (!fs.existsSync(path.join(root, match[1]))) {
+    errors.push(`README embeds missing graph: ${match[1]} — run pnpm bench:graph`)
+  }
 }
 
 if (errors.length > 0) {

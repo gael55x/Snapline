@@ -1,6 +1,6 @@
 {
   "benchmark": "agent-ui-drift-bench",
-  "generatedAt": "2026-07-05T09:23:08.375Z",
+  "generatedAt": "2026-07-05T11:46:13.845Z",
   "configHash": "da6de300d39ed56d",
   "scorer": "ui-drift-score-v1",
   "modes": [
@@ -46,7 +46,7 @@
     },
     {
       "mode": "codex-raw",
-      "runs": 29,
+      "runs": 30,
       "failures": 3,
       "median": {
         "driftScore": 16,
@@ -54,9 +54,9 @@
         "componentReuseRate": 1,
         "buildPassRate": 1,
         "repairIterations": 0,
-        "totalWallTimeSeconds": 233.5
+        "totalWallTimeSeconds": 237
       },
-      "driftedRunRate": 0.6153846153846154,
+      "driftedRunRate": 0.6296296296296297,
       "worstDriftScore": 96
     },
     {
@@ -966,6 +966,43 @@
       ],
       "scannerJsonPath": "runs-codex/codex-raw--premium-dashboard--3/scanner.json",
       "gitDiffPath": "runs-codex/codex-raw--premium-dashboard--3/diff.patch"
+    },
+    {
+      "id": "codex-raw--pricing-cards-polish--1",
+      "timestamp": "2026-07-05T11:46:13.845Z",
+      "mode": "codex-raw",
+      "fixture": "next-shadcn-dashboard-app",
+      "promptId": "pricing-cards-polish",
+      "attempt": 1,
+      "model": "gpt-5.5",
+      "agent": "codex",
+      "result": {
+        "score": {
+          "driftScore": 48,
+          "totalViolations": 12,
+          "errorViolations": 0,
+          "warningViolations": 12,
+          "rawHexValues": 0,
+          "inlineStyleObjects": 0,
+          "arbitraryTailwindValues": 0,
+          "rawPaletteClasses": 12,
+          "duplicateComponentCount": 0,
+          "rawPrimitiveCount": 0,
+          "componentReuseRate": 1
+        },
+        "buildPass": true,
+        "typecheckPass": true,
+        "repairIterations": 0,
+        "hookRuntimeMs": 0,
+        "totalWallTimeSeconds": 285,
+        "filesTouched": 1
+      },
+      "rawOutputPaths": [
+        "runs-codex/codex-raw--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-codex/codex-raw--pricing-cards-polish--1/agent-stderr.txt"
+      ],
+      "scannerJsonPath": "runs-codex/codex-raw--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-codex/codex-raw--pricing-cards-polish--1/diff.patch"
     },
     {
       "id": "codex-raw--pricing-cards-polish--2",

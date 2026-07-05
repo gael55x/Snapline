@@ -19,7 +19,7 @@ House style (strict):
 - Repair-contract examples must match the real format (see
   `packages/core/tests/report/__snapshots__/reports.test.ts.snap`).
 - Benchmark copy: numbers only from `reports/latest.json`; otherwise TBD.
-- Never mention Plumb (dead internal codename) in public docs.
+- Never mention the retired internal codename (see assets/logo-reference) in public docs.
 
 After edits run `pnpm docs:check` (verifies documented commands exist) and fix
 what it reports.

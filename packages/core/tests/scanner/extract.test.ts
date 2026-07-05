@@ -18,6 +18,16 @@ describe("extractClassNames", () => {
     )
     expect(extractClassNames(sf).map((c) => c.value)).toEqual(["base", "bg-blue-500", "p-2", "p-4"])
   })
+  it("reads clsx/cn object keys and array elements", () => {
+    const sf = parseTsx(
+      "a.tsx",
+      `const A = ({on}:{on:boolean}) => <div className={cn({ "mt-[13px] bg-blue-500": on, flex: on }, ["p-2", on && "text-white"])} />`,
+    )
+    expect(extractClassNames(sf).map((c) => c.value)).toEqual([
+      "mt-[13px]", "bg-blue-500", "flex", "p-2", "text-white",
+    ])
+  })
+
   it("reads static template chunks and skips dynamic parts", () => {
     const sf = parseTsx(
       "a.tsx",

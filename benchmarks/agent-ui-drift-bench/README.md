@@ -18,8 +18,10 @@ scanners?**
 | claude-snapline             | Snapline PostToolUse + Stop hooks                                              |
 | claude-shadcn-mcp-snapline  | shadcn MCP + Snapline                                                          |
 
-Planned: codex-raw, codex-snapline, cursor-raw, cursor-snapline (blocked on
-stable hook APIs; see docs/roadmap.md).
+Also executed: codex-raw and codex-snapline (Codex CLI, instruction-level —
+no hook gate exists for Codex; see `reports/latest-codex.md`). Planned:
+cursor-raw, cursor-snapline (blocked on a stable Cursor hook API; see
+docs/roadmap.md).
 
 ## Protocol
 

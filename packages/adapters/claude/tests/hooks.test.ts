@@ -121,11 +121,17 @@ describe("Claude PostToolUse", () => {
 })
 
 describe("Claude Stop", () => {
+  it("returns undefined for malformed payloads — garbage stdin must never block", () => {
+    expect(parseStop(undefined, "/x")).toBeUndefined()
+    expect(parseStop("not json", "/x")).toBeUndefined()
+    expect(parseStop(42, "/x")).toBeUndefined()
+  })
+
   it("normalizes payloads and honors stop_hook_active as the loop guard", () => {
     const first = parseStop({ ...STOP_PAYLOAD, cwd: tmp }, "/x")
     expect(first).toMatchObject({ kind: "stop", stopAlreadyRetried: false })
     const retried = parseStop({ ...STOP_PAYLOAD, cwd: tmp, stop_hook_active: true }, "/x")
-    expect(retried.stopAlreadyRetried).toBe(true)
+    expect(retried?.stopAlreadyRetried).toBe(true)
   })
 
   it("formats a blocking decision with next-step guidance", () => {

@@ -1,0 +1,444 @@
+{
+  "root": "/Users/gailleamolong/Documents/Documents/Personal/Snapline/benchmarks/agent-ui-drift-bench/runs-codex/codex-raw--pricing-cards-polish--1/repo/fixtures/next-shadcn-dashboard-app",
+  "scannedFiles": [
+    "src/app/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/settings/page.tsx",
+    "src/components/dashboard/nav.tsx",
+    "src/components/dashboard/recent-activity.tsx",
+    "src/components/dashboard/stat-card.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/dialog.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/table.tsx"
+  ],
+  "violations": [
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:96:54:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-white\"",
+      "location": {
+        "line": 96,
+        "column": 54
+      },
+      "evidence": "bg-white",
+      "repair": {
+        "instruction": "Replace bg-white with bg-background or bg-card, depending on the surface.",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:98:22:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"border-emerald-500\"",
+      "location": {
+        "line": 98,
+        "column": 22
+      },
+      "evidence": "border-emerald-500",
+      "repair": {
+        "instruction": "Replace border-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:98:59:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"ring-emerald-500/20\"",
+      "location": {
+        "line": 98,
+        "column": 59
+      },
+      "evidence": "ring-emerald-500/20",
+      "repair": {
+        "instruction": "Replace ring-emerald-500/20 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:99:22:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"border-slate-200\"",
+      "location": {
+        "line": 99,
+        "column": 22
+      },
+      "evidence": "border-slate-200",
+      "repair": {
+        "instruction": "Replace border-slate-200 with border-border.",
+        "safeFix": true,
+        "replacement": "border-border"
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:106:41:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"from-emerald-500\"",
+      "location": {
+        "line": 106,
+        "column": 41
+      },
+      "evidence": "from-emerald-500",
+      "repair": {
+        "instruction": "Replace from-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:106:58:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"via-sky-500\"",
+      "location": {
+        "line": 106,
+        "column": 58
+      },
+      "evidence": "via-sky-500",
+      "repair": {
+        "instruction": "Replace via-sky-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:106:70:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"to-amber-400\"",
+      "location": {
+        "line": 106,
+        "column": 70
+      },
+      "evidence": "to-amber-400",
+      "repair": {
+        "instruction": "Replace to-amber-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:107:24:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-slate-200\"",
+      "location": {
+        "line": 107,
+        "column": 24
+      },
+      "evidence": "bg-slate-200",
+      "repair": {
+        "instruction": "Replace bg-slate-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:119:48:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-emerald-600\"",
+      "location": {
+        "line": 119,
+        "column": 48
+      },
+      "evidence": "bg-emerald-600",
+      "repair": {
+        "instruction": "Replace bg-emerald-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:141:44:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-emerald-500\"",
+      "location": {
+        "line": 141,
+        "column": 44
+      },
+      "evidence": "bg-emerald-500",
+      "repair": {
+        "instruction": "Replace bg-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:141:63:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"bg-sky-500\"",
+      "location": {
+        "line": 141,
+        "column": 63
+      },
+      "evidence": "bg-sky-500",
+      "repair": {
+        "instruction": "Replace bg-sky-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    },
+    {
+      "id": "no-raw-palette-color:src/app/page.tsx:153:48:1",
+      "ruleId": "no-raw-palette-color",
+      "severity": "warn",
+      "filePath": "src/app/page.tsx",
+      "message": "Raw Tailwind palette color \"shadow-emerald-900/20\"",
+      "location": {
+        "line": 153,
+        "column": 48
+      },
+      "evidence": "shadow-emerald-900/20",
+      "repair": {
+        "instruction": "Replace shadow-emerald-900/20 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "safeFix": false
+      }
+    }
+  ],
+  "score": {
+    "driftScore": 48,
+    "totalViolations": 12,
+    "errorViolations": 0,
+    "warningViolations": 12,
+    "rawHexValues": 0,
+    "inlineStyleObjects": 0,
+    "arbitraryTailwindValues": 0,
+    "rawPaletteClasses": 12,
+    "duplicateComponentCount": 0,
+    "rawPrimitiveCount": 0,
+    "componentReuseRate": 1
+  },
+  "contracts": [
+    {
+      "title": "Repair UI drift in src/app/page.tsx",
+      "filePath": "src/app/page.tsx",
+      "violations": [
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:96:54:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-white\"",
+          "location": {
+            "line": 96,
+            "column": 54
+          },
+          "evidence": "bg-white",
+          "repair": {
+            "instruction": "Replace bg-white with bg-background or bg-card, depending on the surface.",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:98:22:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"border-emerald-500\"",
+          "location": {
+            "line": 98,
+            "column": 22
+          },
+          "evidence": "border-emerald-500",
+          "repair": {
+            "instruction": "Replace border-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:98:59:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"ring-emerald-500/20\"",
+          "location": {
+            "line": 98,
+            "column": 59
+          },
+          "evidence": "ring-emerald-500/20",
+          "repair": {
+            "instruction": "Replace ring-emerald-500/20 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:99:22:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"border-slate-200\"",
+          "location": {
+            "line": 99,
+            "column": 22
+          },
+          "evidence": "border-slate-200",
+          "repair": {
+            "instruction": "Replace border-slate-200 with border-border.",
+            "safeFix": true,
+            "replacement": "border-border"
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:106:41:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"from-emerald-500\"",
+          "location": {
+            "line": 106,
+            "column": 41
+          },
+          "evidence": "from-emerald-500",
+          "repair": {
+            "instruction": "Replace from-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:106:58:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"via-sky-500\"",
+          "location": {
+            "line": 106,
+            "column": 58
+          },
+          "evidence": "via-sky-500",
+          "repair": {
+            "instruction": "Replace via-sky-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:106:70:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"to-amber-400\"",
+          "location": {
+            "line": 106,
+            "column": 70
+          },
+          "evidence": "to-amber-400",
+          "repair": {
+            "instruction": "Replace to-amber-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:107:24:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-slate-200\"",
+          "location": {
+            "line": 107,
+            "column": 24
+          },
+          "evidence": "bg-slate-200",
+          "repair": {
+            "instruction": "Replace bg-slate-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:119:48:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-emerald-600\"",
+          "location": {
+            "line": 119,
+            "column": 48
+          },
+          "evidence": "bg-emerald-600",
+          "repair": {
+            "instruction": "Replace bg-emerald-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:141:44:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-emerald-500\"",
+          "location": {
+            "line": 141,
+            "column": 44
+          },
+          "evidence": "bg-emerald-500",
+          "repair": {
+            "instruction": "Replace bg-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:141:63:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"bg-sky-500\"",
+          "location": {
+            "line": 141,
+            "column": 63
+          },
+          "evidence": "bg-sky-500",
+          "repair": {
+            "instruction": "Replace bg-sky-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        },
+        {
+          "id": "no-raw-palette-color:src/app/page.tsx:153:48:1",
+          "ruleId": "no-raw-palette-color",
+          "severity": "warn",
+          "filePath": "src/app/page.tsx",
+          "message": "Raw Tailwind palette color \"shadow-emerald-900/20\"",
+          "location": {
+            "line": 153,
+            "column": 48
+          },
+          "evidence": "shadow-emerald-900/20",
+          "repair": {
+            "instruction": "Replace shadow-emerald-900/20 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+            "safeFix": false
+          }
+        }
+      ],
+      "requiredActions": [],
+      "optionalActions": [
+        "Replace bg-white with bg-background or bg-card, depending on the surface.",
+        "Replace border-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace ring-emerald-500/20 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace border-slate-200 with border-border.",
+        "Replace from-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace via-sky-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace to-amber-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-slate-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-emerald-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace bg-sky-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).",
+        "Replace shadow-emerald-900/20 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+      ],
+      "safeFixAvailable": true,
+      "agentMessage": "SNAPLINE FOUND UI DRIFT\n\nsrc/app/page.tsx\n\n12 violations:\n- [warn] raw Tailwind color: bg-white (line 96)\n- [warn] raw Tailwind color: border-emerald-500 (line 98)\n- [warn] raw Tailwind color: ring-emerald-500/20 (line 98)\n- [warn] raw Tailwind color: border-slate-200 (line 99)\n- [warn] raw Tailwind color: from-emerald-500 (line 106)\n- [warn] raw Tailwind color: via-sky-500 (line 106)\n- [warn] raw Tailwind color: to-amber-400 (line 106)\n- [warn] raw Tailwind color: bg-slate-200 (line 107)\n- [warn] raw Tailwind color: bg-emerald-600 (line 119)\n- [warn] raw Tailwind color: bg-emerald-500 (line 141)\n- [warn] raw Tailwind color: bg-sky-500 (line 141)\n- [warn] raw Tailwind color: shadow-emerald-900/20 (line 153)\n\nRecommended:\n- Replace bg-white with bg-background or bg-card, depending on the surface.\n- Replace border-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace ring-emerald-500/20 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace border-slate-200 with border-border.\n- Replace from-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace via-sky-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace to-amber-400 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-slate-200 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-emerald-600 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-emerald-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace bg-sky-500 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed).\n- Replace shadow-emerald-900/20 with a semantic token class from the theme (see snapline.yml tokens.colors.allowed)."
+    }
+  ],
+  "durationMs": 84
+}

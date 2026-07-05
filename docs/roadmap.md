@@ -3,16 +3,24 @@
 Priorities after 1.0. Nothing here is a commitment with a date; items move
 when the underlying platform (agent hook APIs) moves.
 
+## Shipped since first draft
+
+Public benchmark results (Sonnet 5 matrix + Haiku 4.5 and Codex/gpt-5.5
+slices — see [benchmark.md](benchmark.md)) and full `.jsx`/`jsconfig.json`
+project support.
+
 ## Near term
 
-- **Public benchmark run.** Execute agent-ui-drift-bench's full matrix
-  (8 modes × 30 prompts × 3 runs) and publish reports + graphs. The harness is
-  complete; this needs API budget and wall time, not code.
+- **Complete the Codex slice retries** once the account quota resets (15
+  quota-failed cells recorded in `reports/latest-codex.md`).
 - **Codex first-class.** The adapter and normalized `HookEvent` contract are
   ready; blocked on Codex shipping a stable lifecycle-hook API. Until then
-  Codex stays beta (AGENTS.md instructions + documented payload wiring).
-- **`.jsx` support.** The parser already handles JSX; enabling it is mostly
-  fixture and test coverage.
+  Codex stays instruction-level (AGENTS.md + documented payload wiring).
+- **Dynamic-className detection.** Fully computed `className` expressions are
+  the scanner's known blind spot; a warn-tier "dynamic className on a raw
+  primitive" rule would shrink it without violating the false-positive policy.
+- **Cursor benchmark slice** (instruction-level, like Codex) so every shipped
+  integration has published numbers.
 
 ## Medium term
 

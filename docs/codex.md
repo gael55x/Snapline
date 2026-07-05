@@ -76,9 +76,17 @@ policy — loop guard semantics, never-throw, git fallback — as Claude
 ## What is missing
 
 - No stable Codex lifecycle-hook API: nothing fires automatically after each
-  edit, and nothing can force a repair before the agent finishes.
-- Consequently no `codex-raw` / `codex-snapline` benchmark modes yet
-  ([benchmark.md](benchmark.md) lists them as planned).
+  edit, and nothing can force a repair before the agent finishes. Enforcement
+  is instruction-level only.
+
+## Benchmarked anyway
+
+`codex-raw` and `codex-snapline` benchmark modes exist and have run
+(Codex CLI, `gpt-5.5`): raw Codex drifted in 63% of valid runs, while the
+instruction-level Snapline mode — AGENTS.md + scan-before-finish, no gate —
+finished 0/18. See the cross-agent slice in [benchmark.md](benchmark.md) and
+`benchmarks/agent-ui-drift-bench/reports/latest-codex.md`. This measures the
+repair-contract format's effect without enforcement; it is not a gate result.
 
 ## Why this becomes first-class automatically
 

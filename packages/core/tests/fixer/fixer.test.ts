@@ -65,6 +65,15 @@ describe("replace-simple-button", () => {
       expect(fix(source, (sf) => replaceSimpleButtonEdits(sf, BUTTON))).toBe(source)
     }
   })
+  it("inserts the import AFTER the directive prologue, never before \"use client\"", () => {
+    const out = fix(
+      `"use client"\nexport const A = () => <button type="button">Go</button>`,
+      (sf) => replaceSimpleButtonEdits(sf, BUTTON),
+    )
+    expect(out.startsWith(`"use client"`)).toBe(true)
+    expect(out).toContain(`"use client"\nimport { Button } from "@/components/ui/button"`)
+  })
+
   it("does not duplicate an existing import", () => {
     const out = fix(
       `import { Button } from "@/components/ui/button"\nconst A = () => <><Button>x</Button><button>Go</button></>`,

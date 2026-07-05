@@ -85,6 +85,24 @@ function collectFromExpression(
   }
   if (ts.isParenthesizedExpression(expr)) {
     collectFromExpression(sourceFile, expr.expression, tagName, out)
+    return
+  }
+  // clsx/cn object form: { "mt-2 flex": cond } — keys are class strings.
+  if (ts.isObjectLiteralExpression(expr)) {
+    for (const prop of expr.properties) {
+      if (!ts.isPropertyAssignment(prop) && !ts.isShorthandPropertyAssignment(prop)) continue
+      const name = prop.name
+      if (name !== undefined && ts.isStringLiteral(name)) {
+        tokenize(sourceFile, name.text, name.getStart(sourceFile) + 1, tagName, out)
+      } else if (name !== undefined && ts.isIdentifier(name)) {
+        tokenize(sourceFile, name.text, name.getStart(sourceFile), tagName, out)
+      }
+    }
+    return
+  }
+  // clsx/cn array form: ["mt-2", cond && "bg-primary"]
+  if (ts.isArrayLiteralExpression(expr)) {
+    for (const element of expr.elements) collectFromExpression(sourceFile, element, tagName, out)
   }
 }
 

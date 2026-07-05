@@ -17,7 +17,7 @@ Audit checklist (run each, report pass/fail with evidence):
 4. Benchmark honesty: reports/latest.json runs count matches graph subtitles;
    no numbers anywhere that lack a run.json artifact; golden metrics in
    run-static.ts match a fresh scan.
-5. Naming: zero public "Plumb" references (`grep -ri plumb` — internal
+5. Naming: zero public references to the retired codename named in assets/logo-reference (grep for it —
    migration notes in assets/logo-reference are the only allowed hits).
 6. Versions consistent across packages and plugin.json; changeset present.
 7. docs/release-1.0.md checklist: mark actual status of every criterion —

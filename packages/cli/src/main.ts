@@ -22,7 +22,7 @@ Usage:
   snapline benchmark [graph]
 
 Flags:
-  --json    Machine-readable output
+  --json    Machine-readable output (scan, score)
   --debug   Full stack traces on errors
   --help    This message
 `

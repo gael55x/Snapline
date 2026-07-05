@@ -10,9 +10,12 @@ export interface ClaudeStopPayload {
 /**
  * Normalize a Stop payload. filePaths stays empty — the hook runner falls back
  * to the git-changed set. stop_hook_active guards against blocking loops.
+ * Malformed/empty payloads return undefined so the hook allows silently — a
+ * broken payload must never block a session.
  */
-export function parseStop(payload: unknown, fallbackCwd: string): HookEvent {
-  const p = (typeof payload === "object" && payload !== null ? payload : {}) as ClaudeStopPayload
+export function parseStop(payload: unknown, fallbackCwd: string): HookEvent | undefined {
+  if (typeof payload !== "object" || payload === null) return undefined
+  const p = payload as ClaudeStopPayload
   return {
     agent: "claude",
     kind: "stop",

@@ -9,6 +9,19 @@ export interface SimpleElementSwap {
   readonly safeAttrs: ReadonlySet<string>
 }
 
+/** End offset of the directive prologue ("use client"/"use strict" statements). */
+function prologueEnd(sourceFile: ts.SourceFile): number {
+  let end = 0
+  for (const statement of sourceFile.statements) {
+    if (ts.isExpressionStatement(statement) && ts.isStringLiteral(statement.expression)) {
+      end = statement.getEnd()
+      continue
+    }
+    break
+  }
+  return end
+}
+
 function attributesAreSimple(attrs: ts.JsxAttributes, safeAttrs: ReadonlySet<string>): boolean {
   for (const prop of attrs.properties) {
     if (ts.isJsxSpreadAttribute(prop)) return false
@@ -86,7 +99,10 @@ export function replaceSimpleElementEdits(
     const alreadyImported = existing?.names.includes(swap.component.name) === true
     if (!alreadyImported) {
       const lastImport = imports[imports.length - 1]
-      const insertAt = lastImport !== undefined ? lastImport.end : 0
+      // With no imports, insert after the directive prologue ("use client",
+      // "use strict") — an import placed before it would silently disable the
+      // directive.
+      const insertAt = lastImport !== undefined ? lastImport.end : prologueEnd(sourceFile)
       const statement = `import { ${swap.component.name} } from "${swap.component.importPath}"`
       edits.push({
         start: insertAt,

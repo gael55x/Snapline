@@ -79,7 +79,11 @@ Runs fail for two distinct reasons, treated differently:
 
 - **Infrastructure failures** (registry timeout during setup, agent process
   crash/non-zero exit before producing work) are recorded with the reason,
-  then granted **exactly one retry, logged in the matrix log**. Re-running
+  then granted **exactly one retry**. The retry is an operator protocol, not
+  automation: the failed cell's run directory is deleted and the cell
+  re-executed via the resumable `run-matrix.sh`; every retry event is recorded
+  in the committed ledger,
+  [`RETRIES.md`](../benchmarks/agent-ui-drift-bench/RETRIES.md). Re-running
   broken plumbing is fair; re-rolling scores is not — a retried cell's result
   stands whatever it says.
 - **Outcome failures** (mode tooling installed but drift still produced, agent
@@ -101,10 +105,11 @@ but counted in the failure column.
 | claude-snapline             | Snapline PostToolUse + Stop hooks                        |
 | claude-shadcn-mcp-snapline  | shadcn MCP + Snapline                                    |
 
-Planned: codex-raw/snapline and cursor-raw/snapline, blocked on stable hook
-APIs ([codex.md](codex.md), [cursor.md](cursor.md)). Competitor CLIs evolve;
-their `--help` output is captured at setup time so each run records what was
-actually tested.
+Executed additionally: `codex-raw` and `codex-snapline` (instruction-level —
+Codex has no lifecycle hooks; see the cross-agent slice above). Planned:
+cursor-raw/snapline, blocked on a stable Cursor hook API
+([cursor.md](cursor.md)). Competitor CLIs evolve; their `--help` output is
+captured at setup time so each run records what was actually tested.
 
 ## Metrics
 

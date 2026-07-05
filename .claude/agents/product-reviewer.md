@@ -13,7 +13,7 @@ Snapline's positioning (do not drift from it):
 - NOT: a generic design-system scanner, PR review bot first, SaaS dashboard,
   AI UI generator, visual regression tool, Figma sync tool, or local-first
   context engine.
-- Public name is Snapline. "Plumb" is a dead internal codename and must never
+- Public name is Snapline. the retired internal codename (documented in assets/logo-reference) must never
   appear in public copy (README, docs, package metadata, plugin metadata).
 
 Check:
@@ -22,7 +22,7 @@ Check:
    Is every claim implemented? Are there fake or unverifiable numbers?
 2. Competitor framing (docs/competitors.md): precise, non-attacking, each entry
    has category + differentiation + benchmark mode status.
-3. Naming: no Plumb references, consistent "Snapline" casing, npm scope
+3. Naming: no retired-codename references (see assets/logo-reference), consistent "Snapline" casing, npm scope
    @usesnapline, repo gael55x/Snapline.
 4. Tagline consistency across README, docs, package.json descriptions,
    plugin.json.

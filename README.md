@@ -36,9 +36,12 @@ They forget your CLAUDE.md rules as the context window fills.
 
 Snapline is not a design-system scanner you run after the damage. It is an
 **agent UI repair hook**: it catches drift while the agent is still coding,
-hands back an exact repair contract, and blocks completion until severe drift
-is fixed. No cloud, no dashboard, no LLM in the scanner — a deterministic TSX
-scanner wired into your agent's lifecycle.
+hands back an exact repair contract, and blocks completion while severe drift
+remains — with one deliberate exception: a stop that already retried once is
+let through with the contract attached, so a confused agent can never
+deadlock (in 120 gated benchmark runs, that escape hatch was never needed).
+No cloud, no dashboard, no LLM in the scanner — a deterministic TSX scanner
+wired into your agent's lifecycle.
 
 ## What Snapline does
 
@@ -187,9 +190,9 @@ Raw Haiku drifted in **53% of runs (16/30)** with a worst drift score of
 and here the hooks visibly earned it: 13 PostToolUse blocks across 8 runs,
 each repaired to zero in-session. Report:
 [reports/latest-haiku.md](benchmarks/agent-ui-drift-bench/reports/latest-haiku.md).
-**Cross-agent slice — Codex CLI, `gpt-5.5`** (44 valid runs; 15 cells failed
+**Cross-agent slice — Codex CLI, `gpt-5.5`** (45 valid runs; 15 cells failed
 on account quota/timeouts, recorded with reasons and pending their retry —
-never dropped): raw Codex drifted in **62% of runs (16/26)** with a nonzero
+never dropped): raw Codex drifted in **63% of runs (17/27)** with a nonzero
 median (16). With Snapline in **instruction-level mode** — AGENTS.md +
 scan-before-finish, *no hook gate exists for Codex yet* — it went **0/18**.
 That isolates the repair-contract format itself: exact, machine-followable

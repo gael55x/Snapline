@@ -1,9 +1,14 @@
 import type { HookEvent } from "@usesnapline/contracts"
 import type { CodexEventPayload } from "./post-tool-use.js"
 
-/** Normalize a Codex stop-style event (beta). Empty files -> git-changed fallback. */
-export function parseCodexStop(payload: unknown, fallbackCwd: string): HookEvent {
-  const p = (typeof payload === "object" && payload !== null ? payload : {}) as CodexEventPayload
+/**
+ * Normalize a Codex stop-style event (beta). Empty files -> git-changed
+ * fallback. Malformed payloads return undefined (allow) — never block on
+ * garbage input.
+ */
+export function parseCodexStop(payload: unknown, fallbackCwd: string): HookEvent | undefined {
+  if (typeof payload !== "object" || payload === null) return undefined
+  const p = payload as CodexEventPayload
   return {
     agent: "codex",
     kind: "stop",
