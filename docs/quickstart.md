@@ -8,6 +8,9 @@ npx snapline init
 npx snapline install claude
 ```
 
+Install the package before running `npx snapline` — without a local install,
+npx resolves the bare `snapline` name to an unrelated legacy package.
+
 `init` detects your project (Next.js, Tailwind, shadcn `components.json`, the
 `components/ui` directory), writes `snapline.yml` with defaults, and creates a
 self-gitignored `.snapline/` state directory. It never overwrites an existing

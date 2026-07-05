@@ -96,6 +96,9 @@ Requirements:
 npm i -D @usesnapline/cli
 ```
 
+> Install before running `npx snapline`: without a local install, npx fetches an
+> unrelated legacy package that happens to own the bare `snapline` name.
+
 ## Quick start
 
 1. Initialize: `npx snapline init` — detects Next.js/Tailwind/shadcn and writes `snapline.yml`
