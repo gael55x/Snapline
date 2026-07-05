@@ -24,7 +24,10 @@ stable hook APIs; see docs/roadmap.md).
 ## Protocol
 
 - Same prompt, same fixture, same model, same lockfile per comparison.
-- Fresh `git clone` per run; mode setup committed before the agent starts.
+- Pristine checkout per run: a fresh `git clone` (default) or a byte-identical
+  copy-on-write copy of a template checkout (`SNAPLINE_BENCH_TEMPLATE`, APFS
+  clonefile) whose commit SHA is recorded per run. Mode setup is committed
+  before the agent starts.
 - No manual cleanup, no cherry-picking. Minimum 3 runs per mode; medians reported.
 - Raw agent output, git diffs, scanner JSON, and hook logs stored per run under `runs/`.
 - Competitor setup failures are recorded with reasons, never dropped or faked.

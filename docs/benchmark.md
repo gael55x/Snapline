@@ -13,8 +13,12 @@ published yet.**
 
 Per run (mode × prompt × attempt):
 
-1. Fresh `git clone` of the repo into `runs/<runId>/repo`, `pnpm install`
-   with a frozen lockfile, build.
+1. Pristine checkout into `runs/<runId>/repo`: a fresh `git clone` +
+   frozen-lockfile `pnpm install` + build (default), or — when
+   `SNAPLINE_BENCH_TEMPLATE` is set — a byte-identical copy-on-write copy
+   (APFS clonefile) of one template checkout installed and built once, with
+   the template's commit SHA recorded next to the run. Same isolation, less
+   per-run overhead.
 2. Mode setup (`mode.prepare()`) is applied and **committed before the agent
    starts**, so the diff contains only the agent's work.
 3. The agent CLI runs with the prompt. Same prompt, same fixture, same model
