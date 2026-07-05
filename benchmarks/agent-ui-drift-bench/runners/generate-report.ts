@@ -40,18 +40,21 @@ export function summarizeMode(
   const ok = modeRuns.filter((r) => r.result.failure === undefined)
   const failures = modeRuns.length - ok.length
   if (ok.length === 0) return { mode, runs: modeRuns.length, failures }
+  const scores = ok.map((r) => r.result.score.driftScore)
   return {
     mode,
     runs: modeRuns.length,
     failures,
     median: {
-      driftScore: median(ok.map((r) => r.result.score.driftScore)),
+      driftScore: median(scores),
       totalViolations: median(ok.map((r) => r.result.score.totalViolations)),
       componentReuseRate: median(ok.map((r) => r.result.score.componentReuseRate)),
       buildPassRate: ok.filter((r) => r.result.buildPass).length / ok.length,
       repairIterations: median(ok.map((r) => r.result.repairIterations)),
       totalWallTimeSeconds: median(ok.map((r) => r.result.totalWallTimeSeconds)),
     },
+    driftedRunRate: scores.filter((s) => s > 0).length / scores.length,
+    worstDriftScore: Math.max(...scores),
   }
 }
 
@@ -82,13 +85,17 @@ export function reportMarkdown(report: BenchmarkReport): string {
     `- scorer: ${report.scorer}`,
     `- total runs: ${report.runs.length}`,
     "",
-    "| mode | runs | failures | drift score (median) | violations (median) | component reuse (median) | build pass | repair iterations | wall time (s) |",
+    "| mode | runs | failures | drifted runs | worst drift | drift score (median) | component reuse (median) | build pass | wall time (s) |",
     "|---|---|---|---|---|---|---|---|---|",
   ]
   for (const summary of report.modes) {
     const m = summary.median
+    const rate =
+      summary.driftedRunRate !== undefined
+        ? `${(summary.driftedRunRate * 100).toFixed(0)}%`
+        : "TBD"
     lines.push(
-      `| ${summary.mode} | ${summary.runs} | ${summary.failures} | ${fmt(m?.driftScore)} | ${fmt(m?.totalViolations)} | ${m ? (m.componentReuseRate * 100).toFixed(1) + "%" : "TBD"} | ${m ? (m.buildPassRate * 100).toFixed(0) + "%" : "TBD"} | ${fmt(m?.repairIterations)} | ${fmt(m?.totalWallTimeSeconds, 0)} |`,
+      `| ${summary.mode} | ${summary.runs} | ${summary.failures} | ${rate} | ${fmt(summary.worstDriftScore, 0)} | ${fmt(m?.driftScore)} | ${m ? (m.componentReuseRate * 100).toFixed(1) + "%" : "TBD"} | ${m ? (m.buildPassRate * 100).toFixed(0) + "%" : "TBD"} | ${fmt(m?.totalWallTimeSeconds, 0)} |`,
     )
   }
   lines.push(
@@ -100,13 +107,15 @@ export function reportMarkdown(report: BenchmarkReport): string {
 
 export function reportCsv(report: BenchmarkReport): string {
   const header =
-    "mode,runs,failures,driftScoreMedian,totalViolationsMedian,componentReuseRateMedian,buildPassRate,repairIterationsMedian,totalWallTimeSecondsMedian"
+    "mode,runs,failures,driftedRunRate,worstDriftScore,driftScoreMedian,totalViolationsMedian,componentReuseRateMedian,buildPassRate,repairIterationsMedian,totalWallTimeSecondsMedian"
   const rows = report.modes.map((s) => {
     const m = s.median
     return [
       s.mode,
       s.runs,
       s.failures,
+      s.driftedRunRate ?? "",
+      s.worstDriftScore ?? "",
       m?.driftScore ?? "",
       m?.totalViolations ?? "",
       m?.componentReuseRate ?? "",

@@ -57,6 +57,14 @@ export interface BenchmarkModeSummary {
     readonly repairIterations: number
     readonly totalWallTimeSeconds: number
   }
+  /**
+   * Tail distribution. Frontier models drift on a minority of prompts, so mode
+   * medians can all be 0 while modes differ substantially — the gate's value
+   * lives here. Share of successful runs with driftScore > 0, and the worst
+   * single score. Absent when no successful runs exist.
+   */
+  readonly driftedRunRate?: number
+  readonly worstDriftScore?: number
 }
 
 export interface BenchmarkReport {

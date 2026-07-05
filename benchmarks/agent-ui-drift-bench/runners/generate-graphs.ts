@@ -89,6 +89,15 @@ export function generateGraphs(): string[] {
 
   const charts: ReadonlyArray<{ file: string; svg: string }> = [
     {
+      file: "drift-rate.svg",
+      svg: svgBarChart(
+        "Drifted runs — share of runs with any UI drift (lower is better)",
+        subtitle,
+        summaries.map((s) => bar(s.summary?.driftedRunRate, s.mode)),
+        (v) => `${(v * 100).toFixed(0)}%`,
+      ),
+    },
+    {
       file: "drift-score.svg",
       svg: svgBarChart(
         "UI drift score (median, lower is better)",

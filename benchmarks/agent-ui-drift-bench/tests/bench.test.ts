@@ -112,9 +112,19 @@ describe("report + graph smoke (one sample, two modes)", () => {
 
   it("markdown report renders values for run modes and TBD for others", () => {
     const md = reportMarkdown(buildReport(runs))
-    expect(md).toContain("| claude-raw | 3 | 0 | 171.0 |")
-    expect(md).toContain("| claude-buoy | 0 | 0 | TBD |")
+    // drifted-rate + worst + median columns for run modes; TBD for unrun modes
+    expect(md).toContain("| claude-raw | 3 | 0 | 100% | 171 | 171.0 |")
+    expect(md).toContain("| claude-buoy | 0 | 0 | TBD | TBD | TBD |")
     expect(md).toContain("never fabricated")
+  })
+
+  it("summaries carry the tail distribution (drift rate + worst)", () => {
+    const raw = summarizeMode("claude-raw", runs)
+    const snapline = summarizeMode("claude-snapline", runs)
+    expect(raw.driftedRunRate).toBe(1)
+    expect(raw.worstDriftScore).toBe(171)
+    expect(snapline.driftedRunRate).toBe(0)
+    expect(snapline.worstDriftScore).toBe(0)
   })
 
   it("SVG generator is deterministic and renders TBD bars", () => {
