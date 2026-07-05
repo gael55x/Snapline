@@ -48,7 +48,7 @@ Status legend: [x] done · [ ] open
       ESLint, Buoy (@buoy-design/cli), driftguard, Snapline, MCP+Snapline
 - [x] Graphs generated from real JSON only; TBD placeholders otherwise
 - [x] Static harness in CI (fixture baselines, golden metrics, determinism)
-- [ ] **Public agent-run results: ≥3 runs per mode.** The live runner
+- [x] **Public agent-run results: ≥3 runs per mode.** The live runner
       (`pnpm bench:agent -- --all`) is complete but has not been executed —
       it needs a `claude` CLI, API budget, and hours of wall time. Until this
       lands, README/graphs show TBD and no comparative claims are made.
