@@ -157,6 +157,26 @@ function runOne(spec: RunSpec, dryRun: boolean): void {
     gitDiffPath: path.relative(benchRoot, path.join(runDir, "diff.patch")),
   }
   fs.writeFileSync(path.join(runDir, "run.json"), JSON.stringify(run, null, 2))
+
+  // Disk hygiene: metrics, raw logs, diff, and final source files are captured
+  // above — node_modules and git objects in the throwaway clone are not
+  // artifacts and would cost ~100MB × runs across a full matrix.
+  for (const disposable of ["node_modules", ".git"]) {
+    fs.rmSync(path.join(cloneDir, disposable), { recursive: true, force: true })
+  }
+  try {
+    for (const entry of fs.readdirSync(cloneDir)) {
+      const nested = path.join(cloneDir, entry, "node_modules")
+      if (fs.existsSync(nested)) fs.rmSync(nested, { recursive: true, force: true })
+    }
+    for (const fixture of fs.readdirSync(path.join(cloneDir, "fixtures"))) {
+      const nested = path.join(cloneDir, "fixtures", fixture, "node_modules")
+      if (fs.existsSync(nested)) fs.rmSync(nested, { recursive: true, force: true })
+    }
+  } catch {
+    // best-effort cleanup only
+  }
+
   process.stdout.write(
     `${runId}: ${failure !== undefined ? `FAILED (${failure})` : `drift=${run.result.score.driftScore} reuse=${run.result.score.componentReuseRate}`}\n`,
   )
