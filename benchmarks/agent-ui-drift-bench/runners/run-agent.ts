@@ -29,6 +29,13 @@ interface RunSpec {
   readonly mode: string
   readonly promptId: string
   readonly attempt: number
+  /** Overrides benchmark.config.json model; runs land in runs-<model>/ to keep reports segregated. */
+  readonly model?: string
+}
+
+function runsDirFor(model: string | undefined): string {
+  if (model === undefined) return "runs"
+  return `runs-${model.replace(/[^a-z0-9.-]/gi, "-")}`
 }
 
 function git(cwd: string, args: string[]): string {
@@ -37,12 +44,13 @@ function git(cwd: string, args: string[]): string {
 
 function runOne(spec: RunSpec, dryRun: boolean): void {
   const { config } = loadBenchConfig()
+  const model = spec.model ?? config.model
   const mode = resolveMode(spec.mode)
   const prompt = loadPrompt(spec.promptId)
   const runId = `${spec.mode}--${spec.promptId}--${spec.attempt}`
-  const runDir = path.join(benchRoot, "runs", runId)
+  const runDir = path.join(benchRoot, runsDirFor(spec.model), runId)
   if (dryRun) {
-    process.stdout.write(`[dry-run] ${runId} fixture=${prompt.fixture} model=${config.model}\n`)
+    process.stdout.write(`[dry-run] ${runId} fixture=${prompt.fixture} model=${model}\n`)
     return
   }
   fs.rmSync(runDir, { recursive: true, force: true })
@@ -94,7 +102,7 @@ function runOne(spec: RunSpec, dryRun: boolean): void {
     ])
 
     // 4. run the agent
-    const invocation = mode.invocation(prompt.body, config.model)
+    const invocation = mode.invocation(prompt.body, model)
     const agentResult = spawnSync(invocation.cmd, [...invocation.args], {
       cwd: fixtureDir,
       encoding: "utf8",
@@ -138,7 +146,7 @@ function runOne(spec: RunSpec, dryRun: boolean): void {
     fixture: prompt.fixture,
     promptId: prompt.id,
     attempt: spec.attempt,
-    model: config.model,
+    model,
     agent: "claude",
     result: {
       score: scan?.score ?? {
@@ -203,12 +211,13 @@ function main(): void {
     return i !== -1 ? argv[i + 1] : undefined
   }
   const { config } = loadBenchConfig()
+  const model = flag("--model")
   const specs: RunSpec[] = []
   if (argv.includes("--all")) {
     for (const mode of config.modes) {
       for (const promptId of listPromptIds()) {
         for (let attempt = 1; attempt <= config.runsPerMode; attempt++) {
-          specs.push({ mode, promptId, attempt })
+          specs.push({ mode, promptId, attempt, model })
         }
       }
     }
@@ -217,11 +226,11 @@ function main(): void {
     const promptId = flag("--prompt")
     if (mode === undefined || promptId === undefined) {
       process.stderr.write(
-        "Usage: run-agent --mode <id> --prompt <id> [--attempt N] | --all [--dry-run]\n",
+        "Usage: run-agent --mode <id> --prompt <id> [--attempt N] [--model <id>] | --all [--dry-run]\n",
       )
       process.exit(1)
     }
-    specs.push({ mode, promptId, attempt: Number(flag("--attempt") ?? "1") })
+    specs.push({ mode, promptId, attempt: Number(flag("--attempt") ?? "1"), model })
   }
   for (const spec of specs) runOne(spec, dryRun)
   if (!dryRun) {

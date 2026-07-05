@@ -13,6 +13,14 @@ BENCH="$REPO/benchmarks/agent-ui-drift-bench"
 
 MODES="${1:?usage: run-matrix.sh \"mode1 mode2...\" [logfile]}"
 LOG="${2:-/tmp/snapline-matrix.log}"
+# MODEL env overrides benchmark.config.json model; cells land in runs-<model>/.
+MODEL="${MODEL:-}"
+MODEL_ARGS=""
+RUNS_SUBDIR="runs"
+if [ -n "$MODEL" ]; then
+  MODEL_ARGS="--model $MODEL"
+  RUNS_SUBDIR="runs-$(echo "$MODEL" | tr -c 'a-zA-Z0-9.-\n' '-')"
+fi
 PROMPTS="premium-dashboard polished-settings-page pricing-cards-polish onboarding-cleanup dashboard-visual-hierarchy billing-settings-page login-page team-invite-modal invoices-table empty-state"
 ATTEMPTS="1 2 3"
 
@@ -40,12 +48,12 @@ for mode in $MODES; do
   for prompt in $PROMPTS; do
     for attempt in $ATTEMPTS; do
       id="$mode--$prompt--$attempt"
-      if [ -f "$BENCH/runs/$id/run.json" ]; then
+      if [ -f "$BENCH/$RUNS_SUBDIR/$id/run.json" ]; then
         echo "[matrix] skip $id (exists)" >> "$LOG"
         continue
       fi
       echo "[matrix] run $id $(date '+%T')" >> "$LOG"
-      if ! pnpm bench:agent -- --mode "$mode" --prompt "$prompt" --attempt "$attempt" >> "$LOG" 2>&1; then
+      if ! pnpm bench:agent -- --mode "$mode" --prompt "$prompt" --attempt "$attempt" $MODEL_ARGS >> "$LOG" 2>&1; then
         echo "[matrix] RUNNER-ERROR $id" >> "$LOG"
         failed=$((failed+1))
       fi

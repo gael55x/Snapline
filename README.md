@@ -153,7 +153,7 @@ instructions, shadcn MCP, eslint-plugin-tailwindcss, Buoy, and driftguard —
 same prompts, same fixtures, fresh checkout per run, medians of ≥3 runs, raw
 artifacts committed. Methodology: [Benchmark](docs/benchmark.md).
 
-![UI drift score by mode](benchmarks/agent-ui-drift-bench/graphs/drift-score.svg)
+![Share of runs with any UI drift, by mode](benchmarks/agent-ui-drift-bench/graphs/drift-rate.svg)
 
 Public agent-run results are **TBD** — the harness is complete and the graph
 above renders from real run data only. Numbers are never fabricated.

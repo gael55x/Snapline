@@ -21,8 +21,8 @@ export function median(values: readonly number[]): number {
   return sorted.length % 2 === 1 ? sorted[mid]! : (sorted[mid - 1]! + sorted[mid]!) / 2
 }
 
-export function collectRuns(): BenchmarkRun[] {
-  const runsDir = path.join(benchRoot, "runs")
+export function collectRuns(runsDirName = "runs"): BenchmarkRun[] {
+  const runsDir = path.join(benchRoot, runsDirName)
   if (!fs.existsSync(runsDir)) return []
   const runs: BenchmarkRun[] = []
   for (const entry of fs.readdirSync(runsDir).sort()) {
@@ -127,18 +127,26 @@ export function reportCsv(report: BenchmarkReport): string {
   return [header, ...rows].join("\n") + "\n"
 }
 
-export function writeReports(report: BenchmarkReport): void {
+export function writeReports(report: BenchmarkReport, name = "latest"): void {
   const reportsDir = path.join(benchRoot, "reports")
   fs.mkdirSync(reportsDir, { recursive: true })
-  fs.writeFileSync(path.join(reportsDir, "latest.json"), JSON.stringify(report, null, 2) + "\n")
-  fs.writeFileSync(path.join(reportsDir, "latest.md"), reportMarkdown(report))
-  fs.writeFileSync(path.join(reportsDir, "latest.csv"), reportCsv(report))
+  fs.writeFileSync(path.join(reportsDir, `${name}.json`), JSON.stringify(report, null, 2) + "\n")
+  fs.writeFileSync(path.join(reportsDir, `${name}.md`), reportMarkdown(report))
+  fs.writeFileSync(path.join(reportsDir, `${name}.csv`), reportCsv(report))
 }
 
 const isMain =
   process.argv[1] !== undefined && import.meta.url.endsWith(path.basename(process.argv[1]))
 if (isMain) {
-  const report = buildReport(collectRuns())
-  writeReports(report)
-  process.stdout.write(`reports/latest.{json,md,csv} written (${report.runs.length} runs)\n`)
+  // --runs-dir runs-<model> --name <report-name> for cross-model slices.
+  const argv = process.argv.slice(2)
+  const flag = (n: string): string | undefined => {
+    const i = argv.indexOf(n)
+    return i !== -1 ? argv[i + 1] : undefined
+  }
+  const runsDir = flag("--runs-dir") ?? "runs"
+  const name = flag("--name") ?? "latest"
+  const report = buildReport(collectRuns(runsDir))
+  writeReports(report, name)
+  process.stdout.write(`reports/${name}.{json,md,csv} written (${report.runs.length} runs from ${runsDir}/)\n`)
 }
