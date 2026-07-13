@@ -10,7 +10,7 @@ or agent task quality.
 - Apple M3, 8 logical cores
 - 16 GiB memory
 - Node v22.18.0
-- peak benchmark-process RSS: 127,808 KiB
+- peak benchmark-process RSS: 192,352 KiB
 
 The exact source commit, timestamp, byte counts, and environment are stored in
 [`benchmarks/performance/results/latest.json`](../benchmarks/performance/results/latest.json).
@@ -38,22 +38,22 @@ invocations scan only edited files; Stop scans the git-changed set.
 
 ## Results
 
-| Scenario                                    | Iterations | Files |          p50 |          p95 |   Output |
-| ------------------------------------------- | ---------: | ----: | -----------: | -----------: | -------: |
-| Core, one file                              |         50 |     1 |     0.431 ms |     1.590 ms |    548 B |
-| Core, small fixture                         |         20 |    12 |    26.085 ms |    46.364 ms |    969 B |
-| Core, 100 files                             |         10 |   100 |    39.059 ms |    57.794 ms |  2,817 B |
-| Core, 1,000 files                           |          5 | 1,000 |   378.657 ms |   441.409 ms | 24,417 B |
-| Core, unchanged 1,000-file rerun            |          5 | 1,000 |   442.422 ms |   499.444 ms | 24,417 B |
-| Core, one edited file in 1,000-file project |         50 |     1 |     1.513 ms |     8.802 ms |    549 B |
-| Cold CLI, one file                          |          7 |     1 | 1,232.182 ms | 1,790.333 ms |    557 B |
+| Scenario                                    | Iterations | Files |        p50 |        p95 |   Output |
+| ------------------------------------------- | ---------: | ----: | ---------: | ---------: | -------: |
+| Core, one file                              |         50 |     1 |   0.253 ms |   0.740 ms |    548 B |
+| Core, small fixture                         |         20 |    12 |   6.187 ms |   9.577 ms |    968 B |
+| Core, 100 files                             |         10 |   100 |  13.173 ms |  13.904 ms |  2,817 B |
+| Core, 1,000 files                           |          5 | 1,000 | 118.238 ms | 123.686 ms | 24,417 B |
+| Core, unchanged 1,000-file rerun            |          5 | 1,000 | 110.774 ms | 112.503 ms | 24,417 B |
+| Core, one edited file in 1,000-file project |         50 |     1 |   0.272 ms |   0.403 ms |    549 B |
+| Cold CLI, one file                          |          7 |     1 | 496.866 ms | 821.270 ms |    557 B |
 
 ## Conclusion
 
 The engine cost scales acceptably for the current changed-file hook model:
-single-file core analysis is below 10 ms at p95 and a 1,000-file core scan is
-below 500 ms at p95 on this machine. The user-visible cold process is the real
-cost: roughly 1.2 seconds median for one file. The previous 10–30 ms product
+single-file core analysis is below 1 ms at p95 and a 1,000-file core scan is
+below 125 ms at p95 on this machine. The user-visible cold process is the real
+cost: roughly 497 ms median for one file. The previous 10–30 ms product
 claim measured only warm core work and was misleading.
 
 Before 1.0, maintainers must write an accepted hook-latency budget and decide

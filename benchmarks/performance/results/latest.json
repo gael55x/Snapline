@@ -1,0 +1,95 @@
+{
+  "benchmark": "snapline-performance-v1",
+  "generatedAt": "2026-07-13T12:06:01.466Z",
+  "sourceCommit": "73c7f71be8161b817889cc3677c76bbd065cd605",
+  "environment": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "nodeVersion": "v22.18.0",
+    "cpu": "Apple M3",
+    "logicalCores": 8,
+    "totalMemoryBytes": 17179869184,
+    "maxRssKb": 192352
+  },
+  "methodology": {
+    "timing": "performance.now wall time in one process; CLI scenario spawns a fresh Node process",
+    "fixtures": [
+      "fixtures/next-shadcn-dashboard-app",
+      "generated clean 100-file TSX project",
+      "generated clean 1000-file TSX project"
+    ],
+    "cache": "Snapline has no persistent or in-process scan cache"
+  },
+  "scenarios": [
+    {
+      "name": "core_single_file",
+      "iterations": 50,
+      "p50Ms": 0.253,
+      "p95Ms": 0.74,
+      "minMs": 0.228,
+      "maxMs": 1.457,
+      "scannedFiles": 1,
+      "outputBytes": 548
+    },
+    {
+      "name": "core_small_project",
+      "iterations": 20,
+      "p50Ms": 6.187,
+      "p95Ms": 9.577,
+      "minMs": 5.006,
+      "maxMs": 11.422,
+      "scannedFiles": 12,
+      "outputBytes": 968
+    },
+    {
+      "name": "core_medium_100_files",
+      "iterations": 10,
+      "p50Ms": 13.173,
+      "p95Ms": 13.904,
+      "minMs": 12.153,
+      "maxMs": 13.904,
+      "scannedFiles": 100,
+      "outputBytes": 2817
+    },
+    {
+      "name": "core_large_1000_files",
+      "iterations": 5,
+      "p50Ms": 118.238,
+      "p95Ms": 123.686,
+      "minMs": 117.015,
+      "maxMs": 123.686,
+      "scannedFiles": 1000,
+      "outputBytes": 24417
+    },
+    {
+      "name": "core_no_change_rerun_1000_files",
+      "iterations": 5,
+      "p50Ms": 110.774,
+      "p95Ms": 112.503,
+      "minMs": 109.337,
+      "maxMs": 112.503,
+      "scannedFiles": 1000,
+      "outputBytes": 24417
+    },
+    {
+      "name": "core_incremental_one_of_1000",
+      "iterations": 50,
+      "p50Ms": 0.272,
+      "p95Ms": 0.403,
+      "minMs": 0.262,
+      "maxMs": 0.789,
+      "scannedFiles": 1,
+      "outputBytes": 549
+    },
+    {
+      "name": "cli_cold_start_single_file",
+      "iterations": 7,
+      "p50Ms": 496.866,
+      "p95Ms": 821.27,
+      "minMs": 372.689,
+      "maxMs": 821.27,
+      "scannedFiles": 1,
+      "outputBytes": 557
+    }
+  ]
+}

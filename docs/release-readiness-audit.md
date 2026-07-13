@@ -26,7 +26,7 @@ surface:
    competitor versions. They cannot support current comparative claims without
    a pinned rerun or narrower copy.
 4. Cold CLI startup is materially slower than the old documentation claimed:
-   1,232 ms p50 and 1,790 ms p95 for a one-file scan on the audited machine.
+   497 ms p50 and 821 ms p95 for a one-file scan on the audited machine.
    A maintainer must either accept that interactive budget explicitly or
    improve it before release.
 
@@ -73,7 +73,7 @@ semantics. Those are unsupported, not hidden successes.
 | Cursor integration | Current project hooks and live use                                  | Current `postToolUse`/`stop` contracts; install/uninstall tests                  | Interactive verification pending                                           | P1       | Keep preview until recorded test passes                     |
 | CLI                | Fresh install, selected files, JSON, exits, diagnostics             | Six-tarball clean install smoke; CLI integration tests                           | No quiet/verbose modes; cold startup is noticeable                         | P2       | Define an accepted hook-latency budget                      |
 | Detection quality  | Positive, negative, boundary, duplicate, location tests per rule    | Rule, extractor, fixture, fixer, and report tests                                | No labelled precision/recall result; known dynamic-class blind spot        | P1       | Publish labelled fixture results, not estimates             |
-| Performance        | Reproducible cold/warm/small/large/incremental data                 | Raw JSON and generated SVG for seven scenarios                                   | No cache; cold CLI p95 1.79 s                                              | P1       | Accept or reduce cold-start budget before RC                |
+| Performance        | Reproducible cold/warm/small/large/incremental data                 | Raw JSON and generated SVG for seven scenarios                                   | No cache; cold CLI p95 821 ms                                              | P1       | Accept or reduce cold-start budget before RC                |
 | Reliability        | Predictable corrupt/missing/deleted/new-file behavior               | Invalid syntax/config, path, symlink, no-HEAD, malformed payload tests           | Permission, encoding, interruption, and cache-corruption matrix incomplete | P2       | Add targeted failure fixtures after the RC blockers         |
 | Security/privacy   | Repository boundary, no shell injection, no silent transmission     | Canonical containment and external-symlink tests; `execFile`; local-only scanner | Dependency audit and disclosure workflow need release-day verification     | P1       | Run production dependency audit and confirm advisory intake |
 | Packaging          | Correct names, exports, types, files, metadata, clean install       | Pack/inspect/install six tarballs; version sync gate; no retired branding        | No published RC consumer proof                                             | P1       | Publish and test `1.0.0-rc.1` before GA                     |
@@ -97,7 +97,7 @@ Scores are independent; they are not averaged.
 | Configuration                |   4/5 | Small, validated, and limited to settings that affect behavior                               |
 | Detection quality            |   3/5 | Good rule fixtures, but no labelled precision/recall corpus and several explicit blind spots |
 | Reliability                  |   3/5 | Important failures are now explicit; the adversarial failure matrix is incomplete            |
-| Performance                  |   3/5 | Fast core and incremental scans; cold process startup is 1.23 s p50 and there is no cache    |
+| Performance                  |   3/5 | Fast core and incremental scans; cold process startup is 497 ms p50 and there is no cache    |
 | Security and privacy         |   4/5 | Local-only design and tested repository boundary; release-day dependency audit remains       |
 | Packaging                    |   4/5 | Six packages are packed, inspected, installed, and exercised outside the monorepo            |
 | Documentation                |   3/5 | Broad and honest after this audit; live integration evidence is still missing                |
@@ -140,7 +140,7 @@ Scores are independent; they are not averaged.
 | F-09 | P1       | Benchmarks            | Historical competitor runs omit exact competitor versions                                                         | Earlier runner captured help but not resolved versions                           | Open; rerun pinned modes or remove current ranking claims             |
 | F-10 | P1       | Integrations          | No same-artifact live proof exists for all three agents                                                           | Contract tests were treated as integration proof                                 | Open; run and archive the RC matrix                                   |
 | F-11 | P1       | Detection             | No labelled false-positive/false-negative result exists                                                           | End-state agent scoring was conflated with scorer validation                     | Open; add a labelled fixture corpus                                   |
-| F-12 | P1       | Performance           | Old docs described roughly 10–30 ms while cold CLI p50 is 1,232 ms                                                | Core scan time excluded process and TypeScript startup                           | Documentation fixed; explicit release budget decision remains open    |
+| F-12 | P1       | Performance           | Old docs described roughly 10–30 ms while cold CLI p50 is 497 ms                                                  | Core scan time excluded process and TypeScript startup                           | Documentation fixed; explicit release budget decision remains open    |
 | F-13 | P2       | Performance           | A 1,000-file no-change core rerun is not faster than the first run                                                | No scan cache exists                                                             | Defer unless real hook traces show changed-set scanning is disruptive |
 | F-14 | P2       | Parser coverage       | Fully computed class names, responsive/dark consistency, and component variants can pass unanalysed               | Static extraction deliberately avoids executing code                             | Document now; add narrow rules only with labelled evidence            |
 | F-15 | P2       | CLI                   | Quiet and verbose modes are absent                                                                                | Current output contract focused on human and JSON modes                          | Add after 1.0 if CI/agent users demonstrate need                      |
@@ -165,7 +165,7 @@ call must be clean. If that loop is not visible on first use, the product has
 not demonstrated its value.
 
 Likely uninstall causes are noisy false positives, unexplained blocking,
-one-second-plus delay after every edit, hooks that silently stop running, and
+noticeable delay after every edit, hooks that silently stop running, and
 configuration that requires repository archaeology. The remaining exit work
 targets exactly those risks.
 
