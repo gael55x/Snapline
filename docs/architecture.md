@@ -26,7 +26,7 @@ benchmarks/
 agent hook payload (stdin JSON)
         │
         ▼
-adapter (claude/codex)          parse* → HookEvent { agent, kind, cwd,
+adapter (claude/codex/cursor)   parse* → HookEvent { agent, kind, cwd,
         │                                 filePaths, stopAlreadyRetried }
         ▼
 core runHook                    load config → build registries → scan files

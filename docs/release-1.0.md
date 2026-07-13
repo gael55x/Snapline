@@ -1,93 +1,87 @@
-# Release 1.0 — criteria and status
+# Snapline 1.0 exit checklist
 
-1.0 means: a maintainer can recommend Snapline for daily Claude Code use on a
-real Next.js/shadcn codebase without caveats about the core loop.
+Tag `v1.0.0` only when every box is checked against the exact candidate commit.
+Narrative rationale and finding history live in the
+[release-readiness audit](release-readiness-audit.md).
 
-Status legend: [x] done · [ ] open
+## Core and contracts
 
-## Product
+- [x] Identical inputs produce stable file ordering, finding ids, contracts,
+      and JSON in the repository test suite.
+- [x] Invalid TSX, invalid config, unsupported config versions, traversal, and
+      external symlinks fail explicitly.
+- [x] `ScanResult` and `RepairContract` carry `schemaVersion: 1` with a written
+      additive-change policy.
+- [x] Configuration contains only settings that affect behavior.
+- [ ] A hand-labelled corpus reports positive, negative, and boundary outcomes
+      for every rule, with no unexplained disagreements.
+- [ ] A maintainer has accepted the documented unsupported syntax and rule
+      boundaries for the lifetime of 1.x.
 
-- [x] Name availability gate passed (npm scope @usesnapline free; GitHub
-      gael55x/Snapline live with topics; usesnapline.dev/snapline.dev
-      unregistered; no relevant AI-devtool conflict found. The bare npm name
-      `snapline` is held by a dormant 2015 Chrome DevTools screenshot utility —
-      unrelated category, scoped packages avoid it.)
-- [x] Positioning finalized (agent UI repair hook; "Keep AI-generated UI on-system")
-- [x] README clear: problem, loop, contract example, quickstart, rules, honest benchmark section
-- [x] No public references to the retired internal codename (it appears only
-      in assets/logo-reference, which documents that it must not ship; CI's
-      docs:check enforces this)
+## Agent workflows
 
-## Core
+- [ ] The packed candidate passes a recorded Claude Code clean/edit/repair/
+      stop/malformed/uninstall workflow.
+- [ ] The same packed candidate passes the equivalent Codex workflow.
+- [ ] The same packed candidate passes the equivalent Cursor workflow.
+- [x] Each installer preserves unrelated hooks and each uninstaller removes
+      only Snapline-owned entries.
+- [x] Hook scanner and launcher failures are visible to the agent without
+      deadlocking the session.
+- [x] Stop handles tracked, modified, deleted, and pre-first-commit untracked
+      files.
 
-- [x] Scanner works on real TSX (TS compiler API; fixtures + dirty samples covered by tests)
-- [x] 9 rules stable with false-positive guards and severity config
-- [x] Config stable (snapline.yml v1, validated, unknown keys rejected)
-- [x] Repair contracts useful (exact replacements, required/recommended split, golden snapshot)
-- [x] Safe fixer conservative (unambiguous mappings only; refuses spreads/dynamic/off-scale)
+## CLI and fresh consumers
 
-## Adapters
+- [x] `--help`, `--version`, `init`, selected-file scan, `--changed`, JSON,
+      human output, exit codes, doctor, install, and uninstall are tested.
+- [x] Six local tarballs install together in a clean temporary npm consumer.
+- [x] That consumer demonstrates a clean scan, a blocking drift scan, and all
+      three install/doctor/uninstall paths.
+- [ ] The accepted cold hook latency budget is written and the candidate meets
+      it on the reference environment.
+- [ ] `1.0.0-rc.1` installs from the registry into a clean project and repeats
+      the packed-package smoke without workspace links.
 
-- [x] `snapline install claude` works (idempotent settings.json merge)
-- [x] Claude PostToolUse works (block JSON with repair contract; warn via additionalContext)
-- [x] Claude Stop works (block until severe drift fixed; stop_hook_active loop guard)
-- [x] Codex adapter exists, clearly marked beta
-- [x] Plugin package: official manifest at .claude-plugin/plugin.json, hooks.json
-      with ${CLAUDE_PLUGIN_ROOT}, keywords metadata, silent-allow safety
+## Security and privacy
 
-## CLI
+- [x] Project-root containment covers absolute paths, traversal, and external
+      symlinks for scan and fix.
+- [x] Hook payload `cwd` cannot redirect Snapline outside the invocation root.
+- [x] No source, tokens, prompts, or contracts are transmitted; optional hook
+      logging is local and opt-in.
+- [ ] A production dependency audit is recorded for the candidate lockfile.
+- [ ] GitHub's private vulnerability-reporting path is verified before GA.
 
-- [x] init · install claude · scan · scan --changed · score · fix --safe ·
-      doctor · benchmark · benchmark graph (all covered by integration tests)
+## Packaging and release
 
-## Benchmarks
+- [x] All six public packages contain only intended `dist`, metadata, README,
+      and license files.
+- [x] Package names, executable, exports, declarations, Node floor, repository
+      metadata, and versions are mechanically checked.
+- [x] Packed artifacts contain no retired branding, fixtures, run archives, or
+      historical assets.
+- [x] CI and the release workflow run the same `pnpm release:check` gate.
+- [ ] The final candidate passes `pnpm release:check` on Node 20 and Node 22.
+- [ ] RC publication verifies npm provenance/integrity, release notes, tag, and
+      changelog behavior.
 
-- [x] 30 prompts committed (no design-system hints, by design)
-- [x] 3 fixture projects (clean baselines, enforced by CI)
-- [x] 8 modes implemented: raw, project-instructions, shadcn MCP, Tailwind
-      ESLint, Buoy (@buoy-design/cli), driftguard, Snapline, MCP+Snapline
-- [x] Graphs generated from real JSON only; TBD placeholders otherwise
-- [x] Static harness in CI (fixture baselines, golden metrics, determinism)
-- [x] **Public agent-run results: ≥3 runs per mode.** Executed 2026-07-05:
-      240 live `claude-sonnet-5` sessions (8 modes × 10 prompts × 3 attempts,
-      0 unresolved failures) — gate 0/60 drifted vs 7–40% advisory. Plus
-      cross-model (Haiku 4.5: raw 53% drifted/worst 444, gated 0/30) and
-      cross-agent (Codex `gpt-5.5`: raw 61%, instruction-level Snapline 0/18;
-      15 quota-failure cells recorded, retry deferred to quota reset). Raw
-      data in `runs-data*/` and release archives.
+## Documentation and evidence
 
-## Quality
+- [x] Quick start, config, CLI, contracts, architecture, security, privacy,
+      troubleshooting, contributing, and release process are documented.
+- [x] Claude, Codex, and Cursor are labelled according to current evidence.
+- [x] Unsupported dynamic classes and unimplemented analysis categories are
+      stated plainly.
+- [x] Performance raw JSON records environment, source commit, fixtures, and
+      methodology; the SVG is generated from that JSON.
+- [ ] Present-tense benchmark comparisons use candidate-era pinned tools, or
+      the public copy is reduced to historical results with no current ranking.
+- [ ] All copied commands have been rerun against the registry RC exactly as
+      written.
 
-- [x] typecheck, lint, tests (76), build, bench:static, docs:check pass locally
-- [x] CI runs the full gate on Node 20 + 22
-- [x] Package exports valid (dist-only publishes, bin wired)
-- [x] No fake benchmark numbers anywhere (enforced by graph/report TBD policy)
-- [x] Docs match actual commands (scripts/check-docs.mjs in CI)
+## Release decision
 
-## Performance
-
-- [x] Changed-file scan p95 < 500ms on fixtures (asserted in tests; measured ~10-30ms)
-- [x] Stop scan < 3s on fixture projects (asserted in tests)
-- [x] PostToolUse scans only the edited file — never a full-repo scan
-
-## Verdict
-
-**All criteria met — 1.0 approved for release** (2026-07-05). The benchmark
-matrix ran in full with published raw data across three result sets
-(Sonnet 5, Haiku 4.5, Codex/gpt-5.5), the README graph renders from real
-JSON, and 0.1.0 has been validated end-to-end from the public registry,
-including a real-world production install. The 1.0 changeset is staged;
-`pnpm release` (or the CI release workflow) publishes it.
-
-## Known limitations
-
-- Benchmark scorer is built by Snapline's authors; formula and raw run data
-  are published so results can be re-scored independently.
-- Fixtures are typecheck-verified (tsc --noEmit), not `next build`-verified —
-  they vendor dependency-free shadcn-style components.
-- Dynamic classNames (`className={clsx(...)}`) are scanned only for statically
-  readable string parts; fully computed classes pass through unflagged.
-- Codex/Cursor enforcement is instruction-level until those agents ship
-  lifecycle hooks.
-- `snapline` on npm (unscoped) belongs to an unrelated dormant package; all
-  installs use the @usesnapline scope.
+- [ ] The [release-readiness audit](release-readiness-audit.md) has no open P0
+      or P1 finding.
+- [ ] A maintainer signs off **READY FOR 1.0** against the exact tag commit.

@@ -40,6 +40,9 @@ finish while errors remain. Full walkthrough with expected outputs:
 | [Config](config.md)                     | Full `snapline.yml` reference                                   |
 | [CLI](cli.md)                           | Commands, output modes, and exit codes                          |
 | [Repair contracts](repair-contracts.md) | Contract structure and the agent-readable format                |
+| [Troubleshooting](troubleshooting.md)   | Real failure modes and recovery commands                        |
+| [Security](security.md)                 | Trust boundary, local data, logs, and reporting                 |
+| [Performance](performance.md)           | Reproducible latency and memory measurements                    |
 
 ## Agents
 
@@ -51,9 +54,11 @@ finish while errors remain. Full walkthrough with expected outputs:
 
 ## Project
 
-| Page                          | What it covers                                                    |
-| ----------------------------- | ----------------------------------------------------------------- |
-| [Benchmark](benchmark.md)     | agent-ui-drift-bench methodology, modes, metrics, limitations     |
-| [Competitors](competitors.md) | How Snapline relates to MCP, linting, drift scanners, review bots |
-| [Roadmap](roadmap.md)         | What's next and explicit non-goals                                |
-| [Release 1.0](release-1.0.md) | Acceptance criteria and current status                            |
+| Page                                          | What it covers                                                    |
+| --------------------------------------------- | ----------------------------------------------------------------- |
+| [Benchmark](benchmark.md)                     | agent-ui-drift-bench methodology, modes, metrics, limitations     |
+| [Competitors](competitors.md)                 | How Snapline relates to MCP, linting, drift scanners, review bots |
+| [Roadmap](roadmap.md)                         | What's next and explicit non-goals                                |
+| [Release 1.0](release-1.0.md)                 | Acceptance criteria and current status                            |
+| [Readiness audit](release-readiness-audit.md) | Evidence, scorecard, findings, verdict, and next steps            |
+| [Releasing](releasing.md)                     | Changesets, RC validation, publication, and GA decision           |

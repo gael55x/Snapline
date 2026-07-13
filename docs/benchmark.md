@@ -18,6 +18,19 @@ artifact kept. The prompts never mention design systems, tokens, or shadcn —
 whether the agent stays on-system _without being reminded_ is the thing being
 measured.
 
+## Release claim status
+
+The 2026-07-05 agent results below are real archived runs, but the historical
+competitor cells did not record exact resolved package versions. Treat the
+matrix as historical evidence about that run set, not a current product
+ranking. The runner now pins and records versions; the pinned modes have not
+yet been rerun on the 1.0 candidate. Current Codex hook and Cursor hook results
+also do not exist.
+
+Scanner and CLI latency are a separate experiment with their own raw JSON and
+environment record; see [performance.md](performance.md). Do not mix agent wall
+time with scanner latency.
+
 ## The exact matrix
 
 The published results come from the **reduced matrix**:
@@ -200,3 +213,6 @@ Inside the repo, `snapline benchmark [graph]` delegates to these scripts.
 - **Coverage is narrow.** The primary matrix is Claude Code +
   `claude-sonnet-5`; Haiku and historical Codex slices cover only raw versus
   Snapline. No current hook-gated Codex or Cursor matrix exists.
+- **The benchmark does not validate its own detector.** A zero scorer result
+  shows convergence under this scorer. Precision and recall require a separate
+  hand-labelled fixture corpus, which is still a 1.0 exit item.

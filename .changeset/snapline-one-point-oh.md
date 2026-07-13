@@ -26,3 +26,8 @@ Snapline 1.0 release-candidate hardening. Do not publish until every item in
 - Project-boundary enforcement, versioned public scan/repair schemas, visible
   hook failures, current Codex/Cursor hooks, reversible agent setup, strict CLI
   arguments, packed-package smoke, and reproducible archived reports.
+- Removed the pre-1.0 `stack`, `fix`, and `benchmark` configuration sections;
+  they were accepted no-op settings and are not part of the stable v1 config.
+- Hook transport and launcher failures are agent-visible, new repositories scan
+  untracked files before their first commit, and every public package ships
+  package-specific usage documentation.

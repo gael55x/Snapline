@@ -2,10 +2,31 @@
 
 Snapline's category is the **agent UI repair hook**: it runs inside the
 agent's lifecycle, blocks on severe drift, and returns exact repair contracts
-so the agent fixes itself before it can finish. Everything below solves a real
-problem; none of them closes that loop. Guidance helps. Linting catches some
-class-level issues. Post-hoc scanners catch drift later. Snapline makes the
-agent repair drift before it finishes.
+so the agent fixes itself before it can finish. The closest tools overlap in
+useful ways; the comparison below follows their current public documentation
+and does not treat historical benchmark results as current rankings.
+
+## Capability matrix
+
+| Capability                             | Snapline                             | Buoy CLI/App                        | eslint-plugin-tailwindcss           | shadcn MCP                          |
+| -------------------------------------- | ------------------------------------ | ----------------------------------- | ----------------------------------- | ----------------------------------- |
+| Runs automatically after an agent edit | Yes, project hooks                   | No; CLI or PR app                   | Only when invoked by workflow       | No; agent-invoked registry tool     |
+| Detects code-level design drift        | Yes, nine source rules               | Yes, broad source scanner           | Tailwind class subset               | No                                  |
+| Uses project-specific system data      | Components, aliases, semantic colors | Auto-detected tokens/config         | Tailwind config                     | Configured component registries     |
+| Produces repair actions                | Structured per-file contracts        | Fix suggestions and token autofix   | Rule diagnostics; some fixes        | Installs selected registry items    |
+| Forces in-session agent correction     | Yes, error gate plus retry           | Only if separately wired/instructed | Only if separately wired/instructed | No validation gate                  |
+| Requires screenshots/browser           | No                                   | No                                  | No                                  | No                                  |
+| Can run locally before review          | Yes                                  | Yes                                 | Yes                                 | Yes, for discovery/install          |
+| CI use                                 | `snapline scan`                      | CLI/GitHub App                      | Standard ESLint workflow            | Not an enforcement workflow         |
+| Remote operational dependency          | None for scans                       | None for local CLI                  | None                                | Registry access may require network |
+
+This is a capability comparison, not a benchmark result. Buoy's current docs
+describe an open-source CLI and GitHub App, broad token/drift detection, smart
+fixes, and AI context generation. shadcn's MCP docs describe registry browse,
+search, and install across Claude, Cursor, and Codex. The Tailwind plugin's
+documented arbitrary-value rule can load project Tailwind configuration and
+apply unique substitutions. Those are stronger claims than the older copy in
+this repository acknowledged.
 
 ## shadcn MCP
 
@@ -22,8 +43,8 @@ agent repair drift before it finishes.
 
 ## eslint-plugin-tailwindcss
 
-- **What it does well:** class-level lint rules (`no-arbitrary-value`,
-  `no-custom-classname`, ordering) in a mature ESLint ecosystem.
+- **What it does well:** class-level lint rules, including configuration-aware
+  detection and correction of unnecessary arbitrary values.
 - **Category:** linter.
 - **Where Snapline differs:** ESLint sees classes, not the design system. It
   cannot know that a raw `<button>` should be `<Button>`, that
@@ -37,13 +58,14 @@ agent repair drift before it finishes.
 
 ## Buoy (@buoy-design/cli)
 
-- **What it does well:** design drift detection for design systems —
-  "catch design drift before it ships," with a CLI a team can run over a repo.
+- **What it does well:** broad source-level drift detection, token discovery,
+  health reporting, smart fixes, a local CLI, and PR integration.
 - **Category:** design drift scanner (post-hoc / on-demand).
-- **Where Snapline differs:** Buoy reports drift when someone runs it; the loop
-  from finding to fixing is a human's (or an instructed agent's) job. Snapline
-  runs inside the agent lifecycle, blocks completion, and returns
-  machine-followable repair instructions. Different moments in the workflow.
+- **Where Snapline differs:** Buoy's documented lifecycle is CLI/CI/PR plus AI
+  context generation. Snapline's narrow claim is automatic edit-time and Stop
+  hooks with a canonical machine-readable contract. A separately wired Buoy
+  agent workflow could narrow that difference and should be benchmarked rather
+  than dismissed.
 - **Benchmark mode:** `claude-buoy`.
 - **Setup:** [npm](https://www.npmjs.com/package/@buoy-design/cli).
 - **Reproduction notes:** the benchmark installs the CLI, captures `buoy --help`
@@ -98,3 +120,12 @@ agent repair drift before it finishes.
   token discipline and pixel diffing answer different questions. Snapline
   never renders anything.
 - **Benchmark mode:** none (no comparable metric).
+
+## Benchmark fairness
+
+The committed primary benchmark ran older, historically unpinned competitor
+installations. New runs pin `@buoy-design/cli@0.3.38`, `driftguard@0.1.1`,
+`eslint-plugin-tailwindcss@3.17.0` with `eslint@9.17.0`, and `shadcn@4.13.0`,
+then record resolved versions. Until those pinned modes are rerun on the release
+candidate, the old percentages are historical observations, not evidence that
+Snapline currently outperforms these projects.

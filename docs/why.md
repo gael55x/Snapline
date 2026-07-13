@@ -38,8 +38,9 @@ scanned. Errors block completion; the agent gets the combined contract and must
 repair first. A loop guard ensures a stop that already retried once never blocks
 again — see [hooks.md](hooks.md).
 
-Instructions ask. Hooks verify. Snapline uses instructions only where an agent
-has no hook API (see [codex.md](codex.md), [cursor.md](cursor.md)).
+Instructions ask. Hooks verify. Snapline installs lifecycle hooks for Claude,
+Codex, and Cursor; Codex and Cursor remain preview until the packed candidate
+passes a recorded interactive workflow.
 
 ## Before and after
 

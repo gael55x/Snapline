@@ -170,11 +170,17 @@ Code CLI, `acceptEdits`). Full methodology: [Benchmark](docs/benchmark.md).
 | **Snapline**              | **0% (0/30)** | **0**       | 249s             |
 | **shadcn MCP + Snapline** | **0% (0/30)** | **0**       | 287s             |
 
-Read it fairly: median drift is 0 for _every_ mode — a frontier model stays
+These are **historical 2026-07-05 results**, not a current competitor ranking:
+the archived runs did not stamp exact competitor versions. The current runner
+now pins and records versions, but those modes must be rerun before 1.0 claims
+can be presented in the present tense.
+
+Read the historical result fairly: median drift is 0 for _every_ mode — a frontier model stays
 on-system most of the time. The difference is the tail: advisory setups leak
 in 7–40% of runs; the gate leaked in none of 60. Instructions genuinely help
-(30%→7%); on-demand checkers barely beat raw — a check the agent may skip is
-advice. The cost is real too: the repair loop adds ~15% wall time over raw.
+(30%→7%). The experiment suggests that checks the agent may skip do not enforce
+convergence, but it does not prove why any competitor run drifted. The cost is
+real too: the repair loop adds ~15% wall time over raw.
 And one caveat we state before anyone else does: the scorer is Snapline's own,
 so the meaningful claim is not "Snapline scores 0 on its own metric" but that
 agents **converge** — they repair to zero in-session instead of looping or
@@ -218,6 +224,8 @@ Start at the [documentation index](docs/README.md).
 [Quickstart](docs/quickstart.md) · [Mental model](docs/mental-model.md) ·
 [Architecture](docs/architecture.md) · [Hooks](docs/hooks.md) ·
 [Rules](docs/rules.md) · [Config](docs/config.md) ·
+[Security](docs/security.md) · [Troubleshooting](docs/troubleshooting.md) ·
+[1.0 readiness audit](docs/release-readiness-audit.md) ·
 [Repair contracts](docs/repair-contracts.md) · [Claude](docs/claude.md) ·
 [Codex](docs/codex.md) · [Cursor](docs/cursor.md) ·
 [Benchmark](docs/benchmark.md) · [Competitors](docs/competitors.md) ·

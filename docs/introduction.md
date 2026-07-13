@@ -57,7 +57,8 @@ cards, and duplicate component files (`CustomButton.tsx`). Full detail in
 - **No database.** State is a self-gitignored `.snapline/` directory.
 - **No LLM in the scanner.** Detection is the TypeScript compiler API plus pure
   rules — the same input always produces the same violations, byte for byte.
-- **Never breaks a session.** Hooks catch all errors and allow on failure.
+- **Never deadlocks a session.** Hook failures allow with visible recovery
+  context, and Stop permits only one repair retry.
 
 ## Where to go next
 
@@ -72,3 +73,5 @@ cards, and duplicate component files (`CustomButton.tsx`). Full detail in
 | [repair-contracts.md](repair-contracts.md)                             | The contract format agents receive            |
 | [claude.md](claude.md) / [codex.md](codex.md) / [cursor.md](cursor.md) | Per-agent setup                               |
 | [benchmark.md](benchmark.md)                                           | agent-ui-drift-bench methodology              |
+| [performance.md](performance.md)                                       | Scanner and CLI latency evidence              |
+| [security.md](security.md)                                             | Trust boundary and privacy                    |
