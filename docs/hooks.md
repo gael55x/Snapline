@@ -39,7 +39,8 @@ Snapline reads a small subset of the official hook payloads from stdin:
 
 - **PostToolUse**: `tool_name` (must be `Write`, `Edit`, `MultiEdit`, or
   `NotebookEdit`) and `tool_input.file_path`. Anything else — other tools,
-  missing file path, non-JSON — is silently allowed.
+  missing file path — is silently allowed. Invalid JSON returns visible,
+  non-blocking recovery context.
 - **Stop**: the agent-specific retry field (`stop_hook_active` or `loop_count`).
 
 The process working directory is the trusted project root. A payload's `cwd`

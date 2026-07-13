@@ -28,12 +28,37 @@ async function readStdin(): Promise<string> {
   return Buffer.concat(chunks).toString("utf8")
 }
 
-function parseJson(text: string): unknown {
+function parseJson(
+  text: string,
+): { readonly ok: true; readonly value: unknown } | { readonly ok: false } {
   try {
-    return JSON.parse(text)
+    return { ok: true, value: JSON.parse(text) }
   } catch {
-    return undefined
+    return { ok: false }
   }
+}
+
+function malformedPayloadResponse(
+  agent: "claude" | "codex" | "cursor",
+  kind: "post-tool-use" | "stop",
+): string {
+  const message =
+    'SNAPLINE COULD NOT READ THE HOOK PAYLOAD\n\nExpected valid JSON on stdin. Run "snapline doctor" and inspect the agent hook configuration.'
+  if (agent === "claude") {
+    return (
+      kind === "post-tool-use"
+        ? formatPostToolUseResponse("warn", message)
+        : formatStopResponse("warn", message)
+    )!
+  }
+  if (agent === "codex") {
+    return kind === "post-tool-use"
+      ? formatCodexPostToolUseResponse("warn", message)!
+      : formatCodexStopResponse("warn", message)!
+  }
+  return kind === "post-tool-use"
+    ? formatCursorPostToolUseResponse("warn", message)!
+    : formatCursorStopResponse("warn", message)!
 }
 
 /**
@@ -79,7 +104,12 @@ export async function runHookCommand(ctx: CliContext): Promise<number> {
     process.stderr.write("Usage: snapline hook <claude|codex|cursor> <post-tool-use|stop>\n")
     return 1
   }
-  const payload = parseJson(await readStdin())
+  const parsed = parseJson(await readStdin())
+  if (!parsed.ok) {
+    process.stdout.write(malformedPayloadResponse(agent, kind) + "\n")
+    return 0
+  }
+  const payload = parsed.value
 
   if (agent === "claude") {
     const event =

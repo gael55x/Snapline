@@ -122,7 +122,7 @@ that's the design.
 3. Blocked and unsure why? The block reason <i>is</i> the repair contract;
    <code>npx snapline scan --changed</code> reproduces it in your terminal.
 4. Using the plugin instead of the CLI install? If the CLI package is missing,
-   hooks allow silently by design — install it with
+   hooks allow with visible recovery context — install it with
    <code>npm i -D @usesnapline/cli</code>.
 
 </details>

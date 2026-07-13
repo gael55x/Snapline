@@ -162,6 +162,15 @@ describe("snapline hook claude", () => {
     expect(run.stdout.trim()).toBe("")
   })
 
+  it.each(["claude", "codex", "cursor"] as const)(
+    "surfaces malformed %s hook input without failing the hook process",
+    (agent) => {
+      const result = cli(["hook", agent, "post-tool-use"], dirtyProject, "not json")
+      expect(result.status).toBe(0)
+      expect(result.stdout).toContain("SNAPLINE COULD NOT READ THE HOOK PAYLOAD")
+    },
+  )
+
   it("surfaces scanner failures as warning context", () => {
     const project = fs.mkdtempSync(path.join(os.tmpdir(), "snapline-hook-error-"))
     fs.cpSync(basicFixture, project, { recursive: true })
@@ -212,9 +221,7 @@ describe("snapline init + doctor", () => {
     expect(init.status).toBe(0)
     expect(fs.existsSync(path.join(project, "snapline.yml"))).toBe(true)
     expect(fs.existsSync(path.join(project, ".snapline", ".gitignore"))).toBe(true)
-    expect(fs.readFileSync(path.join(project, "snapline.yml"), "utf8")).toContain(
-      "framework: other",
-    )
+    expect(fs.readFileSync(path.join(project, "snapline.yml"), "utf8")).not.toContain("stack:")
 
     const doctor = cli(["doctor"], project)
     expect(doctor.stdout).toContain("component Button resolves")
@@ -227,9 +234,8 @@ describe("snapline init + doctor", () => {
     const init = cli(["init"], project)
     expect(init.status).toBe(0)
     const config = fs.readFileSync(path.join(project, "snapline.yml"), "utf8")
-    expect(config).toContain("framework: other")
-    expect(config).toContain("ui: custom")
     expect(config).toContain("components: {}")
+    expect(config).not.toContain("stack:")
     expect(config).not.toContain("Button:")
     fs.rmSync(project, { recursive: true, force: true })
   })

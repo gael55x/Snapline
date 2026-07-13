@@ -28,7 +28,8 @@ Then add the plugin from the Snapline marketplace:
 /plugin install snapline
 ```
 
-If the CLI is missing, hooks allow silently — Snapline never breaks a session.
+If the CLI is missing, hooks allow without breaking the session and return
+visible recovery context telling Claude how to install it.
 
 ## Metadata
 

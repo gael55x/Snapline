@@ -82,8 +82,8 @@ resolution, Node >= 20, and git. Claude Code loads hook settings at session
 start, so restart the session after installing.
 
 **Plugin installed but nothing happens** — if the `snapline` CLI is missing,
-the plugin allows silently by design (a missing scanner must never break a
-session). It prints a one-line hint to stderr, visible with `claude --debug`:
+the plugin allows so a missing scanner cannot break the session, but it returns
+the failure as agent context and prints a hint to stderr for `claude --debug`:
 
 ```
 Snapline CLI not found. Install it with: npm i -D @usesnapline/cli (hook allowed)
