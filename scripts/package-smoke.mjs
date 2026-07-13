@@ -39,10 +39,8 @@ try {
       !members.some((file) => /(?:fixtures|runs-data|logo-reference)/.test(file)),
       `${created}: internal files shipped`,
     )
-    if (relative === "packages/cli") {
-      assert(members.includes("package/README.md"), "CLI tarball is missing README.md")
-      assert(members.includes("package/LICENSE"), "CLI tarball is missing LICENSE")
-    }
+    assert(members.includes("package/README.md"), `${created}: missing README.md`)
+    assert(members.includes("package/LICENSE"), `${created}: missing LICENSE`)
     for (const member of members.filter((file) =>
       /(?:\.m?js|\.d\.ts|\.json|README\.md|LICENSE)$/.test(file),
     )) {
