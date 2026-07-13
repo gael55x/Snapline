@@ -47,14 +47,11 @@ export const DEFAULT_COMPONENTS: Readonly<Record<string, ComponentMapping>> = {
 export function defaultConfig(): SnaplineConfig {
   return {
     version: 1,
-    stack: { framework: "next", ui: "shadcn", styling: "tailwind" },
     components: DEFAULT_COMPONENTS,
     tokens: {
       colors: { semanticOnly: true, allowed: DEFAULT_ALLOWED_COLOR_CLASSES },
     },
     rules: DEFAULT_RULES,
-    fix: { safeAutofix: false, preferAgentRepair: true },
-    benchmark: { enabled: true, scorer: "ui-drift-score-v1" },
   }
 }
 
@@ -66,6 +63,23 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value)
 }
 
+function section(value: unknown, name: string): Record<string, unknown> {
+  if (value === undefined) return {}
+  if (!isRecord(value)) throw new ConfigError(`${name} must be a mapping`)
+  return value
+}
+
+function rejectUnknownKeys(
+  value: Record<string, unknown>,
+  allowed: readonly string[],
+  name: string,
+): void {
+  const known = new Set(allowed)
+  for (const key of Object.keys(value)) {
+    if (!known.has(key)) throw new ConfigError(`Unknown ${name} key: ${key}`)
+  }
+}
+
 /** Parse and validate snapline.yml text. Unknown keys are rejected at the top level. */
 export function parseConfig(text: string): SnaplineConfig {
   const raw: unknown = parseYaml(text)
@@ -73,20 +87,11 @@ export function parseConfig(text: string): SnaplineConfig {
   if (raw.version !== 1) throw new ConfigError(`Unsupported config version: ${String(raw.version)}`)
 
   const defaults = defaultConfig()
-  const knownKeys = new Set([
-    "version",
-    "stack",
-    "components",
-    "tokens",
-    "rules",
-    "fix",
-    "benchmark",
-  ])
+  const knownKeys = new Set(["version", "components", "tokens", "rules"])
   for (const key of Object.keys(raw)) {
     if (!knownKeys.has(key)) throw new ConfigError(`Unknown top-level config key: ${key}`)
   }
 
-  const stack = isRecord(raw.stack) ? raw.stack : {}
   const components: Record<string, ComponentMapping> = {}
   if (raw.components !== undefined) {
     if (!isRecord(raw.components)) throw new ConfigError("components must be a mapping")
@@ -94,18 +99,37 @@ export function parseConfig(text: string): SnaplineConfig {
       if (!isRecord(value) || typeof value.import !== "string") {
         throw new ConfigError(`components.${name} requires an "import" string`)
       }
-      const preferOver = Array.isArray(value.preferOver)
-        ? value.preferOver.map((p) => String(p))
-        : []
+      rejectUnknownKeys(value, ["import", "preferOver"], `components.${name}`)
+      if (name.length === 0 || value.import.length === 0) {
+        throw new ConfigError("Component names and imports must not be empty")
+      }
+      if (
+        value.preferOver !== undefined &&
+        (!Array.isArray(value.preferOver) ||
+          value.preferOver.some((entry) => typeof entry !== "string" || entry.length === 0))
+      ) {
+        throw new ConfigError(`components.${name}.preferOver must be an array of strings`)
+      }
+      const preferOver = (value.preferOver as string[] | undefined) ?? []
       components[name] = { import: value.import, preferOver }
     }
   }
 
-  const tokens = isRecord(raw.tokens) ? raw.tokens : {}
-  const colors = isRecord(tokens.colors) ? tokens.colors : {}
-  const allowed = Array.isArray(colors.allowed)
-    ? colors.allowed.map((c) => String(c))
-    : defaults.tokens.colors.allowed
+  const tokens = section(raw.tokens, "tokens")
+  rejectUnknownKeys(tokens, ["colors"], "tokens")
+  const colors = section(tokens.colors, "tokens.colors")
+  rejectUnknownKeys(colors, ["semanticOnly", "allowed"], "tokens.colors")
+  if (colors.semanticOnly !== undefined && typeof colors.semanticOnly !== "boolean") {
+    throw new ConfigError("tokens.colors.semanticOnly must be a boolean")
+  }
+  if (
+    colors.allowed !== undefined &&
+    (!Array.isArray(colors.allowed) ||
+      colors.allowed.some((entry) => typeof entry !== "string" || entry.length === 0))
+  ) {
+    throw new ConfigError("tokens.colors.allowed must be an array of strings")
+  }
+  const allowed = (colors.allowed as string[] | undefined) ?? defaults.tokens.colors.allowed
 
   const rules: Record<string, RuleSeverity> = { ...defaults.rules }
   if (raw.rules !== undefined) {
@@ -119,17 +143,9 @@ export function parseConfig(text: string): SnaplineConfig {
     }
   }
 
-  const fix = isRecord(raw.fix) ? raw.fix : {}
-  const benchmark = isRecord(raw.benchmark) ? raw.benchmark : {}
-
   return {
     version: 1,
-    stack: {
-      framework: (stack.framework as SnaplineConfig["stack"]["framework"]) ?? "next",
-      ui: (stack.ui as SnaplineConfig["stack"]["ui"]) ?? "shadcn",
-      styling: "tailwind",
-    },
-    components: Object.keys(components).length > 0 ? components : defaults.components,
+    components: raw.components === undefined ? defaults.components : components,
     tokens: {
       colors: {
         semanticOnly: colors.semanticOnly !== false,
@@ -137,14 +153,6 @@ export function parseConfig(text: string): SnaplineConfig {
       },
     },
     rules: rules as RulesConfig,
-    fix: {
-      safeAutofix: fix.safeAutofix === true,
-      preferAgentRepair: fix.preferAgentRepair !== false,
-    },
-    benchmark: {
-      enabled: benchmark.enabled !== false,
-      scorer: "ui-drift-score-v1",
-    },
   }
 }
 

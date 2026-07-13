@@ -6,6 +6,7 @@ export {
 export { parseStop, formatStopResponse, type ClaudeStopPayload } from "./stop.js"
 export {
   installClaudeHooks,
+  uninstallClaudeHooks,
   claudeHooksInstalled,
   claudeHooksSettings,
   CLAUDE_HOOKS_SETTINGS,

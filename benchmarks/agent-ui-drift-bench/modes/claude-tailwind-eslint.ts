@@ -22,7 +22,7 @@ export const claudeTailwindEslint: BenchMode = {
   agent: "claude",
   description: "Claude Code + eslint-plugin-tailwindcss; agent instructed to keep eslint clean",
   prepare(fixtureDir) {
-    npmInstall(fixtureDir, ["eslint@^9", "eslint-plugin-tailwindcss@^3.17.0"])
+    npmInstall(fixtureDir, ["eslint@9.17.0", "eslint-plugin-tailwindcss@3.17.0"])
     fs.writeFileSync(path.join(fixtureDir, "eslint.config.js"), ESLINT_CONFIG)
     fs.writeFileSync(
       path.join(fixtureDir, "CLAUDE.md"),

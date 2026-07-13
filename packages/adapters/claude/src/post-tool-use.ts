@@ -1,3 +1,5 @@
+import fs from "node:fs"
+import path from "node:path"
 import type { HookEvent } from "@usesnapline/contracts"
 
 /**
@@ -13,6 +15,18 @@ export interface ClaudePostToolUsePayload {
 
 const FILE_EDIT_TOOLS = new Set(["Write", "Edit", "MultiEdit", "NotebookEdit"])
 
+function canonicalPath(candidate: string): string {
+  const missing: string[] = []
+  let existing = candidate
+  while (!fs.existsSync(existing)) {
+    const parent = path.dirname(existing)
+    if (parent === existing) return candidate
+    missing.unshift(path.basename(existing))
+    existing = parent
+  }
+  return path.join(fs.realpathSync.native(existing), ...missing)
+}
+
 /**
  * Normalize a PostToolUse payload. Returns undefined when the event is not a
  * file edit Snapline cares about (the hook then allows silently).
@@ -23,8 +37,13 @@ export function parsePostToolUse(payload: unknown, fallbackCwd: string): HookEve
   if (p.tool_name === undefined || !FILE_EDIT_TOOLS.has(p.tool_name)) return undefined
   const filePath = p.tool_input?.file_path
   if (typeof filePath !== "string" || filePath.length === 0) return undefined
-  const cwd = typeof p.cwd === "string" ? p.cwd : fallbackCwd
-  const relative = filePath.startsWith(cwd + "/") ? filePath.slice(cwd.length + 1) : filePath
+  // The hook process working directory is the trusted project boundary.
+  // Payload cwd is agent-controlled input and must not redefine that boundary.
+  const cwd = path.resolve(fallbackCwd)
+  const absolute = path.isAbsolute(filePath) ? filePath : path.resolve(cwd, filePath)
+  const rootForRelative = canonicalPath(cwd)
+  const fileForRelative = canonicalPath(absolute)
+  const relative = path.relative(rootForRelative, fileForRelative).split(path.sep).join("/")
   return {
     agent: "claude",
     kind: "post-tool-use",

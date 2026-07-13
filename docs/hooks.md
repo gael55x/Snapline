@@ -38,9 +38,13 @@ launcher scripts via `${CLAUDE_PLUGIN_ROOT}` — see [claude.md](claude.md).
 Snapline reads a small subset of the official hook payloads from stdin:
 
 - **PostToolUse**: `tool_name` (must be `Write`, `Edit`, `MultiEdit`, or
-  `NotebookEdit`), `tool_input.file_path`, `cwd`. Anything else — other tools,
-  missing file path, non-JSON — is silently allowed.
-- **Stop**: `cwd`, `stop_hook_active`.
+  `NotebookEdit`) and `tool_input.file_path`. Anything else — other tools,
+  missing file path — is silently allowed. Invalid JSON returns visible,
+  non-blocking recovery context.
+- **Stop**: the agent-specific retry field (`stop_hook_active` or `loop_count`).
+
+The process working directory is the trusted project root. A payload's `cwd`
+is informational and cannot redefine the scan boundary.
 
 Adapters normalize these into a neutral `HookEvent`; core never sees the
 agent-specific field names ([architecture.md](architecture.md)).
@@ -90,8 +94,9 @@ Two guards make blocking safe:
 - **Loop guard.** Claude sets `stop_hook_active: true` when a stop hook
   already fired for this stop. Snapline then never blocks again — the contract
   is downgraded to context. One retry, no infinite loops.
-- **Never throw.** `runHook` wraps everything; any internal error results in a
-  silent allow. A broken scanner must not break the session.
+- **Never throw.** `runHook` wraps everything; an internal error becomes
+  visible warning context with recovery commands. A broken scanner must not
+  break the session or silently disappear.
 
 ## File selection
 
@@ -105,19 +110,34 @@ Non-scannable paths are filtered first (only `.tsx`/`.jsx`, ignoring
 `node_modules`, `.next`, `dist`, `build`, `out`, `coverage`, `.git`,
 `.snapline`, `.turbo`).
 
-## Codex normalization
+## Codex hooks
 
-`snapline hook codex <post-tool-use|stop>` accepts a documented neutral payload
-on stdin:
+`snapline install codex` merges official `PostToolUse` and `Stop` entries into
+`.codex/hooks.json`. The adapter reads Codex's current payload on stdin:
 
 ```json
-{ "cwd": "/abs/project", "files": ["src/app/page.tsx"] }
+{
+  "hook_event_name": "PostToolUse",
+  "cwd": "/abs/project",
+  "tool_name": "apply_patch",
+  "tool_input": {
+    "command": "*** Begin Patch\n*** Update File: src/app/page.tsx\n*** End Patch"
+  }
+}
 ```
 
-Claude-style `tool_input.file_path` is also accepted. Output is the plain-text
-repair contract on stdout plus **exit 2 on block** (0 otherwise). Codex has no
-stable hook API yet, so you wire your own event source — see
-[codex.md](codex.md).
+It extracts file paths from the patch. Errors use structured
+`decision: "block"` output; warnings use `additionalContext`. Stop uses the
+official `stop_hook_active` loop guard. Project hooks require explicit trust in
+Codex; see [codex.md](codex.md).
+
+## Cursor hooks
+
+`snapline install cursor` merges `postToolUse` and `stop` entries into
+`.cursor/hooks.json` and writes the project rule. Post-tool drift is returned
+as `additional_context`; Stop errors become `followup_message`. The installed
+`loop_limit: 1` and input `loop_count` form the repair-loop guard. See
+[cursor.md](cursor.md).
 
 ## Performance
 

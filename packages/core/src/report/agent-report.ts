@@ -69,6 +69,7 @@ export function buildRepairContracts(violations: readonly Violation[]): RepairCo
       fileViolations.filter((v) => v.severity === "warn").map((v) => v.repair.instruction),
     )
     contracts.push({
+      schemaVersion: 1,
       title: `Repair UI drift in ${filePath}`,
       filePath,
       violations: fileViolations,

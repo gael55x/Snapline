@@ -1,7 +1,7 @@
 {
   "name": "@usesnapline/codex",
   "version": "0.1.0",
-  "description": "Codex adapter for Snapline (beta) — normalizes Codex events into Snapline hook events",
+  "description": "Codex adapter for Snapline — PostToolUse and Stop hooks that return repair contracts",
   "license": "MIT",
   "type": "module",
   "engines": {

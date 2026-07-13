@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 import process from "node:process"
+import packageJson from "../package.json" with { type: "json" }
 import { runInit } from "./commands/init.js"
 import { runInstall } from "./commands/install.js"
+import { runUninstall } from "./commands/uninstall.js"
 import { runScan } from "./commands/scan.js"
 import { runScore } from "./commands/score.js"
 import { runFix } from "./commands/fix.js"
@@ -12,20 +14,34 @@ import { runBenchmark } from "./commands/benchmark.js"
 const HELP = `snapline — keep AI-generated UI on-system
 
 Usage:
-  snapline init                      Detect the project and write snapline.yml
+  snapline init [--claude]           Detect the project and write snapline.yml
   snapline install <claude|codex|cursor>
-  snapline scan [--changed] [--json]
+  snapline uninstall <claude|codex|cursor>
+  snapline scan [files...] [--changed] [--json]
   snapline score [--json]
   snapline fix --safe [--dry-run]
-  snapline doctor
-  snapline hook <claude|codex> <post-tool-use|stop>
+  snapline doctor [claude|codex|cursor]
+  snapline hook <claude|codex|cursor> <post-tool-use|stop>
   snapline benchmark [graph]
 
 Flags:
   --json    Machine-readable output (scan, score)
   --debug   Full stack traces on errors
   --help    This message
+  --version Print the installed version
 `
+
+const FLAGS_BY_COMMAND: Readonly<Record<string, ReadonlySet<string>>> = {
+  init: new Set(["--claude"]),
+  install: new Set(),
+  uninstall: new Set(),
+  scan: new Set(["--changed", "--json"]),
+  score: new Set(["--json"]),
+  fix: new Set(["--safe", "--dry-run"]),
+  doctor: new Set(),
+  hook: new Set(),
+  benchmark: new Set(),
+}
 
 export interface CliContext {
   readonly cwd: string
@@ -40,9 +56,23 @@ async function main(): Promise<number> {
   const ctx: CliContext = { cwd: process.cwd(), args: args.slice(1), flags }
   const command = args[0]
 
+  if (flags.has("--version")) {
+    process.stdout.write(`${packageJson.version}\n`)
+    return 0
+  }
   if (command === undefined || flags.has("--help")) {
     process.stdout.write(HELP)
     return 0
+  }
+
+  const allowedFlags = FLAGS_BY_COMMAND[command]
+  if (allowedFlags !== undefined) {
+    for (const flag of flags) {
+      if (flag !== "--debug" && !allowedFlags.has(flag)) {
+        process.stderr.write(`Unknown flag for ${command}: ${flag}\n`)
+        return 1
+      }
+    }
   }
 
   try {
@@ -51,6 +81,8 @@ async function main(): Promise<number> {
         return runInit(ctx)
       case "install":
         return runInstall(ctx)
+      case "uninstall":
+        return runUninstall(ctx)
       case "scan":
         return runScan(ctx)
       case "score":

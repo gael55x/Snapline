@@ -12,8 +12,8 @@ packages/
                     fix, doctor, hook, benchmark
   adapters/
     claude/         Claude Code payload parsing + output formatting + install
-    codex/          Codex neutral payload parsing + AGENTS.md install (beta)
-    cursor/         .cursor/rules/snapline.mdc install (experimental)
+    codex/          Codex PostToolUse/Stop normalization + hook install
+    cursor/         Cursor postToolUse/stop normalization + hook/rule install
   plugin-claude/    Claude Code plugin: hooks.json + zero-dep launcher scripts
 fixtures/           three clean Next.js/shadcn apps (the benchmark zero baseline)
 benchmarks/
@@ -26,7 +26,7 @@ benchmarks/
 agent hook payload (stdin JSON)
         │
         ▼
-adapter (claude/codex)          parse* → HookEvent { agent, kind, cwd,
+adapter (claude/codex/cursor)   parse* → HookEvent { agent, kind, cwd,
         │                                 filePaths, stopAlreadyRetried }
         ▼
 core runHook                    load config → build registries → scan files
@@ -36,7 +36,7 @@ HookDecision { action, agentMessage, contracts }
         │
         ▼
 adapter                         format into the agent's output contract
-        │                       (Claude JSON on stdout; Codex exit code 2)
+        │                       (agent-specific structured JSON on stdout)
         ▼
 agent receives the repair contract
 ```
@@ -51,6 +51,9 @@ which is why a new agent is one adapter, not a fork of the engine.
 `RepairContract`, `ScanResult`, `HookEvent`, `HookDecision`, benchmark shapes.
 Every package depends on it; no package depends on another's internals. Rule
 ids are stable across releases: new rules append, never rename.
+Machine-readable `ScanResult` and `RepairContract` values carry
+`schemaVersion: 1`; the compatibility policy is documented in
+[repair-contracts.md](repair-contracts.md).
 
 ## Scanning pipeline
 
@@ -74,7 +77,8 @@ regex layer or a separate parser. TSX is TypeScript's native grammar, the
 dependency already exists in any TS project, and the AST gives exact
 line/column positions and clean separation between static strings and dynamic
 expressions — which the static-only extraction guarantee depends on. Parsing
-never executes project code.
+never executes project code. Syntax errors fail with the file and source
+location instead of returning a partial, potentially misleading scan.
 
 ## Code style
 

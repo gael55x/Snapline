@@ -15,8 +15,21 @@ resulting code with a deterministic scanner — counting raw hex colors,
 arbitrary Tailwind values, palette classes, raw primitives, and duplicate
 components. Three attempts per (mode × prompt), medians reported, every raw
 artifact kept. The prompts never mention design systems, tokens, or shadcn —
-whether the agent stays on-system *without being reminded* is the thing being
+whether the agent stays on-system _without being reminded_ is the thing being
 measured.
+
+## Release claim status
+
+The 2026-07-05 agent results below are real archived runs, but the historical
+competitor cells did not record exact resolved package versions. Treat the
+matrix as historical evidence about that run set, not a current product
+ranking. The runner now pins and records versions; the pinned modes have not
+yet been rerun on the 1.0 candidate. Current Codex hook and Cursor hook results
+also do not exist.
+
+Scanner and CLI latency are a separate experiment with their own raw JSON and
+environment record; see [performance.md](performance.md). Do not mix agent wall
+time with scanner latency.
 
 ## The exact matrix
 
@@ -31,8 +44,9 @@ The published results come from the **reduced matrix**:
   `invoices-table`, `empty-state`). The full prompt set (30) is in
   `prompts/`; the subset is fixed in `run-matrix.sh`.
 - Model `claude-sonnet-5`, permission mode `acceptEdits`, same frozen lockfile
-  everywhere. Runs execute in parallel workers (one mode per worker); each
-  run's checkout commit SHA is recorded.
+  everywhere. Runs execute in parallel workers (one mode per worker). The
+  current runner records each checkout SHA; the historical archives contain
+  `template-sha.txt` for 316/360 cells, so 44 missing values remain unknown.
 
 **Cross-model and cross-agent slices.** The same harness runs against other
 models via `--model` and other agents via `AGENT=codex` (cells land in
@@ -43,9 +57,10 @@ slices:
 
 - `claude-haiku-4-5-20251001` (raw vs gated):
   [reports/latest-haiku.md](../benchmarks/agent-ui-drift-bench/reports/latest-haiku.md)
-- Codex CLI / `gpt-5.5` (raw vs **instruction-level** Snapline — Codex has no
-  lifecycle hooks, so this slice measures the repair-contract format without
-  a gate): [reports/latest-codex.md](../benchmarks/agent-ui-drift-bench/reports/latest-codex.md)
+- Codex CLI / `gpt-5.5` (raw vs **instruction-level** Snapline at the time of
+  execution; this historical slice predates Codex lifecycle hooks and measures
+  the repair-contract format without a gate):
+  [reports/latest-codex.md](../benchmarks/agent-ui-drift-bench/reports/latest-codex.md)
 
 Reproduce: `MODEL=<id> ./run-matrix.sh "<mode>"` or
 `AGENT=codex ./run-matrix.sh "codex-raw"`.
@@ -60,11 +75,11 @@ For cell `claude-buoy--premium-dashboard--2`:
    fresh `git clone` + frozen-lockfile install per run; either way the starting
    tree is provably identical and its SHA is stored next to the run.)
 2. **Mode setup, committed.** The mode's `prepare()` runs: here, `npm install
-   @buoy-design/cli`, capture `buoy --help` into SETUP-NOTES.md, write a
+@buoy-design/cli`, capture `buoy --help` into SETUP-NOTES.md, write a
    CLAUDE.md telling the agent to run Buoy's check before finishing. The setup
    is committed so the git diff afterward contains only the agent's work.
 3. **Unattended agent session.** `claude -p "<prompt>" --model claude-sonnet-5
-   --permission-mode acceptEdits` in the fixture directory. Nobody intervenes;
+--permission-mode acceptEdits` in the fixture directory. Nobody intervenes;
    there is no manual cleanup and no re-rolling.
 4. **Scoring.** The Snapline scanner scores the final tree (drift score,
    violation counts, component reuse rate), `tsc --noEmit` checks it still
@@ -105,10 +120,9 @@ but counted in the failure column.
 | claude-snapline             | Snapline PostToolUse + Stop hooks                        |
 | claude-shadcn-mcp-snapline  | shadcn MCP + Snapline                                    |
 
-Executed additionally: `codex-raw` and `codex-snapline` (instruction-level —
-Codex has no lifecycle hooks; see the cross-agent slice above). Planned:
-cursor-raw/snapline, blocked on a stable Cursor hook API
-([cursor.md](cursor.md)). Competitor CLIs evolve; their `--help` output is
+Executed additionally: `codex-raw` and `codex-snapline` using the historical
+instruction-level mode described above. A current Codex hook-gated slice and a
+Cursor slice have not been run. Competitor CLIs evolve; their `--help` output is
 captured at setup time so each run records what was actually tested.
 
 ## Metrics
@@ -167,7 +181,9 @@ pnpm install && pnpm build
 pnpm bench:static                                    # CI-safe pipeline validation, no agents
 pnpm bench:agent -- --mode claude-raw --prompt login-page   # one cell
 benchmarks/agent-ui-drift-bench/run-matrix.sh "claude-raw"  # one mode, full subset
-pnpm bench:report && pnpm bench:graph                # aggregate + render
+pnpm bench:report                                    # aggregate new runs/
+pnpm bench:report:published                          # regenerate committed reports/graphs from runs-data*/
+pnpm bench:published:check                           # verify committed bytes match raw JSON
 ```
 
 Requirements for live runs: the `claude` CLI authenticated, API budget
@@ -190,8 +206,13 @@ Inside the repo, `snapline benchmark [graph]` delegates to these scripts.
   `tsc --noEmit`, which misses runtime-only breakage.
 - **Agents are nondeterministic.** Three runs and medians reduce noise but do
   not eliminate it; raw artifacts allow deeper analysis.
-- **Competitor CLIs evolve.** Results reflect the versions pinned at run time
-  (recorded per run), not the tools' best possible configuration.
-- **One model, one agent.** Results are for Claude Code + `claude-sonnet-5`;
-  other models/agents may drift more or less. The harness is model-agnostic —
-  rerun it with your setup.
+- **Historical competitor versions were not stamped.** Help output was kept,
+  but the published `run.json` files do not identify exact competitor package
+  versions. Treat those comparisons as historical. New runs use exact package
+  pins and record resolved versions plus the source commit and environment.
+- **Coverage is narrow.** The primary matrix is Claude Code +
+  `claude-sonnet-5`; Haiku and historical Codex slices cover only raw versus
+  Snapline. No current hook-gated Codex or Cursor matrix exists.
+- **The benchmark does not validate its own detector.** A zero scorer result
+  shows convergence under this scorer. Precision and recall require a separate
+  hand-labelled fixture corpus, which is still a 1.0 exit item.

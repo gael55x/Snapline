@@ -3,8 +3,8 @@
  *   1. Fixture baseline — the three fixture apps must scan clean (drift 0).
  *   2. Scorer validation — the committed drifted sample must produce the exact
  *      expected metric counts, twice, byte-identical (determinism gate).
- *   3. Pipeline exercise — regenerate report + graphs from whatever real runs
- *      exist (TBD placeholders otherwise).
+ *   3. Pipeline exercise — render a report in memory and regenerate graphs
+ *      from the committed report. Archive consistency has its own gate.
  *
  * This validates the measurement pipeline. It is NOT a mode comparison and
  * writes reports/static-validation.json, never reports/latest.json.
@@ -14,7 +14,7 @@ import path from "node:path"
 import process from "node:process"
 import { defaultConfig, scanProject } from "@usesnapline/core"
 import { benchRoot, repoRoot, loadBenchConfig } from "./config.js"
-import { buildReport, collectRuns, writeReports } from "./generate-report.js"
+import { buildReport, collectRuns, reportCsv, reportMarkdown } from "./generate-report.js"
 import { generateGraphs } from "./generate-graphs.js"
 
 /** Golden metrics for samples/drifted-app. Update deliberately when rules change. */
@@ -85,9 +85,12 @@ function main(): void {
     ) + "\n",
   )
 
-  // 3. report + graphs from real runs only (TBD placeholders when none exist)
+  // 3. exercise report formatting without overwriting published evidence
   const runs = collectRuns()
-  writeReports(buildReport(runs))
+  const report = buildReport(runs)
+  JSON.stringify(report)
+  reportMarkdown(report)
+  reportCsv(report)
   const graphs = generateGraphs()
   process.stdout.write(
     `✔ report + graphs regenerated (${runs.length} agent runs recorded): ${graphs.join(", ")}\n`,

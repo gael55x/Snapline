@@ -12,11 +12,11 @@ jobs:
       matrix:
         node: [20, 22]
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v6
         with:
           version: 9.15.0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
           cache: pnpm
@@ -26,4 +26,7 @@ jobs:
       - run: pnpm build
       - run: pnpm test
       - run: pnpm bench:static
+      - run: pnpm bench:published:check
       - run: pnpm docs:check
+      - run: pnpm release:metadata:check
+      - run: pnpm package:smoke

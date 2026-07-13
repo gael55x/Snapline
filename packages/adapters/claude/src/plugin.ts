@@ -1,4 +1,5 @@
 import type { PluginMetadata } from "@usesnapline/contracts"
+import packageJson from "../package.json" with { type: "json" }
 
 /**
  * Canonical metadata for the Snapline Claude Code plugin. The plugin package
@@ -7,7 +8,7 @@ import type { PluginMetadata } from "@usesnapline/contracts"
  */
 export const SNAPLINE_PLUGIN_METADATA: PluginMetadata = {
   name: "snapline",
-  version: "0.1.0",
+  version: packageJson.version,
   description:
     "Keep AI-generated UI on-system. Scans edited TSX for design-system drift and returns repair contracts before the agent can finish.",
   homepage: "https://github.com/gael55x/Snapline",

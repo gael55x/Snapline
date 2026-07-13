@@ -5,6 +5,8 @@ import type { Violation } from "./violation.js"
  * One contract per file with violations. Actions are exact and ordered.
  */
 export interface RepairContract {
+  /** Public repair-contract schema. Increment only for breaking shape/semantic changes. */
+  readonly schemaVersion: 1
   readonly title: string
   readonly filePath: string
   readonly violations: readonly Violation[]

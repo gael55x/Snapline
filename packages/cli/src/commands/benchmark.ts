@@ -21,6 +21,10 @@ function findBenchmarkRoot(start: string): string | undefined {
  * at the docs instead of pretending to run something.
  */
 export function runBenchmark(ctx: CliContext): number {
+  if (ctx.args.length > 1 || (ctx.args[0] !== undefined && ctx.args[0] !== "graph")) {
+    process.stderr.write("Usage: snapline benchmark [graph]\n")
+    return 1
+  }
   const root = findBenchmarkRoot(ctx.cwd)
   if (root === undefined) {
     process.stdout.write(

@@ -19,12 +19,11 @@ const KNOWN_COMPONENTS: readonly DetectedComponent[] = [
 ]
 
 function componentsYaml(uiDir: string | undefined, root: string, uiAlias: string): string {
+  if (uiDir === undefined) return "components: {}"
+  const present = KNOWN_COMPONENTS.filter((c) => fs.existsSync(path.join(root, uiDir, c.file)))
+  if (present.length === 0) return "components: {}"
   const lines: string[] = ["components:"]
-  const present =
-    uiDir === undefined
-      ? KNOWN_COMPONENTS
-      : KNOWN_COMPONENTS.filter((c) => fs.existsSync(path.join(root, uiDir, c.file)))
-  for (const component of present.length > 0 ? present : KNOWN_COMPONENTS) {
+  for (const component of present) {
     lines.push(`  ${component.name}:`)
     lines.push(`    import: "${uiAlias}/${component.file.replace(".tsx", "")}"`)
     lines.push("    preferOver:")
@@ -35,11 +34,6 @@ function componentsYaml(uiDir: string | undefined, root: string, uiAlias: string
 
 function defaultConfigYaml(uiDir: string | undefined, root: string, uiAlias: string): string {
   return `version: 1
-
-stack:
-  framework: next
-  ui: shadcn
-  styling: tailwind
 
 ${componentsYaml(uiDir, root, uiAlias)}
 
@@ -59,19 +53,15 @@ rules:
   requireDialogComponent: warn
   requireCardComponent: warn
   noDuplicateComponents: warn
-
-fix:
-  safeAutofix: false
-  preferAgentRepair: true
-
-benchmark:
-  enabled: true
-  scorer: ui-drift-score-v1
 `
 }
 
 /** `snapline init [--claude]` — detect the project and write snapline.yml + .snapline/. */
 export function runInit(ctx: CliContext): number {
+  if (ctx.args.length > 0) {
+    process.stderr.write("Usage: snapline init [--claude]\n")
+    return 1
+  }
   const project = detectProject(ctx.cwd)
   const notes: string[] = []
   notes.push(

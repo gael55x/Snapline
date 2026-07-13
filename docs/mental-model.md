@@ -74,6 +74,6 @@ The scanner is a pure function of the file contents and the config:
 ## Failure model
 
 Hooks never break the session. `runHook` catches all errors and allows; the
-plugin launcher allows silently when the CLI is missing; malformed hook
+plugin launcher allows with visible agent context when the CLI is missing; malformed hook
 payloads are ignored. The worst case of a Snapline failure is no gate — never
 a stuck agent.

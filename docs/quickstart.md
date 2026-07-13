@@ -104,7 +104,8 @@ npx snapline scan --changed   # only git-changed + untracked files
 npx snapline scan --json      # machine-readable ScanResult
 npx snapline score            # drift score summary; always exit 0
 npx snapline fix --safe       # apply only mechanical, unambiguous fixes
-npx snapline doctor           # verify config, aliases, components, hooks
+npx snapline doctor claude    # verify config, aliases, components, and Claude hooks
+npx snapline uninstall claude # remove only Snapline's Claude hook entries
 ```
 
 `fix` accepts only `--safe`: unambiguous color swaps (`bg-blue-500` →
@@ -116,12 +117,12 @@ that's the design.
 <summary>Troubleshooting: hooks don't seem to fire</summary>
 
 1. Restart the Claude Code session (hooks load at session start).
-2. <code>npx snapline doctor</code> — it checks both hooks are present in
+2. <code>npx snapline doctor claude</code> — it checks both hooks are present in
    <code>.claude/settings.json</code>, plus everything else.
 3. Blocked and unsure why? The block reason <i>is</i> the repair contract;
    <code>npx snapline scan --changed</code> reproduces it in your terminal.
 4. Using the plugin instead of the CLI install? If the CLI package is missing,
-   hooks allow silently by design — install it with
+   hooks allow with visible recovery context — install it with
    <code>npm i -D @usesnapline/cli</code>.
 
 </details>
@@ -138,8 +139,8 @@ CLI package (step 1). Details: [claude.md](claude.md).
 
 ## Other agents
 
-- Codex — beta, instruction-level until Codex ships hooks: [codex.md](codex.md)
-- Cursor — experimental, rule file only: [cursor.md](cursor.md)
+- Codex — preview lifecycle hooks; interactive verification pending: [codex.md](codex.md)
+- Cursor — preview lifecycle hooks; interactive verification pending: [cursor.md](cursor.md)
 
 Next: [mental-model.md](mental-model.md) for the loop in one diagram, or
 [rules.md](rules.md) for exactly what gets flagged and what never does.

@@ -19,6 +19,8 @@ export interface ScoreResult {
 }
 
 export interface ScanResult {
+  /** Public scan-result schema. Increment only for breaking shape/semantic changes. */
+  readonly schemaVersion: 1
   /** Absolute project root the scan ran against. */
   readonly root: string
   /** Project-root-relative paths of files scanned. */

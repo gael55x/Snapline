@@ -1,8 +1,9 @@
 # Configuration
 
 Snapline reads `snapline.yml` from the project root. No file means defaults —
-everything below works with zero config. Unknown top-level keys and unknown
-rule names are rejected with a clear error (`snapline doctor` surfaces this).
+everything below works with zero config. Unknown keys, unsupported enum values,
+and incorrectly typed nested fields are rejected with a clear error
+(`snapline doctor` surfaces this).
 
 ## The default file
 
@@ -12,11 +13,6 @@ alias comes from `components.json` when present):
 
 ```yaml
 version: 1
-
-stack:
-  framework: next
-  ui: shadcn
-  styling: tailwind
 
 components:
   Button:
@@ -63,23 +59,11 @@ rules:
   requireDialogComponent: warn
   requireCardComponent: warn
   noDuplicateComponents: warn
-
-fix:
-  safeAutofix: false
-  preferAgentRepair: true
-
-benchmark:
-  enabled: true
-  scorer: ui-drift-score-v1
 ```
 
 ## Key reference
 
 **`version`** — must be `1`.
-
-**`stack`** — project description. `framework`: `next | vite | remix | other`
-(default `next`); `ui`: `shadcn | custom` (default `shadcn`); `styling` is
-always `tailwind`.
 
 **`components`** — design-system components and what they replace. Each entry
 needs an `import` string; `preferOver` lists the raw patterns it supersedes.
@@ -90,6 +74,7 @@ file on disk (**fileExists gate**, checked against tsconfig path aliases with
 `.tsx`/`.ts`/`index.*` resolution). Delete a component or point the import at
 nothing and its rule goes quiet — Snapline never demands a component the
 project does not have. Omitting the whole section keeps the four defaults.
+Set `components: {}` to disable the default component registry explicitly.
 
 **`tokens.colors.semanticOnly`** — when `true` (default), raw palette classes
 (`bg-blue-500`, `bg-white`) violate `noRawPaletteColor`; when `false`, that
@@ -104,13 +89,3 @@ all its variants and opacities. Add your own theme tokens here (e.g.
 **`rules`** — severity per rule: `off | warn | error`. Errors block the agent;
 warnings attach as context; `off` disables. Semantics in
 [mental-model.md](mental-model.md), rule behavior in [rules.md](rules.md).
-
-**`fix.safeAutofix`** — reserved for auto-applying safe fixes during hook runs;
-currently the hook path never edits files, and safe fixes run only via
-`snapline fix --safe`. Default `false`.
-
-**`fix.preferAgentRepair`** — declares the repair philosophy (contracts over
-autofix). Default `true`.
-
-**`benchmark`** — `enabled` (default `true`) and the scorer id, always
-`ui-drift-score-v1` ([benchmark.md](benchmark.md)).

@@ -18,17 +18,19 @@ scanners?**
 | claude-snapline             | Snapline PostToolUse + Stop hooks                                              |
 | claude-shadcn-mcp-snapline  | shadcn MCP + Snapline                                                          |
 
-Also executed: codex-raw and codex-snapline (Codex CLI, instruction-level —
-no hook gate exists for Codex; see `reports/latest-codex.md`). Planned:
-cursor-raw, cursor-snapline (blocked on a stable Cursor hook API; see
-docs/roadmap.md).
+Also executed: codex-raw and codex-snapline using the instruction-level
+workflow that existed at the time. This historical slice predates Snapline's
+Codex lifecycle hooks; see `reports/latest-codex.md`. No current hook-gated
+Codex or Cursor slice has been run.
 
 ## Protocol
 
 - Same prompt, same fixture, same model, same lockfile per comparison.
 - Pristine checkout per run: a fresh `git clone` (default) or a byte-identical
   copy-on-write copy of a template checkout (`SNAPLINE_BENCH_TEMPLATE`, APFS
-  clonefile) whose commit SHA is recorded per run. Mode setup is committed
+  clonefile). The current runner records its commit SHA per run. Historical
+  archives contain that file for 316/360 cells; missing values are not inferred.
+  Mode setup is committed
   before the agent starts.
 - No manual cleanup, no cherry-picking. Minimum 3 runs per mode; medians reported.
 - Raw agent output, git diffs, scanner JSON, and hook logs stored per run under `runs/`.
@@ -44,6 +46,8 @@ pnpm bench:static                                   # CI-safe pipeline validatio
 pnpm bench:agent -- --mode claude-raw --prompt login-page
 pnpm bench:agent -- --all                           # full matrix (needs claude CLI + API budget)
 pnpm bench:report                                   # runs/ -> reports/latest.{json,md,csv}
+pnpm bench:report:published                         # runs-data*/ -> committed reports + graphs
+pnpm bench:published:check                          # byte-check committed artifacts against raw data
 pnpm bench:graph                                    # reports/latest.json -> graphs/*.svg
 ```
 
@@ -68,6 +72,13 @@ the run has not happened yet.
   release as `agent-ui-drift-bench-haiku45-full.tar.gz`.
 - `runs-data-codex/` + `reports/latest-codex.*`: cross-agent slice, Codex CLI
   (`gpt-5.5`), instruction-level Snapline (no hook gate exists for Codex);
-  44/60 valid cells — 15 failed on account quota/timeout, recorded with
+  45/60 valid cells — 15 failed on account quota/timeout, recorded with
   reasons, one-retry pass deferred to quota reset. Full archive on the release
   as `agent-ui-drift-bench-codex-gpt55-full.tar.gz`.
+
+The published historical runs did not stamp competitor package versions in
+`run.json`; they are evidence for that recorded execution, not a durable
+ranking of current releases. New runs pin Buoy `0.3.38`, driftguard `0.1.1`,
+eslint `9.17.0` with eslint-plugin-tailwindcss `3.17.0`, and shadcn `4.13.0`,
+and record Node, platform, source commit, agent version, and resolved tool
+versions under `environment`.

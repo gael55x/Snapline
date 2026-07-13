@@ -10,6 +10,8 @@ import {
   ConfigError,
 } from "@usesnapline/core"
 import { claudeHooksInstalled } from "@usesnapline/claude"
+import { codexHooksInstalled } from "@usesnapline/codex"
+import { cursorHooksInstalled } from "@usesnapline/cursor"
 import type { CliContext } from "../main.js"
 
 interface Check {
@@ -21,6 +23,15 @@ interface Check {
 
 /** `snapline doctor` — validate config, aliases, registry, hooks, benchmark deps. */
 export function runDoctor(ctx: CliContext): number {
+  if (ctx.args.length > 1) {
+    process.stderr.write("Usage: snapline doctor [claude|codex|cursor]\n")
+    return 1
+  }
+  const target = ctx.args[0]
+  if (target !== undefined && target !== "claude" && target !== "codex" && target !== "cursor") {
+    process.stderr.write("Usage: snapline doctor [claude|codex|cursor]\n")
+    return 1
+  }
   const checks: Check[] = []
 
   let configOk = true
@@ -45,7 +56,7 @@ export function runDoctor(ctx: CliContext): number {
   }
 
   const project = detectProject(ctx.cwd)
-  checks.push({ label: "Tailwind detected", ok: project.hasTailwind })
+  checks.push({ label: "Tailwind detected", ok: project.hasTailwind, fatal: !project.hasTailwind })
   checks.push({
     label: "tsconfig path aliases",
     ok: Object.keys(project.tsconfigPaths).length > 0,
@@ -65,10 +76,18 @@ export function runDoctor(ctx: CliContext): number {
     }
   }
 
+  const selectedAgent = target ?? "claude"
+  const integrationInstalled =
+    selectedAgent === "claude"
+      ? claudeHooksInstalled(ctx.cwd)
+      : selectedAgent === "codex"
+        ? codexHooksInstalled(ctx.cwd)
+        : cursorHooksInstalled(ctx.cwd)
   checks.push({
-    label: "Claude hooks installed",
-    ok: claudeHooksInstalled(ctx.cwd),
-    detail: claudeHooksInstalled(ctx.cwd) ? undefined : 'run "snapline install claude"',
+    label: `${selectedAgent[0]?.toUpperCase()}${selectedAgent.slice(1)} hooks installed`,
+    ok: integrationInstalled,
+    detail: integrationInstalled ? undefined : `run "snapline install ${selectedAgent}"`,
+    fatal: target !== undefined && !integrationInstalled,
   })
 
   const nodeMajor = Number(process.versions.node.split(".")[0])
@@ -84,6 +103,7 @@ export function runDoctor(ctx: CliContext): number {
     label: "git repository",
     ok: gitOk,
     detail: gitOk ? undefined : "scan --changed and the Stop hook need git",
+    fatal: target !== undefined && !gitOk,
   })
   checks.push({
     label: ".snapline state directory",

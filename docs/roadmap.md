@@ -1,46 +1,44 @@
 # Roadmap
 
-Priorities after 1.0. Nothing here is a commitment with a date; items move
-when the underlying platform (agent hook APIs) moves.
+No dates are implied. Release gates are evidence requirements, not feature
+expansion.
 
-## Shipped since first draft
+## Before 1.0
 
-Public benchmark results (Sonnet 5 matrix + Haiku 4.5 and Codex/gpt-5.5
-slices — see [benchmark.md](benchmark.md)) and full `.jsx`/`jsconfig.json`
-project support.
+- Verify Claude, Codex, and Cursor interactively with the same packed RC and
+  archive the clean, drift, malformed, retry, and uninstall evidence.
+- Publish a hand-labelled detection corpus with positive, negative, and
+  boundary cases for every v1 rule.
+- Accept or reduce the measured cold hook startup budget.
+- Rerun a small pinned benchmark matrix on the candidate, or remove current
+  comparative ranking copy.
+- Publish and clean-install `1.0.0-rc.1`, then make the binary
+  [exit checklist](release-1.0.md) entirely green.
 
-## Near term
+## Immediately after 1.0
 
-- **Complete the Codex slice retries** once the account quota resets (15
-  quota-failed cells recorded in `reports/latest-codex.md`).
-- **Codex first-class.** The adapter and normalized `HookEvent` contract are
-  ready; blocked on Codex shipping a stable lifecycle-hook API. Until then
-  Codex stays instruction-level (AGENTS.md + documented payload wiring).
-- **Dynamic-className detection.** Fully computed `className` expressions are
-  the scanner's known blind spot; a warn-tier "dynamic className on a raw
-  primitive" rule would shrink it without violating the false-positive policy.
-- **Cursor benchmark slice** (instruction-level, like Codex) so every shipped
-  integration has published numbers.
+- Dynamic-className detection, with negative fixtures before implementation.
+- Tailwind v4 CSS-first token discovery.
+- Broader permission, encoding, interruption, large-file, and workspace tests.
+- Real hook-trace analysis before considering a cache or persistent process.
+- Quiet/verbose CLI modes if JSON and the current human output prove
+  insufficient.
 
-## Medium term
+## Later
 
-- **Cursor hooks.** Same story as Codex: adapt when a stable hook API exists;
-  instruction-level rules until then.
-- **Tailwind v4 token discovery.** Read `@theme` blocks from CSS-first configs
-  (read-css-vars already parses custom properties; wire it into the allowed
-  token set).
-- **Custom rule severity per path.** e.g. relax rules in `src/app/(marketing)`.
-- **More safe fixes** — only where mappings stay unambiguous (dialog/card
-  rewrites stay agent territory).
+- Rule severity by path.
+- More safe fixes where mappings remain unambiguous.
+- Additional framework and agent adapters based on demonstrated use.
+- Public rule extensibility only after independent consumers exist.
 
 ## Explicit non-goals
 
-These stay out regardless of demand — they change what Snapline is:
-
 - Cloud service, dashboard, or database
-- LLM calls inside the scanner (determinism is the product)
-- Visual regression / screenshot diffing
-- Figma or design-file sync
-- Generating UI
+- LLM calls inside the scanner
+- Visual regression or screenshot diffing
+- Figma/design-file synchronization
+- UI generation
 
-See [introduction.md](introduction.md) for the category definition.
+See [introduction.md](introduction.md) for the category boundary and the
+[release-readiness audit](release-readiness-audit.md) for the evidence behind
+this order.

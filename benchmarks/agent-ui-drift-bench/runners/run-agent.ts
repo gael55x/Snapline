@@ -41,7 +41,10 @@ function dirSegment(value: string): string {
 
 function runsDirFor(agent: BenchMode["agent"], model: string | undefined): string {
   const parts = [agent === "claude" ? undefined : agent, model?.trim() || undefined]
-  const suffix = parts.filter((part): part is string => part !== undefined).map(dirSegment).join("-")
+  const suffix = parts
+    .filter((part): part is string => part !== undefined)
+    .map(dirSegment)
+    .join("-")
   return suffix.length === 0 ? "runs" : `runs-${suffix}`
 }
 
@@ -61,6 +64,37 @@ function modelFor(mode: BenchMode, override: string | undefined, configModel: st
 
 function git(cwd: string, args: string[]): string {
   return execFileSync("git", args, { cwd, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] })
+}
+
+function commandVersion(command: string): string | undefined {
+  try {
+    return execFileSync(command, ["--version"], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+      timeout: 30000,
+    })
+      .trim()
+      .split("\n")[0]
+  } catch {
+    return undefined
+  }
+}
+
+function toolVersions(fixtureDir: string): Record<string, string> {
+  const versions: Record<string, string> = {}
+  for (const name of ["@buoy-design/cli", "driftguard", "eslint", "eslint-plugin-tailwindcss"]) {
+    const packagePath = path.join(fixtureDir, "node_modules", name, "package.json")
+    if (!fs.existsSync(packagePath)) continue
+    const pkg = JSON.parse(fs.readFileSync(packagePath, "utf8")) as { version?: string }
+    if (pkg.version !== undefined) versions[name] = pkg.version
+  }
+  const mcpPath = path.join(fixtureDir, ".mcp.json")
+  if (fs.existsSync(mcpPath)) {
+    const text = fs.readFileSync(mcpPath, "utf8")
+    const version = /shadcn@(\d+\.\d+\.\d+)/.exec(text)?.[1]
+    if (version !== undefined) versions.shadcn = version
+  }
+  return versions
 }
 
 function runOne(spec: RunSpec, dryRun: boolean): void {
@@ -88,6 +122,8 @@ function runOne(spec: RunSpec, dryRun: boolean): void {
   let failure: string | undefined
   let repairIterations = 0
   let hookRuntimeMs = 0
+  let sourceCommit: string | undefined
+  let recordedToolVersions: Record<string, string> = {}
   const fixtureDir = path.join(cloneDir, "fixtures", prompt.fixture)
   const hookLog = path.join(runDir, "hook-log.jsonl")
 
@@ -101,10 +137,6 @@ function runOne(spec: RunSpec, dryRun: boolean): void {
     const template = process.env.SNAPLINE_BENCH_TEMPLATE
     if (template !== undefined && template.length > 0 && fs.existsSync(template)) {
       execFileSync("cp", ["-c", "-R", template, cloneDir], { stdio: "pipe", timeout: 300000 })
-      fs.writeFileSync(
-        path.join(runDir, "template-sha.txt"),
-        git(cloneDir, ["rev-parse", "HEAD"]),
-      )
     } else {
       git(benchRoot, ["clone", "--quiet", repoRoot, cloneDir])
       execFileSync("pnpm", ["install", "--frozen-lockfile", "--prefer-offline"], {
@@ -114,9 +146,12 @@ function runOne(spec: RunSpec, dryRun: boolean): void {
       })
       execFileSync("pnpm", ["build"], { cwd: cloneDir, stdio: "pipe", timeout: 600000 })
     }
+    sourceCommit = git(cloneDir, ["rev-parse", "HEAD"]).trim()
+    fs.writeFileSync(path.join(runDir, "template-sha.txt"), sourceCommit + "\n")
 
     // 3. mode setup, committed so the agent diff is only the agent's work
     mode.prepare(fixtureDir, cloneDir)
+    recordedToolVersions = toolVersions(fixtureDir)
     git(cloneDir, ["add", "-A"])
     git(cloneDir, [
       "-c",
@@ -178,6 +213,14 @@ function runOne(spec: RunSpec, dryRun: boolean): void {
     attempt: spec.attempt,
     model,
     agent: mode.agent,
+    environment: {
+      platform: process.platform,
+      arch: process.arch,
+      nodeVersion: process.version,
+      sourceCommit,
+      agentVersion: commandVersion(mode.invocation("", model).cmd),
+      toolVersions: recordedToolVersions,
+    },
     result: {
       score: scan?.score ?? {
         driftScore: 0,

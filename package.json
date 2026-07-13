@@ -20,10 +20,16 @@
     "bench:static": "pnpm --filter agent-ui-drift-bench bench:static",
     "bench:agent": "pnpm --filter agent-ui-drift-bench bench:agent",
     "bench:report": "pnpm --filter agent-ui-drift-bench bench:report",
+    "bench:report:published": "pnpm --filter agent-ui-drift-bench bench:report:published",
+    "bench:published:check": "pnpm --filter agent-ui-drift-bench bench:published:check",
+    "bench:performance": "node benchmarks/performance/run.mjs",
     "bench:graph": "pnpm --filter agent-ui-drift-bench bench:graph",
     "docs:check": "node scripts/check-docs.mjs",
+    "package:smoke": "node scripts/package-smoke.mjs",
+    "release:metadata:check": "node scripts/sync-plugin-version.mjs --check",
+    "release:check": "pnpm lint && pnpm typecheck && pnpm build && pnpm test && pnpm bench:static && pnpm bench:published:check && pnpm docs:check && pnpm release:metadata:check && pnpm package:smoke",
     "changeset": "changeset",
-    "version-packages": "changeset version",
+    "version-packages": "changeset version && node scripts/sync-plugin-version.mjs",
     "release": "pnpm build && changeset publish"
   },
   "devDependencies": {

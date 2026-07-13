@@ -14,6 +14,7 @@ export { readComponentsJson, type ComponentsJson } from "./project/read-componen
 export { readTsconfigPaths, resolveAlias } from "./project/read-tsconfig-paths.js"
 export { readTailwindConfig, type TailwindInfo } from "./project/read-tailwind-config.js"
 export { readCssVars, type CssVarsInfo } from "./project/read-css-vars.js"
+export { projectFilePath, ProjectPathError } from "./project/project-file.js"
 
 // Registries
 export { buildComponentRegistry, registryComponent } from "./registry/component-registry.js"

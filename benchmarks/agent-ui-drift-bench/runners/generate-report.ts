@@ -27,7 +27,20 @@ export function collectRuns(runsDirName = "runs"): BenchmarkRun[] {
   const runs: BenchmarkRun[] = []
   for (const entry of fs.readdirSync(runsDir).sort()) {
     const file = path.join(runsDir, entry, "run.json")
-    if (fs.existsSync(file)) runs.push(JSON.parse(fs.readFileSync(file, "utf8")) as BenchmarkRun)
+    if (!fs.existsSync(file)) continue
+    const run = JSON.parse(fs.readFileSync(file, "utf8")) as BenchmarkRun
+    if (runsDirName === "runs") {
+      runs.push(run)
+      continue
+    }
+    const archivedPath = (artifact: string): string =>
+      `${runsDirName}/${run.id}/${path.basename(artifact)}`
+    runs.push({
+      ...run,
+      rawOutputPaths: run.rawOutputPaths.map(archivedPath),
+      scannerJsonPath: archivedPath(run.scannerJsonPath),
+      gitDiffPath: archivedPath(run.gitDiffPath),
+    })
   }
   return runs
 }
@@ -108,9 +121,7 @@ export function reportMarkdown(report: BenchmarkReport): string {
   for (const summary of report.modes) {
     const m = summary.median
     const rate =
-      summary.driftedRunRate !== undefined
-        ? `${(summary.driftedRunRate * 100).toFixed(0)}%`
-        : "TBD"
+      summary.driftedRunRate !== undefined ? `${(summary.driftedRunRate * 100).toFixed(0)}%` : "TBD"
     lines.push(
       `| ${summary.mode} | ${summary.runs} | ${summary.failures} | ${rate} | ${fmt(summary.worstDriftScore, 0)} | ${fmt(m?.driftScore)} | ${m ? (m.componentReuseRate * 100).toFixed(1) + "%" : "TBD"} | ${m ? (m.buildPassRate * 100).toFixed(0) + "%" : "TBD"} | ${fmt(m?.totalWallTimeSeconds, 0)} |`,
     )
@@ -165,5 +176,7 @@ if (isMain) {
   const name = flag("--name") ?? "latest"
   const report = buildReport(collectRuns(runsDir))
   writeReports(report, name)
-  process.stdout.write(`reports/${name}.{json,md,csv} written (${report.runs.length} runs from ${runsDir}/)\n`)
+  process.stdout.write(
+    `reports/${name}.{json,md,csv} written (${report.runs.length} runs from ${runsDir}/)\n`,
+  )
 }

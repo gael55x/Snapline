@@ -1,4 +1,10 @@
 {
   "extends": "../../../tsconfig.base.json",
-  "include": ["src"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@usesnapline/contracts": ["../../contracts/src/index.ts"]
+    }
+  },
+  "include": ["src", "tests"]
 }

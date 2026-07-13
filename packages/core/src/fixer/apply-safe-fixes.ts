@@ -1,7 +1,7 @@
 import fs from "node:fs"
-import path from "node:path"
 import type { FixPlan } from "./types.js"
 import { applyEdits } from "./types.js"
+import { projectFilePath } from "../project/project-file.js"
 
 export interface AppliedFix {
   readonly filePath: string
@@ -12,7 +12,7 @@ export interface AppliedFix {
 export function applySafeFixes(root: string, plan: FixPlan, dryRun = false): AppliedFix[] {
   const applied: AppliedFix[] = []
   for (const file of plan.files) {
-    const absolute = path.join(root, file.filePath)
+    const absolute = projectFilePath(root, file.filePath)
     if (!fs.existsSync(absolute)) continue
     const before = fs.readFileSync(absolute, "utf8")
     const after = applyEdits(before, file.edits)

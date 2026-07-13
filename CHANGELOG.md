@@ -5,6 +5,15 @@ publish. This file tracks pre-release milestones.
 
 ## Unreleased (0.1.0 line)
 
+- 1.0 release-candidate hardening: project-root containment for scan/fix and
+  hook payloads; versioned scan/repair schemas; strict config and CLI input;
+  current Claude, Codex, and Cursor lifecycle contracts; reversible setup;
+  visible hook transport/scanner failures; no-HEAD git support; six-package
+  clean-consumer smoke; reproducible performance evidence; and honest release
+  gates. Codex and Cursor remain preview until live candidate verification.
+- Removed accepted-but-unused `stack`, `fix`, and `benchmark` configuration
+  sections before the v1 config contract freezes.
+
 - Loop 1: pnpm workspace, TypeScript/ESLint/Prettier/Vitest/tsup/Changesets
   toolchain, CI + release workflows, `@usesnapline/contracts` (config,
   violations, repair contracts, scan/score, benchmark, hook, registry types),
@@ -18,8 +27,7 @@ publish. This file tracks pre-release milestones.
   doctor, hook, benchmark; --json everywhere it matters; exit codes for CI.
 - Loop 5: Claude adapter on official hook schemas (PostToolUse block-with-
   contract, Stop gate with loop guard), idempotent settings.json install,
-  Claude plugin package (.claude-plugin manifest + hooks.json + marketplace),
-  Codex adapter (beta), Cursor rules install (experimental).
+  Claude plugin package (.claude-plugin manifest + hooks.json + marketplace).
 - Loop 6: safe fixer codemods (semantic color map, simple button/input swaps,
   inline-spacing conversion), doctor checks, three clean fixture apps wired
   into tests with performance budget assertions.
