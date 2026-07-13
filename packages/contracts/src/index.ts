@@ -2,13 +2,10 @@ export type { RuleId, RuleSeverity, RuleConfigKey } from "./rule.js"
 export { RULE_CONFIG_KEYS, ALL_RULE_IDS } from "./rule.js"
 export type {
   SnaplineConfig,
-  StackConfig,
   ComponentMapping,
   TokenConfig,
   TokenColorConfig,
   RulesConfig,
-  FixConfig,
-  BenchmarkConfig,
 } from "./config.js"
 export type { ComponentRegistry, ComponentRegistryEntry, TokenRegistry } from "./registry.js"
 export type { Violation, ViolationLocation, RepairInstruction } from "./violation.js"

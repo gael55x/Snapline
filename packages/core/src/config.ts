@@ -47,14 +47,11 @@ export const DEFAULT_COMPONENTS: Readonly<Record<string, ComponentMapping>> = {
 export function defaultConfig(): SnaplineConfig {
   return {
     version: 1,
-    stack: { framework: "next", ui: "shadcn", styling: "tailwind" },
     components: DEFAULT_COMPONENTS,
     tokens: {
       colors: { semanticOnly: true, allowed: DEFAULT_ALLOWED_COLOR_CLASSES },
     },
     rules: DEFAULT_RULES,
-    fix: { safeAutofix: false, preferAgentRepair: true },
-    benchmark: { enabled: true, scorer: "ui-drift-score-v1" },
   }
 }
 
@@ -90,32 +87,11 @@ export function parseConfig(text: string): SnaplineConfig {
   if (raw.version !== 1) throw new ConfigError(`Unsupported config version: ${String(raw.version)}`)
 
   const defaults = defaultConfig()
-  const knownKeys = new Set([
-    "version",
-    "stack",
-    "components",
-    "tokens",
-    "rules",
-    "fix",
-    "benchmark",
-  ])
+  const knownKeys = new Set(["version", "components", "tokens", "rules"])
   for (const key of Object.keys(raw)) {
     if (!knownKeys.has(key)) throw new ConfigError(`Unknown top-level config key: ${key}`)
   }
 
-  const stack = section(raw.stack, "stack")
-  rejectUnknownKeys(stack, ["framework", "ui", "styling"], "stack")
-  const frameworks = ["next", "vite", "remix", "other"] as const
-  const uiLibraries = ["shadcn", "custom"] as const
-  if (stack.framework !== undefined && !frameworks.includes(stack.framework as never)) {
-    throw new ConfigError(`Invalid stack.framework: ${String(stack.framework)}`)
-  }
-  if (stack.ui !== undefined && !uiLibraries.includes(stack.ui as never)) {
-    throw new ConfigError(`Invalid stack.ui: ${String(stack.ui)}`)
-  }
-  if (stack.styling !== undefined && stack.styling !== "tailwind") {
-    throw new ConfigError(`Invalid stack.styling: ${String(stack.styling)}`)
-  }
   const components: Record<string, ComponentMapping> = {}
   if (raw.components !== undefined) {
     if (!isRecord(raw.components)) throw new ConfigError("components must be a mapping")
@@ -167,30 +143,8 @@ export function parseConfig(text: string): SnaplineConfig {
     }
   }
 
-  const fix = section(raw.fix, "fix")
-  rejectUnknownKeys(fix, ["safeAutofix", "preferAgentRepair"], "fix")
-  if (fix.safeAutofix !== undefined && typeof fix.safeAutofix !== "boolean") {
-    throw new ConfigError("fix.safeAutofix must be a boolean")
-  }
-  if (fix.preferAgentRepair !== undefined && typeof fix.preferAgentRepair !== "boolean") {
-    throw new ConfigError("fix.preferAgentRepair must be a boolean")
-  }
-  const benchmark = section(raw.benchmark, "benchmark")
-  rejectUnknownKeys(benchmark, ["enabled", "scorer"], "benchmark")
-  if (benchmark.enabled !== undefined && typeof benchmark.enabled !== "boolean") {
-    throw new ConfigError("benchmark.enabled must be a boolean")
-  }
-  if (benchmark.scorer !== undefined && benchmark.scorer !== "ui-drift-score-v1") {
-    throw new ConfigError(`Unsupported benchmark.scorer: ${String(benchmark.scorer)}`)
-  }
-
   return {
     version: 1,
-    stack: {
-      framework: (stack.framework as SnaplineConfig["stack"]["framework"]) ?? "next",
-      ui: (stack.ui as SnaplineConfig["stack"]["ui"]) ?? "shadcn",
-      styling: "tailwind",
-    },
     components: raw.components === undefined ? defaults.components : components,
     tokens: {
       colors: {
@@ -199,14 +153,6 @@ export function parseConfig(text: string): SnaplineConfig {
       },
     },
     rules: rules as RulesConfig,
-    fix: {
-      safeAutofix: fix.safeAutofix === true,
-      preferAgentRepair: fix.preferAgentRepair !== false,
-    },
-    benchmark: {
-      enabled: benchmark.enabled !== false,
-      scorer: "ui-drift-score-v1",
-    },
   }
 }
 

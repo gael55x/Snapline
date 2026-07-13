@@ -32,18 +32,8 @@ function componentsYaml(uiDir: string | undefined, root: string, uiAlias: string
   return lines.join("\n")
 }
 
-function defaultConfigYaml(
-  framework: "next" | "other",
-  uiDir: string | undefined,
-  root: string,
-  uiAlias: string,
-): string {
+function defaultConfigYaml(uiDir: string | undefined, root: string, uiAlias: string): string {
   return `version: 1
-
-stack:
-  framework: ${framework}
-  ui: ${uiDir === undefined ? "custom" : "shadcn"}
-  styling: tailwind
 
 ${componentsYaml(uiDir, root, uiAlias)}
 
@@ -63,14 +53,6 @@ rules:
   requireDialogComponent: warn
   requireCardComponent: warn
   noDuplicateComponents: warn
-
-fix:
-  safeAutofix: false
-  preferAgentRepair: true
-
-benchmark:
-  enabled: true
-  scorer: ui-drift-score-v1
 `
 }
 
@@ -108,10 +90,7 @@ export function runInit(ctx: CliContext): number {
     notes.push(`• ${CONFIG_FILE_NAME} already exists — left untouched`)
   } else {
     const uiAlias = project.componentsJson?.aliases?.ui ?? "@/components/ui"
-    fs.writeFileSync(
-      configPath,
-      defaultConfigYaml(project.hasNext ? "next" : "other", project.uiDir, ctx.cwd, uiAlias),
-    )
+    fs.writeFileSync(configPath, defaultConfigYaml(project.uiDir, ctx.cwd, uiAlias))
     notes.push(`✔ wrote ${CONFIG_FILE_NAME}`)
   }
 
