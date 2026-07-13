@@ -22,6 +22,7 @@
     "bench:report": "pnpm --filter agent-ui-drift-bench bench:report",
     "bench:report:published": "pnpm --filter agent-ui-drift-bench bench:report:published",
     "bench:published:check": "pnpm --filter agent-ui-drift-bench bench:published:check",
+    "bench:performance": "node benchmarks/performance/run.mjs",
     "bench:graph": "pnpm --filter agent-ui-drift-bench bench:graph",
     "docs:check": "node scripts/check-docs.mjs",
     "package:smoke": "node scripts/package-smoke.mjs",
