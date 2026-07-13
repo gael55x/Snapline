@@ -10,22 +10,24 @@ import { decideFromScan } from "./decide.js"
  * Empty when not a git repo.
  */
 export function gitChangedFiles(cwd: string): string[] {
-  try {
-    const tracked = execFileSync("git", ["diff", "--relative", "--name-only", "HEAD"], {
-      cwd,
-      encoding: "utf8",
-    })
-    const untracked = execFileSync("git", ["ls-files", "--others", "--exclude-standard"], {
-      cwd,
-      encoding: "utf8",
-    })
-    return [...new Set([...tracked.split("\n"), ...untracked.split("\n")])]
-      .map((f) => f.trim())
-      .filter((f) => f.length > 0)
-      .sort()
-  } catch {
-    return []
+  const gitLines = (args: readonly string[]): string[] => {
+    try {
+      return execFileSync("git", args, {
+        cwd,
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "ignore"],
+      })
+        .split("\n")
+        .map((file) => file.trim())
+        .filter(Boolean)
+    } catch {
+      return []
+    }
   }
+
+  const tracked = gitLines(["diff", "--relative", "--name-only", "HEAD"])
+  const untracked = gitLines(["ls-files", "--others", "--exclude-standard"])
+  return [...new Set([...tracked, ...untracked])].sort()
 }
 
 /**

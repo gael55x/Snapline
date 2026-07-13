@@ -1,6 +1,7 @@
 import fs from "node:fs"
 import os from "node:os"
 import path from "node:path"
+import { execFileSync } from "node:child_process"
 import { afterEach, describe, expect, it } from "vitest"
 import { runHook } from "../../src/hook/run-hook.js"
 
@@ -30,5 +31,21 @@ describe("runHook", () => {
     expect(decision.action).toBe("warn")
     expect(decision.agentMessage).toContain("SNAPLINE COULD NOT ANALYZE UI")
     expect(decision.agentMessage).toContain("Unsupported config version: 2")
+  })
+
+  it("scans untracked files before the repository has its first commit", () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), "snapline-hook-no-head-"))
+    temporaryProjects.push(root)
+    fs.mkdirSync(path.join(root, "src"), { recursive: true })
+    fs.writeFileSync(
+      path.join(root, "src", "page.tsx"),
+      'export default () => <main style={{ color: "#fff" }} />\n',
+    )
+    execFileSync("git", ["init"], { cwd: root, stdio: "ignore" })
+
+    const decision = runHook({ agent: "claude", kind: "stop", cwd: root, filePaths: [] })
+
+    expect(decision.action).toBe("block")
+    expect(decision.agentMessage).toContain("SNAPLINE FOUND UI DRIFT")
   })
 })

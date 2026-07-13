@@ -86,7 +86,7 @@ the plugin allows silently by design (a missing scanner must never break a
 session). It prints a one-line hint to stderr, visible with `claude --debug`:
 
 ```
-snapline CLI not found; install with: npm i -D @usesnapline/cli (hook allowed)
+Snapline CLI not found. Install it with: npm i -D @usesnapline/cli (hook allowed)
 ```
 
 **Blocked and unsure why** — the block reason is the full repair contract;

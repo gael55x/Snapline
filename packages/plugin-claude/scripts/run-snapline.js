@@ -1,7 +1,7 @@
 // Shared launcher for the Snapline plugin hooks. Plain Node, zero deps.
 // Finds the snapline CLI (project-local install first, then PATH) and forwards
-// the hook payload. If the CLI is missing, the hook stays silent and allows —
-// a missing scanner must never break a Claude session.
+// the hook payload. Launcher failures stay non-blocking but are returned to
+// Claude as visible context so enforcement never disappears silently.
 "use strict"
 
 const { spawnSync } = require("node:child_process")
@@ -16,13 +16,7 @@ function findSnapline(cwd) {
 
 function runHook(kind) {
   const stdin = fs.readFileSync(0, "utf8")
-  let cwd = process.cwd()
-  try {
-    const payload = JSON.parse(stdin)
-    if (typeof payload.cwd === "string") cwd = payload.cwd
-  } catch {
-    // fall through with process cwd
-  }
+  const cwd = process.cwd()
   const result = spawnSync(findSnapline(cwd), ["hook", "claude", kind], {
     cwd,
     input: stdin,
@@ -30,10 +24,15 @@ function runHook(kind) {
     timeout: 30000,
   })
   if (result.error) {
-    // CLI not installed — allow silently, hint once on stderr (visible in --debug).
-    process.stderr.write(
-      "snapline CLI not found; install with: npm i -D @usesnapline/cli (hook allowed)\n",
+    const detail =
+      result.error.code === "ENOENT"
+        ? "Snapline CLI not found. Install it with: npm i -D @usesnapline/cli"
+        : `Snapline hook launcher failed: ${result.error.message}`
+    const hookEventName = kind === "stop" ? "Stop" : "PostToolUse"
+    process.stdout.write(
+      `${JSON.stringify({ hookSpecificOutput: { hookEventName, additionalContext: detail } })}\n`,
     )
+    process.stderr.write(`${detail} (hook allowed)\n`)
     process.exit(0)
   }
   if (result.stdout) process.stdout.write(result.stdout)
