@@ -8,6 +8,8 @@
     "bench:static": "tsx runners/run-static.ts",
     "bench:agent": "tsx runners/run-agent.ts",
     "bench:report": "tsx runners/generate-report.ts",
+    "bench:report:published": "tsx runners/generate-published-reports.ts",
+    "bench:published:check": "tsx runners/generate-published-reports.ts --check",
     "bench:graph": "tsx runners/generate-graphs.ts",
     "typecheck": "tsc --noEmit"
   },

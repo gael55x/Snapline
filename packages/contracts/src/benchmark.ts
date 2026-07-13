@@ -38,6 +38,15 @@ export interface BenchmarkRun {
   readonly attempt: number
   readonly model: string
   readonly agent: "claude" | "codex" | "cursor"
+  /** Captured by current runners. Historical archives may predate this field. */
+  readonly environment?: {
+    readonly platform: string
+    readonly arch: string
+    readonly nodeVersion: string
+    readonly sourceCommit?: string
+    readonly agentVersion?: string
+    readonly toolVersions: Readonly<Record<string, string>>
+  }
   readonly result: BenchmarkRunResult
   readonly rawOutputPaths: readonly string[]
   readonly scannerJsonPath: string

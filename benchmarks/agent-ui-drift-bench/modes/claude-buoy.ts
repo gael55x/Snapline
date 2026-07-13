@@ -13,7 +13,7 @@ export const claudeBuoy: BenchMode = {
   agent: "claude",
   description: "Claude Code + @buoy-design/cli; agent instructed to run Buoy's drift check",
   prepare(fixtureDir) {
-    npmInstall(fixtureDir, ["@buoy-design/cli"])
+    npmInstall(fixtureDir, ["@buoy-design/cli@0.3.38"])
     captureHelp(fixtureDir, "buoy")
     fs.writeFileSync(
       path.join(fixtureDir, "CLAUDE.md"),

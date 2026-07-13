@@ -157,11 +157,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--billing-settings-page--1/agent-stdout.txt",
-        "runs/claude-buoy--billing-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-buoy--billing-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-buoy--billing-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--billing-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--billing-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--billing-settings-page--1/diff.patch"
     },
     {
       "id": "claude-buoy--billing-settings-page--2",
@@ -194,11 +194,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--billing-settings-page--2/agent-stdout.txt",
-        "runs/claude-buoy--billing-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-buoy--billing-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-buoy--billing-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--billing-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--billing-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--billing-settings-page--2/diff.patch"
     },
     {
       "id": "claude-buoy--billing-settings-page--3",
@@ -231,11 +231,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--billing-settings-page--3/agent-stdout.txt",
-        "runs/claude-buoy--billing-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-buoy--billing-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-buoy--billing-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--billing-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--billing-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--billing-settings-page--3/diff.patch"
     },
     {
       "id": "claude-buoy--dashboard-visual-hierarchy--1",
@@ -268,11 +268,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--dashboard-visual-hierarchy--1/agent-stdout.txt",
-        "runs/claude-buoy--dashboard-visual-hierarchy--1/agent-stderr.txt"
+        "runs-data/claude-buoy--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-data/claude-buoy--dashboard-visual-hierarchy--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--dashboard-visual-hierarchy--1/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--dashboard-visual-hierarchy--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--dashboard-visual-hierarchy--1/diff.patch"
     },
     {
       "id": "claude-buoy--dashboard-visual-hierarchy--2",
@@ -305,11 +305,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--dashboard-visual-hierarchy--2/agent-stdout.txt",
-        "runs/claude-buoy--dashboard-visual-hierarchy--2/agent-stderr.txt"
+        "runs-data/claude-buoy--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-data/claude-buoy--dashboard-visual-hierarchy--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--dashboard-visual-hierarchy--2/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--dashboard-visual-hierarchy--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--dashboard-visual-hierarchy--2/diff.patch"
     },
     {
       "id": "claude-buoy--dashboard-visual-hierarchy--3",
@@ -342,11 +342,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--dashboard-visual-hierarchy--3/agent-stdout.txt",
-        "runs/claude-buoy--dashboard-visual-hierarchy--3/agent-stderr.txt"
+        "runs-data/claude-buoy--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-data/claude-buoy--dashboard-visual-hierarchy--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--dashboard-visual-hierarchy--3/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--dashboard-visual-hierarchy--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--dashboard-visual-hierarchy--3/diff.patch"
     },
     {
       "id": "claude-buoy--empty-state--1",
@@ -379,11 +379,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--empty-state--1/agent-stdout.txt",
-        "runs/claude-buoy--empty-state--1/agent-stderr.txt"
+        "runs-data/claude-buoy--empty-state--1/agent-stdout.txt",
+        "runs-data/claude-buoy--empty-state--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--empty-state--1/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--empty-state--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--empty-state--1/diff.patch"
     },
     {
       "id": "claude-buoy--empty-state--2",
@@ -416,11 +416,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--empty-state--2/agent-stdout.txt",
-        "runs/claude-buoy--empty-state--2/agent-stderr.txt"
+        "runs-data/claude-buoy--empty-state--2/agent-stdout.txt",
+        "runs-data/claude-buoy--empty-state--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--empty-state--2/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--empty-state--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--empty-state--2/diff.patch"
     },
     {
       "id": "claude-buoy--empty-state--3",
@@ -453,11 +453,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--empty-state--3/agent-stdout.txt",
-        "runs/claude-buoy--empty-state--3/agent-stderr.txt"
+        "runs-data/claude-buoy--empty-state--3/agent-stdout.txt",
+        "runs-data/claude-buoy--empty-state--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--empty-state--3/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--empty-state--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--empty-state--3/diff.patch"
     },
     {
       "id": "claude-buoy--invoices-table--1",
@@ -490,11 +490,11 @@
         "filesTouched": 5
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--invoices-table--1/agent-stdout.txt",
-        "runs/claude-buoy--invoices-table--1/agent-stderr.txt"
+        "runs-data/claude-buoy--invoices-table--1/agent-stdout.txt",
+        "runs-data/claude-buoy--invoices-table--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--invoices-table--1/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--invoices-table--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--invoices-table--1/diff.patch"
     },
     {
       "id": "claude-buoy--invoices-table--2",
@@ -527,11 +527,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--invoices-table--2/agent-stdout.txt",
-        "runs/claude-buoy--invoices-table--2/agent-stderr.txt"
+        "runs-data/claude-buoy--invoices-table--2/agent-stdout.txt",
+        "runs-data/claude-buoy--invoices-table--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--invoices-table--2/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--invoices-table--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--invoices-table--2/diff.patch"
     },
     {
       "id": "claude-buoy--invoices-table--3",
@@ -564,11 +564,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--invoices-table--3/agent-stdout.txt",
-        "runs/claude-buoy--invoices-table--3/agent-stderr.txt"
+        "runs-data/claude-buoy--invoices-table--3/agent-stdout.txt",
+        "runs-data/claude-buoy--invoices-table--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--invoices-table--3/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--invoices-table--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--invoices-table--3/diff.patch"
     },
     {
       "id": "claude-buoy--login-page--1",
@@ -601,11 +601,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--login-page--1/agent-stdout.txt",
-        "runs/claude-buoy--login-page--1/agent-stderr.txt"
+        "runs-data/claude-buoy--login-page--1/agent-stdout.txt",
+        "runs-data/claude-buoy--login-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--login-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--login-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--login-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--login-page--1/diff.patch"
     },
     {
       "id": "claude-buoy--login-page--2",
@@ -638,11 +638,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--login-page--2/agent-stdout.txt",
-        "runs/claude-buoy--login-page--2/agent-stderr.txt"
+        "runs-data/claude-buoy--login-page--2/agent-stdout.txt",
+        "runs-data/claude-buoy--login-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--login-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--login-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--login-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--login-page--2/diff.patch"
     },
     {
       "id": "claude-buoy--login-page--3",
@@ -675,11 +675,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--login-page--3/agent-stdout.txt",
-        "runs/claude-buoy--login-page--3/agent-stderr.txt"
+        "runs-data/claude-buoy--login-page--3/agent-stdout.txt",
+        "runs-data/claude-buoy--login-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--login-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--login-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--login-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--login-page--3/diff.patch"
     },
     {
       "id": "claude-buoy--onboarding-cleanup--1",
@@ -712,11 +712,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--onboarding-cleanup--1/agent-stdout.txt",
-        "runs/claude-buoy--onboarding-cleanup--1/agent-stderr.txt"
+        "runs-data/claude-buoy--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-data/claude-buoy--onboarding-cleanup--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--onboarding-cleanup--1/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--onboarding-cleanup--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--onboarding-cleanup--1/diff.patch"
     },
     {
       "id": "claude-buoy--onboarding-cleanup--2",
@@ -749,11 +749,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--onboarding-cleanup--2/agent-stdout.txt",
-        "runs/claude-buoy--onboarding-cleanup--2/agent-stderr.txt"
+        "runs-data/claude-buoy--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-data/claude-buoy--onboarding-cleanup--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--onboarding-cleanup--2/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--onboarding-cleanup--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--onboarding-cleanup--2/diff.patch"
     },
     {
       "id": "claude-buoy--onboarding-cleanup--3",
@@ -786,11 +786,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--onboarding-cleanup--3/agent-stdout.txt",
-        "runs/claude-buoy--onboarding-cleanup--3/agent-stderr.txt"
+        "runs-data/claude-buoy--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-data/claude-buoy--onboarding-cleanup--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--onboarding-cleanup--3/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--onboarding-cleanup--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--onboarding-cleanup--3/diff.patch"
     },
     {
       "id": "claude-buoy--polished-settings-page--1",
@@ -823,11 +823,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--polished-settings-page--1/agent-stdout.txt",
-        "runs/claude-buoy--polished-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-buoy--polished-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-buoy--polished-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--polished-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--polished-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--polished-settings-page--1/diff.patch"
     },
     {
       "id": "claude-buoy--polished-settings-page--2",
@@ -860,11 +860,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--polished-settings-page--2/agent-stdout.txt",
-        "runs/claude-buoy--polished-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-buoy--polished-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-buoy--polished-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--polished-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--polished-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--polished-settings-page--2/diff.patch"
     },
     {
       "id": "claude-buoy--polished-settings-page--3",
@@ -897,11 +897,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--polished-settings-page--3/agent-stdout.txt",
-        "runs/claude-buoy--polished-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-buoy--polished-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-buoy--polished-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--polished-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--polished-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--polished-settings-page--3/diff.patch"
     },
     {
       "id": "claude-buoy--premium-dashboard--1",
@@ -934,11 +934,11 @@
         "filesTouched": 8
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--premium-dashboard--1/agent-stdout.txt",
-        "runs/claude-buoy--premium-dashboard--1/agent-stderr.txt"
+        "runs-data/claude-buoy--premium-dashboard--1/agent-stdout.txt",
+        "runs-data/claude-buoy--premium-dashboard--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--premium-dashboard--1/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--premium-dashboard--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--premium-dashboard--1/diff.patch"
     },
     {
       "id": "claude-buoy--premium-dashboard--2",
@@ -971,11 +971,11 @@
         "filesTouched": 12
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--premium-dashboard--2/agent-stdout.txt",
-        "runs/claude-buoy--premium-dashboard--2/agent-stderr.txt"
+        "runs-data/claude-buoy--premium-dashboard--2/agent-stdout.txt",
+        "runs-data/claude-buoy--premium-dashboard--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--premium-dashboard--2/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--premium-dashboard--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--premium-dashboard--2/diff.patch"
     },
     {
       "id": "claude-buoy--premium-dashboard--3",
@@ -1008,11 +1008,11 @@
         "filesTouched": 12
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--premium-dashboard--3/agent-stdout.txt",
-        "runs/claude-buoy--premium-dashboard--3/agent-stderr.txt"
+        "runs-data/claude-buoy--premium-dashboard--3/agent-stdout.txt",
+        "runs-data/claude-buoy--premium-dashboard--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--premium-dashboard--3/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--premium-dashboard--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--premium-dashboard--3/diff.patch"
     },
     {
       "id": "claude-buoy--pricing-cards-polish--1",
@@ -1045,11 +1045,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--pricing-cards-polish--1/agent-stdout.txt",
-        "runs/claude-buoy--pricing-cards-polish--1/agent-stderr.txt"
+        "runs-data/claude-buoy--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-data/claude-buoy--pricing-cards-polish--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--pricing-cards-polish--1/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--pricing-cards-polish--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--pricing-cards-polish--1/diff.patch"
     },
     {
       "id": "claude-buoy--pricing-cards-polish--2",
@@ -1082,11 +1082,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--pricing-cards-polish--2/agent-stdout.txt",
-        "runs/claude-buoy--pricing-cards-polish--2/agent-stderr.txt"
+        "runs-data/claude-buoy--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-data/claude-buoy--pricing-cards-polish--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--pricing-cards-polish--2/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--pricing-cards-polish--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--pricing-cards-polish--2/diff.patch"
     },
     {
       "id": "claude-buoy--pricing-cards-polish--3",
@@ -1119,11 +1119,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--pricing-cards-polish--3/agent-stdout.txt",
-        "runs/claude-buoy--pricing-cards-polish--3/agent-stderr.txt"
+        "runs-data/claude-buoy--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-data/claude-buoy--pricing-cards-polish--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--pricing-cards-polish--3/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--pricing-cards-polish--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--pricing-cards-polish--3/diff.patch"
     },
     {
       "id": "claude-buoy--team-invite-modal--1",
@@ -1156,11 +1156,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--team-invite-modal--1/agent-stdout.txt",
-        "runs/claude-buoy--team-invite-modal--1/agent-stderr.txt"
+        "runs-data/claude-buoy--team-invite-modal--1/agent-stdout.txt",
+        "runs-data/claude-buoy--team-invite-modal--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--team-invite-modal--1/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--team-invite-modal--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--team-invite-modal--1/diff.patch"
     },
     {
       "id": "claude-buoy--team-invite-modal--2",
@@ -1193,11 +1193,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--team-invite-modal--2/agent-stdout.txt",
-        "runs/claude-buoy--team-invite-modal--2/agent-stderr.txt"
+        "runs-data/claude-buoy--team-invite-modal--2/agent-stdout.txt",
+        "runs-data/claude-buoy--team-invite-modal--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--team-invite-modal--2/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--team-invite-modal--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--team-invite-modal--2/diff.patch"
     },
     {
       "id": "claude-buoy--team-invite-modal--3",
@@ -1230,11 +1230,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-buoy--team-invite-modal--3/agent-stdout.txt",
-        "runs/claude-buoy--team-invite-modal--3/agent-stderr.txt"
+        "runs-data/claude-buoy--team-invite-modal--3/agent-stdout.txt",
+        "runs-data/claude-buoy--team-invite-modal--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-buoy--team-invite-modal--3/scanner.json",
-      "gitDiffPath": "runs/claude-buoy--team-invite-modal--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-buoy--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-buoy--team-invite-modal--3/diff.patch"
     },
     {
       "id": "claude-drift-guard--billing-settings-page--1",
@@ -1267,11 +1267,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--billing-settings-page--1/agent-stdout.txt",
-        "runs/claude-drift-guard--billing-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-drift-guard--billing-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-drift-guard--billing-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--billing-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--billing-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--billing-settings-page--1/diff.patch"
     },
     {
       "id": "claude-drift-guard--billing-settings-page--2",
@@ -1304,11 +1304,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--billing-settings-page--2/agent-stdout.txt",
-        "runs/claude-drift-guard--billing-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-drift-guard--billing-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-drift-guard--billing-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--billing-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--billing-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--billing-settings-page--2/diff.patch"
     },
     {
       "id": "claude-drift-guard--billing-settings-page--3",
@@ -1341,11 +1341,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--billing-settings-page--3/agent-stdout.txt",
-        "runs/claude-drift-guard--billing-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-drift-guard--billing-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-drift-guard--billing-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--billing-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--billing-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--billing-settings-page--3/diff.patch"
     },
     {
       "id": "claude-drift-guard--dashboard-visual-hierarchy--1",
@@ -1378,11 +1378,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--dashboard-visual-hierarchy--1/agent-stdout.txt",
-        "runs/claude-drift-guard--dashboard-visual-hierarchy--1/agent-stderr.txt"
+        "runs-data/claude-drift-guard--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-data/claude-drift-guard--dashboard-visual-hierarchy--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--dashboard-visual-hierarchy--1/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--dashboard-visual-hierarchy--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--dashboard-visual-hierarchy--1/diff.patch"
     },
     {
       "id": "claude-drift-guard--dashboard-visual-hierarchy--2",
@@ -1415,11 +1415,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--dashboard-visual-hierarchy--2/agent-stdout.txt",
-        "runs/claude-drift-guard--dashboard-visual-hierarchy--2/agent-stderr.txt"
+        "runs-data/claude-drift-guard--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-data/claude-drift-guard--dashboard-visual-hierarchy--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--dashboard-visual-hierarchy--2/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--dashboard-visual-hierarchy--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--dashboard-visual-hierarchy--2/diff.patch"
     },
     {
       "id": "claude-drift-guard--dashboard-visual-hierarchy--3",
@@ -1452,11 +1452,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--dashboard-visual-hierarchy--3/agent-stdout.txt",
-        "runs/claude-drift-guard--dashboard-visual-hierarchy--3/agent-stderr.txt"
+        "runs-data/claude-drift-guard--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-data/claude-drift-guard--dashboard-visual-hierarchy--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--dashboard-visual-hierarchy--3/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--dashboard-visual-hierarchy--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--dashboard-visual-hierarchy--3/diff.patch"
     },
     {
       "id": "claude-drift-guard--empty-state--1",
@@ -1489,11 +1489,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--empty-state--1/agent-stdout.txt",
-        "runs/claude-drift-guard--empty-state--1/agent-stderr.txt"
+        "runs-data/claude-drift-guard--empty-state--1/agent-stdout.txt",
+        "runs-data/claude-drift-guard--empty-state--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--empty-state--1/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--empty-state--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--empty-state--1/diff.patch"
     },
     {
       "id": "claude-drift-guard--empty-state--2",
@@ -1526,11 +1526,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--empty-state--2/agent-stdout.txt",
-        "runs/claude-drift-guard--empty-state--2/agent-stderr.txt"
+        "runs-data/claude-drift-guard--empty-state--2/agent-stdout.txt",
+        "runs-data/claude-drift-guard--empty-state--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--empty-state--2/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--empty-state--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--empty-state--2/diff.patch"
     },
     {
       "id": "claude-drift-guard--empty-state--3",
@@ -1563,11 +1563,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--empty-state--3/agent-stdout.txt",
-        "runs/claude-drift-guard--empty-state--3/agent-stderr.txt"
+        "runs-data/claude-drift-guard--empty-state--3/agent-stdout.txt",
+        "runs-data/claude-drift-guard--empty-state--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--empty-state--3/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--empty-state--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--empty-state--3/diff.patch"
     },
     {
       "id": "claude-drift-guard--invoices-table--1",
@@ -1600,11 +1600,11 @@
         "filesTouched": 5
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--invoices-table--1/agent-stdout.txt",
-        "runs/claude-drift-guard--invoices-table--1/agent-stderr.txt"
+        "runs-data/claude-drift-guard--invoices-table--1/agent-stdout.txt",
+        "runs-data/claude-drift-guard--invoices-table--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--invoices-table--1/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--invoices-table--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--invoices-table--1/diff.patch"
     },
     {
       "id": "claude-drift-guard--invoices-table--2",
@@ -1637,11 +1637,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--invoices-table--2/agent-stdout.txt",
-        "runs/claude-drift-guard--invoices-table--2/agent-stderr.txt"
+        "runs-data/claude-drift-guard--invoices-table--2/agent-stdout.txt",
+        "runs-data/claude-drift-guard--invoices-table--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--invoices-table--2/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--invoices-table--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--invoices-table--2/diff.patch"
     },
     {
       "id": "claude-drift-guard--invoices-table--3",
@@ -1674,11 +1674,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--invoices-table--3/agent-stdout.txt",
-        "runs/claude-drift-guard--invoices-table--3/agent-stderr.txt"
+        "runs-data/claude-drift-guard--invoices-table--3/agent-stdout.txt",
+        "runs-data/claude-drift-guard--invoices-table--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--invoices-table--3/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--invoices-table--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--invoices-table--3/diff.patch"
     },
     {
       "id": "claude-drift-guard--login-page--1",
@@ -1711,11 +1711,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--login-page--1/agent-stdout.txt",
-        "runs/claude-drift-guard--login-page--1/agent-stderr.txt"
+        "runs-data/claude-drift-guard--login-page--1/agent-stdout.txt",
+        "runs-data/claude-drift-guard--login-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--login-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--login-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--login-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--login-page--1/diff.patch"
     },
     {
       "id": "claude-drift-guard--login-page--2",
@@ -1748,11 +1748,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--login-page--2/agent-stdout.txt",
-        "runs/claude-drift-guard--login-page--2/agent-stderr.txt"
+        "runs-data/claude-drift-guard--login-page--2/agent-stdout.txt",
+        "runs-data/claude-drift-guard--login-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--login-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--login-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--login-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--login-page--2/diff.patch"
     },
     {
       "id": "claude-drift-guard--login-page--3",
@@ -1785,11 +1785,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--login-page--3/agent-stdout.txt",
-        "runs/claude-drift-guard--login-page--3/agent-stderr.txt"
+        "runs-data/claude-drift-guard--login-page--3/agent-stdout.txt",
+        "runs-data/claude-drift-guard--login-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--login-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--login-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--login-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--login-page--3/diff.patch"
     },
     {
       "id": "claude-drift-guard--onboarding-cleanup--1",
@@ -1822,11 +1822,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--onboarding-cleanup--1/agent-stdout.txt",
-        "runs/claude-drift-guard--onboarding-cleanup--1/agent-stderr.txt"
+        "runs-data/claude-drift-guard--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-data/claude-drift-guard--onboarding-cleanup--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--onboarding-cleanup--1/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--onboarding-cleanup--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--onboarding-cleanup--1/diff.patch"
     },
     {
       "id": "claude-drift-guard--onboarding-cleanup--2",
@@ -1859,11 +1859,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--onboarding-cleanup--2/agent-stdout.txt",
-        "runs/claude-drift-guard--onboarding-cleanup--2/agent-stderr.txt"
+        "runs-data/claude-drift-guard--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-data/claude-drift-guard--onboarding-cleanup--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--onboarding-cleanup--2/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--onboarding-cleanup--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--onboarding-cleanup--2/diff.patch"
     },
     {
       "id": "claude-drift-guard--onboarding-cleanup--3",
@@ -1896,11 +1896,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--onboarding-cleanup--3/agent-stdout.txt",
-        "runs/claude-drift-guard--onboarding-cleanup--3/agent-stderr.txt"
+        "runs-data/claude-drift-guard--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-data/claude-drift-guard--onboarding-cleanup--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--onboarding-cleanup--3/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--onboarding-cleanup--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--onboarding-cleanup--3/diff.patch"
     },
     {
       "id": "claude-drift-guard--polished-settings-page--1",
@@ -1933,11 +1933,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--polished-settings-page--1/agent-stdout.txt",
-        "runs/claude-drift-guard--polished-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-drift-guard--polished-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-drift-guard--polished-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--polished-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--polished-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--polished-settings-page--1/diff.patch"
     },
     {
       "id": "claude-drift-guard--polished-settings-page--2",
@@ -1970,11 +1970,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--polished-settings-page--2/agent-stdout.txt",
-        "runs/claude-drift-guard--polished-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-drift-guard--polished-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-drift-guard--polished-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--polished-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--polished-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--polished-settings-page--2/diff.patch"
     },
     {
       "id": "claude-drift-guard--polished-settings-page--3",
@@ -2007,11 +2007,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--polished-settings-page--3/agent-stdout.txt",
-        "runs/claude-drift-guard--polished-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-drift-guard--polished-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-drift-guard--polished-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--polished-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--polished-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--polished-settings-page--3/diff.patch"
     },
     {
       "id": "claude-drift-guard--premium-dashboard--1",
@@ -2044,11 +2044,11 @@
         "filesTouched": 10
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--premium-dashboard--1/agent-stdout.txt",
-        "runs/claude-drift-guard--premium-dashboard--1/agent-stderr.txt"
+        "runs-data/claude-drift-guard--premium-dashboard--1/agent-stdout.txt",
+        "runs-data/claude-drift-guard--premium-dashboard--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--premium-dashboard--1/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--premium-dashboard--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--premium-dashboard--1/diff.patch"
     },
     {
       "id": "claude-drift-guard--premium-dashboard--2",
@@ -2081,11 +2081,11 @@
         "filesTouched": 8
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--premium-dashboard--2/agent-stdout.txt",
-        "runs/claude-drift-guard--premium-dashboard--2/agent-stderr.txt"
+        "runs-data/claude-drift-guard--premium-dashboard--2/agent-stdout.txt",
+        "runs-data/claude-drift-guard--premium-dashboard--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--premium-dashboard--2/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--premium-dashboard--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--premium-dashboard--2/diff.patch"
     },
     {
       "id": "claude-drift-guard--premium-dashboard--3",
@@ -2118,11 +2118,11 @@
         "filesTouched": 8
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--premium-dashboard--3/agent-stdout.txt",
-        "runs/claude-drift-guard--premium-dashboard--3/agent-stderr.txt"
+        "runs-data/claude-drift-guard--premium-dashboard--3/agent-stdout.txt",
+        "runs-data/claude-drift-guard--premium-dashboard--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--premium-dashboard--3/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--premium-dashboard--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--premium-dashboard--3/diff.patch"
     },
     {
       "id": "claude-drift-guard--pricing-cards-polish--1",
@@ -2155,11 +2155,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--pricing-cards-polish--1/agent-stdout.txt",
-        "runs/claude-drift-guard--pricing-cards-polish--1/agent-stderr.txt"
+        "runs-data/claude-drift-guard--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-data/claude-drift-guard--pricing-cards-polish--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--pricing-cards-polish--1/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--pricing-cards-polish--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--pricing-cards-polish--1/diff.patch"
     },
     {
       "id": "claude-drift-guard--pricing-cards-polish--2",
@@ -2192,11 +2192,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--pricing-cards-polish--2/agent-stdout.txt",
-        "runs/claude-drift-guard--pricing-cards-polish--2/agent-stderr.txt"
+        "runs-data/claude-drift-guard--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-data/claude-drift-guard--pricing-cards-polish--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--pricing-cards-polish--2/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--pricing-cards-polish--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--pricing-cards-polish--2/diff.patch"
     },
     {
       "id": "claude-drift-guard--pricing-cards-polish--3",
@@ -2229,11 +2229,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--pricing-cards-polish--3/agent-stdout.txt",
-        "runs/claude-drift-guard--pricing-cards-polish--3/agent-stderr.txt"
+        "runs-data/claude-drift-guard--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-data/claude-drift-guard--pricing-cards-polish--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--pricing-cards-polish--3/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--pricing-cards-polish--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--pricing-cards-polish--3/diff.patch"
     },
     {
       "id": "claude-drift-guard--team-invite-modal--1",
@@ -2266,11 +2266,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--team-invite-modal--1/agent-stdout.txt",
-        "runs/claude-drift-guard--team-invite-modal--1/agent-stderr.txt"
+        "runs-data/claude-drift-guard--team-invite-modal--1/agent-stdout.txt",
+        "runs-data/claude-drift-guard--team-invite-modal--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--team-invite-modal--1/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--team-invite-modal--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--team-invite-modal--1/diff.patch"
     },
     {
       "id": "claude-drift-guard--team-invite-modal--2",
@@ -2303,11 +2303,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--team-invite-modal--2/agent-stdout.txt",
-        "runs/claude-drift-guard--team-invite-modal--2/agent-stderr.txt"
+        "runs-data/claude-drift-guard--team-invite-modal--2/agent-stdout.txt",
+        "runs-data/claude-drift-guard--team-invite-modal--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--team-invite-modal--2/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--team-invite-modal--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--team-invite-modal--2/diff.patch"
     },
     {
       "id": "claude-drift-guard--team-invite-modal--3",
@@ -2340,11 +2340,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-drift-guard--team-invite-modal--3/agent-stdout.txt",
-        "runs/claude-drift-guard--team-invite-modal--3/agent-stderr.txt"
+        "runs-data/claude-drift-guard--team-invite-modal--3/agent-stdout.txt",
+        "runs-data/claude-drift-guard--team-invite-modal--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-drift-guard--team-invite-modal--3/scanner.json",
-      "gitDiffPath": "runs/claude-drift-guard--team-invite-modal--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-drift-guard--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-drift-guard--team-invite-modal--3/diff.patch"
     },
     {
       "id": "claude-project-instructions--billing-settings-page--1",
@@ -2377,11 +2377,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--billing-settings-page--1/agent-stdout.txt",
-        "runs/claude-project-instructions--billing-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-project-instructions--billing-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-project-instructions--billing-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--billing-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--billing-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--billing-settings-page--1/diff.patch"
     },
     {
       "id": "claude-project-instructions--billing-settings-page--2",
@@ -2414,11 +2414,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--billing-settings-page--2/agent-stdout.txt",
-        "runs/claude-project-instructions--billing-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-project-instructions--billing-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-project-instructions--billing-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--billing-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--billing-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--billing-settings-page--2/diff.patch"
     },
     {
       "id": "claude-project-instructions--billing-settings-page--3",
@@ -2451,11 +2451,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--billing-settings-page--3/agent-stdout.txt",
-        "runs/claude-project-instructions--billing-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-project-instructions--billing-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-project-instructions--billing-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--billing-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--billing-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--billing-settings-page--3/diff.patch"
     },
     {
       "id": "claude-project-instructions--dashboard-visual-hierarchy--1",
@@ -2488,11 +2488,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--dashboard-visual-hierarchy--1/agent-stdout.txt",
-        "runs/claude-project-instructions--dashboard-visual-hierarchy--1/agent-stderr.txt"
+        "runs-data/claude-project-instructions--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-data/claude-project-instructions--dashboard-visual-hierarchy--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--dashboard-visual-hierarchy--1/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--dashboard-visual-hierarchy--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--dashboard-visual-hierarchy--1/diff.patch"
     },
     {
       "id": "claude-project-instructions--dashboard-visual-hierarchy--2",
@@ -2525,11 +2525,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--dashboard-visual-hierarchy--2/agent-stdout.txt",
-        "runs/claude-project-instructions--dashboard-visual-hierarchy--2/agent-stderr.txt"
+        "runs-data/claude-project-instructions--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-data/claude-project-instructions--dashboard-visual-hierarchy--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--dashboard-visual-hierarchy--2/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--dashboard-visual-hierarchy--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--dashboard-visual-hierarchy--2/diff.patch"
     },
     {
       "id": "claude-project-instructions--dashboard-visual-hierarchy--3",
@@ -2562,11 +2562,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--dashboard-visual-hierarchy--3/agent-stdout.txt",
-        "runs/claude-project-instructions--dashboard-visual-hierarchy--3/agent-stderr.txt"
+        "runs-data/claude-project-instructions--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-data/claude-project-instructions--dashboard-visual-hierarchy--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--dashboard-visual-hierarchy--3/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--dashboard-visual-hierarchy--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--dashboard-visual-hierarchy--3/diff.patch"
     },
     {
       "id": "claude-project-instructions--empty-state--1",
@@ -2599,11 +2599,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--empty-state--1/agent-stdout.txt",
-        "runs/claude-project-instructions--empty-state--1/agent-stderr.txt"
+        "runs-data/claude-project-instructions--empty-state--1/agent-stdout.txt",
+        "runs-data/claude-project-instructions--empty-state--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--empty-state--1/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--empty-state--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--empty-state--1/diff.patch"
     },
     {
       "id": "claude-project-instructions--empty-state--2",
@@ -2636,11 +2636,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--empty-state--2/agent-stdout.txt",
-        "runs/claude-project-instructions--empty-state--2/agent-stderr.txt"
+        "runs-data/claude-project-instructions--empty-state--2/agent-stdout.txt",
+        "runs-data/claude-project-instructions--empty-state--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--empty-state--2/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--empty-state--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--empty-state--2/diff.patch"
     },
     {
       "id": "claude-project-instructions--empty-state--3",
@@ -2673,11 +2673,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--empty-state--3/agent-stdout.txt",
-        "runs/claude-project-instructions--empty-state--3/agent-stderr.txt"
+        "runs-data/claude-project-instructions--empty-state--3/agent-stdout.txt",
+        "runs-data/claude-project-instructions--empty-state--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--empty-state--3/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--empty-state--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--empty-state--3/diff.patch"
     },
     {
       "id": "claude-project-instructions--invoices-table--1",
@@ -2710,11 +2710,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--invoices-table--1/agent-stdout.txt",
-        "runs/claude-project-instructions--invoices-table--1/agent-stderr.txt"
+        "runs-data/claude-project-instructions--invoices-table--1/agent-stdout.txt",
+        "runs-data/claude-project-instructions--invoices-table--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--invoices-table--1/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--invoices-table--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--invoices-table--1/diff.patch"
     },
     {
       "id": "claude-project-instructions--invoices-table--2",
@@ -2747,11 +2747,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--invoices-table--2/agent-stdout.txt",
-        "runs/claude-project-instructions--invoices-table--2/agent-stderr.txt"
+        "runs-data/claude-project-instructions--invoices-table--2/agent-stdout.txt",
+        "runs-data/claude-project-instructions--invoices-table--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--invoices-table--2/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--invoices-table--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--invoices-table--2/diff.patch"
     },
     {
       "id": "claude-project-instructions--invoices-table--3",
@@ -2784,11 +2784,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--invoices-table--3/agent-stdout.txt",
-        "runs/claude-project-instructions--invoices-table--3/agent-stderr.txt"
+        "runs-data/claude-project-instructions--invoices-table--3/agent-stdout.txt",
+        "runs-data/claude-project-instructions--invoices-table--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--invoices-table--3/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--invoices-table--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--invoices-table--3/diff.patch"
     },
     {
       "id": "claude-project-instructions--login-page--1",
@@ -2821,11 +2821,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--login-page--1/agent-stdout.txt",
-        "runs/claude-project-instructions--login-page--1/agent-stderr.txt"
+        "runs-data/claude-project-instructions--login-page--1/agent-stdout.txt",
+        "runs-data/claude-project-instructions--login-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--login-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--login-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--login-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--login-page--1/diff.patch"
     },
     {
       "id": "claude-project-instructions--login-page--2",
@@ -2858,11 +2858,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--login-page--2/agent-stdout.txt",
-        "runs/claude-project-instructions--login-page--2/agent-stderr.txt"
+        "runs-data/claude-project-instructions--login-page--2/agent-stdout.txt",
+        "runs-data/claude-project-instructions--login-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--login-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--login-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--login-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--login-page--2/diff.patch"
     },
     {
       "id": "claude-project-instructions--login-page--3",
@@ -2895,11 +2895,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--login-page--3/agent-stdout.txt",
-        "runs/claude-project-instructions--login-page--3/agent-stderr.txt"
+        "runs-data/claude-project-instructions--login-page--3/agent-stdout.txt",
+        "runs-data/claude-project-instructions--login-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--login-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--login-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--login-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--login-page--3/diff.patch"
     },
     {
       "id": "claude-project-instructions--onboarding-cleanup--1",
@@ -2932,11 +2932,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--onboarding-cleanup--1/agent-stdout.txt",
-        "runs/claude-project-instructions--onboarding-cleanup--1/agent-stderr.txt"
+        "runs-data/claude-project-instructions--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-data/claude-project-instructions--onboarding-cleanup--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--onboarding-cleanup--1/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--onboarding-cleanup--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--onboarding-cleanup--1/diff.patch"
     },
     {
       "id": "claude-project-instructions--onboarding-cleanup--2",
@@ -2969,11 +2969,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--onboarding-cleanup--2/agent-stdout.txt",
-        "runs/claude-project-instructions--onboarding-cleanup--2/agent-stderr.txt"
+        "runs-data/claude-project-instructions--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-data/claude-project-instructions--onboarding-cleanup--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--onboarding-cleanup--2/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--onboarding-cleanup--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--onboarding-cleanup--2/diff.patch"
     },
     {
       "id": "claude-project-instructions--onboarding-cleanup--3",
@@ -3006,11 +3006,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--onboarding-cleanup--3/agent-stdout.txt",
-        "runs/claude-project-instructions--onboarding-cleanup--3/agent-stderr.txt"
+        "runs-data/claude-project-instructions--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-data/claude-project-instructions--onboarding-cleanup--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--onboarding-cleanup--3/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--onboarding-cleanup--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--onboarding-cleanup--3/diff.patch"
     },
     {
       "id": "claude-project-instructions--polished-settings-page--1",
@@ -3043,11 +3043,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--polished-settings-page--1/agent-stdout.txt",
-        "runs/claude-project-instructions--polished-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-project-instructions--polished-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-project-instructions--polished-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--polished-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--polished-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--polished-settings-page--1/diff.patch"
     },
     {
       "id": "claude-project-instructions--polished-settings-page--2",
@@ -3080,11 +3080,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--polished-settings-page--2/agent-stdout.txt",
-        "runs/claude-project-instructions--polished-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-project-instructions--polished-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-project-instructions--polished-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--polished-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--polished-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--polished-settings-page--2/diff.patch"
     },
     {
       "id": "claude-project-instructions--polished-settings-page--3",
@@ -3117,11 +3117,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--polished-settings-page--3/agent-stdout.txt",
-        "runs/claude-project-instructions--polished-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-project-instructions--polished-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-project-instructions--polished-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--polished-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--polished-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--polished-settings-page--3/diff.patch"
     },
     {
       "id": "claude-project-instructions--premium-dashboard--1",
@@ -3154,11 +3154,11 @@
         "filesTouched": 11
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--premium-dashboard--1/agent-stdout.txt",
-        "runs/claude-project-instructions--premium-dashboard--1/agent-stderr.txt"
+        "runs-data/claude-project-instructions--premium-dashboard--1/agent-stdout.txt",
+        "runs-data/claude-project-instructions--premium-dashboard--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--premium-dashboard--1/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--premium-dashboard--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--premium-dashboard--1/diff.patch"
     },
     {
       "id": "claude-project-instructions--premium-dashboard--2",
@@ -3191,11 +3191,11 @@
         "filesTouched": 5
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--premium-dashboard--2/agent-stdout.txt",
-        "runs/claude-project-instructions--premium-dashboard--2/agent-stderr.txt"
+        "runs-data/claude-project-instructions--premium-dashboard--2/agent-stdout.txt",
+        "runs-data/claude-project-instructions--premium-dashboard--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--premium-dashboard--2/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--premium-dashboard--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--premium-dashboard--2/diff.patch"
     },
     {
       "id": "claude-project-instructions--premium-dashboard--3",
@@ -3228,11 +3228,11 @@
         "filesTouched": 7
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--premium-dashboard--3/agent-stdout.txt",
-        "runs/claude-project-instructions--premium-dashboard--3/agent-stderr.txt"
+        "runs-data/claude-project-instructions--premium-dashboard--3/agent-stdout.txt",
+        "runs-data/claude-project-instructions--premium-dashboard--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--premium-dashboard--3/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--premium-dashboard--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--premium-dashboard--3/diff.patch"
     },
     {
       "id": "claude-project-instructions--pricing-cards-polish--1",
@@ -3265,11 +3265,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--pricing-cards-polish--1/agent-stdout.txt",
-        "runs/claude-project-instructions--pricing-cards-polish--1/agent-stderr.txt"
+        "runs-data/claude-project-instructions--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-data/claude-project-instructions--pricing-cards-polish--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--pricing-cards-polish--1/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--pricing-cards-polish--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--pricing-cards-polish--1/diff.patch"
     },
     {
       "id": "claude-project-instructions--pricing-cards-polish--2",
@@ -3302,11 +3302,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--pricing-cards-polish--2/agent-stdout.txt",
-        "runs/claude-project-instructions--pricing-cards-polish--2/agent-stderr.txt"
+        "runs-data/claude-project-instructions--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-data/claude-project-instructions--pricing-cards-polish--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--pricing-cards-polish--2/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--pricing-cards-polish--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--pricing-cards-polish--2/diff.patch"
     },
     {
       "id": "claude-project-instructions--pricing-cards-polish--3",
@@ -3339,11 +3339,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--pricing-cards-polish--3/agent-stdout.txt",
-        "runs/claude-project-instructions--pricing-cards-polish--3/agent-stderr.txt"
+        "runs-data/claude-project-instructions--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-data/claude-project-instructions--pricing-cards-polish--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--pricing-cards-polish--3/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--pricing-cards-polish--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--pricing-cards-polish--3/diff.patch"
     },
     {
       "id": "claude-project-instructions--team-invite-modal--1",
@@ -3376,11 +3376,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--team-invite-modal--1/agent-stdout.txt",
-        "runs/claude-project-instructions--team-invite-modal--1/agent-stderr.txt"
+        "runs-data/claude-project-instructions--team-invite-modal--1/agent-stdout.txt",
+        "runs-data/claude-project-instructions--team-invite-modal--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--team-invite-modal--1/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--team-invite-modal--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--team-invite-modal--1/diff.patch"
     },
     {
       "id": "claude-project-instructions--team-invite-modal--2",
@@ -3413,11 +3413,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--team-invite-modal--2/agent-stdout.txt",
-        "runs/claude-project-instructions--team-invite-modal--2/agent-stderr.txt"
+        "runs-data/claude-project-instructions--team-invite-modal--2/agent-stdout.txt",
+        "runs-data/claude-project-instructions--team-invite-modal--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--team-invite-modal--2/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--team-invite-modal--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--team-invite-modal--2/diff.patch"
     },
     {
       "id": "claude-project-instructions--team-invite-modal--3",
@@ -3450,11 +3450,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs/claude-project-instructions--team-invite-modal--3/agent-stdout.txt",
-        "runs/claude-project-instructions--team-invite-modal--3/agent-stderr.txt"
+        "runs-data/claude-project-instructions--team-invite-modal--3/agent-stdout.txt",
+        "runs-data/claude-project-instructions--team-invite-modal--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-project-instructions--team-invite-modal--3/scanner.json",
-      "gitDiffPath": "runs/claude-project-instructions--team-invite-modal--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-project-instructions--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-project-instructions--team-invite-modal--3/diff.patch"
     },
     {
       "id": "claude-raw--billing-settings-page--1",
@@ -3487,11 +3487,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-raw--billing-settings-page--1/agent-stdout.txt",
-        "runs/claude-raw--billing-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-raw--billing-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-raw--billing-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--billing-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-raw--billing-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--billing-settings-page--1/diff.patch"
     },
     {
       "id": "claude-raw--billing-settings-page--2",
@@ -3524,11 +3524,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-raw--billing-settings-page--2/agent-stdout.txt",
-        "runs/claude-raw--billing-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-raw--billing-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-raw--billing-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--billing-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-raw--billing-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--billing-settings-page--2/diff.patch"
     },
     {
       "id": "claude-raw--billing-settings-page--3",
@@ -3561,11 +3561,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-raw--billing-settings-page--3/agent-stdout.txt",
-        "runs/claude-raw--billing-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-raw--billing-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-raw--billing-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--billing-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-raw--billing-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--billing-settings-page--3/diff.patch"
     },
     {
       "id": "claude-raw--dashboard-visual-hierarchy--1",
@@ -3598,11 +3598,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-raw--dashboard-visual-hierarchy--1/agent-stdout.txt",
-        "runs/claude-raw--dashboard-visual-hierarchy--1/agent-stderr.txt"
+        "runs-data/claude-raw--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-data/claude-raw--dashboard-visual-hierarchy--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--dashboard-visual-hierarchy--1/scanner.json",
-      "gitDiffPath": "runs/claude-raw--dashboard-visual-hierarchy--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--dashboard-visual-hierarchy--1/diff.patch"
     },
     {
       "id": "claude-raw--dashboard-visual-hierarchy--2",
@@ -3635,11 +3635,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-raw--dashboard-visual-hierarchy--2/agent-stdout.txt",
-        "runs/claude-raw--dashboard-visual-hierarchy--2/agent-stderr.txt"
+        "runs-data/claude-raw--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-data/claude-raw--dashboard-visual-hierarchy--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--dashboard-visual-hierarchy--2/scanner.json",
-      "gitDiffPath": "runs/claude-raw--dashboard-visual-hierarchy--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--dashboard-visual-hierarchy--2/diff.patch"
     },
     {
       "id": "claude-raw--dashboard-visual-hierarchy--3",
@@ -3672,11 +3672,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-raw--dashboard-visual-hierarchy--3/agent-stdout.txt",
-        "runs/claude-raw--dashboard-visual-hierarchy--3/agent-stderr.txt"
+        "runs-data/claude-raw--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-data/claude-raw--dashboard-visual-hierarchy--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--dashboard-visual-hierarchy--3/scanner.json",
-      "gitDiffPath": "runs/claude-raw--dashboard-visual-hierarchy--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--dashboard-visual-hierarchy--3/diff.patch"
     },
     {
       "id": "claude-raw--empty-state--1",
@@ -3709,11 +3709,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-raw--empty-state--1/agent-stdout.txt",
-        "runs/claude-raw--empty-state--1/agent-stderr.txt"
+        "runs-data/claude-raw--empty-state--1/agent-stdout.txt",
+        "runs-data/claude-raw--empty-state--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--empty-state--1/scanner.json",
-      "gitDiffPath": "runs/claude-raw--empty-state--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--empty-state--1/diff.patch"
     },
     {
       "id": "claude-raw--empty-state--2",
@@ -3746,11 +3746,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-raw--empty-state--2/agent-stdout.txt",
-        "runs/claude-raw--empty-state--2/agent-stderr.txt"
+        "runs-data/claude-raw--empty-state--2/agent-stdout.txt",
+        "runs-data/claude-raw--empty-state--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--empty-state--2/scanner.json",
-      "gitDiffPath": "runs/claude-raw--empty-state--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--empty-state--2/diff.patch"
     },
     {
       "id": "claude-raw--empty-state--3",
@@ -3783,11 +3783,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-raw--empty-state--3/agent-stdout.txt",
-        "runs/claude-raw--empty-state--3/agent-stderr.txt"
+        "runs-data/claude-raw--empty-state--3/agent-stdout.txt",
+        "runs-data/claude-raw--empty-state--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--empty-state--3/scanner.json",
-      "gitDiffPath": "runs/claude-raw--empty-state--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--empty-state--3/diff.patch"
     },
     {
       "id": "claude-raw--invoices-table--1",
@@ -3820,11 +3820,11 @@
         "filesTouched": 6
       },
       "rawOutputPaths": [
-        "runs/claude-raw--invoices-table--1/agent-stdout.txt",
-        "runs/claude-raw--invoices-table--1/agent-stderr.txt"
+        "runs-data/claude-raw--invoices-table--1/agent-stdout.txt",
+        "runs-data/claude-raw--invoices-table--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--invoices-table--1/scanner.json",
-      "gitDiffPath": "runs/claude-raw--invoices-table--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--invoices-table--1/diff.patch"
     },
     {
       "id": "claude-raw--invoices-table--2",
@@ -3857,11 +3857,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-raw--invoices-table--2/agent-stdout.txt",
-        "runs/claude-raw--invoices-table--2/agent-stderr.txt"
+        "runs-data/claude-raw--invoices-table--2/agent-stdout.txt",
+        "runs-data/claude-raw--invoices-table--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--invoices-table--2/scanner.json",
-      "gitDiffPath": "runs/claude-raw--invoices-table--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--invoices-table--2/diff.patch"
     },
     {
       "id": "claude-raw--invoices-table--3",
@@ -3894,11 +3894,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-raw--invoices-table--3/agent-stdout.txt",
-        "runs/claude-raw--invoices-table--3/agent-stderr.txt"
+        "runs-data/claude-raw--invoices-table--3/agent-stdout.txt",
+        "runs-data/claude-raw--invoices-table--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--invoices-table--3/scanner.json",
-      "gitDiffPath": "runs/claude-raw--invoices-table--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--invoices-table--3/diff.patch"
     },
     {
       "id": "claude-raw--login-page--1",
@@ -3931,11 +3931,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-raw--login-page--1/agent-stdout.txt",
-        "runs/claude-raw--login-page--1/agent-stderr.txt"
+        "runs-data/claude-raw--login-page--1/agent-stdout.txt",
+        "runs-data/claude-raw--login-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--login-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-raw--login-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--login-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--login-page--1/diff.patch"
     },
     {
       "id": "claude-raw--login-page--2",
@@ -3968,11 +3968,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs/claude-raw--login-page--2/agent-stdout.txt",
-        "runs/claude-raw--login-page--2/agent-stderr.txt"
+        "runs-data/claude-raw--login-page--2/agent-stdout.txt",
+        "runs-data/claude-raw--login-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--login-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-raw--login-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--login-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--login-page--2/diff.patch"
     },
     {
       "id": "claude-raw--login-page--3",
@@ -4005,11 +4005,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-raw--login-page--3/agent-stdout.txt",
-        "runs/claude-raw--login-page--3/agent-stderr.txt"
+        "runs-data/claude-raw--login-page--3/agent-stdout.txt",
+        "runs-data/claude-raw--login-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--login-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-raw--login-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--login-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--login-page--3/diff.patch"
     },
     {
       "id": "claude-raw--onboarding-cleanup--1",
@@ -4042,11 +4042,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-raw--onboarding-cleanup--1/agent-stdout.txt",
-        "runs/claude-raw--onboarding-cleanup--1/agent-stderr.txt"
+        "runs-data/claude-raw--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-data/claude-raw--onboarding-cleanup--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--onboarding-cleanup--1/scanner.json",
-      "gitDiffPath": "runs/claude-raw--onboarding-cleanup--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--onboarding-cleanup--1/diff.patch"
     },
     {
       "id": "claude-raw--onboarding-cleanup--2",
@@ -4079,11 +4079,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-raw--onboarding-cleanup--2/agent-stdout.txt",
-        "runs/claude-raw--onboarding-cleanup--2/agent-stderr.txt"
+        "runs-data/claude-raw--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-data/claude-raw--onboarding-cleanup--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--onboarding-cleanup--2/scanner.json",
-      "gitDiffPath": "runs/claude-raw--onboarding-cleanup--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--onboarding-cleanup--2/diff.patch"
     },
     {
       "id": "claude-raw--onboarding-cleanup--3",
@@ -4116,11 +4116,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-raw--onboarding-cleanup--3/agent-stdout.txt",
-        "runs/claude-raw--onboarding-cleanup--3/agent-stderr.txt"
+        "runs-data/claude-raw--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-data/claude-raw--onboarding-cleanup--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--onboarding-cleanup--3/scanner.json",
-      "gitDiffPath": "runs/claude-raw--onboarding-cleanup--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--onboarding-cleanup--3/diff.patch"
     },
     {
       "id": "claude-raw--polished-settings-page--1",
@@ -4153,11 +4153,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-raw--polished-settings-page--1/agent-stdout.txt",
-        "runs/claude-raw--polished-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-raw--polished-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-raw--polished-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--polished-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-raw--polished-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--polished-settings-page--1/diff.patch"
     },
     {
       "id": "claude-raw--polished-settings-page--2",
@@ -4190,11 +4190,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-raw--polished-settings-page--2/agent-stdout.txt",
-        "runs/claude-raw--polished-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-raw--polished-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-raw--polished-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--polished-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-raw--polished-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--polished-settings-page--2/diff.patch"
     },
     {
       "id": "claude-raw--polished-settings-page--3",
@@ -4227,11 +4227,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-raw--polished-settings-page--3/agent-stdout.txt",
-        "runs/claude-raw--polished-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-raw--polished-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-raw--polished-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--polished-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-raw--polished-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--polished-settings-page--3/diff.patch"
     },
     {
       "id": "claude-raw--premium-dashboard--1",
@@ -4264,11 +4264,11 @@
         "filesTouched": 12
       },
       "rawOutputPaths": [
-        "runs/claude-raw--premium-dashboard--1/agent-stdout.txt",
-        "runs/claude-raw--premium-dashboard--1/agent-stderr.txt"
+        "runs-data/claude-raw--premium-dashboard--1/agent-stdout.txt",
+        "runs-data/claude-raw--premium-dashboard--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--premium-dashboard--1/scanner.json",
-      "gitDiffPath": "runs/claude-raw--premium-dashboard--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--premium-dashboard--1/diff.patch"
     },
     {
       "id": "claude-raw--premium-dashboard--2",
@@ -4301,11 +4301,11 @@
         "filesTouched": 14
       },
       "rawOutputPaths": [
-        "runs/claude-raw--premium-dashboard--2/agent-stdout.txt",
-        "runs/claude-raw--premium-dashboard--2/agent-stderr.txt"
+        "runs-data/claude-raw--premium-dashboard--2/agent-stdout.txt",
+        "runs-data/claude-raw--premium-dashboard--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--premium-dashboard--2/scanner.json",
-      "gitDiffPath": "runs/claude-raw--premium-dashboard--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--premium-dashboard--2/diff.patch"
     },
     {
       "id": "claude-raw--premium-dashboard--3",
@@ -4338,11 +4338,11 @@
         "filesTouched": 8
       },
       "rawOutputPaths": [
-        "runs/claude-raw--premium-dashboard--3/agent-stdout.txt",
-        "runs/claude-raw--premium-dashboard--3/agent-stderr.txt"
+        "runs-data/claude-raw--premium-dashboard--3/agent-stdout.txt",
+        "runs-data/claude-raw--premium-dashboard--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--premium-dashboard--3/scanner.json",
-      "gitDiffPath": "runs/claude-raw--premium-dashboard--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--premium-dashboard--3/diff.patch"
     },
     {
       "id": "claude-raw--pricing-cards-polish--1",
@@ -4375,11 +4375,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-raw--pricing-cards-polish--1/agent-stdout.txt",
-        "runs/claude-raw--pricing-cards-polish--1/agent-stderr.txt"
+        "runs-data/claude-raw--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-data/claude-raw--pricing-cards-polish--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--pricing-cards-polish--1/scanner.json",
-      "gitDiffPath": "runs/claude-raw--pricing-cards-polish--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--pricing-cards-polish--1/diff.patch"
     },
     {
       "id": "claude-raw--pricing-cards-polish--2",
@@ -4412,11 +4412,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-raw--pricing-cards-polish--2/agent-stdout.txt",
-        "runs/claude-raw--pricing-cards-polish--2/agent-stderr.txt"
+        "runs-data/claude-raw--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-data/claude-raw--pricing-cards-polish--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--pricing-cards-polish--2/scanner.json",
-      "gitDiffPath": "runs/claude-raw--pricing-cards-polish--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--pricing-cards-polish--2/diff.patch"
     },
     {
       "id": "claude-raw--pricing-cards-polish--3",
@@ -4449,11 +4449,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-raw--pricing-cards-polish--3/agent-stdout.txt",
-        "runs/claude-raw--pricing-cards-polish--3/agent-stderr.txt"
+        "runs-data/claude-raw--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-data/claude-raw--pricing-cards-polish--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--pricing-cards-polish--3/scanner.json",
-      "gitDiffPath": "runs/claude-raw--pricing-cards-polish--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--pricing-cards-polish--3/diff.patch"
     },
     {
       "id": "claude-raw--team-invite-modal--1",
@@ -4486,11 +4486,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-raw--team-invite-modal--1/agent-stdout.txt",
-        "runs/claude-raw--team-invite-modal--1/agent-stderr.txt"
+        "runs-data/claude-raw--team-invite-modal--1/agent-stdout.txt",
+        "runs-data/claude-raw--team-invite-modal--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--team-invite-modal--1/scanner.json",
-      "gitDiffPath": "runs/claude-raw--team-invite-modal--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--team-invite-modal--1/diff.patch"
     },
     {
       "id": "claude-raw--team-invite-modal--2",
@@ -4523,11 +4523,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-raw--team-invite-modal--2/agent-stdout.txt",
-        "runs/claude-raw--team-invite-modal--2/agent-stderr.txt"
+        "runs-data/claude-raw--team-invite-modal--2/agent-stdout.txt",
+        "runs-data/claude-raw--team-invite-modal--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--team-invite-modal--2/scanner.json",
-      "gitDiffPath": "runs/claude-raw--team-invite-modal--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--team-invite-modal--2/diff.patch"
     },
     {
       "id": "claude-raw--team-invite-modal--3",
@@ -4560,11 +4560,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-raw--team-invite-modal--3/agent-stdout.txt",
-        "runs/claude-raw--team-invite-modal--3/agent-stderr.txt"
+        "runs-data/claude-raw--team-invite-modal--3/agent-stdout.txt",
+        "runs-data/claude-raw--team-invite-modal--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-raw--team-invite-modal--3/scanner.json",
-      "gitDiffPath": "runs/claude-raw--team-invite-modal--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-raw--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-raw--team-invite-modal--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--billing-settings-page--1",
@@ -4597,11 +4597,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--billing-settings-page--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--billing-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--billing-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--billing-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--billing-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--billing-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--billing-settings-page--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--billing-settings-page--2",
@@ -4634,11 +4634,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--billing-settings-page--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--billing-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--billing-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--billing-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--billing-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--billing-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--billing-settings-page--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--billing-settings-page--3",
@@ -4671,11 +4671,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--billing-settings-page--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--billing-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--billing-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--billing-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--billing-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--billing-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--billing-settings-page--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--dashboard-visual-hierarchy--1",
@@ -4708,11 +4708,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--dashboard-visual-hierarchy--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--dashboard-visual-hierarchy--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--dashboard-visual-hierarchy--2",
@@ -4745,11 +4745,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--dashboard-visual-hierarchy--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--dashboard-visual-hierarchy--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--dashboard-visual-hierarchy--3",
@@ -4782,11 +4782,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--dashboard-visual-hierarchy--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--dashboard-visual-hierarchy--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--dashboard-visual-hierarchy--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--empty-state--1",
@@ -4819,11 +4819,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--empty-state--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--empty-state--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--empty-state--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--empty-state--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--empty-state--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--empty-state--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--empty-state--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--empty-state--2",
@@ -4856,11 +4856,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--empty-state--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--empty-state--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--empty-state--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--empty-state--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--empty-state--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--empty-state--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--empty-state--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--empty-state--3",
@@ -4893,11 +4893,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--empty-state--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--empty-state--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--empty-state--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--empty-state--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--empty-state--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--empty-state--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--empty-state--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--invoices-table--1",
@@ -4930,11 +4930,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--invoices-table--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--invoices-table--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--invoices-table--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--invoices-table--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--invoices-table--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--invoices-table--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--invoices-table--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--invoices-table--2",
@@ -4967,11 +4967,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--invoices-table--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--invoices-table--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--invoices-table--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--invoices-table--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--invoices-table--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--invoices-table--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--invoices-table--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--invoices-table--3",
@@ -5004,11 +5004,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--invoices-table--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--invoices-table--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--invoices-table--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--invoices-table--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--invoices-table--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--invoices-table--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--invoices-table--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--login-page--1",
@@ -5041,11 +5041,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--login-page--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--login-page--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--login-page--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--login-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--login-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--login-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--login-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--login-page--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--login-page--2",
@@ -5078,11 +5078,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--login-page--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--login-page--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--login-page--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--login-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--login-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--login-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--login-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--login-page--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--login-page--3",
@@ -5115,11 +5115,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--login-page--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--login-page--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--login-page--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--login-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--login-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--login-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--login-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--login-page--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--onboarding-cleanup--1",
@@ -5152,11 +5152,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--onboarding-cleanup--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--onboarding-cleanup--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--onboarding-cleanup--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--onboarding-cleanup--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--onboarding-cleanup--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--onboarding-cleanup--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--onboarding-cleanup--2",
@@ -5189,11 +5189,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--onboarding-cleanup--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--onboarding-cleanup--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--onboarding-cleanup--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--onboarding-cleanup--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--onboarding-cleanup--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--onboarding-cleanup--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--onboarding-cleanup--3",
@@ -5226,11 +5226,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--onboarding-cleanup--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--onboarding-cleanup--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--onboarding-cleanup--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--onboarding-cleanup--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--onboarding-cleanup--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--onboarding-cleanup--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--polished-settings-page--1",
@@ -5263,11 +5263,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--polished-settings-page--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--polished-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--polished-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--polished-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--polished-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--polished-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--polished-settings-page--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--polished-settings-page--2",
@@ -5300,11 +5300,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--polished-settings-page--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--polished-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--polished-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--polished-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--polished-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--polished-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--polished-settings-page--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--polished-settings-page--3",
@@ -5337,11 +5337,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--polished-settings-page--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--polished-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--polished-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--polished-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--polished-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--polished-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--polished-settings-page--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--premium-dashboard--1",
@@ -5374,11 +5374,11 @@
         "filesTouched": 14
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--premium-dashboard--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--premium-dashboard--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--premium-dashboard--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--premium-dashboard--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--premium-dashboard--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--premium-dashboard--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--premium-dashboard--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--premium-dashboard--2",
@@ -5411,11 +5411,11 @@
         "filesTouched": 13
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--premium-dashboard--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--premium-dashboard--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--premium-dashboard--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--premium-dashboard--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--premium-dashboard--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--premium-dashboard--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--premium-dashboard--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--premium-dashboard--3",
@@ -5448,11 +5448,11 @@
         "filesTouched": 13
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--premium-dashboard--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--premium-dashboard--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--premium-dashboard--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--premium-dashboard--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--premium-dashboard--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--premium-dashboard--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--premium-dashboard--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--pricing-cards-polish--1",
@@ -5485,11 +5485,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--pricing-cards-polish--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--pricing-cards-polish--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--pricing-cards-polish--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--pricing-cards-polish--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--pricing-cards-polish--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--pricing-cards-polish--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--pricing-cards-polish--2",
@@ -5522,11 +5522,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--pricing-cards-polish--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--pricing-cards-polish--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--pricing-cards-polish--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--pricing-cards-polish--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--pricing-cards-polish--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--pricing-cards-polish--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--pricing-cards-polish--3",
@@ -5559,11 +5559,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--pricing-cards-polish--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--pricing-cards-polish--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--pricing-cards-polish--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--pricing-cards-polish--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--pricing-cards-polish--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--pricing-cards-polish--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--team-invite-modal--1",
@@ -5596,11 +5596,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--team-invite-modal--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--team-invite-modal--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--team-invite-modal--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--team-invite-modal--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--team-invite-modal--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--team-invite-modal--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--team-invite-modal--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--team-invite-modal--2",
@@ -5633,11 +5633,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--team-invite-modal--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--team-invite-modal--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--team-invite-modal--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--team-invite-modal--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--team-invite-modal--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--team-invite-modal--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--team-invite-modal--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp--team-invite-modal--3",
@@ -5670,11 +5670,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp--team-invite-modal--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp--team-invite-modal--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp--team-invite-modal--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp--team-invite-modal--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp--team-invite-modal--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp--team-invite-modal--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp--team-invite-modal--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--billing-settings-page--1",
@@ -5707,11 +5707,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--billing-settings-page--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--billing-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--billing-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--billing-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--billing-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--billing-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--billing-settings-page--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--billing-settings-page--2",
@@ -5744,11 +5744,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--billing-settings-page--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--billing-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--billing-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--billing-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--billing-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--billing-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--billing-settings-page--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--billing-settings-page--3",
@@ -5781,11 +5781,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--billing-settings-page--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--billing-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--billing-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--billing-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--billing-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--billing-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--billing-settings-page--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--1",
@@ -5818,11 +5818,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--2",
@@ -5855,11 +5855,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--3",
@@ -5892,11 +5892,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--dashboard-visual-hierarchy--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--empty-state--1",
@@ -5929,11 +5929,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--empty-state--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--empty-state--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--empty-state--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--empty-state--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--empty-state--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--empty-state--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--empty-state--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--empty-state--2",
@@ -5966,11 +5966,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--empty-state--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--empty-state--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--empty-state--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--empty-state--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--empty-state--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--empty-state--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--empty-state--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--empty-state--3",
@@ -6003,11 +6003,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--empty-state--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--empty-state--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--empty-state--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--empty-state--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--empty-state--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--empty-state--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--empty-state--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--invoices-table--1",
@@ -6040,11 +6040,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--invoices-table--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--invoices-table--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--invoices-table--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--invoices-table--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--invoices-table--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--invoices-table--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--invoices-table--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--invoices-table--2",
@@ -6077,11 +6077,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--invoices-table--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--invoices-table--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--invoices-table--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--invoices-table--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--invoices-table--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--invoices-table--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--invoices-table--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--invoices-table--3",
@@ -6114,11 +6114,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--invoices-table--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--invoices-table--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--invoices-table--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--invoices-table--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--invoices-table--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--invoices-table--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--invoices-table--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--login-page--1",
@@ -6151,11 +6151,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--login-page--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--login-page--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--login-page--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--login-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--login-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--login-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--login-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--login-page--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--login-page--2",
@@ -6188,11 +6188,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--login-page--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--login-page--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--login-page--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--login-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--login-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--login-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--login-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--login-page--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--login-page--3",
@@ -6225,11 +6225,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--login-page--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--login-page--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--login-page--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--login-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--login-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--login-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--login-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--login-page--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--onboarding-cleanup--1",
@@ -6262,11 +6262,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--onboarding-cleanup--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--onboarding-cleanup--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--onboarding-cleanup--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--onboarding-cleanup--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--onboarding-cleanup--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--onboarding-cleanup--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--onboarding-cleanup--2",
@@ -6299,11 +6299,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--onboarding-cleanup--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--onboarding-cleanup--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--onboarding-cleanup--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--onboarding-cleanup--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--onboarding-cleanup--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--onboarding-cleanup--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--onboarding-cleanup--3",
@@ -6336,11 +6336,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--onboarding-cleanup--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--onboarding-cleanup--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--onboarding-cleanup--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--onboarding-cleanup--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--onboarding-cleanup--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--onboarding-cleanup--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--polished-settings-page--1",
@@ -6373,11 +6373,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--polished-settings-page--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--polished-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--polished-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--polished-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--polished-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--polished-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--polished-settings-page--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--polished-settings-page--2",
@@ -6410,11 +6410,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--polished-settings-page--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--polished-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--polished-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--polished-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--polished-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--polished-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--polished-settings-page--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--polished-settings-page--3",
@@ -6447,11 +6447,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--polished-settings-page--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--polished-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--polished-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--polished-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--polished-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--polished-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--polished-settings-page--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--premium-dashboard--1",
@@ -6484,11 +6484,11 @@
         "filesTouched": 5
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--premium-dashboard--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--premium-dashboard--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--premium-dashboard--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--premium-dashboard--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--premium-dashboard--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--premium-dashboard--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--premium-dashboard--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--premium-dashboard--2",
@@ -6521,11 +6521,11 @@
         "filesTouched": 11
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--premium-dashboard--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--premium-dashboard--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--premium-dashboard--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--premium-dashboard--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--premium-dashboard--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--premium-dashboard--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--premium-dashboard--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--premium-dashboard--3",
@@ -6558,11 +6558,11 @@
         "filesTouched": 12
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--premium-dashboard--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--premium-dashboard--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--premium-dashboard--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--premium-dashboard--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--premium-dashboard--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--premium-dashboard--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--premium-dashboard--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--pricing-cards-polish--1",
@@ -6595,11 +6595,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--pricing-cards-polish--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--pricing-cards-polish--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--pricing-cards-polish--2",
@@ -6632,11 +6632,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--pricing-cards-polish--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--pricing-cards-polish--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--pricing-cards-polish--3",
@@ -6669,11 +6669,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--pricing-cards-polish--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--pricing-cards-polish--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--pricing-cards-polish--3/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--team-invite-modal--1",
@@ -6706,11 +6706,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--team-invite-modal--1/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--team-invite-modal--1/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--team-invite-modal--1/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--team-invite-modal--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--team-invite-modal--1/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--team-invite-modal--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--team-invite-modal--1/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--team-invite-modal--2",
@@ -6743,11 +6743,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--team-invite-modal--2/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--team-invite-modal--2/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--team-invite-modal--2/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--team-invite-modal--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--team-invite-modal--2/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--team-invite-modal--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--team-invite-modal--2/diff.patch"
     },
     {
       "id": "claude-shadcn-mcp-snapline--team-invite-modal--3",
@@ -6780,11 +6780,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-shadcn-mcp-snapline--team-invite-modal--3/agent-stdout.txt",
-        "runs/claude-shadcn-mcp-snapline--team-invite-modal--3/agent-stderr.txt"
+        "runs-data/claude-shadcn-mcp-snapline--team-invite-modal--3/agent-stdout.txt",
+        "runs-data/claude-shadcn-mcp-snapline--team-invite-modal--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-shadcn-mcp-snapline--team-invite-modal--3/scanner.json",
-      "gitDiffPath": "runs/claude-shadcn-mcp-snapline--team-invite-modal--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-shadcn-mcp-snapline--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-shadcn-mcp-snapline--team-invite-modal--3/diff.patch"
     },
     {
       "id": "claude-snapline--billing-settings-page--1",
@@ -6817,11 +6817,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--billing-settings-page--1/agent-stdout.txt",
-        "runs/claude-snapline--billing-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-snapline--billing-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-snapline--billing-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--billing-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--billing-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--billing-settings-page--1/diff.patch"
     },
     {
       "id": "claude-snapline--billing-settings-page--2",
@@ -6854,11 +6854,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--billing-settings-page--2/agent-stdout.txt",
-        "runs/claude-snapline--billing-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-snapline--billing-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-snapline--billing-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--billing-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--billing-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--billing-settings-page--2/diff.patch"
     },
     {
       "id": "claude-snapline--billing-settings-page--3",
@@ -6891,11 +6891,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--billing-settings-page--3/agent-stdout.txt",
-        "runs/claude-snapline--billing-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-snapline--billing-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-snapline--billing-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--billing-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--billing-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--billing-settings-page--3/diff.patch"
     },
     {
       "id": "claude-snapline--dashboard-visual-hierarchy--1",
@@ -6928,11 +6928,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--dashboard-visual-hierarchy--1/agent-stdout.txt",
-        "runs/claude-snapline--dashboard-visual-hierarchy--1/agent-stderr.txt"
+        "runs-data/claude-snapline--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-data/claude-snapline--dashboard-visual-hierarchy--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--dashboard-visual-hierarchy--1/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--dashboard-visual-hierarchy--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--dashboard-visual-hierarchy--1/diff.patch"
     },
     {
       "id": "claude-snapline--dashboard-visual-hierarchy--2",
@@ -6965,11 +6965,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--dashboard-visual-hierarchy--2/agent-stdout.txt",
-        "runs/claude-snapline--dashboard-visual-hierarchy--2/agent-stderr.txt"
+        "runs-data/claude-snapline--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-data/claude-snapline--dashboard-visual-hierarchy--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--dashboard-visual-hierarchy--2/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--dashboard-visual-hierarchy--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--dashboard-visual-hierarchy--2/diff.patch"
     },
     {
       "id": "claude-snapline--dashboard-visual-hierarchy--3",
@@ -7002,11 +7002,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--dashboard-visual-hierarchy--3/agent-stdout.txt",
-        "runs/claude-snapline--dashboard-visual-hierarchy--3/agent-stderr.txt"
+        "runs-data/claude-snapline--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-data/claude-snapline--dashboard-visual-hierarchy--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--dashboard-visual-hierarchy--3/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--dashboard-visual-hierarchy--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--dashboard-visual-hierarchy--3/diff.patch"
     },
     {
       "id": "claude-snapline--empty-state--1",
@@ -7039,11 +7039,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--empty-state--1/agent-stdout.txt",
-        "runs/claude-snapline--empty-state--1/agent-stderr.txt"
+        "runs-data/claude-snapline--empty-state--1/agent-stdout.txt",
+        "runs-data/claude-snapline--empty-state--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--empty-state--1/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--empty-state--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--empty-state--1/diff.patch"
     },
     {
       "id": "claude-snapline--empty-state--2",
@@ -7076,11 +7076,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--empty-state--2/agent-stdout.txt",
-        "runs/claude-snapline--empty-state--2/agent-stderr.txt"
+        "runs-data/claude-snapline--empty-state--2/agent-stdout.txt",
+        "runs-data/claude-snapline--empty-state--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--empty-state--2/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--empty-state--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--empty-state--2/diff.patch"
     },
     {
       "id": "claude-snapline--empty-state--3",
@@ -7113,11 +7113,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--empty-state--3/agent-stdout.txt",
-        "runs/claude-snapline--empty-state--3/agent-stderr.txt"
+        "runs-data/claude-snapline--empty-state--3/agent-stdout.txt",
+        "runs-data/claude-snapline--empty-state--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--empty-state--3/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--empty-state--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--empty-state--3/diff.patch"
     },
     {
       "id": "claude-snapline--invoices-table--1",
@@ -7150,11 +7150,11 @@
         "filesTouched": 6
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--invoices-table--1/agent-stdout.txt",
-        "runs/claude-snapline--invoices-table--1/agent-stderr.txt"
+        "runs-data/claude-snapline--invoices-table--1/agent-stdout.txt",
+        "runs-data/claude-snapline--invoices-table--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--invoices-table--1/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--invoices-table--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--invoices-table--1/diff.patch"
     },
     {
       "id": "claude-snapline--invoices-table--2",
@@ -7187,11 +7187,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--invoices-table--2/agent-stdout.txt",
-        "runs/claude-snapline--invoices-table--2/agent-stderr.txt"
+        "runs-data/claude-snapline--invoices-table--2/agent-stdout.txt",
+        "runs-data/claude-snapline--invoices-table--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--invoices-table--2/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--invoices-table--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--invoices-table--2/diff.patch"
     },
     {
       "id": "claude-snapline--invoices-table--3",
@@ -7224,11 +7224,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--invoices-table--3/agent-stdout.txt",
-        "runs/claude-snapline--invoices-table--3/agent-stderr.txt"
+        "runs-data/claude-snapline--invoices-table--3/agent-stdout.txt",
+        "runs-data/claude-snapline--invoices-table--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--invoices-table--3/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--invoices-table--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--invoices-table--3/diff.patch"
     },
     {
       "id": "claude-snapline--login-page--1",
@@ -7261,11 +7261,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--login-page--1/agent-stdout.txt",
-        "runs/claude-snapline--login-page--1/agent-stderr.txt"
+        "runs-data/claude-snapline--login-page--1/agent-stdout.txt",
+        "runs-data/claude-snapline--login-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--login-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--login-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--login-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--login-page--1/diff.patch"
     },
     {
       "id": "claude-snapline--login-page--2",
@@ -7298,11 +7298,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--login-page--2/agent-stdout.txt",
-        "runs/claude-snapline--login-page--2/agent-stderr.txt"
+        "runs-data/claude-snapline--login-page--2/agent-stdout.txt",
+        "runs-data/claude-snapline--login-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--login-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--login-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--login-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--login-page--2/diff.patch"
     },
     {
       "id": "claude-snapline--login-page--3",
@@ -7335,11 +7335,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--login-page--3/agent-stdout.txt",
-        "runs/claude-snapline--login-page--3/agent-stderr.txt"
+        "runs-data/claude-snapline--login-page--3/agent-stdout.txt",
+        "runs-data/claude-snapline--login-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--login-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--login-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--login-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--login-page--3/diff.patch"
     },
     {
       "id": "claude-snapline--onboarding-cleanup--1",
@@ -7372,11 +7372,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--onboarding-cleanup--1/agent-stdout.txt",
-        "runs/claude-snapline--onboarding-cleanup--1/agent-stderr.txt"
+        "runs-data/claude-snapline--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-data/claude-snapline--onboarding-cleanup--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--onboarding-cleanup--1/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--onboarding-cleanup--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--onboarding-cleanup--1/diff.patch"
     },
     {
       "id": "claude-snapline--onboarding-cleanup--2",
@@ -7409,11 +7409,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--onboarding-cleanup--2/agent-stdout.txt",
-        "runs/claude-snapline--onboarding-cleanup--2/agent-stderr.txt"
+        "runs-data/claude-snapline--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-data/claude-snapline--onboarding-cleanup--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--onboarding-cleanup--2/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--onboarding-cleanup--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--onboarding-cleanup--2/diff.patch"
     },
     {
       "id": "claude-snapline--onboarding-cleanup--3",
@@ -7446,11 +7446,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--onboarding-cleanup--3/agent-stdout.txt",
-        "runs/claude-snapline--onboarding-cleanup--3/agent-stderr.txt"
+        "runs-data/claude-snapline--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-data/claude-snapline--onboarding-cleanup--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--onboarding-cleanup--3/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--onboarding-cleanup--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--onboarding-cleanup--3/diff.patch"
     },
     {
       "id": "claude-snapline--polished-settings-page--1",
@@ -7483,11 +7483,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--polished-settings-page--1/agent-stdout.txt",
-        "runs/claude-snapline--polished-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-snapline--polished-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-snapline--polished-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--polished-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--polished-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--polished-settings-page--1/diff.patch"
     },
     {
       "id": "claude-snapline--polished-settings-page--2",
@@ -7520,11 +7520,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--polished-settings-page--2/agent-stdout.txt",
-        "runs/claude-snapline--polished-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-snapline--polished-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-snapline--polished-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--polished-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--polished-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--polished-settings-page--2/diff.patch"
     },
     {
       "id": "claude-snapline--polished-settings-page--3",
@@ -7557,11 +7557,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--polished-settings-page--3/agent-stdout.txt",
-        "runs/claude-snapline--polished-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-snapline--polished-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-snapline--polished-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--polished-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--polished-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--polished-settings-page--3/diff.patch"
     },
     {
       "id": "claude-snapline--premium-dashboard--1",
@@ -7594,11 +7594,11 @@
         "filesTouched": 12
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--premium-dashboard--1/agent-stdout.txt",
-        "runs/claude-snapline--premium-dashboard--1/agent-stderr.txt"
+        "runs-data/claude-snapline--premium-dashboard--1/agent-stdout.txt",
+        "runs-data/claude-snapline--premium-dashboard--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--premium-dashboard--1/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--premium-dashboard--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--premium-dashboard--1/diff.patch"
     },
     {
       "id": "claude-snapline--premium-dashboard--2",
@@ -7631,11 +7631,11 @@
         "filesTouched": 14
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--premium-dashboard--2/agent-stdout.txt",
-        "runs/claude-snapline--premium-dashboard--2/agent-stderr.txt"
+        "runs-data/claude-snapline--premium-dashboard--2/agent-stdout.txt",
+        "runs-data/claude-snapline--premium-dashboard--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--premium-dashboard--2/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--premium-dashboard--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--premium-dashboard--2/diff.patch"
     },
     {
       "id": "claude-snapline--premium-dashboard--3",
@@ -7668,11 +7668,11 @@
         "filesTouched": 6
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--premium-dashboard--3/agent-stdout.txt",
-        "runs/claude-snapline--premium-dashboard--3/agent-stderr.txt"
+        "runs-data/claude-snapline--premium-dashboard--3/agent-stdout.txt",
+        "runs-data/claude-snapline--premium-dashboard--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--premium-dashboard--3/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--premium-dashboard--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--premium-dashboard--3/diff.patch"
     },
     {
       "id": "claude-snapline--pricing-cards-polish--1",
@@ -7705,11 +7705,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--pricing-cards-polish--1/agent-stdout.txt",
-        "runs/claude-snapline--pricing-cards-polish--1/agent-stderr.txt"
+        "runs-data/claude-snapline--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-data/claude-snapline--pricing-cards-polish--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--pricing-cards-polish--1/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--pricing-cards-polish--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--pricing-cards-polish--1/diff.patch"
     },
     {
       "id": "claude-snapline--pricing-cards-polish--2",
@@ -7742,11 +7742,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--pricing-cards-polish--2/agent-stdout.txt",
-        "runs/claude-snapline--pricing-cards-polish--2/agent-stderr.txt"
+        "runs-data/claude-snapline--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-data/claude-snapline--pricing-cards-polish--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--pricing-cards-polish--2/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--pricing-cards-polish--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--pricing-cards-polish--2/diff.patch"
     },
     {
       "id": "claude-snapline--pricing-cards-polish--3",
@@ -7779,11 +7779,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--pricing-cards-polish--3/agent-stdout.txt",
-        "runs/claude-snapline--pricing-cards-polish--3/agent-stderr.txt"
+        "runs-data/claude-snapline--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-data/claude-snapline--pricing-cards-polish--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--pricing-cards-polish--3/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--pricing-cards-polish--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--pricing-cards-polish--3/diff.patch"
     },
     {
       "id": "claude-snapline--team-invite-modal--1",
@@ -7816,11 +7816,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--team-invite-modal--1/agent-stdout.txt",
-        "runs/claude-snapline--team-invite-modal--1/agent-stderr.txt"
+        "runs-data/claude-snapline--team-invite-modal--1/agent-stdout.txt",
+        "runs-data/claude-snapline--team-invite-modal--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--team-invite-modal--1/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--team-invite-modal--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--team-invite-modal--1/diff.patch"
     },
     {
       "id": "claude-snapline--team-invite-modal--2",
@@ -7853,11 +7853,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--team-invite-modal--2/agent-stdout.txt",
-        "runs/claude-snapline--team-invite-modal--2/agent-stderr.txt"
+        "runs-data/claude-snapline--team-invite-modal--2/agent-stdout.txt",
+        "runs-data/claude-snapline--team-invite-modal--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--team-invite-modal--2/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--team-invite-modal--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--team-invite-modal--2/diff.patch"
     },
     {
       "id": "claude-snapline--team-invite-modal--3",
@@ -7890,11 +7890,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs/claude-snapline--team-invite-modal--3/agent-stdout.txt",
-        "runs/claude-snapline--team-invite-modal--3/agent-stderr.txt"
+        "runs-data/claude-snapline--team-invite-modal--3/agent-stdout.txt",
+        "runs-data/claude-snapline--team-invite-modal--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-snapline--team-invite-modal--3/scanner.json",
-      "gitDiffPath": "runs/claude-snapline--team-invite-modal--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-snapline--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-snapline--team-invite-modal--3/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--billing-settings-page--1",
@@ -7927,11 +7927,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--billing-settings-page--1/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--billing-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--billing-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--billing-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--billing-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--billing-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--billing-settings-page--1/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--billing-settings-page--2",
@@ -7964,11 +7964,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--billing-settings-page--2/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--billing-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--billing-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--billing-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--billing-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--billing-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--billing-settings-page--2/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--billing-settings-page--3",
@@ -8001,11 +8001,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--billing-settings-page--3/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--billing-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--billing-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--billing-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--billing-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--billing-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--billing-settings-page--3/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--dashboard-visual-hierarchy--1",
@@ -8038,11 +8038,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--dashboard-visual-hierarchy--1/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--dashboard-visual-hierarchy--1/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--dashboard-visual-hierarchy--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--dashboard-visual-hierarchy--1/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--dashboard-visual-hierarchy--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--dashboard-visual-hierarchy--1/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--dashboard-visual-hierarchy--2",
@@ -8075,11 +8075,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--dashboard-visual-hierarchy--2/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--dashboard-visual-hierarchy--2/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--dashboard-visual-hierarchy--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--dashboard-visual-hierarchy--2/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--dashboard-visual-hierarchy--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--dashboard-visual-hierarchy--2/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--dashboard-visual-hierarchy--3",
@@ -8112,11 +8112,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--dashboard-visual-hierarchy--3/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--dashboard-visual-hierarchy--3/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--dashboard-visual-hierarchy--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--dashboard-visual-hierarchy--3/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--dashboard-visual-hierarchy--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--dashboard-visual-hierarchy--3/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--empty-state--1",
@@ -8149,11 +8149,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--empty-state--1/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--empty-state--1/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--empty-state--1/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--empty-state--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--empty-state--1/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--empty-state--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--empty-state--1/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--empty-state--2",
@@ -8186,11 +8186,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--empty-state--2/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--empty-state--2/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--empty-state--2/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--empty-state--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--empty-state--2/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--empty-state--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--empty-state--2/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--empty-state--3",
@@ -8223,11 +8223,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--empty-state--3/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--empty-state--3/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--empty-state--3/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--empty-state--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--empty-state--3/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--empty-state--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--empty-state--3/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--invoices-table--1",
@@ -8260,11 +8260,11 @@
         "filesTouched": 6
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--invoices-table--1/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--invoices-table--1/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--invoices-table--1/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--invoices-table--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--invoices-table--1/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--invoices-table--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--invoices-table--1/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--invoices-table--2",
@@ -8297,11 +8297,11 @@
         "filesTouched": 5
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--invoices-table--2/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--invoices-table--2/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--invoices-table--2/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--invoices-table--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--invoices-table--2/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--invoices-table--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--invoices-table--2/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--invoices-table--3",
@@ -8334,11 +8334,11 @@
         "filesTouched": 6
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--invoices-table--3/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--invoices-table--3/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--invoices-table--3/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--invoices-table--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--invoices-table--3/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--invoices-table--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--invoices-table--3/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--login-page--1",
@@ -8371,11 +8371,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--login-page--1/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--login-page--1/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--login-page--1/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--login-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--login-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--login-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--login-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--login-page--1/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--login-page--2",
@@ -8408,11 +8408,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--login-page--2/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--login-page--2/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--login-page--2/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--login-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--login-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--login-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--login-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--login-page--2/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--login-page--3",
@@ -8445,11 +8445,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--login-page--3/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--login-page--3/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--login-page--3/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--login-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--login-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--login-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--login-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--login-page--3/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--onboarding-cleanup--1",
@@ -8482,11 +8482,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--onboarding-cleanup--1/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--onboarding-cleanup--1/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--onboarding-cleanup--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--onboarding-cleanup--1/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--onboarding-cleanup--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--onboarding-cleanup--1/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--onboarding-cleanup--2",
@@ -8519,11 +8519,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--onboarding-cleanup--2/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--onboarding-cleanup--2/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--onboarding-cleanup--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--onboarding-cleanup--2/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--onboarding-cleanup--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--onboarding-cleanup--2/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--onboarding-cleanup--3",
@@ -8556,11 +8556,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--onboarding-cleanup--3/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--onboarding-cleanup--3/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--onboarding-cleanup--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--onboarding-cleanup--3/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--onboarding-cleanup--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--onboarding-cleanup--3/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--polished-settings-page--1",
@@ -8593,11 +8593,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--polished-settings-page--1/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--polished-settings-page--1/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--polished-settings-page--1/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--polished-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--polished-settings-page--1/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--polished-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--polished-settings-page--1/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--polished-settings-page--2",
@@ -8630,11 +8630,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--polished-settings-page--2/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--polished-settings-page--2/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--polished-settings-page--2/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--polished-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--polished-settings-page--2/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--polished-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--polished-settings-page--2/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--polished-settings-page--3",
@@ -8667,11 +8667,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--polished-settings-page--3/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--polished-settings-page--3/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--polished-settings-page--3/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--polished-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--polished-settings-page--3/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--polished-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--polished-settings-page--3/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--premium-dashboard--1",
@@ -8704,11 +8704,11 @@
         "filesTouched": 10
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--premium-dashboard--1/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--premium-dashboard--1/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--premium-dashboard--1/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--premium-dashboard--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--premium-dashboard--1/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--premium-dashboard--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--premium-dashboard--1/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--premium-dashboard--2",
@@ -8741,11 +8741,11 @@
         "filesTouched": 14
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--premium-dashboard--2/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--premium-dashboard--2/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--premium-dashboard--2/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--premium-dashboard--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--premium-dashboard--2/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--premium-dashboard--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--premium-dashboard--2/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--premium-dashboard--3",
@@ -8778,11 +8778,11 @@
         "filesTouched": 13
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--premium-dashboard--3/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--premium-dashboard--3/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--premium-dashboard--3/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--premium-dashboard--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--premium-dashboard--3/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--premium-dashboard--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--premium-dashboard--3/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--pricing-cards-polish--1",
@@ -8815,11 +8815,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--pricing-cards-polish--1/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--pricing-cards-polish--1/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--pricing-cards-polish--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--pricing-cards-polish--1/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--pricing-cards-polish--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--pricing-cards-polish--1/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--pricing-cards-polish--2",
@@ -8852,11 +8852,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--pricing-cards-polish--2/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--pricing-cards-polish--2/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--pricing-cards-polish--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--pricing-cards-polish--2/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--pricing-cards-polish--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--pricing-cards-polish--2/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--pricing-cards-polish--3",
@@ -8889,11 +8889,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--pricing-cards-polish--3/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--pricing-cards-polish--3/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--pricing-cards-polish--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--pricing-cards-polish--3/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--pricing-cards-polish--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--pricing-cards-polish--3/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--team-invite-modal--1",
@@ -8926,11 +8926,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--team-invite-modal--1/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--team-invite-modal--1/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--team-invite-modal--1/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--team-invite-modal--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--team-invite-modal--1/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--team-invite-modal--1/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--team-invite-modal--1/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--team-invite-modal--2",
@@ -8963,11 +8963,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--team-invite-modal--2/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--team-invite-modal--2/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--team-invite-modal--2/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--team-invite-modal--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--team-invite-modal--2/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--team-invite-modal--2/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--team-invite-modal--2/diff.patch"
     },
     {
       "id": "claude-tailwind-eslint--team-invite-modal--3",
@@ -9000,11 +9000,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs/claude-tailwind-eslint--team-invite-modal--3/agent-stdout.txt",
-        "runs/claude-tailwind-eslint--team-invite-modal--3/agent-stderr.txt"
+        "runs-data/claude-tailwind-eslint--team-invite-modal--3/agent-stdout.txt",
+        "runs-data/claude-tailwind-eslint--team-invite-modal--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs/claude-tailwind-eslint--team-invite-modal--3/scanner.json",
-      "gitDiffPath": "runs/claude-tailwind-eslint--team-invite-modal--3/diff.patch"
+      "scannerJsonPath": "runs-data/claude-tailwind-eslint--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-data/claude-tailwind-eslint--team-invite-modal--3/diff.patch"
     }
   ]
 }

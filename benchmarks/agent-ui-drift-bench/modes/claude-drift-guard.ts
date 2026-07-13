@@ -12,7 +12,7 @@ export const claudeDriftGuard: BenchMode = {
   agent: "claude",
   description: "Claude Code + driftguard; agent instructed to run its compliance check",
   prepare(fixtureDir) {
-    npmInstall(fixtureDir, ["driftguard"])
+    npmInstall(fixtureDir, ["driftguard@0.1.1"])
     captureHelp(fixtureDir, "driftguard")
     fs.writeFileSync(
       path.join(fixtureDir, "CLAUDE.md"),

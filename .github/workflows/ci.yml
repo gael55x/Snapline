@@ -26,4 +26,7 @@ jobs:
       - run: pnpm build
       - run: pnpm test
       - run: pnpm bench:static
+      - run: pnpm bench:published:check
       - run: pnpm docs:check
+      - run: pnpm release:metadata:check
+      - run: pnpm package:smoke

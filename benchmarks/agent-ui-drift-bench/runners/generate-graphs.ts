@@ -86,9 +86,27 @@ function crossSliceChart(): string | undefined {
     gatedMode: string
     gatedLabel: string
   }> = [
-    { report: "latest", label: "Claude Sonnet 5", rawMode: "claude-raw", gatedMode: "claude-snapline", gatedLabel: "snapline (hook gate)" },
-    { report: "latest-haiku", label: "Claude Haiku 4.5", rawMode: "claude-raw", gatedMode: "claude-snapline", gatedLabel: "snapline (hook gate)" },
-    { report: "latest-codex", label: "Codex gpt-5.5", rawMode: "codex-raw", gatedMode: "codex-snapline", gatedLabel: "snapline (instructions only)" },
+    {
+      report: "latest",
+      label: "Claude Sonnet 5",
+      rawMode: "claude-raw",
+      gatedMode: "claude-snapline",
+      gatedLabel: "snapline (hook gate)",
+    },
+    {
+      report: "latest-haiku",
+      label: "Claude Haiku 4.5",
+      rawMode: "claude-raw",
+      gatedMode: "claude-snapline",
+      gatedLabel: "snapline (hook gate)",
+    },
+    {
+      report: "latest-codex",
+      label: "Codex gpt-5.5",
+      rawMode: "codex-raw",
+      gatedMode: "codex-snapline",
+      gatedLabel: "snapline (instructions only)",
+    },
   ]
   const bars: Bar[] = []
   let totalRuns = 0
@@ -100,7 +118,11 @@ function crossSliceChart(): string | undefined {
     if (raw?.driftedRunRate === undefined || gated?.driftedRunRate === undefined) continue
     totalRuns += report.runs.length
     bars.push({ label: `${slice.label} — raw`, value: raw.driftedRunRate })
-    bars.push({ label: `${slice.label} — ${slice.gatedLabel}`, value: gated.driftedRunRate, highlight: true })
+    bars.push({
+      label: `${slice.label} — ${slice.gatedLabel}`,
+      value: gated.driftedRunRate,
+      highlight: true,
+    })
   }
   if (bars.length === 0) return undefined
   return svgBarChart(
@@ -111,7 +133,7 @@ function crossSliceChart(): string | undefined {
   )
 }
 
-export function generateGraphs(): string[] {
+export function generateGraphs(graphsDir = path.join(benchRoot, "graphs")): string[] {
   const { config, configHash } = loadBenchConfig()
   const report = loadReport()
   const models =
@@ -176,7 +198,6 @@ export function generateGraphs(): string[] {
       ),
     },
   ]
-  const graphsDir = path.join(benchRoot, "graphs")
   fs.mkdirSync(graphsDir, { recursive: true })
   const written: string[] = []
   for (const chart of charts) {

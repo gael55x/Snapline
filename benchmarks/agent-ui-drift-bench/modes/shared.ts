@@ -69,7 +69,7 @@ export function writeShadcnMcpConfig(fixtureDir: string): void {
   fs.writeFileSync(
     path.join(fixtureDir, ".mcp.json"),
     JSON.stringify(
-      { mcpServers: { shadcn: { command: "npx", args: ["shadcn@latest", "mcp"] } } },
+      { mcpServers: { shadcn: { command: "npx", args: ["shadcn@4.13.0", "mcp"] } } },
       null,
       2,
     ) + "\n",

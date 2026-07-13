@@ -107,11 +107,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--billing-settings-page--1/agent-stdout.txt",
-        "runs-codex/codex-raw--billing-settings-page--1/agent-stderr.txt"
+        "runs-data-codex/codex-raw--billing-settings-page--1/agent-stdout.txt",
+        "runs-data-codex/codex-raw--billing-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--billing-settings-page--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--billing-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--billing-settings-page--1/diff.patch"
     },
     {
       "id": "codex-raw--billing-settings-page--2",
@@ -144,11 +144,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--billing-settings-page--2/agent-stdout.txt",
-        "runs-codex/codex-raw--billing-settings-page--2/agent-stderr.txt"
+        "runs-data-codex/codex-raw--billing-settings-page--2/agent-stdout.txt",
+        "runs-data-codex/codex-raw--billing-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--billing-settings-page--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--billing-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--billing-settings-page--2/diff.patch"
     },
     {
       "id": "codex-raw--billing-settings-page--3",
@@ -181,11 +181,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--billing-settings-page--3/agent-stdout.txt",
-        "runs-codex/codex-raw--billing-settings-page--3/agent-stderr.txt"
+        "runs-data-codex/codex-raw--billing-settings-page--3/agent-stdout.txt",
+        "runs-data-codex/codex-raw--billing-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--billing-settings-page--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--billing-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--billing-settings-page--3/diff.patch"
     },
     {
       "id": "codex-raw--dashboard-visual-hierarchy--1",
@@ -218,11 +218,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--dashboard-visual-hierarchy--1/agent-stdout.txt",
-        "runs-codex/codex-raw--dashboard-visual-hierarchy--1/agent-stderr.txt"
+        "runs-data-codex/codex-raw--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-data-codex/codex-raw--dashboard-visual-hierarchy--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--dashboard-visual-hierarchy--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--dashboard-visual-hierarchy--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--dashboard-visual-hierarchy--1/diff.patch"
     },
     {
       "id": "codex-raw--dashboard-visual-hierarchy--2",
@@ -255,11 +255,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--dashboard-visual-hierarchy--2/agent-stdout.txt",
-        "runs-codex/codex-raw--dashboard-visual-hierarchy--2/agent-stderr.txt"
+        "runs-data-codex/codex-raw--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-data-codex/codex-raw--dashboard-visual-hierarchy--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--dashboard-visual-hierarchy--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--dashboard-visual-hierarchy--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--dashboard-visual-hierarchy--2/diff.patch"
     },
     {
       "id": "codex-raw--dashboard-visual-hierarchy--3",
@@ -292,11 +292,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--dashboard-visual-hierarchy--3/agent-stdout.txt",
-        "runs-codex/codex-raw--dashboard-visual-hierarchy--3/agent-stderr.txt"
+        "runs-data-codex/codex-raw--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-data-codex/codex-raw--dashboard-visual-hierarchy--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--dashboard-visual-hierarchy--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--dashboard-visual-hierarchy--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--dashboard-visual-hierarchy--3/diff.patch"
     },
     {
       "id": "codex-raw--empty-state--1",
@@ -329,11 +329,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--empty-state--1/agent-stdout.txt",
-        "runs-codex/codex-raw--empty-state--1/agent-stderr.txt"
+        "runs-data-codex/codex-raw--empty-state--1/agent-stdout.txt",
+        "runs-data-codex/codex-raw--empty-state--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--empty-state--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--empty-state--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--empty-state--1/diff.patch"
     },
     {
       "id": "codex-raw--empty-state--2",
@@ -367,11 +367,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--empty-state--2/agent-stdout.txt",
-        "runs-codex/codex-raw--empty-state--2/agent-stderr.txt"
+        "runs-data-codex/codex-raw--empty-state--2/agent-stdout.txt",
+        "runs-data-codex/codex-raw--empty-state--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--empty-state--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--empty-state--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--empty-state--2/diff.patch"
     },
     {
       "id": "codex-raw--empty-state--3",
@@ -405,11 +405,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--empty-state--3/agent-stdout.txt",
-        "runs-codex/codex-raw--empty-state--3/agent-stderr.txt"
+        "runs-data-codex/codex-raw--empty-state--3/agent-stdout.txt",
+        "runs-data-codex/codex-raw--empty-state--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--empty-state--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--empty-state--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--empty-state--3/diff.patch"
     },
     {
       "id": "codex-raw--invoices-table--1",
@@ -442,11 +442,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--invoices-table--1/agent-stdout.txt",
-        "runs-codex/codex-raw--invoices-table--1/agent-stderr.txt"
+        "runs-data-codex/codex-raw--invoices-table--1/agent-stdout.txt",
+        "runs-data-codex/codex-raw--invoices-table--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--invoices-table--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--invoices-table--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--invoices-table--1/diff.patch"
     },
     {
       "id": "codex-raw--invoices-table--2",
@@ -479,11 +479,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--invoices-table--2/agent-stdout.txt",
-        "runs-codex/codex-raw--invoices-table--2/agent-stderr.txt"
+        "runs-data-codex/codex-raw--invoices-table--2/agent-stdout.txt",
+        "runs-data-codex/codex-raw--invoices-table--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--invoices-table--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--invoices-table--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--invoices-table--2/diff.patch"
     },
     {
       "id": "codex-raw--invoices-table--3",
@@ -516,11 +516,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--invoices-table--3/agent-stdout.txt",
-        "runs-codex/codex-raw--invoices-table--3/agent-stderr.txt"
+        "runs-data-codex/codex-raw--invoices-table--3/agent-stdout.txt",
+        "runs-data-codex/codex-raw--invoices-table--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--invoices-table--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--invoices-table--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--invoices-table--3/diff.patch"
     },
     {
       "id": "codex-raw--login-page--1",
@@ -553,11 +553,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--login-page--1/agent-stdout.txt",
-        "runs-codex/codex-raw--login-page--1/agent-stderr.txt"
+        "runs-data-codex/codex-raw--login-page--1/agent-stdout.txt",
+        "runs-data-codex/codex-raw--login-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--login-page--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--login-page--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--login-page--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--login-page--1/diff.patch"
     },
     {
       "id": "codex-raw--login-page--2",
@@ -590,11 +590,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--login-page--2/agent-stdout.txt",
-        "runs-codex/codex-raw--login-page--2/agent-stderr.txt"
+        "runs-data-codex/codex-raw--login-page--2/agent-stdout.txt",
+        "runs-data-codex/codex-raw--login-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--login-page--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--login-page--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--login-page--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--login-page--2/diff.patch"
     },
     {
       "id": "codex-raw--login-page--3",
@@ -627,11 +627,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--login-page--3/agent-stdout.txt",
-        "runs-codex/codex-raw--login-page--3/agent-stderr.txt"
+        "runs-data-codex/codex-raw--login-page--3/agent-stdout.txt",
+        "runs-data-codex/codex-raw--login-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--login-page--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--login-page--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--login-page--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--login-page--3/diff.patch"
     },
     {
       "id": "codex-raw--onboarding-cleanup--1",
@@ -664,11 +664,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--onboarding-cleanup--1/agent-stdout.txt",
-        "runs-codex/codex-raw--onboarding-cleanup--1/agent-stderr.txt"
+        "runs-data-codex/codex-raw--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-data-codex/codex-raw--onboarding-cleanup--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--onboarding-cleanup--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--onboarding-cleanup--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--onboarding-cleanup--1/diff.patch"
     },
     {
       "id": "codex-raw--onboarding-cleanup--2",
@@ -702,11 +702,11 @@
         "failure": "agent spawn failed: spawnSync codex ETIMEDOUT"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--onboarding-cleanup--2/agent-stdout.txt",
-        "runs-codex/codex-raw--onboarding-cleanup--2/agent-stderr.txt"
+        "runs-data-codex/codex-raw--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-data-codex/codex-raw--onboarding-cleanup--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--onboarding-cleanup--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--onboarding-cleanup--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--onboarding-cleanup--2/diff.patch"
     },
     {
       "id": "codex-raw--onboarding-cleanup--3",
@@ -739,11 +739,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--onboarding-cleanup--3/agent-stdout.txt",
-        "runs-codex/codex-raw--onboarding-cleanup--3/agent-stderr.txt"
+        "runs-data-codex/codex-raw--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-data-codex/codex-raw--onboarding-cleanup--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--onboarding-cleanup--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--onboarding-cleanup--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--onboarding-cleanup--3/diff.patch"
     },
     {
       "id": "codex-raw--polished-settings-page--1",
@@ -776,11 +776,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--polished-settings-page--1/agent-stdout.txt",
-        "runs-codex/codex-raw--polished-settings-page--1/agent-stderr.txt"
+        "runs-data-codex/codex-raw--polished-settings-page--1/agent-stdout.txt",
+        "runs-data-codex/codex-raw--polished-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--polished-settings-page--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--polished-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--polished-settings-page--1/diff.patch"
     },
     {
       "id": "codex-raw--polished-settings-page--2",
@@ -813,11 +813,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--polished-settings-page--2/agent-stdout.txt",
-        "runs-codex/codex-raw--polished-settings-page--2/agent-stderr.txt"
+        "runs-data-codex/codex-raw--polished-settings-page--2/agent-stdout.txt",
+        "runs-data-codex/codex-raw--polished-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--polished-settings-page--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--polished-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--polished-settings-page--2/diff.patch"
     },
     {
       "id": "codex-raw--polished-settings-page--3",
@@ -850,11 +850,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--polished-settings-page--3/agent-stdout.txt",
-        "runs-codex/codex-raw--polished-settings-page--3/agent-stderr.txt"
+        "runs-data-codex/codex-raw--polished-settings-page--3/agent-stdout.txt",
+        "runs-data-codex/codex-raw--polished-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--polished-settings-page--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--polished-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--polished-settings-page--3/diff.patch"
     },
     {
       "id": "codex-raw--premium-dashboard--1",
@@ -887,11 +887,11 @@
         "filesTouched": 9
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--premium-dashboard--1/agent-stdout.txt",
-        "runs-codex/codex-raw--premium-dashboard--1/agent-stderr.txt"
+        "runs-data-codex/codex-raw--premium-dashboard--1/agent-stdout.txt",
+        "runs-data-codex/codex-raw--premium-dashboard--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--premium-dashboard--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--premium-dashboard--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--premium-dashboard--1/diff.patch"
     },
     {
       "id": "codex-raw--premium-dashboard--2",
@@ -924,11 +924,11 @@
         "filesTouched": 12
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--premium-dashboard--2/agent-stdout.txt",
-        "runs-codex/codex-raw--premium-dashboard--2/agent-stderr.txt"
+        "runs-data-codex/codex-raw--premium-dashboard--2/agent-stdout.txt",
+        "runs-data-codex/codex-raw--premium-dashboard--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--premium-dashboard--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--premium-dashboard--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--premium-dashboard--2/diff.patch"
     },
     {
       "id": "codex-raw--premium-dashboard--3",
@@ -961,11 +961,11 @@
         "filesTouched": 11
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--premium-dashboard--3/agent-stdout.txt",
-        "runs-codex/codex-raw--premium-dashboard--3/agent-stderr.txt"
+        "runs-data-codex/codex-raw--premium-dashboard--3/agent-stdout.txt",
+        "runs-data-codex/codex-raw--premium-dashboard--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--premium-dashboard--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--premium-dashboard--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--premium-dashboard--3/diff.patch"
     },
     {
       "id": "codex-raw--pricing-cards-polish--1",
@@ -998,11 +998,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--pricing-cards-polish--1/agent-stdout.txt",
-        "runs-codex/codex-raw--pricing-cards-polish--1/agent-stderr.txt"
+        "runs-data-codex/codex-raw--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-data-codex/codex-raw--pricing-cards-polish--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--pricing-cards-polish--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--pricing-cards-polish--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--pricing-cards-polish--1/diff.patch"
     },
     {
       "id": "codex-raw--pricing-cards-polish--2",
@@ -1035,11 +1035,11 @@
         "filesTouched": 2
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--pricing-cards-polish--2/agent-stdout.txt",
-        "runs-codex/codex-raw--pricing-cards-polish--2/agent-stderr.txt"
+        "runs-data-codex/codex-raw--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-data-codex/codex-raw--pricing-cards-polish--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--pricing-cards-polish--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--pricing-cards-polish--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--pricing-cards-polish--2/diff.patch"
     },
     {
       "id": "codex-raw--pricing-cards-polish--3",
@@ -1072,11 +1072,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--pricing-cards-polish--3/agent-stdout.txt",
-        "runs-codex/codex-raw--pricing-cards-polish--3/agent-stderr.txt"
+        "runs-data-codex/codex-raw--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-data-codex/codex-raw--pricing-cards-polish--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--pricing-cards-polish--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--pricing-cards-polish--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--pricing-cards-polish--3/diff.patch"
     },
     {
       "id": "codex-raw--team-invite-modal--1",
@@ -1109,11 +1109,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--team-invite-modal--1/agent-stdout.txt",
-        "runs-codex/codex-raw--team-invite-modal--1/agent-stderr.txt"
+        "runs-data-codex/codex-raw--team-invite-modal--1/agent-stdout.txt",
+        "runs-data-codex/codex-raw--team-invite-modal--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--team-invite-modal--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--team-invite-modal--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--team-invite-modal--1/diff.patch"
     },
     {
       "id": "codex-raw--team-invite-modal--2",
@@ -1146,11 +1146,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--team-invite-modal--2/agent-stdout.txt",
-        "runs-codex/codex-raw--team-invite-modal--2/agent-stderr.txt"
+        "runs-data-codex/codex-raw--team-invite-modal--2/agent-stdout.txt",
+        "runs-data-codex/codex-raw--team-invite-modal--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--team-invite-modal--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--team-invite-modal--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--team-invite-modal--2/diff.patch"
     },
     {
       "id": "codex-raw--team-invite-modal--3",
@@ -1183,11 +1183,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-raw--team-invite-modal--3/agent-stdout.txt",
-        "runs-codex/codex-raw--team-invite-modal--3/agent-stderr.txt"
+        "runs-data-codex/codex-raw--team-invite-modal--3/agent-stdout.txt",
+        "runs-data-codex/codex-raw--team-invite-modal--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-raw--team-invite-modal--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-raw--team-invite-modal--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-raw--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-raw--team-invite-modal--3/diff.patch"
     },
     {
       "id": "codex-snapline--billing-settings-page--1",
@@ -1220,11 +1220,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--billing-settings-page--1/agent-stdout.txt",
-        "runs-codex/codex-snapline--billing-settings-page--1/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--billing-settings-page--1/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--billing-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--billing-settings-page--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--billing-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--billing-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--billing-settings-page--1/diff.patch"
     },
     {
       "id": "codex-snapline--billing-settings-page--2",
@@ -1257,11 +1257,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--billing-settings-page--2/agent-stdout.txt",
-        "runs-codex/codex-snapline--billing-settings-page--2/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--billing-settings-page--2/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--billing-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--billing-settings-page--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--billing-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--billing-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--billing-settings-page--2/diff.patch"
     },
     {
       "id": "codex-snapline--billing-settings-page--3",
@@ -1294,11 +1294,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--billing-settings-page--3/agent-stdout.txt",
-        "runs-codex/codex-snapline--billing-settings-page--3/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--billing-settings-page--3/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--billing-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--billing-settings-page--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--billing-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--billing-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--billing-settings-page--3/diff.patch"
     },
     {
       "id": "codex-snapline--dashboard-visual-hierarchy--1",
@@ -1331,11 +1331,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--dashboard-visual-hierarchy--1/agent-stdout.txt",
-        "runs-codex/codex-snapline--dashboard-visual-hierarchy--1/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--dashboard-visual-hierarchy--1/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--dashboard-visual-hierarchy--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--dashboard-visual-hierarchy--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--dashboard-visual-hierarchy--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--dashboard-visual-hierarchy--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--dashboard-visual-hierarchy--1/diff.patch"
     },
     {
       "id": "codex-snapline--dashboard-visual-hierarchy--2",
@@ -1368,11 +1368,11 @@
         "filesTouched": 4
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--dashboard-visual-hierarchy--2/agent-stdout.txt",
-        "runs-codex/codex-snapline--dashboard-visual-hierarchy--2/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--dashboard-visual-hierarchy--2/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--dashboard-visual-hierarchy--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--dashboard-visual-hierarchy--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--dashboard-visual-hierarchy--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--dashboard-visual-hierarchy--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--dashboard-visual-hierarchy--2/diff.patch"
     },
     {
       "id": "codex-snapline--dashboard-visual-hierarchy--3",
@@ -1405,11 +1405,11 @@
         "filesTouched": 3
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--dashboard-visual-hierarchy--3/agent-stdout.txt",
-        "runs-codex/codex-snapline--dashboard-visual-hierarchy--3/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--dashboard-visual-hierarchy--3/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--dashboard-visual-hierarchy--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--dashboard-visual-hierarchy--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--dashboard-visual-hierarchy--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--dashboard-visual-hierarchy--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--dashboard-visual-hierarchy--3/diff.patch"
     },
     {
       "id": "codex-snapline--empty-state--1",
@@ -1443,11 +1443,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--empty-state--1/agent-stdout.txt",
-        "runs-codex/codex-snapline--empty-state--1/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--empty-state--1/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--empty-state--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--empty-state--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--empty-state--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--empty-state--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--empty-state--1/diff.patch"
     },
     {
       "id": "codex-snapline--empty-state--2",
@@ -1481,11 +1481,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--empty-state--2/agent-stdout.txt",
-        "runs-codex/codex-snapline--empty-state--2/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--empty-state--2/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--empty-state--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--empty-state--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--empty-state--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--empty-state--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--empty-state--2/diff.patch"
     },
     {
       "id": "codex-snapline--empty-state--3",
@@ -1519,11 +1519,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--empty-state--3/agent-stdout.txt",
-        "runs-codex/codex-snapline--empty-state--3/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--empty-state--3/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--empty-state--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--empty-state--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--empty-state--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--empty-state--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--empty-state--3/diff.patch"
     },
     {
       "id": "codex-snapline--invoices-table--1",
@@ -1557,11 +1557,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--invoices-table--1/agent-stdout.txt",
-        "runs-codex/codex-snapline--invoices-table--1/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--invoices-table--1/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--invoices-table--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--invoices-table--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--invoices-table--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--invoices-table--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--invoices-table--1/diff.patch"
     },
     {
       "id": "codex-snapline--invoices-table--2",
@@ -1595,11 +1595,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--invoices-table--2/agent-stdout.txt",
-        "runs-codex/codex-snapline--invoices-table--2/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--invoices-table--2/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--invoices-table--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--invoices-table--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--invoices-table--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--invoices-table--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--invoices-table--2/diff.patch"
     },
     {
       "id": "codex-snapline--invoices-table--3",
@@ -1633,11 +1633,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--invoices-table--3/agent-stdout.txt",
-        "runs-codex/codex-snapline--invoices-table--3/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--invoices-table--3/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--invoices-table--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--invoices-table--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--invoices-table--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--invoices-table--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--invoices-table--3/diff.patch"
     },
     {
       "id": "codex-snapline--login-page--1",
@@ -1670,11 +1670,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--login-page--1/agent-stdout.txt",
-        "runs-codex/codex-snapline--login-page--1/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--login-page--1/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--login-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--login-page--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--login-page--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--login-page--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--login-page--1/diff.patch"
     },
     {
       "id": "codex-snapline--login-page--2",
@@ -1708,11 +1708,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--login-page--2/agent-stdout.txt",
-        "runs-codex/codex-snapline--login-page--2/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--login-page--2/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--login-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--login-page--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--login-page--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--login-page--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--login-page--2/diff.patch"
     },
     {
       "id": "codex-snapline--login-page--3",
@@ -1746,11 +1746,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--login-page--3/agent-stdout.txt",
-        "runs-codex/codex-snapline--login-page--3/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--login-page--3/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--login-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--login-page--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--login-page--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--login-page--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--login-page--3/diff.patch"
     },
     {
       "id": "codex-snapline--onboarding-cleanup--1",
@@ -1783,11 +1783,11 @@
         "filesTouched": 0
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--onboarding-cleanup--1/agent-stdout.txt",
-        "runs-codex/codex-snapline--onboarding-cleanup--1/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--onboarding-cleanup--1/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--onboarding-cleanup--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--onboarding-cleanup--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--onboarding-cleanup--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--onboarding-cleanup--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--onboarding-cleanup--1/diff.patch"
     },
     {
       "id": "codex-snapline--onboarding-cleanup--2",
@@ -1820,11 +1820,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--onboarding-cleanup--2/agent-stdout.txt",
-        "runs-codex/codex-snapline--onboarding-cleanup--2/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--onboarding-cleanup--2/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--onboarding-cleanup--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--onboarding-cleanup--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--onboarding-cleanup--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--onboarding-cleanup--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--onboarding-cleanup--2/diff.patch"
     },
     {
       "id": "codex-snapline--onboarding-cleanup--3",
@@ -1857,11 +1857,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--onboarding-cleanup--3/agent-stdout.txt",
-        "runs-codex/codex-snapline--onboarding-cleanup--3/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--onboarding-cleanup--3/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--onboarding-cleanup--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--onboarding-cleanup--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--onboarding-cleanup--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--onboarding-cleanup--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--onboarding-cleanup--3/diff.patch"
     },
     {
       "id": "codex-snapline--polished-settings-page--1",
@@ -1894,11 +1894,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--polished-settings-page--1/agent-stdout.txt",
-        "runs-codex/codex-snapline--polished-settings-page--1/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--polished-settings-page--1/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--polished-settings-page--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--polished-settings-page--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--polished-settings-page--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--polished-settings-page--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--polished-settings-page--1/diff.patch"
     },
     {
       "id": "codex-snapline--polished-settings-page--2",
@@ -1931,11 +1931,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--polished-settings-page--2/agent-stdout.txt",
-        "runs-codex/codex-snapline--polished-settings-page--2/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--polished-settings-page--2/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--polished-settings-page--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--polished-settings-page--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--polished-settings-page--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--polished-settings-page--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--polished-settings-page--2/diff.patch"
     },
     {
       "id": "codex-snapline--polished-settings-page--3",
@@ -1968,11 +1968,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--polished-settings-page--3/agent-stdout.txt",
-        "runs-codex/codex-snapline--polished-settings-page--3/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--polished-settings-page--3/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--polished-settings-page--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--polished-settings-page--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--polished-settings-page--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--polished-settings-page--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--polished-settings-page--3/diff.patch"
     },
     {
       "id": "codex-snapline--premium-dashboard--1",
@@ -2005,11 +2005,11 @@
         "filesTouched": 9
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--premium-dashboard--1/agent-stdout.txt",
-        "runs-codex/codex-snapline--premium-dashboard--1/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--premium-dashboard--1/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--premium-dashboard--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--premium-dashboard--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--premium-dashboard--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--premium-dashboard--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--premium-dashboard--1/diff.patch"
     },
     {
       "id": "codex-snapline--premium-dashboard--2",
@@ -2042,11 +2042,11 @@
         "filesTouched": 6
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--premium-dashboard--2/agent-stdout.txt",
-        "runs-codex/codex-snapline--premium-dashboard--2/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--premium-dashboard--2/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--premium-dashboard--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--premium-dashboard--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--premium-dashboard--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--premium-dashboard--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--premium-dashboard--2/diff.patch"
     },
     {
       "id": "codex-snapline--premium-dashboard--3",
@@ -2080,11 +2080,11 @@
         "failure": "agent spawn failed: spawnSync /Users/gailleamolong/.cursor/extensions/openai.chatgpt-26.623.101652-darwin-arm64/bin/macos-aarch64/codex ETIMEDOUT"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--premium-dashboard--3/agent-stdout.txt",
-        "runs-codex/codex-snapline--premium-dashboard--3/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--premium-dashboard--3/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--premium-dashboard--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--premium-dashboard--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--premium-dashboard--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--premium-dashboard--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--premium-dashboard--3/diff.patch"
     },
     {
       "id": "codex-snapline--pricing-cards-polish--1",
@@ -2117,11 +2117,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--pricing-cards-polish--1/agent-stdout.txt",
-        "runs-codex/codex-snapline--pricing-cards-polish--1/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--pricing-cards-polish--1/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--pricing-cards-polish--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--pricing-cards-polish--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--pricing-cards-polish--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--pricing-cards-polish--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--pricing-cards-polish--1/diff.patch"
     },
     {
       "id": "codex-snapline--pricing-cards-polish--2",
@@ -2154,11 +2154,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--pricing-cards-polish--2/agent-stdout.txt",
-        "runs-codex/codex-snapline--pricing-cards-polish--2/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--pricing-cards-polish--2/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--pricing-cards-polish--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--pricing-cards-polish--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--pricing-cards-polish--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--pricing-cards-polish--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--pricing-cards-polish--2/diff.patch"
     },
     {
       "id": "codex-snapline--pricing-cards-polish--3",
@@ -2191,11 +2191,11 @@
         "filesTouched": 1
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--pricing-cards-polish--3/agent-stdout.txt",
-        "runs-codex/codex-snapline--pricing-cards-polish--3/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--pricing-cards-polish--3/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--pricing-cards-polish--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--pricing-cards-polish--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--pricing-cards-polish--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--pricing-cards-polish--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--pricing-cards-polish--3/diff.patch"
     },
     {
       "id": "codex-snapline--team-invite-modal--1",
@@ -2229,11 +2229,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--team-invite-modal--1/agent-stdout.txt",
-        "runs-codex/codex-snapline--team-invite-modal--1/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--team-invite-modal--1/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--team-invite-modal--1/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--team-invite-modal--1/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--team-invite-modal--1/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--team-invite-modal--1/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--team-invite-modal--1/diff.patch"
     },
     {
       "id": "codex-snapline--team-invite-modal--2",
@@ -2267,11 +2267,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--team-invite-modal--2/agent-stdout.txt",
-        "runs-codex/codex-snapline--team-invite-modal--2/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--team-invite-modal--2/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--team-invite-modal--2/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--team-invite-modal--2/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--team-invite-modal--2/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--team-invite-modal--2/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--team-invite-modal--2/diff.patch"
     },
     {
       "id": "codex-snapline--team-invite-modal--3",
@@ -2305,11 +2305,11 @@
         "failure": "agent exited 1"
       },
       "rawOutputPaths": [
-        "runs-codex/codex-snapline--team-invite-modal--3/agent-stdout.txt",
-        "runs-codex/codex-snapline--team-invite-modal--3/agent-stderr.txt"
+        "runs-data-codex/codex-snapline--team-invite-modal--3/agent-stdout.txt",
+        "runs-data-codex/codex-snapline--team-invite-modal--3/agent-stderr.txt"
       ],
-      "scannerJsonPath": "runs-codex/codex-snapline--team-invite-modal--3/scanner.json",
-      "gitDiffPath": "runs-codex/codex-snapline--team-invite-modal--3/diff.patch"
+      "scannerJsonPath": "runs-data-codex/codex-snapline--team-invite-modal--3/scanner.json",
+      "gitDiffPath": "runs-data-codex/codex-snapline--team-invite-modal--3/diff.patch"
     }
   ]
 }
