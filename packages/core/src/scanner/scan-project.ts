@@ -97,6 +97,7 @@ export function scanFiles(root: string, files: readonly string[], deps: ScanFile
   violations.push(...noDuplicateComponents(scannedFiles, deps.config, deps.componentRegistry))
   const score = computeScore(violations, countComponentReuse(allElements, deps.componentRegistry))
   return {
+    schemaVersion: 1,
     root,
     scannedFiles,
     violations,

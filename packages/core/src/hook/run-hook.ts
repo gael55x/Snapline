@@ -31,7 +31,8 @@ export function gitChangedFiles(cwd: string): string[] {
 /**
  * Run the scan for a normalized hook event and decide.
  * post-tool-use scans only the event's files; stop scans the git-changed set.
- * Never throws: a hook must not break the agent session.
+ * Never throws: a hook must not break the agent session. Internal failures are
+ * returned as visible warning context so enforcement never disappears silently.
  */
 export function runHook(event: HookEvent): HookDecision {
   try {
@@ -44,7 +45,12 @@ export function runHook(event: HookEvent): HookDecision {
     const { config } = loadConfig(event.cwd)
     const result = scanFiles(event.cwd, files, buildScanDeps(event.cwd, config))
     return decideFromScan(event, result)
-  } catch {
-    return { action: "allow", contracts: [] }
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : String(error)
+    return {
+      action: "warn",
+      agentMessage: `SNAPLINE COULD NOT ANALYZE UI\n\n${detail}\n\nRun "snapline doctor" and "snapline scan --changed" before finishing.`,
+      contracts: [],
+    }
   }
 }

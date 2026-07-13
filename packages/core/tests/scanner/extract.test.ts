@@ -6,6 +6,14 @@ import { extractInlineStyles } from "../../src/scanner/extract-inline-styles.js"
 import { extractImports } from "../../src/scanner/extract-imports.js"
 import { stripVariants, suggestScaleClass } from "../../src/scanner/tailwind-classes.js"
 
+describe("parseTsx", () => {
+  it("reports invalid syntax with a source location", () => {
+    expect(() => parseTsx("src/broken.tsx", "const Broken = () => <div>")).toThrow(
+      "src/broken.tsx:1:23: JSX element 'div' has no corresponding closing tag.",
+    )
+  })
+})
+
 describe("extractClassNames", () => {
   it("reads plain string className", () => {
     const sf = parseTsx("a.tsx", `const A = () => <div className="mt-4 bg-primary" />`)
@@ -24,7 +32,11 @@ describe("extractClassNames", () => {
       `const A = ({on}:{on:boolean}) => <div className={cn({ "mt-[13px] bg-blue-500": on, flex: on }, ["p-2", on && "text-white"])} />`,
     )
     expect(extractClassNames(sf).map((c) => c.value)).toEqual([
-      "mt-[13px]", "bg-blue-500", "flex", "p-2", "text-white",
+      "mt-[13px]",
+      "bg-blue-500",
+      "flex",
+      "p-2",
+      "text-white",
     ])
   })
 
