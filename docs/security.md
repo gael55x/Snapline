@@ -42,6 +42,12 @@ use a persistent cache.
 - `snapline benchmark` runs repository-owned benchmark scripts and is intended
   for the Snapline source repository, not arbitrary package consumers.
 
+## Dependency audit
+
+`pnpm audit --prod` reported no known vulnerabilities against the candidate
+lockfile on 2026-07-13. This is a registry snapshot, not a permanent guarantee;
+rerun it on the final tag commit.
+
 ## Reporting a vulnerability
 
 Do not open a public issue with an exploit or sensitive source. Use the

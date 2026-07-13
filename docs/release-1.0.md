@@ -50,7 +50,8 @@ Narrative rationale and finding history live in the
 - [x] Hook payload `cwd` cannot redirect Snapline outside the invocation root.
 - [x] No source, tokens, prompts, or contracts are transmitted; optional hook
       logging is local and opt-in.
-- [ ] A production dependency audit is recorded for the candidate lockfile.
+- [x] `pnpm audit --prod` reports no known vulnerabilities for the candidate
+      lockfile (2026-07-13).
 - [ ] GitHub's private vulnerability-reporting path is verified before GA.
 
 ## Packaging and release
