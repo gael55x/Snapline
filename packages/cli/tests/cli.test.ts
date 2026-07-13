@@ -71,13 +71,31 @@ describe("snapline scan", () => {
   it("emits the ScanResult contract with --json", () => {
     const run = cli(["scan", "--json"], dirtyProject)
     const parsed = JSON.parse(run.stdout) as {
+      schemaVersion: number
       violations: unknown[]
       score: { driftScore: number }
       contracts: { agentMessage: string }[]
     }
+    expect(parsed.schemaVersion).toBe(1)
     expect(parsed.violations.length).toBeGreaterThan(0)
     expect(parsed.score.driftScore).toBeGreaterThan(0)
     expect(parsed.contracts[0]?.agentMessage).toContain("SNAPLINE FOUND UI DRIFT")
+  })
+
+  it("scans only explicitly selected files", () => {
+    const run = cli(["scan", "src/app/dirty.tsx", "--json"], dirtyProject)
+    const parsed = JSON.parse(run.stdout) as { scannedFiles: string[] }
+    expect(parsed.scannedFiles).toEqual(["src/app/dirty.tsx"])
+  })
+})
+
+describe("snapline CLI contract", () => {
+  it("prints its package version", () => {
+    expect(cli(["--version"], basicFixture)).toEqual({ stdout: "0.1.0\n", status: 0 })
+  })
+
+  it("rejects unknown flags instead of silently ignoring them", () => {
+    expect(cli(["scan", "--quieter"], basicFixture).status).toBe(1)
   })
 })
 
@@ -143,6 +161,24 @@ describe("snapline hook claude", () => {
     expect(run.status).toBe(0)
     expect(run.stdout.trim()).toBe("")
   })
+
+  it("surfaces scanner failures as warning context", () => {
+    const project = fs.mkdtempSync(path.join(os.tmpdir(), "snapline-hook-error-"))
+    fs.cpSync(basicFixture, project, { recursive: true })
+    fs.writeFileSync(path.join(project, "snapline.yml"), "version: 2\n")
+    const payload = JSON.stringify({
+      hook_event_name: "PostToolUse",
+      cwd: project,
+      tool_name: "Write",
+      tool_input: { file_path: path.join(project, "src", "app", "page.tsx") },
+    })
+    const run = cli(["hook", "claude", "post-tool-use"], project, payload)
+    expect(run.status).toBe(0)
+    expect(JSON.parse(run.stdout).hookSpecificOutput.additionalContext).toContain(
+      "SNAPLINE COULD NOT ANALYZE UI",
+    )
+    fs.rmSync(project, { recursive: true, force: true })
+  })
 })
 
 describe("snapline init + doctor", () => {
@@ -154,10 +190,25 @@ describe("snapline init + doctor", () => {
     expect(init.status).toBe(0)
     expect(fs.existsSync(path.join(project, "snapline.yml"))).toBe(true)
     expect(fs.existsSync(path.join(project, ".snapline", ".gitignore"))).toBe(true)
+    expect(fs.readFileSync(path.join(project, "snapline.yml"), "utf8")).toContain(
+      "framework: other",
+    )
 
     const doctor = cli(["doctor"], project)
     expect(doctor.stdout).toContain("component Button resolves")
     expect(doctor.stdout).toContain("snapline.yml valid")
+    fs.rmSync(project, { recursive: true, force: true })
+  })
+
+  it("does not invent a framework or component registry for an unknown project", () => {
+    const project = fs.mkdtempSync(path.join(os.tmpdir(), "snapline-init-empty-"))
+    const init = cli(["init"], project)
+    expect(init.status).toBe(0)
+    const config = fs.readFileSync(path.join(project, "snapline.yml"), "utf8")
+    expect(config).toContain("framework: other")
+    expect(config).toContain("ui: custom")
+    expect(config).toContain("components: {}")
+    expect(config).not.toContain("Button:")
     fs.rmSync(project, { recursive: true, force: true })
   })
 })
@@ -173,5 +224,55 @@ describe("snapline install claude", () => {
     ) as { hooks: Record<string, unknown> }
     expect(Object.keys(settings.hooks).sort()).toEqual(["PostToolUse", "Stop"])
     fs.rmSync(project, { recursive: true, force: true })
+  })
+})
+
+describe("snapline install codex + cursor", () => {
+  it("writes lifecycle hooks for both agents", () => {
+    const project = fs.mkdtempSync(path.join(os.tmpdir(), "snapline-agent-install-"))
+    fs.cpSync(basicFixture, project, { recursive: true })
+    expect(cli(["install", "codex"], project).status).toBe(0)
+    expect(cli(["install", "cursor"], project).status).toBe(0)
+    expect(fs.existsSync(path.join(project, ".codex", "hooks.json"))).toBe(true)
+    expect(fs.existsSync(path.join(project, ".cursor", "hooks.json"))).toBe(true)
+    fs.rmSync(project, { recursive: true, force: true })
+  })
+
+  it("removes only Snapline-owned integration files and hooks", () => {
+    const project = fs.mkdtempSync(path.join(os.tmpdir(), "snapline-agent-uninstall-"))
+    fs.cpSync(basicFixture, project, { recursive: true })
+    execFileSync("git", ["init"], { cwd: project, stdio: "ignore" })
+    for (const agent of ["claude", "codex", "cursor"] as const) {
+      expect(cli(["install", agent], project).status).toBe(0)
+      expect(cli(["doctor", agent], project).status).toBe(0)
+      expect(cli(["uninstall", agent], project).status).toBe(0)
+      expect(cli(["doctor", agent], project).status).toBe(1)
+    }
+    fs.rmSync(project, { recursive: true, force: true })
+  })
+})
+
+describe("snapline hook codex + cursor", () => {
+  it("returns structured Codex repair feedback for apply_patch", () => {
+    const payload = JSON.stringify({
+      hook_event_name: "PostToolUse",
+      cwd: dirtyProject,
+      tool_name: "apply_patch",
+      tool_input: { command: "*** Begin Patch\n*** Update File: src/app/dirty.tsx\n*** End Patch" },
+    })
+    const run = cli(["hook", "codex", "post-tool-use"], dirtyProject, payload)
+    expect(run.status).toBe(0)
+    expect(JSON.parse(run.stdout).decision).toBe("block")
+  })
+
+  it("returns Cursor additional_context after a drifting write", () => {
+    const payload = JSON.stringify({
+      cwd: dirtyProject,
+      tool_name: "Write",
+      tool_input: { file_path: path.join(dirtyProject, "src", "app", "dirty.tsx") },
+    })
+    const run = cli(["hook", "cursor", "post-tool-use"], dirtyProject, payload)
+    expect(run.status).toBe(0)
+    expect(JSON.parse(run.stdout).additional_context).toContain("SNAPLINE FOUND UI DRIFT")
   })
 })

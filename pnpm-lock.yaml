@@ -124,7 +124,11 @@ importers:
         specifier: workspace:*
         version: link:../../core
 
-  packages/adapters/cursor: {}
+  packages/adapters/cursor:
+    dependencies:
+      '@usesnapline/contracts':
+        specifier: workspace:*
+        version: link:../../contracts
 
   packages/cli:
     dependencies:

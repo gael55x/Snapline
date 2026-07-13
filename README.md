@@ -118,7 +118,7 @@ Or install as a Claude Code plugin:
 Verify the setup:
 
 ```sh
-npx snapline doctor
+npx snapline doctor claude
 ```
 
 Full walkthrough: [Quickstart](docs/quickstart.md).
@@ -130,6 +130,7 @@ npx snapline scan              # scan the project (exit 1 on errors — CI-frien
 npx snapline scan --changed    # only git-changed files
 npx snapline score             # drift score + component reuse rate
 npx snapline fix --safe        # apply mechanical fixes only
+npx snapline uninstall claude  # remove only Snapline's Claude hooks
 ```
 
 ## Rules (v1)
@@ -158,18 +159,18 @@ Code CLI, `acceptEdits`). Full methodology: [Benchmark](docs/benchmark.md).
 
 ![Share of runs with any UI drift, by mode](benchmarks/agent-ui-drift-bench/graphs/drift-rate.svg)
 
-| mode | drifted runs | worst drift | median wall time |
-|---|---|---|---|
-| shadcn MCP only | 40% (12/30) | 32 | 208s |
-| driftguard | 40% (12/30) | 48 | 239s |
-| Buoy | 33% (10/30) | 10 | 192s |
-| raw Claude | 30% (9/30) | 20 | 217s |
-| eslint-plugin-tailwindcss | 17% (5/30) | 8 | 255s |
-| CLAUDE.md instructions | 7% (2/30) | 10 | 171s |
-| **Snapline** | **0% (0/30)** | **0** | 249s |
-| **shadcn MCP + Snapline** | **0% (0/30)** | **0** | 287s |
+| mode                      | drifted runs  | worst drift | median wall time |
+| ------------------------- | ------------- | ----------- | ---------------- |
+| shadcn MCP only           | 40% (12/30)   | 32          | 208s             |
+| driftguard                | 40% (12/30)   | 48          | 239s             |
+| Buoy                      | 33% (10/30)   | 10          | 192s             |
+| raw Claude                | 30% (9/30)    | 20          | 217s             |
+| eslint-plugin-tailwindcss | 17% (5/30)    | 8           | 255s             |
+| CLAUDE.md instructions    | 7% (2/30)     | 10          | 171s             |
+| **Snapline**              | **0% (0/30)** | **0**       | 249s             |
+| **shadcn MCP + Snapline** | **0% (0/30)** | **0**       | 287s             |
 
-Read it fairly: median drift is 0 for *every* mode — a frontier model stays
+Read it fairly: median drift is 0 for _every_ mode — a frontier model stays
 on-system most of the time. The difference is the tail: advisory setups leak
 in 7–40% of runs; the gate leaked in none of 60. Instructions genuinely help
 (30%→7%); on-demand checkers barely beat raw — a check the agent may skip is
@@ -186,27 +187,28 @@ re-score them with your own tool.
 **Cross-model slice — `claude-haiku-4-5-20251001`** (60 runs, raw vs gated,
 same prompts): weaker models drift far harder, and the gate matters far more.
 Raw Haiku drifted in **53% of runs (16/30)** with a worst drift score of
-**444** (22× Sonnet's worst) and a nonzero *median*. Gated Haiku: **0/30** —
+**444** (22× Sonnet's worst) and a nonzero _median_. Gated Haiku: **0/30** —
 and here the hooks visibly earned it: 13 PostToolUse blocks across 8 runs,
 each repaired to zero in-session. Report:
 [reports/latest-haiku.md](benchmarks/agent-ui-drift-bench/reports/latest-haiku.md).
-**Cross-agent slice — Codex CLI, `gpt-5.5`** (45 valid runs; 15 cells failed
+**Historical cross-agent slice — Codex CLI, `gpt-5.5`** (45 valid runs; 15 cells failed
 on account quota/timeouts, recorded with reasons and pending their retry —
 never dropped): raw Codex drifted in **63% of runs (17/27)** with a nonzero
-median (16). With Snapline in **instruction-level mode** — AGENTS.md +
-scan-before-finish, *no hook gate exists for Codex yet* — it went **0/18**.
-That isolates the repair-contract format itself: exact, machine-followable
+median (16). With Snapline in **instruction-level mode** — AGENTS.md plus
+scan-before-finish, before Codex lifecycle hooks existed — it went **0/18**.
+This is not evidence for the current hook adapter. It isolates the historical
+repair-contract format itself: exact, machine-followable
 violations converge an agent even without enforcement. Report:
 [reports/latest-codex.md](benchmarks/agent-ui-drift-bench/reports/latest-codex.md).
 
 ## Status
 
-| surface     | state                                                                             |
-| ----------- | --------------------------------------------------------------------------------- |
-| Claude Code | supported — hooks + plugin                                                        |
-| Codex       | beta — instruction-level; hook adapter ready for when Codex ships lifecycle hooks |
-| Cursor      | experimental — project rules only                                                 |
-| Scanner     | deterministic, TypeScript compiler API, no LLM, no network                        |
+| surface     | state                                                             |
+| ----------- | ----------------------------------------------------------------- |
+| Claude Code | supported — hooks + plugin                                        |
+| Codex       | preview hooks — contract-tested; interactive verification pending |
+| Cursor      | preview hooks — contract-tested; interactive verification pending |
+| Scanner     | deterministic, TypeScript compiler API, no LLM, no network        |
 
 ## Documentation
 

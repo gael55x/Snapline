@@ -1,7 +1,7 @@
 {
   "name": "@usesnapline/cursor",
   "version": "0.1.0",
-  "description": "Cursor adapter for Snapline (experimental) — project rules installation",
+  "description": "Cursor adapter for Snapline — project rules plus postToolUse and stop hooks",
   "license": "MIT",
   "type": "module",
   "engines": {
@@ -21,6 +21,9 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts --clean",
     "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@usesnapline/contracts": "workspace:*"
   },
   "repository": {
     "type": "git",

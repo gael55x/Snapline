@@ -95,6 +95,25 @@ export function installClaudeHooks(root: string): InstallResult {
   return { settingsPath, changed }
 }
 
+/** Remove only Snapline-owned entries from project Claude settings. */
+export function uninstallClaudeHooks(root: string): InstallResult {
+  const settingsPath = path.join(root, ".claude", "settings.json")
+  if (!fs.existsSync(settingsPath)) return { settingsPath, changed: false }
+  const settings = JSON.parse(fs.readFileSync(settingsPath, "utf8")) as SettingsShape
+  const hooks = settings.hooks ?? {}
+  let changed = false
+  for (const [event, entries] of Object.entries(hooks)) {
+    const retained = entries.filter((entry) => !hasSnaplineHook([entry]))
+    if (retained.length !== entries.length) {
+      changed = true
+      if (retained.length === 0) delete hooks[event]
+      else hooks[event] = retained
+    }
+  }
+  if (changed) fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 2) + "\n")
+  return { settingsPath, changed }
+}
+
 /** True when Snapline hooks are present in the project's Claude settings. */
 export function claudeHooksInstalled(root: string): boolean {
   const settingsPath = path.join(root, ".claude", "settings.json")

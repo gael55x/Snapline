@@ -7,6 +7,10 @@ import type { CliContext } from "../main.js"
 
 /** `snapline install <claude|codex|cursor>` */
 export function runInstall(ctx: CliContext): number {
+  if (ctx.args.length !== 1) {
+    process.stderr.write("Usage: snapline install <claude|codex|cursor>\n")
+    return 1
+  }
   const target = ctx.args[0]
   switch (target) {
     case "claude": {
@@ -22,19 +26,18 @@ export function runInstall(ctx: CliContext): number {
       const result = installCodex(ctx.cwd)
       process.stdout.write(
         (result.changed
-          ? `✔ Snapline section added to ${path.relative(ctx.cwd, result.agentsMdPath)}\n`
-          : "• AGENTS.md already references Snapline\n") +
-          "  Codex support is beta: Codex has no stable hook API yet, so enforcement is\n  instruction-level. See docs/codex.md for wiring events to snapline hook codex.\n",
+          ? `✔ Codex hooks installed: ${path.relative(ctx.cwd, result.hooksPath)}\n`
+          : "• Codex hooks already installed\n") +
+          "  Review and trust the project hooks with /hooks in Codex.\n",
       )
       return 0
     }
     case "cursor": {
       const result = installCursor(ctx.cwd)
       process.stdout.write(
-        (result.changed
-          ? `✔ Cursor rule written: ${path.relative(ctx.cwd, result.rulePath)}\n`
-          : "• Cursor rule already present\n") +
-          "  Cursor support is experimental (instruction-level). See docs/cursor.md.\n",
+        result.changed
+          ? `✔ Cursor hooks installed: ${path.relative(ctx.cwd, result.hooksPath)}\n  Rule: ${path.relative(ctx.cwd, result.rulePath)}\n`
+          : "• Cursor hooks and rule already installed\n",
       )
       return 0
     }

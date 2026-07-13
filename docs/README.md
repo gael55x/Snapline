@@ -13,7 +13,7 @@
 ```sh
 npm i -D @usesnapline/cli     # 1. install (always before npx snapline)
 npx snapline init --claude    # 2. detect project, write snapline.yml, wire Claude hooks
-npx snapline doctor           # 3. verify everything resolves
+npx snapline doctor claude    # 3. verify everything resolves
 ```
 
 Restart your Claude Code session (hooks load at session start) — done. Your
@@ -38,15 +38,16 @@ finish while errors remain. Full walkthrough with expected outputs:
 | [Hooks](hooks.md)                       | PostToolUse/Stop wiring, payloads, output contracts, loop guard |
 | [Rules](rules.md)                       | All 9 rules, examples, false-positive policy                    |
 | [Config](config.md)                     | Full `snapline.yml` reference                                   |
+| [CLI](cli.md)                           | Commands, output modes, and exit codes                          |
 | [Repair contracts](repair-contracts.md) | Contract structure and the agent-readable format                |
 
 ## Agents
 
-| Page                     | Status                                                     |
-| ------------------------ | ---------------------------------------------------------- |
-| [Claude Code](claude.md) | Supported — hooks + plugin                                 |
-| [Codex](codex.md)        | Beta — instruction-level until Codex ships lifecycle hooks |
-| [Cursor](cursor.md)      | Experimental — project rules only                          |
+| Page                     | Status                                           |
+| ------------------------ | ------------------------------------------------ |
+| [Claude Code](claude.md) | Supported — hooks + plugin                       |
+| [Codex](codex.md)        | Preview hooks — interactive verification pending |
+| [Cursor](cursor.md)      | Preview hooks — interactive verification pending |
 
 ## Project
 

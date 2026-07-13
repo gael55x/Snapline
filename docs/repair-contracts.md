@@ -7,6 +7,7 @@ file with violations, with exact, ordered actions.
 
 ```ts
 interface RepairContract {
+  schemaVersion: 1 // breaking contract changes require a new version
   title: string // "Repair UI drift in <file>"
   filePath: string // project-root-relative
   violations: Violation[] // full structured violations
@@ -86,6 +87,11 @@ The `agentMessage` travels inside the agent's native hook contract
 | PostToolUse, warns only | `hookSpecificOutput.additionalContext`                                                                                                |
 | Stop, errors            | `{"decision":"block","reason":<message + "Fix the required actions above, then finish. Run \"snapline scan --changed\" to verify.">}` |
 | Stop, warns only        | `hookSpecificOutput.additionalContext`                                                                                                |
-| Codex (beta)            | plain text on stdout, exit 2 on block                                                                                                 |
+| Codex                   | structured `decision: "block"` / `additionalContext` JSON on stdout                                                                   |
+| Cursor                  | `additional_context` after tool use; `followup_message` at Stop                                                                       |
 
 `snapline scan --json` exposes the same contracts programmatically.
+The top-level scan result also includes `schemaVersion: 1`. Additive fields may
+appear within version 1; fields are not removed or redefined until the schema
+version changes. Consumers should ignore unknown fields and reject versions
+they do not support.

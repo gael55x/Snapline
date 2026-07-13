@@ -8,7 +8,18 @@ import {
   parseStop,
   formatStopResponse,
 } from "@usesnapline/claude"
-import { parseCodexPostToolUse, parseCodexStop, codexExitCode } from "@usesnapline/codex"
+import {
+  parseCodexPostToolUse,
+  formatCodexPostToolUseResponse,
+  parseCodexStop,
+  formatCodexStopResponse,
+} from "@usesnapline/codex"
+import {
+  parseCursorPostToolUse,
+  formatCursorPostToolUseResponse,
+  parseCursorStop,
+  formatCursorStopResponse,
+} from "@usesnapline/cursor"
 import type { CliContext } from "../main.js"
 
 async function readStdin(): Promise<string> {
@@ -54,14 +65,18 @@ function timedRunHook(event: HookEvent): HookDecision {
 }
 
 /**
- * `snapline hook <claude|codex> <post-tool-use|stop>` — reads the agent's hook
+ * `snapline hook <claude|codex|cursor> <post-tool-use|stop>` — reads the agent's hook
  * payload from stdin and answers in that agent's output contract. Never exits
- * non-zero for Claude (decisions travel in JSON); Codex uses exit 2 to block.
+ * non-zero: decisions travel in each agent's structured JSON response.
  */
 export async function runHookCommand(ctx: CliContext): Promise<number> {
   const [agent, kind] = ctx.args
-  if ((agent !== "claude" && agent !== "codex") || (kind !== "post-tool-use" && kind !== "stop")) {
-    process.stderr.write("Usage: snapline hook <claude|codex> <post-tool-use|stop>\n")
+  if (
+    ctx.args.length !== 2 ||
+    (agent !== "claude" && agent !== "codex" && agent !== "cursor") ||
+    (kind !== "post-tool-use" && kind !== "stop")
+  ) {
+    process.stderr.write("Usage: snapline hook <claude|codex|cursor> <post-tool-use|stop>\n")
     return 1
   }
   const payload = parseJson(await readStdin())
@@ -80,11 +95,23 @@ export async function runHookCommand(ctx: CliContext): Promise<number> {
   }
 
   const event =
-    kind === "post-tool-use"
-      ? parseCodexPostToolUse(payload, ctx.cwd)
-      : parseCodexStop(payload, ctx.cwd)
+    agent === "codex"
+      ? kind === "post-tool-use"
+        ? parseCodexPostToolUse(payload, ctx.cwd)
+        : parseCodexStop(payload, ctx.cwd)
+      : kind === "post-tool-use"
+        ? parseCursorPostToolUse(payload, ctx.cwd)
+        : parseCursorStop(payload, ctx.cwd)
   if (event === undefined) return 0
   const decision = timedRunHook(event)
-  if (decision.agentMessage !== undefined) process.stdout.write(decision.agentMessage + "\n")
-  return codexExitCode(decision.action)
+  const response =
+    agent === "codex"
+      ? kind === "post-tool-use"
+        ? formatCodexPostToolUseResponse(decision.action, decision.agentMessage)
+        : formatCodexStopResponse(decision.action, decision.agentMessage)
+      : kind === "post-tool-use"
+        ? formatCursorPostToolUseResponse(decision.action, decision.agentMessage)
+        : formatCursorStopResponse(decision.action, decision.agentMessage)
+  if (response !== undefined) process.stdout.write(response + "\n")
+  return 0
 }

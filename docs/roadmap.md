@@ -13,19 +13,19 @@ project support.
 
 - **Complete the Codex slice retries** once the account quota resets (15
   quota-failed cells recorded in `reports/latest-codex.md`).
-- **Codex first-class.** The adapter and normalized `HookEvent` contract are
-  ready; blocked on Codex shipping a stable lifecycle-hook API. Until then
-  Codex stays instruction-level (AGENTS.md + documented payload wiring).
+- **Verify Codex hooks interactively.** The current `PostToolUse` and `Stop`
+  contracts are implemented and tested; run the packed package in a trusted
+  Codex project before promoting the adapter from preview.
 - **Dynamic-className detection.** Fully computed `className` expressions are
   the scanner's known blind spot; a warn-tier "dynamic className on a raw
   primitive" rule would shrink it without violating the false-positive policy.
-- **Cursor benchmark slice** (instruction-level, like Codex) so every shipped
+- **Cursor benchmark slice** using the current hook gate so every shipped
   integration has published numbers.
 
 ## Medium term
 
-- **Cursor hooks.** Same story as Codex: adapt when a stable hook API exists;
-  instruction-level rules until then.
+- **Verify Cursor hooks interactively.** Exercise desktop and cloud-agent hook
+  behavior with the packed package before promoting the adapter from preview.
 - **Tailwind v4 token discovery.** Read `@theme` blocks from CSS-first configs
   (read-css-vars already parses custom properties; wire it into the allowed
   token set).

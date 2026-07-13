@@ -9,6 +9,7 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..")
 const KNOWN_COMMANDS = new Set([
   "init",
   "install",
+  "uninstall",
   "scan",
   "score",
   "fix",
@@ -24,6 +25,7 @@ const docFiles = [
     .filter((f) => f.endsWith(".md"))
     .map((f) => path.join(root, "docs", f)),
   path.join(root, "packages", "plugin-claude", "README.md"),
+  path.join(root, "packages", "cli", "README.md"),
   path.join(root, "benchmarks", "agent-ui-drift-bench", "README.md"),
 ]
 
@@ -57,7 +59,7 @@ for (const file of docFiles) {
   }
 
   // 3. no public references to the dead codename
-  if (/\bplumb\b/i.test(text) && !rel.startsWith("assets/")) {
+  if (/\bplumb\b/i.test(text)) {
     errors.push(`${rel}: references the dead codename`)
   }
 }

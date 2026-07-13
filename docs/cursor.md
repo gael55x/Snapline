@@ -1,76 +1,64 @@
 # Cursor
 
-**Status: experimental.** Cursor has no stable lifecycle-hook API, so Snapline
-support is instruction-level only: a project rule, not a gate.
+**Status: preview.** Snapline installs current Cursor `postToolUse` and `stop`
+hooks plus a project rule. The adapter contracts are tested; a real Cursor
+desktop or cloud-agent session is still required before calling the integration
+production-verified.
 
 ## Install
 
 ```sh
-npx snapline install cursor
+npx @usesnapline/cli install cursor
+npx snapline doctor cursor
 ```
 
-This writes `.cursor/rules/snapline.mdc`:
+The installer merges two project hooks into `.cursor/hooks.json` and writes
+`.cursor/rules/snapline.mdc`. Existing hooks are preserved.
 
-```
----
-description: Snapline keeps AI-generated UI on-system
-alwaysApply: true
----
-
-This project uses Snapline (https://github.com/gael55x/Snapline).
-
-After editing any .tsx file, run `snapline scan --changed` and repair every
-error the SNAPLINE FOUND UI DRIFT contract lists before finishing:
-
-- Never use raw hex colors, inline style objects, or arbitrary Tailwind values.
-- Never use raw palette classes (bg-blue-500); use semantic tokens (bg-primary).
-- Use the project's shadcn components (Button, Input, Dialog, Card) instead of
-  raw primitives.
-```
-
-Idempotent — rewritten only if the content differs.
-
-## What this does and does not do
-
-`alwaysApply: true` puts the rule in every Cursor conversation for the project,
-so the agent is told to run the scanner and honor repair contracts. But nothing
-enforces it:
-
-- No hook fires after an edit.
-- Nothing blocks the agent from finishing with drift in place.
-- Instruction adherence decays over a long session — the exact problem
-  described in [why.md](why.md).
-
-There is deliberately no `snapline hook cursor` command: with no event source
-to wire it to, it would imply a gate that does not exist.
-
-## The backstop: scan in CI
-
-Since the editor side cannot enforce, put the deterministic gate where one
-exists — CI. `snapline scan` exits 1 when any error-severity violations are
-found:
-
-```yaml
-# .github/workflows/snapline.yml
-- run: npm ci
-- run: npx snapline scan
+```json
+{
+  "version": 1,
+  "hooks": {
+    "postToolUse": [
+      {
+        "command": "snapline hook cursor post-tool-use",
+        "matcher": "Write|Edit"
+      }
+    ],
+    "stop": [
+      {
+        "command": "snapline hook cursor stop",
+        "loop_limit": 1
+      }
+    ]
+  }
+}
 ```
 
-For faster PR feedback, scan only the changed set (requires git history in the
-checkout):
+For a local package install, the command uses
+`npx --no-install snapline ...`.
 
-```sh
-npx snapline scan --changed
-```
+## Lifecycle
 
-The failure output is the same repair contract the hooks produce
-([repair-contracts.md](repair-contracts.md)), so pasting it back into Cursor
-gives the agent exact instructions. `snapline fix --safe` can knock out the
-mechanical portion first.
+After a matched write, Snapline scans `tool_input.file_path`. Drift is returned
+as `additional_context`, which Cursor injects after the tool result. Cursor's
+`postToolUse` contract does not block a completed edit.
 
-## Path to first-class support
+At `stop`, Snapline scans git-changed and untracked UI files. Errors produce a
+`followup_message`, causing Cursor to continue with the repair contract. The
+installed `loop_limit: 1` and the payload's `loop_count` prevent infinite
+repair loops.
 
-Core is agent-agnostic; adapters only normalize payloads
-([architecture.md](architecture.md)). If Cursor ships lifecycle hooks, Cursor
-gets the same PostToolUse/Stop treatment as [Claude Code](claude.md) — until
-then, rule file plus CI scan is the honest setup.
+## Known limits
+
+- The project rule is guidance; the Stop hook is the enforcement backstop.
+- Hook execution in Cursor cloud agents begins only after the environment is
+  writable.
+- No Cursor benchmark slice has been run. Do not infer detection or latency
+  results from source files or adapter tests.
+
+Disable the integration with `npx snapline uninstall cursor`. Snapline removes
+only its hook entries and deletes the rule file only when its contents are
+unchanged, so user edits are not discarded.
+
+See the current Cursor [hooks reference](https://cursor.com/docs/hooks).

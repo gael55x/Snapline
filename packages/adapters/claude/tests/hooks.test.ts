@@ -1,6 +1,7 @@
 import fs from "node:fs"
 import os from "node:os"
 import path from "node:path"
+import { execFileSync } from "node:child_process"
 import { afterEach, beforeEach, describe, expect, it } from "vitest"
 import { runHook } from "@usesnapline/core"
 import {
@@ -9,6 +10,7 @@ import {
   parseStop,
   formatStopResponse,
   installClaudeHooks,
+  uninstallClaudeHooks,
   claudeHooksInstalled,
 } from "../src/index.js"
 
@@ -140,6 +142,37 @@ describe("Claude Stop", () => {
     expect(parsed.decision).toBe("block")
     expect(parsed.reason).toContain("snapline scan --changed")
   })
+
+  it("blocks on a real git-changed file and downgrades the retry to context", () => {
+    const file = path.join(tmp, "src", "app", "page.tsx")
+    fs.writeFileSync(file, "export default () => <main />\n")
+    execFileSync("git", ["init"], { cwd: tmp, stdio: "ignore" })
+    execFileSync("git", ["add", "."], { cwd: tmp, stdio: "ignore" })
+    execFileSync(
+      "git",
+      [
+        "-c",
+        "user.name=Snapline Test",
+        "-c",
+        "user.email=test@snapline.dev",
+        "commit",
+        "-m",
+        "fixture",
+      ],
+      { cwd: tmp, stdio: "ignore" },
+    )
+    fs.writeFileSync(file, 'export default () => <main style={{ color: "#fff" }} />\n')
+
+    const first = runHook(parseStop({ ...STOP_PAYLOAD, cwd: tmp }, tmp)!)
+    expect(first.action).toBe("block")
+    expect(first.agentMessage).toContain("SNAPLINE FOUND UI DRIFT")
+
+    const retry = runHook(parseStop({ ...STOP_PAYLOAD, cwd: tmp, stop_hook_active: true }, tmp)!)
+    expect(retry.action).toBe("warn")
+    expect(JSON.parse(formatStopResponse(retry.action, retry.agentMessage)!)).toMatchObject({
+      hookSpecificOutput: { hookEventName: "Stop" },
+    })
+  })
 })
 
 describe("installClaudeHooks", () => {
@@ -173,6 +206,16 @@ describe("installClaudeHooks", () => {
       (JSON.parse(fs.readFileSync(settingsPath, "utf8")) as { hooks: { PostToolUse: unknown[] } })
         .hooks.PostToolUse,
     ).toHaveLength(2)
+
+    expect(uninstallClaudeHooks(tmp).changed).toBe(true)
+    const uninstalled = JSON.parse(fs.readFileSync(settingsPath, "utf8")) as {
+      permissions: unknown
+      hooks: { PostToolUse: unknown[]; Stop?: unknown[] }
+    }
+    expect(uninstalled.permissions).toEqual({ allow: ["Bash(ls:*)"] })
+    expect(uninstalled.hooks.PostToolUse).toHaveLength(1)
+    expect(uninstalled.hooks.Stop).toBeUndefined()
+    expect(claudeHooksInstalled(tmp)).toBe(false)
   })
 
   it("uses npx --no-install for project-local installs (hook shells lack node_modules/.bin on PATH)", () => {

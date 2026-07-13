@@ -1,8 +1,9 @@
 # Configuration
 
 Snapline reads `snapline.yml` from the project root. No file means defaults —
-everything below works with zero config. Unknown top-level keys and unknown
-rule names are rejected with a clear error (`snapline doctor` surfaces this).
+everything below works with zero config. Unknown keys, unsupported enum values,
+and incorrectly typed nested fields are rejected with a clear error
+(`snapline doctor` surfaces this).
 
 ## The default file
 
@@ -90,6 +91,7 @@ file on disk (**fileExists gate**, checked against tsconfig path aliases with
 `.tsx`/`.ts`/`index.*` resolution). Delete a component or point the import at
 nothing and its rule goes quiet — Snapline never demands a component the
 project does not have. Omitting the whole section keeps the four defaults.
+Set `components: {}` to disable the default component registry explicitly.
 
 **`tokens.colors.semanticOnly`** — when `true` (default), raw palette classes
 (`bg-blue-500`, `bg-white`) violate `noRawPaletteColor`; when `false`, that
