@@ -39,10 +39,7 @@ function syntheticProject(parent, name, fileCount) {
   const project = path.join(parent, name)
   fs.mkdirSync(path.join(project, "src"), { recursive: true })
   fs.writeFileSync(path.join(project, "tailwind.config.js"), "export default {}\n")
-  fs.writeFileSync(
-    path.join(project, "snapline.yml"),
-    "version: 1\nstack: { framework: other, ui: custom, styling: tailwind }\ncomponents: {}\n",
-  )
+  fs.writeFileSync(path.join(project, "snapline.yml"), "version: 1\ncomponents: {}\n")
   for (let index = 0; index < fileCount; index++) {
     fs.writeFileSync(
       path.join(project, "src", `file-${index}.tsx`),
