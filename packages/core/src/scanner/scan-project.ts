@@ -10,6 +10,7 @@ import { computeScore } from "../scorer/drift-score.js"
 import { countComponentReuse } from "../scorer/component-reuse-rate.js"
 import { buildRepairContracts } from "../report/agent-report.js"
 import type { JsxElementInfo } from "../scanner/extract-jsx-elements.js"
+import { projectFilePath } from "../project/project-file.js"
 
 const IGNORED_DIRS = new Set([
   "node_modules",
@@ -79,9 +80,9 @@ export function scanFiles(root: string, files: readonly string[], deps: ScanFile
   const violations: Violation[] = []
   const allElements: JsxElementInfo[] = []
   const scannedFiles: string[] = []
-  for (const file of files) {
+  for (const file of [...new Set(files)].sort()) {
     if (!isScannableFile(file)) continue
-    const absolute = path.join(root, file)
+    const absolute = projectFilePath(root, file)
     if (!fs.existsSync(absolute)) continue
     const sourceText = fs.readFileSync(absolute, "utf8")
     const outcome = scanFile(file, sourceText, deps)
