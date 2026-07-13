@@ -145,6 +145,7 @@ Scores are independent; they are not averaged.
 | F-14 | P2       | Parser coverage       | Fully computed class names, responsive/dark consistency, and component variants can pass unanalysed               | Static extraction deliberately avoids executing code                             | Document now; add narrow rules only with labelled evidence            |
 | F-15 | P2       | CLI                   | Quiet and verbose modes are absent                                                                                | Current output contract focused on human and JSON modes                          | Add after 1.0 if CI/agent users demonstrate need                      |
 | F-16 | P3       | Extensibility         | No public custom-rule plugin API exists                                                                           | No demonstrated external consumers justify it                                    | Keep out of 1.0                                                       |
+| F-17 | P1       | CI/release            | PR CI warned that checkout, setup-node, and pnpm setup used the deprecated Node 20 action runtime                 | Workflow action majors were stale                                                | Fixed with current Node 24-runtime action majors                      |
 
 ## Product value and wedge
 

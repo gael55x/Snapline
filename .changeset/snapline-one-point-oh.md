@@ -31,3 +31,5 @@ Snapline 1.0 release-candidate hardening. Do not publish until every item in
 - Hook transport and launcher failures are agent-visible, new repositories scan
   untracked files before their first commit, and every public package ships
   package-specific usage documentation.
+- CI and release workflows use current Node 24-runtime action majors instead of
+  deprecated action runtimes.
