@@ -8,7 +8,7 @@ export function parseCodexStop(payload: unknown, fallbackCwd: string): HookEvent
   return {
     agent: "codex",
     kind: "stop",
-    cwd: typeof p.cwd === "string" ? p.cwd : fallbackCwd,
+    cwd: fallbackCwd,
     filePaths: Array.isArray(p.files)
       ? p.files.filter((file): file is string => typeof file === "string")
       : [],

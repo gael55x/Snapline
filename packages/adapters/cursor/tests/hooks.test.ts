@@ -41,7 +41,7 @@ describe("Cursor hooks", () => {
   it("normalizes PostToolUse and injects the repair contract as context", () => {
     const event = parseCursorPostToolUse(
       { cwd: "/repo", tool_name: "Write", tool_input: { file_path: "/repo/src/app/page.tsx" } },
-      "/fallback",
+      "/repo",
     )
     expect(event?.filePaths).toEqual(["src/app/page.tsx"])
     expect(JSON.parse(formatCursorPostToolUseResponse("block", "repair") ?? "")).toEqual({
@@ -50,7 +50,10 @@ describe("Cursor hooks", () => {
   })
 
   it("uses loop_count as the Stop retry guard", () => {
-    expect(parseCursorStop({ loop_count: 1 }, "/repo")?.stopAlreadyRetried).toBe(true)
+    expect(parseCursorStop({ cwd: "/outside", loop_count: 1 }, "/repo")).toMatchObject({
+      cwd: "/repo",
+      stopAlreadyRetried: true,
+    })
     expect(
       JSON.parse(formatCursorStopResponse("block", "repair") ?? "").followup_message,
     ).toContain("repair")

@@ -38,9 +38,12 @@ launcher scripts via `${CLAUDE_PLUGIN_ROOT}` — see [claude.md](claude.md).
 Snapline reads a small subset of the official hook payloads from stdin:
 
 - **PostToolUse**: `tool_name` (must be `Write`, `Edit`, `MultiEdit`, or
-  `NotebookEdit`), `tool_input.file_path`, `cwd`. Anything else — other tools,
+  `NotebookEdit`) and `tool_input.file_path`. Anything else — other tools,
   missing file path, non-JSON — is silently allowed.
-- **Stop**: `cwd`, `stop_hook_active`.
+- **Stop**: the agent-specific retry field (`stop_hook_active` or `loop_count`).
+
+The process working directory is the trusted project root. A payload's `cwd`
+is informational and cannot redefine the scan boundary.
 
 Adapters normalize these into a neutral `HookEvent`; core never sees the
 agent-specific field names ([architecture.md](architecture.md)).

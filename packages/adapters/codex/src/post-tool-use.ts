@@ -1,3 +1,4 @@
+import fs from "node:fs"
 import path from "node:path"
 import type { HookEvent } from "@usesnapline/contracts"
 
@@ -12,9 +13,23 @@ export interface CodexEventPayload {
   readonly stop_hook_active?: boolean
 }
 
+function canonicalPath(candidate: string): string {
+  const missing: string[] = []
+  let existing = candidate
+  while (!fs.existsSync(existing)) {
+    const parent = path.dirname(existing)
+    if (parent === existing) return candidate
+    missing.unshift(path.basename(existing))
+    existing = parent
+  }
+  return path.join(fs.realpathSync.native(existing), ...missing)
+}
+
 function normalizeFile(cwd: string, file: string): string {
   const absolute = path.isAbsolute(file) ? file : path.resolve(cwd, file)
-  return path.relative(cwd, absolute).split(path.sep).join("/")
+  const rootForRelative = canonicalPath(cwd)
+  const fileForRelative = canonicalPath(absolute)
+  return path.relative(rootForRelative, fileForRelative).split(path.sep).join("/")
 }
 
 function patchFiles(command: string): string[] {
@@ -36,7 +51,7 @@ export function parseCodexPostToolUse(
   if (typeof payload !== "object" || payload === null) return undefined
   const p = payload as CodexEventPayload
   if (p.hook_event_name !== undefined && p.hook_event_name !== "PostToolUse") return undefined
-  const cwd = typeof p.cwd === "string" ? p.cwd : fallbackCwd
+  const cwd = path.resolve(fallbackCwd)
   const files = Array.isArray(p.files)
     ? p.files.filter((file): file is string => typeof file === "string")
     : []

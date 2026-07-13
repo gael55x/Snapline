@@ -19,7 +19,7 @@ export function parseStop(payload: unknown, fallbackCwd: string): HookEvent | un
   return {
     agent: "claude",
     kind: "stop",
-    cwd: typeof p.cwd === "string" ? p.cwd : fallbackCwd,
+    cwd: fallbackCwd,
     filePaths: [],
     stopAlreadyRetried: p.stop_hook_active === true,
   }

@@ -179,6 +179,28 @@ describe("snapline hook claude", () => {
     )
     fs.rmSync(project, { recursive: true, force: true })
   })
+
+  it("rejects a payload that tries to move the project boundary", () => {
+    const outside = fs.mkdtempSync(path.join(os.tmpdir(), "snapline-hook-outside-"))
+    const outsideFile = path.join(outside, "secret.tsx")
+    fs.writeFileSync(
+      outsideFile,
+      'export const Secret = () => <main style={{ color: "#fff" }} />\n',
+    )
+    const payload = JSON.stringify({
+      hook_event_name: "PostToolUse",
+      cwd: outside,
+      tool_name: "Write",
+      tool_input: { file_path: outsideFile },
+    })
+    const run = cli(["hook", "claude", "post-tool-use"], basicFixture, payload)
+    expect(run.status).toBe(0)
+    const response = JSON.parse(run.stdout) as {
+      hookSpecificOutput: { additionalContext: string }
+    }
+    expect(response.hookSpecificOutput.additionalContext).toContain("escapes the project root")
+    fs.rmSync(outside, { recursive: true, force: true })
+  })
 })
 
 describe("snapline init + doctor", () => {

@@ -11,7 +11,7 @@ export function parseCursorStop(payload: unknown, fallbackCwd: string): HookEven
   return {
     agent: "cursor",
     kind: "stop",
-    cwd: typeof p.cwd === "string" ? p.cwd : fallbackCwd,
+    cwd: fallbackCwd,
     filePaths: [],
     stopAlreadyRetried: typeof p.loop_count === "number" && p.loop_count > 0,
   }

@@ -61,6 +61,7 @@ describe("Codex hooks", () => {
       "/fallback",
     )
     expect(event?.filePaths).toEqual(["src/app/page.tsx", "src/app/card.tsx"])
+    expect(event?.cwd).toBe("/fallback")
   })
 
   it("formats model-visible PostToolUse and loop-guarded Stop responses", () => {
@@ -69,9 +70,10 @@ describe("Codex hooks", () => {
       reason: "repair",
     })
     expect(
-      parseCodexStop({ hook_event_name: "Stop", stop_hook_active: true }, "/repo"),
+      parseCodexStop({ hook_event_name: "Stop", cwd: "/outside", stop_hook_active: true }, "/repo"),
     ).toMatchObject({
       kind: "stop",
+      cwd: "/repo",
       stopAlreadyRetried: true,
     })
     expect(JSON.parse(formatCodexStopResponse("block", "repair") ?? "").decision).toBe("block")
